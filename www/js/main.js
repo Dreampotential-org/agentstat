@@ -8,14 +8,18 @@ function init() {
     $("#formatted_address").val(place.formatted_address)
     for(var address_comp of place.address_components) {
          console.log(address_comp.types)
+      if (address_comp.types[0] == "administrative_area_level_1") {
+            console.log("City: " + address_comp.short_name)
+      }
       if (address_comp.types[0] == 'locality') {
-        if (!(cities.includes(address_comp.long_name))) {
+            console.log("City: " + address_comp.long_name)
+        /*if (!(cities.includes(address_comp.long_name))) {
           swal("No data for city found for " + address_comp.long_name,
                "At this time we are only live in washington State",
                "error")
           $("#search_input").val("");
           return
-        }
+        } */
         $("#city").val(address_comp.long_name);
         break
       }
@@ -25,6 +29,7 @@ function init() {
   function fillIn() {
     var place = this.getPlace();
     var addr = place.formatted_address
+
     getZipcode(place)
   }
 
