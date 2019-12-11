@@ -10,13 +10,13 @@ function fillIn() {
 function redirectResults(results) {
     if ('city' in results) {
         window.location = (
-            'https://agentstat.com/reports_v2/' + results['state'] +
+            'https://app.agentstat.com/reports_v2/' + results['state'] +
             '/?city=' + results['city']
         )
     } else {
         // XXX hard coded in WA for agents state
         window.location = (
-            'https://agentstat.com/reports_v2/WA' +
+            'https://app.agentstat.com/reports_v2/WA' +
             '/?agent_name_or_id=' + results['agent_name']
         )
     }
