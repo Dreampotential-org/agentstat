@@ -3,6 +3,7 @@ function fillIn() {
     var addr = place.formatted_address
 
     var results = getSearchParams(place)
+
     console.log(results)
     redirectResults(results)
 }
@@ -60,7 +61,7 @@ function init() {
   })
 
 
-  $("body").delegate("#search_input_agent", "keyup", function(e) {
+  $("body").delegate(".ser", "keyup", function(e) {
     if (e.keyCode == 13) {
       e.preventDefault()
       $("#agent_name_or_id").val($("#search_input_agent").val())
@@ -68,7 +69,8 @@ function init() {
     }
   })
 
-  $("body").delegate("#search_input", "keyup", function(e) {
+  $("body").delegate(".ser", "keyup", function(e) {
+    $(".pac-container").css('z-index', 99999)
 
     if (e.which == 13 && $('.pac-container:visible').length) return false;
 
