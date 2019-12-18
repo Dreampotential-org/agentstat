@@ -90,7 +90,7 @@ ul {
     padding: 0px 5px 0px 15px;
     text-transform: capitalize;
     font-weight: normal;
-    font-size: 21px;
+    font-size: 18px;
     color: #3C3C3C;
     transition: 0.3s all ease;
     -webkit-transition: 0.3s all ease;
@@ -194,12 +194,12 @@ ul {
 
 /*-- po-world area start --*/
 .po-world {
-    background-color: #134E60;
+    background-color: #fff;
     padding:120px 0;
 }
 
 .po-world-wrapper h2 {
-    color: #fff;
+    color: #134E60;
     font-weight: bold;
     font-size: 36px;
     display: inline-block;
@@ -218,11 +218,12 @@ ul {
     bottom: 5px;
     z-index: -5;
     left: 0;
+    display: none;
 }
 
 .po-world-wrapper p {
     font-size: 21px;
-    color: #fff;
+    color: #134E60;
     margin-top: 20px;
 }
 
@@ -292,10 +293,9 @@ ul {
 
 .po-serach-wrapper {
     background-color: #fff;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,.5);
     padding: 8px 10px;
     border-radius: 8px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
     margin-top: -40px;
 }
 
@@ -492,6 +492,7 @@ ul {
     bottom: 5px;
     z-index: -5;
     left: 0;
+    display: none;
 }
 
 .op-what-right p {
@@ -524,7 +525,7 @@ ul {
 /*-- po-we area start --*/
 .po-we-heading h4 {
     font-weight: bold;
-    font-size: 32px;
+    font-size: 24px;
     color: #134E60;
     margin-bottom: 70px;
 }
@@ -535,12 +536,13 @@ ul {
     color: #3C3C3C;
     margin-bottom: 0;
     position: relative;
-    margin-right: 45px;
+    display: block;
+    margin-top: 20px;
 }
 
 .po-we-one span:after {
     content: "";
-    display: block;
+    display: none;
     width: 100%;
     height: 10px;
     background: rgba(242, 199, 68, 0.7);
@@ -568,13 +570,13 @@ ul {
     font-size: 24px;
     color: #3C3C3C;
     margin-bottom: 0;
-    position: relative;
-    margin-right: 45px;
+    margin-top: 20px;
+    display: block;
 }
 
 .po-we-two span:after {
     content: "";
-    display: block;
+    display: none;
     width: 100%;
     height: 10px;
     background: rgba(242, 199, 68, 0.7);
@@ -650,7 +652,7 @@ ul {
 
 .po-since-one span:after {
     content: "";
-    display: block;
+    display: none;
     width: 100%;
     height: 15px;
     background: rgba(242, 199, 68, 0.7);
@@ -1931,4 +1933,100 @@ ul {
 
 .index-check-type {
     top: 57px;
+}
+
+
+
+
+.fixed {
+  position:fixed;
+  top:0;
+  z-index:99999;
+  margin-top: 0;
+  z-index: 55555;
+  margin-left: 165px;
+  box-shadow: none;
+}
+
+.fixed input.ser {
+    display: inline-block;
+    width: 288px;
+}
+
+.fixed .ser-butt button {
+    font-size: 24px;
+    position: relative;
+    top: 6px;
+    padding: 5px 28px;
+}
+
+.black {
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,.8)
+}
+
+.babux {
+    position: fixed;
+    z-index: 500;
+    background: #fff;
+    width: 100%;
+}
+
+.fixed-tab {
+    margin-top: 18px;
+}
+
+.po-maps-wrapper-two {
+    margin-top: 30px;
+}
+
+.po-maps-wrapper-two input.ser {
+    width: 295px;
+}
+
+.po-maps-left p {
+    margin-bottom: 0;
+}
+
+.bau1-cotent{
+    position: absolute;
+    width: 235px;
+    background: 
+#FFFFFF;
+border: 1px solid
+#E5E5E5;
+box-shadow: 0px 4px 4px
+    rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 20px;
+    top: 57px;
+    z-index: 1200;
+    display: none;
+}
+
+.bau-am {
+    position: absolute;
+    width: 290px;
+    background:
+    #FFFFFF;
+    border: 1px solid
+    #E5E5E5;
+    box-shadow: 0px 4px 4px
+    rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 20px;
+    top: 63px;
+    right: -79px;
+    z-index: 2500;
+    display: none;
+}
+
+.bau-am input {
+    display: inline-block;
+    width: 44%;
+    border: 1px solid 
+    #C4C4C4;
+    border-radius: 8px;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 5px 10px;
 }

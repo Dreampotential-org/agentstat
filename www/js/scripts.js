@@ -21,8 +21,16 @@
 			$(".check-type").slideToggle();
 		});
 
+		$("#bau1").click (function (){
+			$(".bau1-cotent").slideToggle();
+		});
+
 		$(".y-price").click (function (){
 			$(".price-amount").slideToggle();
+		})
+
+		$(".am-price").click (function (){
+			$(".bau-am").slideToggle();
 		})
 
 
@@ -70,6 +78,9 @@
            		}
            	}
            });
+
+
+		   
 
 
 		   

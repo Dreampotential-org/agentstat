@@ -46,7 +46,7 @@ function getSearchParams(place) {
 }
 
 function init() {
-    var input = document.getElementById('search_input');
+    var input = document.getElementsByClassName('ser')[0];
     var options = {
         types: ['address'],
     }
