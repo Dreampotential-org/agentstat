@@ -1940,12 +1940,13 @@ ul {
 
 .fixed {
   position:fixed;
-  top:0;
+  top:8px;
   z-index:99999;
   margin-top: 0;
   z-index: 55555;
   margin-left: 165px;
   box-shadow: none;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .fixed input.ser {
@@ -1956,7 +1957,7 @@ ul {
 .fixed .ser-butt button {
     font-size: 24px;
     position: relative;
-    top: 6px;
+    top: 0px;
     padding: 5px 28px;
 }
 
@@ -2029,4 +2030,8 @@ box-shadow: 0px 4px 4px
     font-weight: 300;
     font-size: 18px;
     padding: 5px 10px;
+}
+
+.fixed .type p {
+    padding: 8px 0;
 }
