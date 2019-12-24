@@ -79,6 +79,8 @@ ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    position: relative;
+    left: 0px;
 }
 
 .main-menu-part ul li {
@@ -1940,13 +1942,12 @@ ul {
 
 .fixed {
   position:fixed;
-  top:8px;
+  top:0;
   z-index:99999;
   margin-top: 0;
   z-index: 55555;
   margin-left: 165px;
   box-shadow: none;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .fixed input.ser {
@@ -1957,7 +1958,7 @@ ul {
 .fixed .ser-butt button {
     font-size: 24px;
     position: relative;
-    top: 0px;
+    top: 6px;
     padding: 5px 28px;
 }
 
@@ -2032,6 +2033,459 @@ box-shadow: 0px 4px 4px
     padding: 5px 10px;
 }
 
-.fixed .type p {
-    padding: 8px 0;
+
+
+
+
+
+
+/*==========================
+    form page start
+==========================*/
+
+.user-icon {
+    margin-left: 230px !important;
 }
+
+.profile a span i {
+    font-size: 28px;
+}
+
+.drop p {
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.drop span {
+    font-size: 12px;
+    line-height: 1;
+    position: relative;
+    top: -6px;
+}
+
+.drop {
+    left: initial;
+    right: -50%;
+    top: 49px;
+    bottom: initial;
+}
+
+
+/*-- profile area start --*/
+
+.profile-heading h2 {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 28px;
+    margin-bottom: 36px;
+    margin-top: 35px;
+}
+
+/*-- profile area end --*/
+
+/*-- form-area start --*/
+.fn-left p {
+    margin-top: 5px;
+    display: block;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.fn-right input {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #D9D8DB;
+}
+
+.fn-right input:focus {
+    border-color: #07abb3;
+}
+
+.form-wrapper p#lebel {
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.form-wrapper p span#start {
+    color: red;
+    padding-left: 12px;
+}
+
+.sn-right input {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #D9D8DB;
+}
+
+.sn-right input:focus {
+    border-color: #07abb3;
+}
+
+.sn-right p {
+    font-size: 14px;
+    color: #9d9b9b;
+    margin-top: 5px;
+}
+
+.screen-name {
+    margin-top: 20px;
+}
+
+.file-right span {
+    font-size: 18px;
+    display: inline-block;
+    border-radius: 6px;
+    position: relative;
+}
+
+.file-right span:before {
+    content: "";
+    display: inline-block;
+    width: 120px;
+    height: 100%;
+    background-color: #AEB4B6;
+    position: absolute;
+    border-radius: 6px;
+    z-index: -20;
+}
+
+.file-right label {
+    padding: 6px 12px;
+    margin-bottom: 0;
+}
+
+.fileinput-name {
+    background-color: #fff!important;
+}
+
+.up-photo img {
+    display: block;
+    width: 150px;
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+.file {
+    margin-top: 10px;
+}
+
+.licence {
+    margin-top: 15px;
+}
+
+.li-right input {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #D9D8DB;
+}
+
+.li-right input:focus {
+     border-color: #07abb3;
+}
+
+.em-right input {
+    width: 400px;
+}
+
+.br-right input {
+    width: 300px;
+}
+
+.sl-right select {
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #D9D8DB;
+}
+
+.la-left p small {
+    color: #9d9b9b;
+}
+
+.la-link span {
+    display: inline-block;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.less-link span {
+    display: inline-block;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.more-content {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.more-content {
+    display: none;
+}
+
+.language {
+    margin-top: 20px;
+}
+
+/*-- form-area end --*/
+
+/*-- agent-area start --*/
+.agent-wrapper p:first-child {
+    text-transform:capitalize;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.agent-wrapper p {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.agent-wrapper span i {
+    font-size: 22px;
+    color:
+    #5d5555;
+    border-right: 5px;
+    margin-right: 15px;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.agent-wrapper p:first-child span#start {
+    color: red;
+    margin-left: 12px;
+}
+
+.agent-wrapper input {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #D9D8DB;
+}
+
+.agent-wrapper input:focus {
+     border-color: #07abb3;
+}
+
+/*-- agent-area end --*/
+
+
+/*-- addi area start --*/
+.addi {
+    margin-top: 20px;
+}
+
+.addi-one p {
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.addi-one p span#start {
+    color:red;
+    margin-left: 12px;
+}
+
+.addi-one h6 {
+    margin-left: 30px;
+}
+
+.add-check {
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.add-check select {
+    margin-left: 35px;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid#D9D8DB;
+    width: 230px;
+}
+
+/*-- addi area start --*/
+
+/*-- review area start --*/
+.review-wrapper span {
+    font-weight: 600;
+}
+
+.review-wrapper span#start {
+    color:red;
+    margin-left: 12px;
+}
+
+.review-wrapper button {
+    margin-left: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 3px 15px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    outline: none;
+    background-color: #CFE2F3;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+}
+
+.review-wrapper button:hover {
+    opacity: .7;
+}
+
+.modal-size {
+    max-width: 300px;
+}
+
+.review-body p {
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.review-body input {
+    display: block;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid
+    #D9D8DB;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.review-body input::placeholder {
+    color: #000;
+}
+
+.review-body textarea {
+    display: block;
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    border: 1px solid
+    #D9D8DB;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.review-body button {
+    margin-left: 0;
+}
+
+/*-- review area end --*/
+
+
+/*-- slider area start --*/
+.item-slide p {
+    margin-bottom: 8px;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.item-slide span {
+    display: block;
+}
+
+.item-slide {
+    padding: 10px;
+    border: 1px solid #000;
+    margin: 0px 10px;
+}
+
+.owl-nav {
+    display: flex;
+    position: relative;
+}
+
+.owl-nextx i {
+    display: inline-block;
+    position: absolute;
+    top: -115px; 
+    font-size: 30px;
+    right: -26px;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+.owl-prevx i {
+    display: inline-block;
+    position: absolute;
+    top: -115px; 
+    font-size: 30px;
+    left: -26px;
+    cursor: pointer;
+}
+
+.slider {
+    margin-top: 40px;
+}
+
+/*-- slider area end --*/
+
+
+/*-- about area start --*/
+
+.about-wrapper p {
+    margin-bottom: 8px;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.about-wrapper span#start {
+    color:red;
+    margin-left: 12px;
+}
+
+.about-wrapper textarea {
+    display: block;
+    width: 100%;
+    height: 180px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.about-submit ul {
+    text-align: center;
+}
+
+.about-submit ul li {
+    display: inline-block;
+}
+
+.about {
+    margin-bottom: 50px;
+}
+
+
+
+
+/*-- about area end --*/
+
+
+/*==========================
+    form page end
+==========================*/

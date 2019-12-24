@@ -207,6 +207,10 @@ Medium Screen - Others
     margin-top: -3px;
 }
 
+.user-icon {
+    margin-left: 120px !important;
+}
+
 
 
 
@@ -658,6 +662,23 @@ Small Screen - Tablate
 .bau-am input {
 	width: 47%;
 	display: inline-block;
+}
+
+.form-logo img {
+	width: 140px;
+}
+
+.form-menu ul {
+	position: relative;
+	top: 5px;
+}
+
+.form-menu ul li a {
+	font-size: 16px;
+}
+
+ul.user-icon {
+	margin-left: 10px!important;
 }
 
 
@@ -1673,6 +1694,74 @@ p.am-price {
 .bau1-cotent {
 	top: 42px;
 }
+
+/*===== from-page start=====*/
+
+.form-ulli-left {
+	float: none!important;
+	display: block;
+}
+
+.form-ulli-right {
+	float: none!important;
+	display: block;
+	margin-left: 125px !important;
+	top: -20px;
+}
+
+.drop {
+    right: 16%;
+    top: 38px;
+    width: 300px;
+    padding: 6px 15px;
+}
+
+.profile-heading h2 {
+    margin-bottom: 16px;
+}
+
+.fn-right input {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.fn-right input:last-child {
+	margin-left: 0!important;
+}
+
+.screen-name {
+    margin-top: 8px;
+}
+
+.sn-right input {
+	display: block;
+	width: 100%;
+}
+
+.li-right input {
+	display: block;
+	width: 100%;
+}
+
+.licence select {
+	display: block;
+	width: 100%;
+	margin: 10px 0;
+	padding-left: 10px;
+}
+
+.modal-size {
+	display: block;
+	margin: auto;
+}
+
+.owl-nav {
+	display: none;
+}
+
+
+/*===== from-page end=====*/
 
 
 
@@ -2703,6 +2792,75 @@ p.am-price {
 .bau1-cotent {
 	top: 42px;
 }
+
+
+/*===== from-page start=====*/
+
+.form-ulli-left {
+	float: none!important;
+	display: block;
+}
+
+.form-ulli-right {
+	float: none!important;
+	display: block;
+	margin-left: 39px !important;
+	top: -13px;
+}
+
+.drop {
+    right: 16%;
+    top: 38px;
+    width: 300px;
+    padding: 6px 15px;
+}
+
+.profile-heading h2 {
+    margin-bottom: 16px;
+}
+
+.fn-right input {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.fn-right input:last-child {
+	margin-left: 0!important;
+}
+
+.screen-name {
+    margin-top: 8px;
+}
+
+.sn-right input {
+	display: block;
+	width: 100%;
+}
+
+.li-right input {
+	display: block;
+	width: 100%;
+}
+
+.licence select {
+	display: block;
+	width: 100%;
+	margin: 10px 0;
+	padding-left: 10px;
+}
+
+.modal-size {
+	display: block;
+	margin: auto;
+}
+
+.owl-nav {
+	display: none;
+}
+
+
+/*===== from-page end=====*/
 
 
 

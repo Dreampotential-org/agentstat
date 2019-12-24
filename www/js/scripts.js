@@ -55,7 +55,7 @@
            	center: false,
            	nav: false,
            	dots: false,
-           	autoplay:false,
+           	autoplay:true,
            	autoplayTimeout:2000,
            	responsiveClass: true,
            	responsiveRefreshRate: true,
@@ -78,6 +78,9 @@
            		}
            	}
            });
+
+
+		   
 
 
 		   
