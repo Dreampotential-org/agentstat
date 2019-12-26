@@ -96,8 +96,6 @@
     <!-- header-area end -->
 
     <div class="full-formx">
-        <form action="" method="">
-
 
             <!-- profile area start -->
             <div class="profile">
@@ -125,8 +123,8 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="fn-right">
-                                            <input type="text" name="text" placeholder="Anna">
-                                            <input class="ml-2" type="text" name="text" placeholder="Kovalevich">
+                                            <input type="text" id="first_name" name="text" placeholder="Anna">
+                                            <input class="ml-2" id="last_name" type="text" name="text" placeholder="Kovalevich">
                                         </div>
                                     </div>
                                 </div>
@@ -141,7 +139,8 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="fn-right">
-                                            <input style="width: 300px;" type="text" name="text" placeholder="Phone number">
+                                            <input style="width: 300px;"
+                                            id="phone_number" type="text" name="text" placeholder="Phone number">
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +155,8 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="fn-right">
-                                            <input style="width: 300px;" type="email" required name="text" placeholder="agentname@brokerage.com">
+                                            <input style="width: 300px;"
+                                            id="email" type="email" required name="text" placeholder="agentname@brokerage.com">
                                         </div>
                                     </div>
                                 </div>
@@ -171,8 +171,9 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="sn-right">
-                                            <input required type="text" name="text" placeholder="Annakova">
-                                            <p>Profile URL : www.agentstat.com/annakov/</p>
+                                            <input required type="text" id="screen_name" name="text" placeholder="Annakova">
+                                            <p>Profile URL :
+                                            www.agentstat.com/<span id="profile_slug"></span>/</p>
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +188,7 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="file-right">
-                                            <input required type="file" name="file" multiple>
+                                            <input type="file" name="file" multiple>
                                         </div>
                                         <div class="up-photo">
                                             <img src="img/s11.png" alt="images not found">
@@ -211,7 +212,7 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="li-right">
-                                            <input id="lnumber" style="width: 300px;" type="text" name="" placeholder="123456 WA - 08/01/2020 ">
+                                            <input id="license_number" style="width: 300px;" type="text" name="" placeholder="123456 WA - 08/01/2020 ">
                                             <button id="cross"><span><i class="fas fa-times"></i></span></button>
                                             <button>Add</button>
                                         </div>
@@ -228,7 +229,7 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="li-right br-right">
-                                            <input type="text" name="" placeholder="Keller Williams Grenter Settle">
+                                            <input type="text" id="brokerage_name" name="" placeholder="Keller Williams Grenter Settle">
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +244,7 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="li-right br-right">
-                                            <input type="text" name="" placeholder="1307 N 45th St #300">
+                                            <input type="text" id="brokerage_address" name="" placeholder="1307 N 45th St #300">
                                         </div>
                                     </div>
                                 </div>
@@ -258,15 +259,11 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="li-right sl-right">
-                                            <input type="text" name="" placeholder="Settle" class="mr-2">
-                                            <select>
-											<option>WA</option>
-											<option>WA</option>
-											<option>WA</option>
-											<option>WA</option>
-											<option>WA</option>
-										</select>
-                                            <input type="text" name="" placeholder="98103">
+                                            <input type="text" name="" id="city" placeholder="Settle" class="mr-2">
+                                            <input type="text" name=""
+                                            id="state" placeholder="WA" class="mr-2">
+
+                                            <input type="text" id="zipcode" name="" placeholder="98103">
                                         </div>
                                     </div>
                                 </div>
@@ -289,241 +286,9 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="la-right">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-6">
-                                                    <div class="lar-left">
-                                                        <input type="checkbox" name="">
-                                                        <label> Spanish </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                    <div class="lar-left">
-                                                        <input type="checkbox" name="">
-                                                        <label>  French </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6"></div>
-                                                <div class="col-lg-3 col-6">
-                                                    <div class="lar-left">
-                                                        <input type="checkbox" name="">
-                                                        <label> English  </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg- col-6">
-                                                    <div class="lar-left ">
-                                                        <input type="checkbox" name="">
-                                                        <label>   Russain </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6"></div>
-                                            </div>
-                                            <div class="la-link">
-                                                <span id="more">more</span>
-                                            </div>
+                                            <div id="languages" class="row">
 
-                                            <div class="more-content">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> Spanish </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>  French </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> English  </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>   Russain </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> Spanish </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>  French </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> English  </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>   Russain </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> Spanish </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>  French </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> English  </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>   Russain </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> Spanish </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>  French </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> English  </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>   Russain </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> Spanish </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>  French </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> English  </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>   Russain </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> Spanish </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>  French </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> English  </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>   Russain </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> Spanish </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>  French </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label> English  </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-6">
-                                                        <div class="lar-left">
-                                                            <input type="checkbox" name="">
-                                                            <label>   Russain </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6"></div>
-                                                </div>
-
-                                                <div class="less-link">
-                                                    <span id="fwe">fewer</span>
-                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -607,51 +372,31 @@
                             <p>COMMISSION</p>
                             <div class="add-check">
                                 <label class="check-box">Lesting fees...
-								<input type="checkbox">
-								<span class="checkmark"></span>
-							</label>
-                                <select name="carlist">
-								<option selected value="negotiable">Select Option</option>
-								<option value="negotiable">Negotiable</option>
-								<option value="Case_by_Case">Case by Case</option>
-								<option value="firm">6% Firm</option>
-								<option value="5.5_6%">5.5 - 6%</option>
-								<option value="brackets_5%">And so on in brackets 0.5%</option>
-								<option value="flat_fee">Flat Fee</option>
-							</select>
+								                <input type="checkbox">
+								                <span class="checkmark"></span>
+							                  </label>
+                                <select id="listing_fee" name="carlist"> </select>
                             </div>
                             <div class="add-check">
                                 <label class="check-box">Buyer Rebate
-								<input type="checkbox">
-								<span class="checkmark"></span>
-							</label>
-                                <select name="carlist">
-								<option selected value="never">Select Option</option>
-								<option value="never">Never</option>
-								<option value="negotiable">Negotiable</option>
-								<option value="">0.00 - 0.25 point</option>
-								<option value="">0.25 - 0.50 point</option>
-								<option value="">0.50 - 0.75 point</option>
-								<option value="">0.75 - 1 point</option>
-								<option value="">Flat Rate</option>
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                                <select id="buyer_rebate" name="carlist">
 							</select>
                             </div>
 
                             <div class="add-check">
                                 <label class="check-box">Type of listing services
-								<input type="checkbox">
-								<span class="checkmark"></span>
-							</label>
-                                <select name="carlist">
-								<option selected>Select Option</option>
-								<option>Full Service</option>
-								<option>Limited Servide</option>
-								<option>Both</option>
-							</select>
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                                <select id="type_of_listing_service" name="carlist">
+							                  </select>
                             </div>
                             <div class="add-check">
                                 <label class="check-box">I Provide CMAs
-								<input type="checkbox">
+								<input id="provide_cma" type="checkbox">
 								<span class="checkmark"></span>
 							</label>
                             </div>
@@ -750,11 +495,13 @@
                 <div class="col-lg-8">
                     <div class="about-wrapper">
                         <p>About me </p>
-                        <textarea class="ml-5 mt-3" placeholder="Type Here......"></textarea>
+                        <textarea id="about_me" class="ml-5 mt-3" placeholder="Type Here......"></textarea>
                     </div>
                     <div class="about-submit ml-5">
                         <ul>
-                            <li class="mr-2"><a class="btn btn-primary" href="#"> Submit</a></li>
+                            <li class="mr-2">
+                              <button class="btn btn-primary submit_btn">Submit</button>
+                            </li>
                             <li><a class="btn btn-secondary" href="#"> Cancel</a></li>
                         </ul>
                     </div>
@@ -765,14 +512,7 @@
     </div>
     <!-- about area end -->
 
-    </form>
     </div>
-
-
-
-
-
-
 
 
     <!-- Main jQuery -->
@@ -793,6 +533,8 @@
 
     <!-- Custom jQuery -->
     <script src="js/scripts.js"></script>
+
+    <script src="/js/profile.js"></script>
 
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
