@@ -62,6 +62,10 @@ function display_profile(profile) {
 
   $("#provide_cma").prop('checked', profile.provide_cma);
   $('#about_me').val(profile.about_me);
+
+  $.each(profile.language_fluencies, function(k, lang_id) {
+    $('#lang-' + lang_id).prop('checked', true);
+  });
 }
 
 function update_profile() {
@@ -71,6 +75,11 @@ function update_profile() {
   $.each(data_map, function(k, val) {
     data[val] = $('#'+val).val();
   });
+
+  // fluent languages
+  data['language_fluencies'] = $('.lng-checkbox:checked').map(
+    function() { return $(this).val() }
+  ).get();
 
   settings = {
     "async": true,
@@ -128,7 +137,7 @@ function get_languages() {
       console.log(v.id, v.val);
       $('#languages').append(`<div class="col-lg-3 col-6">
       <div class="lar-left">
-        <input id="lang-` + v.id + `" type="checkbox" >
+        <input class="lng-checkbox" value="` + v.id + `" id="lang-` + v.id + `" type="checkbox" >
         <label for="lang-` + v.id + `">` + v.val + `</label>
         </div>
       </div>
