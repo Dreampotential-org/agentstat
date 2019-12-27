@@ -7,7 +7,7 @@ server {
         location / {
 
         set $cors '';
-        if ($http_origin ~ '^http?://(54.67.62.45)') {
+        if ($http_origin ~ '^https?://(app\.agentstat\.com') {
                 set $cors 'true';
         }
 
