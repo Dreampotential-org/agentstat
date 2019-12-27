@@ -1,4 +1,5 @@
-API_URL = "http://54.67.62.45:8001/api/";
+// API_URL = "http://54.67.62.45:8001/api/";
+API_URL = "https://app.agentstat.com/api/";
 // API_URL = "http://localhost:8000/api/";
 
 data_map = [
