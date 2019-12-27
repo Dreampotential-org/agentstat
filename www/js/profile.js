@@ -7,21 +7,24 @@ data_map = [
   'provide_cma', 'about_me', 'type_of_listing_service'
 ];
 
-
-function call_api(callback, url) {
-  settings = {
+function get_settings(url, method, data=null) {
+  return {
     "async": true,
     "crossDomain": true,
-     "headers": {
-     "Authorization": "Token " + localStorage.getItem("session_id"),
+    "headers": {
+      "Authorization": "Token " + localStorage.getItem("session_id"),
     },
     "url": API_URL + url,
-    "method": "GET",
+    "method": method,
     "processData": false,
-    "contentType": false,
+    "data": data,
+    "contentType": 'application/json',
     "mimeType": "multipart/form-data",
   }
+}
 
+function call_api(callback, url) {
+  settings = get_settings(url, 'GET');
   $.ajax(settings).done(function (response) {
       var msg = JSON.parse(response);
       callback(msg);
@@ -66,12 +69,15 @@ function display_profile(profile) {
   $.each(profile.language_fluencies, function(k, lang_id) {
     $('#lang-' + lang_id).prop('checked', true);
   });
+
+  $.each(profile.specialty, function(k, specialty_id) {
+    $('#specialty-'+specialty_id).prop('checked', true);
+  });
 }
 
 function update_profile() {
   var data = {};
 
-  // data_map = ['first_name', 'last_name', 'phone_number'];
   $.each(data_map, function(k, val) {
     data[val] = $('#'+val).val();
   });
@@ -81,19 +87,12 @@ function update_profile() {
     function() { return $(this).val() }
   ).get();
 
-  settings = {
-    "async": true,
-    "crossDomain": true,
-     "headers": {
-     "Authorization": "Token " + localStorage.getItem("session_id"),
-    },
-    "url": API_URL + 'agent-profile/7/',
-    "method": "PUT",
-    "processData": false,
-    "contentType": 'application/json',
-    "data": JSON.stringify(data),
-    "mimeType": "multipart/form-data",
-  }
+  data['specialties'] = $('.specialty-checkbox:checked').map(
+    function() { return $(this).val() }
+  ).get();
+  console.log(data);
+
+  settings = get_settings("agent-profile/7/", "PUT", JSON.stringify(data))
 
   $.ajax(settings).done(function (response) {
       var msg = JSON.parse(response);
@@ -115,19 +114,29 @@ function load_combo(data, combo) {
   });
 }
 
+function get_specilities() {
+  settings = get_settings('specialty/', 'GET')
+  $.ajax(settings).done(function (response) {
+      var response = JSON.parse(response);
+      // callback(msg);
+      console.log(response);
+    $.each(response, function(k, v) {
+      console.log(v.id, v.val);
+      $('#specialties').append(`<div class="year-wrapper-check-one">
+          <input type="checkbox" value="`+ v.id +`" class="specialty-checkbox" id="specialty-` + v.id + `">
+          <label for="specialty-`+ v.id + `">` + v.val + `</label>
+        </div>
+      `);
+    });
+  }).fail(function(err) {
+      alert("Got err");
+      console.log(err);
+  });
+
+}
+
 function get_languages() {
-  settings = {
-    "async": true,
-    "crossDomain": true,
-     "headers": {
-     "Authorization": "Token " + localStorage.getItem("session_id"),
-    },
-    "url": API_URL + 'language-fluency/',
-    "method": "GET",
-    "processData": false,
-    "contentType": 'application/json',
-    "mimeType": "multipart/form-data",
-  }
+  settings = get_settings('language-fluency', 'GET')
 
   $.ajax(settings).done(function (response) {
       var response = JSON.parse(response);
@@ -159,6 +168,7 @@ $.each(combo_boxes, function(k, val){
 get_profile(function(resp) { display_profile(resp) });
 
 get_languages()
+get_specilities()
 
 $(document).on('change click', '.submit_btn', function() {
   update_profile();
