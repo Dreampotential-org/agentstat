@@ -1,8 +1,43 @@
+
 /*
 ====================================
 Medium Screen - Others
 ====================================
 */
+@media screen and (min-width: 770px) {
+.ser-butt button {
+    background-color: #E0A900;
+    border-radius: 8px;
+    color:  #3C3C3C;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    padding: 8px 28px;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    position: relative;
+    left: -15px;
+    top: 3px;
+
+
+}
+.po-serach-wrapper {
+    padding: 8px 10px;
+    border-radius: 100px;
+
+}
+
+
+
+
+
+
+
+
+
+}
+
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
     .po-serach-wrapper input.ser {
@@ -584,7 +619,7 @@ Small Screen - Mobile
         margin-bottom: 12px;
     }
     .po-serach-wrapper {
-        background: #134E60;
+        background: #fff;
         box-shadow: none;
         border: 0;
         border-radius: 0;
@@ -604,6 +639,7 @@ Small Screen - Mobile
         padding-top: 12px;
         padding-bottom: 12px;
         width: 100%;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
     }
     .price {
         width: 49%;
@@ -623,6 +659,7 @@ Small Screen - Mobile
         padding-top: 12px;
         padding-bottom: 12px;
         width: 100%;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
     }
     .ser-butt {
         display: block;
@@ -635,7 +672,7 @@ Small Screen - Mobile
         padding: 5px 28px;
     }
     .po-search {
-        background: #134E60;
+        background: #fff;
         padding-bottom: 20px;
     }
     .price-amount {
@@ -851,6 +888,7 @@ Small Screen - Mobile
         display: block;
         width: 100% !important;
         padding: 12px 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
     }
     .pt-search-wrapper .type,
     .pt-search-wrapper .price {
@@ -1433,6 +1471,16 @@ Small Screen - Mobile
         top: -20px;
         left: 8px;
     }
+    .toc-one ul {
+    float: initial;
+    position: initial;
+    top: -26px;
+    width: 230px;
+    margin: auto;
+    margin-top: 10px;
+
+}
+
     /*===== from-page end=====*/
 }
 
@@ -1483,7 +1531,7 @@ Xtra Small Screen - Small Mobile
         margin-bottom: 12px;
     }
     .po-serach-wrapper {
-        background: #134E60;
+        background: #fff;
         box-shadow: none;
         border: 0;
         border-radius: 0;
@@ -1503,6 +1551,7 @@ Xtra Small Screen - Small Mobile
         padding-top: 12px;
         padding-bottom: 12px;
         width: 100%;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
     }
     .price {
         width: 49%;
@@ -1522,6 +1571,7 @@ Xtra Small Screen - Small Mobile
         padding-top: 12px;
         padding-bottom: 12px;
         width: 100%;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
     }
     .ser-butt {
         display: block;
@@ -1534,7 +1584,7 @@ Xtra Small Screen - Small Mobile
         padding: 5px 28px;
     }
     .po-search {
-        background: #134E60;
+        background: #fff;
         padding-bottom: 20px;
     }
     .price-amount {
@@ -1689,6 +1739,8 @@ Xtra Small Screen - Small Mobile
         text-align: center;
         font-size: 12px;
         margin-bottom: 20px;
+        box-shadow: initial;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
     }
     .serach {
         border: 0;
@@ -1749,6 +1801,7 @@ Xtra Small Screen - Small Mobile
         display: block;
         width: 100% !important;
         padding: 12px 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,.2);
     }
     .pt-search-wrapper .type,
     .pt-search-wrapper .price {
@@ -2345,5 +2398,32 @@ Xtra Small Screen - Small Mobile
         top: -20px;
         left: 8px;
     }
+
+
+.toc-one ul {
+    float: initial;
+    position: initial;
+    top: -26px;
+    width: 230px;
+    margin: auto;
+    margin-top: 10px;
+
+}
+
+.dm-part2 {
+ 
+    left: 0;
+  }
+
+.dm-part { 
+    width: 200px;
+  }
+
+
+
+
+
+
+
     /*===== from-page end=====*/
 }
