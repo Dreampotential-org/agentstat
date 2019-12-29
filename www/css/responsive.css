@@ -4,6 +4,21 @@
 Medium Screen - Others
 ====================================
 */
+
+@media screen and (max-width: 767px) {
+
+.ak-table table {
+    margin-top: 80px;    
+
+}
+.ak-price {
+    border: none!important;
+}
+
+
+
+}
+
 @media screen and (min-width: 770px) {
 .ser-butt button {
     background-color: #E0A900;
@@ -200,6 +215,19 @@ Medium Screen - Others
     .user-icon {
         margin-left: 120px !important;
     }
+
+    .ak-form {    
+        margin-top: 18px;
+    }
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -210,6 +238,11 @@ Small Screen - Tablate
 */
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .ak-po {
+        box-shadow: none!important;
+    }
+
     .po-world-wrapper h2 {
         font-size: 30px;
     }
@@ -2407,11 +2440,9 @@ Xtra Small Screen - Small Mobile
     width: 230px;
     margin: auto;
     margin-top: 10px;
-
 }
 
-.dm-part2 {
- 
+.dm-part2 { 
     left: 0;
   }
 
@@ -2425,5 +2456,4 @@ Xtra Small Screen - Small Mobile
 
 
 
-    /*===== from-page end=====*/
 }
