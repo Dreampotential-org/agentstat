@@ -55,6 +55,12 @@ Medium Screen - Others
 
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
+
+    .pt-search-wrapper .ser-butt button {
+        padding: 5px 17px;
+        
+        margin-top: -3px;
+    }
     .po-serach-wrapper input.ser {
         width: 442px;
     }
@@ -80,7 +86,7 @@ Medium Screen - Others
         height: 280px;
     }
     .pt-search-wrapper {
-        width: 452px
+        width: 473px;
     }
     .pt-search-wrapper .price p {
         padding: 5px 12px;
