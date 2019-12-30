@@ -1,6 +1,5 @@
-// API_URL = "http://54.67.62.45:8001/api/";
-API_URL = "https://app.agentstat.com/api/";
-// API_URL = "http://localhost:8000/api/";
+API_URL = 'https://app.agentstat.com/api/';
+// API_URL = 'http://localhost:8000/api/';
 
 data_map = [
   'first_name', 'last_name', 'phone_number', 'email', 'screen_name',
@@ -8,19 +7,20 @@ data_map = [
   'provide_cma', 'about_me', 'type_of_listing_service'
 ];
 
+
 function get_settings(url, method, data=null) {
   return {
-    "async": true,
-    "crossDomain": true,
-    "headers": {
-      "Authorization": "Token " + localStorage.getItem("session_id"),
+    'async': true,
+    'crossDomain': true,
+    'headers': {
+      'Authorization': 'Token ' + localStorage.getItem('session_id'),
     },
-    "url": API_URL + url,
-    "method": method,
-    "processData": false,
-    "data": data,
-    "contentType": 'application/json',
-    "mimeType": "multipart/form-data",
+    'url': API_URL + url,
+    'method': method,
+    'processData': false,
+    'data': data,
+    'contentType': 'application/json',
+    'mimeType': 'multipart/form-data',
   }
 }
 
@@ -29,9 +29,8 @@ function call_api(callback, url) {
   $.ajax(settings).done(function (response) {
       var msg = JSON.parse(response);
       callback(msg);
-      //console.log(msg);
   }).fail(function(err) {
-      alert("Got err");
+      alert('Got err');
   });
 
 }
@@ -64,10 +63,18 @@ function display_profile(profile) {
   $('#listing_fee').val(profile.listing_fee);
   $('#type_of_listing_service').val(profile.type_of_listing_service);
 
-  $("#provide_cma").prop('checked', profile.provide_cma);
+  $('#provide_cma').prop('checked', profile.provide_cma);
   $('#about_me').val(profile.about_me);
 
+  if(profile.picture != '') {
+    console.log(profile.picture);
+    $('#profile-img').prop('src', profile.picture);
+  }
+
+  // console.log(profile.language_fluencies);
+  get_languages();
   $.each(profile.language_fluencies, function(k, lang_id) {
+    console.log(lang_id, 'checkssss');
     $('#lang-' + lang_id).prop('checked', true);
   });
 
@@ -91,27 +98,50 @@ function update_profile() {
   data['specialties'] = $('.specialty-checkbox:checked').map(
     function() { return $(this).val() }
   ).get();
-  console.log(data);
 
-  settings = get_settings("agent-profile/7/", "PUT", JSON.stringify(data))
+  var picture_data = $('#picture')[0].files[0]
+  var reader = new FileReader();
+  var picture_base64 = '';
+  if (picture_data != null) {
+    reader.readAsDataURL(picture_data);
+    reader.onload = function () {
+      console.log(reader.result);
+      picture_base64 = reader.result;
+      data['picture'] = picture_base64;
+      settings = get_settings('agent-profile/7/', 'PUT', JSON.stringify(data))
 
-  $.ajax(settings).done(function (response) {
-      var msg = JSON.parse(response);
-      // callback(msg);
-      console.log(msg);
-  }).fail(function(err) {
-      alert("Got err");
-      console.log(err);
-  });
+      $.ajax(settings).done(function (response) {
+          var msg = JSON.parse(response);
+          console.log(msg);
+      }).fail(function(err) {
+          alert('Got err');
+          console.log(err);
+      });
 
-  console.log(data);
+    };
+    reader.onerror = function (error) {
+     console.log('Error: ', error);
+    };
+  } else {
+      settings = get_settings('agent-profile/7/', 'PUT', JSON.stringify(data))
+
+      $.ajax(settings).done(function (response) {
+          var msg = JSON.parse(response);
+          console.log(msg);
+      }).fail(function(err) {
+          alert('Got err');
+          console.log(err);
+      });
+  }
+
+
 }
 
 function load_combo(data, combo) {
   // console.log(data, combo);
   $.each(data, function( key, val ) {
     combo = combo.split('-').join('_')
-    $("#" + combo).append(new Option(val['val'], val['id']));
+    $('#' + combo).append(new Option(val['val'], val['id']));
   });
 }
 
@@ -119,18 +149,16 @@ function get_specilities() {
   settings = get_settings('specialty/', 'GET')
   $.ajax(settings).done(function (response) {
       var response = JSON.parse(response);
-      // callback(msg);
-      console.log(response);
-    $.each(response, function(k, v) {
-      console.log(v.id, v.val);
-      $('#specialties').append(`<div class="year-wrapper-check-one">
-          <input type="checkbox" value="`+ v.id +`" class="specialty-checkbox" id="specialty-` + v.id + `">
-          <label for="specialty-`+ v.id + `">` + v.val + `</label>
+      $.each(response, function(k, v) {
+        console.log(v.id, v.val);
+        $('#specialties').append(`<div class='year-wrapper-check-one'>
+          <input type='checkbox' value='`+ v.id +`' class='specialty-checkbox' id='specialty-` + v.id + `'>
+          <label for='specialty-`+ v.id + `'>` + v.val + `</label>
         </div>
-      `);
-    });
+        `);
+      });
   }).fail(function(err) {
-      alert("Got err");
+      alert('Got err');
       console.log(err);
   });
 
@@ -141,23 +169,21 @@ function get_languages() {
 
   $.ajax(settings).done(function (response) {
       var response = JSON.parse(response);
-      // callback(msg);
       console.log(response);
-    $.each(response, function(k, v) {
-      console.log(v.id, v.val);
-      $('#languages').append(`<div class="col-lg-3 col-6">
-      <div class="lar-left">
-        <input class="lng-checkbox" value="` + v.id + `" id="lang-` + v.id + `" type="checkbox" >
-        <label for="lang-` + v.id + `">` + v.val + `</label>
+      $.each(response, function(k, v) {
+        console.log(v.id, v.val);
+        $('#languages').append(`<div class='col-lg-3 col-6'>
+          <div class='lar-left'>
+          <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+          <label for='lang-` + v.id + `'>` + v.val + `</label>
+          </div>
         </div>
-      </div>
-      `);
-    });
-  }).fail(function(err) {
-      alert("Got err");
+        `);
+      });
+    }).fail(function(err) {
+      alert('Got err');
       console.log(err);
-  });
-
+    });
 }
 
 combo_boxes = ['listing-fee', 'buyer-rebate', 'type-of-listing-service'];
@@ -166,11 +192,13 @@ $.each(combo_boxes, function(k, val){
   get_combo(function(resp) { load_combo(resp, val) }, val);
 });
 
+get_specilities();
+
 get_profile(function(resp) { display_profile(resp) });
 
-get_languages()
-get_specilities()
 
 $(document).on('change click', '.submit_btn', function() {
   update_profile();
 });
+
+
