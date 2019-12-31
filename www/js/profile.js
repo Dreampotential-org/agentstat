@@ -1,6 +1,3 @@
-API_URL = 'https://app.agentstat.com/api/';
-// API_URL = 'http://localhost:8000/api/';
-
 data_map = [
   'first_name', 'last_name', 'phone_number', 'email', 'screen_name',
   'license_number', 'brokerage_name', 'city', 'state', 'zipcode', 'buyer_rebate', 'listing_fee',
@@ -8,35 +5,8 @@ data_map = [
 ];
 
 
-function get_settings(url, method, data=null) {
-  return {
-    'async': true,
-    'crossDomain': true,
-    'headers': {
-      'Authorization': 'Token ' + localStorage.getItem('session_id'),
-    },
-    'url': API_URL + url,
-    'method': method,
-    'processData': false,
-    'data': data,
-    'contentType': 'application/json',
-    'mimeType': 'multipart/form-data',
-  }
-}
-
-function call_api(callback, url) {
-  settings = get_settings(url, 'GET');
-  $.ajax(settings).done(function (response) {
-      var msg = JSON.parse(response);
-      callback(msg);
-  }).fail(function(err) {
-      alert('Got err');
-  });
-
-}
-
 function get_profile(callback) {
-  call_api(callback, 'agent-profile/7/');
+  call_api(callback, 'agent-profile/');
 }
 
 function get_combo(callback, end_point) {
@@ -74,7 +44,6 @@ function display_profile(profile) {
   // console.log(profile.language_fluencies);
   get_languages();
   $.each(profile.language_fluencies, function(k, lang_id) {
-    console.log(lang_id, 'checkssss');
     $('#lang-' + lang_id).prop('checked', true);
   });
 
@@ -102,17 +71,17 @@ function update_profile() {
   var picture_data = $('#picture')[0].files[0]
   var reader = new FileReader();
   var picture_base64 = '';
+
   if (picture_data != null) {
     reader.readAsDataURL(picture_data);
     reader.onload = function () {
       console.log(reader.result);
       picture_base64 = reader.result;
       data['picture'] = picture_base64;
-      settings = get_settings('agent-profile/7/', 'PUT', JSON.stringify(data))
+      settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
           var msg = JSON.parse(response);
-          console.log(msg);
       }).fail(function(err) {
           alert('Got err');
           console.log(err);
@@ -123,11 +92,10 @@ function update_profile() {
      console.log('Error: ', error);
     };
   } else {
-      settings = get_settings('agent-profile/7/', 'PUT', JSON.stringify(data))
+      settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
           var msg = JSON.parse(response);
-          console.log(msg);
       }).fail(function(err) {
           alert('Got err');
           console.log(err);
@@ -200,5 +168,4 @@ get_profile(function(resp) { display_profile(resp) });
 $(document).on('change click', '.submit_btn', function() {
   update_profile();
 });
-
 
