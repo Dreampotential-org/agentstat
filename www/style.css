@@ -503,36 +503,23 @@ ul {
     width: 100%;
 }
 
+
 .op-what-right h4 {
     font-weight: bold;
     font-size: 24px;
     color: #3C3C3C;
     line-height: 1.5;
-    margin-bottom: 40px;
-}
-
-.op-what-right h4 {
-    position: relative;
-    display: inline;
-}
-
-.op-what-right h4:after {
-    content: "";
     display: block;
-    width: 100%;
-    height: 10px;
-    background: rgba(242, 199, 68, 0.7);
-    position: absolute;
-    bottom: 5px;
-    z-index: -5;
-    left: 0;
-    display: none;
+    position: initial;
+    margin-bottom: 22px!important;
 }
+
+
 
 .op-what-right p {
     font-size: 18px;
     color: #3C3C3C;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .po-what {
@@ -550,6 +537,10 @@ ul {
     background: #CE9C05;
     padding: 64px 0;
 }
+
+
+
+
 
 
 /*-- po-agent area end --*/
@@ -2643,8 +2634,9 @@ ul {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    bottom: -18px;
+    bottom: -23px;
     left: 0;
+    /*! transform: rotate(180deg); */
 }
 
 
@@ -2667,9 +2659,6 @@ ul {
     background-position: center;
     background-size: 100% 100%;
 }
-
-
-
 
 .dm-main {
     position: relative;
@@ -2726,15 +2715,12 @@ ul {
     outline: 0;
 }
 
-
-
 .toc-one ul {
     float: right;
     position: relative;
     top: -26px;
 
 }
-
 
 .ak-form {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
@@ -2743,8 +2729,6 @@ ul {
     padding-bottom: 0px !important;
     margin-top: 11px;
 }
-
-
 
 .toc-two-left-two-heading-left h4 a {
     font-size: 15px;
@@ -2756,23 +2740,81 @@ ul {
 
 
 
-.ak-table table {
-    
-display: block;
-width: 100%;
-overflow-x: auto;
+
+.ak-table {
+    overflow: auto;    
 }
 
-
+.ak-table table {   
+    width: 100%;
+}
 
 .sm-list .col-4 {
     display: none!important;
 }
 
 .ak-table table td {
-    padding: 5px;
+    padding: 3px;
 }
 
-/*==========================
-    form page end
-==========================*/
+.ak-icontent {
+    border-top: 1px solid #bbb;
+    margin-top: 60px;
+    padding-top: 60px;
+}
+
+
+.ak-icontent h4 {
+    font-weight: bold;
+    font-size: 24px;
+    color: #134E60;
+    
+}
+
+
+.po-agent-wrapper p {
+    font-weight: 500;
+    color: #fff;
+    font-size: 20px;
+}
+
+
+@media screen and (min-width: 767px) {
+.ak-sb1 button {
+    top: 2px!important;
+
+}
+
+}
+
+
+.akh-1 {
+   display: none; 
+}
+
+
+.akh-2 {
+    display: none!important;
+}
+
+
+
+@media screen and (max-width: 991px) {
+
+.akh-2 {
+    display: block!important;
+}
+
+.akh-3 {
+    display: none!important;
+}
+
+.akh-4 {
+    position: initial;
+}
+
+
+
+
+
+}

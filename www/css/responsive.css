@@ -27,25 +27,21 @@ Medium Screen - Others
     border: none;
     outline: none;
     font-size: 24px;
-    padding: 8px 28px;
+    padding: 3px 22px;
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
     position: relative;
     left: -15px;
-    top: 3px;
-
+    top: 8px;
 
 }
+
 .po-serach-wrapper {
     padding: 8px 10px;
     border-radius: 100px;
 
 }
-
-
-
-
 
 
 
@@ -292,6 +288,7 @@ Small Screen - Tablate
     }
     .footer {
         height: 150px;
+        margin-top: 15px;
     }
     .pt-search-wrapper {
         position: initial;
@@ -1510,6 +1507,7 @@ Small Screen - Mobile
         top: -20px;
         left: 8px;
     }
+
     .toc-one ul {
     float: initial;
     position: initial;
@@ -1520,7 +1518,61 @@ Small Screen - Mobile
 
 }
 
-    /*===== from-page end=====*/
+.toc-two-left-two-heading-left h4 a {
+    font-size: 12px;
+}   
+
+.pt-tab-wrapper .nav-tabs .nav-link {
+    padding: 7px 20px;
+    
+}
+
+.ak-icontent {   
+    margin-top: 45px;
+    padding-top: 45px;
+}
+
+.toc-two-left-one img {
+    display: block;
+    width: initial;
+    max-width: 100%;
+    margin: auto;
+}
+
+.toc-two-left-one::before {  
+    top: -25px;
+    left: 33%;
+}
+
+.toc-two-left {
+    padding-top: 40px;
+   
+}
+
+.ak-table table h5 {
+    font-size: 16px;
+
+}
+.ak-table table td {
+    padding: 3px;
+}
+
+.ak-table table td {
+    font-size: 13px;
+}
+
+.pt-search {
+    position: initial!important;
+}
+
+
+
+
+
+
+
+
+  
 }
 
 
@@ -1859,7 +1911,7 @@ Xtra Small Screen - Small Mobile
     }
     .pt-tab-wrapper .nav-tabs .nav-link.active {
         font-size: 12px;
-        padding: 7px 0px;
+        padding: 7px 20px;
     }
     .pt-tab-wrapper .nav-tabs {
         border-bottom: 0;
@@ -2438,7 +2490,6 @@ Xtra Small Screen - Small Mobile
         left: 8px;
     }
 
-
 .toc-one ul {
     float: initial;
     position: initial;
@@ -2457,7 +2508,54 @@ Xtra Small Screen - Small Mobile
   }
 
 
+.toc-two-left-two-heading-left h4 a {
+    font-size: 12px;
+}
+   
 
+.pt-tab-wrapper .nav-tabs .nav-link {
+    padding: 7px 20px;
+
+}
+
+.ak-icontent {   
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+
+.toc-two-left-one img {
+    display: block;
+    width: initial;
+    max-width: 100%;
+    margin: auto;
+}
+
+.toc-two-left-one::before {  
+    top: -25px;
+    left: 33%;
+}
+
+.toc-two-left {
+    padding-top: 40px;
+   
+}
+
+.ak-table table h5 {
+    font-size: 16px;
+
+}
+.ak-table table td {
+    padding: 3px;
+}
+
+.ak-table table td {
+    font-size: 13px;
+}
+
+.pt-search {
+    position: initial!important;
+}
 
 
 
