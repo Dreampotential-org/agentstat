@@ -1,8 +1,4 @@
 
-function clean_text(text) {
-  text = text.substr(0,1).toUpperCase()+text.substr(1);
-  return text.replace('_', ' ');
-}
 
 function create_agent() {
   var data = {};
@@ -30,15 +26,7 @@ function create_agent() {
     localStorage.session_id = msg['token'];
     window.location = '/form.html';
   }).fail(function(err) {
-    arr = JSON.parse(err['responseText']);
-    error = "<ul>";
-    $.each(arr, function(k, v) {
-      error += "<li>" + clean_text(k) + ": " + v + "</li>";
-    });
-    error += "</ul>";
-
-    $('.msg').html(error)
-    $('.msg').css("display", "block");
+    show_error(err);
   });
 }
 

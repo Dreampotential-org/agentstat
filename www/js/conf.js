@@ -2,6 +2,23 @@ API_URL = 'https://app.agentstat.com/api/';
 // API_URL = 'http://localhost:8000/api/';
 
 
+function clean_text(text) {
+  text = text.substr(0,1).toUpperCase()+text.substr(1);
+  return text.replace('_', ' ');
+}
+
+function show_error(err) {
+  arr = JSON.parse(err['responseText']);
+  error = "<ul>";
+  $.each(arr, function(k, v) {
+    error += "<li>" + clean_text(k) + ": " + v + "</li>";
+  });
+  error += "</ul>";
+
+  $('.msg').html(error)
+  $('.msg').css("display", "block");
+  console.log(err);
+}
 
 function get_settings(url, method, data=null) {
   return {

@@ -83,8 +83,9 @@ function update_profile() {
       $.ajax(settings).done(function (response) {
           var msg = JSON.parse(response);
       }).fail(function(err) {
-          alert('Got err');
+          // alert('Got err');
           console.log(err);
+          show_error(err);
       });
 
     };
@@ -97,8 +98,8 @@ function update_profile() {
       $.ajax(settings).done(function (response) {
           var msg = JSON.parse(response);
       }).fail(function(err) {
-          alert('Got err');
-          console.log(err);
+          // alert('Got err');
+          show_error(err);
       });
   }
 
