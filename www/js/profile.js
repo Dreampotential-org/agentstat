@@ -36,7 +36,7 @@ function display_profile(profile) {
   $('#provide_cma').prop('checked', profile.provide_cma);
   $('#about_me').val(profile.about_me);
 
-  if(profile.picture != '') {
+  if(profile.picture != '' && profile.pictue != null) {
     console.log(profile.picture);
     $('#profile-img').prop('src', profile.picture);
   }
