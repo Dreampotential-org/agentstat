@@ -43,14 +43,11 @@ $(document).on('change click', '#forgot-password', function() {
       console.log(msg);
       $('.msg').html("Email has been sent.");
       $('.msg').css("display", "block");
-      // window.location = '/form.html';
     }).fail(function(err) {
-      // alert('Got err');
       $('.msg').html(err['responseText']);
       $('.msg').css("display", "block");
       console.log(err);
     });
-    console.log('api call');
   }
 
 });
