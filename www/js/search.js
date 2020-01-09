@@ -83,7 +83,7 @@ function get_agent_result_html() {
                                                      '<p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>' +
                                                      '<p>Dis wazzup:</p>' +
                                                      '<p>1. An A-stat pro will reach out to go over your goals and answer any questions you may have.</p>' +
-                                                     '<p>2. We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</p>' +
+                                                     '<p>2. We\'ll do our best to connect you with [agent first name] and if you\'d like, introduce you to other Agentstat Top 1% agents in the area.</p>' +
                                                      '<p>3. You sell your home quickly for top dollar!</p>' +
                                                      '<div class="modal-call">' +
                                                         '<p>Need immediate assistance?</p>' +
@@ -188,7 +188,7 @@ function get_agent_result_html() {
                                                '<p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>' +
                                                '<p>Dis wazzup:</p>' +
                                                '<p>1. An A-stat pro will reach out to go over your goals and answer any questions you may have.</p>' +
-                                               '<p>2. We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</p>' +
+                                               '<p>2. We\'ll do our best to connect you with [agent first name] and if you\'d like, introduce you to other Agentstat Top 1% agents in the area.</p>' +
                                                '<p>3. You sell your home quickly for top dollar!</p>' +
                                                '<div class="modal-call">' +
                                                   '<p>Need immediate assistance?</p>' +
@@ -274,6 +274,6 @@ function get_agent_result_html() {
         '</div>' +
      '</div>' +
   '</div>')
-
+    return html
 
 }
