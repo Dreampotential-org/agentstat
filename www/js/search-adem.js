@@ -1,5 +1,5 @@
 settings = get_settings('reports/WA/Seattle/', 'GET');
-
+settings['headers'] = null;
 // Example requests
 // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
 var data;
@@ -42,7 +42,7 @@ $(document).on('change click', '.lead-submit', function() {
   data['message'] = $('#message-' + selected_agent_id).val();
 
   settings = get_settings('lead/', 'POST', JSON.stringify(data));
-
+  settings['headers'] = null;
 
   $.ajax(settings).done(function (response) {
     var msg = JSON.parse(response);
