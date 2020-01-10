@@ -11,8 +11,8 @@ var search_item = `<div class="toc-two">
           <div class="col-lg-9 col-12 col-md-9">
             <div class="toc-two-left-two">
               <div class="toc-two-left-two-heading">
-                <div class="toc-two-left-two-heading-left">			
-                  <h4>Agent Name | <a href="#">[[agent_name]]</a></h4>
+                <div class="toc-two-left-two-heading-left">
+                  <h4>[[agent_name]] | <a href="#">Brokerage</a></h4>
                   <h4>SCORE | [[score]] </h4>
                 </div>
                 <div class="toc-two-left-two-heading-right">
@@ -23,7 +23,7 @@ var search_item = `<div class="toc-two">
               <div class="ak-table">
                 <table class="table table-borderless">
                   <tbody><tr>
-                    <td></td>												
+                    <td></td>
                     <td><h5 class="m-0"><strong>Overall</strong></h5></td>
                     <td><h5 class="m-0"><strong>Seattle</strong></h5></td>
                   </tr>
@@ -42,21 +42,21 @@ var search_item = `<div class="toc-two">
                     <td>$435,399</td>
                     <td>$535,399</td>
                   </tr>
-                  <tr>															
+                  <tr>
                     <td><strong>Avg Days on Market .....</strong></td>
                     <td>39</td>
                     <td>25</td>
                   </tr>
-                  <tr>			
+                  <tr>
                     <td><strong>Single Family .....</strong></td>
                     <td>12</td>
                     <td>6</td>
                   </tr>
-                  <tr>			
+                  <tr>
                     <td><strong>Condos .....</strong></td>
                     <td>27</td>
                     <td>23</td>
-                  </tr>				
+                  </tr>
 
                 </tbody></table>
 
@@ -123,7 +123,7 @@ var search_item = `<div class="toc-two">
                                                   <button type="button" data-dismiss="modal">Cancel</button>
                                                 </div>
                                               </div>
-                                            </div>											
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
@@ -137,7 +137,7 @@ var search_item = `<div class="toc-two">
                             </div>
                           </div>
                         </div>
-                      </div>											
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ var search_item = `<div class="toc-two">
                                                     <button type="button" data-dismiss="modal">Cancel</button>
                                                   </div>
                                                 </div>
-                                              </div>											
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -258,7 +258,7 @@ var search_item = `<div class="toc-two">
                         </div>
                       </div>
                     </div>
-                  </div>											
+                  </div>
                 </div>
               </div>
             </div>
