@@ -1,4 +1,74 @@
-function get_agent_result_html() {
+function populate() {
+    var html;
+
+    do_api_search(function(results) {
+        console.log(results)
+        alert("Got search results" + results.length)
+        console.log(results)
+        for(var result of results) {
+            html = get_agent_result_html(result)
+            $(".page-two-section-wrapper").append(html)
+        }
+    });
+}
+
+
+function get_search_filters() {
+    var url = ''
+    var state = 'WA'
+    var time_frame = '24'
+    var search_params = new URLSearchParams(window.location.search)
+    if (search_params.has("time_frame")) {
+        url += "?time_frame=" + search_params.get("time_frame")
+    }
+
+    if (search_params.has("city")) {
+        if (url) {
+            url += "&"
+        } else {
+            url += "?"
+        }
+        url += "city=" + search_params.get("city")
+    }
+
+    if (search_params.has("property_type")) {
+        if (url) {
+            url += "&"
+        } else {
+            url += "?"
+        }
+        url += "property_type=" + search_params.get("property_type")
+    }
+
+    return url
+}
+
+function do_api_search(callback) {
+
+    var url = 'https://app.agentstat.com/api/reports/WA/'
+    url += get_search_filters()
+    alert(url)
+    $.ajax({
+        type: 'GET',
+        headers: {
+            'Authorization': 'Token 76923e3a6dea8aa0b99dcd9a15be18d490ac5968',
+
+        },
+        success: function (results) {
+            // XXX error from ES
+            alert(JSON.stringify(results, null, 2))
+            callback(results)
+           // CallBack(result);
+        },
+        error: function (error) {
+            alert("api error");
+            console.log(err)
+        }
+    });
+}
+
+
+function get_agent_result_html(agent) {
     var html = (
     '<div class="toc-two">' +
      '<div class="row">' +
@@ -14,7 +84,7 @@ function get_agent_result_html() {
                     '<div class="toc-two-left-two">' +
                        '<div class="toc-two-left-two-heading">' +
                           '<div class="toc-two-left-two-heading-left">' +
-                             '<h4>Agent Name | <a href="#">Keller Williams Seattle</a></h4>' +
+                             '<h4>' + agent.agent_full_name + ' | <a href="#">Keller Williams Seattle</a></h4>' +
                           '</div>' +
                           '<div class="toc-two-left-two-heading-right">' +
                              '<a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>' +
@@ -277,3 +347,5 @@ function get_agent_result_html() {
     return html
 
 }
+
+window.addEventListener("DOMContentLoaded", populate, false);
