@@ -1,5 +1,5 @@
-API_URL = 'https://app.agentstat.com/api/';
-// API_URL = 'http://localhost:8001/api/';
+// API_URL = 'https://app.agentstat.com/api/';
+API_URL = 'http://localhost:8001/api/';
 
 
 function clean_text(text) {

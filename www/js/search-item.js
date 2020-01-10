@@ -63,8 +63,8 @@ var search_item = `<div class="toc-two">
               </div>
               <div class="toc-two-left-two-link">
                 <ul>
-                  <li><a href="#">Call [[cel_phone]]</a></li>
-                  <li><a href="#" data-toggle="modal" data-target="#myModalx">Message</a></li>
+                  <li><a href="#">Call [[cell_phone]]</a></li>
+                  <li><a href="#" data-toggle="modal" data-agent-id="[[agent_id]]" data-target="#myModalx">Message</a></li>
                 </ul>
                 <div class="modal fade" id="myModalx">
                   <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">
@@ -73,7 +73,7 @@ var search_item = `<div class="toc-two">
                       <div class="modal-body modalh">
                         <div class="two-link-modal">
                           <div class="two-link-modal-heading text-center">
-                            <h2>Contact [Agent Full Name]</h2>
+                            <h2>Contact [[agent_full_name]]</h2>
                           </div>
                           <div class="two-link-modal-content">
                             <div class="row">
@@ -87,32 +87,31 @@ var search_item = `<div class="toc-two">
                                   <div class="modal-call">
                                     <p>Need immediate assistance?</p>
                                     <p>Call us ANYTIME at</p>
-                                    <p>(XXX) XXX - XXXX</p>
+                                    <p>[[cell_phone]]</p>
                                   </div>
                                 </div>
                               </div>
                               <div class="col-lg-6">
                                 <div class="two-link-right">
-                                  <form>
                                     <table>
                                       <tbody><tr>
                                         <td> Name <span>*</span>:</td>
-                                        <td><input type="text" name=""></td>
+                                        <td><input type="text" id="name-[[agent_id]]" name="name"></td>
                                       </tr>
                                       <tr>
                                         <td> Phone <span>*</span>:</td>
-                                        <td><input type="tel" name="" required=""></td>
+                                        <td><input type="tel" id="phone-[[agent_id]]" name="" required=""></td>
                                       </tr>
                                       <tr>
                                         <td> Email <span>*</span>:</td>
-                                        <td><input type="email" name=""></td>
+                                        <td><input type="email" id="email-[[agent_id]]" name=""></td>
                                       </tr>
                                     </tbody></table>
                                     <label>Message</label>
-                                    <textarea></textarea>
+                                    <textarea id="message-[[agent_id]]"></textarea>
                                     <div class="submit-btn">
                                       <button type="button" data-dismiss="modal">Cancel</button>
-                                      <button data-toggle="modal" data-target="#con3" type="submit">Submit</button>
+                                      <button class="lead-submit" data-id="[[agent_id]]">Submit</button>
                                       <div class="modal fade" id="con3">
                                         <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">
                                           <div class="modal-content">
@@ -130,9 +129,9 @@ var search_item = `<div class="toc-two">
                                       </div>
                                     </div>
                                     <div class="modal-form-content">
-                                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ac metus a ullamcorper.</p>
+                                      <p id="msg-[[agent_id]]">
+                                      </p>
                                     </div>
-                                  </form>
                                 </div>
                               </div>
                             </div>
