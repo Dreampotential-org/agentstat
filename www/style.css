@@ -6,6 +6,60 @@ body {
     background: #fff;
     color: #333333;
 }
+.border {
+    border: 3px solid 
+    #dee2e6 !important;
+}
+.center {
+    margin: 0 auto;
+    width: 80%;
+}
+.sign-up{
+    background: #cfe2f3 !important;
+    margin:1px 2px 3px 4px;
+    border-radius: 30px;
+}
+.sign-up-text{
+    margin:0px 30px 0px 30px;
+}
+.form-control{
+    border-radius:30px;
+}
+.text-center{
+    text-align: center;
+}
+.border{
+        padding: 40px;
+}
+.nav-tabs .nav-seller-buyer .nav-item.show .nav-links, .nav-tabs .nav-links.active {
+    color: #3C3C3C;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 4px solid #CE9C05 !important;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-right: 50px;
+}
+#tabs .nav-tabs .nav-seller-buyer .nav-links {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #eee;
+    font-size: 20px;
+     font-weight: bold;
+     margin-right: 50px;
+}
+#nav-new-tab {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3C3C3C; 
+    text-align: left;
+    margin-right: 50px;
+}
+
+
+
 
 a:hover {
     text-decoration: none;
@@ -1378,7 +1432,7 @@ ul {
 }
 
 .pth-agent-link ul {
-    text-align: center;
+    text-align: left;
 }
 
 .pth-agent-link ul li {
@@ -1407,7 +1461,6 @@ ul {
 
 .pth-agent-link ul li:last-child a {
     width: 135px;
-    margin-left: 15px;
 }
 
 .pth-agent-content {
