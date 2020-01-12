@@ -228,7 +228,7 @@ var search_item = `<div class="toc-two">
                                     <div class="col-7">
                                       <div class="button-shape">
                                         <button type="button" data-dismiss="modal">Cancel</button>
-                                        <button id="sum" data-toggle="modal" data-target="#conx2" type="submit">Submit</button>
+                                        <button id="sum-[[agent_id]]" data-toggle="modal" data-target="#conx2" type="submit">Submit</button>
                                         <div class="modal fade" id="conx2">
                                           <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">
                                             <div class="modal-content">

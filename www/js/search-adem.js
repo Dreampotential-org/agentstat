@@ -1,4 +1,4 @@
-settings = get_settings('reports/WA/Seattle/', 'GET');
+settings = get_settings('reports/WA/?city=Seattle&page=1', 'GET');
 settings['headers'] = null;
 // Example requests
 // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
@@ -8,10 +8,8 @@ var search_result = '';
 
 $.ajax(settings).done(function (response) {
   data = JSON.parse(response);
-  $.each(data, function(k, v) {
-    console.log(k);
-    console.log(v['agent_full_name']);
-
+  results = data['results'];
+  $.each(results, function(k, v) {
     item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
     item = item.split('[[time_duration]]').join(v['time_duration']);
     item = item.split('[[cell_phone]]').join(v['agent_cell_phone']);
@@ -23,6 +21,7 @@ $.ajax(settings).done(function (response) {
     search_result += item;
   });
 
+  $('#result-count').html(data['total']);
   $('#page-section').html(search_result);
 
 }).fail(function(err) {
