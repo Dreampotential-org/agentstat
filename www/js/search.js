@@ -63,9 +63,10 @@ function load_search_results() {
         item = item.split('[[s2l_price]]').join(v['s2l_price'].toFixed(1));
 
         item = item.split('[[overall_listings_breakdown_json]]').join(
-            JSON.parse(v['overall_listings_breakdown_json']));
+            array_to_text(v['overall_listings_breakdown_json']))
+
         item = item.split('[[listings_breakdown_json]]').join(
-            JSON.parse(v['listings_breakdown_json']));
+            array_to_text(v['listings_breakdown_json']));
 
         search_result += item;
       });
@@ -79,6 +80,17 @@ function load_search_results() {
       $('.msg').css("display", "block");
       console.log(err);
     });
+}
+
+function array_to_text(items) {
+    var result = ''
+    items = JSON.parse(items)
+    for(var item of items) {
+        result += item
+        result += "<br>"
+
+    }
+    return result
 }
 
 $(document).on('change click', '.lead-submit', function() {
