@@ -57,7 +57,7 @@ var search_item = `<div class="toc-two">
               </div>
               <div class="toc-two-left-two-link">
                 <ul>
-                  <li><a href="#">Call [[cell_phone]]</a></li>
+                  <!--<li><a href="#">Call [[cell_phone]]</a></li>-->
                   <li><a href="#" data-toggle="modal" data-agent-id="[[agent_id]]" data-target="#myModalx">Message</a></li>
                 </ul>
                 <div class="modal fade" id="myModalx">

@@ -12,8 +12,8 @@ $.ajax(settings).done(function (response) {
   $.each(results, function(k, v) {
     item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
     item = item.split('[[time_duration]]').join(v['time_duration']);
-    item = item.split('[[cell_phone]]').join(v['agent_cell_phone']);
-    item = item.split('[[cel_phone]]').join(v['agent_cell_phone']);
+    // item = item.split('[[cell_phone]]').join(v['agent_cell_phone']);
+    // item = item.split('[[cel_phone]]').join(v['agent_cell_phone']);
     item = item.split('[[score]]').join(v['score']);
     item = item.split('[[agent_id]]').join(v['agent_id']);
     item = item.split('[[agent_full_name]]').join(v['agent_full_name']);
