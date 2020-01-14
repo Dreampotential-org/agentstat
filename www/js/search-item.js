@@ -13,7 +13,7 @@ var search_item = `<div class="toc-two">
               <div class="toc-two-left-two-heading">
                 <div class="toc-two-left-two-heading-left">
                   <h4>[[agent_name]] | <a href="#">Brokerage</a></h4>
-                  <span>SCORE | [[score]] - [[time_duration]] </span>
+                  <span>SCORE | [[score]] - [[time_duration]]</span>
                 </div>
                 <div class="toc-two-left-two-heading-right">
                   <a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
@@ -28,35 +28,26 @@ var search_item = `<div class="toc-two">
                     <td><h5 class="m-0"><strong>Seattle</strong></h5></td>
                   </tr>
                   <tr>
-                    <td><strong>Success Rate ..... </strong></td>
-                    <td>100%</td>
-                    <td>100%</td>
+                    <td><strong>Sold Listings</strong></td>
+                    <td>[[overall_sold_listings]]</td>
+                    <td>[[sold_listings]]</td>
                   </tr>
                   <tr>
-                    <td><strong>Avg Sales to List Ratio .....</strong></td>
-                    <td>101%</td>
-                    <td>100</td>
+                    <td><strong>Failed Listings</strong></td>
+                    <td>[[overall_failed_listings]]</td>
+                    <td>[[failed_listings]]</td>
                   </tr>
                   <tr>
-                    <td><strong>Avg Sales Price .....</strong></td>
-                    <td>$435,399</td>
-                    <td>$535,399</td>
+                    <td><strong>Avg Days On Market</strong></td>
+                    <td>[[overall_avg_dom]]</td>
+                    <td>[[avg_dom]]</td>
                   </tr>
                   <tr>
-                    <td><strong>Avg Days on Market .....</strong></td>
-                    <td>39</td>
-                    <td>25</td>
+                    <td><strong>Avg Sold to List Price</strong></td>
+                    <td>[[overall_s2l_price]]</td>
+                    <td>[[s2l_price]]</td>
                   </tr>
-                  <tr>
-                    <td><strong>Single Family .....</strong></td>
-                    <td>12</td>
-                    <td>6</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Condos .....</strong></td>
-                    <td>27</td>
-                    <td>23</td>
-                  </tr>
+
 
                 </tbody></table>
 

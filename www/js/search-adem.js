@@ -18,6 +18,18 @@ $.ajax(settings).done(function (response) {
     item = item.split('[[agent_id]]').join(v['agent_id']);
     item = item.split('[[agent_full_name]]').join(v['agent_full_name']);
 
+    item = item.split('[[overall_failed_listings]]').join(v['overall_failed_listings']);
+    item = item.split('[[failed_listings]]').join(v['failed_listings']);
+
+    item = item.split('[[overall_sold_listings]]').join(v['overall_sold_listings']);
+    item = item.split('[[sold_listings]]').join(v['sold_listings']);
+
+    item = item.split('[[overall_avg_dom]]').join(v['overall_avg_dom'].toFixed(1));
+    item = item.split('[[avg_dom]]').join(v['avg_dom'].toFixed(1));
+
+    item = item.split('[[overall_s2l_price]]').join(v['overall_s2l_price'].toFixed(1));
+    item = item.split('[[s2l_price]]').join(v['s2l_price'].toFixed(1));
+
     search_result += item;
   });
 
