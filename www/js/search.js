@@ -16,7 +16,8 @@ function load_search_results() {
     var filters = get_search_filters()
     var url = ('reports/WA/?' + filters + '&page=1')
     console.log(url)
-    settings = get_settings('reports/WA/?' + filters + '&page=1', 'GET');
+    settings = get_settings(
+        'reports/WA/?' + filters + '&page=1', 'GET');
     settings['headers'] = null;
     // Example requests
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
