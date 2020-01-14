@@ -13,7 +13,7 @@ var search_item = `<div class="toc-two">
               <div class="toc-two-left-two-heading">
                 <div class="toc-two-left-two-heading-left">
                   <h4>[[agent_name]] | <a href="#">Brokerage</a></h4>
-                  <span>SCORE | [[score]] - [[time_duration]]</span>
+                  <span>SCORE | [[score]]</span>
                 </div>
                 <div class="toc-two-left-two-heading-right">
                   <a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
