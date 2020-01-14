@@ -48,7 +48,7 @@ var search_item = `<div class="toc-two">
                     <td>[[s2l_price]]%</td>
                   </tr>
                   <tr>
-                    <td><strong>Listing Break Down</strong></td>
+                    <td><strong>Break Down</strong></td>
                     <td>[[overall_listings_breakdown_json]]</td>
                     <td>[[listings_breakdown_json]]</td>
                   </tr>
