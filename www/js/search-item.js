@@ -25,7 +25,7 @@ var search_item = `<div class="toc-two">
                   <tbody><tr>
                     <td></td>
                     <td><h5 class="m-0"><strong>Overall</strong></h5></td>
-                    <td><h5 class="m-0"><strong>Seattle</strong></h5></td>
+                    <td><h5 class="m-0"><strong>[[city]]</strong></h5></td>
                   </tr>
                   <tr>
                     <td><strong>Sold Listings</strong></td>
