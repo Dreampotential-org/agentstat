@@ -5,19 +5,28 @@ function init() {
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
     const city = urlParams.get('city')
+    const state = urlParams.get('state')
+
     var filters = ''
     if (city != null) {
         filters = 'city=' + city
     }
+    if (state != null) {
+        filters = 'city=' + city
+    }
+
     return filters
 }
 
 function load_search_results() {
     var filters = get_search_filters()
-    var url = ('reports/WA/?' + filters + '&page=1')
+    const urlParams = new URLSearchParams(window.location.search);
+    var state = urlParams.get('state')
+    if (!(state)) state = "WA"
+    var url = ('reports/' + state + '/?' + filters + '&page=1')
     console.log(url)
     settings = get_settings(
-        'reports/WA/?' + filters + '&page=1', 'GET');
+        'reports/' + state + '/?' + filters + '&page=1', 'GET');
     settings['headers'] = null;
     // Example requests
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
@@ -70,7 +79,6 @@ function load_search_results() {
       $('.msg').css("display", "block");
       console.log(err);
     });
-
 }
 
 $(document).on('change click', '.lead-submit', function() {
@@ -96,7 +104,6 @@ $(document).on('change click', '.lead-submit', function() {
     $('#msg-' + selected_agent_id).css("display", "block");
     console.log(err);
   });
-
 });
 
 

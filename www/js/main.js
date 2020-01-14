@@ -9,7 +9,14 @@ function fillIn() {
 }
 
 function redirectResults(results) {
-    if ('city' in results) {
+
+    if('city' in results) {
+        window.location = (
+            '/page-two-test.html?state=' + results['state'] +
+            '&city=' + results['city'])
+    }
+
+    else if ('city' in results) {
         window.location = (
             'https://app.agentstat.com/reports_v2/' + results['state'] +
             '/?city=' + results['city']
