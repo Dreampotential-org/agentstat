@@ -44,11 +44,14 @@ var search_item = `<div class="toc-two">
                   </tr>
                   <tr>
                     <td><strong>Avg Sold to List Price</strong></td>
-                    <td>[[overall_s2l_price]]</td>
-                    <td>[[s2l_price]]</td>
+                    <td>[[overall_s2l_price]]%</td>
+                    <td>[[s2l_price]]%</td>
                   </tr>
-
-
+                  <tr>
+                    <td><strong>Listing Break Down</strong></td>
+                    <td>[[overall_listings_breakdown_json]]</td>
+                    <td>[[listings_breakdown_json]]</td>
+                  </tr>
                 </tbody></table>
 
               </div>

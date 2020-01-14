@@ -24,11 +24,18 @@ $.ajax(settings).done(function (response) {
     item = item.split('[[overall_sold_listings]]').join(v['overall_sold_listings']);
     item = item.split('[[sold_listings]]').join(v['sold_listings']);
 
-    item = item.split('[[overall_avg_dom]]').join(v['overall_avg_dom'].toFixed(1));
+    item = item.split('[[overall_avg_dom]]').join(
+        v['overall_avg_dom'].toFixed(1));
     item = item.split('[[avg_dom]]').join(v['avg_dom'].toFixed(1));
 
-    item = item.split('[[overall_s2l_price]]').join(v['overall_s2l_price'].toFixed(1));
+    item = item.split('[[overall_s2l_price]]').join(
+        v['overall_s2l_price'].toFixed(1));
     item = item.split('[[s2l_price]]').join(v['s2l_price'].toFixed(1));
+
+    item = item.split('[[overall_listings_breakdown_json]]').join(
+        JSON.parse(v['overall_listings_breakdown_json']));
+    item = item.split('[[listings_breakdown_json]]').join(
+        JSON.parse(v['listings_breakdown_json']));
 
     search_result += item;
   });
