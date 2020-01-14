@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<!-- Meta setup -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="keywords" content="">
+<meta name="decription" content="">
+<meta name="author" content="Asad Kabir">
+
+<!-- Title -->
+<title>Transaction</title>
+
+<!-- Fav Icon -->
+<link rel="icon" href="img/fav.png" />
+
+<link href="css/fileinput.css" rel="stylesheet" type="text/css">
+
+<!-- Include Owl-Carusol -->
+<link rel="stylesheet" href="css/owl.carousel.min.css" />
+<link rel="stylesheet" href="css/owl.theme.default.min.css" />
+
+<!-- Include Bootstrap -->
+<link rel="stylesheet" href="css/bootstrap.css" />
+<script src="js/bootstrap.js"></script> 
+
+<!-- Main StyleSheet -->
+<link rel="stylesheet" href="style.css" />
+
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="css/responsive.css" />
+
+</head>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- header-area start -->
+<div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand form-logo" href="index.html">
+                <img src="img/logo.png" alt="logo" />
+            </a>
+            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="hamburger-box">
+				    <span class="hamburger-inner"></span>
+				  </span>
+				</button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <div class="main-menu-part form-menu">
+                    <ul class="float-left form-ulli-left">
+                        <li><a href="#">HOME </a></li>
+                        <li><a href="#">TRANSACTIONS </a></li>
+                        <li><a href="#">DASHBOARD  </a></li>
+                        <li><a href="#">REFERRALS </a></li>
+                    </ul>
+                    <ul class="float-right user-icon form-ulli-right">
+                        <li>
+                            <div class="dropdown profile show">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="fas fa-user-circle"></i></span>
+                                </a>
+
+                                <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">
+                                        <p>Profile Settings</p>
+                                        <span>Edit your profile info and reviews</span>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <p>Account Settings</p>
+                                        <span>Manage your account settings</span>
+                                    </a>
+                                    <a class="dropdown-item" href="#">Sign Out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+</div>
+</div>
+<!-- header-area end -->
+<div class="container">
+    <hr>
+        <div class="pth-all-heading">
+            <br>
+            <button class="btn btn-success"><i class="fa fa-dollar"></i> Add transaction</button>
+            <br><br>
+        </div>
+        
+            <table class="table table-striped table-bordered">
+                <tr class="table-heading">
+                    <th>Status</th>
+                    <th>List Price</th>
+                    <th>Sold Price</th>
+                    <th>Days on Market</th>
+                    <th>List Date</th>
+                    <th>Address</th>
+                    <th>Built</th>
+                    <th>City</th>
+                    <th>Home Type</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>SOLD</td>
+                    <td>$399,990</td>
+                    <td>$399,990</td>
+                    <td>94</td>
+                    <td>11/24/2017</td>
+                    <td>123 Main st, Seattle, WA 98109</td>
+                    <td>2017</td>
+                    <td>Seattle, WA</td>
+                    <td>Resdential</td>
+                    <td><button class="btn btn-primary"data-toggle="modal" data-target="#myModal"  title="notes"><i class="fa fa-plus"></i> Add public note</button></td>
+                </tr>
+                <tr>
+                    <td style="color:#D04848;">FAILED</td>
+                    <td>$349,990</td>
+                    <td></td>
+                    <td>55</td>
+                    <td>11/24/2017</td>
+                    <td>123 Main st, Seattle, WA 98109</td>
+                    <td>2017</td>
+                    <td>Seattle, WA</td>
+                    <td>Resdential</td>
+                   <td><button class="btn btn-primary"data-toggle="modal" data-target="#myModal"  title="notes"><i class="fa fa-plus"></i> Add public note</button></td>
+                </tr>
+                <tr>
+                    <td>SOLD</td>
+                    <td>$379,990</td>
+                    <td>$369,990</td>
+                    <td>22</td>
+                    <td>11/24/2017</td>
+                    <td>123 Main st, Seattle, WA 98109</td>
+                    <td>2017</td>
+                    <td>Seattle, WA</td>
+                    <td>Resdential</td>
+                   <td><button class="btn btn-primary"data-toggle="modal" data-target="#myModal"  title="notes"><i class="fa fa-plus"></i> Add public note</button></td>
+                </tr>
+                <tr>
+                    <td>SOLD</td>
+                    <td>$399,990</td>
+                    <td>$399,990</td>
+                    <td>137</td>
+                    <td>11/24/2017</td>
+                    <td>123 Main st, Seattle, WA 98109</td>
+                    <td>2016</td>
+                    <td>Seattle, WA</td>
+                    <td>Resdential</td>
+                    <td><button class="btn btn-primary"data-toggle="modal" data-target="#myModal"  title="notes"><i class="fa fa-plus"></i> Add public note</button></td>
+                </tr>
+                <tr>
+                    <td>SOLD</td>
+                    <td>$349,990</td>
+                    <td>$349,990</td>
+                    <td>44</td>
+                    <td>11/24/2017</td>
+                    <td>123 Main st, Seattle, WA 98109</td>
+                    <td>2016</td>
+                    <td>Seattle, WA</td>
+                    <td>Condominium</td>
+                    <td><button class="btn btn-primary"data-toggle="modal" data-target="#myModal"  title="notes"><i class="fa fa-plus"></i> Add public note</button></td>
+                </tr>
+                <tr>
+                    <td>SOLD</td>
+                    <td>$379,990</td>
+                    <td>$369,990</td>
+                    <td>36</td>
+                    <td>11/24/2017</td>
+                    <td>123 Main st, Seattle, WA 98109</td>
+                    <td>2016</td>
+                    <td>Seattle, WA</td>
+                    <td>Condominium</td>
+                   <td><button class="btn btn-primary"data-toggle="modal" data-target="#myModal"  title="notes"><i class="fa fa-plus"></i> Add public note</button></td>
+                </tr>
+                <tr>
+                    <td>SOLD</td>
+                    <td>$349,990</td>
+                    <td>$349,990</td>
+                    <td>78</td>
+                    <td>11/24/2017</td>
+                    <td>123 Main st, Seattle, WA 98109</td>
+                    <td>2016</td>
+                    <td>Seattle, WA</td>
+                    <td>Condominium</td>
+                   <td><button class="btn btn-primary"data-toggle="modal" data-target="#myModal"  title="notes"><i class="fa fa-plus"></i> Add public note</button></td>
+                </tr>
+            </table>
+    
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Write Public Notes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form method="POST" action="">
+      <div class="modal-body">
+        <textarea name="notes" class="modal-notes form-control" ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-primary">Save changes</button>
+      </div>
+  </form>
+    </div>
+  </div>
+</div>
+<!-- Main jQuery -->
+<script src="js/jquery-3.4.1.min.js"></script>
+
+<!-- Bootstrap Propper jQuery -->
+<script src="js/popper.js"></script>
+
+<!-- Bootstrap jQuery -->
+<script src="js/bootstrap.js"></script>
+
+<!-- Fontawesome Script -->
+<script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+
+<script src="js/fileinput.js"></script>
+
+<script src="js/owl.carousel.min.js"></script>
+
+<!-- Custom jQuery -->
+<script src="js/scripts.js"></script>
+
+<script src="/js/conf.js"></script>
+<script src="/js/login.js"></script>
+
+<!-- Scroll-Top button -->
+<a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+</body>
+
+</html>
