@@ -17,8 +17,8 @@ var search_item = `<div class="toc-two">
                   <span>SCORE | [[score]]</span>
                 </div>
                 <div class="toc-two-left-two-heading-right">
-                  <a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
-                  <p>Unpin</p>
+                  <a href="#" onclick="Unpin()"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
+                  <p id="unpin-text">Unpin</p>
                 </div>
               </div>
               <div class="ak-table">
@@ -268,3 +268,8 @@ var search_item = `<div class="toc-two">
     </div>
   </div>
 </div>`
+<script>
+function Unpin() {
+  document.getElementById("unpin-text").innerHTML = "Hello World";
+}
+</script>
