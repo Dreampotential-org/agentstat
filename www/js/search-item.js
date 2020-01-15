@@ -17,7 +17,7 @@ var search_item = `<div class="toc-two">
                   <span>SCORE | [[score]]</span>
                 </div>
                 <div class="toc-two-left-two-heading-right">
-                  <a href="#" onclick="changepin()"><span id="unpin-icon"><i class="fas fa-thumbtack" aria-hidden="true"></i></span></a>
+                  <a href="#" class="unpincheck"><span id="unpin-icon"><i class="fas fa-thumbtack" aria-hidden="true"></i></span></a>
                   <p id="unpin-text">Unpin</p>
                 </div>
               </div>
@@ -274,10 +274,3 @@ var search_item = `<div class="toc-two">
     </div>
   </div>
 </div>`
-<script type="text/javascript">
-    
-function changepin() {
-  document.getElementById("unpin-icon").innerHTML = "<img src="img/push-pin.svg" alt="">";
-document.getElementById("unpin-text").innerHTML = "Pin to the top";
-}
-</script>

@@ -548,8 +548,12 @@
 	    	jQuery(".dm-part").slideToggle();
 
 	    });
-	</script>
+	     jQuery(".unpincheck").click(function() {
+	    	document.getElementById("unpin-icon").innerHTML = "<img src="img/push-pin.svg" alt="">";
+document.getElementById("unpin-text").innerHTML = "Pin to the top";
 
+	    });
+	</script>
 	<!-- Scroll-Top button -->
 	<a href="#" class="scrolltotop"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
 	
