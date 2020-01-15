@@ -17,8 +17,8 @@ var search_item = `<div class="toc-two">
                   <span>SCORE | [[score]]</span>
                 </div>
                 <div class="toc-two-left-two-heading-right">
-                  <a href="#" onclick="unpincheck()"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
-                  <p id="unpin-text">Unpin</p>
+                  <a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
+                  <p>Unpin</p>
                 </div>
               </div>
               <div class="ak-table">
