@@ -274,3 +274,10 @@ var search_item = `<div class="toc-two">
     </div>
   </div>
 </div>`
+<script type="text/javascript">
+    
+function changepin() {
+  document.getElementById("unpin-icon").innerHTML = "<img src="img/push-pin.svg" alt="">";
+document.getElementById("unpin-text").innerHTML = "Pin to the top";
+}
+</script>
