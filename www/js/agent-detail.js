@@ -1,6 +1,5 @@
 
 function init() {
-    console.log('TESTSSSSSSS');
     load_agent();
 }
 
@@ -10,7 +9,6 @@ function load_agent() {
 
   settings = get_settings('agents/' + agent_id, 'GET');
   settings['headers'] = null;
-
 
   $.ajax(settings).done(function (response) {
     data = JSON.parse(response);
@@ -29,9 +27,6 @@ function load_agent() {
 }
 
 $(document).on('change click', '.how_soon li>a', function() {
-
-  console.log($(this).text());
-
   var leads = {
     'how_soon_sell': $(this).text()
   }
@@ -77,14 +72,11 @@ $(document).on('change click', '#lead-submit', function() {
 
   localStorage.setItem('leads', JSON.stringify(data));
 
-  console.log(data);
-
   settings = get_settings('lead/', 'POST', JSON.stringify(data));
   settings['headers'] = null;
 
   $.ajax(settings).done(function (response) {
     var msg = JSON.parse(response);
-    console.log('success');
     $('#leads-step-three').css('display', 'none');
     $('#leads-step-four').css('display', 'block');
 
