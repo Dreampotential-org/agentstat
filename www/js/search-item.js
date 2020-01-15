@@ -17,7 +17,7 @@ var search_item = `<div class="toc-two">
                   <span>SCORE | [[score]]</span>
                 </div>
                 <div class="toc-two-left-two-heading-right">
-                  <a href="#" class="unpincheck"><span id="unpin-icon"><i class="fas fa-thumbtack" aria-hidden="true"></i></span></a>
+                  <a href="#" class="unpincheck"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
                   <p id="unpin-text">Unpin</p>
                 </div>
               </div>
