@@ -6,6 +6,9 @@ body {
     background: #fff;
     color: #333333;
 }
+.sm-link ul li {
+    box-sizing: initial !important;
+}
 .modal{
     margin: 149px 0px 0px 0px;
 }
