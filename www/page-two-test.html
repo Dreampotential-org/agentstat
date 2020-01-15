@@ -550,11 +550,12 @@
 	    });
 	</script>
 
-	<script>
-function pintotop() {
-	document.getElementById("unpin-icon").innerHTML = "<img src="img/push-pin.svg" alt="">";
-document.getElementById("unpin-text").innerHTML = "Pin to the top";
-}
+	<script type="text/javascript">
+		$("#hide-this").on('click', function() {
+   $(this).hide();
+   $("#unpin-show").hide();
+   $("#unpin-hide").show();
+});
 </script>
 	<!-- Scroll-Top button -->
 	<a href="#" class="scrolltotop"><i class="fas fa-angle-up" aria-hidden="true"></i></a>

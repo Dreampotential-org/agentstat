@@ -16,9 +16,13 @@ var search_item = `<div class="toc-two">
                   <!--<h4>[[agent_name]] | <a href="#">Brokerage</a></h4>-->
                   <span>SCORE | [[score]]</span>
                 </div>
-                <div class="toc-two-left-two-heading-right">
-                  <a href="#" onclick="pintotop()"><span id="unpin-icon"><i class="fas fa-thumbtack" aria-hidden="true"></i></span></a>
-                  <p id="unpin-text">Unpin</p>
+                <div class="toc-two-left-two-heading-right" id="unpin-show">
+                  <a href="#" id="hide-this"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
+                  <p>Unpin</p>
+                </div>
+                <div class="toc-two-left-two-heading-right" id="unpin-hide">
+                  <a href="#" id="hide-this-pin"><img src="img/push-pin.svg" alt=""></a>
+                  <p>Pin to the top</p>
                 </div>
               </div>
               <div class="ak-table">
