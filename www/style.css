@@ -2799,6 +2799,8 @@ ul {
 }
 
 .dm-part2 {
+        border-top-left-radius: 20px;
+    border-bottom-right-radius: 30px;
     position: absolute;
     width: 200px;
     top: 100%;
@@ -2810,6 +2812,16 @@ ul {
     display: none;
 }
 
+.d-block {
+    border-bottom: 1px solid lightgray;
+    padding: 6px;
+}
+.d-block:hover {
+    background: 
+lightgray;
+color:
+    white;
+}
 .dm-main2 > button,
 .dm-main > button {
     background: transparent;
