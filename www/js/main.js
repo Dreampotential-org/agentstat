@@ -142,7 +142,7 @@ $(document).ready(function () {
 
   // console.log(JSON.stringify(data));
   $.ajax({
-    url: 'https://app.agentstat.com/api/',
+    url: 'https://app.agentstat.com/api/px/',
     method: 'POST',
     success: function(html) {
       strReturn = html;
