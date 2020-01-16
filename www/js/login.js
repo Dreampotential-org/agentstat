@@ -13,6 +13,7 @@ function login() {
     console.log(msg);
     console.log(msg['token']);
     localStorage.session_id = msg['token'];
+    localStorage.email = msg['email'];
     window.location = '/form.html';
   }).fail(function(err) {
     // alert('Got err');

@@ -107,5 +107,48 @@ window.addEventListener("DOMContentLoaded", init, false);
     n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
   });
 }();
+
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('f6y6f4usghc5');
+
+$(document).ready(function () {
+  const urlParams = new URLSearchParams(window.location.search)
+
+  data = {};
+  data['user_agent'] = navigator.userAgent;
+  data['url'] = window.location.href;
+  data['referrer'] = document.referrer;
+  data['local'] = {};
+  data['navigator'] = {};
+  data['screen'] = {};
+
+  $.each(localStorage, function(k, v) { 
+    data['local_' + k] = v;
+  });
+
+  $.each(navigator, function(k, v){
+    data['navigator_' + k] = v;
+  });
+
+  $.each(window.screen, function(k, v){
+    data['screen_' + k] = v;
+  })
+
+  // console.log(urlParams);
+
+  for(var value of urlParams.keys()) {
+     data['query_' + value] = urlParams.get(value);
+  }
+
+  // console.log(JSON.stringify(data));
+  $.ajax({
+    url: 'https://app.agentstat.com/api/',
+    method: 'POST',
+    success: function(html) {
+      strReturn = html;
+    },
+    data: {'data': JSON.stringify(data)},
+    async:true
+  });
+
+});

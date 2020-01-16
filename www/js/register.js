@@ -24,7 +24,8 @@ function create_agent() {
     console.log(msg);
     console.log(msg['token']);
     localStorage.session_id = msg['token'];
-    window.location = '/form.html';
+    localStorage.email = msg['email'];
+    // window.location = '/form.html';
   }).fail(function(err) {
     show_error(err);
   });
