@@ -20,6 +20,24 @@ function load_agent() {
     $.each($('.agent_name_city'), function() { $(this).html( name_city )});
 
     console.log(data['city']);
+    // console.log(data['agent_lists']);
+    $.each(data['agent_lists'], function(k, v) {
+      $(`
+      <tr>
+        <td>` + v['status'] +`</td>
+        <td>` + v['list_price_int'] +`</td>
+        <td>` + v['sold_price_int'] +`</td>
+        <td>` + v['days_on_market'] +`</td>
+        <td>` + v['list_date'] +`</td>
+        <td>` + v['address_text'] +`</td>
+        <td>` + v['year_built'] +`</td>
+        <td>` + v['city'] +`</td>
+        <td>` + v['home_type'] +`</td>
+        <td> Note </td>
+      </tr>
+        `).insertAfter("#transations")
+      console.log(v);
+    })
 
   }).fail(function(err){
     console.log(err);
@@ -76,13 +94,16 @@ $(document).on('change click', '#lead-submit', function() {
   settings['headers'] = null;
 
   $.ajax(settings).done(function (response) {
+
     var msg = JSON.parse(response);
     $('#leads-step-three').css('display', 'none');
     $('#leads-step-four').css('display', 'block');
 
   }).fail(function(err) {
+
     $('.msg').html(err['responseText']);
     console.log(err);
+
   });
 });
 
