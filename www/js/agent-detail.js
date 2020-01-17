@@ -18,6 +18,9 @@ function load_agent() {
     var name_city = data['full_name'] + ' - ' + data['city'];
 
     $.each($('.agent_name_city'), function() { $(this).html( name_city )});
+    $(".contact-agent").text("Contact " + data['full_name'].split(" ")[0])
+
+
 
     console.log(data['city']);
     // console.log(data['agent_lists']);
