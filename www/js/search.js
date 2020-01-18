@@ -107,15 +107,34 @@ function array_to_text(items) {
     return result
 }
 
+function set_pined_agent_ids() {
+    var pined_agents  = $(".toc-two .toc-two-left-two-heading-right")
+    console.log(pined_agents)
+    var selected_agent_ids = ''
+    for(var pined_agent of pined_agents) {
+        if ($(pined_agent).hasClass("toc-two-left-two-heading-right-next")) {
+            continue
+        }
+        selected_agent_ids += $(pined_agent).closest(
+            ".toc-two").attr("agent_id") + ","
+    }
+    var url = new URL(window.location.href);
+    url.searchParams.set("agents", selected_agent_ids);
+    $("#agents").val(url.searchParams.get("agents"))
+    window.history.pushState("", "", url)
+}
+
 function init_search_events() {
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
         $(this).find("p").text("Pin to top")
+        set_pined_agent_ids()
     })
 
     $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
         $(this).removeClass("toc-two-left-two-heading-right-next");
         $(this).find("p").text("Unpin")
+        set_pined_agent_ids()
     })
 
     $(document).on('change click', '.lead-submit', function() {

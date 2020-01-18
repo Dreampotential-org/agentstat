@@ -1,4 +1,4 @@
-var search_item = `<div class="toc-two">
+var search_item = `<div class="toc-two" agent_id=[[agent_id]]>
   <div class="row">
     <div class="col-lg-8 col-12">
       <div class="toc-two-left">
