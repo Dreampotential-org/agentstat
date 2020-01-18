@@ -1199,6 +1199,7 @@ ul {
 .toc-two-left-two-heading-right-next a {
     transform: rotate(30deg);
     margin-left: 45px;
+    margin-top: 4px;
     color: #759AA5;
 }
 

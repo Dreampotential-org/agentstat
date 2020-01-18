@@ -1,5 +1,6 @@
 function init() {
     load_search_results()
+    init_search_events()
 }
 
 function get_search_filters() {
@@ -106,30 +107,43 @@ function array_to_text(items) {
     return result
 }
 
-$(document).on('change click', '.lead-submit', function() {
-  var selected_agent_id = $(this).attr('data-id');
-  var data = {}
-  data['name'] = $('#name-' + selected_agent_id).val();
-  data['phone'] = $('#phone-' + selected_agent_id).val();
-  data['email'] = $('#email-' + selected_agent_id).val();
-  data['agent'] = selected_agent_id;
-  data['message'] = $('#message-' + selected_agent_id).val();
+function init_search_events() {
+    $(document).on('click', '.toc-two-left-two-heading-right', function() {
+        $(this).addClass("toc-two-left-two-heading-right-next");
+        $(this).find("p").text("Pin to the top")
+    })
 
-  settings = get_settings('lead/', 'POST', JSON.stringify(data));
-  settings['headers'] = null;
+    $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
+        $(this).removeClass("toc-two-left-two-heading-right-next");
+        $(this).find("p").text("Unpin")
+    })
 
-  $.ajax(settings).done(function (response) {
-    var msg = JSON.parse(response);
-    console.log(msg);
-    $('#msg-'+ selected_agent_id).html('Your message has been sent.');
-    // window.location = '/form.html';
-  }).fail(function(err) {
-    // alert('Got err');
-    $('#msg-'+ selected_agent_id).html(err['responseText']);
-    $('#msg-' + selected_agent_id).css("display", "block");
-    console.log(err);
-  });
-});
+    $(document).on('change click', '.lead-submit', function() {
+      var selected_agent_id = $(this).attr('data-id');
+      var data = {}
+      data['name'] = $('#name-' + selected_agent_id).val();
+      data['phone'] = $('#phone-' + selected_agent_id).val();
+      data['email'] = $('#email-' + selected_agent_id).val();
+      data['agent'] = selected_agent_id;
+      data['message'] = $('#message-' + selected_agent_id).val();
+
+      settings = get_settings('lead/', 'POST', JSON.stringify(data));
+      settings['headers'] = null;
+
+      $.ajax(settings).done(function (response) {
+        var msg = JSON.parse(response);
+        console.log(msg);
+        $('#msg-'+ selected_agent_id).html('Your message has been sent.');
+        // window.location = '/form.html';
+      }).fail(function(err) {
+        // alert('Got err');
+        $('#msg-'+ selected_agent_id).html(err['responseText']);
+        $('#msg-' + selected_agent_id).css("display", "block");
+        console.log(err);
+      });
+    });
+
+}
 
 
 window.addEventListener("DOMContentLoaded", init, false);
