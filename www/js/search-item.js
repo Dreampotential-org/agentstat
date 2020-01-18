@@ -163,7 +163,7 @@ var search_item = `<div class="toc-two">
           </div>
           <div class="sm-link">
             <ul>
-              <li><a href="#">Call Agent Name</a></li>
+              <!-- <li><a href="#">Call Agent Name</a></li> --!>
               <li><a href="#" data-toggle="modal" data-target="#myModal0">Message</a></li>
             </ul>
             <div class="modal fade" id="myModal0">
