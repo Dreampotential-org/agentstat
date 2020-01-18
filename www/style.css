@@ -6,6 +6,9 @@ body {
     background: #fff;
     color: #333333;
 }
+.add-transaction-check{
+    padding: 0px !important;
+}
 .pin img{
     margin: 2px 0px 3px 43px;
 }
@@ -18,7 +21,12 @@ body {
 .space-bottom{
     padding: 30px 0px 30px 0px;
 }
-
+.form-style .form-control{
+    border-radius: 0px !important;
+}
+.form-style .form-group {
+    margin-bottom: 30px;
+}
 textarea.public-note-text.form-control {
     border-radius: 0px !important;
 }
