@@ -11,6 +11,11 @@ function load_agent() {
   const urlParams = new URLSearchParams(window.location.search)
   var agent_id =  urlParams.get('agent_id')
 
+  if (agent_id) {
+    $(".claim_profile").attr("href", "/signup.html?agent_id=" + agent_id)
+  }
+
+
   settings = get_settings('agents/' + agent_id, 'GET');
   settings['headers'] = null;
 
@@ -22,6 +27,9 @@ function load_agent() {
     var name_city = data['full_name'] + ' - ' + data['city'];
 
     $.each($('.agent_name_city'), function() { $(this).html( name_city )});
+    $(".contact-agent").text("Contact " + data['full_name'].split(" ")[0])
+
+
 
     console.log(data['city']);
     // console.log(data['agent_lists']);
