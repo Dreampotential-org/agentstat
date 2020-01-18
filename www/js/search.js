@@ -43,6 +43,7 @@ function load_search_results() {
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
     var data;
     var search_result = '';
+    var on_page_agent_ids = []
 
     $.ajax(settings).done(function (response) {
 
@@ -50,6 +51,7 @@ function load_search_results() {
       results = data['results'];
 
       $.each(results, function(k, v) {
+        on_page_agent_ids.push(v['agent_id'])
         item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
@@ -87,13 +89,21 @@ function load_search_results() {
 
       $('#result-count').html(data['total']);
       $('#page-section').html(search_result);
-
+      handle_selected_agent_ids(on_page_agent_ids)
     }).fail(function(err) {
       // alert('Got err');
       $('.msg').html(err['responseText']);
       $('.msg').css("display", "block");
       console.log(err);
     });
+
+}
+
+function handle_selected_agent_ids(on_page_agent_ids) {
+    var url = new URL(window.location.href)
+    var agent_ids = url.searchParams.get('agents')
+
+
 }
 
 function array_to_text(items) {
