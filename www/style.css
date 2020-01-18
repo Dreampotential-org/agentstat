@@ -6,6 +6,15 @@ body {
     background: #fff;
     color: #333333;
 }
+.profile-border{
+    border: 2px solid ;
+}
+.home-profile{
+    padding: 0px 70px;
+}
+.digits-color{
+    color: #2176a7;
+}
 .add-transaction-check{
     padding: 0px !important;
 }
