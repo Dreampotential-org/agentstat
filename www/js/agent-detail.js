@@ -3,6 +3,10 @@ function init() {
     load_agent();
 }
 
+function currencyFormat(num) {
+  return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
 function load_agent() {
   const urlParams = new URLSearchParams(window.location.search)
   var agent_id =  urlParams.get('agent_id')
@@ -22,11 +26,10 @@ function load_agent() {
     console.log(data['city']);
     // console.log(data['agent_lists']);
     $.each(data['agent_lists'], function(k, v) {
-      $(`
-      <tr>
+      $(`<tr>
         <td>` + v['status'] +`</td>
-        <td>` + v['list_price_int'] +`</td>
-        <td>` + v['sold_price_int'] +`</td>
+        <td>` + currencyFormat(v['list_price_int']) +`</td>
+        <td>` + currencyFormat(v['sold_price_int']) +`</td>
         <td>` + v['days_on_market'] +`</td>
         <td>` + v['list_date'] +`</td>
         <td>` + v['address_text'] +`</td>
@@ -34,9 +37,7 @@ function load_agent() {
         <td>` + v['city'] +`</td>
         <td>` + v['home_type'] +`</td>
         <td> Note </td>
-      </tr>
-        `).insertAfter("#transations")
-      console.log(v);
+      </tr>`).insertAfter("#transations");
     })
 
   }).fail(function(err){
