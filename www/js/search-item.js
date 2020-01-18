@@ -12,7 +12,7 @@ var search_item = `<div class="toc-two">
             <div class="toc-two-left-two">
               <div class="toc-two-left-two-heading">
                 <div class="toc-two-left-two-heading-left">
-                  <a href="/page-three.html?agent_id=[[agent_id]]" target="_blank"><h4>[[agent_name]]</h4></a>
+                  <a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]]</h4></a>
                   <!--<h4>[[agent_name]] | <a href="#">Brokerage</a></h4>-->
                   <span>SCORE | [[score]]</span>
                 </div>

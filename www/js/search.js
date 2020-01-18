@@ -7,15 +7,25 @@ function get_search_filters() {
     const city = urlParams.get('city')
     const state = urlParams.get('state')
 
-    var filters = ''
+    var filters = '?'
     if (city != null) {
-        filters = 'city=' + city
+        filters += 'city=' + city
     }
     if (state != null) {
-        filters = 'city=' + city
+        filters += 'city=' + city
     }
 
     return filters
+}
+
+function get_profile_link(agent_id) {
+    var filters = get_search_filters()
+    if (filters) {
+        filters += "&agent_id=" + agent_id
+    } else {
+        filters = "?agent_id=" + agent_id
+    }
+    return "/page-three.html" + filters;
 }
 
 function load_search_results() {
@@ -23,10 +33,10 @@ function load_search_results() {
     const urlParams = new URLSearchParams(window.location.search);
     var state = urlParams.get('state')
     if (!(state)) state = "WA"
-    var url = ('reports/' + state + '/?' + filters + '&page=1')
+    var url = ('reports/' + state + '/' + filters + '&page=1')
     console.log(url)
     settings = get_settings(
-        'reports/' + state + '/?' + filters + '&page=1', 'GET');
+        'reports/' + state + '/' + filters + '&page=1', 'GET');
     settings['headers'] = null;
     // Example requests
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
@@ -40,6 +50,9 @@ function load_search_results() {
 
       $.each(results, function(k, v) {
         item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
+        item = item.split('[[agent_profile_link]]').join(
+            get_profile_link(v['agent_id']));
+
         item = item.split('[[time_duration]]').join(v['time_duration']);
         item = item.split('[[city]]').join(v['city']);
         item = item.split('[[score]]').join(v['score'].toFixed(1));
