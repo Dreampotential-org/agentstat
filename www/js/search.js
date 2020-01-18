@@ -110,7 +110,7 @@ function array_to_text(items) {
 function init_search_events() {
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
-        $(this).find("p").text("Pin to the top")
+        $(this).find("p").text("Pin to top")
     })
 
     $(document).on('click', '.toc-two-left-two-heading-right-next', function() {

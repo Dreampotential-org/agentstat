@@ -16,9 +16,9 @@ var search_item = `<div class="toc-two">
                   <!--<h4>[[agent_name]] | <a href="#">Brokerage</a></h4>-->
                   <span>SCORE | [[score]]</span>
                 </div>
-                <div class="toc-two-left-two-heading-right">
+                <div class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next">
                   <a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
-                  <p>Unpin</p>
+                  <p>Pin to top</p>
                 </div>
               </div>
               <div class="ak-table">
