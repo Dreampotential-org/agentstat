@@ -6,6 +6,12 @@ body {
     background: #fff;
     color: #333333;
 }
+.profile-colum{
+    background:#fff;
+    padding: 17px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 1px 2px 2px #B9B9B9;
+}
 .profile-border{
     border: 2px solid ;
 }
@@ -41,34 +47,34 @@ textarea.public-note-text.form-control {
 }
 
 th {
-  display: table-cell;
-  vertical-align: inherit;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px;
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
 }
 td {
-  display: table-cell;
-  vertical-align: inherit;
-  text-align: center;
-  padding: 10px 6px;
+    display: table-cell;
+    vertical-align: inherit;
+    text-align: center;
+    padding: 10px 6px;
 }
 input[type="checkbox"]:checked + label::after {
-   content: '';
-   position: absolute;
-   width: 16px;
-   height: 6px;
-   background: rgba(0, 0, 0, 0);
-   top: 0.9ex;
-   left: 0.4ex;
-   border: 3px solid green;
-   border-top: none;
-   border-right: none;
-   -webkit-transform: rotate(-45deg);
-   -moz-transform: rotate(-45deg);
-   -o-transform: rotate(-45deg);
-   -ms-transform: rotate(-45deg);
-   transform: rotate(-45deg);
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 6px;
+    background: rgba(0, 0, 0, 0);
+    top: 0.9ex;
+    left: 0.4ex;
+    border: 3px solid green;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 input[type="checkbox"] {
@@ -83,21 +89,21 @@ input[type="checkbox"] + label {
 }
 
 input[type="checkbox"] + label::before {
-   content: "";
-   display: inline-block;
-   vertical-align: -25%;
-   height: 2ex;
-   width: 2ex;
-   background-color: white;
-   border: 1px solid rgb(166, 166, 166);
-   border-radius: 4px;
-   box-shadow: inset 0 2px 5px rgba(0,0,0,0.25);
-   margin-right: 0.5em;
+    content: "";
+    display: inline-block;
+    vertical-align: -25%;
+    height: 2ex;
+    width: 2ex;
+    background-color: white;
+    border: 1px solid rgb(166, 166, 166);
+    border-radius: 4px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.25);
+    margin-right: 0.5em;
 }
 
 .border {
     border: 3px solid 
-    #dee2e6 !important;
+        #dee2e6 !important;
 }
 .center {
     margin: 0 auto;
@@ -119,7 +125,7 @@ input[type="checkbox"] + label::before {
     text-align: center;
 }
 .border{
-        padding: 40px;
+    padding: 40px;
 }
 .nav-tabs .nav-seller-buyer .nav-item.show .nav-links, .nav-tabs .nav-links.active {
     color: #3C3C3C;
@@ -137,8 +143,8 @@ input[type="checkbox"] + label::before {
     border-top-right-radius: .25rem;
     color: #eee;
     font-size: 20px;
-     font-weight: bold;
-     margin-right: 50px;
+    font-weight: bold;
+    margin-right: 50px;
 }
 #nav-new-tab {
     font-size: 20px;
@@ -446,7 +452,7 @@ ul {
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
- 
+
 }
 
 .ser-butt button:hover {
@@ -2840,7 +2846,7 @@ ul {
 }
 
 .dm-part2 {
-        border-top-left-radius: 20px;
+    border-top-left-radius: 20px;
     border-bottom-right-radius: 30px;
     position: absolute;
     width: 200px;
@@ -2859,9 +2865,9 @@ ul {
 }
 .d-block:hover {
     background: 
-lightgray;
-color:
-    white;
+        lightgray;
+    color:
+        white;
 }
 .dm-main2 > button,
 .dm-main > button {
@@ -2924,7 +2930,7 @@ color:
     font-weight: bold;
     font-size: 24px;
     color: #134E60;
-    
+
 }
 
 
@@ -2936,16 +2942,16 @@ color:
 
 
 @media screen and (min-width: 767px) {
-.ak-sb1 button {
-    top: 2px!important;
+    .ak-sb1 button {
+        top: 2px!important;
 
-}
+    }
 
 }
 
 
 .akh-1 {
-   display: none; 
+    display: none; 
 }
 
 
@@ -2957,17 +2963,17 @@ color:
 
 @media screen and (max-width: 991px) {
 
-.akh-2 {
-    display: block!important;
-}
+    .akh-2 {
+        display: block!important;
+    }
 
-.akh-3 {
-    display: none!important;
-}
+    .akh-3 {
+        display: none!important;
+    }
 
-.akh-4 {
-    position: initial;
-}
+    .akh-4 {
+        position: initial;
+    }
 
 
 
