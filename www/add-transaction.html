@@ -146,10 +146,10 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" class="add-transaction-form form-control " name="listing-date" placeholder="Listing Date" required="required">
+                            <input type="text" class="add-transaction-form form-control " id="date" name="listing-date" placeholder="Listing Date" required="required">
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" class="add-transaction-form form-control " name="sold-date" placeholder="Sold Date" required="required">
+                            <input type="text" class="add-transaction-form form-control " id="date" name="sold-date" placeholder="Sold Date" required="required">
                         </div>
                     </div>
                     <div class="form-row">
@@ -262,13 +262,34 @@
         <script>
                                 function trackChange(value) {
                                     var checkVal = this.val;
-                                if(checkVal !== null && checkVal !== '') {
-                                   document.getElementById("other-agent-license").required = true;
-                                }
+                                    if (checkVal !== null && checkVal !== '') {
+                                        document.getElementById("other-agent-license").required = true;
+                                    }
                                 }
         </script>
         <script>
             $(".btn-group-toggle").twbsToggleButtons();
+        </script>
+        <script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="css/bootstrap-datepicker3.css"/>
+        <script>
+            $(document).ready(function () {
+                var date_sold_date = $('input[name="sold-date"]');
+                var date_listing_date = $('input[name="listing-date"]'); //our date input has the name "date"
+                var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                date_listing_date.datepicker({
+                    format: 'dd/mm/yyyy',
+                    container: container,
+                    todayHighlight: true,
+                    autoclose: true,
+                });
+                 date_sold_date.datepicker({
+                    format: 'dd/mm/yyyy',
+                    container: container,
+                    todayHighlight: true,
+                    autoclose: true,
+                })
+            })
         </script>
 
     </body>
