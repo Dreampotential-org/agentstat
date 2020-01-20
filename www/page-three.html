@@ -317,43 +317,104 @@
                 <div class="pht-card-heading">
                     <h3>Agent Report Card</h3>
                 </div>
+                <div>
+                  <ul id="city-link">
+                  </ul>
+                </div>
                 <div class="pht-card-tabs">
                     <ul class="nav nav-tabs text-center" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Overall</a>
+                            <a class="nav-link active" id="overall-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Overall</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Seattle</a>
+                            <a class="nav-link " id="city-tab"
+                              data-toggle="tab" href="#city"
+                              aria-selected="false">City</a>
                         </li>
                     </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="pth-content-wrapper">
+
+                    <div class="tab-content" id="cityTabContent">
+
+                        <div class="tab-pane fade active show" id="city"
+                          role="tabpanel" aria-labelledby="profile-tab" >
+                          <div class="pth-content-wrapper">
                                 <div class="pth-content-oval">
                                     <div class="owl-carousel products-slider owl-theme owl-loaded owl-drag">
-
-
-
-
 
                                         <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 988px;"><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <span>100%</span>
+                                                                <span id="city-score">100%</span>
                                                             </div>
                                                             <p>Sucess Rate</p>
                                                         </div>
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <span>18.4</span>
+                                                                <span id="cty-avg-dom">18.4</span>
                                                             </div>
                                                             <p>Avg days on market</p>
                                                         </div>
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <span>103.26%</span>
+                                                                <span id="city-s2l-price">103.26%</span>
+                                                            </div>
+                                                            <p>Sales Price</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <img class="home-img" src="img/home.png">
+                                                            </div>
+                                                            <p>Lorem ipsum dolor</p>
+                                                            <h6>Lorem ipsum dolor</h6>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <img class="bul-img" src="img/bul.png" alt="images not found">
+                                                            </div>
+                                                            <p>Lorem ipsum dolor</p>
+                                                            <h6>Lorem ipsum dolor</h6>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="overallTabContent">
+
+
+
+                        <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="pth-content-wrapper">
+                                <div class="pth-content-oval">
+                                    <div class="owl-carousel products-slider owl-theme owl-loaded owl-drag">
+
+                                        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 988px;"><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-score">100%</span>
+                                                            </div>
+                                                            <p>Sucess Rate</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-avg-dom">18.4</span>
+                                                            </div>
+                                                            <p>Avg days on market</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-s2l-price">103.26%</span>
                                                             </div>
                                                             <p>Sales Price</p>
                                                         </div>
