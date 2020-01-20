@@ -53,12 +53,6 @@ function load_agent() {
     $("#city-avg-dom").html(city_avg_dom.toFixed(2));
     $("#city-s2l-price").html(city_s2l_price.toFixed(2) + '%');
 
-    // $('#home-tab').attr('href', url);
-    $.each(data['cities'], function(k, v){
-      $(`<li>
-        <a class="nav-link" href="?agent_id=` + agent_id + `&city=` + v + `" aria-selected="false">`+ v +`</a>
-      </li>`).insertAfter('#city-link')
-    });
 
     if(city !== null) {
       $('#city-tab').text(city);
