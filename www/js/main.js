@@ -68,6 +68,10 @@ function init() {
   })
 
 
+  $("body").delegate(".logout", "click", function(e) {
+      localStorage.clear()
+      window.location = '/'
+  })
   $("body").delegate(".ser", "keyup", function(e) {
     if (e.keyCode == 13) {
       e.preventDefault()
