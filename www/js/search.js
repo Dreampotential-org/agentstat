@@ -5,15 +5,15 @@ function init() {
 
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
-    const city = urlParams.get('city')
-    const state = urlParams.get('state')
+    const city = urlParams.get('city');
+    const state = urlParams.get('state');
 
-    var filters = '?'
+    var filters = '?';
     if (city != null) {
-        filters += 'city=' + city
+        filters += '&city=' + city;
     }
     if (state != null) {
-        filters += 'city=' + city
+        filters += '&state=' + state;
     }
 
     return filters
@@ -22,9 +22,9 @@ function get_search_filters() {
 function get_profile_link(agent_id) {
     var filters = get_search_filters()
     if (filters) {
-        filters += "&agent_id=" + agent_id
+        filters += "&agent_id=" + agent_id;
     } else {
-        filters = "?agent_id=" + agent_id
+        filters = "?agent_id=" + agent_id;
     }
     return "/page-three.html" + filters;
 }
