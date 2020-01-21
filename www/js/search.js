@@ -1,3 +1,4 @@
+var agent_ids_order = []
 function init() {
     load_search_results()
     init_search_events()
@@ -7,6 +8,8 @@ function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
     const city = urlParams.get('city');
     const state = urlParams.get('state');
+    var url = new URL(window.location.href)
+    var agent_ids = url.searchParams.get('agents')
 
     var filters = '?';
     if (city != null) {
@@ -16,6 +19,17 @@ function get_search_filters() {
         filters += '&state=' + state;
     }
 
+    /*
+    if (agent_ids != null) {
+        filters += '&selected_agent_ids=';
+        for(var agent_id of agent_ids.split(",")) {
+            if(agent_id) {
+                filters += agent_id + ","
+            }
+        }
+
+    }
+    */
     return filters
 }
 
@@ -34,7 +48,7 @@ function load_search_results() {
     const urlParams = new URLSearchParams(window.location.search);
     var state = urlParams.get('state')
     if (!(state)) state = "WA"
-    var url = ('reports/' + state + '/' + filters + '&page=1')
+    var url = ('reports/' + state + '/' + filters)
     console.log(url)
     settings = get_settings(
         'reports/' + state + '/' + filters + '&page=1', 'GET');
@@ -43,7 +57,6 @@ function load_search_results() {
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
     var data;
     var search_result = '';
-    var on_page_agent_ids = []
 
     $.ajax(settings).done(function (response) {
 
@@ -51,7 +64,7 @@ function load_search_results() {
       results = data['results'];
 
       $.each(results, function(k, v) {
-        on_page_agent_ids.push(v['agent_id'])
+        agent_ids_order.push(v['agent_id'])
         item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
@@ -89,21 +102,14 @@ function load_search_results() {
 
       $('#result-count').html(data['total']);
       $('#page-section').html(search_result);
-      handle_selected_agent_ids(on_page_agent_ids)
+      set_pined_load()
     }).fail(function(err) {
       // alert('Got err');
       $('.msg').html(err['responseText']);
       $('.msg').css("display", "block");
       console.log(err);
+
     });
-
-}
-
-function handle_selected_agent_ids(on_page_agent_ids) {
-    var url = new URL(window.location.href)
-    var agent_ids = url.searchParams.get('agents')
-
-
 }
 
 function array_to_text(items) {
@@ -115,6 +121,19 @@ function array_to_text(items) {
 
     }
     return result
+}
+
+
+function set_pined_load() {
+    var url = new URL(window.location.href)
+    var agent_ids = url.searchParams.get('agents')
+    for(var agent_id of agent_ids.split(",")) {
+        if(agent_id) {
+            // click to set the button pined
+            $(".toc-two[agent_id='" + agent_id + "']").find(
+                ".toc-two-left-two-heading-right").click()
+        }
+    }
 }
 
 function set_pined_agent_ids() {
@@ -139,12 +158,19 @@ function init_search_events() {
         $(this).addClass("toc-two-left-two-heading-right-next");
         $(this).find("p").text("Pin to top")
         set_pined_agent_ids()
+
+        $(this).closest(".toc-two").detach().appendTo("#page-section")
+
     })
 
     $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
         $(this).removeClass("toc-two-left-two-heading-right-next");
         $(this).find("p").text("Unpin")
         set_pined_agent_ids()
+
+        $(this).closest(".toc-two").detach().prependTo("#page-section")
+        //alert($(this).closest(".toc-two").attr("agent_id"))
+
     })
 
     $(document).on('change click', '.lead-submit', function() {
@@ -171,7 +197,6 @@ function init_search_events() {
         console.log(err);
       });
     });
-
 }
 
 

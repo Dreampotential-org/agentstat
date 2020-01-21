@@ -53,7 +53,7 @@ function getSearchParams(place) {
     return params
 }
 
-function init() {
+function init_maps() {
     var input = document.getElementsByClassName('ser')[0];
     var options = {
         types: ['address'],
@@ -61,13 +61,24 @@ function init() {
 
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.addListener('place_changed', fillIn);
+}
 
+function init() {
+    try {
+        init_maps();
+    } catch(ex) {
+        console.log(ex)
+    }
   $("body").delegate("#go", "click", function(e) {
     $("#agent_name_or_id").val($("#search_input_agent").val())
     $('form#filterForm').submit();
   })
 
 
+  $("body").delegate(".logout", "click", function(e) {
+      localStorage.clear()
+      window.location = '/'
+  })
   $("body").delegate(".ser", "keyup", function(e) {
     if (e.keyCode == 13) {
       e.preventDefault()
