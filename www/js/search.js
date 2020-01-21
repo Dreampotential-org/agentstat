@@ -129,8 +129,13 @@ function set_pined_load() {
     var agent_ids = url.searchParams.get('agents')
     for(var agent_id of agent_ids.split(",")) {
         if(agent_id) {
+            // click to set the button pined
             $(".toc-two[agent_id='" + agent_id + "']").find(
                 ".toc-two-left-two-heading-right").click()
+
+            // detach and append to the top
+            $(".toc-two[agent_id='" + agent_id + "']").detach().prependTo(
+                "#page-section")
         }
     }
 }
