@@ -100,7 +100,7 @@
                 <br><br>
             </div>
 
-            <table class="table-responsive table-striped table-bordered">
+            <table class="table-responsive table-striped table-bordered mytable" id="transations-table">
                 <tr class="table-heading">
                     <th>Status</th>
                     <th>List Price</th>
@@ -331,9 +331,9 @@
                 </tr>
                 <tr>
                     <td>SOLD</td>
-                    <td>$349,990</td>
-                    <td>$349,990</td>
-                    <td>78</td>
+                    <td class="ListPrice">$349,990</td>
+                    <td class="SolidPrice">$399,990</td>
+                    <td class="check">78</td>
                     <td>11/24/2017</td>
                     <td>123 Main st, Seattle, WA 98109</td>
                     <td>2016</td>
@@ -355,9 +355,9 @@
                 </tr>
                 <tr>
                     <td>SOLD</td>
-                    <td>$349,990</td>
-                    <td>$349,990</td>
-                    <td>78</td>
+                    <td class="ListPrice">$349,990</td>
+                    <td class="SolidPrice">$329,990</td>
+                    <td class="check" id="check">78</td>
                     <td>11/24/2017</td>
                     <td>123 Main st, Seattle, WA 98109</td>
                     <td>2016</td>
@@ -379,9 +379,9 @@
                 </tr>
                 <tr>
                     <td>SOLD</td>
-                    <td>$349,990</td>
-                    <td>$349,990</td>
-                    <td>78</td>
+                    <td class="ListPrice">$349,990</td>
+                    <td class="SolidPrice">$399,990</td>
+                    <td class="check" id="check">78</td>
                     <td>11/24/2017</td>
                     <td>123 Main st, Seattle, WA 98109</td>
                     <td>2016</td>
@@ -402,7 +402,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>SOLD</td>
+                    <td>Sold</td>
                     <td>$349,990</td>
                     <td>$349,990</td>
                     <td>78</td>
@@ -426,7 +426,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>SOLD</td>
+                    <td>sold</td>
                     <td>$349,990</td>
                     <td>$349,990</td>
                     <td>78</td>
@@ -499,11 +499,20 @@
                         }
         </script>
         <script>
+            $(document).ready(function () {
+                td_array = document.getElementsByTagName("td");
+                for (i = 0; i < td_array.length; i++) {
+                    if (td_array[i].textContent == 'SOLD' || td_array[i].textContent == 'Sold' || td_array[i].textContent == 'sold') {
+                        td_array[i].setAttribute('style', 'font-weight: 500;font-size: 16px;color: #45AE3C;text-transform: uppercase');
+                    }
+                }
+
+            });
             $(".closeform").click(function () {
                 $('.fidout').fadeOut('slow');
             });
             $(".btn-group-toggle").twbsToggleButtons();
-        </script>
 
+        </script>
     </body>
 </html>
