@@ -1,3 +1,4 @@
+var agent_ids_order = []
 function init() {
     load_search_results()
     init_search_events()
@@ -56,7 +57,6 @@ function load_search_results() {
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
     var data;
     var search_result = '';
-    var on_page_agent_ids = []
 
     $.ajax(settings).done(function (response) {
 
@@ -64,7 +64,7 @@ function load_search_results() {
       results = data['results'];
 
       $.each(results, function(k, v) {
-        on_page_agent_ids.push(v['agent_id'])
+        agent_ids_order.push(v['agent_id'])
         item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
@@ -132,14 +132,9 @@ function set_pined_load() {
             // click to set the button pined
             $(".toc-two[agent_id='" + agent_id + "']").find(
                 ".toc-two-left-two-heading-right").click()
-
-            // detach and append to the top
-            $(".toc-two[agent_id='" + agent_id + "']").detach().prependTo(
-                "#page-section")
         }
     }
 }
-
 
 function set_pined_agent_ids() {
     var pined_agents  = $(".toc-two .toc-two-left-two-heading-right")
@@ -163,12 +158,19 @@ function init_search_events() {
         $(this).addClass("toc-two-left-two-heading-right-next");
         $(this).find("p").text("Pin to top")
         set_pined_agent_ids()
+
+        $(this).closest(".toc-two").detach().appendTo("#page-section")
+
     })
 
     $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
         $(this).removeClass("toc-two-left-two-heading-right-next");
         $(this).find("p").text("Unpin")
         set_pined_agent_ids()
+
+        $(this).closest(".toc-two").detach().prependTo("#page-section")
+        //alert($(this).closest(".toc-two").attr("agent_id"))
+
     })
 
     $(document).on('change click', '.lead-submit', function() {
