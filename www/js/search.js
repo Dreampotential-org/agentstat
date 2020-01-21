@@ -7,6 +7,8 @@ function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
     const city = urlParams.get('city');
     const state = urlParams.get('state');
+    var url = new URL(window.location.href)
+    var agent_ids = url.searchParams.get('agents')
 
     var filters = '?';
     if (city != null) {
@@ -16,6 +18,17 @@ function get_search_filters() {
         filters += '&state=' + state;
     }
 
+    /*
+    if (agent_ids != null) {
+        filters += '&selected_agent_ids=';
+        for(var agent_id of agent_ids.split(",")) {
+            if(agent_id) {
+                filters += agent_id + ","
+            }
+        }
+
+    }
+    */
     return filters
 }
 
@@ -34,7 +47,7 @@ function load_search_results() {
     const urlParams = new URLSearchParams(window.location.search);
     var state = urlParams.get('state')
     if (!(state)) state = "WA"
-    var url = ('reports/' + state + '/' + filters + '&page=1')
+    var url = ('reports/' + state + '/' + filters)
     console.log(url)
     settings = get_settings(
         'reports/' + state + '/' + filters + '&page=1', 'GET');
@@ -89,21 +102,14 @@ function load_search_results() {
 
       $('#result-count').html(data['total']);
       $('#page-section').html(search_result);
-      handle_selected_agent_ids(on_page_agent_ids)
+      set_pined_load()
     }).fail(function(err) {
       // alert('Got err');
       $('.msg').html(err['responseText']);
       $('.msg').css("display", "block");
       console.log(err);
+
     });
-
-}
-
-function handle_selected_agent_ids(on_page_agent_ids) {
-    var url = new URL(window.location.href)
-    var agent_ids = url.searchParams.get('agents')
-
-
 }
 
 function array_to_text(items) {
@@ -116,6 +122,19 @@ function array_to_text(items) {
     }
     return result
 }
+
+
+function set_pined_load() {
+    var url = new URL(window.location.href)
+    var agent_ids = url.searchParams.get('agents')
+    for(var agent_id of agent_ids.split(",")) {
+        if(agent_id) {
+            $(".toc-two[agent_id='" + agent_id + "']").find(
+                ".toc-two-left-two-heading-right").click()
+        }
+    }
+}
+
 
 function set_pined_agent_ids() {
     var pined_agents  = $(".toc-two .toc-two-left-two-heading-right")
@@ -171,7 +190,6 @@ function init_search_events() {
         console.log(err);
       });
     });
-
 }
 
 
