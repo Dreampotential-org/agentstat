@@ -38,6 +38,7 @@ $(document).on('change click', '#forgot-password', function() {
     var data = {};
     data['email'] = $('#email').val();
     settings = get_settings('forgot-password/', 'POST', JSON.stringify(data));
+    settings['headers'] = {};
 
     $.ajax(settings).done(function (response) {
       var msg = JSON.parse(response);
