@@ -3,10 +3,19 @@ function fillIn() {
     var addr = place.formatted_address
 
     var results = getSearchParams(place)
-
     console.log(results)
     redirectResults(results)
 }
+
+
+function set_search_input() {
+    const urlParams = new URLSearchParams(window.location.search)
+    var agent_name = urlParams.get('agent_name');
+    if (agent_name) {
+        $(".ser").val(agent_name)
+    }
+}
+
 
 function redirectResults(results) {
 
@@ -62,6 +71,7 @@ function init() {
     } catch(ex) {
         console.log(ex)
     }
+    set_search_input()
   $("body").delegate("#go", "click", function(e) {
     $("#agent_name_or_id").val($("#search_input_agent").val())
     $('form#filterForm').submit();
