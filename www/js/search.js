@@ -19,7 +19,6 @@ function get_search_filters() {
         filters += '&state=' + state;
     }
 
-    /*
     if (agent_ids != null) {
         filters += '&selected_agent_ids=';
         for(var agent_id of agent_ids.split(",")) {
@@ -29,7 +28,6 @@ function get_search_filters() {
         }
 
     }
-    */
     return filters
 }
 

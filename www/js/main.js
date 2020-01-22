@@ -14,18 +14,11 @@ function redirectResults(results) {
         window.location = (
             '/page-two-test.html?state=' + results['state'] +
             '&city=' + results['city'])
-    }
-
-    else if ('city' in results) {
-        window.location = (
-            'https://app.agentstat.com/reports_v2/' + results['state'] +
-            '/?city=' + results['city']
-        )
     } else {
         // XXX hard coded in WA for agents state
         window.location = (
-            'https://app.agentstat.com/reports_v2/WA' +
-            '/?agent_name_or_id=' + results['agent_name']
+            'https://agentstat.com/page-two-test.html?state=WA' +
+            '/?agent_name=' + results['agent_name']
         )
     }
 
