@@ -6,6 +6,33 @@ body {
     background: #fff;
     color: #333333;
 }
+fieldset.rating{
+    float: left;
+}
+.back-img{
+    background-image: "img/top1-big.png";
+}
+.view-profile{
+    font-weight: normal;
+    font-size: 17px;
+    display: inline-block !important;
+}
+.nav-tabs .nav-seller-buyer .nav-item.show .nav-links, .nav-tabs .nav-links.active .acitv-bottom{
+    border-bottom: 4px solid #CE9C05 !important;
+}
+.pull-right{
+    text-align: right !important;
+}
+.navbar-right{
+    float: right !important;
+}
+.pth-agent-heading{
+    margin-top: -27px;
+    position: absolute;
+}
+.nav-seller-buyer{
+    margin-top: 15px;
+}
 .profile-colum{
     background:#fff;
     padding: 17px;
@@ -131,11 +158,11 @@ input[type="checkbox"] + label::before {
     color: #3C3C3C;
     background-color: transparent;
     border-color: transparent transparent #f3f3f3;
-    border-bottom: 4px solid #CE9C05 !important;
+/*    border-bottom: 4px solid #CE9C05 !important;*/
     font-size: 20px;
     font-weight: bold;
     text-align: left;
-    margin-right: 50px;
+    /*margin-right: 50px;*/
 }
 #tabs .nav-tabs .nav-seller-buyer .nav-links {
     border: 1px solid transparent;
@@ -151,7 +178,8 @@ input[type="checkbox"] + label::before {
     font-weight: bold;
     color: #3C3C3C; 
     text-align: left;
-    margin-right: 50px;
+    /*margin-right: 50px;*/
+    padding: 0px;
 }
 
 
@@ -990,6 +1018,7 @@ ul {
 
 .ser-butt {
     float: right;
+    position: absolute;
 }
 
 
@@ -1009,7 +1038,7 @@ ul {
     width: 600px;
     margin: auto;
     position: relative;
-    top: -66px;
+    /*    top: -66px;*/
     left: 19px;
 }
 
@@ -2948,7 +2977,16 @@ ul {
     }
 
 }
-
+@media screen and (min-width: 990px) {
+    .po-search.pt-search{
+        margin-top: -60px;
+    }
+    .po-serach-wrapper {
+        padding: 8px 10px;
+        border-radius: 100px;
+        border:1px solid #A9A9A9;
+    }
+}
 
 .akh-1 {
     display: none; 
@@ -2962,7 +3000,9 @@ ul {
 
 
 @media screen and (max-width: 991px) {
-
+    .po-serach-wrapper {
+        border:1px solid #A9A9A9;
+    }
     .akh-2 {
         display: block!important;
     }

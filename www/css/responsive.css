@@ -7,44 +7,35 @@ Medium Screen - Others
 
 @media screen and (max-width: 767px) {
 
-.ak-table table {
-    margin-top: 80px;    
+    .ak-table table {
+        margin-top: 80px;    
 
-}
-.ak-price {
-    border: none!important;
-}
+    }
+    .ak-price {
+        border: none!important;
+    }
 
 
 
 }
 
 @media screen and (min-width: 770px) {
-.ser-butt button {
-    background-color: #E0A900;
-    border-radius: 8px;
-    color:  #3C3C3C;
-    border: none;
-    outline: none;
-    font-size: 24px;
-    padding: 3px 22px;
-    transition: all .2s ease;
-    -webkit-transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    position: relative;
-    left: -15px;
-    top: 8px;
+    .ser-butt button {
+        background-color: #E0A900;
+        border-radius: 8px;
+        color:  #3C3C3C;
+        border: none;
+        outline: none;
+        font-size: 24px;
+        padding: 3px 22px;
+        transition: all .2s ease;
+        -webkit-transition: all .2s ease;
+        -moz-transition: all .2s ease;
+        position: relative;
+        left: -15px;
+        /*    top: 8px;*/
 
-}
-
-.po-serach-wrapper {
-    padding: 8px 10px;
-    border-radius: 100px;
-
-}
-
-
-
+    }
 
 
 }
@@ -54,8 +45,8 @@ Medium Screen - Others
 
     .pt-search-wrapper .ser-butt button {
         padding: 5px 17px;
-        
-        margin-top: -3px;
+
+        /*margin-top: -3px;*/
     }
     .po-serach-wrapper input.ser {
         width: 442px;
@@ -192,7 +183,7 @@ Medium Screen - Others
     .fixed .ser-butt button {
         font-size: 24px;
         position: relative;
-        top: 3px;
+        /*top: 3px;*/
         padding: 2px 24px;
     }
     .black {
@@ -221,14 +212,6 @@ Medium Screen - Others
     .ak-form {    
         margin-top: 18px;
     }
-
-
-
-
-
-
-
-
 
 }
 
@@ -334,7 +317,7 @@ Small Screen - Tablate
     .pt-search-wrapper .ser-butt {
         display: block;
         width: 100%;
-        margin-top: 15px;
+        margin: 33px -8px 0px 0px;
     }
     .pt-search-wrapper .ser-butt button {
         display: block;
@@ -632,7 +615,7 @@ Small Screen - Mobile
         width: 180px;
         position: absolute;
         top: 0;
-        right: 41%;
+        /*        right: 41%;*/
     }
     .header-area {
         padding: 15px 0px;
@@ -1509,70 +1492,70 @@ Small Screen - Mobile
     }
 
     .toc-one ul {
-    float: initial;
-    position: initial;
-    top: -26px;
-    width: 230px;
-    margin: auto;
-    margin-top: 10px;
+        float: initial;
+        position: initial;
+        top: -26px;
+        width: 230px;
+        margin: auto;
+        margin-top: 10px;
 
-}
+    }
 
-.toc-two-left-two-heading-left h4 a {
-    font-size: 12px;
-}   
+    .toc-two-left-two-heading-left h4 a {
+        font-size: 12px;
+    }   
 
-.pt-tab-wrapper .nav-tabs .nav-link {
-    padding: 7px 20px;
-    
-}
+    .pt-tab-wrapper .nav-tabs .nav-link {
+        padding: 7px 20px;
 
-.ak-icontent {   
-    margin-top: 45px;
-    padding-top: 45px;
-}
+    }
 
-.toc-two-left-one img {
-    display: block;
-    width: initial;
-    max-width: 100%;
-    margin: auto;
-}
+    .ak-icontent {   
+        margin-top: 45px;
+        padding-top: 45px;
+    }
 
-.toc-two-left-one::before {  
-    top: -25px;
-    left: 33%;
-}
+    .toc-two-left-one img {
+        display: block;
+        width: initial;
+        max-width: 100%;
+        margin: auto;
+    }
 
-.toc-two-left {
-    padding-top: 40px;
-   
-}
+    .toc-two-left-one::before {  
+        top: -25px;
+        left: 33%;
+    }
 
-.ak-table table h5 {
-    font-size: 16px;
+    .toc-two-left {
+        padding-top: 40px;
 
-}
-.ak-table table td {
-    padding: 3px;
-}
+    }
 
-.ak-table table td {
-    font-size: 13px;
-}
+    .ak-table table h5 {
+        font-size: 16px;
 
-.pt-search {
-    position: initial!important;
-}
+    }
+    .ak-table table td {
+        padding: 3px;
+    }
 
+    .ak-table table td {
+        font-size: 13px;
+    }
 
+    .pt-search {
+        position: initial!important;
+    }
 
 
 
 
 
 
-  
+
+
+
 }
 
 
@@ -1586,7 +1569,7 @@ Xtra Small Screen - Small Mobile
     .navbar-brand img {
         width: 144px;
         position: absolute;
-        right: 37%;
+        /*        right: 37%;*/
         top: 5px;
     }
     .main-menu-part ul {
@@ -1666,8 +1649,8 @@ Xtra Small Screen - Small Mobile
     }
     .ser-butt {
         display: block;
-        width: 100%;
-        margin-top: 12px;
+        width: 90%;
+        margin-top: 18px;
     }
     .ser-butt button {
         display: block;
@@ -2490,72 +2473,72 @@ Xtra Small Screen - Small Mobile
         left: 8px;
     }
 
-.toc-one ul {
-    float: initial;
-    position: initial;
-    top: -26px;
-    width: 230px;
-    margin: auto;
-    margin-top: 10px;
-}
+    .toc-one ul {
+        float: initial;
+        position: initial;
+        top: -26px;
+        width: 230px;
+        margin: auto;
+        margin-top: 10px;
+    }
 
-.dm-part2 { 
-    left: 0;
-  }
+    .dm-part2 { 
+        left: 0;
+    }
 
-.dm-part { 
-    width: 200px;
-  }
-
-
-.toc-two-left-two-heading-left h4 a {
-    font-size: 12px;
-}
-   
-
-.pt-tab-wrapper .nav-tabs .nav-link {
-    padding: 7px 20px;
-
-}
-
-.ak-icontent {   
-    margin-top: 50px;
-    padding-top: 50px;
-}
+    .dm-part { 
+        width: 200px;
+    }
 
 
-.toc-two-left-one img {
-    display: block;
-    width: initial;
-    max-width: 100%;
-    margin: auto;
-}
+    .toc-two-left-two-heading-left h4 a {
+        font-size: 12px;
+    }
 
-.toc-two-left-one::before {  
-    top: -25px;
-    left: 33%;
-}
 
-.toc-two-left {
-    padding-top: 40px;
-   
-}
+    .pt-tab-wrapper .nav-tabs .nav-link {
+        padding: 7px 20px;
 
-.ak-table table h5 {
-    font-size: 16px;
+    }
 
-}
-.ak-table table td {
-    padding: 3px;
-}
+    .ak-icontent {   
+        margin-top: 50px;
+        padding-top: 50px;
+    }
 
-.ak-table table td {
-    font-size: 13px;
-}
 
-.pt-search {
-    position: initial!important;
-}
+    .toc-two-left-one img {
+        display: block;
+        width: initial;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .toc-two-left-one::before {  
+        top: -25px;
+        left: 33%;
+    }
+
+    .toc-two-left {
+        padding-top: 40px;
+
+    }
+
+    .ak-table table h5 {
+        font-size: 16px;
+
+    }
+    .ak-table table td {
+        padding: 3px;
+    }
+
+    .ak-table table td {
+        font-size: 13px;
+    }
+
+    .pt-search {
+        position: initial!important;
+    }
 
 
 
