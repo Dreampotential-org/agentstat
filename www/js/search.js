@@ -4,53 +4,65 @@ function init() {
     init_search_events()
 }
 
+
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
+
     const city = urlParams.get('city');
     const state = urlParams.get('state');
+    const agent_name = urlParams.get('agent_name');
+
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
 
-    var filters = '?';
+    var filters = [];
+
     if (city != null) {
-        filters += '&city=' + city;
+        // filters += '&city=' + city;
+        filters.push('city=' + city);
     }
-    if (state != null) {
-        filters += '&state=' + state;
+
+    if (agent_name != null) {
+        filters.push('agent_name=' + agent_name);
     }
 
     if (agent_ids != null) {
-        filters += '&selected_agent_ids=';
+        selected += 'selected_agent_ids=';
         for(var agent_id of agent_ids.split(",")) {
             if(agent_id) {
-                filters += agent_id + ","
+                selected += agent_id + ","
             }
         }
-
+        filters.push(selected);
     }
+    console.log(filters);
     return filters
 }
 
 function get_profile_link(agent_id) {
-    var filters = get_search_filters()
-    if (filters) {
-        filters += "&agent_id=" + agent_id;
-    } else {
-        filters = "?agent_id=" + agent_id;
-    }
+    var filters = get_search_filters();
+    filters.push("agent_id=" + agent_id);
+    filters = filters.join('&');
+    filters = filters.replace('&', '?')
+
     return "/page-three.html" + filters;
 }
 
 function load_search_results() {
-    var filters = get_search_filters()
     const urlParams = new URLSearchParams(window.location.search);
-    var state = urlParams.get('state')
+    var filters = get_search_filters();
+    var state = urlParams.get('state');
+
     if (!(state)) state = "WA"
-    var url = ('reports/' + state + '/' + filters)
-    console.log(url)
-    settings = get_settings(
-        'reports/' + state + '/' + filters + '&page=1', 'GET');
+
+    filters.push('page=1');
+    filters = '?' + filters.join('&');
+
+    api_call_url = 'reports/' + state + '/' + filters;
+    settings = get_settings(api_call_url, 'GET');
+
     settings['headers'] = null;
+
     // Example requests
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
     var data;
@@ -116,7 +128,6 @@ function array_to_text(items) {
     for(var item of items) {
         result += item
         result += "<br>"
-
     }
     return result
 }
