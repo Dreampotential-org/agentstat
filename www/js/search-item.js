@@ -26,32 +26,32 @@ var search_item = `<div class="toc-two" agent_id=[[agent_id]]>
                   <tbody><tr>
                     <td></td>
                     <td><h5 class="m-0"><strong>Overall</strong></h5></td>
-                    <td><h5 class="m-0"><strong>[[city]]</strong></h5></td>
+                    <td class="city_results"><h5 class="m-0"><strong>[[city]]</strong></h5></td>
                   </tr>
                   <tr>
                     <td><strong>Sold Listings</strong></td>
                     <td>[[overall_sold_listings]]</td>
-                    <td>[[sold_listings]]</td>
+                    <td class="city_results">[[sold_listings]]</td>
                   </tr>
                   <tr>
                     <td><strong>Failed Listings</strong></td>
                     <td>[[overall_failed_listings]]</td>
-                    <td>[[failed_listings]]</td>
+                    <td class="city_results">[[failed_listings]]</td>
                   </tr>
                   <tr>
                     <td><strong>Avg Days On Market</strong></td>
                     <td>[[overall_avg_dom]]</td>
-                    <td>[[avg_dom]]</td>
+                    <td class="city_results">[[avg_dom]]</td>
                   </tr>
                   <tr>
                     <td><strong>Avg Sold to List Price</strong></td>
                     <td>[[overall_s2l_price]]%</td>
-                    <td>[[s2l_price]]%</td>
+                    <td class="city_results">[[s2l_price]]%</td>
                   </tr>
                   <tr>
                     <td><strong>Break Down</strong></td>
                     <td>[[overall_listings_breakdown_json]]</td>
-                    <td>[[listings_breakdown_json]]</td>
+                    <td class="city_results">[[listings_breakdown_json]]</td>
                   </tr>
                 </tbody></table>
 
