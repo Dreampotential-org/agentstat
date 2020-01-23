@@ -69,7 +69,7 @@ function load_agent() {
         <td>` + v['year_built'] +`</td>
         <td>` + v['city'] +`</td>
         <td>` + v['home_type'] +`</td>
-        <td> Note </td>
+        <td> note </td>
       </tr>`).insertAfter("#transations");
     })
 
