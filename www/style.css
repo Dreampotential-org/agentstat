@@ -6,6 +6,9 @@ body {
     background: #fff;
     color: #333333;
 }
+.text-justify{
+    text-align: justify;
+}
 fieldset.rating{
     float: left;
 }

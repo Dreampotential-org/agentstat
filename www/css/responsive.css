@@ -1667,7 +1667,8 @@ Xtra Small Screen - Small Mobile
         top: 44px;
     }
     .po-what {
-        padding: 35px 0;
+        padding: 60px 14px;
+        text-align: justify;
     }
     .check-type {
         top: 44px;
