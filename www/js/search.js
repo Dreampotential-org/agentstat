@@ -8,7 +8,7 @@ function init() {
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
 
-    const city = urlParams.get('city');
+    const city = encodeURIComponent(urlParams.get('city', ''));
     const state = urlParams.get('state');
     const agent_name = urlParams.get('agent_name');
 
@@ -17,8 +17,10 @@ function get_search_filters() {
 
     var filters = [];
 
-    if (city != null) {
-        // filters += '&city=' + city;
+    if (city == "null" || city == null) {
+        console.log("CITY IS!!!" + typeof(city))
+    }
+    else {
         filters.push('city=' + city);
     }
 
@@ -39,10 +41,18 @@ function get_search_filters() {
 }
 
 function get_profile_link(agent_id) {
-    var filters = get_search_filters();
-    filters.push("agent_id=" + agent_id);
-    filters = filters.join('&');
-    filters = filters.replace('&', '?')
+    var filters = '?agent_id=' + agent_id;
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const city = encodeURIComponent(urlParams.get('city', ''));
+    const state = urlParams.get('state');
+
+    if (city == "null" || city == null) {
+        console.log("CITY IS!!!" + typeof(city))
+    }
+    else {
+        filters += '&city=' + city;
+    }
 
     return "/page-three.html" + filters;
 }

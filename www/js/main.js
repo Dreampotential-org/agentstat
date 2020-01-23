@@ -36,7 +36,6 @@ function redirectResults(results) {
     // console.log(new_params);
     search = new_params.join('&');
     window.location = '/page-two-test.html?' + search;
-
 }
 
 function getSearchParams(place) {
