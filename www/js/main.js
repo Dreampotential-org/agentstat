@@ -18,24 +18,30 @@ function set_search_input() {
 
 
 function redirectResults(results) {
+    path = window.location.pathname;
+    search_params = window.location.search.replace('?', '');
+    params = search_params.split('&');
+    new_params = [];
+    $.each(params, function(k, v) {
+      // console.log(k, v);
+      if(v.split("=")[0] == 'agent_name') {
+        new_agent_name = $('.ser').val();
+        new_params.push('agent_name='+new_agent_name);
+      } else {
+        new_params.push(v);
+      }
 
-    if('city' in results) {
-        window.location = (
-            '/page-two-test.html?state=' + results['state'] +
-            '&city=' + results['city'])
-    } else {
-        // XXX hard coded in WA for agents state
-        window.location = (
-            'https://agentstat.com/page-two-test.html?state=WA' +
-            '/?agent_name=' + results['agent_name']
-        )
-    }
+    });
+    // console.log(params);
+    // console.log(new_params);
+    search = new_params.join('&');
+    window.location = '/page-two-test.html?' + search;
 
 }
 
 function getSearchParams(place) {
 
-    console.log(place)
+    // console.log(place)
     var params = {}
     if (!('scope' in place) && 'name' in place) {
         params['agent_name'] = place.name
@@ -51,7 +57,7 @@ function getSearchParams(place) {
             params['city'] = address_comp.short_name
         }
     }
-    console.log(params)
+    // console.log(params)
     return params
 }
 
@@ -72,6 +78,7 @@ function init() {
         console.log(ex)
     }
     set_search_input()
+
   $("body").delegate("#go", "click", function(e) {
     $("#agent_name_or_id").val($("#search_input_agent").val())
     $('form#filterForm').submit();
@@ -84,8 +91,8 @@ function init() {
   })
   $("body").delegate(".ser", "keyup", function(e) {
     if (e.keyCode == 13) {
-      e.preventDefault()
-      $("#agent_name_or_id").val($("#search_input_agent").val())
+      e.preventDefault();
+      $("#agent_name_or_id").val($("#search_input_agent").val());
       $('form#filterForm').submit();
     }
   })
@@ -126,7 +133,10 @@ drift.SNIPPET_VERSION = '0.3.1';
 drift.load('f6y6f4usghc5');
 
 $(document).ready(function () {
+
   const urlParams = new URLSearchParams(window.location.search)
+
+  $('.ser').val(urlParams.get('agent_name'));
 
   data = {};
   data['user_agent'] = navigator.userAgent;

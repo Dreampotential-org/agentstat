@@ -35,7 +35,6 @@ function get_search_filters() {
         }
         filters.push(selected);
     }
-    console.log(filters);
     return filters
 }
 
