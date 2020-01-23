@@ -8,7 +8,7 @@ function init() {
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
 
-    const city = urlParams.get('city');
+    const city = encodeURIComponent(urlParams.get('city', ''));
     const state = urlParams.get('state');
     const agent_name = urlParams.get('agent_name');
 
