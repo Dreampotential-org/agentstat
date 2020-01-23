@@ -26,8 +26,8 @@ function redirectResults(results) {
     } else {
         // XXX hard coded in WA for agents state
         window.location = (
-            'https://agentstat.com/page-two-test.html?state=WA' +
-            '/?agent_name=' + results['agent_name']
+            '/page-two-test.html?state=WA' +
+            '&agent_name=' + results['agent_name']
         )
     }
 

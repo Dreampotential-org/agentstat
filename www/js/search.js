@@ -17,8 +17,10 @@ function get_search_filters() {
 
     var filters = [];
 
-    if (city != null) {
-        // filters += '&city=' + city;
+    if (city == "null" || city == null) {
+        console.log("CITY IS!!!" + typeof(city))
+    }
+    else {
         filters.push('city=' + city);
     }
 
