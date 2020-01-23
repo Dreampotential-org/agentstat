@@ -24,14 +24,14 @@ function redirectResults(results) {
     new_params = [];
     $.each(params, function(k, v) {
       // console.log(k, v);
-      if(v.split("=")[0] == 'agent_name') {
-        new_agent_name = $('.ser').val();
-        new_params.push('agent_name='+new_agent_name);
-      } else {
+      if(v.split("=")[0] !== 'agent_name') {
         new_params.push(v);
       }
 
     });
+
+    new_agent_name = $('.ser').val();
+    new_params.push('agent_name='+new_agent_name);
     // console.log(params);
     // console.log(new_params);
     search = new_params.join('&');
