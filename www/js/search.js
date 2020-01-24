@@ -67,6 +67,7 @@ function load_search_results() {
     const urlParams = new URLSearchParams(window.location.search);
     var filters = get_search_filters();
     var state = urlParams.get('state');
+    var city = urlParams.get('city');
 
     if (!(state)) state = "WA"
 
@@ -128,6 +129,7 @@ function load_search_results() {
 
       $('#result-count').html(data['total']);
       $('#page-section').html(search_result);
+      if(city == null) $(".city_results").remove()
       set_pined_load()
     }).fail(function(err) {
       // alert('Got err');
@@ -152,6 +154,7 @@ function array_to_text(items) {
 function set_pined_load() {
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
+    if (!(agent_ids)) return
     for(var agent_id of agent_ids.split(",")) {
         if(agent_id) {
             // click to set the button pined

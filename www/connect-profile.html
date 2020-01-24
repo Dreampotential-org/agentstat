@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="">
     <meta name="decription" content="">
-    <meta name="author" content="Asad Kabir">
+    <meta name="author" content="">
 
     <!-- Title -->
-    <title>Sign Up</title>
+    <title>AgentStat</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="img/fav.png" />
@@ -78,7 +78,7 @@
                                                     <p>Account Settings</p>
                                                     <span>Manage your account settings</span>
                                                 </a>
-                                                <a class="dropdown-item" href="#">Sign Out</a>
+                                                <a class="dropdown-item logout" href="#">Sign Out</a>
                                             </div>
                                         </div>
                                     </li>
@@ -97,57 +97,42 @@
             <!-- profile area start -->
             <div class="profile">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 mx-auto">
-                          <h5>Sign Up Form</h5>
-                        </div>
-                    </div>
-                    <div class="row h-100">
-                      <div class="col-lg-6 mx-auto">
-                        <div class="alert alert-danger msg" role="alert"
-                          style="display: none">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-lg-6 mx-auto">
-                        <div class="form-group">
-                          <label for="full_name">Full name</label>
-                          <input type="text" class="form-control" id="full_name" aria-describedby="emailHelp" placeholder="Full Name">
-                        </div>
-                        <div class="form-group">
-                          <label for="phone_number">Phone number</label>
-                          <input type="text" class="form-control"
-                          id="phone_number" aria-describedby="emailHelp" placeholder="Phone number">
-                        </div>
-                        <div class="form-group">
-                          <label for="email">Email address</label>
-                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                          <small id="emailHelp" class="form-text
-                            text-muted">Your email address.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Password</label>
-                          <input type="password" class="form-control" id="password" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                          <label for="re-password">Password confirmation</label>
-                          <input type="password" class="form-control" id="re-password" placeholder="Password confirmation">
-                        </div>
-
-                        <div class="form-group text-center">
-                          <button id="signup-btn" class="btn btn-primary btn-lg">Sign Up</button>
-                          <br />
-                        </div>
-                      </div>
+                    <div class="profile-heading">
+                        <h2>Find Agent Profile</h2>
                     </div>
                 </div>
             </div>
             <!-- profile area end -->
 
+            <!-- form-area start -->
+            <div class="form">
+                <div class="container">
+                    <div class="form-wrapper">
+                        <div class="row h-100">
+                          <div class="col-lg-6 mx-auto">
+                            <div class="alert alert-danger msg" role="alert"
+                              style="display: none">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="basic-form-info">
+                            <div class="form-name ml-5">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <div class="fn-right">
+                                            <input type="text" id="full_name" name="text" placeholder="Full Name">
+                                            <select id='state'></select>
+                                            <button>Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
     </div>
 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
 
     <!-- Main jQuery -->
     <script src="js/jquery-3.4.1.min.js"></script>
@@ -169,86 +154,10 @@
     <script src="js/scripts.js"></script>
 
     <script src="/js/conf.js"></script>
-    <script src="/js/register.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/connect_agent.js"></script>
 
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
-
-    <script>
-        $('input[type="file"]').fileinput({
-            multipleText: '{0} files',
-            showMultipleNames: true,
-        });
-
-        $('#more').click(function() {
-            $('.more-content').slideDown();
-        });
-
-        $('#fwe').click(function() {
-            $('.more-content').slideUp();
-        });
-
-        $('.form-slider').owlCarousel({
-            loop: true,
-            margin: 0,
-            center: false,
-            nav: false,
-            dots: true,
-            autoplay: false,
-            autoplayTimeout: 2000,
-            responsiveClass: true,
-            responsiveRefreshRate: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 3
-                },
-                960: {
-                    items: 3
-                },
-                1200: {
-                    items: 3
-                },
-                1920: {
-                    items: 3
-                }
-            }
-        });
-
-        var owl = $('.form-slider');
-        owl.owlCarousel();
-        // Go to the next item
-        $('.owl-nextx').click(function() {
-                owl.trigger('next.owl.carousel');
-            })
-            // Go to the previous item
-        $('.owl-prevx').click(function() {
-            // With optional speed parameter
-            // Parameters has to be in square bracket '[]'
-            owl.trigger('prev.owl.carousel', [300]);
-        });
-
-        $('#cross').click(function() {
-            $('#lnumber').removeAttr('placeholder')
-        });
-
-        (function($) {
-            $(document).ready(function() {
-
-                jQuery(window).on('scroll', function() {
-                    if (jQuery(window).scrollTop()) {
-                        jQuery('.sticky-header').addClass('form-black');
-                    } else {
-                        jQuery('.sticky-header').removeClass('form-black');
-                    }
-                });
-            });
-        })(jQuery);
-    </script>
-
 </body>
-
 </html>

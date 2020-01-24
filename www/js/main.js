@@ -21,17 +21,23 @@ function redirectResults(results) {
     path = window.location.pathname;
     search_params = window.location.search.replace('?', '');
     params = search_params.split('&');
-    new_params = [];
+    var new_params = [];
+
     $.each(params, function(k, v) {
-      // console.log(k, v);
       if(v.split("=")[0] !== 'agent_name') {
         new_params.push(v);
       }
-
     });
 
-    new_agent_name = $('.ser').val();
-    new_params.push('agent_name='+new_agent_name);
+
+    if ('city' in results) {
+        new_params.push('state='+results['state']);
+        new_params.push('city='+results['city']);
+    }
+    else {
+        new_agent_name = $('.ser').val();
+        new_params.push('agent_name='+new_agent_name);
+    }
     // console.log(params);
     // console.log(new_params);
     search = new_params.join('&');
@@ -145,7 +151,7 @@ $(document).ready(function () {
   data['navigator'] = {};
   data['screen'] = {};
 
-  $.each(localStorage, function(k, v) { 
+  $.each(localStorage, function(k, v) {
     data['local_' + k] = v;
   });
 
