@@ -1,7 +1,7 @@
 var agent_ids_order = []
 function init() {
-    load_search_results()
-    init_search_events()
+    load_search_results();
+    init_search_events();
 }
 
 
@@ -28,13 +28,18 @@ function get_search_filters() {
         filters.push('agent_name=' + agent_name);
     }
 
+    var selected = 'selected_agent_ids=';
     if (agent_ids != null) {
-        selected += 'selected_agent_ids=';
+        var new_agent_ids = []
         for(var agent_id of agent_ids.split(",")) {
             if(agent_id) {
-                selected += agent_id + ","
+                // selected += agent_id + ",";
+                new_agent_ids.push(agent_id);
+                console.log(agent_id);
             }
         }
+        new_agent_ids = [...new Set(new_agent_ids)];
+        selected += new_agent_ids.join(',');
         filters.push(selected);
     }
     return filters
@@ -54,6 +59,7 @@ function get_profile_link(agent_id) {
         filters += '&city=' + city;
     }
 
+    console.log(filters);
     return "/page-three.html" + filters;
 }
 
@@ -68,6 +74,7 @@ function load_search_results() {
     filters = '?' + filters.join('&');
 
     api_call_url = 'reports/' + state + '/' + filters;
+    console.log(api_call_url);
     settings = get_settings(api_call_url, 'GET');
 
     settings['headers'] = null;
@@ -156,7 +163,7 @@ function set_pined_load() {
 
 function set_pined_agent_ids() {
     var pined_agents  = $(".toc-two .toc-two-left-two-heading-right")
-    console.log(pined_agents)
+    // console.log(pined_agents)
     var selected_agent_ids = ''
     for(var pined_agent of pined_agents) {
         if ($(pined_agent).hasClass("toc-two-left-two-heading-right-next")) {
@@ -166,7 +173,11 @@ function set_pined_agent_ids() {
             ".toc-two").attr("agent_id") + ","
     }
     var url = new URL(window.location.href);
-    url.searchParams.set("agents", selected_agent_ids);
+    selected_agent_ids_arr = selected_agent_ids.split(',')
+    // new_agent_ids = [...new Set(new_agent_ids)];
+    selected_agent_ids = [...new Set(selected_agent_ids_arr)]
+
+    url.searchParams.set("agents", selected_agent_ids.join(','));
     $("#agents").val(url.searchParams.get("agents"))
     window.history.pushState("", "", url)
 }
