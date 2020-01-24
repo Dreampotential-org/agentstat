@@ -7,10 +7,14 @@ function currencyFormat(num) {
   return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
-function load_agent() {
+function load_agent(ignore_city=false) {
   const urlParams = new URLSearchParams(window.location.search)
   var agent_id =  urlParams.get('agent_id');
-  var city =  urlParams.get('city');
+  var city = null;
+
+  if (ignore_city===false) {
+    city =  urlParams.get('city');
+  }
   console.log(city);
 
   if (agent_id) {
@@ -56,10 +60,13 @@ function load_agent() {
 
     if(city !== null) {
       $('#city-tab').text(city);
+      $('#city-tab').click();
     }
 
+    $( ".alist" ).remove();
+
     $.each(data['agent_lists'], function(k, v) {
-      $(`<tr>
+      $(`<tr class='alist'>
         <td>` + v['status'] +`</td>
         <td>` + currencyFormat(v['list_price_int']) +`</td>
         <td>` + currencyFormat(v['sold_price_int']) +`</td>
@@ -149,6 +156,8 @@ $(document).on('change click', '#city-tab', function(){
 $(document).on('change click', '#overall-tab', function(){
   $('#cityTabContent').css('display', 'none');
   $('#overallTabContent').css('display', 'block');
+
+  load_agent(true);
 });
 
 
