@@ -33,19 +33,49 @@
         <!--[if lte IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
+         <!-- header-area start -->	
+        <div class="header-area sticky-top bg-white akh-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
 
+                        <nav class="navbar navbar-expand-md navbar-light">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="img/logo.png" alt="logo">
+                            </a>
+                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                </ul>
+                                <div class="main-menu-part">
+                                    <ul>
+                                        <li><a href="#">Help</a></li>
+                                        <li><a href="#">Sign up/ Login</a></li>   		
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>							
+                </div>					
+            </div>
+        </div>	
+        <!-- header-area end -->
 
-        <div class="wrapper-heading sticky-top bg-white">
+        <div class="wrapper-heading sticky-top bg-white akh-4">
             <!-- header-area start -->	
-            <div class="header-area two-header-area">
+            <div class="header-area two-header-area akh-3">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <nav class="navbar navbar-expand-md navbar-light">
                                 <a class="navbar-brand" href="index.html">
-                                    <img src="img/logo.png" alt="logo" />
-                                </a>
+                                    <img src="img/logo.png" alt="logo">
+                                </a>						  
                                 <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="hamburger-box">
                                         <span class="hamburger-inner"></span>
@@ -62,20 +92,20 @@
                                     </div>
                                 </div>
                             </nav>
-                        </div>							
-                    </div>					
+                        </div>
+                    </div>
                 </div>
-            </div>	
-            <!-- header-area end -->	
+            </div>
+            <!-- header-area end -->
 
             <!-- po-search area start -->
             <div class="po-search pt-search">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
-                            <div class="po-serach-wrapper pt-search-wrapper">
-                                <input class="ser" type="text" name="text" placeholder="123 Main st, Seattle, WA 98109">
-                                <div class="type">
+                            <div class="po-serach-wrapper pt-search-wrapper ak-po">
+                                <input class="ser" type="text" name="text" placeholder="123 Main st, Seattle, WA 98109" autocomplete="off">
+                                <div class="type ak-price">
                                     <p id="y-type" class="type-value">Type</p>
                                     <div class="check-type">
                                         <h6>Home Type</h6>
@@ -105,7 +135,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="price">
+                                <div class="price ak-price">
                                     <p class="d-inline-block y-price">Price</p>
                                     <div class="price-amount" id="pt-amount">
                                         <h6 class="d-linline-block">Price Range</h6>
@@ -143,8 +173,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="ser-butt">
-                                    <button><span><i class="fas fa-search"></i></span></button>
+                                <div class="ser-butt ak-sb1">
+                                    <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
                                 </div>
                             </div>
                         </div>

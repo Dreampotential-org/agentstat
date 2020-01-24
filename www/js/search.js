@@ -76,13 +76,13 @@ function load_search_results() {
 
     api_call_url = 'reports/' + state + '/' + filters;
     console.log(api_call_url);
-    settings = get_settings(api_call_url, 'GET');
-
+    var settings = get_settings(api_call_url, 'GET');
     settings['headers'] = null;
 
     // Example requests
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
     var data;
+    var results;
     var search_result = '';
 
     $.ajax(settings).done(function (response) {
