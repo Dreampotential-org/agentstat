@@ -29,7 +29,7 @@ function get_search_filters() {
     }
 
     if (agent_ids != null) {
-        selected += 'selected_agent_ids=';
+        var selected = 'selected_agent_ids=';
         for(var agent_id of agent_ids.split(",")) {
             if(agent_id) {
                 selected += agent_id + ","
