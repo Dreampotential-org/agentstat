@@ -283,14 +283,14 @@ Small Screen - Tablate
     .pt-search-wrapper input.ser {
         width: 100%!important;
         display: block;
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         border-radius: 8px;
         padding: 10px 15px;
         margin-bottom: 15px;
     }
     .pt-search-wrapper .type {
         width: 49%;
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         border-radius: 8px;
         padding: 3px 15px;
     }
@@ -302,7 +302,7 @@ Small Screen - Tablate
     }
     .pt-search-wrapper .price {
         width: 49%;
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         border-radius: 8px;
         padding: 3px 15px;
         float: right;
@@ -316,7 +316,7 @@ Small Screen - Tablate
     }
     .pt-search-wrapper .ser-butt {
         display: block;
-        width: 100%;
+        width: 97%;
         margin: 33px -8px 0px 0px;
     }
     .pt-search-wrapper .ser-butt button {
@@ -658,7 +658,7 @@ Small Screen - Mobile
         padding-top: 12px;
         padding-bottom: 12px;
         width: 100%;
-        box-shadow: 0 0 5px rgba(0,0,0,.2);
+        /*box-shadow: 0 0 5px rgba(0,0,0,.2);*/
     }
     .price {
         width: 49%;
@@ -678,11 +678,11 @@ Small Screen - Mobile
         padding-top: 12px;
         padding-bottom: 12px;
         width: 100%;
-        box-shadow: 0 0 5px rgba(0,0,0,.2);
+        /*box-shadow: 0 0 5px rgba(0,0,0,.2);*/
     }
     .ser-butt {
         display: block;
-        width: 100%;
+        width: 90%;
         margin-top: 12px;
     }
     .ser-butt button {
@@ -857,7 +857,7 @@ Small Screen - Mobile
     .serach input {
         display: block;
         width: 100%;
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         border-radius: 8px;
         font-size: 12px;
         padding-left: 10px;
@@ -903,7 +903,7 @@ Small Screen - Mobile
         background-color: #fff;
     }
     .po-serach-wrapper input.ser {
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         display: block;
         width: 100% !important;
         padding: 12px 10px;
@@ -911,7 +911,7 @@ Small Screen - Mobile
     }
     .pt-search-wrapper .type,
     .pt-search-wrapper .price {
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         padding: 6px 0px;
         border-radius: 8px;
     }
@@ -1149,7 +1149,7 @@ Small Screen - Mobile
         padding-left: 85px;
     }
     .pht-agent {
-        border-top: 1px solid #E5E5E5;
+        /*border-top: 1px solid #E5E5E5;*/
         padding-top: 20px;
         border-bottom: 1px solid #E5E5E5;
         padding-bottom: 40px;
@@ -1625,7 +1625,7 @@ Xtra Small Screen - Small Mobile
         padding-top: 12px;
         padding-bottom: 12px;
         width: 100%;
-        box-shadow: 0 0 5px rgba(0,0,0,.2);
+        /*box-shadow: 0 0 5px rgba(0,0,0,.2);*/
     }
     .price {
         width: 49%;
@@ -1645,7 +1645,7 @@ Xtra Small Screen - Small Mobile
         padding-top: 12px;
         padding-bottom: 12px;
         width: 100%;
-        box-shadow: 0 0 5px rgba(0,0,0,.2);
+        /*box-shadow: 0 0 5px rgba(0,0,0,.2);*/
     }
     .ser-butt {
         display: block;
@@ -1825,7 +1825,7 @@ Xtra Small Screen - Small Mobile
     .serach input {
         display: block;
         width: 100%;
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         border-radius: 8px;
         font-size: 12px;
         padding-left: 10px;
@@ -1872,7 +1872,7 @@ Xtra Small Screen - Small Mobile
         background-color: #fff;
     }
     .po-serach-wrapper input.ser {
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         display: block;
         width: 100% !important;
         padding: 12px 10px;
@@ -1880,7 +1880,7 @@ Xtra Small Screen - Small Mobile
     }
     .pt-search-wrapper .type,
     .pt-search-wrapper .price {
-        border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5 !important;
         padding: 6px 0px;
         border-radius: 8px;
     }
@@ -2118,7 +2118,7 @@ Xtra Small Screen - Small Mobile
         padding-left: 40px;
     }
     .pht-agent {
-        border-top: 1px solid #E5E5E5;
+        /*border-top: 1px solid #E5E5E5;*/
         padding-top: 20px;
         border-bottom: 1px solid #E5E5E5;
         padding-bottom: 40px;
