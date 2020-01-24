@@ -58,10 +58,6 @@ function load_agent(ignore_city=false) {
     $("#city-s2l-price").html(city_s2l_price.toFixed(2) + '%');
 
 
-    if(city !== null) {
-      $('#city-tab').text(city);
-      $('#city-tab').click();
-    }
 
     $( ".alist" ).remove();
 
@@ -148,9 +144,19 @@ $(document).on('change click', '#lead-submit', function() {
   });
 });
 
+$(window).on('load', function() {
+  const urlParams = new URLSearchParams(window.location.search)
+  var city =  urlParams.get('city');
+  if(city !== null) {
+    $('#city-tab').text(city);
+    $('#city-tab').click();
+  }
+});
+
 $(document).on('change click', '#city-tab', function(){
   $('#cityTabContent').css('display', 'block');
   $('#overallTabContent').css('display', 'none');
+  load_agent();
 });
 
 $(document).on('change click', '#overall-tab', function(){
