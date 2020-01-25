@@ -6,6 +6,9 @@ body {
     background: #fff;
     color: #333333;
 }
+.pth-agent-left{
+    margin-top: 30px;
+}
 .text-justify{
     text-align: justify;
 }
@@ -2829,7 +2832,19 @@ ul {
     position: relative;
 }
 
-
+.pht-agent-img.toc-two-left-one:before {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 65px;
+    position: absolute;
+    top: -1px !important;
+    left: 0;
+    background: url(img/top.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
 .toc-two-left-one:before {
     content: "";
     display: block;
