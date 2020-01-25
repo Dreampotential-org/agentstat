@@ -6,6 +6,12 @@ body {
     background: #fff;
     color: #333333;
 }
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #134E60;
+    border-color: #134E60;
+}
 .form-check.location{
     padding: 7px 0px 0px 8px;
 }
