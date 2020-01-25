@@ -6,6 +6,12 @@ body {
     background: #fff;
     color: #333333;
 }
+.form-check.location{
+    padding: 7px 0px 0px 8px;
+}
+.form-check.location input[type="checkbox"]{
+    left: 8px !important;
+}
 #myTab .nav-item.col-3.col-sm-3 {
     padding: 0px;
 }
@@ -32,7 +38,7 @@ body {
 
     .searchbar:hover > .search_input{
     padding: 0 10px;
-    width: 450px;
+    width: 100%;
     caret-color:red;
     transition: width 0.4s linear;
     }
@@ -40,6 +46,7 @@ body {
     .searchbar:hover > .search_icon{
     background: white;
     color: #fdcb6e;
+    margin: -42px 0px;
     }
 
     .search_icon{
@@ -1911,7 +1918,7 @@ ul {
 }
 
 .pth-sold-maps {
-    margin-top: 20px;
+/*    margin-top: 20px;*/
 }
 
 .pth-sold-content p span {
