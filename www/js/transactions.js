@@ -63,6 +63,8 @@ function load_agent() {
       $('#city-tab').text(city);
     }
 
+    console.log(data['agent_lists']);
+
     $.each(data['agent_lists'], function(k, v) {
       $(`<tr>
         <td class='status-`+ v['status'] +`'>` + v['status'] +`</td>
@@ -86,8 +88,51 @@ function load_agent() {
             <a href="#" class="closeform" style="float:right;margin-bottom:5px"><i class="fa fa-close"></i></a>
             <textarea class="public-note-text form-control" id="note-`+ v['id'] +`" rows="5" name="public-note" ></textarea>
           </div>
+          <div class="text-left">
+          ` + v['address_text'] +`
+          <table style="width:100%">
+            <tr>
+              <td width:20%>
+                <table>
+                    <tr>
+                        <td style='text-align: left'>
+                          <strong>Listed:</strong> <br><br>
+                          ` + v['list_date'] +` <br>
+                          ` + currencyFormat(v['list_price_int']) +`
+                        </td>
+                        <td>
+                          <strong>Sold:</strong> <br><br>
+                          ` + v['sold_date'] +` <br>
+                          ` + currencyFormat(v['sold_price_int']) +`
+                        </td>
+                    </tr>
+                    <tr>
+                      <td colspan=2 style="text-align:left">
+                      <strong>Days on market:</strong> ` + v['days_on_market']+ ` <br>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table>
+                      <tr>
+                        <td style="text-align:left;">
+                          <strong>Type:</strong> ` + v['home_type'] + ` <br>
+                          <strong>Beds:</strong> ` + v['beds']+ ` <br>
+                          <strong>Baths:</strong> ` + v['baths']+ ` <br>
+                          <strong>Year Built:</strong> ` + v['year_built']+ ` <br>
+                          <strong>State:</strong> ` + v['state']+ ` <br>
+                        </td>
+                      </tr>
+                  </table>
+              </td>
+              </tr>
+          </table>
+          </div>
           </td>
-      </tr>`).insertAfter(".table-heading");
+      </tr>
+
+        `).insertAfter(".table-heading");
     });
 
   }).fail(function(err){
