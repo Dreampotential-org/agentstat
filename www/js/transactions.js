@@ -12,7 +12,7 @@ function passBtnID(id) {
   id_arr = id.split('-')
   agent_list_id = id_arr[id_arr.length - 1];
 
-  api_call_url = 'agent-note/' + agent_list_id + '/';
+  api_call_url = 'agent-list-note/' + agent_list_id + '/';
 
   settings = get_settings(api_call_url, 'GET');
   $.ajax(settings).done(function (response) {
@@ -109,7 +109,7 @@ $(document).on('change click', '.notebtn', function(){
   data['note'] = $('#note-'+data_id).val();
   console.log(data);
 
-  api_call_url = 'agent-note/' + agent_list_id + '/';
+  api_call_url = 'agent-list-note/' + agent_list_id + '/';
 
   settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
   settings['headers'] = null;
