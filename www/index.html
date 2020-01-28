@@ -31,8 +31,8 @@
 <![endif]-->
 
         <!-- header-area start -->
-        <div class="header-area sticky-top bg-white">
-            <div class="container">
+        <div class="header-area sticky-top bg-white custom_header">
+            <div class="">
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -61,7 +61,9 @@
             </div>
         </div>	
         <!-- header-area end -->
-
+        <!-- first-view start -->
+        <!-- <div class="first-view">
+        <div class="vertical-center"> -->
         <!-- po-world area start -->
         <div class="po-world">
             <div class="container">
@@ -148,8 +150,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="ser-butt">
+                            <!-- <div class="ser-butt">
                                 <button><span><i class="fas fa-search"></i></span></button>
+                            </div> -->
+                            <div style="display: inline;" >
+                                <button class="btn btn-default"><span><i class="fas fa-search"></i></span></button>
                             </div>
                         </div>
                     </div>
@@ -157,6 +162,21 @@
             </div>
         </div>
         <!-- po-search area start -->
+            <!-- <div class="container">
+                <div class="input-group po-serach-wrapper-one custom-search">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                        <button class="btn" type="button">Type</button>
+                        <button class="btn" type="button">Price</button>
+                        <button class="btn" type="button"><span><i class="fas fa-search"></i></span></button>
+                    </div>
+                </div>
+            </div> -->
+        <!-- </div>
+        </div> -->
+        <!-- first-view end -->
+
+
         <!-- po-what area start -->
         <div class="po-what">
             <div class="container">
@@ -285,7 +305,7 @@
                             <div class="po-maps-left">
                                 <h3>Organize real estate data <br>and make it accessible and useful!</h3>
                                 <p style="box-shadow: initial;">Find your AgentStat Top 1% Agent now!</p>
-                                <div class="po-serach-wrapper po-maps-wrapper-two">
+                                <div class="po-maps-wrapper-two cust-wrapper">
                                     <input class="ser" type="text" name="text" placeholder="Search">
                                     <div class="type">
                                         <p id="bau1" class="bau-in">Type</p>
@@ -355,8 +375,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="ser-butt">
-                                        <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
+                                    <div style="display: inline;">
+                                        <button class="btn btn-default"><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
                                     </div>
                                 </div>
                             </div>
@@ -416,16 +436,52 @@
                         $('.po-serach-wrapper-one').removeClass('fixed');
 
                 });
+
+
+                    // $(window).on('scroll', function () {
+                    //     if ($(window).scrollTop()) {
+                    //         $('.header-area').addClass('black');
+                    //         $(".header-area").css({"position": "fixed"});
+                    //     } else {
+                    //         $('.header-area').removeClass('black');
+                    //         $(".header-area").css({"position": "relative"});
+                    //     }
+                    // });
+
+
+
             });
+            $(window).on('scroll', function() {
+
+console.log("LENGTH "+$(this).scrollTop() )
+if ($('.stricked-menu').length) {
+    var strickyScrollPos = 50;
+    if ($(window).scrollTop() > strickyScrollPos) {
+        $('.stricked-menu').fadeIn(100);
+    } else if ($(this).scrollTop() <= strickyScrollPos) {
+        //$('.stricked-menu').fadeOut(100);
+    }
+}
+if ($('.stricked-menu').length) {
+    var headerScrollPos = 50;
+    var stricky = $('.stricked-menu');
+    if ($(window).scrollTop() > headerScrollPos) {
+        stricky.addClass('stricky-fixed');
+    } else if ($(this).scrollTop() <= headerScrollPos) {
+        stricky.removeClass('stricky-fixed');
+    }
+}
+});
+
 
             (function ($) {
                 $(document).ready(function () {
 
                     jQuery(window).on('scroll', function () {
                         if (jQuery(window).scrollTop()) {
-                            jQuery('.header-area').addClass('black');
+                            jQuery('.header-area').addClass('stricked-menu');
                         } else {
-                            jQuery('.header-area').removeClass('black');
+                            jQuery('.header-area').removeClass('stricked-menu');
                         }
                     });
                 });
