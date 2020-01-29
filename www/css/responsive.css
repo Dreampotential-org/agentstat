@@ -621,6 +621,8 @@ Small Screen - Mobile
 */
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
+
+    
     .main-menu-part ul {
         margin: 10px 0px 20px 24%;
     }
@@ -662,9 +664,10 @@ Small Screen - Mobile
     .po-serach-wrapper {
         background: #fff;
         box-shadow: none;
-        border: 0;
-        border-radius: 0;
+         border: 0;
+        border-radius: 0; 
     }
+
     .type {
         width: 49%;
     }
@@ -925,7 +928,7 @@ Small Screen - Mobile
         background-color: #fff;
     }
     .po-serach-wrapper input.ser {
-        border: 1px solid #E5E5E5 !important;
+        border: 0px solid #E5E5E5 !important;
         display: block;
         width: 100% !important;
         padding: 12px 10px;
@@ -1894,7 +1897,7 @@ Xtra Small Screen - Small Mobile
         background-color: #fff;
     }
     .po-serach-wrapper input.ser {
-        border: 1px solid #E5E5E5 !important;
+        border: 0px solid #E5E5E5 !important;
         display: block;
         width: 100% !important;
         padding: 12px 10px;

@@ -3153,9 +3153,10 @@ ul {
 
 
 
-@media screen and (max-width: 991px) {
+@media screen and (min-width: 766px) and (max-width: 991px) {
     .po-serach-wrapper {
         border:1px solid #A9A9A9;
+        border-radius: 100px;
     }
     .akh-2 {
         display: block!important;
@@ -3168,9 +3169,60 @@ ul {
     .akh-4 {
         position: initial;
     }
+}
 
-
-
-
+@media screen and (max-width: 767px) and (min-width: 320px){
+    .po-serach-wrapper {
+        background: #fff !important;
+        box-shadow: none !important;
+        border: 1px solid #A9A9A9 !important;
+        border-radius: 100px !important;
+    }
+    .po-serach-wrapper.po-serach-wrapper-one.ak-form {
+        display: flex !important;
+    }
+    .po-serach-wrapper input.ser {
+        display: block;
+        width: 100% !important;
+        padding: 4px 10px;
+        margin-bottom: 0px !important;
+        box-shadow: none !important;
+        border: 0px solid !important;
+    }
+    .type p {
+        margin-bottom: 0;
+        font-size: 18px;
+        color: #575757;
+        padding: 16px 0;
+        font-weight: 300;
+        width: 140px;
+        text-overflow: ellipsis;
+        text-align: center;
+        white-space: nowrap;
+        border-left: 1px solid #767676 !important;
+        border-right: 1px solid #767676 !important;
+        border-radius: 0px !important;
+    }
 
 }
+
+.mainDiv{
+    height: 100vh;
+    position: relative;
+}
+.subDiv{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px){
+    .subDiv{
+        position: absolute;
+        width: 100%;
+        top: 20%;
+    }
+}
+
+ 
