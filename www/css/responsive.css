@@ -43,7 +43,8 @@ Medium Screen - Others
 
 @media screen and (min-width: 770px) {
     .ser-butt button {
-        background-color: #E0A900;
+        /* background-color: #E0A900; */
+        background-color: none;
         border-radius: 8px;
         color:  #3C3C3C;
         border: none;
@@ -219,6 +220,7 @@ Medium Screen - Others
     }
     .po-maps-wrapper-two input.ser {
         width: 206px;
+        padding: 0px !important;
     }
     .bau-am input {
         width: 47%;
@@ -550,7 +552,7 @@ Small Screen - Tablate
         border: none;
         background-color: #fff;
         padding: 10px 0;
-        border-radius: 6px;
+        /* border-radius: 6px; */
     }
     .po-maps-wrapper-two .price {
         width: 49%;
@@ -892,8 +894,8 @@ Small Screen - Mobile
         display: block;
         float: none;
         width: 100%;
-        padding: 6px 0;
-        margin-top: 12px;
+        padding: 10px 0;
+        /* margin-top: 12px; */
     }
     .po-maps-right {
         display: none;
@@ -1840,7 +1842,7 @@ Xtra Small Screen - Small Mobile
         font-size: 12px;
         margin-bottom: 20px;
         box-shadow: initial;
-        box-shadow: 0 0 5px rgba(0,0,0,.2);
+        /* box-shadow: 0 0 5px rgba(0,0,0,.2); */
     }
     .serach {
         border: 0;
@@ -1860,8 +1862,8 @@ Xtra Small Screen - Small Mobile
         display: block;
         float: none;
         width: 100%;
-        padding: 6px 0;
-        margin-top: 12px;
+        padding: 10px 0;
+        /* margin-top: 12px; */
     }
     .po-maps-right {
         display: none;
@@ -2565,8 +2567,5 @@ Xtra Small Screen - Small Mobile
     .pt-search {
         position: initial!important;
     }
-
-
-
 
 }
