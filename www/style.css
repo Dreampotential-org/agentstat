@@ -147,7 +147,7 @@ th {
     vertical-align: inherit;
     font-weight: bold;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
 }
 td {
     display: table-cell;
@@ -541,7 +541,8 @@ ul {
 }
 
 .ser-butt button {
-    background-color: #E0A900;
+    /* background-color: #E0A900; */
+    background-color: none;
     border-radius: 8px;
     color: #3C3C3C;
     border: none;
@@ -1037,6 +1038,11 @@ ul {
     height: 140px;
     width: 100%;
     position: relative;
+    margin-top: 25px;
+    /* position: fixed !important;
+    left: 0 !important; 
+    bottom: 0 !important;
+    width: 100% !important; */
 }
 
 .footer-wrapper p {
@@ -1128,9 +1134,11 @@ ul {
 }
 
 .pt-search-wrapper .ser-butt button {
-    padding: 5px 17px;
-    color: #fff;
+    padding: 8px 17px;
+    /* color: #fff; */
+    color: #000;
     font-size: 16px;
+    background: none;
 }
 
 .pt-search-wrapper .type p {
@@ -1248,12 +1256,12 @@ ul {
 }
 
 .toc-two-left-two-heading-right p {
-    margin-bottom: 0;
-    font-weight: 300;
+     margin-bottom: 0;
+   /* font-weight: 300; */
     font-size: 14px;
     color: #767676;
-    font-style: italic;
-    margin-left: -5px;
+    /* font-style: italic;
+    margin-left: -5px; */
 }
 
 .toc-two-left-two-list-one {
@@ -1323,7 +1331,8 @@ ul {
     transform: rotate(30deg);
     margin-left: 25px;
     margin-top: 4px;
-    color: #759AA5;
+    color: #494747;
+    /* color: #759AA5; */
 }
 
 .toc-two-left-two-list-one-next {
@@ -1345,7 +1354,6 @@ ul {
 }
 
 .pt-tab {
-    margin-top: -30px;
     position: relative;
 }
 
@@ -3018,12 +3026,14 @@ ul {
     font-weight: 600;
 }
 
-
-
-
+.toc-two-right {
+    margin-right: 20px;
+    margin-top: 30px;
+}
 
 .ak-table {
-    overflow: auto;    
+    overflow: auto; 
+    margin-top: 25px;   
 }
 
 .ak-table table {   
@@ -3035,7 +3045,8 @@ ul {
 }
 
 .ak-table table td {
-    padding: 3px;
+    /* padding: 3px; */
+    text-align: left;
 }
 
 .ak-icontent {
@@ -3089,9 +3100,10 @@ ul {
 }
 
 .cust-wrapper{
-    border: 0.55px solid lightgray;
+    border: 1px solid lightgray;
     padding: 0 20px;
     border-radius: 100px;
+
 }
 
 
@@ -3224,5 +3236,30 @@ ul {
         top: 20%;
     }
 }
+
+@media screen and (max-width: 991px) and (min-width: 320px){
+    .po-maps-wrapper-two.cust-wrapper {
+        display: flex;
+        background: none !important;
+    }
+    input.ser {
+        width: 120px;
+        margin: 10px 0px;
+        padding: 0px !important;
+    }
+    p#bau1 {
+        border-left: 1px solid #767676;
+        border-right: 1px solid #767676;
+        margin: 1px 0px;
+    }
+
+}
+
+@media screen and (min-width: 320px)and (max-width: 360px){
+    .po-maps-wrapper-two input.ser {
+        width: 100px;
+    }
+}
+
 
  
