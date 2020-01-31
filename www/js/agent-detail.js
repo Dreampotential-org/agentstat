@@ -66,11 +66,17 @@ function load_agent(ignore_city = false) {
         $(".alist").remove();
 
         $.each(data['agent_lists'], function (k, v) {
-            if(currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])){
+            if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
                 var errowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
-            }else{
+            } else {
                 var errowStyle = ' <i class="fa fa-long-arrow-down" style="font-size:18px;color:red"></i>';
             }
+            if (v['year_built'] < '2') {
+                var note = `<a  onclick="passBtnID('add-public-note-` + v['id'] + `')" value="1" title="notes"><i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i></a>`;
+            } else {
+                var note = 'note';
+            }
+
             $(`<tr class='alist'>
         <td>` + v['status'] + `</td>
         <td>` + currencyFormat(v['list_price_int']) + `</td>
@@ -81,8 +87,58 @@ function load_agent(ignore_city = false) {
         <td>` + v['year_built'] + `</td>
         <td>` + v['city'] + `</td>
         <td>` + v['home_type'] + `</td>
-        <td> note </td>
-      </tr>`).insertAfter("#transations");
+        <td>` + note + `</td>
+      </tr>
+         <tr class="fidout" id="add-public-note-` + v['id'] + `" style="display: none; background: lightgray;">
+        <td colspan="10" style="padding: 6px 13px; color:gray">
+          <div class="form-group">
+            <a href="#" class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close"></i></a>
+            <textarea class="public-note-text form-control" id="note-` + v['id'] + `" rows="2" name="public-note" readonly></textarea>
+          </div>
+          <div class="text-left">
+          ` + v['address_text'] + `
+          <table style="width:100%">
+            <tr>
+              <td>
+                <table style="width:100%">
+                    <tr>
+                        <td style='text-align: left;padding: 5px 10px;color: gray;'>
+                          <strong>Listed:</strong> <br><br>
+                          ` + v['list_date'] + ` <br>
+                          ` + currencyFormat(v['list_price_int']) + `
+                        </td>
+                        <td style='padding: 5px 10px;color: gray;'>
+                          <strong>Sold:</strong> <br><br>
+                          ` + v['sold_date'] + ` <br>
+                          ` + currencyFormat(v['sold_price_int']) + `
+                        </td>
+                    </tr>
+                    <tr>
+                      <td colspan=2 style='text-align: left;padding: 5px 10px;color: gray;'>
+                      <strong>Days on market:</strong> ` + v['days_on_market'] + ` <br>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table style="width:100%">
+                      <tr>
+                        <td style='text-align: left;padding: 5px 10px;color: gray;'">
+                          <strong>Type:</strong> ` + v['home_type'] + ` <br>
+                          <strong>Beds:</strong> ` + v['beds'] + ` <br>
+                          <strong>Baths:</strong> ` + v['baths'] + ` <br>
+                          <strong>Year Built:</strong> ` + v['year_built'] + ` <br>
+                          <strong>State:</strong> ` + v['state'] + ` <br>
+                        </td>
+                      </tr>
+                  </table>
+              </td>
+              </tr>
+          </table>
+          </div>
+          </td>
+      </tr>`
+                    ).insertAfter("#transations");
         })
 
     }).fail(function (err) {
@@ -186,6 +242,13 @@ $(window).on('load', function () {
         $('#city-tab').click();
     }
 });
+function passBtnID(id) {
+    $('.fidout').fadeOut('slow');
+    $('#' + id).fadeIn('slow');
+}
+function closeBtnID(id) {
+    $('#' + id).fadeOut('slow');
+}
 
 $(document).on('change click', '#city-tab', function () {
     $('#cityTabContent').css('display', 'block');

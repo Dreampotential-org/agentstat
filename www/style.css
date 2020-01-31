@@ -1817,6 +1817,7 @@ ul {
     background: #E5E5E5;
     border-radius: 8px 8px 0px 0px;
     color: #767676;
+    white-space: nowrap;
 }
 
 .pht-card-tabs .nav-tabs {
@@ -1977,18 +1978,19 @@ ul {
 }
 
 .pth-all-table table tr {
-    background-color: rgba(216, 226, 234, 0.35);
-    border-bottom: 10px solid #fff;
+    /*background-color: rgba(216, 226, 234, 0.35);*/
+/*    border-bottom: 10px solid #fff;*/
 }
 
 .pth-all-table table tr:nth-child(odd) {
-    background-color: rgba(216, 226, 234, 0.65);
+    /*background-color: rgba(216, 226, 234, 0.65);*/
+    background: #e2e2e2;
 }
 
 .pth-all-table table tr td {
     font-size: 16px;
     color: #3C3C3C;
-    border-right: 2px solid #fff;
+    /*border-right: 2px solid #fff;*/
     padding: 14px 0px;
 }
 
