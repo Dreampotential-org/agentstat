@@ -11,7 +11,7 @@
         <meta name="author" content="Asad Kabir">
 
         <!-- Title -->
-        <title>Transactions</title>
+        <title>referrals</title>
 
         <!-- Fav Icon -->
         <link rel="icon" href="img/fav.png" />
@@ -31,346 +31,345 @@
 
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="css/responsive.css" />
-<style>
-.table tr {
-    cursor: pointer;
-}
-.hiddenRow {
-    padding: 0 4px !important;
-    background-color: #eeeeee;
-    font-size: 13px;
-}
+        <style>
+            .table tr {
+                cursor: pointer;
+            }
+            .hiddenRow {
+                padding: 0 4px !important;
+                background-color: #eeeeee;
+                font-size: 13px;
+            }
 
-tr.table-heading {
-    background-color: #fff !important;
-}
-tr.table-subHeading {
-    background-color: #f6f6f6;
-}
-th.table-subTh {
-    padding: 10px 25px;
-    border: 1px solid;
-}
-i.fa.fa-download.downloadIcon {
-    font-size: 22px;
-}
-select.selectStatus {
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 3px;
-}
-.customeTableBorder{
-    border: none !important;
-}
-.newReferral{
-    text-align: end;
-    border: none !important;
-    color: #4A86E8;
-}
-.tableHead{
-    background-color: #D9D9D9;
-}
-th.tableHead {
-    border: 0.55px solid;
-}
-.titleHead{
-    font-weight: bold;
-}
-.downloadImgDiv{
-    margin: 10px;
-}
-.downloadImg{
-    width: 40px;
-}
-
-
-</style>
-
-</head>
+            tr.table-heading {
+                background-color: #fff !important;
+            }
+            tr.table-subHeading {
+                background-color: #f6f6f6;
+            }
+            th.table-subTh {
+                padding: 10px 25px;
+                border: 1px solid;
+            }
+            i.fa.fa-download.downloadIcon {
+                font-size: 22px;
+            }
+            select.selectStatus {
+                border: 1px solid;
+                border-radius: 5px;
+                padding: 3px;
+            }
+            .customeTableBorder{
+                border: none !important;
+            }
+            .newReferral{
+                text-align: end;
+                border: none !important;
+                color: #4A86E8;
+            }
+            .tableHead{
+                background-color: #D9D9D9;
+            }
+            th.tableHead {
+                border: 0.55px solid;
+            }
+            .titleHead{
+                font-weight: bold;
+            }
+            .downloadImgDiv{
+                margin: 10px;
+            }
+            .downloadImg{
+                width: 40px;
+            }
 
 
-<body>
+        </style>
 
-<!-- header-area start -->
-<div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 999;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand form-logo" href="index.html">
-                        <img src="img/logo.png" alt="logo" />
-                    </a>
-                    <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        </ul>
-                        <div class="main-menu-part form-menu">
-                            <ul class="float-left form-ulli-left">
-                                <li><a href="#">HOME </a></li>
-                                <li><a href="#">TRANSACTIONS </a></li>
-                                <li><a href="#">DASHBOARD  </a></li>
-                                <li><a href="./referrals.html">REFERRALS </a></li>
-                            </ul>
-                            <ul class="float-right user-icon form-ulli-right">
-                                <li>
-                                    <div class="dropdown profile show">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span><i class="fas fa-user-circle"></i></span>
-                                        </a>
+    </head>
 
-                                        <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">
-                                                <p>Profile Settings</p>
-                                                <span>Edit your profile info and reviews</span>
-                                            </a>
-                                            <a class="dropdown-item" href="#">
-                                                <p>Account Settings</p>
-                                                <span>Manage your account settings</span>
-                                            </a>
-                                            <a class="dropdown-item" href="#">Sign Out</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+
+    <body>
+
+        <!-- header-area start -->
+        <div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 999;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-md navbar-light">
+                            <a class="navbar-brand form-logo" href="index.html">
+                                <img src="img/logo.png" alt="logo" />
+                            </a>
+                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                </ul>
+                                <div class="main-menu-part form-menu">
+                                    <ul class="float-left form-ulli-left">
+                                        <li><a href="#">HOME </a></li>
+                                        <li><a href="#">TRANSACTIONS </a></li>
+                                        <li><a href="#">DASHBOARD  </a></li>
+                                        <li><a href="./referrals.html">REFERRALS </a></li>
+                                    </ul>
+                                    <ul class="float-right user-icon form-ulli-right">
+                                        <li>
+                                            <div class="dropdown profile show">
+                                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span><i class="fas fa-user-circle"></i></span>
+                                                </a>
+
+                                                <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">
+                                                        <p>Profile Settings</p>
+                                                        <span>Edit your profile info and reviews</span>
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <p>Account Settings</p>
+                                                        <span>Manage your account settings</span>
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">Sign Out</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
-                </nav>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- header-area end -->
+        <!-- header-area end -->
 
-<div class="container">
-    <hr>
-    <div class="pth-all-heading">
-        <br>
-        <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTransaction"><i class="fa fa-plus"></i> Add transaction</button> -->
-        <!-- <table>
-            <tr class="table-subHeading">
-                <th class="table-subTh">Received</th>
-                <th class="table-subTh">Sent</th>
+        <div class="container">
+            <hr>
+            <div class="pth-all-heading">
+                <br>
+                <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTransaction"><i class="fa fa-plus"></i> Add transaction</button> -->
+                <!-- <table>
+                    <tr class="table-subHeading">
+                        <th class="table-subTh">Received</th>
+                        <th class="table-subTh">Sent</th>
+                    </tr>
+                </table> -->
+
+            </div>
+
+            <table class="table-responsive table-bordered table-hover customeTableBorder" width="100%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="tableHead">Received</th>
+                        <th scope="col" class="tableHead">Sent</th>
+                        <th colspan="6" class="newReferral">+ Send New Referral</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="titleHead">
+                        <td>Referral Agreement</td>
+                        <td>Date</td>
+                        <td>Type</td>
+                        <td>Referral Name</td>
+                        <td>Agent Name</td>
+                        <td>Referral Fee</td>
+                        <td>Price</td>
+                        <td>Status</td>
+                    </tr>
+                    <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                        <td><div class="downloadImgDiv"><img class="downloadImg" src="./img/download-icon.png"/></div></td>
+                        <td>Jan 12 2019</td>
+                        <td>Buyer</td>
+                        <td>Jim ans Sue Johnson</td>
+                        <td>Douglas Ching</td>
+                        <td>20%</td>
+                        <td>400-500K</td>
+                        <td onclick="event.stopPropagation()">
+                            <select name="status" class="selectStatus">
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="closed">Closed</option>
+                                <option value="canceled">Canceled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td colspan="12" class="hiddenRow">
+                            <div class="accordian-body collapse" id="demo1" style="text-align: left;"> 
+                                <p style="margin-bottom: 0px;">Email : client@gmail.com</p>
+                                <p style="margin-bottom: 0px;">Phone : 8845741230</p>
+                            </div> 
+                        </td>
+                    </tr>
+
+                    <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+                        <td><div class="downloadImgDiv"><img class="downloadImg" src="./img/download-icon.png"/></div></td>
+                        <td>Feb 18 2019</td>
+                        <td>Seller</td>
+                        <td>All Star Construction LLC</td>
+                        <td>Anna Kovalevich</td>
+                        <td>25%</td>
+                        <td>350-400K</td>
+                        <td onclick="event.stopPropagation()">
+                            <select name="status" class="selectStatus" >
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="closed">Closed</option>
+                                <option value="canceled">Canceled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td colspan="12" class="hiddenRow">
+                            <div class="accordian-body collapse" id="demo2" style="text-align: left;"> 
+                                <p style="margin-bottom: 0px;">Email : seller@gmail.com</p>
+                                <p style="margin-bottom: 0px;">Phone : 8888741230</p>
+                            </div> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <table class="table-responsive table-striped table-bordered mytable" id="transations-table" style="font-size:.9em">
+              <tr class="table-heading">
+                  <th>Referral Agreement</th>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Referral Name</th>
+                  <th>Agent Name</th>
+                  <th>Referral Fee</th>
+                  <th>Price</th>
+                  <th>Status</th>
+              </tr>
+              <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                <td><i class="fa fa-download downloadIcon"></i></td>
+                <td>Jan 12 2019</td>
+                <td>Buyer</td>
+                <td>Jim ans Sue Johnson</td>
+                <td>Douglas Ching</td>
+                <td>20%</td>
+                <td>400-500K</td>
+                <td>
+                    <select name="status" class="selectStatus">
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="closed">Closed</option>
+                        <option value="canceled">Canceled</option>
+                    </select>
+                </td>
             </tr>
-        </table> -->
-
-    </div>
-
-    <table class="table-responsive table-bordered customeTableBorder">
-        <thead>
-          <tr>
-            <th scope="col" class="tableHead">Received</th>
-            <th scope="col" class="tableHead">Sent</th>
-            <th colspan="6" class="newReferral">+ Send New Referral</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="titleHead">
-            <td>Referral Agreement</td>
-            <td>Date</td>
-            <td>Type</td>
-            <td>Referral Name</td>
-            <td>Agent Name</td>
-            <td>Referral Fee</td>
-            <td>Price</td>
-            <td>Status</td>
-          </tr>
-          <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-            <td><div class="downloadImgDiv"><img class="downloadImg" src="./img/download-icon.png"/></div></td>
-            <td>Jan 12 2019</td>
-            <td>Buyer</td>
-            <td>Jim ans Sue Johnson</td>
-            <td>Douglas Ching</td>
-            <td>20%</td>
-            <td>400-500K</td>
-            <td onclick="event.stopPropagation()">
-                <select name="status" class="selectStatus">
-                    <option value="active">Active</option>
-                    <option value="pending">Pending</option>
-                    <option value="closed">Closed</option>
-                    <option value="canceled">Canceled</option>
-                </select>
-            </td>
-        </tr>
-        <tr >
-            <td colspan="12" class="hiddenRow">
-                <div class="accordian-body collapse" id="demo1" style="text-align: left;"> 
-                    <p style="margin-bottom: 0px;">Email : client@gmail.com</p>
-                    <p style="margin-bottom: 0px;">Phone : 8845741230</p>
-                </div> 
-            </td>
-        </tr>
-        
-        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
-            <td><div class="downloadImgDiv"><img class="downloadImg" src="./img/download-icon.png"/></div></td>
-            <td>Feb 18 2019</td>
-            <td>Seller</td>
-            <td>All Star Construction LLC</td>
-            <td>Anna Kovalevich</td>
-            <td>25%</td>
-            <td>350-400K</td>
-            <td onclick="event.stopPropagation()">
-                <select name="status" class="selectStatus" >
-                    <option value="active">Active</option>
-                    <option value="pending">Pending</option>
-                    <option value="closed">Closed</option>
-                    <option value="canceled">Canceled</option>
-                </select>
-            </td>
-        </tr>
-        <tr >
-            <td colspan="12" class="hiddenRow">
-                <div class="accordian-body collapse" id="demo2" style="text-align: left;"> 
-                    <p style="margin-bottom: 0px;">Email : seller@gmail.com</p>
-                    <p style="margin-bottom: 0px;">Phone : 8888741230</p>
-                </div> 
-            </td>
-        </tr>
-        </tbody>
-      </table>
-
-<!-- <table class="table-responsive table-striped table-bordered mytable" id="transations-table" style="font-size:.9em">
-  <tr class="table-heading">
-      <th>Referral Agreement</th>
-      <th>Date</th>
-      <th>Type</th>
-      <th>Referral Name</th>
-      <th>Agent Name</th>
-      <th>Referral Fee</th>
-      <th>Price</th>
-      <th>Status</th>
-  </tr>
-  <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-    <td><i class="fa fa-download downloadIcon"></i></td>
-    <td>Jan 12 2019</td>
-    <td>Buyer</td>
-    <td>Jim ans Sue Johnson</td>
-    <td>Douglas Ching</td>
-    <td>20%</td>
-    <td>400-500K</td>
-    <td>
-        <select name="status" class="selectStatus">
-            <option value="active">Active</option>
-            <option value="pending">Pending</option>
-            <option value="closed">Closed</option>
-            <option value="canceled">Canceled</option>
-        </select>
-    </td>
-</tr>
-<tr >
-    <td colspan="12" class="hiddenRow">
-        <div class="accordian-body collapse" id="demo1" style="text-align: left;"> 
-            <p style="margin-bottom: 0px;">Email : client@gmail.com</p>
-            <p style="margin-bottom: 0px;">Phone : 8845741230</p>
-        </div> 
-    </td>
-</tr>
-
-<tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
-    <td><i class="fa fa-download downloadIcon"></i></td>
-    <td>Feb 18 2019</td>
-    <td>Seller</td>
-    <td>All Star Construction LLC</td>
-    <td>Anna Kovalevich</td>
-    <td>25%</td>
-    <td>350-400K</td>
-    <td>
-        <select name="status" class="selectStatus" id="status">
-            <option value="active">Active</option>
-            <option value="pending">Pending</option>
-            <option value="closed">Closed</option>
-            <option value="canceled">Canceled</option>
-        </select>
-    </td>
-</tr>
-<tr >
-    <td colspan="12" class="hiddenRow">
-        <div class="accordian-body collapse" id="demo2" style="text-align: left;"> 
-            <p style="margin-bottom: 0px;">Email : seller@gmail.com</p>
-            <p style="margin-bottom: 0px;">Phone : 8888741230</p>
-        </div> 
-    </td>
-</tr>
-
-</table> -->
-</div>
-
-
-<!-- footer area start -->
-<div class="footer">
-    <div class="container">
-        <div class="footer-wrapper text-center">
-            <p>Copyright © agentstat.com</p>
-            <ul>
-                <li><a href="https://agentstat.com/content/terms-of-use/">Terms of Service</a></li>
-                <li><a href="https://agentstat.com/content/privacy-policy/">Privacy Policy</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- footer area end -->
-
-
-      <!-- Main jQuery -->
-      <script src="js/jquery-3.4.1.min.js"></script>
-
-      <!-- Bootstrap Propper jQuery -->
-      <script src="js/popper.js"></script>
-
-      <!-- Bootstrap jQuery -->
-      <script src="js/bootstrap.js"></script>
-
-      <!-- Fontawesome Script -->
-      <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
-      <script src="js/type.js"></script>
-
-      <script src="js/owl.carousel.min.js"></script>
-
-      <!-- Custom jQuery -->
-      <script src="js/scripts.js"></script>
-
-      <!-- <script src="/js/conf.js"></script>
-      <script src="/js/transactions.js"></script> -->
-
-      <!-- Scroll-Top button -->
-      <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
-
-<script>
-    $(document).ready(function () {
-        td_array = document.getElementsByTagName("td");
-        for (i = 0; i < td_array.length; i++) {
-            if (td_array[i].textContent == 'SOLD' || td_array[i].textContent == 'Sold' || td_array[i].textContent == 'sold') {
-                td_array[i].setAttribute('style', 'font-weight: 500;font-size: 16px;color: #45AE3C;text-transform: uppercase');
-            }
-        }
-
-    });
-    $(".closeform").click(function () {
-        $('.fidout').fadeOut('slow');
-    });
-    //   $(".btn-group-toggle").twbsToggleButtons();
-
-    function trackChange(val){
-        if(val.trim() != ''){
-            $('#other-agent-license').removeAttr("disabled");
-        }
-        else{
-            $('#other-agent-license').val('');
-            $('#other-agent-license').prop("disabled", true);
-        }
+            <tr >
+                <td colspan="12" class="hiddenRow">
+                    <div class="accordian-body collapse" id="demo1" style="text-align: left;"> 
+                        <p style="margin-bottom: 0px;">Email : client@gmail.com</p>
+                        <p style="margin-bottom: 0px;">Phone : 8845741230</p>
+                    </div> 
+                </td>
+            </tr>
             
-    }
+            <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+                <td><i class="fa fa-download downloadIcon"></i></td>
+                <td>Feb 18 2019</td>
+                <td>Seller</td>
+                <td>All Star Construction LLC</td>
+                <td>Anna Kovalevich</td>
+                <td>25%</td>
+                <td>350-400K</td>
+                <td>
+                    <select name="status" class="selectStatus" id="status">
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="closed">Closed</option>
+                        <option value="canceled">Canceled</option>
+                    </select>
+                </td>
+            </tr>
+            <tr >
+                <td colspan="12" class="hiddenRow">
+                    <div class="accordian-body collapse" id="demo2" style="text-align: left;"> 
+                        <p style="margin-bottom: 0px;">Email : seller@gmail.com</p>
+                        <p style="margin-bottom: 0px;">Phone : 8888741230</p>
+                    </div> 
+                </td>
+            </tr>
+            
+            </table> -->
+        </div>
 
-    $('.accordian-body').on('show.bs.collapse', function () {
-        $(this).closest("table")
-        .find(".collapse.in")
-        .not(this)
-        //.collapse('toggle')     
-    })   
-</script>
 
-</body>
+        <!-- footer area start -->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-wrapper text-center">
+                    <p>Copyright © agentstat.com</p>
+                    <ul>
+                        <li><a href="https://agentstat.com/content/terms-of-use/">Terms of Service</a></li>
+                        <li><a href="https://agentstat.com/content/privacy-policy/">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- footer area end -->
+
+
+        <!-- Main jQuery -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+
+        <!-- Bootstrap Propper jQuery -->
+        <script src="js/popper.js"></script>
+
+        <!-- Bootstrap jQuery -->
+        <script src="js/bootstrap.js"></script>
+
+        <!-- Fontawesome Script -->
+        <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+        <script src="js/type.js"></script>
+
+        <script src="js/owl.carousel.min.js"></script>
+
+        <!-- Custom jQuery -->
+        <script src="js/scripts.js"></script>
+
+        <!-- <script src="/js/conf.js"></script>
+        <script src="/js/transactions.js"></script> -->
+
+        <!-- Scroll-Top button -->
+        <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+        <script>
+                            $(document).ready(function () {
+                                td_array = document.getElementsByTagName("td");
+                                for (i = 0; i < td_array.length; i++) {
+                                    if (td_array[i].textContent == 'SOLD' || td_array[i].textContent == 'Sold' || td_array[i].textContent == 'sold') {
+                                        td_array[i].setAttribute('style', 'font-weight: 500;font-size: 16px;color: #45AE3C;text-transform: uppercase');
+                                    }
+                                }
+
+                            });
+                            $(".closeform").click(function () {
+                                $('.fidout').fadeOut('slow');
+                            });
+                            //   $(".btn-group-toggle").twbsToggleButtons();
+
+                            function trackChange(val) {
+                                if (val.trim() != '') {
+                                    $('#other-agent-license').removeAttr("disabled");
+                                } else {
+                                    $('#other-agent-license').val('');
+                                    $('#other-agent-license').prop("disabled", true);
+                                }
+
+                            }
+
+                            $('.accordian-body').on('show.bs.collapse', function () {
+                                $(this).closest("table")
+                                        .find(".collapse.in")
+                                        .not(this)
+                                //.collapse('toggle')     
+                            })
+        </script>
+
+    </body>
 </html>
