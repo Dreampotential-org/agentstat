@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
     background: #fff;
     color: #333333;
+}
+.margin-l-s{
+    margin:10px 25px;
+}
+#select_agent input {
+    margin: 12px 23px;
+
+}
+.full-formx{
+    border: 1px solid lightgray;
 }
 .page-item.active .page-link {
     z-index: 1;
@@ -38,7 +49,7 @@ body {
     border-radius: 8px 8px 0px 0px;
     }
 
-    .search_input{
+.search_input{
     color: white;
     border: 0;
     outline: 0;
@@ -47,22 +58,22 @@ body {
     caret-color:transparent;
     line-height: 40px;
     transition: width 0.4s linear;
-    }
+}
 
-    .searchbar:hover > .search_input{
+.searchbar:hover > .search_input{
     padding: 0 10px;
     width: 100%;
     caret-color:red;
     transition: width 0.4s linear;
-    }
+}
 
-    .searchbar:hover > .search_icon{
+.searchbar:hover > .search_icon{
     background: white;
     color: #fdcb6e;
     margin: -42px 0px;
-    }
+}
 
-    .search_icon{
+.search_icon{
     height: 40px;
     width: 40px;
     float: right;
@@ -72,9 +83,9 @@ body {
     border-radius: 50%;
     color:white;
     text-decoration:none;
-    }
-    
-    /*========================================*/
+}
+
+/*========================================*/
 
 .pth-agent-left{
     /* margin-top: 30px; */
@@ -1267,8 +1278,8 @@ ul {
 }
 
 .toc-two-left-two-heading-right p {
-     margin-bottom: 0;
-   /* font-weight: 300; */
+    margin-bottom: 0;
+    /* font-weight: 300; */
     font-size: 14px;
     color: #767676;
     /* font-style: italic;
@@ -1962,12 +1973,12 @@ ul {
 }
 
 .pth-sold {
-/*    padding-top: 30px;*/
+    /*    padding-top: 30px;*/
     padding-bottom: 60px;
 }
 
 .pth-sold-maps {
-/*    margin-top: 20px;*/
+    /*    margin-top: 20px;*/
 }
 
 .pth-sold-content p span {
@@ -2819,7 +2830,7 @@ ul {
 }
 
 .basic-form-info {
-    border-bottom: 1px solid #ACACAD;
+    /*border-bottom: 1px solid #ACACAD;*/
     padding-bottom: 40px;
 }
 
