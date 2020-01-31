@@ -77,7 +77,7 @@ function load_agent(ignore_city = false) {
                 var note = 'note';
             }
 
-            $(`<tr class='alist'>
+            $(`<tr class='alist' onclick="passBtnID('add-public-note-` + v['id'] + `')">
         <td>` + v['status'] + `</td>
         <td>` + currencyFormat(v['list_price_int']) + `</td>
         <td>` + currencyFormat(v['sold_price_int']) + errowStyle + `</td>
@@ -99,7 +99,7 @@ function load_agent(ignore_city = false) {
           ` + v['address_text'] + `
           <table style="width:100%">
             <tr>
-              <td>
+              <td style="width:35%">
                 <table style="width:100%">
                     <tr>
                         <td style='text-align: left;padding: 5px 10px;color: gray;'>
@@ -120,15 +120,16 @@ function load_agent(ignore_city = false) {
                     </tr>
                   </table>
                 </td>
-                <td>
+            <td style="width:5%;border-left: 2px solid #B1B1B4;"></td>
+                <td style="width:60%">
                   <table style="width:100%">
                       <tr>
                         <td style='text-align: left;padding: 5px 10px;color: gray;'">
-                          <strong>Type:</strong> ` + v['home_type'] + ` <br>
-                          <strong>Beds:</strong> ` + v['beds'] + ` <br>
-                          <strong>Baths:</strong> ` + v['baths'] + ` <br>
-                          <strong>Year Built:</strong> ` + v['year_built'] + ` <br>
-                          <strong>State:</strong> ` + v['state'] + ` <br>
+                          <strong>Type:</strong>   &nbsp;&nbsp;&nbsp;` + v['home_type'] + ` <br>
+                          <strong>Beds:</strong>  &nbsp;&nbsp;&nbsp;` + v['beds'] + ` <br>
+                          <strong>Baths:</strong>  &nbsp;&nbsp;&nbsp;` + v['baths'] + ` <br>
+                          <strong>Year Built:</strong>  &nbsp;&nbsp;&nbsp;` + v['year_built'] + ` <br>
+                          <strong>State:</strong>  &nbsp;&nbsp;&nbsp;` + v['state'] + ` <br>
                         </td>
                       </tr>
                   </table>
