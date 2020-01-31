@@ -19,7 +19,8 @@ Medium Screen - Others
         margin-top: auto;
         height: 45px;
         background-color: #134E60;
-        border-radius: 0px;
+        /* border-radius: 0px; */
+        border-radius: 8px 8px 0px 0px;
         padding: 0px;
     }
     .searchbar:hover > .search_input {
@@ -30,7 +31,8 @@ Medium Screen - Others
     }
     .pth-sold {
         padding-top: 0px !important;
-        padding-bottom: 0px !important;
+        /* padding-bottom: 0px !important; */
+        padding-bottom: 15px !important;
     }
     .pth-sold-content ul li span {
         width: 20px !important;
@@ -116,8 +118,10 @@ Medium Screen - Others
         margin-right: 20px;
     }
     .pth-agent-link {
-        margin-top: 25px;
-        margin-left: 0;
+        /* margin-top: 25px;
+        margin-left: 0; */
+        margin-top: 0px;
+        margin-left: 163px;
     }
     .pth-agent-right-content {
         padding-left: 0;
@@ -305,18 +309,25 @@ Small Screen - Tablate
         margin-top: 26px;
     }
     .pt-search-wrapper input.ser {
-        width: 100%!important;
-        display: block;
-        border: 1px solid #E5E5E5 !important;
+       /* width: 100%!important;
+         display: block; */
+        display: inline-block;
+        width: 300px !important; 
+        text-overflow: ellipsis;
+        /* border: 1px solid #E5E5E5 !important; */
         border-radius: 8px;
         padding: 10px 15px;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
+        margin: 0px 25px;
     }
     .pt-search-wrapper .type {
-        width: 49%;
+        /* width: 49%;
         border: 1px solid #E5E5E5 !important;
         border-radius: 8px;
-        padding: 3px 15px;
+        padding: 3px 15px; */
+        width: 128px;
+        border-left: 1px solid;
+        border-right: 1px solid;
     }
     .pt-search-wrapper .type p {
         border: none;
@@ -325,11 +336,12 @@ Small Screen - Tablate
         width: 100%;
     }
     .pt-search-wrapper .price {
-        width: 49%;
+        /* width: 49%;
         border: 1px solid #E5E5E5 !important;
         border-radius: 8px;
         padding: 3px 15px;
-        float: right;
+        float: right; */
+        width: 128px;
     }
     .pt-search-wrapper .price p {
         border: none;
@@ -339,14 +351,16 @@ Small Screen - Tablate
         text-align: center;
     }
     .pt-search-wrapper .ser-butt {
-        display: block;
+        /* display: block;
         width: 97%;
-        margin: 33px -8px 0px 0px;
+        margin: 33px -8px 0px 0px; */
+        display: inline-block;
+        position: inherit;
     }
     .pt-search-wrapper .ser-butt button {
         display: block;
         width: 100%;
-        padding: 10px 15px;
+        padding: 5px 15px;
     }
     .toc-two-right {
         padding-right: 25px;
@@ -403,14 +417,21 @@ Small Screen - Tablate
         margin-top: 22px;
     }
     .pth-agent-link {
-        margin-top: 20px;
-        margin-left: 0;
+        /* margin-top: 20px;
+        margin-left: 0; */
+        margin-top: 0px;
+        margin-left: 118px;
+    }
+    .pht-agent-img.toc-two-left-one:before {
+        width: 50px;
+        height: 50px;
     }
     .pth-agent-link ul li a {
         width: 176px;
     }
     .pth-agent-heading p {
         margin-bottom: 25px;
+        margin-left: 6px;
     }
     .pth-agent-right-content {
         padding-left: 0px;
@@ -671,7 +692,8 @@ Small Screen - Mobile
     }
 
     .type {
-        width: 49%;
+        /* width: 49%; */
+        width: 128px;
     }
     .type p {
         border: 0;
@@ -709,8 +731,9 @@ Small Screen - Mobile
     }
     .ser-butt {
         display: block;
-        width: 90%;
-        margin-top: 12px;
+        position: inherit;
+        /* width: 90%;
+        margin-top: 12px; */
     }
     .ser-butt button {
         display: block;
@@ -918,9 +941,11 @@ Small Screen - Mobile
         height: 5px;
     }
     .pt-search-wrapper {
-        display: block;
+        /* display: block; */
+        display: flex;
         width: 100%;
         position: initial;
+        padding: 0px 17px;
     }
     .pt-tab {
         margin-top: 0;
@@ -935,10 +960,11 @@ Small Screen - Mobile
         width: 100% !important;
         padding: 12px 10px;
         box-shadow: 0 0 5px rgba(0,0,0,.2);
+        margin-top: 0px !important;
     }
     .pt-search-wrapper .type,
     .pt-search-wrapper .price {
-        border: 1px solid #E5E5E5 !important;
+        /* border: 1px solid #E5E5E5 !important; */
         padding: 6px 0px;
         border-radius: 8px;
     }
@@ -952,7 +978,7 @@ Small Screen - Mobile
         margin: 0px 8px;
     }
     .pt-tab-wrapper .nav-tabs .nav-link.active {
-        font-size: 12px;
+        font-size: 17px;
         padding: 7px 0px;
     }
     .pt-tab-wrapper .nav-tabs {
@@ -1546,7 +1572,9 @@ Small Screen - Mobile
         display: block;
         width: initial;
         max-width: 100%;
-        margin: auto;
+        /* margin: auto; */
+        margin-left: 10px;
+        margin-top: 10px;
     }
 
     .toc-two-left-one::before {  
@@ -1638,7 +1666,9 @@ Xtra Small Screen - Small Mobile
         border-radius: 0;
     }
     .type {
-        width: 49%;
+        /* width: 49%; */
+        width: 100px;
+        padding: 5px;
     }
     .type p {
         border: 0;
@@ -1655,7 +1685,9 @@ Xtra Small Screen - Small Mobile
         /*box-shadow: 0 0 5px rgba(0,0,0,.2);*/
     }
     .price {
-        width: 49%;
+        /* width: 49%; */
+        width: 100px;
+        padding: 5px;
         background-color: #fff;
         border-radius: 6px;
         float: right;
@@ -1675,9 +1707,10 @@ Xtra Small Screen - Small Mobile
         /*box-shadow: 0 0 5px rgba(0,0,0,.2);*/
     }
     .ser-butt {
-        display: block;
+        /* display: block;
         width: 90%;
-        margin-top: 18px;
+        margin-top: 18px; */
+        position: inherit;
     }
     .ser-butt button {
         display: block;
@@ -1887,7 +1920,7 @@ Xtra Small Screen - Small Mobile
         height: 5px;
     }
     .pt-search-wrapper {
-        display: block;
+        display: flex;
         width: 100%;
         position: initial;
     }
@@ -1904,12 +1937,13 @@ Xtra Small Screen - Small Mobile
         width: 100% !important;
         padding: 12px 10px;
         box-shadow: 0 0 5px rgba(0,0,0,.2);
+        margin-top: 0px;
     }
     .pt-search-wrapper .type,
     .pt-search-wrapper .price {
-        border: 1px solid #E5E5E5 !important;
+        /* border: 1px solid #E5E5E5 !important;
         padding: 6px 0px;
-        border-radius: 8px;
+        border-radius: 8px; */
     }
     .pt-search-wrapper .type p,
     .pt-search-wrapper .price p {
@@ -2083,6 +2117,7 @@ Xtra Small Screen - Small Mobile
     }
     .pht-agent-img {
         margin-right: 20px;
+        margin-top: 22px;
     }
     .pth-agent-content h3 {
         font-weight: bold;
@@ -2095,8 +2130,12 @@ Xtra Small Screen - Small Mobile
         margin-bottom: 10px;
     }
     .pth-agent-link {
-        margin-top: 14px;
-        margin-left: 0;
+        /* margin-top: 14px; */
+        margin-top: -10px;
+        margin-left: 100px;
+    }
+    .pth-agent-link ul {
+        text-align: left;
     }
     .pth-agent-content {
         margin-top: 18px;
@@ -2113,10 +2152,15 @@ Xtra Small Screen - Small Mobile
         height: 40px;
     }
     .pth-agent-link ul li:last-child a {
-        width: 135px;
-        height: 40px;
+        /* width: 135px;
+        height: 40px; */
+        width: 125px;
+        height: 35px;
         background-color: #087B9E;
         color: #fff;
+    }
+    .pth-agent-content p {
+        font-size: 12px !important;
     }
     .pth-agent-right-content {
         padding-left: 0;
@@ -2145,8 +2189,8 @@ Xtra Small Screen - Small Mobile
         padding-left: 40px;
     }
     .pht-agent {
-        /*border-top: 1px solid #E5E5E5;*/
-        padding-top: 20px;
+        /*border-top: 1px solid #E5E5E5;
+        padding-top: 20px;*/
         border-bottom: 1px solid #E5E5E5;
         padding-bottom: 40px;
     }
@@ -2202,6 +2246,7 @@ Xtra Small Screen - Small Mobile
     }
     .pth-sold-content p {
         font-size: 16px;
+        margin-bottom: 0px;
     }
     .pth-sold-content ul li {
         font-size: 12px;
@@ -2331,7 +2376,7 @@ Xtra Small Screen - Small Mobile
         width: 42%;
     }
     .pth-ser-link ul li:last-child a {
-        margin-left: -146px;
+        /* margin-left: -146px; */
     }
     .three-serve ul li a {
         font-size: 12px;
