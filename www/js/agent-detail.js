@@ -64,12 +64,11 @@ function load_agent(ignore_city = false) {
 
 
         $(".alist").remove();
-
         $.each(data['agent_lists'], function (k, v) {
             if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
-                var errowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
+                var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
             } else {
-                var errowStyle = ' <i class="fa fa-long-arrow-down" style="font-size:18px;color:red"></i>';
+                var arrowStyle = ' <i class="fa fa-long-arrow-down" style="font-size:18px;color:red"></i>';
             }
             if (v['year_built'] < '2') {
                 var note = `<a  onclick="passBtnID('add-public-note-` + v['id'] + `')" value="1" title="notes"><i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i></a>`;
@@ -80,8 +79,8 @@ function load_agent(ignore_city = false) {
             $(`<tr class='alist' onclick="passBtnID('add-public-note-` + v['id'] + `')">
         <td>` + v['status'] + `</td>
         <td>` + currencyFormat(v['list_price_int']) + `</td>
-        <td>` + currencyFormat(v['sold_price_int']) + errowStyle + `</td>
-        <td>` + v['days_on_market'] + errowStyle + `</td>
+        <td>` + currencyFormat(v['sold_price_int']) + arrowStyle + `</td>
+        <td>` + v['days_on_market'] + arrowStyle + `</td>
         <td>` + v['list_date'] + `</td>
         <td>` + v['address_text'] + `</td>
         <td>` + v['year_built'] + `</td>
@@ -263,6 +262,5 @@ $(document).on('change click', '#overall-tab', function () {
 
     load_agent(true);
 });
-
 
 window.addEventListener("DOMContentLoaded", init, false);
