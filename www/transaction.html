@@ -49,6 +49,14 @@
 #addTransaction button{
     margin: 0 auto 3px;
 }
+.numberText{
+    text-align: left;
+    width: 45%;
+    margin: auto;
+    color: #0eb2f4;
+    font-size: 30px;
+    font-weight: 300;
+}
 
 @media (min-width: 576px){
     .modal-dialog {
@@ -84,7 +92,7 @@
                                 </ul>
                                 <div class="main-menu-part form-menu">
                                     <ul class="float-left form-ulli-left">
-                                        <li><a href="#">HOME </a></li>
+                                        <li><a href="./home.html">HOME </a></li>
                                         <li><a href="#">TRANSACTIONS </a></li>
                                         <li><a href="#">DASHBOARD  </a></li>
                                         <li><a href="./referrals.html">REFERRALS </a></li>
@@ -122,7 +130,6 @@
             <hr>
             <div class="pth-all-heading">
                 <br>
-                <!-- <a href="#" class="btn btn-success"><i class="fa fa-plus"></i> Add transaction</a> -->
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTransaction"><i class="fa fa-plus"></i> Add transaction</button>
                 <br><br>
             </div>
@@ -143,6 +150,27 @@
                 </tr>
             </table>
         </div>
+
+
+        <!-- <div class="container">
+            <hr>
+            <div class="pth-all-heading">
+                <br>
+               <h4>Welcome back, <span class='agent-name'>[Agent Name]</span>! </h4>
+                <br>
+            </div>
+
+            <table class="table table-bordered" style="box-shadow: 0px 3px 12px #888888;">
+                <thead>
+                  <tr>
+                    <th><p class="numberText">6</p>Profile Views</th>
+                    <th><p class="numberText">0</p>Article Views</th>
+                    <th  style="vertical-align: initial;"><p class="numberText">0</p>Impressions</th>
+                  </tr>
+                </thead>
+            </table>
+        </div> -->
+
         <div class="space-bottom"></div>
 
         <div id="addTransaction" class="modal fade" role="dialog">
@@ -152,17 +180,10 @@
                 <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="text-center">Add Transaction</h4>
-                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            
                 </div>
                 <div class="modal-body">
                     
-
-                
-                    <!-- <div class="col-md-12">
-                        <br>
-                        <h4 class="text-center">Add Transaction</h4>
-                        <br>
-                    </div> -->
                     <div class="form-style">
                         <form>
                             <div class="row">
