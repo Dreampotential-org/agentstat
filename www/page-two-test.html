@@ -201,11 +201,29 @@
                                     <div class="toc-one">
 
                                         <div class="row"> 
-                                            <div class="col-sm-7"> 
-                                                <p>About <span id="result-count"></span> results</p>
+                                            <div class="col-sm-6"> 
+                                                <p id="checkedText1">About <span id="result-count"></span> results   </p>
+                                               <div id="sellerFilter"></div>
                                             </div>
-                                            <div class="col-sm-5"> 
+                                            <div class="col-sm-6"> 
                                                 <ul>
+                                                  
+
+                                                    <li>
+
+                                                        <div class="dm-main3">
+                                                            <button class="ami">
+                                                                Sort Sellers  ▾
+                                                            </button>
+                                                            <div class="dm-part3">
+                                                                <span class="d-block">Best Overall</span>
+                                                                <span class="d-block">Fastest Sale</span>
+                                                                <span class="d-block">Highest Price</span>
+                                                            </div>
+                                                        </div>														
+
+                                                    </li>
+
                                                     <li>
 
                                                         <div class="dm-main2">
@@ -236,25 +254,25 @@
                                                             </button>
                                                             <div class=" dm-part">
                                                                 <form>
-                                                                    <div class="row">
-                                                                        <div class="col-sm-6">
+                                                                    <div class="row seller-filter">
+                                                                        <div class="col-sm-6 ">
                                                                             <span class="d-block">Price</span>
                                                                             <input type="text" name="" placeholder="Min" class="form-control d-inline-block w-50 float-left">
                                                                             <input type="text" name="" placeholder="Max" class="form-control d-inline-block w-50">
                                                                             <span class="d-block">Type</span>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs1">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs1" name="acs" value="Hourse">
                                                                                 <label class="custom-control-label" for="cs1">Hourse</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs2">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs2" name="acs" value="Condos/co-ops">
                                                                                 <label class="custom-control-label" for="cs2">Condos/co-ops</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs3">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs3" name="acs" value="Multi-family">
                                                                                 <label class="custom-control-label" for="cs3">Multi-family</label>
                                                                             </div>
 
@@ -262,57 +280,57 @@
                                                                             <span class="d-block">Brokerage</span>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs4">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs4" name="acs" value="Keller Williams">
                                                                                 <label class="custom-control-label" for="cs4">Keller Williams</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs5">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs5" name="acs" value="Century21">
                                                                                 <label class="custom-control-label" for="cs5">Century21</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs6">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs6" name="acs" value="Exp Realty">
                                                                                 <label class="custom-control-label" for="cs6">Exp Realty</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs7">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs7" name="acs" value="Windermere">
                                                                                 <label class="custom-control-label" for="cs7">Windermere</label>
                                                                             </div>
 
                                                                             <span class="d-block">Commission</span>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs8">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs8" name="acs" value="Discount Commission">
                                                                                 <label class="custom-control-label" for="cs8">Discount Commission</label>
                                                                             </div>
 
                                                                         </div>
                                                                         <div class="col-sm-6">
                                                                             <div class="custom-control custom-checkbox mt-5">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs9">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs9" name="acs" value="Townhomes">
                                                                                 <label class="custom-control-label" for="cs9">Townhomes</label>
                                                                             </div>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs10">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs10" name="acs" value="Manufactured">
                                                                                 <label class="custom-control-label" for="cs10">Manufactured</label>
                                                                             </div>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs11xx1">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
                                                                                 <label class="custom-control-label" for="cs11xx1">Lots/Land</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox mt-3">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs122">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs122" name="acs" value="John L.Scott">
                                                                                 <label class="custom-control-label" for="cs122">John L.Scott</label>
                                                                             </div>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs111">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs111" name="acs" value="Coldwell Banker">
                                                                                 <label class="custom-control-label" for="cs111">Coldwell Banker</label>
                                                                             </div>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs1111">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs1111" name="acs" value="Remax">
                                                                                 <label class="custom-control-label" for="cs1111">Remax</label>
                                                                             </div>
                                                                             <select class="form-control">
@@ -339,22 +357,311 @@
 
                                     </div>
                                     <div class="page-two-section-wrapper" id="page-section">
+
+                                        <div class="toc-two" agent_id="25643">
+                                            <div class="row">
+                                              <div class="col-lg-8 col-12">
+                                                <div class="toc-two-left">
+                                                  <div class="row">
+                                                    <div class="col-lg-3 col-12 col-md-3">
+                                                      <div class="toc-two-left-one">
+                                                        <img src="img/sh.png" alt="images not found">
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-lg-9 col-12 col-md-9">
+                                                      <div class="toc-two-left-two">
+                                                        <div class="toc-two-left-two-heading">
+                                                          <div class="toc-two-left-two-heading-left">
+                                                            <a href="/page-three.html?agent_id=25643&amp;city=Seattle" target="_blank"><h4>MyLien Pham</h4></a>
+                                                            <!--<h4>MyLien Pham | <a href="#">Brokerage</a></h4>-->
+                                                            <span>SCORE | 4886.7</span>
+                                                          </div>
+                                                          <div class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next">
+                                                            <a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>
+                                                            <p>Pin to top</p>
+                                                          </div>
+                                                        </div>
+                                                        <div class="ak-table">
+                                                          <table class="table table-borderless">
+                                                            <tbody><tr>
+                                                              <td></td>
+                                                              <td><h5 class="m-0"><strong>Overall</strong></h5></td>
+                                                              <td class="city_results"><h5 class="m-0"><strong>Seattle</strong></h5></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td><strong>Sold Listings</strong></td>
+                                                              <td>2</td>
+                                                              <td class="city_results">1</td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td><strong>Failed Listings</strong></td>
+                                                              <td>0</td>
+                                                              <td class="city_results">0</td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td><strong>Avg Days On Market</strong></td>
+                                                              <td>36.5</td>
+                                                              <td class="city_results">34.0</td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td><strong>Avg Sold to List Price</strong></td>
+                                                              <td>220.5%</td>
+                                                              <td class="city_results">97814.2%</td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td><strong>Break Down</strong></td>
+                                                              <td>Single Family Houses sold: 2<br></td>
+                                                              <td class="city_results">Single Family Houses sold: 1<br></td>
+                                                            </tr>
+                                                          </tbody></table>
+                                          
+                                                        </div>
+                                                        <div class="toc-two-left-two-link">
+                                                          <ul>
+                                                            <!--<li><a href="#">Call [[cell_phone]]</a></li>-->
+                                                            <li><a href="#" data-toggle="modal" data-agent-id="25643" data-target="#myModalx">Message</a></li>
+                                                          </ul>
+                                                          <div class="modal fade" id="myModalx">
+                                                            <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">
+                                                              <div class="modal-content">
+                                          
+                                                                <div class="modal-body modalh">
+                                                                  <div class="two-link-modal">
+                                                                    <div class="two-link-modal-heading text-center">
+                                                                      <h2>Contact MyLien Pham</h2>
+                                                                    </div>
+                                                                    <div class="two-link-modal-content">
+                                                                      <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                          <div class="two-link-left">
+                                                                            <p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>
+                                                                            <p>Dis wazzup:</p>
+                                                                            <p>1. An A-stat pro will reach out to go over your goals and answer any questions you may have.</p>
+                                                                            <p>2. We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</p>
+                                                                            <p>3. You sell your home quickly for top dollar!</p>
+                                                                            <div class="modal-call">
+                                                                              <p>Need immediate assistance?</p>
+                                                                              <p>Call us ANYTIME at</p>
+                                                                              <p>[[cell_phone]]</p>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                          <div class="two-link-right">
+                                                                              <table>
+                                                                                <tbody><tr>
+                                                                                  <td> Name <span>*</span>:</td>
+                                                                                  <td><input type="text" id="name-25643" name="name"></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                  <td> Phone <span>*</span>:</td>
+                                                                                  <td><input type="tel" id="phone-25643" name="" required=""></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                  <td> Email <span>*</span>:</td>
+                                                                                  <td><input type="email" id="email-25643" name=""></td>
+                                                                                </tr>
+                                                                              </tbody></table>
+                                                                              <label>Message</label>
+                                                                              <textarea id="message-25643"></textarea>
+                                                                              <div class="submit-btn">
+                                                                                <button type="button" data-dismiss="modal">Cancel</button>
+                                                                                <button class="lead-submit" data-id="25643">Submit</button>
+                                                                                <div class="modal fade" id="con3">
+                                                                                  <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">
+                                                                                    <div class="modal-content">
+                                                                                      <div class="modal-body">
+                                                                                        <div class="another-modal">
+                                                                                          <div class="another-modal-content">
+                                                                                            <h2>Compelete!</h2>
+                                                                                            <p>[Agent Name] will contact you shortly :)</p>
+                                                                                            <button type="button" data-dismiss="modal">Cancel</button>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                              <div class="modal-form-content">
+                                                                                <p id="msg-25643">
+                                                                                </p>
+                                                                              </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="sm-list">
+                                                    <div class="row">
+                                                      <div class="col-4">
+                                                        <div class="toc-two-left-two-list-one text-center">
+                                                          <h3>100%</h3>
+                                                          <p>Sucess Rate</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-4">
+                                                        <div class="toc-two-left-two-list-one text-center">
+                                                          <h3>18.4%</h3>
+                                                          <p>Avg days on market</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-4">
+                                                        <div class="toc-two-left-two-list-one text-center">
+                                                          <h3>103.26%</h3>
+                                                          <p>Sucess Rate</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="sm-link">
+                                                      <ul>
+                                                        <!-- <li><a href="#">Call Agent Name</a></li> -->
+                                                        <li><a href="#" data-toggle="modal" data-target="#myModal0">Message</a></li>
+                                                      </ul>
+                                                      <div class="modal fade" id="myModal0">
+                                                        <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">
+                                                          <div class="modal-content">
+                                          
+                                                            <div class="modal-body">
+                                                              <div class="two-link-modal">
+                                                                <div class="two-link-modal-heading text-center">
+                                                                  <h2>Contact [Agent Full Name]</h2>
+                                                                </div>
+                                                                <div class="two-link-modal-content">
+                                                                  <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                      <div class="two-link-left">
+                                                                        <p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>
+                                                                        <p>Dis wazzup:</p>
+                                                                        <p>1. An A-stat pro will reach out to go over your goals and answer any questions you may have.</p>
+                                                                        <p>2. We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</p>
+                                                                        <p>3. You sell your home quickly for top dollar!</p>
+                                                                        <div class="modal-call">
+                                                                          <p>Need immediate assistance?</p>
+                                                                          <p>Call us ANYTIME at</p>
+                                                                          <p>(XXX) XXX - XXXX</p>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                      <div class="two-link-right">
+                                                                        <form>
+                                                                          <table>
+                                                                            <tbody><tr>
+                                                                              <td> Name <span>*</span>:</td>
+                                                                              <td><input type="text" name=""></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                              <td> Phone <span>*</span>:</td>
+                                                                              <td><input type="tel" name="" required=""></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                              <td> Email <span>*</span>:</td>
+                                                                              <td><input type="email" name=""></td>
+                                                                            </tr>
+                                                                          </tbody></table>
+                                                                          <label>Message</label>
+                                                                          <textarea></textarea>
+                                                                          <div class="submit-btn">
+                                                                            <div class="row no-gutters">
+                                                                              <div class="col-5">
+                                                                                <div class="btn-text text-left">
+                                                                                  <p>Need immediate assistance?</p>
+                                                                                  <p>Call us ANYTIME at</p>
+                                                                                  <p>(XXX) XXX - XXXX</p>
+                                          
+                                                                                </div>
+                                                                              </div>
+                                                                              <div class="col-7">
+                                                                                <div class="button-shape">
+                                                                                  <button type="button" data-dismiss="modal">Cancel</button>
+                                                                                  <button id="sum-25643" data-toggle="modal" data-target="#conx2" type="submit">Submit</button>
+                                                                                  <div class="modal fade" id="conx2">
+                                                                                    <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">
+                                                                                      <div class="modal-content">
+                                          
+                                                                                        <div class="modal-body">
+                                                                                          <div class="another-modal">
+                                                                                            <div class="another-modal-content">
+                                                                                              <h2>Compelete!</h2>
+                                                                                              <p>[Agent Name] will contact you shortly :)</p>
+                                                                                              <button type="button" data-dismiss="modal">Cancel</button>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                          <div class="modal-form-content">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ac metus a ullamcorper.</p>
+                                                                          </div>
+                                                                        </form>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-lg-4 col-12">
+                                                <div class="toc-two-right">
+                                                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d136606.7447512607!2d-73.23218371314479!3d40.836504866505834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575111398221!5m2!1sen!2sbd" style="border:0;" allowfullscreen=""></iframe>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
                                     </div>
                                 </div>
                             </div>
 
+                            
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="tab-one-content">
                                     <div class="toc-one">
 
                                         <div class="row"> 
-                                            <div class="col-sm-7"> 
-                                                <p>About 6,830,000,000 results</p>
+                                            <div class="col-sm-6"> 
+                                                <p id="checkedText1">About 6,830,000,000 results </p>
+                                                <div id="buyerFilter"></div>
                                             </div>
-                                            <div class="col-sm-5"> 
+                                            <div class="col-sm-6">  
                                                 <ul>
                                                     <li>
 
+                                                        <div class="dm-main4">
+                                                            <button class="ami">
+                                                                Sort Buyers  ▾
+                                                            </button>
+                                                            <div class="dm-part4">
+                                                                <span class="d-block">Best Overall</span>
+                                                                <span class="d-block">Price Negotiator</span>
+                                                                <span class="d-block">Wins Multi-Offers</span>
+                                                            </div>
+                                                        </div>														
+
+                                                    </li>
+
+                                                    <li>
+                    
                                                         <div class="dm-main2">
                                                             <button class="ami">
                                                                 Best Overall  ▾
@@ -384,7 +691,7 @@
                                                             </button>
                                                             <div class=" dm-part">
                                                                 <form>
-                                                                    <div class="row">
+                                                                    <div class="row buyer-filter">
                                                                         <div class="col-sm-6">
                                                                             <span class="d-block">Price</span>
                                                                             <input type="text" name="" placeholder="Min" class="form-control d-inline-block w-50 float-left">
@@ -392,17 +699,17 @@
                                                                             <span class="d-block">Type</span>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs1x">
+                                                                                <input type="checkbox" class="custom-control-input" name="acs" id="cs1x" value="Hourse">
                                                                                 <label class="custom-control-label" for="cs1x">Hourse</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs23">
+                                                                                <input type="checkbox" class="custom-control-input" name="acs" id="cs23" value="Condos/co-ops">
                                                                                 <label class="custom-control-label" for="cs23">Condos/co-ops</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs33">
+                                                                                <input type="checkbox" class="custom-control-input" name="acs" id="cs33" value="Multi-family">
                                                                                 <label class="custom-control-label" for="cs33">Multi-family</label>
                                                                             </div>
 
@@ -410,57 +717,57 @@
                                                                             <span class="d-block">Brokerage</span>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs44">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs44" name="acs" value="Keller Williams">
                                                                                 <label class="custom-control-label" for="cs44">Keller Williams</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs55">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs55" name="acs" value="Century21">
                                                                                 <label class="custom-control-label" for="cs55">Century21</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs66">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs66" name="acs" value="Exp Realty">
                                                                                 <label class="custom-control-label" for="cs66">Exp Realty</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs77">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs77" name="acs" value="Windermere">
                                                                                 <label class="custom-control-label" for="cs77">Windermere</label>
                                                                             </div>
 
                                                                             <span class="d-block">Commission</span>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs88">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs88" name="acs" value="Offers rebate">
                                                                                 <label class="custom-control-label" for="cs88">Offers rebate</label>
                                                                             </div>
 
                                                                         </div>
                                                                         <div class="col-sm-6">
                                                                             <div class="custom-control custom-checkbox mt-5">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs99">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs99" name="acs" value="Townhomes">
                                                                                 <label class="custom-control-label" for="cs99">Townhomes</label>
                                                                             </div>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs10x">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs10x" name="acs" value="Manufactured">
                                                                                 <label class="custom-control-label" for="cs10x">Manufactured</label>
                                                                             </div>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs11x">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs11x" name="acs" value="Lots/Land">
                                                                                 <label class="custom-control-label" for="cs11x">Lots/Land</label>
                                                                             </div>
 
                                                                             <div class="custom-control custom-checkbox mt-3">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs12x">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs12x" name="acs" value="John L.Scott">
                                                                                 <label class="custom-control-label" for="cs12x">John L.Scott</label>
                                                                             </div>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs11xx">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs11xx" name="acs" value="Coldwell Banker">
                                                                                 <label class="custom-control-label" for="cs11xx">Coldwell Banker</label>
                                                                             </div>
                                                                             <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs11xxx">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs11xxx" name="acs" value="Remax">
                                                                                 <label class="custom-control-label" for="cs11xxx">Remax</label>
                                                                             </div>
                                                                             <select>
@@ -475,7 +782,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <input type="submit" name="" value="Save">
-                                                                    <input type="reset" name="" value="Cencle">
+                                                                    <input type="reset" name="" value="Cancel">
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -538,6 +845,17 @@
     <script src="js/scripts.js"></script>
 
     <script type="text/javascript">
+
+        jQuery(".dm-main4 > button").click(function () {
+            jQuery(".dm-part4").slideToggle();
+
+        });
+
+        jQuery(".dm-main3 > button").click(function () {
+            jQuery(".dm-part3").slideToggle();
+
+        });
+
         jQuery(".dm-main2 > button").click(function () {
             jQuery(".dm-part2").slideToggle();
 
@@ -547,6 +865,133 @@
             jQuery(".dm-part").slideToggle();
 
         });
+
+        $('.seller-filter input[type="checkbox"]'). click(function(){
+                    
+            if($(this). is(":checked")){
+                console.log($("label[for='" + this.id + "']").text());
+                addId($("label[for='" + this.id + "']").text(),true);
+            }
+            else if($(this). is(":not(:checked)")){
+                console.log($("label[for='" + this.id + "']").text());
+                removeId($("label[for='" + this.id + "']").text(),true);
+            }
+        });
+
+        $('.buyer-filter input[type="checkbox"]'). click(function(){
+                    
+            if($(this). is(":checked")){
+                console.log($("label[for='" + this.id + "']").text());
+                addId($("label[for='" + this.id + "']").text(),false);
+            }
+            else if($(this). is(":not(:checked)")){
+                console.log($("label[for='" + this.id + "']").text());
+                removeId($("label[for='" + this.id + "']").text(),false);
+            }
+        });
+
+        var seller_filter = [];
+        var buyer_filter = [];
+
+        function addId(name,val){
+
+            if(val){
+
+                seller_filter.push(name);
+                console.log(seller_filter);
+                showFilters(val);
+            }else{
+
+                buyer_filter.push(name);
+                console.log(buyer_filter);
+                showFilters(val);
+            }
+            
+        }
+
+        function removeId(name, val){
+
+            if(val){
+
+                seller_filter.splice( seller_filter.indexOf(name), 1 );
+                console.log(seller_filter);
+                showFilters(val);
+            }else{
+
+                buyer_filter.splice( buyer_filter.indexOf(name), 1 );
+                console.log(buyer_filter);
+                showFilters(val);
+            }
+        }
+
+        function showFilters(val){
+            
+            if(val){
+                $("#sellerFilter").empty();
+                seller_filter.forEach((ele,index)=>{
+                    $("#sellerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele + "\") '>"+ele+"<span><i class='fa fa-times'></i></span></button>");
+                });
+
+            }
+            else{
+                $("#buyerFilter").empty();
+                buyer_filter.forEach((ele,index)=>{
+                    $("#buyerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele + "\") '>"+ele+"<span><i class='fa fa-times'></i></span></button>");
+                });
+
+            }
+            
+            
+        }
+
+        
+
+        function removeChk(val){
+            //console.log("######");
+            //$('input:checkbox[value="' + val + '"]').click();
+        }
+
+
+        // function checkbox(){
+        //     console.log("Hiii")
+        //     $("#checkedText").empty();
+        //     $("#checkedText1").empty();
+        //     var checkboxes = document.getElementsByName('acs');
+        //     var checkboxesChecked = [];
+        //     console.log("checkboxesChecked",checkboxesChecked)
+        //     // loop over them all
+        //     for (var i=0; i<checkboxes.length; i++) {
+        //         // And stick the checked ones onto an array...
+                
+        //         if (checkboxes[i].checked) {
+        //             alert(i);
+        //             checkboxesChecked.push(checkboxes[i].value);
+        //             $("#checkedText").append("<span id='spanId"+i+"' style='border: 0.55px solid;padding: 5px;'>"+checkboxes[i].value+"<a href='#'>X</a></span>");
+
+        //             $("#checkedText1").append("<span id='spanId"+i+"' style='border: 0.55px solid;padding: 5px;margin:5px;'>"+checkboxes[i].value+"<a href='#'>X</a></span>");
+
+        //             $('checkedText, span, a').click(function() {
+        //                 console.log("In close click....");
+        //                 document.getElementById("spanId").style.display="none";
+        //              });
+
+
+        //             $('checkedText, span, a').click(function() {
+        //                 console.log("In close click....");
+        //                 document.getElementById("spanId1").style.display="none";
+        //             });
+        //         }
+        //     }
+        //     console.log("Checkbox value...",checkboxesChecked);
+            
+
+        //     if(checkboxesChecked.length==0){
+        //         document.getElementById("checkedText").style.display="none";
+        //         document.getElementById("checkedText1").style.display="none";
+        //     }
+
+        // }
+
     </script>
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
