@@ -92,7 +92,8 @@ function load_search_results() {
 
       $.each(results, function(k, v) {
         agent_ids_order.push(v['agent_id'])
-        item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
+        // item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
+        item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
 
