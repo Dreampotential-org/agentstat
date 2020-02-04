@@ -44,11 +44,11 @@ function load_agent(ignore_city = false) {
         $(".contact-agent").text("Contact " + data['full_name'].split(" ")[0])
 
 
-        overall_score = data['scores'][0]['overall_score']
+        overall_score = data['scores'][0]['overall_l2s_ratio'] || 100
         overall_avg_dom = data['scores'][0]['overall_avg_dom']
         overall_s2l_price = data['scores'][0]['overall_s2l_price']
 
-        city_score = data['scores'][0]['score']
+        city_score = data['scores'][0]['l2s_ratio'] || 100
         city_avg_dom = data['scores'][0]['avg_dom']
         city_s2l_price = data['scores'][0]['s2l_price']
 
