@@ -538,6 +538,7 @@ ul {
     padding: 10px;
     border: 0;
     outline: none;
+    margin: 0px 10px;
 }
 
 .type p {
@@ -809,10 +810,6 @@ ul {
     background: #CE9C05;
     padding: 64px 0;
 }
-
-
-
-
 
 
 /*-- po-agent area end --*/
@@ -1237,6 +1234,9 @@ ul {
     display: block;
     width: 100%;
 }
+.toc-two-left-two-heading.custom {
+    margin-top: 25px;
+}
 
 .toc-two-left-two-heading {
     overflow: hidden;
@@ -1251,8 +1251,8 @@ ul {
 }
 
 .toc-two-left-two-heading-left h4 {
-    font-weight: bold;
-    font-size: 32px;
+    /* font-weight: bold;
+    font-size: 32px; */
 }
 
 .toc-two-left-two-heading-left p {
@@ -3360,6 +3360,9 @@ ul {
     #nav-new-tab {
         font-size: 16px !important;
     }
+    button.btn.btn-default.searchButton {
+        margin-top: 5px;
+    }
 
 }
 
@@ -3390,7 +3393,7 @@ ul {
     .pth-content-number span {
         font-size: 25px;
     }
-
+   
 }
 
 @media screen and (min-width: 320px)and (max-width: 360px){
@@ -3414,4 +3417,20 @@ ul {
     .pth-content-number span {
         font-size: 25px;
     }
+}
+
+@media screen and (min-width:320px) and (max-width:425px){
+    .dm-part {
+        position: absolute;
+        width: 300px;
+        top: 100%;
+        right: 0;
+        background: #fff;
+        z-index: 9999;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,.3);
+        display: none;
+        left: 0;
+    }
+
 }

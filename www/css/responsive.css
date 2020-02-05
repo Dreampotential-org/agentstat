@@ -1937,7 +1937,8 @@ Xtra Small Screen - Small Mobile
         width: 100% !important;
         padding: 12px 10px;
         box-shadow: 0 0 5px rgba(0,0,0,.2);
-        margin-top: 0px;
+        /* margin-top: 0px; */
+        margin: 0px 15px;
     }
     .pt-search-wrapper .type,
     .pt-search-wrapper .price {
@@ -2057,6 +2058,7 @@ Xtra Small Screen - Small Mobile
     }
     .sm-link {
         margin-top: 20px;
+        margin-bottom: 20px;
     }
     .toc-two-right {
         display: none;
@@ -2556,7 +2558,7 @@ Xtra Small Screen - Small Mobile
     }
 
     .dm-part2 { 
-        left: 0;
+        /* left: 0; */
     }
 
     .dm-part { 
@@ -2585,6 +2587,10 @@ Xtra Small Screen - Small Mobile
         width: initial;
         max-width: 100%;
         margin: auto;
+    }
+    img.profileImage {
+        border-radius: 100% !important;
+        width: 40%;
     }
 
     .toc-two-left-one::before {  
