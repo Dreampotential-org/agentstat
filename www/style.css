@@ -173,7 +173,7 @@ td {
     text-align: center;
     padding: 10px 6px;
 }
-input[type="checkbox"]:checked + label::after {
+/* input[type="checkbox"]:checked + label::after {
     content: '';
     position: absolute;
     width: 16px;
@@ -213,7 +213,7 @@ input[type="checkbox"] + label::before {
     border-radius: 4px;
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.25);
     margin-right: 0.5em;
-}
+} */
 
 .border {
     border: 3px solid 
@@ -677,7 +677,7 @@ ul {
 
 /* The container */
 
-.check-box {
+/* .check-box {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -690,23 +690,23 @@ ul {
     user-select: none;
     font-size: 18px;
     font-weight: normal;
-}
+} */
 
 
 /* Hide the browser's default checkbox */
 
-.check-box input {
+/* .check-box input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-}
+} */
 
 
 /* Create a custom checkbox */
 
-.checkmark {
+/* .checkmark {
     position: absolute;
     top: 5px;
     left: 0;
@@ -714,42 +714,42 @@ ul {
     width: 18px;
     border: 2px solid #3C3C3C;
     border-radius: 2px;
-}
+} */
 
 
 /* On mouse-over, add a grey background color */
 
-.check-box:hover input~.checkmark {
+/* .check-box:hover input~.checkmark {
     background-color: #ccc;
-}
+} */
 
 
 /* When the checkbox is checked, add a blue background */
-
+/* 
 .check-box input:checked~.checkmark {
     background-color: #3C3C3C;
-}
+} */
 
 
 /* Create the checkmark/indicator (hidden when not checked) */
-
+/* 
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
-}
+} */
 
 
 /* Show the checkmark when checked */
 
-.check-box input:checked~.checkmark:after {
+/* .check-box input:checked~.checkmark:after {
     display: block;
-}
+} */
 
 
 /* Style the checkmark/indicator */
 
-.check-box .checkmark:after {
+/* .check-box .checkmark:after {
     left: 5px;
     top: 1px;
     width: 5px;
@@ -759,7 +759,7 @@ ul {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-}
+} */
 
 
 /*-- po-what area start --*/
@@ -3031,7 +3031,8 @@ ul {
 
 .dm-part span {
     font-weight: bold;
-    color: #777;
+    color: black;
+    /* color: #777; */
 }
 
 .toc-one ul li {
@@ -3433,4 +3434,25 @@ ul {
         left: 0;
     }
 
+}
+
+.select_div{
+    border: none;
+}
+.custom_price{
+    width: 29% !important;
+    height: 29px;
+    margin-right: 10px;
+    border-radius: unset;
+}
+.custom_btn{
+    text-align: center;
+    padding-top: 10px;
+}
+.custom_align{
+    margin-right: 10px;
+}
+.custom_select{
+    height: 30px;
+    border-radius: unset;
 }

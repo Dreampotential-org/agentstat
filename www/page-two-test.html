@@ -211,12 +211,17 @@
 
                                                     <li>
 
-                                                        <div class="dm-main3">
+                                                        <div class="dm-main3" >
+                                                          <!-- <select class="select_div ami">
+                                                            <option value="Best Overall" selected>Best Overall</option>
+                                                            <option value="Fastest Sale">Fastest Sale</option>
+                                                            <option value="Highest Price">Highest Price</option>
+                                                          </select> -->
                                                             <button class="ami">
                                                                 Sort Sellers  ▾
                                                             </button>
                                                             <div class="dm-part3">
-                                                                <span class="d-block">Best Overall</span>
+                                                                <span class="d-block" selected>Best Overall</span>
                                                                 <span class="d-block">Fastest Sale</span>
                                                                 <span class="d-block">Highest Price</span>
                                                             </div>
@@ -254,14 +259,19 @@
                                                             </button>
                                                             <div class=" dm-part">
                                                                 <form>
+                                                                  <span >Price</span>
+                                                                            <div>
+                                                                              <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
+                                                                              <input type="text" name="" placeholder="Max" class="form-control d-inline-block custom_price w-50">
+                                                                            </div>
                                                                     <div class="row seller-filter">
                                                                         <div class="col-sm-6 ">
-                                                                            <span class="d-block">Price</span>
-                                                                            <input type="text" name="" placeholder="Min" class="form-control d-inline-block w-50 float-left">
-                                                                            <input type="text" name="" placeholder="Max" class="form-control d-inline-block w-50">
-                                                                            <span class="d-block">Type</span>
+                                                                            
+                                                                            
+                                                                            <span >Type</span>
 
                                                                             <div class="custom-control custom-checkbox">
+                                                                              
                                                                                 <input type="checkbox" class="custom-control-input" id="cs1" name="acs" value="Hourse">
                                                                                 <label class="custom-control-label" for="cs1">Hourse</label>
                                                                             </div>
@@ -277,7 +287,7 @@
                                                                             </div>
 
 
-                                                                            <span class="d-block">Brokerage</span>
+                                                                            <span >Brokerage</span>
 
                                                                             <div class="custom-control custom-checkbox">
                                                                                 <input type="checkbox" class="custom-control-input" id="cs4" name="acs" value="Keller Williams">
@@ -299,16 +309,12 @@
                                                                                 <label class="custom-control-label" for="cs7">Windermere</label>
                                                                             </div>
 
-                                                                            <span class="d-block">Commission</span>
-
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs8" name="acs" value="Discount Commission">
-                                                                                <label class="custom-control-label" for="cs8">Discount Commission</label>
-                                                                            </div>
+                                                                            
 
                                                                         </div>
+                                                                        
                                                                         <div class="col-sm-6">
-                                                                            <div class="custom-control custom-checkbox mt-5">
+                                                                            <div class="custom-control custom-checkbox mt-4">
                                                                                 <input type="checkbox" class="custom-control-input" id="cs9" name="acs" value="Townhomes">
                                                                                 <label class="custom-control-label" for="cs9">Townhomes</label>
                                                                             </div>
@@ -333,7 +339,7 @@
                                                                                 <input type="checkbox" class="custom-control-input" id="cs1111" name="acs" value="Remax">
                                                                                 <label class="custom-control-label" for="cs1111">Remax</label>
                                                                             </div>
-                                                                            <select class="form-control">
+                                                                            <select class="form-control custom_select">
                                                                                 <option value="#" selected="">Others</option>
                                                                                 <option value="#">Item</option>
                                                                                 <option value="#">Item</option>
@@ -344,8 +350,17 @@
 
                                                                         </div>
                                                                     </div>
-                                                                    <input type="submit" class="btn-success" name="" value="Save">
-                                                                    <input type="reset" class="btn-warning" name="" value="Cencle">
+                                                                    <span >Commission</span>
+
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="cs8" name="acs" value="Discount Commission">
+                                                                                <label class="custom-control-label" for="cs8">Discount Commission</label>
+                                                                            </div>
+                                                                    <div class="custom_btn">
+                                                                      <input type="submit" class="custom_align" name="" value="SAVE">
+                                                                      <input type="reset"  name="" value="CANCEL">
+                                                                    </div>
+                                                                    
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -357,7 +372,7 @@
 
                                     </div>
                                     <div class="page-two-section-wrapper" id="page-section">
-
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -377,6 +392,11 @@
                                                     <li>
 
                                                         <div class="dm-main4">
+                                                          <!-- <select class="select_div ami">
+                                                            <option value="Best Overall" selected>Best Overall</option>
+                                                            <option value="Fastest Sale">Price Negotiator</option>
+                                                            <option value="Highest Price">Wins Multi-Offers</option>
+                                                          </select> -->
                                                             <button class="ami">
                                                                 Sort Buyers  ▾
                                                             </button>
@@ -416,16 +436,20 @@
 
                                                         <div class="dm-main">
                                                             <button>
-                                                                Filters  ▾
+                                                                Filters  ▾       
                                                             </button>
                                                             <div class=" dm-part">
                                                                 <form>
-                                                                    <div class="row buyer-filter">
+                                                                  <span >Price</span>
+                                                                  <div>
+                                                                    <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
+                                                                    <input type="text" name="" placeholder="Max" class="form-control d-inline-block custom_price w-50">
+                                                                  </div>
+                                                                    <div class="row buyer-filter">          
                                                                         <div class="col-sm-6">
-                                                                            <span class="d-block">Price</span>
-                                                                            <input type="text" name="" placeholder="Min" class="form-control d-inline-block w-50 float-left">
-                                                                            <input type="text" name="" placeholder="Max" class="form-control d-inline-block w-50">
-                                                                            <span class="d-block">Type</span>
+                                                                           
+                                                                            
+                                                                            <span >Type</span>
 
                                                                             <div class="custom-control custom-checkbox">
                                                                                 <input type="checkbox" class="custom-control-input" name="acs1" id="cs1x" value="Hourse">
@@ -443,7 +467,7 @@
                                                                             </div>
 
 
-                                                                            <span class="d-block">Brokerage</span>
+                                                                            <span >Brokerage</span>
 
                                                                             <div class="custom-control custom-checkbox">
                                                                                 <input type="checkbox" class="custom-control-input" id="cs44" name="acs1" value="Keller Williams">
@@ -465,16 +489,11 @@
                                                                                 <label class="custom-control-label" for="cs77">Windermere</label>
                                                                             </div>
 
-                                                                            <span class="d-block">Commission</span>
-
-                                                                            <div class="custom-control custom-checkbox">
-                                                                                <input type="checkbox" class="custom-control-input" id="cs88" name="acs1" value="Offers rebate">
-                                                                                <label class="custom-control-label" for="cs88">Offers rebate</label>
-                                                                            </div>
+                                                                           
 
                                                                         </div>
                                                                         <div class="col-sm-6">
-                                                                            <div class="custom-control custom-checkbox mt-5">
+                                                                            <div class="custom-control custom-checkbox mt-4">
                                                                                 <input type="checkbox" class="custom-control-input" id="cs99" name="acs1" value="Townhomes">
                                                                                 <label class="custom-control-label" for="cs99">Townhomes</label>
                                                                             </div>
@@ -509,9 +528,18 @@
                                                                             </select>
 
                                                                         </div>
+                                                                        
                                                                     </div>
-                                                                    <input type="submit" name="" value="Save">
-                                                                    <input type="reset" name="" value="Cancel">
+                                                                    <span >Commission</span>
+
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" id="cs88" name="acs1" value="Offers rebate">
+                                                                            <label class="custom-control-label" for="cs88">Offers rebate</label>
+                                                                        </div>
+                                                                    <div class="custom_btn">
+                                                                      <input type="submit" class="custom_align" name="" value="SAVE">
+                                                                      <input type="reset"  name="" value="CANCEL">
+                                                                    </div>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -551,27 +579,27 @@
 
 
     <!-- Main jQuery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
 
     <!-- Bootstrap Propper jQuery -->
-    <script src="js/popper.js"></script>
+    <script src="./js/popper.js"></script>
 
     <!-- Bootstrap jQuery -->
-    <script src="js/bootstrap.js"></script>
+    <script src="./js/bootstrap.js"></script>
 
-    <script src="/js/conf.js"></script>
-    <script src="/js/search-item.js"></script>
-    <script src="/js/search.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="./js/conf.js"></script>
+    <script src="./js/search-item.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/main.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
 
     <!-- Fontawesome Script -->
     <script src="https://kit.fontawesome.com/7749c9f08a.js"></script><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all"><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all"><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
 
-    <script src="js/type.js"></script>
+    <script src="./js/type.js"></script>
 
     <!-- Custom jQuery -->
-    <script src="js/scripts.js"></script>
+    <script src="./js/scripts.js"></script>
 
     <script type="text/javascript">
 
