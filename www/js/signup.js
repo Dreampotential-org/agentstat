@@ -1,3 +1,6 @@
+const urlParams = new URLSearchParams(window.location.search)
+var agent_id = urlParams.get('agent_id');
+
 function create_agent() {
   var data = {};
   var has_error = false;
@@ -32,11 +35,13 @@ function create_agent() {
 
     return false
   }
-
-
   console.log(data);
 
   data['full_name'] = data['first_name'] + ' ' + data['last_name']
+  if (agent_id !== null) {
+    data['agent_connector'] = agent_id;
+  }
+
   settings = get_settings('create-agent/', 'POST', JSON.stringify(data))
   settings['headers'] = {};
   console.log(settings);
@@ -73,6 +78,9 @@ function load_states() {
 
 function init() {
   load_states()
+  if (agent_id !== null) {
+    console.log(agent_id);
+  }
 }
 
 window.addEventListener("DOMContentLoaded", init, false);

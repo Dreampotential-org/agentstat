@@ -47,3 +47,18 @@ function call_api(callback, url, settings) {
   });
 }
 
+
+function claim_api(agent_id) {
+    data = {'connector_id': agent_id}
+    console.log(data);
+    var settings = get_settings('agent-connector/', 'POST', JSON.stringify(data));
+
+    $.ajax(settings).done(function (response) {
+        var msg = JSON.parse(response);
+        console.log(msg)
+        window.location = '/form.html';
+    }).fail(function(err) {
+        // alert('Got err');
+        console.log(err);
+    });
+}

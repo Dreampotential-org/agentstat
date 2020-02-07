@@ -1,3 +1,6 @@
+const urlParams = new URLSearchParams(window.location.search)
+var agent_id = urlParams.get('agent_id');
+
 function init() {
     load_agent();
 }
@@ -6,9 +9,13 @@ function currencyFormat(num) {
     return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+$(document).on('change click', '#claim_action', function() {
+  console.log(agent_id);
+  claim_api(agent_id);
+});
+
+
 function load_agent(ignore_city = false) {
-    const urlParams = new URLSearchParams(window.location.search)
-    var agent_id = urlParams.get('agent_id');
     var city = null;
 
     if (ignore_city === false) {
@@ -17,7 +24,14 @@ function load_agent(ignore_city = false) {
     console.log(city);
 
     if (agent_id) {
+      if (localStorage.getItem('session_id') !== null && localStorage.getItem('session_id') !== 'null') {
+        $(".claim_profile").attr("id", "claim_action");
+        $(".claim_profile").attr("href", "#");
+        $(".claim_profile").attr("onclick", "javascript: return false");
+
+      } else {
         $(".claim_profile").attr("href", "/signup.html?agent_id=" + agent_id)
+      }
     }
 
 
@@ -197,8 +211,6 @@ $(document).on('change click', '.why_interest_two li>a', function () {
 });
 
 $(document).on('change click', '#lead-submit', function () {
-    const urlParams = new URLSearchParams(window.location.search)
-    var agent_id = urlParams.get('agent_id')
     var data = {};
 
     data = JSON.parse(localStorage.getItem('leads'));

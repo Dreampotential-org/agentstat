@@ -16,22 +16,8 @@ function init_events_connect() {
   })
 
   $("body").delegate("#set_agent", "click", function(e) {
-    // alert($("input[name='select-agent']:checked").val())
-    // console.log('agent connect ' + $("input[name='select-agent']:checked").val());
-    data = {'connector_id': $("input[name='select-agent']:checked").val()}
-    console.log(data);
-    var settings = get_settings('agent-connector/', 'POST', JSON.stringify(data));
-
-    $.ajax(settings).done(function (response) {
-        var msg = JSON.parse(response);
-        console.log(msg)
-        window.location = '/form.html';
-    }).fail(function(err) {
-        // alert('Got err');
-        console.log(err);
-        // show_error(err);
-    });
-
+    connector_id = $("input[name='select-agent']:checked").val();
+    claim_api(connector_id);
   })
 
   $("body").delegate("#search", "click", function(e) {
