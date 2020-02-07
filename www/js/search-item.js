@@ -269,65 +269,87 @@ var search_item = `<div class="toc-two" agent_id=[[agent_id]]>
 
 
 var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
-  <div class="row">	
-    <div class="col-lg-2 col-12 col-md-3">	
-      <div class="toc-two-left-one">	
-        <img class="profileImage" style="border-radius: 130px;margin-top: 21px;" src="img/blank-profile-picture.png" alt="images not found">	
-      </div>	
+  <div class="row" style="padding-bottom:20px">	
+    <div class="col-lg-3 col-md-3">
     </div>
-    <div class="col-lg-9 col-12 col-md-9">	
-    <div class="toc-two-left-two">	
-      <div class="toc-two-left-two-heading custom">	
-        <div class="toc-two-left-two-heading-left">	
-        <a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]]</h4></a>
-          <!--<h4>Wendy Green | <a href="#">Brokerage</a></h4>-->	
-          <span>SCORE | [[score]]</span>	
-        </div>	
-        <div class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next">	
-          <a href="#"><i class="fas fa-thumbtack" aria-hidden="true"></i></a>	
-          <p>Pin to top</p>	
-        </div>	
-      </div>	
-      <div class="ak-table">
-        <table class="table table-border">
-          <tbody><tr>
-            <td></td>
-            <td><h5 class="m-0"><strong>Overall</strong></h5></td>
-            <td class="city_results"><h5 class="m-0"><strong>[[city]]</strong></h5></td>
-          </tr>
-          <tr>
-            <td><strong>Sold Listings</strong></td>
-            <td>[[overall_sold_listings]]</td>
-            <td class="city_results">[[sold_listings]]</td>
-          </tr>
-          <tr>
-            <td><strong>Failed Listings</strong></td>
-            <td>[[overall_failed_listings]]</td>
-            <td class="city_results">[[failed_listings]]</td>
-          </tr>
-          <tr>
-            <td><strong>Avg Days On Market</strong></td>
-            <td>[[overall_avg_dom]]</td>
-            <td class="city_results">[[avg_dom]]</td>
-          </tr>
-          <tr>
-            <td><strong>Avg Sold to List Price</strong></td>
-            <td>[[overall_s2l_price]]%</td>
-            <td class="city_results">[[s2l_price]]%</td>
-          </tr>
-          <tr>
-            <td><strong>Break Down</strong></td>
-            <td>[[overall_listings_breakdown_json]]</td>
-            <td class="city_results">[[listings_breakdown_json]]</td>
-          </tr>
-        </tbody></table>
-       </div>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">	
+      <div class="toc-two-left-two">	
+        <div class="ak-table">
+          <table class="table-responsive">
+            <tbody>
+              <tr>
+                <td colspan="2"><a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]] <span class="custom_score">SCORE | [[score]]</span> </h4> </a>
+                  </td>
+                  <td></td>
+                  <td></td>
+                <td class="text-center" ><div class="custom_pin"> <a href="#"><i class="fas fa-thumbtack"  style="color:#CC9D04" aria-hidden="true"></i></a>	
+                <p>Unpin</p></div>
+                  	</td>
+              </tr>
 
-       <div class="toc-two-left-two-link" style="margin: 15px 0px;">	
+              <tr>
+                <td></td>
+                <td ><h5 class="m-0"><strong>Overall</strong></h5></td>
+                <td ><h5 class="m-0"><strong>Seattle</strong></h5></td>
+                <td class="city_results"><h5 class="m-0"><strong>[[city]]</strong></h5></td>
+              </tr>
+              <tr >
+                <td class="horizontal_dotted_line"><strong>Sold Listings</strong><span class="dot"></span></td>
+                <td >[[overall_sold_listings]]</td>
+                <td class="city_results">[[sold_listings]]</td>
+              </tr>
+              <tr >
+                <td class="horizontal_dotted_line"><strong>Failed Listings</strong><span class="dot"></span></td>
+                <td>[[overall_failed_listings]]</td>
+                <td class="city_results">[[failed_listings]]</td>
+              </tr>
+              <tr class="custom_tr">
+                <td class="horizontal_dotted_line"><strong>Avg Days On Market</strong><span class="dot"></span></td>
+                <td>[[overall_avg_dom]]</td>
+                <td class="city_results">[[avg_dom]]</td>
+                <td></td>
+                <td></td>
+                <td  class="toc-two-left-two-link text-center custom_btn"> 
+                  <ul>	
+                    <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a></li>	
+                  </ul>
+                </td>
+              </tr>
+              <tr class="custom_tr">
+                <td class="horizontal_dotted_line"><strong>Avg Sold to List Price</strong><span class="dot"></span></td>
+                <td >[[overall_s2l_price]]%</td>
+                <td class="city_results">[[s2l_price]]%</td>
+                <td></td>
+                <td></td>
+                <td  class="toc-two-left-two-link text-center custom_btn"> 
+                  <ul style="padding-top:10px">	
+                    <!--<li><a href="#">Call [[cell_phone]]</a></li>-->	
+                    <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Message</a></li>	
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="horizontal_dotted_line"><strong>Break Down</strong><span class="dot"></span></td>
+                <td>[[overall_listings_breakdown_json]]</td>
+                <td class="city_results">[[listings_breakdown_json]]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div >
+    </div>
+    <div class="text-center custom_div">
+      <ul style="padding-top:10px">	
+      <!--<li><a href="#">Call [[cell_phone]]</a></li>-->	
+      <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a></li>	
+      <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Message</a></li>	
+      </ul>
+    <div>
+  </div>
+    
+
+
+       <div class="toc-two-left-two-link text-center" style="margin: 15px 0px;">	
           <ul>	
-            <!--<li><a href="#">Call [[cell_phone]]</a></li>-->	
-            <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Message</a></li>	
-          </ul>	
             <div class="modal fade" id="myModalx">	
               <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">	
                 <div class="modal-content">	
@@ -429,10 +451,10 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
               </div>	
             </div>	
             <div class="sm-link">	
-              <ul>	
-                <!-- <li><a href="#">Call Agent Name</a></li> -->	
+              <!-- <ul>
+                <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a></li>	
                 <li><a href="#" data-toggle="modal" data-target="#myModal0">Message</a></li>	
-              </ul>	
+              </ul>	-->
               <div class="modal fade" id="myModal0">	
                 <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">	
                   <div class="modal-content">	
