@@ -120,8 +120,18 @@ function load_agent() {
                           <strong>Type:</strong> ` + v['home_type'] + ` <br>
                           <strong>Beds:</strong> ` + v['beds']+ ` <br>
                           <strong>Baths:</strong> ` + v['baths']+ ` <br>
+                          <strong>Sqft:</strong> ` + v['sqft']+ ` <br>
                           <strong>Year Built:</strong> ` + v['year_built']+ ` <br>
                           <strong>State:</strong> ` + v['state']+ ` <br>
+                        </td>
+                        <td style="text-align:left;">
+                          <strong>Heating:</strong> ` + v['heating'] + ` <br>
+                          <strong>Cooling:</strong> ` + v['cooling'] + ` <br>
+                          <strong>Parking:</strong> ` + v['parking'] + ` <br>
+                          <strong>Basement:</strong> ` + v['basement'] + ` <br>
+                          <strong>Flooring:</strong> ` + v['flooring'] + ` <br>
+                          <strong>Roof:</strong> ` + v['roof'] + ` <br>
+                          <strong>Foundation:</strong> ` + v['foundation'] + ` <br>
                         </td>
                       </tr>
                   </table>
