@@ -127,7 +127,7 @@ function get_specilities() {
         `);
       });
   }).fail(function(err) {
-      alert('Got err');
+      // alert('Got err');
       console.log(err);
   });
 
@@ -150,7 +150,7 @@ function get_languages() {
         `);
       });
     }).fail(function(err) {
-      alert('Got err');
+      // alert('Got err');
       console.log(err);
     });
 }

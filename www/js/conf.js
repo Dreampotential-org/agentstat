@@ -43,10 +43,31 @@ function call_api(callback, url, settings) {
       var msg = JSON.parse(response);
       callback(msg);
   }).fail(function(err) {
-      alert('Got err');
+      // alert('Got err');
+      // console.log(err);
+      callback(false);
   });
 }
 
+
+function is_loggon() {
+  session_id = localStorage.getItem('session_id');
+  email = localStorage.getItem('email');
+  if(session_id === null || email === null) {
+    window.location = '/login.html';
+  }
+
+  call_api(
+    function(res) {
+      if (res == false) {
+        window.location = '/login.html';
+      }
+      $('#profile-views').text(res['profile_views']);
+      $('.agent-name').text(res['first_name'] + ' '  + res['last_name']);
+    },
+    'agent-profile/'
+  );
+}
 
 function claim_api(agent_id) {
     data = {'connector_id': agent_id}
