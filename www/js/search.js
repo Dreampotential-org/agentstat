@@ -97,6 +97,15 @@ function load_search_results() {
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
 
+        if (v['agent_picture'] !== undefined && v['agent_picture'] !== '') {
+          console.log('xxxxxx');
+          console.log(v['agent_picture']);
+          picture_img = `<img class='rounded-circle img-thumbnail' style='margin-top: 10px;' src='` + v['agent_picture'] + `'>`;
+          item = item.split('[[agent_picture]]').join(picture_img);
+        } else {
+          item = item.split('[[agent_picture]]').join('');
+        }
+
         item = item.split('[[time_duration]]').join(v['time_duration']);
         item = item.split('[[city]]').join(v['city']);
         item = item.split('[[score]]').join(v['score'].toFixed(1));

@@ -271,6 +271,7 @@ var search_item = `<div class="toc-two" agent_id=[[agent_id]]>
 var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
   <div class="row" style="padding-bottom:20px">	
     <div class="col-lg-3 col-md-3">
+        [[agent_picture]]
     </div>
     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">	
       <div class="toc-two-left-two">	
