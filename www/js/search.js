@@ -97,10 +97,19 @@ function load_search_results() {
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
 
+            if(v['agent_picture'] == undefined)
+            {
+                console.log('yyyyyyyyyyxxx');
+                console.log(v['agent_picture']);
+                picture_img = `<div class="toc-two-left-one">
+                <img class='rounded-circle toc-two-left-one' style='border-radius: 130px;margin-top: 21px;'  src=' img/sh.png'></div>`;
+                item = item.split('[[agent_picture]]').join(picture_img);
+            }
         if (v['agent_picture'] !== undefined && v['agent_picture'] !== '') {
           console.log('xxxxxx');
           console.log(v['agent_picture']);
-          picture_img = `<img class='rounded-circle img-thumbnail' style='margin-top: 10px;' src='` + v['agent_picture'] + `'>`;
+          picture_img = `<div class="toc-two-left-one">
+          <img class='rounded-circle img-thumbnail' style='border-radius: 130px;margin-top: 21px;'  src='` + v['agent_picture'] + `'></div>`;
           item = item.split('[[agent_picture]]').join(picture_img);
         } else {
           item = item.split('[[agent_picture]]').join('');

@@ -1319,7 +1319,8 @@ ul {
     color: #fff;
     font-weight: 500;
     font-size: 16px;
-    padding: 10px 40px;
+    /* padding: 10px 40px; */
+    padding: 5px 10px;
 }
 
 .toc-two-left-two-link ul li:last-child a {
@@ -2976,6 +2977,7 @@ ul {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
+
 }
 
 @media screen and (min-width:320px) and (max-width:566px){
@@ -3003,12 +3005,14 @@ ul {
     width: 58px;
     height: 65px;
     position: absolute;
-    top: -20px;
+    /* top: -20px; */
     left: 0;
     background: url(img/top.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
+
+    z-index: 999;
 }
 
 .dm-main {
@@ -3451,6 +3455,7 @@ ul {
 }
 .custom_btn{
     visibility:visible ;
+    padding-top: 15px !important;
 }
 .custom_div{
     display: none;
