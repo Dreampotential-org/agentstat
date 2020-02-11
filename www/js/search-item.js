@@ -561,4 +561,3 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
         </div>	
         </div>
         </div>`
-

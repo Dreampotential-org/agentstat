@@ -3329,6 +3329,18 @@ ul {
         border-radius: 0px !important;
     }
 
+    .toc-two-left-one{
+        display: none;                                                              
+    }
+    
+    .ak-table table {
+        margin-top: 10px !important;
+    }
+
+    .mob-hide{
+        display: none;
+    }
+
 }
 
 .mainDiv{
@@ -3472,6 +3484,7 @@ ul {
 }
 td{
     padding: 0px !important;
+    width:20%;
 }
 .custom_score{
     font-size: 14px;
@@ -3523,4 +3536,28 @@ td{
         border: 1px solid #087B9E;
         margin-left: 15px;
     }
+    .custom_font{
+        font-size: inherit !important;
+    }
+    .po-search{
+        padding: 0 !important;
+    }
+    .fixed-tab{
+        margin-top: 7px;
+    }
+    .toc-one ul{
+        width: unset !important;
+    }
+}
+
+.btn-row{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    /*transform: translateY(-50%);*/
+}
+
+.btn-row ul{
+    width: 100%;
+    margin-bottom: 10px;
 }
