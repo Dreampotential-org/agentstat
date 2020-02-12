@@ -274,7 +274,7 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
         [[agent_picture]]
     </div>
     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">	
-      <div class="toc-two-left-two">	
+      <div class="toc-two-left-two">
         <div class="ak-table cust-tbl">
           <table >
             <tbody>
@@ -282,18 +282,16 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                   <td colspan="3"  class="title"><a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]] <span class="custom_score"> | Keller Williams Seattle</h4> </a>
                     <span>SCORE | [[score]]</span>
                   </td>
-                  <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" ><div class="custom_pin"> <a href="#"><i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>	
+                  <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" ><div class="custom_pin"> <a href="#"><i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>
                     <p>Pin to top</p></div>
                   </td>
               </tr>
 
               <tr>
                 <td></td>
-                <td ><h5 ><strong>Overall</strong></h5></td>
-                <td style="width:10%"><h5><strong>Seattle</strong></h5></td>
-                <td class="city_results"><h5 ><strong>[[city]]</strong></h5></td> 
+                <td><h5><strong>Overall</strong></h5></td>
+                <td class="city_results" style="width:10%"><h5 ><strong>[[city]]</strong></h5></td> 
               </tr>
-
               <tr>
                 <td class="horizontal_dotted_line"><strong>Sold Listings</strong><span class="dot"></span></td>
                 <td >[[overall_sold_listings]]</td>
