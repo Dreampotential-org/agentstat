@@ -1253,6 +1253,10 @@ ul {
     float: right;
 }
 
+.cust-tbl .toc-two-left-two-heading-right{
+    float: none;
+}
+
 .toc-two-left-two-heading-left h4 {
     /* font-weight: bold;
     font-size: 32px; */
@@ -3382,6 +3386,7 @@ ul {
     button.btn.btn-default.searchButton {
         margin-top: 5px;
     }
+    
 
 }
 
@@ -3412,7 +3417,10 @@ ul {
     .pth-content-number span {
         font-size: 25px;
     }
-   
+    .cust-tbl td{
+        padding: 0 !important;
+        padding-left: 6px !important;
+    }
 }
 
 @media screen and (min-width: 320px)and (max-width: 360px){
@@ -3451,7 +3459,17 @@ ul {
         display: none;
         left: 0;
     }
-
+    .custom_score{
+        font-size: 12px;
+    }
+    .title h4{
+        font-size: 14px;
+    }
+    .td{
+        padding: 6px !important;
+        width: 20%;
+    }
+    
 }
 
 
@@ -3468,6 +3486,10 @@ ul {
 .custom_btn{
     visibility:visible ;
     padding-top: 15px !important;
+ 
+}
+.btnmargin a{
+    margin-left: 0px !important;
 }
 .custom_div{
     display: none;
@@ -3483,8 +3505,9 @@ ul {
     margin-right: 10px;
 }
 td{
-    padding: 0px !important;
-    width:20%;
+    /* padding: 0px !important; */
+    width:25%;
+    /* width: 200px; */
 }
 .custom_score{
     font-size: 14px;
@@ -3494,8 +3517,10 @@ td{
     content: ".............................................";
 } */
 .horizontal_dotted_line{
-    width: 200px;
+    /* width: 200px; */
+    width: 100%;
     display : flex;
+    padding-right: 7px !important;
    } 
    .dot{
      flex: 1;
@@ -3509,6 +3534,9 @@ td{
     float: right;
     text-align: center;
    }
+   .custom_pin a{ 
+       margin-left: 0;
+   }
    @media only screen and (max-width: 992px){
     .custom_btn{
         display:none ;
@@ -3517,6 +3545,10 @@ td{
         display:block ;
         
     }
+
+    .horizontal_dotted_line {
+        width: 200px;
+    }    
 
     .custom_div ul li a{
 
@@ -3548,6 +3580,15 @@ td{
     .toc-one ul{
         width: unset !important;
     }
+    .custom_score{
+        font-size: 12px;
+    }
+    .title h4{
+        font-size: 14px;
+    }
+    .title span{
+        font-size: 12px;
+    }
 }
 
 .btn-row{
@@ -3560,4 +3601,23 @@ td{
 .btn-row ul{
     width: 100%;
     margin-bottom: 10px;
+}
+
+@media screen and (min-width: 767px){
+    .ak-table table td {
+        padding: 0px;
+    }
+
+}
+
+@media only screen and (max-width: 576px){
+    .cust-tbl .toc-two-left-two-heading-right{
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    .toc-two-left-two{
+        padding: 0;
+    }
 }

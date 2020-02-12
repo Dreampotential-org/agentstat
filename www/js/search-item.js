@@ -275,33 +275,31 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">	
       <div class="toc-two-left-two">	
-        <div class="ak-table">
+        <div class="ak-table cust-tbl">
           <table >
             <tbody>
               <tr>
-                <td colspan="2"><a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]] <span class="custom_score"> | Keller Williams Seattle</h4> </a>
-                  <span>SCORE | [[score]]</span>
+                  <td colspan="3"  class="title"><a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]] <span class="custom_score"> | Keller Williams Seattle</h4> </a>
+                    <span>SCORE | [[score]]</span>
                   </td>
-                  <td colspan="4"class="text-center" ><div class="custom_pin"> <a href="#"><i class="fas fa-thumbtack"  style="color:#CC9D04" aria-hidden="true"></i></a>	
-                <p>Unpin</p></div>
-              </td>
+                  <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" ><div class="custom_pin"> <a href="#"><i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>	
+                    <p>Pin to top</p></div>
+                  </td>
               </tr>
 
               <tr>
                 <td></td>
-                <td ><h5 class="m-0"><strong>Overall</strong></h5></td>
-                <td ><h5 class="m-0"><strong>Seattle</strong></h5></td>
-                <td class="city_results"><h5 class="m-0"><strong>[[city]]</strong></h5></td>
-               
+                <td ><h5 ><strong>Overall</strong></h5></td>
+                <td style="width:10%"><h5><strong>Seattle</strong></h5></td>
+                <td class="city_results"><h5 ><strong>[[city]]</strong></h5></td> 
               </tr>
 
-              <tr >
+              <tr>
                 <td class="horizontal_dotted_line"><strong>Sold Listings</strong><span class="dot"></span></td>
                 <td >[[overall_sold_listings]]</td>
                 <td class="city_results">[[sold_listings]]</td>
-                <td></td>
-                <td></td>
-                <td rowspan="4" class="toc-two-left-two-link text-center custom_btn"> 
+                <td style="width:10%"></td>
+                <td rowspan="4" class="toc-two-left-two-link text-center custom_btn btnmargin"> 
                   <ul>	
                     <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a></li>	
                   </ul>
@@ -310,25 +308,25 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                     <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Message</a></li>	
                   </ul>
                 </td>
-
               </tr>
               <tr >
                 <td class="horizontal_dotted_line"><strong>Failed Listings</strong><span class="dot"></span></td>
                 <td>[[overall_failed_listings]]</td>
                 <td class="city_results">[[failed_listings]]</td>
-                <td></td>
-                <td></td>
+                <td style="width:10%"></td>
               </tr>
               <tr class="custom_tr">
                 <td class="horizontal_dotted_line"><strong>Avg Days On Market</strong><span class="dot"></span></td>
                 <td>[[overall_avg_dom]]</td>
                 <td class="city_results">[[avg_dom]]</td>
+                <td style="width:10%"></td>
                 
               </tr>
               <tr class="custom_tr">
                 <td class="horizontal_dotted_line"><strong>Avg Sold to List Price</strong><span class="dot"></span></td>
                 <td >[[overall_s2l_price]]%</td>
                 <td class="city_results">[[s2l_price]]%</td>
+                <td style="width:10%"></td>
                 
                 
               </tr>
@@ -336,17 +334,15 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                 <td class="horizontal_dotted_line"><strong>Break Down</strong><span class="dot"></span></td>
                 <td>[[overall_listings_breakdown_json]]</td>
                 <td class="city_results">[[listings_breakdown_json]]</td>
-                
+                <td style="width:10%"></td>
               </tr>
-
-            
             </tbody>
           </table>
-        </div >
+        </div>
       </div>
     </div>
     
-    <div class="text-center custom_div col-lg-6 col-md-6 col-sm-9 col-xs-9">
+    <div class="text-center custom_div col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <ul style="padding-top:10px">	
       <!--<li><a href="#">Call [[cell_phone]]</a></li>-->	
       <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a></li>	
