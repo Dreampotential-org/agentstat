@@ -70,6 +70,9 @@ function get_profile_link(agent_id) {
     const city = encodeURIComponent(urlParams.get('city', ''));
     const state = urlParams.get('state');
 
+    const lat = urlParams.get('lat');
+    const lng = urlParams.get('lng');
+
     if (city == "null" || city == null) {
         console.log("CITY IS!!!" + typeof(city))
     }
@@ -77,6 +80,10 @@ function get_profile_link(agent_id) {
         filters += '&city=' + city;
     }
 
+    if (lat && lng) {
+      filters += '&lat=' + lat;
+      filters += '&lng=' + lng;
+    }
     console.log(filters);
     return "/page-three.html" + filters;
 }
