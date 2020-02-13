@@ -82,6 +82,7 @@ function load_agent(ignore_city = false) {
 
         $(".alist").remove();
         $.each(data['agent_lists'], function (k, v) {
+            
             if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
                 var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
             } else {
@@ -93,7 +94,7 @@ function load_agent(ignore_city = false) {
                 var note = 'note';
             }
 
-            $(`<tr class='alist' onclick="passBtnID('add-public-note-` + v['id'] + `')">
+            $(`<tr class='alist alist`+k+`' onclick="passBtnID('add-public-note-` + v['id'] + `')">
         <td>` + v['status'] + `</td>
         <td>` + currencyFormat(v['list_price_int']) + `</td>
         <td>` + currencyFormat(v['sold_price_int']) + arrowStyle + `</td>
@@ -111,27 +112,29 @@ function load_agent(ignore_city = false) {
             <a href="#" class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close"></i></a>
             <textarea class="public-note-text form-control" id="note-` + v['id'] + `" rows="2" name="public-note" readonly></textarea>
           </div>
-          <div class="text-left">
+          <div class="text-left title_color">
           ` + v['address_text'] + `
           <table style="width:100%">
+          
             <tr>
               <td style="width:35%">
                 <table style="width:100%">
+                   
                     <tr>
-                        <td style='text-align: left;padding: 5px 10px;color: gray;'>
-                          <strong>Listed:</strong> <br><br>
+                        <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
+                          <strong style='color:black'>Listed:</strong> <br>
                           ` + v['list_date'] + ` <br>
                           ` + currencyFormat(v['list_price_int']) + `
                         </td>
-                        <td style='padding: 5px 10px;color: gray;'>
-                          <strong>Sold:</strong> <br><br>
+                        <td style='padding: 5px 10px;color: gray;border:none'>
+                          <strong style='color:black'>Sold:</strong> <br>
                           ` + v['sold_date'] + ` <br>
                           ` + currencyFormat(v['sold_price_int']) + `
                         </td>
                     </tr>
                     <tr>
                       <td colspan=2 style='text-align: left;padding: 5px 10px;color: gray;'>
-                      <strong>Days on market:</strong> ` + v['days_on_market'] + ` <br>
+                      <strong style='color:black'>Days on market:</strong> ` + v['days_on_market'] + ` <br>
                       </td>
                     </tr>
                   </table>
@@ -141,11 +144,11 @@ function load_agent(ignore_city = false) {
                   <table style="width:100%">
                       <tr>
                         <td style='text-align: left;padding: 5px 10px;color: gray;'">
-                          <strong>Type:</strong>   &nbsp;&nbsp;&nbsp;` + v['home_type'] + ` <br>
-                          <strong>Beds:</strong>  &nbsp;&nbsp;&nbsp;` + v['beds'] + ` <br>
-                          <strong>Baths:</strong>  &nbsp;&nbsp;&nbsp;` + v['baths'] + ` <br>
-                          <strong>Year Built:</strong>  &nbsp;&nbsp;&nbsp;` + v['year_built'] + ` <br>
-                          <strong>State:</strong>  &nbsp;&nbsp;&nbsp;` + v['state'] + ` <br>
+                          <strong style='color:black'>Type:</strong>   &nbsp;&nbsp;&nbsp;` + v['home_type'] + ` <br>
+                          <strong style='color:black'>Beds:</strong>  &nbsp;&nbsp;&nbsp;` + v['beds'] + ` <br>
+                          <strong style='color:black'>Baths:</strong>  &nbsp;&nbsp;&nbsp;` + v['baths'] + ` <br>
+                          <strong style='color:black'>Year Built:</strong>  &nbsp;&nbsp;&nbsp;` + v['year_built'] + ` <br>
+                          <strong style='color:black'>State:</strong>  &nbsp;&nbsp;&nbsp;` + v['state'] + ` <br>
                         </td>
                       </tr>
                   </table>
@@ -157,6 +160,13 @@ function load_agent(ignore_city = false) {
       </tr>`
                     ).insertAfter("#transations");
         })
+
+        pagination(data['agent_lists'].length);
+        console.log("HERE");
+        setTimeout(()=>{  
+            $('#pagination-here').first().find('.active').prev().trigger('click');
+        }, 100);
+       
 
     }).fail(function (err) {
         console.log(err);
@@ -278,4 +288,64 @@ $(document).on('change click', '#overall-tab', function () {
     load_agent(true);
 });
 
+function pagination(page){
+
+    console.log("@!@!@!@!@", page%10);
+
+    $('#pagination-here').bootpag({
+        total: page%10 == 0 ? (page/10) : (page/10)+1,
+        page: 2,
+        maxVisible: 3,
+        leaps: true,
+        firstLastUse: true,
+        first: '←',
+        last: '→',
+        wrapClass: 'pagination',
+        activeClass: 'active',
+        disabledClass: 'disabled',
+        nextClass: 'next',
+        prevClass: 'prev',
+        lastClass: 'last',
+        firstClass: 'first'
+        //href: "#result-page-{{number}}",
+    })
+
+    
+   
+    
+
+    //page click action
+    $('#pagination-here').on("page", function(event, num){
+        //show / hide content or pull via ajax etc
+
+        
+
+        var range = num * 10;
+        
+        // if(num == 1){
+        //     intial_item = range - 10;
+        //     last_item = range - 1;
+        // }else{
+            intial_item = range - 10;
+            last_item = range ;
+        //}
+
+        console.log(".alist "+num);
+        console.log("Range ",range)
+        console.log(".intial_item "+intial_item);
+        console.log(".last_item "+last_item);
+
+        $(".alist").hide();
+        for(var i = intial_item; i < last_item; i++){
+            $(".alist"+i).show();
+        }
+
+
+    });
+
+}
+
 window.addEventListener("DOMContentLoaded", init, false);
+
+
+

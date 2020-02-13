@@ -27,6 +27,7 @@
 
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="css/responsive.css" />
+        <!-- <link rel="stylesheet" href="./css/jquery.dataTables.min.css"/> -->
 
     </head>
     <body>
@@ -190,11 +191,12 @@
                 <div class="pth-agent-wrapper">					
                     <div class="row">
                         <div class="col-lg-12">
+                            
                             <nav>
                                 <div class="nav nav-tabs nav-seller-buyer" id="nav-tab" role="tablist">
-                                    <a class="nav-item nav-links col-3 col-sm-2 active" id="nav-new-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span class="acitv-bottom">Sellers</span> </a>
-                                    <a class="nav-item nav-links col-3 col-sm-2  " id="nav-new-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="acitv-bottom">Buyers </span> </a>
-                                    <a class="nav-item nav-links col-6 col-sm-8  pull-right" id="nav-new-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="acitv-bottom text-right">Blog</span></a>
+                                    <a class="nav-item nav-links col-2 col-sm-1 active custom_tab" id="nav-new-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span class="acitv-bottom tab_font">Sellers</span> </a>
+                                    <a class="nav-item nav-links col-3 col-sm-2  " id="nav-new-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="acitv-bottom tab_font">Buyers </span> </a>
+                                    <a class="nav-item nav-links col-6 col-sm-8  pull-right" id="nav-new-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="acitv-bottom text-right tab_font">Blog</span></a>
                                 </div>
                             </nav>
                             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
@@ -516,24 +518,53 @@
                                 </div>
                                 <div class="pth-sold">
                                     <div class="pth-sold-wrapper">
-                                        <div class="pth-sold-content">
-                                            <p>Transactions <span>Maps</span></p>
+                                        <div class="pth-sold-content map_padding">
+                                            <p style="margin-bottom:0px;">Transactions <span>Maps</span></p>
                                             <ul>
-                                                <li><span> 
+                                                <li>
+                                                    <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                    <span class="map_color"> 
+                                                    
                                                         <div class="form-check location">
-                                                            <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                           
                                                         </div>
                                                     </span>Sold</li>
-                                                <li><span> 
+                                                <li>
+                                                    <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                    <span class="map_color"> 
                                                         <div class="form-check location">
-                                                            <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                           
                                                         </div>
                                                     </span>Failed</li>
                                             </ul>
                                         </div>
-                                        <div class="pth-sold-maps">
+                                        <div class="pth-sold-content map_padding">
+                                                    <!-- <div>
+                                                        <i class="fas fa-expand-arrows-alt"></i> 
+                                                    </div> -->
+                                                        <i id="expand" class="collapsible fas fa-expand-arrows-alt" style="background: transparent;color: black;float: right;"></i> 
+                                                        <i id="contract" class="collapsible  fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;"></i>
+                                                        <!-- <button type="button" class="collapsible"></button> -->
+                                                        <div class="pth-sold-maps content showEle">
+                                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
+                                                        </div>
+                                                        <!-- <div class="content showEle">
+                                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                                        </div> -->
+                                                    <!-- <div>
+                                                        <i class="fas fa-compress-arrows-alt"></i>
+                                                        <div class="pth-sold-maps">
+                                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pth-sold-maps">
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
                                         </div>
+                                                </li> -->
+                                        </div>
+                                        <!-- <div class="pth-sold-maps">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -558,7 +589,7 @@
                     <style>
                         table.table tr td { font-size: .9em; }
                     </style>
-                    <table class="table text-center">
+                    <table   class="table text-center table-bordered">
                         <tr id="transations" class="table-heading">
                             <td>Status</td>
                             <td>List Price</td>
@@ -571,8 +602,29 @@
                             <td>Home Type</td>
                             <td>Note</td>
                         </tr>
+                        <!-- <thead  > 
+                            <tr >
+                                <th>Status</th>
+                                <th>List Price</th>
+                                <th>Sold Price</th>
+                                <th>Days on Market</th>
+                                <th>List Date</th>
+                                <th>Address</th>
+                                <th>Built</th>
+                                <th>City</th>
+                                <th>Home Type</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead> -->
+                        
                     </table>
-                    <nav aria-label="...">
+                    
+                    <div id="pagination-here">
+                       
+
+                    </div>
+
+                    <!-- <nav aria-label="...">
                         <ul class="pagination" style="float:right;">
                             <li class="page-item disabled">
                                 <span class="page-link">Previous</span>
@@ -584,7 +636,7 @@
                                 <a class="page-link" href="#">Next</a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
             </div>
         </div>
@@ -674,38 +726,127 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
+                    <div class="row review_txt">
                         <div class="col-8 col-sm-8">Negotiation skills:</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
                         <div class="col-8 col-sm-8">Listing Prep:</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
                         <div class="col-8 col-sm-8">Marketing:</div> <div class="col-4 col-sm-4"><img src="img/table-star-9.png" alt="Argos rating"></div>
                         <div class="col-8 col-sm-8">Presentation:</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8">How pleasant were they to work with? :</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8">How good of a deal was your agent able to get you?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8">How pleasant were they to work with?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Main jQuery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
 
     <!-- Bootstrap Propper jQuery -->
-    <script src="js/popper.js"></script>
+    <script src="./js/popper.js"></script>
 
     <!-- Bootstrap jQuery -->
-    <script src="js/bootstrap.js"></script>
+    <script src="./js/bootstrap.js"></script>
 
     <!-- Fontawesome Script -->
     <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
-    <script src="js/type.js"></script>
+    <script src="./js/type.js"></script>
 
-    <script src="js/owl.carousel.min.js"></script>
+
+    <script src="./js/owl.carousel.min.js"></script>
 
     <!-- Custom jQuery -->
-    <script src="js/scripts.js"></script>
+    <script src="./js/scripts.js"></script>
 
-    <script src="/js/conf.js"></script>
-    <script src="/js/agent-detail.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="./js/conf.js"></script>
+    <script src="./js/agent-detail.js"></script>
+    <script src="./js/main.js"></script>
+    <!-- <script src="./js/jquery.dataTables.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://botmonster.com/jquery-bootpag/jquery.bootpag.js"></script>
+    <script>
+        $(document).ready(function(){
+         $("#expand").click(function(){
+        //    if ($(this).siblings('.showEle').length)
+        //   { 
+        //       $(this).siblings('.content').addClass('hideEle');
+        //       $(this).siblings('.content').removeClass('showEle');
+              
+        //   }
+        //    else{
+               $(this).siblings('.content').addClass('showEle');
+              $(this).siblings('.content').removeClass('hideEle');
+           //}
+          });
+
+          $("#contract").click(function(){
+        //    if ($(this).siblings('.showEle').length)
+        //   { 
+              $(this).siblings('.content').addClass('hideEle');
+              $(this).siblings('.content').removeClass('showEle');
+              
+        //   }
+        //    else{
+        //        $(this).siblings('.content').addClass('showEle');
+        //       $(this).siblings('.content').removeClass('hideEle');
+        //    }
+          });
+
+
+        
+
+        //  pagination(5);
+
+
+        });
+
+        // function pagination(page){
+
+        //     $('#pagination-here').bootpag({
+        //         total: page,          
+        //         page: 1,            
+        //         maxVisible: page,     
+        //         leaps: true,
+        //         //href: "#result-page-{{number}}",
+        //     })
+
+        //     //page click action
+        //     $('#pagination-here').on("page", function(event, num){
+        //         //show / hide content or pull via ajax etc
+        //         var range = num * 6;
+                
+        //         if(num == 1){
+        //             intial_item = range - 5;
+        //             last_item = range - 0;
+        //         }else{
+        //             intial_item = range - 5;
+        //             last_item = range ;
+        //         }
+        //         $(".alist").hide();
+        //         for(var i = intial_item; i <= last_item; i++){
+        //             $(".show_"+i).show();
+        //         }
+
+        //         $max = 6 * num ;
+        //         $min = ($max - 6) - 1;
+                
+
+
+        //         //$("#content").html("Page " + num);
+
+                
+
+
+        //     });
+
+        // }
+      
+      </script>
+    <!-- <script>
+        $(document).ready(function () {
+        $('#transations').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+        });
+    </script> -->
 
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
@@ -715,5 +856,6 @@
     </script>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+
 </body>
 </html>
