@@ -31,8 +31,10 @@ function redirectResults(results) {
 
 
     if ('city' in results) {
-        new_params.push('state='+results['state']);
-        new_params.push('city='+results['city']);
+        new_params.push('state=' + results['state']);
+        new_params.push('city=' + results['city']);
+        new_params.push('lat=' + results['lat']);
+        new_params.push('lng=' + results['lng']);
     }
     else {
         new_agent_name = $('.ser').val();
@@ -62,6 +64,9 @@ function getSearchParams(place) {
             params['city'] = address_comp.short_name
         }
     }
+
+    params['lat'] = place.geometry.location.lat()
+    params['lng'] = place.geometry.location.lng()
     // console.log(params)
     return params
 }
