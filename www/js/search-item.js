@@ -318,28 +318,44 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                 <td>[[overall_avg_dom]]</td>
                 <td class="city_results">[[avg_dom]]</td>
                 <td style="width:10%"></td>
-                
+
               </tr>
+
               <tr class="custom_tr">
                 <td class="horizontal_dotted_line"><strong>Avg Sold to List Price</strong><span class="dot"></span></td>
                 <td >[[overall_s2l_price]]%</td>
                 <td class="city_results">[[s2l_price]]%</td>
                 <td style="width:10%"></td>
-                
-                
               </tr>
-              <tr>
+
+              <tr class="custom_tr">
+                <td class="horizontal_dotted_line"><strong>Single Family Homes Sold</strong><span class="dot"></span></td>
+                <td >[[overall_single_family_sold]]</td>
+                <td class="city_results">[[single_family_sold]]</td>
+                <td style="width:10%"></td>
+              </tr>
+
+
+              <tr class="custom_tr">
+                <td class="horizontal_dotted_line"><strong>Condos Sold</strong><span class="dot"></span></td>
+                <td >[[overall_condo_sold]]</td>
+                <td class="city_results">[[condo_sold]]</td>
+                <td style="width:10%"></td>
+              </tr>
+
+              <!-- <tr>
                 <td class="horizontal_dotted_line"><strong>Break Down</strong><span class="dot"></span></td>
                 <td>[[overall_listings_breakdown_json]]</td>
                 <td class="city_results">[[listings_breakdown_json]]</td>
                 <td style="width:10%"></td>
-              </tr>
+              </tr>-->
+
             </tbody>
           </table>
         </div>
       </div>
     </div>
-    
+
     <div class="text-center custom_div col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <ul style="padding-top:10px">	
       <!--<li><a href="#">Call [[cell_phone]]</a></li>-->	

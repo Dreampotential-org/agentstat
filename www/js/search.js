@@ -1,7 +1,25 @@
 var agent_ids_order = []
+
 function init() {
     load_search_results();
     init_search_events();
+}
+
+
+function get_val_from_breakdown(v, key, overall) {
+  console.log(v)
+  if (overall) {
+    var items = JSON.parse(v['overall_listings_breakdown_json'])
+  } else {
+    var items = JSON.parse(v['listings_breakdown_json'])
+  }
+  for(var item of items) {
+    if (item.includes(key)) {
+      console.log(item)
+      return item.split(":")[1].trim()
+    }
+  }
+  return '0'
 }
 
 
@@ -137,12 +155,25 @@ function load_search_results() {
             v['overall_s2l_price'].toFixed(1));
         item = item.split('[[s2l_price]]').join(v['s2l_price'].toFixed(1));
 
-        item = item.split('[[overall_listings_breakdown_json]]').join(
-            array_to_text(v['overall_listings_breakdown_json']))
+        get_val_from_breakdown(v, 'Condos', true)
 
-        item = item.split('[[listings_breakdown_json]]').join(
-            array_to_text(v['listings_breakdown_json']));
+        item = item.split('[[overall_single_family_sold]]').join(
+          get_val_from_breakdown(v, 'Single Family Houses', true))
 
+        item = item.split('[[single_family_sold]]').join(
+          get_val_from_breakdown(v, 'Single Family Houses', false))
+
+        item = item.split('[[overall_condo_sold]]').join(
+          get_val_from_breakdown(v, 'Condo', true))
+
+        item = item.split('[[condo_sold]]').join(
+          get_val_from_breakdown(v, 'Condo', false))
+
+        //item = item.split('[[overall_listings_breakdown_json]]').join(
+        //    array_to_text(v['overall_listings_breakdown_json']))
+
+        //item = item.split('[[listings_breakdown_json]]').join(
+        //    array_to_text(v['listings_breakdown_json']));
         search_result += item;
       });
 
