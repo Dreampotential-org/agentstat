@@ -329,7 +329,7 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
               </tr>
 
               <tr class="custom_tr">
-                <td class="horizontal_dotted_line"><strong>Single Family Homes Sold</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong>Single Family Sold</strong><span class="dot"></span></td>
                 <td >[[overall_single_family_sold]]</td>
                 <td class="city_results">[[single_family_sold]]</td>
                 <td style="width:10%"></td>
