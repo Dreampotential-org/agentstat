@@ -1056,7 +1056,7 @@ ul {
     background-color: #3C3C3C;
     height: 140px;
     width: 100%;
-    position: fixed;
+    position: relative;
 	 bottom: 0;
     /* position: relative; */
     margin-top: 25px;
