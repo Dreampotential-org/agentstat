@@ -26,13 +26,40 @@
 		});
 
 		$(".y-price").click (function (){
+			$(".p-left").show();
+			$(".p-right").hide();
+
 			$(".price-amount").slideToggle();
+
 		})
 
 		$(".am-price").click (function (){
 			$(".bau-am").slideToggle();
 		})
 
+
+		$(document).on('click', '.p-left ul li',function (){
+			min = $(this).text();
+			$(".p-left").hide();
+			$("#one-right-in").focus();
+			$(".p-right").show();
+		});
+
+		$(document).on('click', '.p-right ul li',function (){
+			max = $(this).text();
+			$(".p-right").hide();
+			$(".p-left").show();
+		});
+
+		$(document).on('click', '#pt-amount #one-left-in',function (){
+			$(".p-right").hide();
+			$(".p-left").show();
+		});
+
+		$(document).on('click', '#pt-amount #one-right-in',function (){
+			$(".p-left").hide();
+			$(".p-right").show();
+		});
 
 		
 		// code for hamberger
@@ -102,4 +129,6 @@
 		
 		
 	});
+
+
 })(jQuery);

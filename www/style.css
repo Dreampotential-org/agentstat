@@ -663,13 +663,13 @@ ul {
 .p-left ul li {
     font-size: 16px;
     color: #3C3C3C;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .p-right ul li {
     font-size: 16px;
     color: #3C3C3C;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 
@@ -3722,3 +3722,31 @@ td{
     #pagination-here .pagination{
         float: right;
     }
+    .doneBtn{
+        text-align: center;
+        padding: 10px;
+    }
+
+    .price-wrapper .p-left, .price-wrapper .p-right{
+        width: 100%;
+    }
+
+    .price-wrapper ul{
+        margin-top: 10px;
+    }
+
+    .price-wrapper ul li{
+        padding: 3px;
+    }
+
+    .price-wrapper .p-right li{
+        text-align: right;
+    }
+
+    .price-wrapper ul li:hover{
+        background: #0f2f4d;
+        color: white;
+        /* padding: 7px; */
+        cursor: pointer;
+    }
+

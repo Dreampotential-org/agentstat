@@ -98,6 +98,7 @@ function load_search_results() {
     var filters = get_search_filters();
     var state = urlParams.get('state');
     var city = urlParams.get('city');
+    var agent_name=urlParams.get('agent_name')
 
     if (!(state)) state = "WA"
 
@@ -106,8 +107,11 @@ function load_search_results() {
 
     api_call_url = 'reports/' + state + '/' + filters;
     console.log(api_call_url);
+    console.log("url_parAM",urlParams)
+    console.log("agentName",agent_name);
     var settings = get_settings(api_call_url, 'GET');
     settings['headers'] = null;
+
 
     // Example requests
     // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY

@@ -1,10 +1,15 @@
 
 			 // type customization
+			$("#btnDone").click(function (){
+				// var a = $(this).val();
+				// $(".type-value").text (a);
+				$(".check-type").slideUp();
+		    });
 
 		    $(".index-check-type input[type=radio]").click(function (){
 		    	var a = $(this).val();
 		    	$(".type-value").text (a);
-		    	$(".check-type").slideUp();
+				$(".check-type").slideUp();
 		    });
 
 		    $("input[type=radio]").click(function (){

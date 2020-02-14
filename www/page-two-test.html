@@ -105,30 +105,35 @@
                                     <div class="check-type">
                                         <h6>Home Type</h6>
                                         <!-- <label class="check-box">Houses -->
-                                            <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
+                                            <input class="custom_radio" type="checkbox" name="babu" value="Houses"> Houses<br>
                                             <!-- <span class="checkmark"></span> -->
                                         <!-- </label> -->
                                         <!-- <label class="check-box">Manufactured -->
-                                            <input  class="custom_radio" type="radio" name="babu" value="Manufactured"> Manufactured<br>
+                                            <input  class="custom_radio" type="checkbox" name="babu" value="Manufactured"> Manufactured<br>
                                             <!-- <span class="checkmark"></span> -->
                                         <!-- </label> -->
                                         <!-- <label class="check-box">Condos/co-ops -->
-                                            <input class="custom_radio" type="radio" name="babu" value="Condos/co-ops">Condos/co-ops<br>
+                                            <input class="custom_radio" type="checkbox" name="babu" value="Condos/co-ops">Condos/co-ops<br>
                                             <!-- <span class="checkmark"></span> -->
                                         <!-- </label> -->
                                         <!-- <label class="check-box">Multi-family -->
-                                            <input class="custom_radio" type="radio" name="babu" value="Multi-family">Multi-family<br>
+                                            <input class="custom_radio" type="checkbox" name="babu" value="Multi-family">Multi-family<br>
                                             <!-- <span class="checkmark"></span> -->
                                         <!-- </label> -->
                                         <!-- <label class="check-box">Lots/Land -->
-                                            <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br>
+                                            <input class="custom_radio" type="checkbox" name="babu" value="Lots/Land">Lots/Land<br>
                                             <!-- <span class="checkmark"></span> -->
                                         <!-- </label> -->
                                         <!-- <label class="check-box">Townhomes -->
-                                            <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br>
+                                            <input class="custom_radio" id="babu" type="checkbox" name="babu" value="Townhomes">Townhomes<br>
                                             <!-- <span class="checkmark"></span> -->
                                         <!-- </label> -->
+                                       
+                                        <div class="doneBtn">
+                                            <button id="btnDone" >Done</button>
+                                        </div>
                                     </div>
+                                  
                                 </div>
                                 <div class="price ak-price">
                                     <p class="d-inline-block y-price">Price</p>
@@ -600,8 +605,9 @@
 
     <!-- Custom jQuery -->
     <script src="./js/scripts.js"></script>
-
+   
     <script type="text/javascript">
+ 
 
         jQuery(".dm-main4 > button").click(function () {
             jQuery(".dm-part4").slideToggle();
@@ -646,6 +652,7 @@
                 removeId($("label[for='" + this.id + "']").text(),false);
             }
         });
+
 
         var seller_filter = [];
         var buyer_filter = [];
@@ -715,6 +722,7 @@
             }
             
         }
+        
 
 
         // function checkbox(){

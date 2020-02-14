@@ -110,10 +110,16 @@
                                     <p id="y-type" class="type-value">Type</p>
                                     <div class="check-type">
                                         <h6>Home Type</h6>
-                                        <label class="check-box">Houses
+                                        <input class="custom_radio" type="checkbox" name="babu" value="Houses"> Houses<br>
+                                        <input  class="custom_radio" type="checkbox" name="babu" value="Manufactured"> Manufactured<br>
+                                        <input class="custom_radio" type="checkbox" name="babu" value="Condos/co-ops">Condos/co-ops<br>
+                                        <input class="custom_radio" type="checkbox" name="babu" value="Multi-family">Multi-family<br>
+                                        <input class="custom_radio" type="checkbox" name="babu" value="Lots/Land">Lots/Land<br>
+                                        <input class="custom_radio" id="babu" type="checkbox" name="babu" value="Townhomes">Townhomes<br>
+                                        <!-- <label class="check-box">Houses
                                             <input type="radio" name="babu" value="Houses">
                                             <span class="checkmark"></span>
-                                        </label>
+                                        </label> 
                                         <label class="check-box">Manufactured
                                             <input type="radio" name="babu" value="Manufactured">
                                             <span class="checkmark"></span>
@@ -133,28 +139,31 @@
                                         <label class="check-box">Townhomes
                                             <input id="babu" type="radio" name="babu" value="Townhomes">
                                             <span class="checkmark"></span>
-                                        </label>
+                                        </label> -->
+                                        <div class="doneBtn">
+                                            <button id="btnDone" >Done</button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="price ak-price">
                                     <p class="d-inline-block y-price">Price</p>
                                     <div class="price-amount" id="pt-amount">
                                         <h6 class="d-linline-block">Price Range</h6>
-                                        <input id="one-left-in" type="text" name="" placeholder="$100K"> <span> -</span>
-                                        <input id="one-right-in" type="text" name="" placeholder="$500K">
+                                        <input id="one-left-in" type="text" name="" placeholder=""> <span> -</span>
+                                        <input id="one-right-in" type="text" name="" placeholder="">
                                         <div class="price-wrapper">
                                             <div class="p-left">
                                                 <ul>
-                                                    <li>$50K+</li>
-                                                    <li>$100K+</li>
-                                                    <li>$200K+</li>
-                                                    <li>$300K+</li>
-                                                    <li>$400K+</li>
-                                                    <li>$500K+</li>
-                                                    <li>$600K+</li>
-                                                    <li>$700K+</li>
-                                                    <li>$800K+</li>
-                                                    <li>$900K+</li>
+                                                    <li>$50K</li>
+                                                    <li>$100K</li>
+                                                    <li>$200K</li>
+                                                    <li>$300K</li>
+                                                    <li>$400K</li>
+                                                    <li>$500K</li>
+                                                    <li>$600K</li>
+                                                    <li>$700K</li>
+                                                    <li>$800K</li>
+                                                    <li>$900K</li>
                                                 </ul>
                                             </div>
                                             <div class="p-right">
@@ -251,6 +260,10 @@
                             <div class="pth-agent-right-content">
                                 <div class="pht-agent-heaidng">
                                     <h4><span class="agent_name">[Agent Name]</a> is a 97% match for you!</h4>
+                                    <p>Answer a few questions to see how well Agent Name’s strengths match your needs.</p>
+                                </div>
+                                <div class="pht-agent-heaidng">
+                                    <h4><span class="agent_name">[Agent Name]</a> is a ?? match for you (enter your location in the search bar to view % match)</h4>
                                     <p>Answer a few questions to see how well Agent Name’s strengths match your needs.</p>
                                 </div>
                                 <div id='leads-step-one-new' class="pht-agent-content">

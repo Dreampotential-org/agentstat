@@ -183,8 +183,8 @@ $(document).on('change click', '.how_soon li>a', function () {
         $('#leads-step-one-new').css('display', 'None');
         $('#leads-step-one-buy').css('display', 'block');
     } else {
-        $('#leads-step-one-new').css('display', 'None');
-        $('#leads-step-one').css('display', 'block');
+        // $('#leads-step-one-new').css('display', 'None');
+        // $('#leads-step-one').css('display', 'block');
     }
 
 });
