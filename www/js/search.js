@@ -29,6 +29,8 @@ function get_search_filters() {
     const city = encodeURIComponent(urlParams.get('city', ''));
     const state = urlParams.get('state');
     const agent_name = urlParams.get('agent_name');
+    const lat = urlParams.get('lat');
+    const lng = urlParams.get('lng');
 
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
@@ -44,6 +46,11 @@ function get_search_filters() {
 
     if (agent_name != null) {
         filters.push('agent_name=' + agent_name);
+    }
+
+    if (lat && lng) {
+      filters.push('lat=' + lat);
+      filters.push('lng=' + lng);
     }
 
     var selected = 'selected_agent_ids=';
@@ -70,9 +77,6 @@ function get_profile_link(agent_id) {
     const city = encodeURIComponent(urlParams.get('city', ''));
     const state = urlParams.get('state');
 
-    const lat = urlParams.get('lat');
-    const lng = urlParams.get('lng');
-
     if (city == "null" || city == null) {
         console.log("CITY IS!!!" + typeof(city))
     }
@@ -80,10 +84,6 @@ function get_profile_link(agent_id) {
         filters += '&city=' + city;
     }
 
-    if (lat && lng) {
-      filters += '&lat=' + lat;
-      filters += '&lng=' + lng;
-    }
     console.log(filters);
     return "/page-three.html" + filters;
 }
