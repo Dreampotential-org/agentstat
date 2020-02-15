@@ -31,11 +31,12 @@ function get_search_filters() {
     const agent_name = urlParams.get('agent_name');
     const lat = urlParams.get('lat');
     const lng = urlParams.get('lng');
+    const v_estimate = urlParams.get('v_estimate');
+    const home_type = urlParams.get('home_type');
 
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
 
-    var v_estimate = urlParams.get('v_estimate');
     var filters = [];
 
     if (city == "null" || city == null) {
@@ -50,12 +51,16 @@ function get_search_filters() {
     }
 
     if (lat && lng) {
-      filters.push('lat=' + lat);
-      filters.push('lng=' + lng);
+        filters.push('lat=' + lat);
+        filters.push('lng=' + lng);
     }
 
-    if(v_estimate) {
-      filters.push('v_estimate=' + v_estimate);
+    if (v_estimate) {
+        filters.push('v_estimate=' + v_estimate);
+    }
+
+    if (home_type) {
+        filters.push('home_type=' + home_type);
     }
 
     var selected = 'selected_agent_ids=';
