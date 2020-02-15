@@ -16,6 +16,42 @@ function set_search_input() {
     }
 }
 
+function get_v_estimate() {
+  var v_estimate = $(".price-amount #one-left-in").val()
+
+  if (v_estimate.includes("$")) {
+    v_estimate = v_estimate.split("$")[1].trim()
+  }
+
+  // multi by 1000
+  if (v_estimate.includes("K+")) {
+    v_estimate = parseInt(v_estimate)
+    v_estimate *= 1000
+  } else {
+    v_estimate = parseInt(v_estimate)
+  }
+  return v_estimate
+}
+
+function get_home_type() {
+  var home_type = $('.po-search input[name="babu"]:checked').val();
+
+  if (home_type == 'Houses') {
+    return 'SINGLE_FAMILY'
+  } else if (home_type == 'Manufactured') {
+    return 'MANUFACTURED'
+  } else if (home_type == 'Condos/co-ops') {
+    return 'CONDO'
+  } else if (home_type == 'Multi-family') {
+    return 'MULTI_FAMILY'
+  } else if (home_type == 'Lots/Land') {
+    return 'LOT'
+  } else if (home_type == 'Townhomes') {
+    return 'TOWNHOUSE'
+  }
+
+  return ''
+}
 
 function redirectResults(results) {
     path = window.location.pathname;
@@ -29,7 +65,6 @@ function redirectResults(results) {
       }
     });
 
-
     if ('city' in results) {
         new_params.push('state=' + results['state']);
         new_params.push('city=' + results['city']);
@@ -38,10 +73,17 @@ function redirectResults(results) {
     }
     else {
         new_agent_name = $('.ser').val();
-        new_params.push('agent_name='+new_agent_name);
+        new_params.push('agent_name=' + new_agent_name);
     }
-    // console.log(params);
-    // console.log(new_params);
+
+    if (get_v_estimate()) {
+        new_params.push('v_estimate=' + get_v_estimate());
+    }
+
+    if (get_home_type()) {
+        new_params.push('home_type=' + get_home_type());
+    }
+
     search = new_params.join('&');
     window.location = '/page-two-test.html?' + search;
 }
@@ -67,6 +109,9 @@ function getSearchParams(place) {
 
     params['lat'] = place.geometry.location.lat()
     params['lng'] = place.geometry.location.lng()
+
+
+
     // console.log(params)
     return params
 }
@@ -89,29 +134,30 @@ function init() {
     }
     set_search_input()
 
-  $("body").delegate("#go", "click", function(e) {
-    $("#agent_name_or_id").val($("#search_input_agent").val())
-    $('form#filterForm').submit();
-  })
+    $("body").delegate(".serch_btn", "click", function(e) {
+      alert(get_home_type())
+    })
 
+    $("body").delegate("#go", "click", function(e) {
+      $("#agent_name_or_id").val($("#search_input_agent").val())
+      $('form#filterForm').submit();
+    })
 
-  $("body").delegate(".logout", "click", function(e) {
+    $("body").delegate(".logout", "click", function(e) {
       localStorage.clear()
       window.location = '/'
-  })
-  $("body").delegate(".ser", "keyup", function(e) {
-    if (e.keyCode == 13) {
-      e.preventDefault();
-      $("#agent_name_or_id").val($("#search_input_agent").val());
-      $('form#filterForm').submit();
-    }
-  })
+    })
+    $("body").delegate(".ser", "keyup", function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault();
+        $("#agent_name_or_id").val($("#search_input_agent").val());
+        $('form#filterForm').submit();
+      }
+    })
 
-  $("body").delegate(".ser", "keyup", function(e) {
-    $(".pac-container").css('z-index', 99999)
-
+    $("body").delegate(".ser", "keyup", function(e) {
+      $(".pac-container").css('z-index', 99999)
     if (e.which == 13 && $('.pac-container:visible').length) return false;
-
     if (e.keyCode == 13) {
     }
   })
