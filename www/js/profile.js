@@ -41,6 +41,20 @@ function display_profile(profile) {
     $('#profile-img').prop('src', profile.picture);
   }
 
+  if (profile.connector != '' && profile.connector !== null) {
+    console.log(profile.connector);
+    $('#agent-connector').html(`
+      <a target='_blank' href='/page-three.html?agent_id=` + profile.connector.id + `'>` + profile.connector.agent_name + `</a> |
+      <a id='connector-remove' 
+        data-id='` + profile.connector.id +`'  href=''
+        onclick='return false;'>Remove</a>
+    `);
+  } else {
+    $('#agent-connector').html(`
+      <a href='/connect-profile.html' target='_blank'>Add new connection</a>
+    `);
+  }
+
   // console.log(profile.language_fluencies);
   get_languages();
   $.each(profile.language_fluencies, function(k, lang_id) {
@@ -170,3 +184,15 @@ $(document).on('change click', '.submit_btn', function() {
   update_profile();
 });
 
+$(document).on('change click', '#connector-remove', function() {
+  settings = get_settings('agent-connector', 'DELETE')
+
+  $.ajax(settings).done(function (response) {
+      var msg = JSON.parse(response);
+      $('#agent-connector').html('Add new connection.');
+  }).fail(function(err) {
+      // alert('Got err');
+      console.log(err);
+      show_error(err);
+  });
+});
