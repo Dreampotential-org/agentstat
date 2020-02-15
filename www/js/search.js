@@ -7,21 +7,18 @@ function init() {
 
 
 function get_val_from_breakdown(v, key, overall) {
-  console.log(v)
-  if (overall) {
-    var items = JSON.parse(v['overall_listings_breakdown_json'])
-  } else {
-    var items = JSON.parse(v['listings_breakdown_json'])
-  }
-  for(var item of items) {
-    if (item.includes(key)) {
-      console.log(item)
-      return item.split(":")[1].trim()
+    if (overall) {
+        var items = JSON.parse(v['overall_listings_breakdown_json'])
+    } else {
+        var items = JSON.parse(v['listings_breakdown_json'])
     }
-  }
-  return '0'
+    for(var item of items) {
+        if (item.includes(key)) {
+            return item.split(":")[1].trim()
+        }
+    }
+    return '0'
 }
-
 
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -100,29 +97,24 @@ function get_profile_link(agent_id) {
 
 function load_search_results() {
     const urlParams = new URLSearchParams(window.location.search);
+    var data;
+    var results;
+    var search_result = '';
+
     var filters = get_search_filters();
     var state = urlParams.get('state');
     var city = urlParams.get('city');
     var agent_name=urlParams.get('agent_name')
-
     if (!(state)) state = "WA"
 
     filters.push('page=1');
     filters = '?' + filters.join('&');
 
     api_call_url = 'reports/' + state + '/' + filters;
-    console.log(api_call_url);
-    console.log("url_parAM",urlParams)
-    console.log("agentName",agent_name);
+    console.log("API Request: " + api_call_url);
+
     var settings = get_settings(api_call_url, 'GET');
     settings['headers'] = null;
-
-
-    // Example requests
-    // reports/WA/Seattle/?duration=12&home_type=SINGLE_FAMILY
-    var data;
-    var results;
-    var search_result = '';
 
     $.ajax(settings).done(function (response) {
 
@@ -131,27 +123,29 @@ function load_search_results() {
 
       $.each(results, function(k, v) {
         agent_ids_order.push(v['agent_id'])
-        // item = search_item.split('[[agent_name]]').join(v['agent_full_name']);
         item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
 
             if(v['agent_picture'] == undefined)
             {
-                console.log('yyyyyyyyyyxxx');
                 console.log(v['agent_picture']);
-                picture_img = `<div class="toc-two-left-one">
-                <img class='rounded-circle toc-two-left-one' style='border-radius: 130px;margin-top: 21px;'  src=' img/sh.png'></div>`;
+                picture_img = (
+                    "<div class='toc-two-left-one'>" +
+                    "<img class='rounded-circle toc-two-left-one' " +
+                        "style='border-radius: 130px;margin-top: 21px;' " +
+                        " src=' img/sh.png'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
             }
         if (v['agent_picture'] !== undefined && v['agent_picture'] !== '') {
-          console.log('xxxxxx');
-          console.log(v['agent_picture']);
-          picture_img = `<div class="toc-two-left-one">
-          <img class='rounded-circle img-thumbnail' style='border-radius: 130px;margin-top: 21px;'  src='` + v['agent_picture'] + `'></div>`;
-          item = item.split('[[agent_picture]]').join(picture_img);
+            picture_img = (
+                "<div class='toc-two-left-one'>" +
+                    "<img class='rounded-circle img-thumbnail' " +
+                        "style='border-radius: 130px; margin-top: 21px;' " +
+                        "src='" + v['agent_picture'] + "'></div>");
+            item = item.split('[[agent_picture]]').join(picture_img);
         } else {
-          item = item.split('[[agent_picture]]').join('');
+            item = item.split('[[agent_picture]]').join('');
         }
 
         item = item.split('[[time_duration]]').join(v['time_duration']);
@@ -203,11 +197,10 @@ function load_search_results() {
       if(city == null) $(".city_results").remove()
       set_pined_load()
     }).fail(function(err) {
-      // alert('Got err');
-      $('.msg').html(err['responseText']);
-      $('.msg').css("display", "block");
-      console.log(err);
-
+        // alert('Got err');
+        $('.msg').html(err['responseText']);
+        $('.msg').css("display", "block");
+        console.log(err);
     });
 }
 
@@ -257,6 +250,7 @@ function set_pined_agent_ids() {
 }
 
 function init_search_events() {
+
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
         $(this).find("p").text("Pin to top")
@@ -272,35 +266,31 @@ function init_search_events() {
         set_pined_agent_ids()
 
         $(this).closest(".toc-two").detach().prependTo("#page-section")
-        //alert($(this).closest(".toc-two").attr("agent_id"))
-
     })
 
     $(document).on('change click', '.lead-submit', function() {
-      var selected_agent_id = $(this).attr('data-id');
-      var data = {}
-      data['name'] = $('#name-' + selected_agent_id).val();
-      data['phone'] = $('#phone-' + selected_agent_id).val();
-      data['email'] = $('#email-' + selected_agent_id).val();
-      data['agent'] = selected_agent_id;
-      data['message'] = $('#message-' + selected_agent_id).val();
+        var selected_agent_id = $(this).attr('data-id');
+        var data = {}
+        data['name'] = $('#name-' + selected_agent_id).val();
+        data['phone'] = $('#phone-' + selected_agent_id).val();
+        data['email'] = $('#email-' + selected_agent_id).val();
+        data['agent'] = selected_agent_id;
+        data['message'] = $('#message-' + selected_agent_id).val();
 
-      settings = get_settings('lead/', 'POST', JSON.stringify(data));
-      settings['headers'] = null;
+        settings = get_settings('lead/', 'POST', JSON.stringify(data));
+        settings['headers'] = null;
 
-      $.ajax(settings).done(function (response) {
-        var msg = JSON.parse(response);
-        console.log(msg);
-        $('#msg-'+ selected_agent_id).html('Your message has been sent.');
-        // window.location = '/form.html';
-      }).fail(function(err) {
-        // alert('Got err');
-        $('#msg-'+ selected_agent_id).html(err['responseText']);
-        $('#msg-' + selected_agent_id).css("display", "block");
-        console.log(err);
-      });
+        $.ajax(settings).done(function (response) {
+            var msg = JSON.parse(response);
+            console.log(msg);
+            $('#msg-'+ selected_agent_id).html('Your message has been sent.');
+        }).fail(function(err) {
+            // alert('Got err');
+            $('#msg-'+ selected_agent_id).html(err['responseText']);
+            $('#msg-' + selected_agent_id).css("display", "block");
+            console.log(err);
+        });
     });
 }
-
 
 window.addEventListener("DOMContentLoaded", init, false);
