@@ -1,6 +1,6 @@
 var agent_ids_order = []
 
-function init() {
+function init_search_results() {
     load_search_results();
     init_search_events();
 }
@@ -19,7 +19,6 @@ function show_loading_screen() {
 
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
-
     const city = encodeURIComponent(urlParams.get('city', ''));
     const state = urlParams.get('state');
     const agent_name = urlParams.get('agent_name');
@@ -197,6 +196,9 @@ function load_search_results() {
       set_pined_load()
       swal.close()
 
+      if(urlParams.get('search_input')) {
+        $(".ser").val(urlParams.get('search_input'))
+      }
     }).fail(function(err) {
         // alert('Got err');
         $('.msg').html(err['responseText']);
@@ -335,4 +337,4 @@ function init_search_events() {
     });
 }
 
-window.addEventListener("DOMContentLoaded", init, false);
+window.addEventListener("DOMContentLoaded", init_search_results, false);

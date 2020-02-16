@@ -81,18 +81,26 @@ function redirectResults(results) {
         new_params.push('home_type=' + get_home_type());
     }
 
+    if ('search_input' in results) {
+        new_params.push('search_input=' + results['search_input']);
+    }
+
     search = new_params.join('&');
     window.location = '/page-two-test.html?' + search;
 }
 
 function getSearchParams(place) {
 
-    // console.log(place)
+    console.log(place)
     var params = {}
     if (!('scope' in place) && 'name' in place) {
         params['agent_name'] = place.name
+        params['search_input'] = place.name
         return params
     }
+
+
+    params['search_input'] = place.formatted_address;
     for(var address_comp of place.address_components) {
         console.log(address_comp.types)
         if (address_comp.types[0] == "administrative_area_level_1") {
@@ -106,8 +114,6 @@ function getSearchParams(place) {
 
     params['lat'] = place.geometry.location.lat()
     params['lng'] = place.geometry.location.lng()
-
-
 
     // console.log(params)
     return params
