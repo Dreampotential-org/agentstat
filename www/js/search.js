@@ -55,6 +55,7 @@ function get_search_filters() {
 
     if (home_type) {
         filters.push('home_type=' + home_type);
+        set_home_type_radio(home_type)
     }
 
     var selected = 'selected_agent_ids=';
@@ -263,6 +264,31 @@ function get_val_from_breakdown(v, key, overall) {
     return '0'
 }
 
+function set_home_type_radio(home_type) {
+    if (home_type == 'SINGLE_FAMILY') {
+        $('input[name="babu"][value="Houses"]').prop("checked", true);
+        $("#y-type").text('Houses')
+    } else if (home_type == 'MANUFACTURED') {
+        $('input[name="babu"][value="Manufactured"]').prop("checked", true);
+        $("#y-type").text('Manufactured')
+
+    } else if (home_type == 'CONDO') {
+        $('input[name="babu"][value="Condos/co-ops"]').prop("checked", true);
+        $("#y-type").text('Condos/co-ops')
+
+    } else if (home_type == 'MULTI_FAMILY') {
+        $('input[name="babu"][value="Multi-family"]').prop("checked", true);
+        $("#y-type").text('Multi-family')
+
+    } else if (home_type == 'LOT') {
+        $('input[name="babu"][value="Lots/Land"]').prop("checked", true);
+        $("#y-type").text('Lots/Land')
+
+    } else if (home_type == 'TOWNHOUSE') {
+        $('input[name="babu"][value="Townhomes"]').prop("checked", true);
+        $("#y-type").text('Townhomes')
+    }
+}
 
 
 function init_search_events() {

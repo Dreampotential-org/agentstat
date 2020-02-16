@@ -17,40 +17,37 @@ function set_search_input() {
 }
 
 function get_v_estimate() {
-  var v_estimate = $(".price-amount #one-left-in").val()
+    var v_estimate = $(".price-amount #one-left-in").val()
 
-  if (v_estimate.includes("$")) {
-    v_estimate = v_estimate.split("$")[1].trim()
-  }
-
-  // multi by 1000
-  if (v_estimate.includes("K+")) {
-    v_estimate = parseInt(v_estimate)
-    v_estimate *= 1000
-  } else {
-    v_estimate = parseInt(v_estimate)
-  }
-  return v_estimate
+    if (v_estimate.includes("$")) {
+        v_estimate = v_estimate.split("$")[1].trim()
+    }
+    // multi by 1000
+    if (v_estimate.includes("K+")) {
+        v_estimate = parseInt(v_estimate)
+        v_estimate *= 1000
+    } else {
+        v_estimate = parseInt(v_estimate)
+    }
+    return v_estimate
 }
 
 function get_home_type() {
-  var home_type = $('.po-search input[name="babu"]:checked').val();
-
-  if (home_type == 'Houses') {
-    return 'SINGLE_FAMILY'
-  } else if (home_type == 'Manufactured') {
-    return 'MANUFACTURED'
-  } else if (home_type == 'Condos/co-ops') {
-    return 'CONDO'
-  } else if (home_type == 'Multi-family') {
-    return 'MULTI_FAMILY'
-  } else if (home_type == 'Lots/Land') {
-    return 'LOT'
-  } else if (home_type == 'Townhomes') {
-    return 'TOWNHOUSE'
-  }
-
-  return ''
+    var home_type = $('.po-search input[name="babu"]:checked').val();
+    if (home_type == 'Houses') {
+        return 'SINGLE_FAMILY'
+    } else if (home_type == 'Manufactured') {
+        return 'MANUFACTURED'
+    } else if (home_type == 'Condos/co-ops') {
+        return 'CONDO'
+    } else if (home_type == 'Multi-family') {
+        return 'MULTI_FAMILY'
+    } else if (home_type == 'Lots/Land') {
+        return 'LOT'
+    } else if (home_type == 'Townhomes') {
+        return 'TOWNHOUSE'
+    }
+    return ''
 }
 
 function redirectResults(results) {
