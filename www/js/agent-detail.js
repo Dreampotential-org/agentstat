@@ -10,10 +10,20 @@ function currencyFormat(num) {
 }
 
 $(document).on('change click', '#claim_action', function() {
-  console.log(agent_id);
-  claim_api(agent_id);
+    console.log(agent_id);
+    claim_api(agent_id);
 });
 
+function show_profile_loading() {
+    swal({
+        title: "Loading Agent Profile!",
+        text: "Hang tight while we load the agents profile",
+        icon: "success",
+        buttons: false,
+        closeOnEsc: false,
+        closeOnClickOutside: false,
+    });
+}
 
 function load_agent(ignore_city = false) {
     var city = null;
@@ -24,7 +34,8 @@ function load_agent(ignore_city = false) {
     console.log(city);
 
     if (agent_id) {
-      if (localStorage.getItem('session_id') !== null && localStorage.getItem('session_id') !== 'null') {
+      if (localStorage.getItem('session_id') !== null &&
+            localStorage.getItem('session_id') !== 'null') {
         $(".claim_profile").attr("id", "claim_action");
         $(".claim_profile").attr("href", "#");
         $(".claim_profile").attr("onclick", "javascript: return false");
@@ -34,7 +45,6 @@ function load_agent(ignore_city = false) {
       }
     }
 
-
     var api_call_url = 'agents/' + agent_id + '/';
     if (city !== null) {
         api_call_url += '?city=' + city;
@@ -43,7 +53,7 @@ function load_agent(ignore_city = false) {
     settings = get_settings(api_call_url, 'GET');
 
     settings['headers'] = null;
-
+    show_profile_loading()
     $.ajax(settings).done(function (response) {
         data = JSON.parse(response);
         $('.agent_name').val(data['agent_name']);
@@ -78,11 +88,8 @@ function load_agent(ignore_city = false) {
         $("#city-avg-dom").html(city_avg_dom.toFixed(2));
         $("#city-s2l-price").html(city_s2l_price.toFixed(2) + '%');
 
-
-
         $(".alist").remove();
         $.each(data['agent_lists'], function (k, v) {
-            
             if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
                 var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
             } else {
@@ -160,14 +167,13 @@ function load_agent(ignore_city = false) {
       </tr>`
                     ).insertAfter("#transations");
         })
-
         pagination(data['agent_lists'].length);
         console.log("HERE");
-        setTimeout(()=>{  
+        setTimeout(()=>{
             $('#pagination-here').first().find('.active').prev().trigger('click');
         }, 100);
-       
 
+        swal.close()
     }).fail(function (err) {
         console.log(err);
     });
