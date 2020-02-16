@@ -5,20 +5,17 @@ function init() {
     init_search_events();
 }
 
-
-function get_val_from_breakdown(v, key, overall) {
-    if (overall) {
-        var items = JSON.parse(v['overall_listings_breakdown_json'])
-    } else {
-        var items = JSON.parse(v['listings_breakdown_json'])
-    }
-    for(var item of items) {
-        if (item.includes(key)) {
-            return item.split(":")[1].trim()
-        }
-    }
-    return '0'
+function show_loading_screen() {
+    swal({
+        title: "Crushing Numbers!",
+        text: "Hang tight while run the data to find your exact match",
+        icon: "success",
+        buttons: false,
+        closeOnEsc: false,
+        closeOnClickOutside: false,
+    });
 }
+
 
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -116,6 +113,7 @@ function load_search_results() {
     var settings = get_settings(api_call_url, 'GET');
     settings['headers'] = null;
 
+    show_loading_screen()
     $.ajax(settings).done(function (response) {
 
       data = JSON.parse(response);
@@ -196,6 +194,8 @@ function load_search_results() {
       $('#page-section').html(search_result);
       if(city == null) $(".city_results").remove()
       set_pined_load()
+      swal.close()
+
     }).fail(function(err) {
         // alert('Got err');
         $('.msg').html(err['responseText']);
@@ -248,6 +248,22 @@ function set_pined_agent_ids() {
     $("#agents").val(url.searchParams.get("agents"))
     window.history.pushState("", "", url)
 }
+
+function get_val_from_breakdown(v, key, overall) {
+    if (overall) {
+        var items = JSON.parse(v['overall_listings_breakdown_json'])
+    } else {
+        var items = JSON.parse(v['listings_breakdown_json'])
+    }
+    for(var item of items) {
+        if (item.includes(key)) {
+            return item.split(":")[1].trim()
+        }
+    }
+    return '0'
+}
+
+
 
 function init_search_events() {
 
