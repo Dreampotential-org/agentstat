@@ -48,8 +48,13 @@ function load_agent(ignore_city = false) {
         data = JSON.parse(response);
         $('.agent_name').val(data['agent_name']);
         $.each($('.agent_name'), function () {
-            $(this).html(data['full_name'])
+            $(this).html(data['full_name']);
         });
+
+        $.each($('.agent_name_loc'), function () {
+            $(this).html(data['full_name']+' '+'is a ?? match for you (enter your location in the search bar to view % match)');
+        });
+
         var name_city = data['full_name'] + ' - ' + data['city'];
 
         $.each($('.agent_name_city'), function () {
@@ -91,7 +96,7 @@ function load_agent(ignore_city = false) {
             if (v['year_built'] < '2') {
                 var note = `<a  onclick="passBtnID('add-public-note-` + v['id'] + `')" value="1" title="notes"><i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i></a>`;
             } else {
-                var note = 'note';
+                var note = `<i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i>`;
             }
 
             $(`<tr class='alist alist`+k+`' onclick="passBtnID('add-public-note-` + v['id'] + `')">

@@ -121,12 +121,16 @@ function getSearchParams(place) {
 
 function init_maps() {
     var input = document.getElementsByClassName('ser')[0];
+    var page_input = document.getElementById('search_input');;
     var options = {
         types: ['address'],
     }
 
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.addListener('place_changed', fillIn);
+
+    var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
+    autocomplete1.addListener('place_changed', fillIn);
 }
 
 function init() {
@@ -160,9 +164,9 @@ function init() {
 
     $("body").delegate(".ser", "keyup", function(e) {
       $(".pac-container").css('z-index', 99999)
-    if (e.which == 13 && $('.pac-container:visible').length) return false;
-    if (e.keyCode == 13) {
-    }
+      if (e.which == 13 && $('.pac-container:visible').length) return false;
+      if (e.keyCode == 13) {
+      }
   })
 }
 
