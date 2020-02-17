@@ -9,7 +9,7 @@ function show_loading_screen() {
     swal({
         title: "Crunching Numbers!",
         text: "Hang tight while we crunch the data to find your exact match",
-        icon: "success",
+        icon: "info",
         buttons: false,
         closeOnEsc: false,
         closeOnClickOutside: false,
