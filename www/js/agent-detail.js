@@ -10,20 +10,10 @@ function currencyFormat(num) {
 }
 
 $(document).on('change click', '#claim_action', function() {
-    console.log(agent_id);
-    claim_api(agent_id);
+  console.log(agent_id);
+  claim_api(agent_id);
 });
 
-function show_profile_loading() {
-    swal({
-        title: "Loading Agent Profile!",
-        text: "Hang tight while we load the agents profile",
-        icon: "success",
-        buttons: false,
-        closeOnEsc: false,
-        closeOnClickOutside: false,
-    });
-}
 
 function load_agent(ignore_city = false) {
     var city = null;
@@ -34,8 +24,7 @@ function load_agent(ignore_city = false) {
     console.log(city);
 
     if (agent_id) {
-      if (localStorage.getItem('session_id') !== null &&
-            localStorage.getItem('session_id') !== 'null') {
+      if (localStorage.getItem('session_id') !== null && localStorage.getItem('session_id') !== 'null') {
         $(".claim_profile").attr("id", "claim_action");
         $(".claim_profile").attr("href", "#");
         $(".claim_profile").attr("onclick", "javascript: return false");
@@ -45,6 +34,7 @@ function load_agent(ignore_city = false) {
       }
     }
 
+
     var api_call_url = 'agents/' + agent_id + '/';
     if (city !== null) {
         api_call_url += '?city=' + city;
@@ -53,7 +43,7 @@ function load_agent(ignore_city = false) {
     settings = get_settings(api_call_url, 'GET');
 
     settings['headers'] = null;
-    show_profile_loading()
+
     $.ajax(settings).done(function (response) {
         data = JSON.parse(response);
         $('.agent_name').val(data['agent_name']);
@@ -88,8 +78,11 @@ function load_agent(ignore_city = false) {
         $("#city-avg-dom").html(city_avg_dom.toFixed(2));
         $("#city-s2l-price").html(city_s2l_price.toFixed(2) + '%');
 
+
+
         $(".alist").remove();
         $.each(data['agent_lists'], function (k, v) {
+
             if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
                 var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
             } else {
@@ -122,11 +115,11 @@ function load_agent(ignore_city = false) {
           <div class="text-left title_color">
           ` + v['address_text'] + `
           <table style="width:100%">
-          
+
             <tr>
               <td style="width:35%">
                 <table style="width:100%">
-                   
+
                     <tr>
                         <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
                           <strong style='color:black'>Listed:</strong> <br>
@@ -167,13 +160,14 @@ function load_agent(ignore_city = false) {
       </tr>`
                     ).insertAfter("#transations");
         })
+
         pagination(data['agent_lists'].length);
         console.log("HERE");
         setTimeout(()=>{
             $('#pagination-here').first().find('.active').prev().trigger('click');
         }, 100);
 
-        swal.close()
+
     }).fail(function (err) {
         console.log(err);
     });
@@ -296,38 +290,34 @@ $(document).on('change click', '#overall-tab', function () {
 
 function pagination(page){
 
-    console.log("@!@!@!@!@", page%10);
-
-    $('#pagination-here').bootpag({
-        total: page%10 == 0 ? (page/10) : (page/10)+1,
-        page: 2,
-        maxVisible: 3,
-        leaps: true,
-        firstLastUse: true,
-        first: '←',
-        last: '→',
-        wrapClass: 'pagination',
-        activeClass: 'active',
-        disabledClass: 'disabled',
-        nextClass: 'next',
-        prevClass: 'prev',
-        lastClass: 'last',
-        firstClass: 'first'
-        //href: "#result-page-{{number}}",
-    })
-
-    
-   
-    
+    if (page > 1) {
+      $("#pagination-here").bootpag({
+          total: page%10 == 0 ? (page/10) : (page/10)+1,
+          page: 2,
+          maxVisible: 3,
+          leaps: true,
+          firstLastUse: true,
+          first: '←',
+          last: '→',
+          wrapClass: 'pagination',
+          activeClass: 'active',
+          disabledClass: 'disabled',
+          nextClass: 'next',
+          prevClass: 'prev',
+          lastClass: 'last',
+          firstClass: 'first'
+          //href: "#result-page-{{number}}",
+      });
+    }
 
     //page click action
     $('#pagination-here').on("page", function(event, num){
         //show / hide content or pull via ajax etc
 
-        
+
 
         var range = num * 10;
-        
+
         // if(num == 1){
         //     intial_item = range - 10;
         //     last_item = range - 1;
