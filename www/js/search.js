@@ -7,8 +7,8 @@ function init_search_results() {
 
 function show_loading_screen() {
     swal({
-        title: "Crushing Numbers!",
-        text: "Hang tight while run the data to find your exact match",
+        title: "Crunching Numbers!",
+        text: "Hang tight while we crunch the data to find your exact match",
         icon: "success",
         buttons: false,
         closeOnEsc: false,
