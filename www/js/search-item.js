@@ -269,11 +269,11 @@ var search_item = `<div class="toc-two" agent_id=[[agent_id]]>
 
 
 var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
-  <div class="row" style="padding-bottom:20px">	
+  <div class="row" style="padding-bottom:20px">
     <div class="col-lg-3 col-md-3">
         [[agent_picture]]
     </div>
-    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">	
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
       <div class="toc-two-left-two">
         <div class="ak-table cust-tbl">
           <table >
@@ -293,16 +293,22 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                 <td class="city_results" style="width:10%"><h5 ><strong>[[city]]</strong></h5></td> 
               </tr>
               <tr>
+                <td class="horizontal_dotted_line"><strong>Success Rate</strong><span class="dot"></span></td>
+                <td>[[overall_success_rate]]%</td>
+                <td class="city_results">[[success_rate]]%</td>
+                <td style="width:10%"></td>
+              </tr>
+              <tr>
                 <td class="horizontal_dotted_line"><strong>Sold Listings</strong><span class="dot"></span></td>
                 <td >[[overall_sold_listings]]</td>
                 <td class="city_results">[[sold_listings]]</td>
                 <td style="width:10%"></td>
-                <td rowspan="4" class="toc-two-left-two-link text-center custom_btn btnmargin"> 
-                  <ul>	
+                <td rowspan="4" class="toc-two-left-two-link text-center custom_btn btnmargin">
+                  <ul>
                     <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a></li>	
                   </ul>
-                  <ul style="padding-top:10px">	
-                    <!--<li><a href="#">Call [[cell_phone]]</a></li>-->	
+                  <ul style="padding-top:10px">
+                    <!--<li><a href="#">Call [[cell_phone]]</a></li>-->
                     <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Message</a></li>	
                   </ul>
                 </td>
