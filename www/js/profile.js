@@ -45,7 +45,7 @@ function display_profile(profile) {
     console.log(profile.connector);
     $('#agent-connector').html(`
       <a target='_blank' href='/page-three.html?agent_id=` + profile.connector.id + `'>` + profile.connector.agent_name + `</a> |
-      <a id='connector-remove' 
+      <a id='connector-remove'
         data-id='` + profile.connector.id +`'  href=''
         onclick='return false;'>Remove</a>
     `);
@@ -95,7 +95,13 @@ function update_profile() {
       settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
+
           var msg = JSON.parse(response);
+          $("#alert-message").css('display', 'block');
+          setTimeout(function(){
+            $('#alert-message').css('display', 'none');
+          }, 3000);
+
       }).fail(function(err) {
           // alert('Got err');
           console.log(err);
@@ -111,6 +117,10 @@ function update_profile() {
 
       $.ajax(settings).done(function (response) {
           var msg = JSON.parse(response);
+          $("#alert-message").css('display', 'block');
+          setTimeout(function(){
+            $('#alert-message').css('display', 'none');
+          }, 3000);
       }).fail(function(err) {
           // alert('Got err');
           show_error(err);
