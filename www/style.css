@@ -625,9 +625,17 @@ ul {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     padding: 20px;
-    top: 63px;
+    /* top: 63px; */
     right: -79px;
     z-index: 2500;
+}
+
+.fixed .price-amount, .fixed .index-check-type{
+    top: 40px;
+}
+
+.fixed .type-value, .fixed .y-price{
+    padding: 5px 26px !important;
 }
 
 .price-amount h6 {
@@ -2307,25 +2315,27 @@ ul {
     /* margin-left: 165px; */
     box-shadow: none;
     margin-left: 0px;
-    width: 32%;
+    /* width: 32%; */
+    width: auto;
 }
-.fixed .type{
+/* .fixed .type{
     display: none;
 }
 .fixed .price{
     display: none;
-}
+} */
  .navbar-brand img {
     padding-left: 50px;
     width: 175px;
 }
 .fixed .serch_btn{
-   float: right;
+   /* float: right; */
 }
 .fixed input.ser {
     display: inline-block;
     /* width: 288px; */
-    width: 80%;
+    /* width: 80%; */
+    /* width: auto; */
     padding: 4px;
 }
 
@@ -2963,10 +2973,11 @@ ul {
 
 .poa-title {
     position: relative;
+    border-bottom: 10px solid yellow;
 }
 
 
-.poa-title:after {
+/* .poa-title:after {
     content: "";
     display: block;
     position: absolute;
@@ -2978,8 +2989,7 @@ ul {
     background-size: 100% 100%;
     bottom: -23px;
     left: 0;
-    /*! transform: rotate(180deg); */
-}
+} */
 
 
 
@@ -3286,7 +3296,8 @@ ul {
         margin-top: -60px;
     }
     .po-serach-wrapper {
-        padding: 8px 10px;
+        /* padding: 8px 10px; */
+        padding: 3px 10px;
         border-radius: 100px;
         border:1px solid #A9A9A9;
     }
@@ -3748,5 +3759,9 @@ td{
         color: white;
         /* padding: 7px; */
         cursor: pointer;
+    }
+
+    .pth-all-table table td{
+        width: 10%;
     }
 
