@@ -60,7 +60,7 @@ function load_agent(ignore_city = false) {
         if (data['picture'] !== null) {
           $('.back-img').attr('src', data['picture']);
         }
-
+        $('#about_us').html(data['about_us']);
 
         overall_score = data['scores'][0]['overall_l2s_ratio'] || 100
         overall_avg_dom = data['scores'][0]['overall_avg_dom']
