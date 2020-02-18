@@ -7,9 +7,9 @@ function init_search_results() {
 
 function show_loading_screen() {
     swal({
-        title: "Crushing Numbers!",
-        text: "Hang tight while run the data to find your exact match",
-        icon: "success",
+        title: "Crunching Numbers!",
+        text: "Hang tight while we crunch the data to find your exact match",
+        icon: "info",
         buttons: false,
         closeOnEsc: false,
         closeOnClickOutside: false,
@@ -152,6 +152,13 @@ function load_search_results() {
         item = item.split('[[agent_id]]').join(v['agent_id']);
         item = item.split('[[agent_full_name]]').join(v['agent_full_name']);
 
+
+        item = item.split('[[overall_success_rate]]').join(
+            get_success_rate(v, true));
+
+        item = item.split('[[success_rate]]').join(
+            get_success_rate(v, false));
+
         item = item.split('[[overall_failed_listings]]').join(
             v['overall_failed_listings']);
         item = item.split('[[failed_listings]]').join(v['failed_listings']);
@@ -266,6 +273,16 @@ function get_val_from_breakdown(v, key, overall) {
     return '0'
 }
 
+function get_success_rate(v, overall) {
+    if (overall) {
+        return (100 * (v['overall_sold_listings']) /
+                (v['overall_sold_listings'] + v['overall_failed_listings']))
+    } else {
+        return (100 * (v['sold_listings']) /
+                (v['sold_listings'] + v['failed_listings']))
+    }
+}
+
 function set_home_type_radio(home_type) {
     if (home_type == 'SINGLE_FAMILY') {
         $('input[name="babu"][value="Houses"]').prop("checked", true);
@@ -294,6 +311,9 @@ function set_home_type_radio(home_type) {
 
 
 function init_search_events() {
+    $(document).on('click', '.collect-lead', function() {
+        $("body").prepend(lead_collection)
+    })
 
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
