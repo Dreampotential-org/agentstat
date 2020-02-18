@@ -311,6 +311,9 @@ function set_home_type_radio(home_type) {
 
 
 function init_search_events() {
+    $(document).on('click', '.collect-lead', function() {
+        $("body").prepend(lead_collection)
+    })
 
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
