@@ -289,17 +289,17 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
 
               <tr>
                 <td></td>
-                <td><h5><strong>Overall</strong></h5></td>
+                <td><h5><strong >Overall</strong></h5></td>
                 <td class="city_results" style="width:10%"><h5 ><strong>[[city]]</strong></h5></td> 
               </tr>
               <tr>
-                <td class="horizontal_dotted_line"><strong>Success Rate</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Success Rate</strong><span class="dot"></span></td>
                 <td>[[overall_success_rate]]%</td>
                 <td class="city_results">[[success_rate]]%</td>
                 <td style="width:10%"></td>
               </tr>
               <tr>
-                <td class="horizontal_dotted_line"><strong>Sold Listings</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Sold Listings</strong><span class="dot"></span></td>
                 <td >[[overall_sold_listings]]</td>
                 <td class="city_results">[[sold_listings]]</td>
                 <td style="width:10%"></td>
@@ -312,13 +312,13 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                 </td>
               </tr>
               <tr >
-                <td class="horizontal_dotted_line"><strong>Failed Listings</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Failed Listings</strong><span class="dot"></span></td>
                 <td>[[overall_failed_listings]]</td>
                 <td class="city_results">[[failed_listings]]</td>
                 <td style="width:10%"></td>
               </tr>
               <tr class="custom_tr">
-                <td class="horizontal_dotted_line"><strong>Avg Days On Market</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Avg Days On Market</strong><span class="dot"></span></td>
                 <td>[[overall_avg_dom]]</td>
                 <td class="city_results">[[avg_dom]]</td>
                 <td style="width:10%"></td>
@@ -326,14 +326,14 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
               </tr>
 
               <tr class="custom_tr">
-                <td class="horizontal_dotted_line"><strong>Avg Sold to List Price</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Avg Sold to List Price</strong><span class="dot"></span></td>
                 <td >[[overall_s2l_price]]%</td>
                 <td class="city_results">[[s2l_price]]%</td>
                 <td style="width:10%"></td>
               </tr>
 
               <tr class="custom_tr">
-                <td class="horizontal_dotted_line"><strong>Single Family Sold</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Single Family Sold</strong><span class="dot"></span></td>
                 <td >[[overall_single_family_sold]]</td>
                 <td class="city_results">[[single_family_sold]]</td>
                 <td style="width:10%"></td>
@@ -341,14 +341,14 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
 
 
               <tr class="custom_tr">
-                <td class="horizontal_dotted_line"><strong>Condos Sold</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Condos Sold</strong><span class="dot"></span></td>
                 <td >[[overall_condo_sold]]</td>
                 <td class="city_results">[[condo_sold]]</td>
                 <td style="width:10%"></td>
               </tr>
 
               <!-- <tr>
-                <td class="horizontal_dotted_line"><strong>Break Down</strong><span class="dot"></span></td>
+                <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Break Down</strong><span class="dot"></span></td>
                 <td>[[overall_listings_breakdown_json]]</td>
                 <td class="city_results">[[listings_breakdown_json]]</td>
                 <td style="width:10%"></td>

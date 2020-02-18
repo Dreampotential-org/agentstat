@@ -1,4 +1,5 @@
-var agent_ids_order = []
+var agent_ids_order = [];
+var all_agents=[];
 
 function init_search_results() {
     load_search_results();
@@ -113,14 +114,16 @@ function load_search_results() {
     var settings = get_settings(api_call_url, 'GET');
     settings['headers'] = null;
 
-    show_loading_screen()
+    show_loading_screen();
     $.ajax(settings).done(function (response) {
 
       data = JSON.parse(response);
       results = data['results'];
 
+
       $.each(results, function(k, v) {
-        agent_ids_order.push(v['agent_id'])
+        agent_ids_order.push(v['agent_id']);
+        all_agents.push(v);
         item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));

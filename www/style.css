@@ -145,7 +145,7 @@ fieldset.rating{
     box-sizing: initial !important;
 }
 .modal{
-    margin: 149px 0px 0px 0px;
+    /* margin: 149px 0px 0px 0px; */
 }
 .space-bottom{
     padding: 30px 0px 30px 0px;
@@ -3046,8 +3046,8 @@ ul {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
-
-    z-index: 999;
+    z-index: 9;
+    /* z-index: 999; */
 }
 
 .dm-main {
@@ -3391,6 +3391,7 @@ ul {
 }
 
 .filter-div{
+    /* float: right; */
     display: inline-block;
     padding: 3px 7px;
     border: 0.55px solid lightgray;
@@ -3501,6 +3502,7 @@ ul {
         padding: 6px !important;
         width: 20%;
     }
+
     
 }
 
@@ -3653,6 +3655,12 @@ td{
         padding: 0;
     }
 }
+ @media screen and (max-width:768px){
+    .sticky{
+        top: 51px !important;
+    }
+    
+} 
 
 @media screen and (max-width:375px){
     .custom_tab{
@@ -3764,4 +3772,27 @@ td{
     .pth-all-table table td{
         width: 10%;
     }
-
+    .custom_scroll{
+        overflow: hidden;
+        height: unset;
+    }
+    #sellerFilter{
+        text-align: right;
+    }
+    #buyerFilter{
+        text-align: right;
+    }
+    .filter_align{
+        float: right;
+    }
+    .custom_filter_div{
+        left:unset;
+    }
+    .sticky {
+        position: sticky;
+        top: 55px;
+        background-color: white;
+        /* padding: 50px; */
+        font-size: 20px;
+        z-index: 120;
+      }
