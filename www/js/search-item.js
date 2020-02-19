@@ -282,9 +282,18 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                   <td colspan="3"  class="title"><a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]] <span class="custom_score"> | Keller Williams Seattle</h4> </a>
                     <span>SCORE | [[score]]</span>
                   </td>
-                  <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" ><div class="custom_pin"> <a href="#"><i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>
+                  <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
+                    <div class="custom_pin"> <a href="#">
+                    <i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>
                     <p>Pin to top</p></div>
                   </td>
+                  <!-- <td colspan="2" class="switch toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
+                  <label style="margin-bottom: 33px; "> 
+                      <input type="checkbox" >
+                      <span class="slide round"></span>
+                  </label>
+                    <p>Pin to top</p>
+                  </td> -->
               </tr>
 
               <tr>
@@ -373,7 +382,7 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
     <div>
   </div>
 
-       <div class="sm-list">	
+      <div class="sm-list">	
             <div class="row">	
               <div class="col-4">	
                 <div class="toc-two-left-two-list-one text-center">	
@@ -394,11 +403,7 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                 </div>	
               </div>	
             </div>	
-            <div class="sm-link">	
-              <!-- <ul>
-                <li><a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a></li>	
-                <li><a href="#" data-toggle="modal" data-target="#myModal0">Message</a></li>	
-              </ul>	-->
+            <div class="sm-link">
               <div class="modal fade" id="myModal0">	
                 <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">	
                   <div class="modal-content">	
@@ -411,7 +416,7 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                         <div class="two-link-modal-content">	
                           <div class="row">	
                             <div class="col-lg-6">	
-                              <div class="two-link-left">	
+                              <div class="two-link-left ">	
                                 <p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>	
                                 <p>Dis wazzup:</p>	
                                 <p>1. An A-stat pro will reach out to go over your goals and answer any questions you may have.</p>	
@@ -498,12 +503,10 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
         </div>`
 
 var lead_collection = `
-      <div class="toc-two-left-two-link text-center lead-collect-form" style="margin: 15px 0px;">	
-          <ul>
+      <div class="toc-two-left-two-link text-center lead-collect-form" >	
             <div class="modal fade" id="myModalx">
               <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">	
                 <div class="modal-content">
-
                   <div class="modal-body modalh">
                     <div class="two-link-modal">	
                       <div class="two-link-modal-heading text-center">	
@@ -512,12 +515,12 @@ var lead_collection = `
                       <div class="two-link-modal-content">	
                         <div class="row">	
                           <div class="col-lg-6">	
-                            <div class="two-link-left">	
+                            <div class="two-link-left custom_para">	
                               <p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>	
                               <p>Dis wazzup:</p>	
-                              <p>1. An A-stat pro will reach out to go over your goals and answer any questions you may have.</p>	
-                              <p>2. We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</p>	
-                              <p>3. You sell your home quickly for top dollar!</p>	
+                              <p>1.<span> An A-stat pro will reach out to go over your goals and answer any questions you may have.</span></p>	
+                              <p>2.<span> We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</span></p>	
+                              <p>3.<span> You sell your home quickly for top dollar!</span></p>	
                               <div class="modal-call">	
                                 <p>Need immediate assistance?</p>	
                                 <p>Call us ANYTIME at</p>	
@@ -527,45 +530,64 @@ var lead_collection = `
                           </div>	
                           <div class="col-lg-6">	
                             <div class="two-link-right">	
-                                <table>	
-                                  <tbody><tr>	
-                                    <td> Name <span>*</span>:</td>	
-                                    <td><input type="text" id="name-[[agent_id]]" name="name"></td>
-                                  </tr>	
-                                  <tr>	
-                                    <td> Phone <span>*</span>:</td>	
-                                    <td><input type="tel" id="phone-[[agent_id]]" name="" required=""></td>
-                                  </tr>	
-                                  <tr>	
-                                    <td> Email <span>*</span>:</td>	
-                                    <td><input type="email" id="email-[[agent_id]]" name=""></td>
-                                  </tr>	
-                                </tbody></table>	
-                                <label>Message</label>	
-                                <textarea id="message-156821"></textarea>	
-                                <div class="submit-btn">	
-                                  <button type="button" data-dismiss="modal">Cancel</button>	
-                                  <button class="lead-submit" data-id="156821">Submit</button>	
-                                  <div class="modal fade" id="con3">	
-                                    <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">	
-                                      <div class="modal-content">	
-                                        <div class="modal-body">	
-                                          <div class="another-modal">	
-                                            <div class="another-modal-content">	
-                                              <h2>Compelete!</h2>	
-                                              <p>[Agent Name] will contact you shortly :)</p>	
-                                              <button type="button" data-dismiss="modal">Cancel</button>	
-                                            </div>
-                                          </div>
+                            <div class="row " >
+                              <div class="col-6 col-md-3 col-sm-3 div_name" >
+                                <p>  Name <span style="color:red">*</span> :</p>
+                              </div>
+                              <div class="col-9 col-md-9 col-sm-9 div_input" >
+                                <input type="text" id="name-[[agent_id]]" name="name">
+                              </div>
+                            </div>
+
+                            <div class="row " >
+                              <div class="col-6 col-md-3 col-sm-3 div_name" >
+                                <p>  Phone <span style="color:red">*</span> :</p>
+                              </div>
+                              <div class="col-9 col-md-9 col-sm-9 div_input" >
+                                <input type="tel" name="" required="">
+                              </div>
+                            </div>
+
+                            <div class="row " >
+                              <div class="col-6 col-md-3 col-sm-3 div_name" >
+                                <p>  Email<span style="color:red">*</span> :</p>
+                              </div>
+                              <div class="col-9 col-md-9 col-sm-9 div_input" >
+                                <input type="email" name="">
+                              </div>
+                            </div>
+                            <div class="row " >
+                              <div class="col-12 col-md-12 col-sm-9 " >
+                                <p class="p_message"> Message</p>
+                              </div>
+                              <div class="col-12 col-md-12 col-sm-9 div_message" >
+                              <textarea id="message-156821"></textarea>	
+                              </div>
+                            </div>
+                            
+                            <div class="submit-btn">	
+                              <button type="button" data-dismiss="modal" class="font_btn">Cancel</button>	
+                              <button class="lead-submit font_btn" data-id="156821">Submit</button>	
+                              <div class="modal fade" id="con3">	
+                                <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">	
+                                  <div class="modal-content">	
+                                    <div class="modal-body">	
+                                      <div class="another-modal">	
+                                        <div class="another-modal-content">	
+                                          <h2>Compelete!</h2>	
+                                          <p>[Agent Name] will contact you shortly :)</p>	
+                                          <button type="button" data-dismiss="modal" >Cancel</button>	
                                         </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="modal-form-content">
-                                  <p id="msg-[[agent_id]]">
-                                  </p>
-                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-form-content">	
+                            <p style="text-align:left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ac metus a ullamcorper.</p>	
+                            </div>
+                            </div>
                             </div>
                           </div>
                         </div>

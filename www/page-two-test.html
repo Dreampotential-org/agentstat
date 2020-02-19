@@ -202,7 +202,7 @@
                                                               <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
                                                               <input type="text" name="" placeholder="Max" class="form-control d-inline-block custom_price w-50">
                                                             </div>
-                                                    <div class="row seller-filter">
+                                                    <div class="row seller-filter buyer-filter">
                                                         <div class="col-sm-6 ">
                                                             
                                                             
@@ -210,8 +210,8 @@
 
                                                             <div class="custom-control custom-checkbox">
                                                               
-                                                                <input type="checkbox" class="custom-control-input" id="cs1" name="acs" value="Hourse">
-                                                                <label class="custom-control-label" for="cs1">Hourse</label>
+                                                                <input type="checkbox" class="custom-control-input" id="cs1" name="acs" value="House">
+                                                                <label class="custom-control-label" for="cs1">House</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
@@ -296,7 +296,7 @@
                                                             </div>
                                                     <div class="custom_btn ">
                                                       <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
-                                                      <input type="reset"  name="" value="CANCEL">
+                                                      <input type="reset" id="cancelFilter"  name="" value="CANCEL">
                                                     </div>
                                                     
                                                 </form>
@@ -683,6 +683,105 @@
     </div>
     <!-- pt-tab area end -->
 
+
+    <div class="toc-two-left-two-link text-center lead-collect-form" >	
+        <div class="modal fade" id="myModalx">
+          <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">	
+            <div class="modal-content">
+              <div class="modal-body modalh">
+                <div class="two-link-modal">	
+                  <div class="two-link-modal-heading text-center">	
+                    <h2>Contact [[agent_full_name]]</h2>	
+                  </div>	
+                  <div class="two-link-modal-content">	
+                    <div class="row">	
+                      <div class="col-lg-6">	
+                        <div class="two-link-left custom_para">	
+                          <p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>	
+                          <p>Dis wazzup:</p>	
+                          <p>1.<span> An A-stat pro will reach out to go over your goals and answer any questions you may have.</span></p>	
+                          <p>2.<span> We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</span></p>	
+                          <p>3.<span> You sell your home quickly for top dollar!</span></p>	
+                          <div class="modal-call">	
+                            <p>Need immediate assistance?</p>	
+                            <p>Call us ANYTIME at</p>	
+                            <p>[[cell_phone]]</p>	
+                          </div>	
+                        </div>	
+                      </div>	
+                      <div class="col-lg-6">	
+                        <div class="two-link-right">	
+                        <div class="row " >
+                          <div class="col-6 col-md-3 col-sm-3 div_name" >
+                            <p>  Name <span style="color:red">*</span> :</p>
+                          </div>
+                          <div class="col-9 col-md-9 col-sm-9 div_input" >
+                            <input type="text" id="name-[[agent_id]]" name="name">
+                          </div>
+                        </div>
+
+                        <div class="row " >
+                          <div class="col-6 col-md-3 col-sm-3 div_name" >
+                            <p>  Phone <span style="color:red">*</span> :</p>
+                          </div>
+                          <div class="col-9 col-md-9 col-sm-9 div_input" >
+                            <input type="tel" name="" required="">
+                          </div>
+                        </div>
+
+                        <div class="row " >
+                          <div class="col-6 col-md-3 col-sm-3 div_name" >
+                            <p>  Email<span style="color:red">*</span> :</p>
+                          </div>
+                          <div class="col-9 col-md-9 col-sm-9 div_input" >
+                            <input type="email" name="">
+                          </div>
+                        </div>
+                        <div class="row " >
+                          <div class="col-12 col-md-12 col-sm-9 " >
+                            <p class="p_message"> Message</p>
+                          </div>
+                          <div class="col-12 col-md-12 col-sm-9 div_message" >
+                          <textarea id="message-156821"></textarea>	
+                          </div>
+                        </div>
+                        
+                        <div class="submit-btn">	
+                          <button type="button" data-dismiss="modal" class="font_btn">Cancel</button>	
+                          <button class="lead-submit font_btn" data-id="156821">Submit</button>	
+                          <div class="modal fade" id="con3">	
+                            <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">	
+                              <div class="modal-content">	
+                                <div class="modal-body">	
+                                  <div class="another-modal">	
+                                    <div class="another-modal-content">	
+                                      <h2>Compelete!</h2>	
+                                      <p>[Agent Name] will contact you shortly :)</p>	
+                                      <button type="button" data-dismiss="modal" >Cancel</button>	
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-form-content">	
+                        <p style="text-align:left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ac metus a ullamcorper.</p>	
+                        </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <!-- footer area start -->
     <div class="footer">
         <div class="container">
@@ -745,6 +844,8 @@
         });
 
         $('.seller-filter input[type="checkbox"]'). click(function(){
+
+            console.log($(this). is(":checked")+" "+$(this). is(":not(:checked)"));
                     
             if($(this). is(":checked")){
                 console.log($("label[for='" + this.id + "']").text());
@@ -815,6 +916,7 @@
             
             if(val){
                 $("#sellerFilter").empty();
+                console.log("@!@!@!@!");
                 sellerKey='seller';
                 seller_filter.forEach((ele,index)=>{
                     //$("#sellerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele +"\") '>"+ele+"<span><i class='fa fa-times'></i></span></button>");
@@ -836,7 +938,7 @@
         function removeChk(val,key){
             console.log("######",val,key);
             if(key=='seller'){
-              console.log("In seller if...");
+              console.log("In seller if... "+'.seller-filter input:checkbox[value="' + val + '"]');
               $('.seller-filter input:checkbox[value="' + val + '"]').click();
             }
             else{
@@ -845,6 +947,18 @@
             }
             
         }
+
+        $(document).ready(function(){
+
+            $("#cancelFilter").on('click',function(){
+                console.log("&^%&^% ");
+                $("#sellerFilter").empty();
+                $("#buyerFilter").empty();
+            });
+
+
+        });
+        
         
 
 
