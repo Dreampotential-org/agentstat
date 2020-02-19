@@ -228,6 +228,8 @@ function array_to_text(items) {
 }
 
 
+
+
 function set_pined_load() {
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
@@ -237,6 +239,14 @@ function set_pined_load() {
             // click to set the button pined
             $(".toc-two[agent_id='" + agent_id + "']").find(
                 ".toc-two-left-two-heading-right").click()
+        }
+    }
+    //MYCODE
+    for(var agent_id of agent_ids.split(",")) {
+        if(agent_id) {
+            // click to set the button pined
+            $(".toc-two[agent_id='" + agent_id + "']").find(
+                ".switch_on").click()
         }
     }
 }
@@ -252,6 +262,31 @@ function set_pined_agent_ids() {
         selected_agent_ids += $(pined_agent).closest(
             ".toc-two").attr("agent_id") + ","
     }
+
+
+//MYCODE
+
+
+    var pined_agents  = $(".toc-two .switch_on")
+    // console.log(pined_agents)
+    var selected_agent_ids = ''
+    for(var pined_agent of pined_agents) {
+        if ($(pined_agent).hasClass("switch")) {
+            continue
+        }
+        selected_agent_ids += $(pined_agent).closest(
+            ".toc-two").attr("agent_id") + ","
+    }
+
+    $("input[type='checkbox']").change(function() {
+        if(this.checked) {
+            console.log("checked ")
+        }
+        else{
+            console.log("unchecked ")
+        }
+    });
+    
     var url = new URL(window.location.href);
     selected_agent_ids_arr = selected_agent_ids.split(',')
     // new_agent_ids = [...new Set(new_agent_ids)];
@@ -314,12 +349,27 @@ function set_home_type_radio(home_type) {
 
 
 function init_search_events() {
-    $(document).on('click', '.collect-lead', function() {
-        $("body").prepend(lead_collection)
-    })
+    // $(document).on('click', '.collect-lead', function() {
+    //     $("body").prepend(lead_collection)
+    // })
 
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
+        //$(this).find('i').addClass('fa-toggle-off')
+        $(this).find("p").text("Pin to top")
+        console.log("pin to top")
+        //$(this).find("input").prop( "checked", false )
+        set_pined_agent_ids()
+
+        $(this).closest(".toc-two").detach().appendTo("#page-section")
+
+    })
+
+
+       //MYCODE
+
+    $(document).on('click', '.switch_on', function() {
+        $(this).addClass("switch");
         $(this).find("p").text("Pin to top")
         set_pined_agent_ids()
 
@@ -327,9 +377,21 @@ function init_search_events() {
 
     })
 
+    // $(document).on('click', '.switch', function() {
+    //     $(this).removeClass("switch");
+    //     $(this).find("p").text("Unpin")
+    //     set_pined_agent_ids()
+
+    //     $(this).closest(".toc-two").detach().prependTo("#page-section")
+    // })
+    //end my code
+
     $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
         $(this).removeClass("toc-two-left-two-heading-right-next");
+        //$(this).find('i').toggleClass('fa-toggle-off fa-toggle-on');
         $(this).find("p").text("Unpin")
+        console.log("Unpin")
+        //$(this).find("input").prop( "checked", true )
         set_pined_agent_ids()
 
         $(this).closest(".toc-two").detach().prependTo("#page-section")
