@@ -1143,7 +1143,7 @@ ul {
 /*-- po-search area start --*/
 
 .pt-search-wrapper {
-    width: 600px;
+    /* width: 600px; */
     margin: auto;
     position: relative;
     /*    top: -66px;*/
@@ -1162,7 +1162,7 @@ ul {
 
 .pt-search-wrapper input.ser {
     display: inline-block;
-    width: 336px !important;
+    /* width: 336px !important; */
     padding: 0px 10px;
 }
 
@@ -1183,7 +1183,8 @@ ul {
 }
 */
 .pt-search-wrapper .price p {
-    padding: 5px 26px;
+    /* padding: 5px 26px; */
+    padding: 5px 40px;
 }
 
 
@@ -2283,9 +2284,9 @@ ul {
       page-three-three end
 ==========================*/
 
-.pt-search-wrapper input.ser {
+/* .pt-search-wrapper input.ser {
     width: 290px !important;
-}
+} */
 
 .pt-search-wrapper .type p {
     padding: 5px 5px;
@@ -2973,11 +2974,11 @@ ul {
 
 .poa-title {
     position: relative;
-    border-bottom: 10px solid yellow;
+    /* border-bottom: 10px solid yellow; */
 }
 
 
-/* .poa-title:after {
+.poa-title:after {
     content: "";
     display: block;
     position: absolute;
@@ -2989,7 +2990,7 @@ ul {
     background-size: 100% 100%;
     bottom: -23px;
     left: 0;
-} */
+}
 
 
 
@@ -3297,7 +3298,7 @@ ul {
     }
     .po-serach-wrapper {
         /* padding: 8px 10px; */
-        padding: 3px 10px;
+        /* padding: 3px 10px; */
         border-radius: 100px;
         border:1px solid #A9A9A9;
     }
@@ -3342,6 +3343,8 @@ ul {
     .po-serach-wrapper.po-serach-wrapper-one.ak-form {
         display: flex !important;
     }
+
+    
     .po-serach-wrapper input.ser {
         display: block;
         width: 100% !important;
@@ -3602,9 +3605,9 @@ td{
         border: 1px solid #087B9E;
         margin-left: 15px;
     }
-    .custom_font{
+    /* .custom_font{
         font-size: inherit !important;
-    }
+    } */
     .po-search{
         padding: 0 !important;
     }
@@ -3657,7 +3660,8 @@ td{
 }
  @media screen and (max-width:768px){
     .sticky{
-        top: 51px !important;
+        /* top: 51px !important; */
+        position: unset;
     }
     
 } 
@@ -3678,7 +3682,7 @@ td{
     font-size: 18px;
 }
 .review_txt{
-    font-size:12px;
+    font-size:13px;
 }
 .title_color{
     color: black;
@@ -3790,7 +3794,7 @@ td{
     }
     .sticky {
         position: sticky;
-        top: 55px;
+        top: 49px;
         background-color: white;
         /* padding: 50px; */
         font-size: 20px;
@@ -3888,5 +3892,12 @@ td{
     
     .slide.round:before {
         border-radius: 50%;
+    }
+    .tranform_img{
+        transform: translateY(6px);
+    }
+    .small_txt{
+        font-size: 11px;
+        background: yellow;
     }
 

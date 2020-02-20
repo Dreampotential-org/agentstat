@@ -124,7 +124,7 @@ function load_agent(ignore_city = false) {
             <tr>
               <td style="width:35%">
                 <table style="width:100%">
-
+                
                     <tr>
                         <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
                           <strong style='color:black'>Listed:</strong> <br>
@@ -148,14 +148,130 @@ function load_agent(ignore_city = false) {
                 <td style="width:60%">
                   <table style="width:100%">
                       <tr>
-                        <td style='text-align: left;padding: 5px 10px;color: gray;'">
-                          <strong style='color:black'>Type:</strong>   &nbsp;&nbsp;&nbsp;` + v['home_type'] + ` <br>
-                          <strong style='color:black'>Beds:</strong>  &nbsp;&nbsp;&nbsp;` + v['beds'] + ` <br>
-                          <strong style='color:black'>Baths:</strong>  &nbsp;&nbsp;&nbsp;` + v['baths'] + ` <br>
-                          <strong style='color:black'>Year Built:</strong>  &nbsp;&nbsp;&nbsp;` + v['year_built'] + ` <br>
-                          <strong style='color:black'>State:</strong>  &nbsp;&nbsp;&nbsp;` + v['state'] + ` <br>
+                        <!-- <td style='text-align: left;padding: 5px 10px;color: gray;'">
+                          <strong style='color:black'>Type</strong>   &nbsp;&nbsp;&nbsp;` + v['home_type'] + ` <br>
+                          <strong style='color:black'>Beds</strong>  &nbsp;&nbsp;&nbsp;` + v['beds'] + ` <br>
+                          <strong style='color:black'>Baths</strong>  &nbsp;&nbsp;&nbsp;` + v['baths'] + ` <br>
+                          <strong style='color:black'>Sqft</strong>  &nbsp;&nbsp;&nbsp;1,550 <br>
+                          <strong style='color:black'>Lot</strong>  &nbsp;&nbsp;&nbsp;0.45<br>
+                          <strong style='color:black'>Year Built</strong>  &nbsp;&nbsp;&nbsp;` + v['year_built'] + ` <br>
+                           <strong style='color:black'>State</strong>  &nbsp;&nbsp;&nbsp;` + v['state'] + ` <br>
+                          <strong style='color:black'>Country</strong>  &nbsp;&nbsp;&nbsp;King<br>
+                        </td>-->
+                        <td  style="padding:0px">
+                            <strong style='color:black'>Type</strong>
                         </td>
-                      </tr>
+                    
+                        <td  style="padding:0px">
+                            ` + v['home_type'] + `
+                        </td>
+                        <td></td>
+                        <td style="padding:0px;font-size: 16px;">
+                            <strong style='color:black'>Heating</strong>
+                        </td>
+                        <td style="padding:0px;">
+                            Forced Air
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td style="padding:0px">
+                            <strong style='color:black'>Beds</strong>
+                        </td>
+                        <td  style="padding:0px">
+                            ` + v['beds'] + `
+                        </td>
+                        <td ></td>
+                        <td style="padding:0px ;font-size: 16px;">
+                        <strong style='color:black'>Cooling</strong>
+                            
+                        </td>
+                        <td  style="padding:0px">
+                            None
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  style="padding:0px">
+                            <strong style='color:black'>Baths</strong>
+                        </td>
+                        <td  style="padding:0px">
+                            ` + v['baths'] + `
+                        </td>
+                        <td ></td>
+                        <td style="padding:0px ;font-size: 16px;">
+                        <strong style='color:black'>Parking</strong>
+                        </td>
+                        <td style="padding:0px">
+                          Attached Garage
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  style="padding:0px">
+                            <strong style='color:black'>Sqft</strong>
+                        </td>
+                        <td  style="padding:0px">
+                            1,550
+                        </td>
+                        <td ></td>
+                        <td style="padding:0px;font-size: 16px;">
+                        <strong style='color:black'>Basement</strong>
+                            
+                        </td>
+                        <td style="padding:0px">
+                            None
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td  style="padding:0px ;font-size: 16px;">
+                            <strong style='color:black'>Lot</strong>
+                        </td>
+                        <td  style="padding:0px"> 
+                            0.45 acres
+                        </td>
+                        <td></td>
+                        <td style="padding:0px;font-size: 16px;">
+                            <strong style='color:black'>Flooring</strong>
+                            
+                        </td>
+                        <td  style="padding:0px">
+                           Laminate, Hardwood
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td  style="padding:0px;font-size: 16px;">
+                            <strong style='color:black'>Year Built</strong>
+                        </td>
+                        <td  style="padding:0px"> 
+                        ` + v['year_built'] + `
+                        </td>
+                        <td></td>
+                            <td style="padding:0px">
+                            <strong style='color:black'>Roof</strong>
+                        </td>
+                        <td style="padding:0px">
+                            Composition
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td  style="padding:0px;font-size: 16px;">
+                            <strong style='color:black'>Country</strong>
+                        </td>
+                        <td  style="padding:0px"> 
+                        King
+                        </td>
+                        <td ></td>
+
+                        <td style="padding:0px;font-size: 16px;">
+                            <strong style='color:black'>Foundation</strong>
+                        </td>
+                        <td  style="padding:0px">
+                           Crawl Raised
+                        </td>
+                    </tr>
+                </tr>
                   </table>
               </td>
               </tr>
