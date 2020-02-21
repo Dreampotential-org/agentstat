@@ -54,6 +54,9 @@ function load_agent(ignore_city = false) {
         $.each($('.agent_name_loc'), function () {
             $(this).html(data['full_name']+' '+'is a ?? match for you (enter your location in the search bar to view % match)');
         });
+        $.each($('.answer_agent_name'),function(){
+            $(this).html('Answer a few questions to see how well'+' '+ data['full_name']+' '+' strengths match your needs.')
+        })
 
         var name_city = data['full_name'] + ' - ' + data['city'];
 
@@ -114,7 +117,7 @@ function load_agent(ignore_city = false) {
          <tr class="fidout" id="add-public-note-` + v['id'] + `" style="display: none; background: lightgray;">
         <td colspan="10" style="padding: 6px 13px; color:gray">
           <div class="form-group">
-            <a href="#" class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close"></i></a>
+            <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
             <textarea class="public-note-text form-control" id="note-` + v['id'] + `" rows="2" name="public-note" readonly></textarea>
           </div>
           <div class="text-left title_color">
@@ -304,8 +307,8 @@ $(document).on('change click', '.how_soon li>a', function () {
         $('#leads-step-one-new').css('display', 'None');
         $('#leads-step-one-buy').css('display', 'block');
     } else {
-        // $('#leads-step-one-new').css('display', 'None');
-        // $('#leads-step-one').css('display', 'block');
+        $('#leads-step-one-new').css('display', 'None');
+        $('#leads-step-one').css('display', 'block');
     }
 
 });

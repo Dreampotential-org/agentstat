@@ -142,21 +142,23 @@
                                     <p class="d-inline-block y-price">Price</p>
                                     <div class="price-amount" id="pt-amount">
                                         <h6 class="d-linline-block">Price Range</h6>
-                                        <input id="one-left-in" type="text" name="" placeholder="$100K"> <span> -</span>
-                                        <input id="one-right-in" type="text" name="" placeholder="$500K">
+                                        <!-- <input id="one-left-in" type="text" name="" placeholder="$100K"> <span> -</span>
+                                        <input id="one-right-in" type="text" name="" placeholder="$500K"> -->
+                                        <input id="one-left-in" type="text" name="" placeholder="MIN"> <span> -</span>
+                                        <input id="one-right-in" type="text" name="" placeholder="MAX">
                                         <div class="price-wrapper">
                                             <div class="p-left">
                                                 <ul>
-                                                    <li>$50K+</li>
-                                                    <li>$100K+</li>
-                                                    <li>$200K+</li>
-                                                    <li>$300K+</li>
-                                                    <li>$400K+</li>
-                                                    <li>$500K+</li>
-                                                    <li>$600K+</li>
-                                                    <li>$700K+</li>
-                                                    <li>$800K+</li>
-                                                    <li>$900K+</li>
+                                                    <li>$<span class="price_padding">50</span>K+</li>
+                                                    <li>$<span class="price_padding">100</span>K+</li>
+                                                    <li>$<span class="price_padding">150</span>K+</li>
+                                                    <li>$<span class="price_padding">300</span>K+</li>
+                                                    <li>$<span class="price_padding">400</span>K+</li>
+                                                    <li>$<span class="price_padding">500</span>K+</li>
+                                                    <li>$<span class="price_padding">600</span>K+</li>
+                                                    <li>$<span class="price_padding">700</span>K+</li>
+                                                    <li>$<span class="price_padding">800</span>K+</li>
+                                                    <li>$<span class="price_padding">900</span>K+</li>
                                                 </ul>
                                             </div>
                                             <div class="p-right">
@@ -173,6 +175,10 @@
                                                     <li>Any price</li>
                                                 </ul>
                                             </div>
+                                            
+                                        </div>
+                                        <div id="donBtn"class="text-center" style="padding: 14px;">
+                                            <button >Done</button>
                                         </div>
                                     </div>
                                 </div>
@@ -241,17 +247,17 @@
 
                                                             <div class="custom-control custom-checkbox">
                                                               
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs1" name="acs" value="House">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs1" name="acs" value="House">
                                                                 <label class="custom-control-label" for="cs1">House</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs2" name="acs" value="Condos/co-ops">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs2" name="acs" value="Condos/co-ops">
                                                                 <label class="custom-control-label" for="cs2">Condos/co-ops</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs3" name="acs" value="Multi-family">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs3" name="acs" value="Multi-family">
                                                                 <label class="custom-control-label" for="cs3">Multi-family</label>
                                                             </div>
 
@@ -278,21 +284,22 @@
                                                                 <label class="custom-control-label" for="cs7">Windermere</label>
                                                             </div>
 
-                                                            
+                                                           
+                                                           
 
                                                         </div>
                                                         
                                                         <div class="col-sm-6">
                                                             <div class="custom-control custom-checkbox mt-4">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs9" name="acs" value="Townhomes">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs9" name="acs" value="Townhomes">
                                                                 <label class="custom-control-label" for="cs9">Townhomes</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs10" name="acs" value="Manufactured">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs10" name="acs" value="Manufactured">
                                                                 <label class="custom-control-label" for="cs10">Manufactured</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
                                                                 <label class="custom-control-label" for="cs11xx1">Lots/Land</label>
                                                             </div>
 
@@ -318,13 +325,16 @@
                                                             </select>
 
                                                         </div>
-                                                    </div>
-                                                    <span >Commission</span>
+                                                        <div class=" col-md-12 col-sm-6">
+                                                            <span >Commission</span>
 
                                                             <div class="custom-control custom-checkbox">
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs8" name="acs" value="Discount Commission">
                                                                 <label class="custom-control-label" for="cs8">Discount Commission</label>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                   
                                                     <div class="custom_btn ">
                                                       <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
                                                       <input type="reset" id="cancelFilter"  name="" value="CANCEL">
@@ -906,6 +916,50 @@
             $('.dm-part').slideToggle();
 			seller_filter = [];
             
+            $('.seller-filter input[type="radio"]'). each(function(){ 
+                console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
+                        
+                if($(this).is(":checked")){
+                    //alert('df');
+                    console.log($("label[for='" + this.id + "']").text());
+                    addId($("label[for='" + this.id + "']").text(),true);
+                }
+                if($(this).is(":not(:checked)")){
+                    console.log("Removing....",$("label[for='" + this.id + "']").text());
+                   // removeId($("label[for='" + this.id + "']").text(),true);
+                }
+            });
+            
+             $('.buyer-filter input[type="radio"]'). each(function(){
+                    
+                    if($(this). is(":checked")){
+                        console.log($("label[for='" + this.id + "']").text());
+                        addId($("label[for='" + this.id + "']").text(),false);
+                    }
+                    if(!$(this). is(":checked")){
+                        console.log($("label[for='" + this.id + "']").text());
+                        removeId($("label[for='" + this.id + "']").text(),false);
+                    }
+                });
+
+
+        
+            $.each($("input[name='acs']:checked"), function(){
+                $(this).removeClass('unchecked-acs');
+                //alert(this.id);
+                //addId($("label[for='" + this.id + "']").text(),true);
+            });
+            $.each($("input[name='acs']:not(:checked)"), function(){
+                //removeId($("label[for='" + this.id + "']").text(),true);
+                if(!$(this).hasClass('unchecked-acs'))
+                {
+                    $(this).addClass('unchecked-acs');
+                }
+                
+            });
+
+
+
             $('.seller-filter input[type="checkbox"]'). each(function(){ 
                 console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
                         
@@ -931,6 +985,8 @@
                         removeId($("label[for='" + this.id + "']").text(),false);
                     }
                 });
+
+                
         
             $.each($("input[name='acs']:checked"), function(){
                 $(this).removeClass('unchecked-acs');
@@ -1053,6 +1109,8 @@
                 }        
                 });
             });
+
+            
 
     </script>
     <!-- Scroll-Top button -->

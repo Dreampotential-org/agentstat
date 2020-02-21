@@ -182,16 +182,16 @@
                                         <div class="price-wrapper">
                                             <div class="p-left">
                                                 <ul>
-                                                    <li>$50K</li>
-                                                    <li>$100K</li>
-                                                    <li>$200K</li>
-                                                    <li>$300K</li>
-                                                    <li>$400K</li>
-                                                    <li>$500K</li>
-                                                    <li>$600K</li>
-                                                    <li>$700K</li>
-                                                    <li>$800K</li>
-                                                    <li>$900K</li>
+                                                    <li>$<span class="price_padding">50</span>K+</li>
+                                                    <li>$<span class="price_padding">100</span>K+</li>
+                                                    <li>$<span class="price_padding">150</span>K+</li>
+                                                    <li>$<span class="price_padding">300</span>K+</li>
+                                                    <li>$<span class="price_padding">400</span>K+</li>
+                                                    <li>$<span class="price_padding">500</span>K+</li>
+                                                    <li>$<span class="price_padding">600</span>K+</li>
+                                                    <li>$<span class="price_padding">700</span>K+</li>
+                                                    <li>$<span class="price_padding">800</span>K+</li>
+                                                    <li>$<span class="price_padding">900</span>K+</li>
                                                 </ul>
                                             </div>
                                             <div class="p-right">
@@ -208,6 +208,9 @@
                                                     <li>Any price</li>
                                                 </ul>
                                             </div>
+                                        </div>
+                                        <div id="donBtn"class="text-center" style="padding: 14px;">
+                                            <button >Done</button>
                                         </div>
                                     </div>
                                 </div>
@@ -291,7 +294,7 @@
                             <div class="pth-agent-right-content">
                                 <div class="pht-agent-heaidng">
                                     <h4><span class="agent_name_loc">[Agent Name]</a> is a 97% match for you!</h4>
-                                    <p>Answer a few questions to see how well Agent Name’s strengths match your needs.</p>
+                                    <p class="answer_agent_name"></a>Answer a few questions to see how well Agent Name’s strengths match your needs.</p>
                                 </div>
                                 <!-- <div class="pht-agent-heaidng">
                                     <h4><span class="agent_name">[Agent Name]</a> is a ?? match for you (enter your location in the search bar to view % match)</h4>
@@ -562,7 +565,7 @@
                                 </div>
                                 <div class="pth-sold">
                                     <div class="pth-sold-wrapper">
-                                        <div class="pth-sold-content map_padding">
+                                        <div class="pth-sold-content map_padding" style="padding-bottom:0px">
                                             <p style="margin-bottom:0px;">Transactions <span>Maps</span></p>
                                             <ul>
                                                 <li>
@@ -582,7 +585,25 @@
                                                     </span>Failed</li>
                                             </ul>
                                         </div>
-                                        <div class="pth-sold-content map_padding">
+
+                                        <div class="container_map ">
+                                            <div class="pth-sold-content map_padding">
+                                                <div class="pth-sold-maps content showEle">
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
+                                                    <div class="overlay ">
+                                                        <div class="icon">
+                                                        <i id="expand" class="collapsible fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;font-size: 27px;"></i> 
+                                                        <!-- <i id="contract" class="collapsible  fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;"></i> -->
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                
+                                             </div>
+                                        </div>
+
+
+
+                                        <!-- <div class="pth-sold-content map_padding">
                                             <i id="expand" class="collapsible fas fa-expand-arrows-alt" style="background: transparent;color: black;float: right;"></i> 
                                             <i id="contract" class="collapsible  fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;"></i>
                                     
@@ -590,7 +611,7 @@
                                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
                                             </div>
                                                         
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="pth-sold-maps">
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
                                         </div> -->
@@ -752,12 +773,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="row review_txt">
-                        <div class="col-8 col-sm-8">Negotiation skills:</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8">Listing Prep:<br/><span class="small_txt">(staging, cleaning, etc)</span></div> <div class="col-4 col-sm-4 tranform_img"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8">Marketing:</div> <div class="col-4 col-sm-4"><img src="img/table-star-9.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8">Presentation:<br/><span class="small_txt">(pictures, flyers, website)</span></div> <div class="col-4 col-sm-4 tranform_img"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8">How good of a deal was your agent able to get you?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8">How pleasant were they to work with?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8 divText">Negotiation skills:</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8">Listing Prep:<p class="small_txt">(staging, cleaning, etc)</p></div> <div class="col-4 col-sm-4 tranform_img"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8 divText">Marketing:</div> <div class="col-4 col-sm-4"><img src="img/table-star-9.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8" >Presentation:<p class="small_txt">(pictures, flyers, website)</p></div> <div class="col-4 col-sm-4 tranform_img"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8 divText">How good of a deal was your agent able to get you?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8 divText">How pleasant were they to work with?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
                     </div>
                 </div>
             </div>
@@ -789,34 +810,43 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="./js/jquery.bootpag.js"></script>
     <script>
-        $(document).ready(function(){
-         $("#expand").click(function(){
-        //    if ($(this).siblings('.showEle').length)
-        //   { 
+        // $(document).ready(function(){
+        //  $("#expand").click(function(){
+        // //    if ($(this).siblings('.showEle').length)
+        // //   { 
+        // //       $(this).siblings('.content').addClass('hideEle');
+        // //       $(this).siblings('.content').removeClass('showEle');
+              
+        // //   }
+        // //    else{
+        //        $(this).siblings('.content').addClass('showEle');
+        //       $(this).siblings('.content').removeClass('hideEle');
+        //    //}
+        //   });
+
+        //   $("#contract").click(function(){
+        // //    if ($(this).siblings('.showEle').length)
+        // //   { 
         //       $(this).siblings('.content').addClass('hideEle');
         //       $(this).siblings('.content').removeClass('showEle');
               
-        //   }
-        //    else{
-               $(this).siblings('.content').addClass('showEle');
-              $(this).siblings('.content').removeClass('hideEle');
-           //}
-          });
+        // //   }
+        // //    else{
+        // //        $(this).siblings('.content').addClass('showEle');
+        // //       $(this).siblings('.content').removeClass('hideEle');
+        // //    }
+        //   });
 
-          $("#contract").click(function(){
-        //    if ($(this).siblings('.showEle').length)
-        //   { 
-              $(this).siblings('.content').addClass('hideEle');
-              $(this).siblings('.content').removeClass('showEle');
-              
-        //   }
-        //    else{
-        //        $(this).siblings('.content').addClass('showEle');
-        //       $(this).siblings('.content').removeClass('hideEle');
-        //    }
-          });
+        $(document).ready(function(){
+         $("#expand").click(function(){
+              $('.content').toggleClass('showEle');
+              $('.content').toggleClass('hideEle');
 
+                $(this).toggleClass("fa-compress-arrows-alt");
+                $(this).toggleClass("fa-expand-arrows-alt ");
 
+         });
+      
         });
 
       

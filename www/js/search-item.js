@@ -373,6 +373,9 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
       <ul style="padding-top:10px">
       <!--<li><a href="#">Call [[cell_phone]]</a></li>-->
       <li>
+        <a href="#" data-toggle="modal" class='collect-lead'data-agent-id="156821" data-target="#myModalx">Connect with [[agent_name]]</a>
+      </li>
+      <li>
         <a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a>
       </li>
       <li>

@@ -17,8 +17,9 @@ function set_search_input() {
 }
 
 function get_v_estimate() {
-    var v_estimate = $(".price-amount #one-left-in").val()
 
+    var v_estimate = $(".price-amount #one-left-in").val()
+  
     if (v_estimate.includes("$")) {
         v_estimate = v_estimate.split("$")[1].trim()
     }

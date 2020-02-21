@@ -39,19 +39,51 @@
 
 
 		$(document).on('click', '.p-left ul li',function (){
-			min = $(this).text();
+
+			min = $(this).find('span').text();
+
+			if($("#one-right-in").val() < min);
+			$("#one-right-in").val('');
+			
+			
+			$('.p-right ul').empty();
+			let val=(min / 25)+1;
+			let priceList='';
+			for(let i=0 ; i<10 ; i++){
+				let maxPrice = val * 25;
+				val++;
+				priceList += '<li>$'+maxPrice+'K</li>'
+			}
+			$('.p-right ul').append(priceList);
+
 			$(".p-left").hide();
 			$("#one-right-in").focus();
 			$(".p-right").show();
+		
 		});
+
 
 		$(document).on('click', '.p-right ul li',function (){
 			max = $(this).text();
+			$("#one-right-in").val(max);
 			$(".p-right").hide();
+			if($('#one-left-in').val() == '')
 			$(".p-left").show();
+			// else
+			// $(".price-amount").slideUp();
 		});
 
+		$(document).on('click','#donBtn',function(){
+			if($('#one-left-in').val() == '')
+			$("#one-left-in").focus();
+			else if($('#one-right-in').val() == '')
+			$("#one-right-in").focus();
+			else
+			$(".price-amount").slideUp();
+		})
+
 		$(document).on('click', '#pt-amount #one-left-in',function (){
+			//alert("pt-amount")
 			$(".p-right").hide();
 			$(".p-left").show();
 		});

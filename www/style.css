@@ -3688,7 +3688,8 @@ td{
     color: black;
 }
 .map_padding{
-    padding-bottom: 5px;
+    padding-bottom:0px;
+    padding-top: inherit;
 }
 .map_color{
     top: 5px !important;
@@ -3898,6 +3899,78 @@ td{
     }
     .small_txt{
         font-size: 11px;
-        background: yellow;
+        /* background: yellow; */
+        margin-bottom: 8px;
+    }
+     /* .custom-control-label::before{
+        background-image: none !important;
+    } */
+    .custom-control-label::after{
+        /* background-image: none !important; */
+    }
+    .custom-checkbox .custom-control-label::before {
+        border-radius: 0.25rem;
+        /* background-color: white !important; */
+        border-color: #c3c0c0 !important;
+    }
+    .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after{
+        background-image: none !important;
+    }
+    .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before{
+        background-color: white !important;
+    }
+    .divText{
+        padding-bottom:5px
     }
 
+
+
+    .container_map {
+        position: relative;
+        /* width: 100%;
+        max-width: 400px; */
+      }
+      
+      .image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      
+      .overlay {
+        position: absolute;
+        top: 7px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .3s ease;
+        background-color: #17161659;
+      }
+      
+      .container_map:hover .overlay {
+        opacity: 1;
+      }
+      
+      .icon {
+        position: absolute;
+        right: 7px;
+        top: 36px;
+        color: white;
+        font-size: 100px;
+        /* position: absolute; */
+        /* top: 50%;
+        left: 50%; */
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      
+      .fa-user:hover {
+        color: #eee;
+      }  
+      .price_padding{
+          padding: 0px !important;
+      }
