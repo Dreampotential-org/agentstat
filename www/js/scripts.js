@@ -80,6 +80,9 @@
 			$("#one-right-in").focus();
 			else
 			$(".price-amount").slideUp();
+
+         redirectResults(global_results)
+
 		})
 
 		$(document).on('click', '#pt-amount #one-left-in',function (){

@@ -20,14 +20,34 @@ function set_search_input() {
 }
 
 function get_v_estimate() {
+    var min_val = convert_to_int($(".price-amount #one-left-in").val())
+    var max_val = convert_to_int($(".price-amount #one-right-in").val())
+    var total = 0;
 
-    var v_estimate = $(".price-amount #one-left-in").val()
+    if (min_val && max_val) {
+        return (convert_to_int(min_val) + convert_to_int(max_val))/2
+    }
+    if (min_val) {
+        return convert_to_int(min_val)
+    }
 
+}
+
+function convert_to_int(v_estimate) {
+    if (!(v_estimate)) {
+        return null;
+    }
+    if(typeof(v_estimate) === 'number') {
+        return v_estimate
+    }
+    console.log(v_estimate)
+    console.log(typeof(v_estimate))
     if (v_estimate.includes("$")) {
         v_estimate = v_estimate.split("$")[1].trim()
     }
     // multi by 1000
-    if (v_estimate.includes("K+")) {
+    console.log(v_estimate)
+    if (v_estimate.includes("K")) {
         v_estimate = parseInt(v_estimate)
         v_estimate *= 1000
     } else {
