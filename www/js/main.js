@@ -1,16 +1,19 @@
+var global_results = null;
 function fillIn() {
     var place = this.getPlace();
     var addr = place.formatted_address
 
     var results = getSearchParams(place)
+    global_results = results
     console.log(results)
-    redirectResults(results)
+    // redirectResults(results)
 }
 
 
 function set_search_input() {
     const urlParams = new URLSearchParams(window.location.search)
     var agent_name = urlParams.get('agent_name');
+    var home_type = urlParams.get('home_type', "SINGLE_FAMILY");
     if (agent_name) {
         $(".ser").val(agent_name)
     }
@@ -19,7 +22,7 @@ function set_search_input() {
 function get_v_estimate() {
 
     var v_estimate = $(".price-amount #one-left-in").val()
-  
+
     if (v_estimate.includes("$")) {
         v_estimate = v_estimate.split("$")[1].trim()
     }
@@ -48,21 +51,22 @@ function get_home_type() {
     } else if (home_type == 'Townhomes') {
         return 'TOWNHOUSE'
     }
-    return ''
+    return 'SINGLE_FAMILY'
 }
 
 function redirectResults(results) {
-    path = window.location.pathname;
-    search_params = window.location.search.replace('?', '');
-    params = search_params.split('&');
+    var path = window.location.pathname;
+    var search_params = window.location.search.replace('?', '');
+    var params = search_params.split('&');
     var new_params = [];
 
-    $.each(params, function(k, v) {
+    /* $.each(params, function(k, v) {
       if(v.split("=")[0] !== 'agent_name') {
         new_params.push(v);
       }
-    });
+    }); */
 
+    console.log(results)
     if ('city' in results) {
         new_params.push('state=' + results['state']);
         new_params.push('city=' + results['city']);
@@ -80,6 +84,8 @@ function redirectResults(results) {
 
     if (get_home_type()) {
         new_params.push('home_type=' + get_home_type());
+    } else {
+        new_params.push('home_type=SINGLE_FAMILY');
     }
 
     if ('search_input' in results) {
@@ -130,11 +136,25 @@ function init_maps() {
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.addListener('place_changed', fillIn);
 
-    var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
-    autocomplete1.addListener('place_changed', fillIn);
+    // var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
+    // autocomplete1.addListener('place_changed', fillIn);
+}
+
+function get_page_initial_results() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+        'search_input': urlParams.get('search_input'),
+        'city': urlParams.get('city'),
+        'lat': urlParams.get('lat'),
+        'lng': urlParams.get('lng'),
+        'state': urlParams.get('state'),
+    }
 }
 
 function init() {
+    global_results = get_page_initial_results()
+    console.log(global_results)
+
     try {
         init_maps();
     } catch(ex) {
@@ -143,7 +163,7 @@ function init() {
     set_search_input()
 
     $("body").delegate(".serch_btn", "click", function(e) {
-      alert(get_home_type())
+        redirectResults(global_results)
     })
 
     $("body").delegate("#go", "click", function(e) {
@@ -241,5 +261,3 @@ $(document).ready(function () {
 
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('f6y6f4usghc5');
-
-
