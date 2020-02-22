@@ -81,7 +81,7 @@
 			else
 			$(".price-amount").slideUp();
 
-         redirectResults(global_results)
+        //  redirectResults(global_results)
 
 		})
 

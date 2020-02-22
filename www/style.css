@@ -375,7 +375,16 @@ ul {
 
 .main-menu-part ul li a:hover {
     color: #E0A900;
+    /* border-bottom: 5px solid black; */
+
 }
+.activeLine{
+    border-bottom: 5px solid black;
+}    
+  
+/* .main-menu-part ul li a:active {
+  border-bottom:  1px solid black;
+  } */
 
 .hamburger {
     padding: 10px 0px 0px;
@@ -3515,7 +3524,7 @@ ul {
     border: none;
 }
 .custom_price{
-    width: 29% !important;
+    width:30% !important;
     height: 29px;
     margin-right: 10px;
     border-radius: unset;
@@ -3973,4 +3982,7 @@ td{
       }  
       .price_padding{
           padding: 0px !important;
+      }
+      .backcolorInput{
+        background-color: #CFE2F3;
       }

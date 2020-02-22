@@ -51,9 +51,12 @@ function load_agent(ignore_city = false) {
             $(this).html(data['full_name']);
         });
 
-        $.each($('.agent_name_loc'), function () {
-            $(this).html(data['full_name']+' '+'is a ?? match for you (enter your location in the search bar to view % match)');
+        $.each($('.agent_namebroker_name'), function () {
+            $(this).html(data['full_name']+' '+' <span style="font-size: 14px;color: #007bff;">| </span><span style="font-size: 14px; color: #007bff;">Keller Williams Seattle  </span>');
         });
+        // $.each($('.agent_name_loc'), function () {
+        //     $(this).html(data['full_name']+' '+'is a ?? match for you (enter your location in the search bar to view % match)');
+        // });
         $.each($('.answer_agent_name'),function(){
             $(this).html('Answer a few questions to see how well'+' '+ data['full_name']+' '+' strengths match your needs.')
         })
@@ -108,7 +111,7 @@ function load_agent(ignore_city = false) {
         <td>` + currencyFormat(v['sold_price_int']) + arrowStyle + `</td>
         <td>` + v['days_on_market'] + arrowStyle + `</td>
         <td>` + v['list_date'] + `</td>
-        <td>` + v['address_text'] + `</td>
+        <td style="white-space: nowrap;">` + v['address_text'] + `</td>
         <td>` + v['year_built'] + `</td>
         <td>` + v['city'] + `</td>
         <td>` + v['home_type'] + `</td>
@@ -286,7 +289,7 @@ function load_agent(ignore_city = false) {
         })
 
         pagination(data['agent_lists'].length);
-        console.log("HERE");
+        console.log("HERE",data['agent_lists']);
         setTimeout(()=>{
             $('#pagination-here').first().find('.active').prev().trigger('click');
         }, 100);

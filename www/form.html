@@ -38,7 +38,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
     <!-- header-area start -->
-    <div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
+    <div class="header-area two-header-area sticky-top bg-white" style="z-index: 50000;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -56,12 +56,12 @@
                             </ul>
                             <div class="main-menu-part form-menu">
                                 <ul class="float-left form-ulli-left">
-                                    <li><a href="#">HOME </a></li>
+                                    <li> <a href="#" class="activeLine">HOME </a></li>
                                     <li><a href="#">TRANSACTIONS </a></li>
                                     <li><a href="#">DASHBOARD  </a></li>
                                     <li><a href="#">REFERRALS </a></li>
                                 </ul>
-                                <ul class="float-right user-icon form-ulli-right">
+                                <ul class="float-right user-icon form-ulli-right ">
                                     <li>
                                         <div class="dropdown profile show">
                                             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -128,8 +128,11 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="fn-right">
-                                            <input type="text" id="first_name" name="text" placeholder="Anna">
-                                            <input class="ml-2" id="last_name" type="text" name="text" placeholder="Kovalevich">
+                                            <!-- <input type="text" id="first_name" name="text" placeholder="Anna">
+                                            <input class="ml-2" id="last_name" type="text" name="text" placeholder="Kovalevich"> -->
+
+                                            <input type="text" id="first_name" name="text" placeholder="Enter First Name">
+                                            <input class="ml-2" id="last_name" type="text" name="text" placeholder="Enter Last Name">
                                         </div>
                                     </div>
                                 </div>
@@ -327,8 +330,10 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- year area start -->
                             </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -400,15 +405,19 @@
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-size" role="document">
+                        <div class="modal-dialog modal-size" role="document" style="transform: translateY(50%);">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <div class="review-body">
+                                    <div class="review-body">    
                                         <p>Add a Review</p>
-                                        <input type="text" name="text" placeholder="Reviewer name">
-                                        <input type="date" name="">
-                                        <textarea></textarea>
-                                        <button>Add</button>
+                                        <input class="backcolorInput" type="text" name="text" placeholder="Reviewer name">
+                                        <!-- <input type="date" name="" placeholder="Date of review">   -->
+                                        <input placeholder="Date of review" class="textbox-n backcolorInput" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                                        <textarea class="backcolorInput" placeholder="Review"></textarea>
+                                        <div class="text-center">
+                                            <button class="backcolorInput">Add</button>
+                                        </div>
+                              
                                     </div>
                                 </div>
 
@@ -530,11 +539,11 @@
     <script src="js/owl.carousel.min.js"></script>
 
     <!-- Custom jQuery -->
-    <script src="js/scripts.js"></script>
+    <script src="./js/scripts.js"></script>
 
-    <script src="/js/conf.js"></script>
-    <script src="/js/profile.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="./js/conf.js"></script>
+    <script src="./js/profile.js"></script>
+    <script src="./js/main.js"></script>
 
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
@@ -598,6 +607,12 @@
         $('#cross').click(function() {
             $('#lnumber').removeAttr('placeholder')
         });
+        $(document).ready(function(){
+            $('.main-menu-part ul li a').click(function(){
+                $('.main-menu-part li a').removeClass("activeLine");
+                $(this).addClass("activeLine");
+            });
+        });
 
         (function($) {
             $(document).ready(function() {
@@ -612,6 +627,7 @@
             });
         })(jQuery);
     </script>
+
 
 </body>
 

@@ -177,8 +177,8 @@
                                     <p class="d-inline-block y-price">Price</p>
                                     <div class="price-amount" id="pt-amount">
                                         <h6 class="d-linline-block">Price Range</h6>
-                                        <input id="one-left-in" type="text" name="" placeholder=""> <span> -</span>
-                                        <input id="one-right-in" type="text" name="" placeholder="">
+                                        <input id="one-left-in" type="text" name="" placeholder="MIN"> <span> -</span>
+                                        <input id="one-right-in" type="text" name="" placeholder="MAX">
                                         <div class="price-wrapper">
                                             <div class="p-left">
                                                 <ul>
@@ -271,7 +271,8 @@
                                         <img src="img/agent.png" alt="images not found" class="rounded-circle back-img">
                                     </div>
                                     <div class="pth-agent-content">
-                                        <h3 class='agent_name'>Agent Name <span>|</span> <span class='agent_name_city view-profile'>Keller Williams Seattle  </span></h3>
+                                        <!-- <h3 class='agent_name'>Agent Name <span>|</span> <span class='agent_name_city view-profile'>Keller Williams Seattle  </span></h3> -->
+                                        <h3 class='agent_namebroker_name'>agent_name <span>|Keller Williams Seattle  </span></h3>
                                         <p class="rating"> 
 
                                             <img src="img/table-star-9.png" alt="Argos rating"> 4.5 Reviews <a href="#" data-toggle="modal" data-target="#exampleModal" style="display: inline-block"> Details?</a></p>
@@ -464,28 +465,28 @@
 
                         <div class="tab-pane fade active show" id="city"
                              role="tabpanel" aria-labelledby="profile-tab" >
-                            <div class="pth-content-wrapper">
+                             <div class="pth-content-wrapper">
                                 <div class="pth-content-oval">
                                     <div class="owl-carousel products-slider owl-theme owl-loaded owl-drag">
 
                                         <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 988px;"><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <span id="city-score">100%</span>
+                                                                <span id="overall-score">100%</span>
                                                             </div>
                                                             <p>Sucess Rate</p>
                                                         </div>
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <span id="cty-avg-dom">18.4</span>
+                                                                <span id="overall-avg-dom">18.4</span>
                                                             </div>
                                                             <p>Avg days on market</p>
                                                         </div>
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <span id="city-s2l-price">103.26%</span>
+                                                                <span id="overall-s2l-price">103.26%</span>
                                                             </div>
                                                             <p>Sales Price</p>
                                                         </div>
@@ -505,13 +506,47 @@
                                                             <p>Lorem ipsum dolor</p>
                                                             <h6>Lorem ipsum dolor</h6>
                                                         </div>
+                                                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+                                </div>
+                                <div class="pth-sold">
+                                    <div class="pth-sold-wrapper">
+                                        <div class="pth-sold-content map_padding" style="padding-bottom:0px">
+                                            <p style="margin-bottom:0px;">Transactions <span>Maps</span></p>
+                                            <ul>
+                                                <li>
+                                                    <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                    <span class="map_color"> 
+                                                    
+                                                        <div class="form-check location">
+                                                           
+                                                        </div>
+                                                    </span>Sold</li>
+                                                <li>
+                                                    <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                    <span class="map_color"> 
+                                                        <div class="form-check location">
+                                                           
+                                                        </div>
+                                                    </span>Failed</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="container_map ">
+                                            <div class="pth-sold-content map_padding">
+                                                <div class="pth-sold-maps content showEle">
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
+                                                    <div class="overlay ">
+                                                        <div class="icon">
+                                                        <i id="expand" class="collapsible fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;font-size: 27px;"></i> 
+                                                        <!-- <i id="contract" class="collapsible  fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;"></i> -->
+                                                    </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>>
                         </div>
                     </div>
 
@@ -597,24 +632,8 @@
                                                     </div>
                                                     </div>
                                                 </div>
-                                                
                                              </div>
                                         </div>
-
-
-
-                                        <!-- <div class="pth-sold-content map_padding">
-                                            <i id="expand" class="collapsible fas fa-expand-arrows-alt" style="background: transparent;color: black;float: right;"></i> 
-                                            <i id="contract" class="collapsible  fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;"></i>
-                                    
-                                            <div class="pth-sold-maps content showEle">
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
-                                            </div>
-                                                        
-                                        </div> -->
-                                        <!-- <div class="pth-sold-maps">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>

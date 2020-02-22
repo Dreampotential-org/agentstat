@@ -282,18 +282,18 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                   <td colspan="3"  class="title"><a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]] <span class="custom_score"> | Keller Williams Seattle</h4> </a>
                     <span>SCORE | [[score]]</span>
                   </td>
-                  <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
+                  <!-- <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
                     <div class="custom_pin"> <a href="#">
                     <i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>
-                    <p>Pin to top</p></div>
+                    <p>Pin to top</p></div> -->
                   </td>
-                  <!-- <td colspan="2" class="switch toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
+                 <td colspan="2" class="switch toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
                   <label style="margin-bottom: 33px; "> 
                       <input type="checkbox" >
                       <span class="slide round"></span>
                   </label>
                     <p>Pin to top</p>
-                  </td> -->
+                  </td> 
               </tr>
 
               <tr>
