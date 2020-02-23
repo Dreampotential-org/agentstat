@@ -33,11 +33,13 @@
 		    	$("#one-left-in").val(d);
 		    });
 
-		    $(".p-right ul li").click (function (){
-		    	var e =$(this).text ();
-		    	$("#one-right-in").val(e);
-		    	$(".price-amount").slideUp();
-		    });
+		    // $(".p-right ul li").click (function (){
+			// 	var e =$(this).text ();
+			// 	//alert(e)
+			// 	console.log(e);
+		    // 	$("#one-right-in").val(e);
+		    // 	$(".price-amount").slideUp();
+		    // });
 
 		};
 

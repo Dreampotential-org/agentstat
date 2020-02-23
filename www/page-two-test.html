@@ -24,19 +24,17 @@
     <script src="js/sweetalert.min.js"></script>
   </head>
   <body>
-        <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
 
-        <!-- header-area start -->
-        <div class="header-area sticky-top bg-white akh-2">
-            <div class="container">
-                <div class="row ">
+        <div class="wrapper-heading sticky-top bg-white akh-4">
+            <!-- header-area start -->
+             <div class="header-area sticky-top bg-white custom_header">
+            <div class="">
+                <div class="row">
                     <div class="col-lg-12">
 
                         <nav class="navbar navbar-expand-md navbar-light">
                             <a class="navbar-brand" href="index.html">
-                                <img src="img/logo.png" alt="logo">
+                                <img class="image" src="img/logo.png" alt="logo" />
                             </a>
                             <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="hamburger-box">
@@ -48,56 +46,23 @@
                                 </ul>
                                 <div class="main-menu-part">
                                     <ul>
-                                        <li><a href="#">Sign up/ Login</a></li>
+                                        <li><a href="/signup.html">Sign up/ Login</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </nav>
-                    </div>
-                </div>
+                    </div>							
+                </div>					
             </div>
-        </div>
-        <!-- header-area end -->
-
-        <div class="wrapper-heading sticky-top bg-white akh-4">
-            <!-- header-area start -->
-            <div class="header-area two-header-area akh-3">
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-lg-12">
-
-                            <nav class="navbar navbar-expand-md navbar-light">
-                                <a class="navbar-brand" href="index.html">
-                                    <img src="img/logo.png" alt="logo">
-                                </a>
-                                <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav mr-auto">
-                                    </ul>
-                                    <div class="main-menu-part">
-                                        <ul>
-                                            <li><a href="#">Sign up/ Login</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- header-area end -->
+        </div>	
 
             <!-- po-search area start -->
             <div class="po-search pt-search g ">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
-                            <div class="po-serach-wrapper pt-search-wrapper ak-po">
-                                <input class="ser" type="text" name="text" placeholder="Enter specific Location">
+                            <div class="po-serach-wrapper pt-search-wrapper  ak-po">
+                                <input class="ser" type="text" name="text" placeholder="Search using your address or agent name">
                                 <div class="type ak-price">
                                     <p id="y-type" class="type-value">Type</p>
                                     <div class="check-type">
@@ -114,21 +79,23 @@
                                     <p class="d-inline-block y-price">Price</p>
                                     <div class="price-amount" id="pt-amount">
                                         <h6 class="d-linline-block">Price Range</h6>
-                                        <input id="one-left-in" type="text" name="" placeholder="$100K"> <span> -</span>
-                                        <input id="one-right-in" type="text" name="" placeholder="$500K">
+                                        <!-- <input id="one-left-in" type="text" name="" placeholder="$100K"> <span> -</span>
+                                        <input id="one-right-in" type="text" name="" placeholder="$500K"> -->
+                                        <input id="one-left-in" type="text" name="" placeholder="MIN"> <span> -</span>
+                                        <input id="one-right-in" type="text" name="" placeholder="MAX">
                                         <div class="price-wrapper">
                                             <div class="p-left">
                                                 <ul>
-                                                    <li>$50K+</li>
-                                                    <li>$100K+</li>
-                                                    <li>$200K+</li>
-                                                    <li>$300K+</li>
-                                                    <li>$400K+</li>
-                                                    <li>$500K+</li>
-                                                    <li>$600K+</li>
-                                                    <li>$700K+</li>
-                                                    <li>$800K+</li>
-                                                    <li>$900K+</li>
+                                                    <li>$<span class="price_padding">50</span>K+</li>
+                                                    <li>$<span class="price_padding">100</span>K+</li>
+                                                    <li>$<span class="price_padding">150</span>K+</li>
+                                                    <li>$<span class="price_padding">300</span>K+</li>
+                                                    <li>$<span class="price_padding">400</span>K+</li>
+                                                    <li>$<span class="price_padding">500</span>K+</li>
+                                                    <li>$<span class="price_padding">600</span>K+</li>
+                                                    <li>$<span class="price_padding">700</span>K+</li>
+                                                    <li>$<span class="price_padding">800</span>K+</li>
+                                                    <li>$<span class="price_padding">900</span>K+</li>
                                                 </ul>
                                             </div>
                                             <div class="p-right">
@@ -145,12 +112,19 @@
                                                     <li>Any price</li>
                                                 </ul>
                                             </div>
+                                            
+                                        </div>
+                                        <div id="donBtn"class="text-center" style="padding: 14px;">
+                                            <button >Done</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="ser-butt ak-sb1">
-                                    <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
+                                <div class="serch_btn" style="display: inline;" >
+                                    <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
                                 </div>
+                                <!-- <div class="ser-butt ak-sb1">
+                                    <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -161,9 +135,9 @@
 
 
         <!-- pt-tab area start -->
-        <div class="fixed-tab  ">
-            <div class="pt-tab">
-                <div class="container">
+        <div class="fixed-tab  " >
+            <div class="pt-tab" id="close" >
+                <div class="container" >
                     <div class="pt-tab-wrapper sticky">
                         <div class="row ">
                             <div class="col-6 col-md-6 col-sm-12">
@@ -195,8 +169,13 @@
                                             <button>
                                                 Filters  ▾
                                             </button>
-                                            <div class=" dm-part ">
+                                            <div class="dm-part">
                                                 <form>
+                                                    <span >Location</span>
+                                                    <div>
+                                                      <input type="text" name="" placeholder="City" class="form-control d-inline-block custom_price w-50 float-left">
+                                                      <input type="text" name="" placeholder="Zipcode" class="form-control d-inline-block custom_price w-50">
+                                                    </div>
                                                   <span >Price</span>
                                                             <div>
                                                               <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
@@ -210,17 +189,17 @@
 
                                                             <div class="custom-control custom-checkbox">
                                                               
-                                                                <input type="checkbox" class="custom-control-input" id="cs1" name="acs" value="House">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs1" name="acs" value="House">
                                                                 <label class="custom-control-label" for="cs1">House</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs2" name="acs" value="Condos/co-ops">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs2" name="acs" value="Condos/co-ops">
                                                                 <label class="custom-control-label" for="cs2">Condos/co-ops</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs3" name="acs" value="Multi-family">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs3" name="acs" value="Multi-family">
                                                                 <label class="custom-control-label" for="cs3">Multi-family</label>
                                                             </div>
 
@@ -228,53 +207,54 @@
                                                             <span >Brokerage</span>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs4" name="acs" value="Keller Williams">
+                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs4" name="acs" value="Keller Williams">
                                                                 <label class="custom-control-label" for="cs4">Keller Williams</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs5" name="acs" value="Century21">
+                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs5" name="acs" value="Century21">
                                                                 <label class="custom-control-label" for="cs5">Century21</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs6" name="acs" value="Exp Realty">
+                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs6" name="acs" value="Exp Realty">
                                                                 <label class="custom-control-label" for="cs6">Exp Realty</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs7" name="acs" value="Windermere">
+                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs7" name="acs" value="Windermere">
                                                                 <label class="custom-control-label" for="cs7">Windermere</label>
                                                             </div>
 
-                                                            
+                                                           
+                                                           
 
                                                         </div>
                                                         
                                                         <div class="col-sm-6">
                                                             <div class="custom-control custom-checkbox mt-4">
-                                                                <input type="checkbox" class="custom-control-input" id="cs9" name="acs" value="Townhomes">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs9" name="acs" value="Townhomes">
                                                                 <label class="custom-control-label" for="cs9">Townhomes</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs10" name="acs" value="Manufactured">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs10" name="acs" value="Manufactured">
                                                                 <label class="custom-control-label" for="cs10">Manufactured</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
                                                                 <label class="custom-control-label" for="cs11xx1">Lots/Land</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox mt-3">
-                                                                <input type="checkbox" class="custom-control-input" id="cs122" name="acs" value="John L.Scott">
+                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs122" name="acs" value="John L.Scott">
                                                                 <label class="custom-control-label" for="cs122">John L.Scott</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs111" name="acs" value="Coldwell Banker">
+                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs111" name="acs" value="Coldwell Banker">
                                                                 <label class="custom-control-label" for="cs111">Coldwell Banker</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs1111" name="acs" value="Remax">
+                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs1111" name="acs" value="Remax">
                                                                 <label class="custom-control-label" for="cs1111">Remax</label>
                                                             </div>
                                                             <select class="form-control custom_select">
@@ -287,13 +267,16 @@
                                                             </select>
 
                                                         </div>
-                                                    </div>
-                                                    <span >Commission</span>
+                                                        <div class=" col-md-12 col-sm-6">
+                                                            <span >Commission</span>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="cs8" name="acs" value="Discount Commission">
+                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs8" name="acs" value="Discount Commission">
                                                                 <label class="custom-control-label" for="cs8">Discount Commission</label>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                   
                                                     <div class="custom_btn ">
                                                       <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
                                                       <input type="reset" id="cancelFilter"  name="" value="CANCEL">
@@ -308,16 +291,6 @@
                             </div>
                         </div>
                     </div>
-                        
-                        <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active custom_font" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sellers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link custom_font" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Buyers</a>
-                            </li>
-
-                        </ul> -->
 
                         <div class="tab-content " id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -843,8 +816,7 @@
 
         });
 
-        $('.seller-filter input[type="checkbox"]'). click(function(){
-
+        /*$('.seller-filter input[type="checkbox"]'). click(function(){ 
             console.log($(this). is(":checked")+" "+$(this). is(":not(:checked)"));
                     
             if($(this). is(":checked")){
@@ -867,14 +839,105 @@
                 console.log($("label[for='" + this.id + "']").text());
                 removeId($("label[for='" + this.id + "']").text(),false);
             }
-        });
+        });*/
 
         $('#filterSellers').click(function(){
             // console.log("Saved")
             // alert("saved")
             console.log(all_agents)
             $('.dm-part').slideToggle();
+			seller_filter = [];
+            
+            $('.seller-filter input[type="radio"]'). each(function(){ 
+                console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
+                        
+                if($(this).is(":checked")){
+                    //alert('df');
+                    console.log($("label[for='" + this.id + "']").text());
+                    addId($("label[for='" + this.id + "']").text(),true);
+                }
+                if($(this).is(":not(:checked)")){
+                    console.log("Removing....",$("label[for='" + this.id + "']").text());
+                   // removeId($("label[for='" + this.id + "']").text(),true);
+                }
+            });
+            
+             $('.buyer-filter input[type="radio"]'). each(function(){
+                    
+                    if($(this). is(":checked")){
+                        console.log($("label[for='" + this.id + "']").text());
+                        addId($("label[for='" + this.id + "']").text(),false);
+                    }
+                    if(!$(this). is(":checked")){
+                        console.log($("label[for='" + this.id + "']").text());
+                        removeId($("label[for='" + this.id + "']").text(),false);
+                    }
+                });
+
+
+        
+            $.each($("input[name='acs']:checked"), function(){
+                $(this).removeClass('unchecked-acs');
+                //alert(this.id);
+                //addId($("label[for='" + this.id + "']").text(),true);
+            });
+            $.each($("input[name='acs']:not(:checked)"), function(){
+                //removeId($("label[for='" + this.id + "']").text(),true);
+                if(!$(this).hasClass('unchecked-acs'))
+                {
+                    $(this).addClass('unchecked-acs');
+                }
+                
+            });
+
+
+
+            $('.seller-filter input[type="checkbox"]'). each(function(){ 
+                console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
+                        
+                if($(this).is(":checked")){
+                    //alert('df');
+                    console.log($("label[for='" + this.id + "']").text());
+                    addId($("label[for='" + this.id + "']").text(),true);
+                }
+                if($(this).is(":not(:checked)")){
+                    console.log("Removing....",$("label[for='" + this.id + "']").text());
+                   // removeId($("label[for='" + this.id + "']").text(),true);
+                }
+            });
+            
+             $('.buyer-filter input[type="checkbox"]'). each(function(){
+                    
+                    if($(this). is(":checked")){
+                        console.log($("label[for='" + this.id + "']").text());
+                        addId($("label[for='" + this.id + "']").text(),false);
+                    }
+                    if(!$(this). is(":checked")){
+                        console.log($("label[for='" + this.id + "']").text());
+                        removeId($("label[for='" + this.id + "']").text(),false);
+                    }
+                });
+
+                
+        
+            $.each($("input[name='acs']:checked"), function(){
+                $(this).removeClass('unchecked-acs');
+                //alert(this.id);
+                //addId($("label[for='" + this.id + "']").text(),true);
+            });
+            $.each($("input[name='acs']:not(:checked)"), function(){
+                //removeId($("label[for='" + this.id + "']").text(),true);
+                if(!$(this).hasClass('unchecked-acs'))
+                {
+                    $(this).addClass('unchecked-acs');
+                }
+                
+            });
         })
+        // $('#cancelFilter').click(function(){
+        //     $('.dm-part').slideToggle();
+        // })
+        
 
         
 
@@ -882,7 +945,7 @@
         var buyer_filter = [];
 
         function addId(name,val){
-
+    //alert(name);
             if(val){
 
                 seller_filter.push(name);
@@ -916,7 +979,8 @@
             
             if(val){
                 $("#sellerFilter").empty();
-                console.log("@!@!@!@!");
+                console.log("@!@!@!@!"
+                +seller_filter );
                 sellerKey='seller';
                 seller_filter.forEach((ele,index)=>{
                     //$("#sellerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele +"\") '>"+ele+"<span><i class='fa fa-times'></i></span></button>");
@@ -954,53 +1018,31 @@
                 console.log("&^%&^% ");
                 $("#sellerFilter").empty();
                 $("#buyerFilter").empty();
+                $('.dm-part').slideUp();
+            });
+           
+            $(document).click(function(event) { 
+                $target = $(event.target);
+                /*$.each($("input[name='acs']:not(:checked)"), function(){
+                    $(this).addClass('unchecked-acs');
+                });*/
+                if(!$target.closest('.dm-part').length && 
+                $('.dm-part').is(":visible")) {
+                    $.each($(".unchecked-acs"), function(){
+                        $(this).prop('checked', false);  
+                    });
+                    //$(".custom-control-input").prop('checked', false);  
+                    //alert('seller_filter==>'+seller_filter);
+                    /*seller_filter.forEach((ele,index)=>{
+                        $(".custom-control-input").each((index)=>{
+                            alert($(this).attr('value'));
+                        })
+                    });*/
+                }        
+                });
             });
 
-
-        });
-        
-        
-
-
-        // function checkbox(){
-        //     console.log("Hiii")
-        //     $("#checkedText").empty();
-        //     $("#checkedText1").empty();
-        //     var checkboxes = document.getElementsByName('acs');
-        //     var checkboxesChecked = [];
-        //     console.log("checkboxesChecked",checkboxesChecked)
-        //     // loop over them all
-        //     for (var i=0; i<checkboxes.length; i++) {
-        //         // And stick the checked ones onto an array...
-                
-        //         if (checkboxes[i].checked) {
-        //             alert(i);
-        //             checkboxesChecked.push(checkboxes[i].value);
-        //             $("#checkedText").append("<span id='spanId"+i+"' style='border: 0.55px solid;padding: 5px;'>"+checkboxes[i].value+"<a href='#'>X</a></span>");
-
-        //             $("#checkedText1").append("<span id='spanId"+i+"' style='border: 0.55px solid;padding: 5px;margin:5px;'>"+checkboxes[i].value+"<a href='#'>X</a></span>");
-
-        //             $('checkedText, span, a').click(function() {
-        //                 console.log("In close click....");
-        //                 document.getElementById("spanId").style.display="none";
-        //              });
-
-
-        //             $('checkedText, span, a').click(function() {
-        //                 console.log("In close click....");
-        //                 document.getElementById("spanId1").style.display="none";
-        //             });
-        //         }
-        //     }
-        //     console.log("Checkbox value...",checkboxesChecked);
             
-
-        //     if(checkboxesChecked.length==0){
-        //         document.getElementById("checkedText").style.display="none";
-        //         document.getElementById("checkedText1").style.display="none";
-        //     }
-
-        // }
 
     </script>
     <!-- Scroll-Top button -->
@@ -1008,4 +1050,4 @@
 
 
 
-</body></html>
+</body></html>  

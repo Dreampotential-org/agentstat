@@ -159,24 +159,43 @@ function get_specilities() {
 
 function get_languages() {
   settings = get_settings('language-fluency', 'GET')
-
-  $.ajax(settings).done(function (response) {
-      var response = JSON.parse(response);
-      console.log(response);
-      $.each(response, function(k, v) {
-        console.log(v.id, v.val);
-        $('#languages').append(`<div class='col-lg-3 col-6'>
-          <div class='lar-left'>
-          <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
-          <label for='lang-` + v.id + `'>` + v.val + `</label>
-          </div>
+  $.ajax(settings).done(function (language_list) {
+    
+    var language_list = JSON.parse(response);
+    console.log(language_list);
+    $.each(language_list, function(k, v) {
+      console.log(v.id, v.val);
+      $('#languages').append(`<div class='col-lg-3 col-6'>
+        <div class='lar-left'>
+        <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+        <label for='lang-` + v.id + `'>` + v.val + `</label>
         </div>
-        `);
-      });
-    }).fail(function(err) {
-      // alert('Got err');
-      console.log(err);
+      </div>
+      `);
     });
+  }).fail(function(err) {
+    // alert('Got err');
+    console.log(err);
+  });
+
+  // $.ajax(settings).done(function (response) {
+
+  //     var response = JSON.parse(response);
+  //     console.log(response);
+  //     $.each(response, function(k, v) {
+  //       console.log(v.id, v.val);
+  //       $('#languages').append(`<div class='col-lg-3 col-6'>
+  //         <div class='lar-left'>
+  //         <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+  //         <label for='lang-` + v.id + `'>` + v.val + `</label>
+  //         </div>
+  //       </div>
+  //       `);
+  //     });
+  //   }).fail(function(err) {
+  //     // alert('Got err');
+  //     console.log(err);
+  //   });
 }
 
 combo_boxes = ['listing-fee', 'buyer-rebate', 'type-of-listing-service'];
