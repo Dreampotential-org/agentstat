@@ -43,8 +43,6 @@ function call_api(callback, url, settings) {
       var msg = JSON.parse(response);
       callback(msg);
   }).fail(function(err) {
-      // alert('Got err');
-      // console.log(err);
       callback(false);
   });
 }
@@ -82,4 +80,18 @@ function claim_api(agent_id) {
         // alert('Got err');
         console.log(err);
     });
+}
+
+function load_states() {
+  settings = get_settings('states/', 'GET');
+  settings['headers'] = {};
+
+  $.ajax(settings).done(function (response) {
+    var states = JSON.parse(response);
+    $.each(states, function(k, v) {
+      $('#state').append(`<option value='`+ k +`'>`+ v +`</option>`);
+    });
+  }).fail(function(err) {
+    show_error(err);
+  });
 }

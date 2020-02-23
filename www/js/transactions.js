@@ -1,6 +1,9 @@
 
 function init() {
+    is_loggon();
     load_agent();
+
+    load_states();
 }
 
 function currencyFormat(num) {
@@ -44,14 +47,11 @@ function load_agent() {
   }
 
 
-  var api_call_url = 'agents/' + agent_id + '/';
+  var api_call_url = 'transactions/';
   if(city !== null) {
     api_call_url += '?city=' + city;
   }
-
   settings = get_settings(api_call_url, 'GET');
-
-  settings['headers'] = null;
 
   $.ajax(settings).done(function (response) {
     data = JSON.parse(response);
@@ -179,7 +179,43 @@ $(document).on('change click', '.notebtn', function(){
     console.log(err);
 
   });
+});
 
+$(document).on('change click', '#save-transaction', function(){
+  console.log('TEST');
+  data = {}
+  data['address_text'] = $('#address_text').val()
+  data['city'] = $('#city').val()
+  data['state'] = $('#state').val()
+  data['zipcode'] = $('#zipcode').val()
+  data['home_type'] = $('#home_type').val()
+  data['list_date'] = $('#list_date').val()
+  data['sold_date'] = $('#sold_date').val()
+  data['list_price_int'] = $('#list_price_int').val()
+  data['sold_price_int'] = $('#sold_price_int').val()
+
+
+  data['beds'] = $('#beds').val()
+  data['baths'] = $('#baths').val()
+
+  console.log(data);
+
+  api_call_url = 'create-transaction/';
+
+  settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
+
+  $.ajax(settings).done(function (response) {
+
+    var msg = JSON.parse(response);
+    console.log(msg);
+    $("#transaction-msg").css('display', 'block');
+    setInterval(location.reload(true), 3000);
+
+  }).fail(function(err) {
+
+    console.log(err);
+
+  });
 });
 
 window.addEventListener("DOMContentLoaded", init, false);

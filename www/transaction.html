@@ -194,42 +194,39 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-8">
-                                    <input type="text" class="add-transaction-form form-control " name="street-address" placeholder="Street Address" required="required">
+                                    <input id="address_text" type="text" class="add-transaction-form form-control " name="street-address" placeholder="Street Address" required="required">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="password" class="add-transaction-form form-control " name="unit" placeholder="Unit #">
+                                    <input class="add-transaction-form form-control " name="unit" placeholder="Unit #">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="add-transaction-form form-control " name="city" placeholder="City" required="required">
+                                    <input type="text" id="city" class="add-transaction-form form-control " name="city" placeholder="City" required="required">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <!-- <input type="password" class="add-transaction-form form-control " name="state" placeholder="State" required="required"> -->
-                                    <select id="inputState" class="add-transaction-form form-control ">
-                                        <option selected>Select State</option>
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
+                                    <select id="state" class="add-transaction-form form-control ">
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="add-transaction-form form-control " name="Zipcode" placeholder="Zipcode" required="required">
+                                    <input id="zipcode" type="text" class="add-transaction-form form-control " name="Zipcode" placeholder="Zipcode" required="required">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <select id="inputState" class="add-transaction-form form-control ">
-                                        <option selected>Single Family</option>
-                                        <option>Condominium</option>
-                                        <option>Townhouse</option>
-                                        <option>Land</option>
-                                        <option>Manufactured</option>
-                                        <option>Multi-family</option>
+                                    <select id="home_type" class="add-transaction-form form-control ">
+                                        <option value="SINGLE_FAMILIY" selected>Single Family</option>
+                                        <option value="CONDOMINIUM">Condominium</option>
+                                        <option value="TOWNHOUSE">Townhouse</option>
+                                        <option value="LAND">Land</option>
+                                        <option value="MANUFACTURED">Manufactured</option>
+                                        <option value="MULTI_FAMILY">Multi-family</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <select id="inputState" class="add-transaction-form form-control ">
-                                        <option selected>Seller</option>
+                                        <option value="SOLD" selected>Seller</option>
                                         <option>Buyer</option>
                                         <option>Both</option>
                                     </select>
@@ -237,26 +234,18 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="add-transaction-form form-control " id="date" name="listing-date" placeholder="Listing Date" required="required">
+                                    <input id="list_date" type="text" class="add-transaction-form form-control " name="listing-date" placeholder="Listing Date" required="required">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="add-transaction-form form-control " id="date" name="sold-date" placeholder="Sold Date" required="required">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input type="text" class="add-transaction-form form-control " name="listing-price" placeholder="Listing Price" required="required">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" class="add-transaction-form form-control " name="solid-price" placeholder="Sold Price" required="required">
+                                    <input id="sold_date" type="text" class="add-transaction-form form-control " name="sold-date" placeholder="Sold Date" required="required">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="add-transaction-form form-control " name="mls-name" placeholder="MLS Name" required="required">
+                                    <input id="list_price_int" type="text" class="add-transaction-form form-control " name="listing-price" placeholder="Listing Price" required="required">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="add-transaction-form form-control " name="mls-number" placeholder="MLS Number" required="required">
+                                    <input id="sold_price_int" type="text" class="add-transaction-form form-control " name="solid-price" placeholder="Sold Price" required="required">
                                 </div>
                             </div>
                             <div class="row">
@@ -268,7 +257,7 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <!-- <input type="text" class="add-transaction-form form-control " name="bedroom" placeholder="Bedrooms"> -->
-                                    <select id="inputBedroom" class="add-transaction-form form-control ">
+                                    <select id="beds" class="add-transaction-form form-control ">
                                         <option selected>Bedrooms</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -302,7 +291,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <!-- <input type="text" class="add-transaction-form form-control " name="bathrooms" placeholder="Bathrooms"> -->
-                                    <select id="inputBedroom" class="add-transaction-form form-control ">
+                                    <select id="baths" class="add-transaction-form form-control ">
                                         <option selected>Bathrooms</option>
                                         <option>0.5</option>
                                         <option>1</option>
@@ -350,10 +339,15 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <button type="submit" class="btn btn-primary">Add to Profile</button>
+                                <button id="save-transaction" type="button" class="btn btn-primary">Save Transaction</button>
                             </div>
                             <div class="form-row">
                                 <button type="reset" class="btn" data-dismiss="modal">Cancel</button>
+                            </div>
+                            <div class="form-row">
+                              <div style="display:none" id="transaction-msg">
+                                Transaction has been saved.
+                              </div>
                             </div>
                             
                         </form>
