@@ -33,6 +33,15 @@ function get_search_filters() {
 
     var filters = [];
 
+    // work around for page load race condition..
+    setTimeout(function() {
+        if(urlParams.get('search_input')) {
+            $(".ser").val(urlParams.get('search_input'))
+        }
+    }, 1000)
+
+
+
     if (city == "null" || city == null) {
         console.log("CITY IS!!!" + typeof(city))
     }
@@ -51,6 +60,7 @@ function get_search_filters() {
 
     if (v_estimate) {
         filters.push('v_estimate=' + v_estimate);
+        set_v_estimate(String(v_estimate))
     }
 
     if (home_type) {
@@ -266,7 +276,6 @@ function set_pined_agent_ids() {
 
 //MYCODE
 
-
     var pined_agents  = $(".toc-two .switch_on")
     // console.log(pined_agents)
     var selected_agent_ids = ''
@@ -286,7 +295,7 @@ function set_pined_agent_ids() {
             console.log("unchecked ")
         }
     });
-    
+
     var url = new URL(window.location.href);
     selected_agent_ids_arr = selected_agent_ids.split(',')
     // new_agent_ids = [...new Set(new_agent_ids)];
@@ -320,6 +329,26 @@ function get_success_rate(v, overall) {
                 (v['sold_listings'] + v['failed_listings']))
     }
 }
+
+function abbreviateNumber(value) {
+  let newValue = value;
+  const suffixes = ["", "K", "M", "B","T"];
+  let suffixNum = 0;
+  while (newValue >= 1000) {
+    newValue /= 1000;
+    suffixNum++;
+  }
+
+  newValue = newValue.toPrecision(3);
+
+  newValue += suffixes[suffixNum];
+  return newValue;
+}
+
+function set_v_estimate(v_estimate) {
+    $(".y-price").text("$" + abbreviateNumber(v_estimate))
+}
+
 
 function set_home_type_radio(home_type) {
     if (home_type == 'SINGLE_FAMILY') {

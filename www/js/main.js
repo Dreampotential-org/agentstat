@@ -31,6 +31,13 @@ function get_v_estimate() {
         return convert_to_int(min_val)
     }
 
+    // if none of these return prev-value from url if that is set
+    const urlParams = new URLSearchParams(window.location.search);
+    const v_estimate = urlParams.get('v_estimate');
+    if(v_estimate) {
+        set_v_estimate(String(v_estimate))
+        return convert_to_int(v_estimate)
+    }
 }
 
 function convert_to_int(v_estimate) {
@@ -168,6 +175,7 @@ function get_page_initial_results() {
         'lat': urlParams.get('lat'),
         'lng': urlParams.get('lng'),
         'state': urlParams.get('state'),
+        'v_estimate': urlParams.get('v_estimate'),
     }
 }
 

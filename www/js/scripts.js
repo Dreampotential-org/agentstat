@@ -110,7 +110,7 @@
 
 
 		    // owl carusol
-
+            /*
 		    $('.products-slider').owlCarousel({
            	loop: false,
            	margin: 20,
@@ -140,28 +140,7 @@
            		}
            	}
            });
-
-
-		   
-
-
-		   
-
-
-		   
-
-
-		   
-
-
-
-		
-		
-		
-		
-		
-		
-		
+            */
 		
 	});
 
