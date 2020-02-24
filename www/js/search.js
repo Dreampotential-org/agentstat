@@ -68,7 +68,9 @@ function get_search_filters() {
         filters.push('agent_name=' + agent_name);
     }
 
-    if (lat && lng) {
+    if (lat == 'null' || lng == 'null') {
+    }
+    else if (lat && lng) {
         filters.push('lat=' + lat);
         filters.push('lng=' + lng);
     }
