@@ -14,7 +14,7 @@ function populate_city_search_menu() {
       results = data['results'];
       for (var city of data) {
         $("#city-search-filter").append(
-            "<option value=" + city + ">" + city + "</option>")
+            "<option value='" + city + "'>" + city + "</option>")
       }
     });
 }
@@ -438,6 +438,21 @@ function init_search_events() {
         set_pined_agent_ids()
 
         $(this).closest(".toc-two").detach().prependTo("#page-section")
+    })
+
+    $(document).on("click", "#filterSellers", function() {
+        // do search
+        if ($("#city-search-filter").val()) {
+            var city = $("#city-search-filter").val()
+            alert(city)
+            var page_params = get_page_initial_results()
+            delete page_params['lat']
+            delete page_params['lng']
+            page_params['search_input'] = city
+            page_params['city'] = city
+            redirectResults(page_params)
+        }
+
     })
 
     $(document).on('change click', '.lead-submit', function() {

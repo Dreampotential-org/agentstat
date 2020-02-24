@@ -97,8 +97,10 @@ function redirectResults(results) {
     if ('city' in results) {
         new_params.push('state=' + results['state']);
         new_params.push('city=' + results['city']);
-        new_params.push('lat=' + results['lat']);
-        new_params.push('lng=' + results['lng']);
+        if ('lat' in results) {
+            new_params.push('lat=' + results['lat']);
+            new_params.push('lng=' + results['lng']);
+        }
     }
     else {
         new_agent_name = $('.ser').val();
@@ -169,6 +171,7 @@ function init_maps() {
 
 function get_page_initial_results() {
     const urlParams = new URLSearchParams(window.location.search);
+
     return {
         'search_input': urlParams.get('search_input'),
         'city': urlParams.get('city'),
