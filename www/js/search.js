@@ -4,7 +4,21 @@ var all_agents=[];
 function init_search_results() {
     load_search_results();
     init_search_events();
+    populate_city_search_menu()
 }
+
+function populate_city_search_menu() {
+    var settings = get_settings("cities/WA", 'GET');
+    $.ajax(settings).done(function (response) {
+      data = JSON.parse(response);
+      results = data['results'];
+      for (var city of data) {
+        $("#city-search-filter").append(
+            "<option value=" + city + ">" + city + "</option>")
+      }
+    });
+}
+
 
 function show_loading_screen() {
     swal({
