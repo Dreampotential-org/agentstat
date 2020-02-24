@@ -9,6 +9,7 @@ function init_search_results() {
 
 function populate_city_search_menu() {
     var settings = get_settings("cities/WA", 'GET');
+    settings['headers'] = null;
     $.ajax(settings).done(function (response) {
       data = JSON.parse(response);
       results = data['results'];
