@@ -846,10 +846,8 @@
             console.log(all_agents)
             $('.dm-part').slideToggle();
 			seller_filter = [];
-            
             $('.seller-filter input[type="radio"]'). each(function(){ 
                 console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
-                        
                 if($(this).is(":checked")){
                     //alert('df');
                     console.log($("label[for='" + this.id + "']").text());
@@ -860,9 +858,7 @@
                    // removeId($("label[for='" + this.id + "']").text(),true);
                 }
             });
-            
              $('.buyer-filter input[type="radio"]'). each(function(){
-                    
                     if($(this). is(":checked")){
                         console.log($("label[for='" + this.id + "']").text());
                         addId($("label[for='" + this.id + "']").text(),false);
@@ -873,8 +869,6 @@
                     }
                 });
 
-
-        
             $.each($("input[name='acs']:checked"), function(){
                 $(this).removeClass('unchecked-acs');
                 //alert(this.id);
