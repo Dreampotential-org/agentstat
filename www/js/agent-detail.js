@@ -47,6 +47,7 @@ function load_agent(ignore_city = false) {
     $.ajax(settings).done(function (response) {
         data = JSON.parse(response);
         $('.agent_name').val(data['agent_name']);
+        $('.agent-first-name').text(data['full_name'].split(" ")[0]);
         $.each($('.agent_name'), function () {
             $(this).html(data['full_name']);
         });
