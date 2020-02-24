@@ -184,10 +184,10 @@ function load_search_results() {
 
 
         item = item.split('[[overall_success_rate]]').join(
-            get_success_rate(v, true));
+            get_success_rate(v, true).toFixed(1));
 
         item = item.split('[[success_rate]]').join(
-            get_success_rate(v, false));
+            get_success_rate(v, false).toFixed(1));
 
         item = item.split('[[overall_failed_listings]]').join(
             v['overall_failed_listings']);
