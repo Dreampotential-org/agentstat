@@ -1381,13 +1381,12 @@ ul {
     padding-bottom: 25px;
 }
 
-.toc-two-left-two-heading-right-next a {
+/* .toc-two-left-two-heading-right-next a {
     transform: rotate(30deg);
     margin-left: 25px;
     margin-top: 4px;
     color: #494747;
-    /* color: #759AA5; */
-}
+} */
 
 .toc-two-left-two-list-one-next {
     background-color: #134E60;
@@ -3524,10 +3523,13 @@ ul {
     border: none;
 }
 .custom_price{
-    width:30% !important;
+    
+    margin-left: 10px;
+    border-radius: unset;
+    /* width:30% !important;
     height: 29px;
     margin-right: 10px;
-    border-radius: unset;
+    border-radius: unset; */
 }
 .custom_btn{
     visibility:visible ;
@@ -3667,6 +3669,21 @@ td{
         padding: 0;
     }
 }
+@media screen and (max-width: 767px) and (min-width: 320px){
+    .toc-two-left-two-link{
+        display: block !important;
+    }
+    .pt-modal .modal-content {
+        padding: 10px 0px;
+        width: 85%;
+        margin: 0 auto;
+    }
+    .div_input
+    {
+        margin: auto;
+    }
+}
+
  @media screen and (max-width:768px){
     .sticky{
         /* top: 51px !important; */
@@ -3845,14 +3862,22 @@ td{
 
 
     /***************/
-    .switch {
+    .toc-two-left-two-heading-right-next a {
         position: relative;
         display: inline-block;
         width: 60px;
         height: 34px;
+        
     }
 
-    .switch input { 
+      /* .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    } */
+
+    .toc-two-left-two-heading-right-next input { 
         opacity: 0;
         width: 0;
         height: 0;
@@ -3906,6 +3931,79 @@ td{
     .tranform_img{
         transform: translateY(6px);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .slide {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: red;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    .slide:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    input:checked + .slide {
+        background-color: green;
+    }
+    
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked + .slide:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+    
+    .slide.round {
+        border-radius: 34px;
+    }
+    
+    .slide.round:before {
+        border-radius: 50%;
+    }
+    .tranform_img{
+        transform: translateY(6px);
+    } */
     .small_txt{
         font-size: 11px;
         /* background: yellow; */
@@ -3986,3 +4084,67 @@ td{
       .backcolorInput{
         background-color: #CFE2F3;
       }
+      .custom_city{
+        width: 100% !important;
+        border-radius: 0px;
+      }
+      .city_div{
+        padding: 10px;
+      }
+   .custom_log_abs .active{
+        border-bottom: 2px solid !important;
+        color: #007eff !important;
+        background-color: white;
+        border: none;
+      }
+      .custom_log_abs a{
+        color: black;
+      }
+      .body_color{
+        background-color: white !important;
+        border: 1px solid;
+      }
+      .email_input{
+        border-radius: 20px !important;
+        box-shadow: 1px 0px 3px 1px rgba(1,1,1,0.2);
+      }
+      .buttonLogin{
+        background-color: #CFE2F3;
+        width: 40%;
+        border: 1px solid;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .login_content{
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+      }
+      .fb_btn{
+        background-color: #3B5998;
+        color: white;
+      }
+      .google_btn{
+        background-color: white;
+        color: black;
+        border: 1px solid #EEEEEE;
+      }
+      .line-text {
+        width: 100%; 
+        text-align: center; 
+        border-bottom: 1px solid #DADADA; 
+        line-height: 0.1em;
+        margin: 10px 0 20px; 
+     } 
+     
+     .line-text span { 
+         background:#fff; 
+         padding:0 10px; 
+         font-size: 20px;
+     }
+     .continutxt{
+        color: black;
+        font-size: 12px;
+     }

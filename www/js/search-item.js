@@ -15,15 +15,21 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                   <!-- <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
                     <div class="custom_pin"> <a href="#">
                     <i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>
-                    <p>Pin to top</p></div> -->
-                  </td>
-                 <td colspan="2" class="switch toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
+                    <p>Pin to top</p></div> 
+                  </td>-->
+                  <!-- <td colspan="2" class=" toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
                   <label style="margin-bottom: 33px; "> 
                       <input type="checkbox" >
                       <span class="slide round"></span>
                   </label>
                     <p>Pin to top</p>
-                  </td> 
+                  </td> -->
+
+                  <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
+                    <div class="custom_pin"> <a href="#">
+                    <i class="fas fa-toggle-on custom_radio  "  style="color:#CC9D04" aria-hidden="true"></i></a>
+                    <p>Pin to top</p></div> 
+                  </td>
               </tr>
 
               <tr>

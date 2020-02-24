@@ -266,6 +266,7 @@ function set_pined_load() {
             // click to set the button pined
             $(".toc-two[agent_id='" + agent_id + "']").find(
                 ".toc-two-left-two-heading-right").click()
+                
         }
     }
     //MYCODE
@@ -402,6 +403,7 @@ function init_search_events() {
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
         //$(this).find('i').addClass('fa-toggle-off')
+        $(this).find('i').toggleClass('fa-toggle-on fa-toggle-off')
         $(this).find("p").text("Pin to top")
         console.log("pin to top")
         //$(this).find("input").prop( "checked", false )
@@ -423,13 +425,13 @@ function init_search_events() {
 
     })
 
-    // $(document).on('click', '.switch', function() {
-    //     $(this).removeClass("switch");
-    //     $(this).find("p").text("Unpin")
-    //     set_pined_agent_ids()
+    $(document).on('click', '.switch', function() {
+        $(this).removeClass("switch");
+        $(this).find("p").text("Unpin")
+        set_pined_agent_ids()
 
-    //     $(this).closest(".toc-two").detach().prependTo("#page-section")
-    // })
+        $(this).closest(".toc-two").detach().prependTo("#page-section")
+    })
     //end my code
 
     $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
