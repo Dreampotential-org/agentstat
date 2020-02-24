@@ -103,50 +103,44 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
       <ul style="padding-top:10px">
       <!--<li><a href="#">Call [[cell_phone]]</a></li>-->
       <li>
-        <a href="#" data-toggle="modal" class='collect-lead'data-agent-id="156821" data-target="#myModalx">Connect with [[agent_name]]</a>
-      </li>
-      <li>
-        <a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Call [[agent_name]]</a>
-      </li>
-      <li>
-        <a href="#" data-toggle="modal" data-agent-id="156821" data-target="#myModalx">Message</a>
+        <a href="#" data-toggle="modal" class='collect-lead' data-agent-id="156821" data-target="#myModalx">Connect with [[agent_name]]</a>
       </li>
       </ul>
     <div>
   </div>
 
-      <div class="sm-list">	
-            <div class="row">	
-              <div class="col-4">	
-                <div class="toc-two-left-two-list-one text-center">	
-                  <h3>100%</h3>	
-                  <p>Sucess Rate</p>	
-                </div>	
-              </div>	
-              <div class="col-4">	
-                <div class="toc-two-left-two-list-one text-center">	
-                  <h3>18.4%</h3>	
-                  <p>Avg days on market</p>	
-                </div>	
-              </div>	
-              <div class="col-4">	
-                <div class="toc-two-left-two-list-one text-center">	
-                  <h3>103.26%</h3>	
-                  <p>Sucess Rate</p>	
-                </div>	
-              </div>	
-            </div>	
+      <div class="sm-list">
+            <div class="row">
+              <div class="col-4">
+                <div class="toc-two-left-two-list-one text-center">
+                  <h3>100%</h3>
+                  <p>Sucess Rate</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="toc-two-left-two-list-one text-center">
+                  <h3>18.4%</h3>
+                  <p>Avg days on market</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="toc-two-left-two-list-one text-center">
+                  <h3>103.26%</h3>
+                  <p>Sucess Rate</p>
+                </div>
+              </div>
+            </div>
             <div class="sm-link">
-              <div class="modal fade" id="myModal0">	
-                <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">	
-                  <div class="modal-content">	
+              <div class="modal fade" id="myModal0">
+                <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">
+                  <div class="modal-content">
 
-                    <div class="modal-body">	
-                      <div class="two-link-modal">	
-                        <div class="two-link-modal-heading text-center">	
-                          <h2>Contact [Agent Full Name]</h2>	
-                        </div>	
-                        <div class="two-link-modal-content">	
+                    <div class="modal-body">
+                      <div class="two-link-modal">
+                        <div class="two-link-modal-heading text-center">
+                          <h2>Contact [Agent Full Name]</h2>
+                        </div>
+                        <div class="two-link-modal-content">
                           <div class="row">	
                             <div class="col-lg-6">	
                               <div class="two-link-left ">	
