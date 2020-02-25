@@ -74,6 +74,10 @@ function load_agent(ignore_city = false) {
         }
         $('#about_us').html(data['about_us']);
 
+        if(data['claimed'] === true) {
+          $('#claim_wrapper').css('display', 'none');
+        }
+
         overall_score = data['scores'][0]['overall_l2s_ratio'] || 100
         overall_avg_dom = data['scores'][0]['overall_avg_dom']
         overall_s2l_price = data['scores'][0]['overall_s2l_price']
