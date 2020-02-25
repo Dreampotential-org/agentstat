@@ -98,6 +98,7 @@ function load_agent(ignore_city = false) {
 
         $(".alist").remove();
         $.each(data['agent_lists'], function (k, v) {
+            
 
             if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
                 var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
