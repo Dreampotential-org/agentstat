@@ -4148,3 +4148,19 @@ td{
         color: black;
         font-size: 12px;
      }
+     /* .show{
+         display: block;
+     }
+     .hide{
+         display: none;
+     } */
+     @media screen and (max-width: 1250px) and (min-width: 1200px){
+        .pt-search-wrapper {
+            width: 693px;
+        }
+        .pt-search-wrapper input.ser {
+            display: inline-block;
+             width: 336px !important; 
+            padding: 0px 10px;
+        }
+    }

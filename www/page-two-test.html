@@ -169,7 +169,7 @@
                                             <button>
                                                 Filters  ▾
                                             </button>
-                                            <div class="dm-part">
+                                            <div class="dm-part" id="seller-filter" >
                                                 <form>
                                                     <span >Location</span>
                                                     <div class="row">
@@ -194,7 +194,7 @@
                                                               <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
                                                               <input type="text" name="" placeholder="Max" class="form-control d-inline-block custom_price w-50">
                                                             </div>-->
-                                                    <div class="row seller-filter buyer-filter">
+                                                    <div class="row seller-filter">
                                                         <div class="col-sm-6 ">
                                                             <span >Type</span>
                                                             <div class="custom-control custom-checkbox">
@@ -287,10 +287,132 @@
                                                     </div>
                                                    
                                                     <div class="custom_btn ">
-                                                      <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
-                                                      <input type="reset" id="cancelFilter"  name="" value="CANCEL">
-                                                    </div>
+                                                        <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
+                                                        <input type="button" id="cancelFilter"  name="" value="CANCEL">
+                                                      </div>
+                                                      
                                                     
+                                                </form>
+                                            </div>
+                                            <div class=" dm-part " id="buyer-filter" >
+                                                <form>
+                                                    <span >Location</span>
+                                                    <div class="row">
+
+                                                        <div class="col-12 col-md-12 col-sm-9">
+                                                            
+                                                          
+                                                            <input type="text" name="" placeholder="Zipcode" class="form-control d-inline-block custom_city w-50">
+                                                        </div>
+                                                       
+                                                        <div class="col-12 col-md-12 col-sm-9 city_div">
+                                                          <select id='city-search-filter' name="" placeholder="City" class="form-control d-inline-block custom_city w-50 float-left">
+                                                            <option value=''>Select City</option>
+                                                          </select>
+                                                          
+                                                        </div>
+                                                    </div>
+                                                   
+                                                  <!-- <span >Price</span>
+                                                  <div>
+                                                    <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
+                                                    <input type="text" name="" placeholder="Max" class="form-control d-inline-block custom_price w-50">
+                                                  </div> -->
+                                                    <div class="row  buyer-filter ">          
+                                                        <div class="col-sm-6">
+                                                           
+                                                            
+                                                            <span >Type</span>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" name="acs1" id="cs1x" value="Hourse">
+                                                                <label class="custom-control-label" for="cs1x">Hourse</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" name="acs1" id="cs23" value="Condos/co-ops">
+                                                                <label class="custom-control-label" for="cs23">Condos/co-ops</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" name="acs1" id="cs33" value="Multi-family">
+                                                                <label class="custom-control-label" for="cs33">Multi-family</label>
+                                                            </div>
+
+
+                                                            <span >Brokerage</span>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="cs44" name="acs1" value="Keller Williams">
+                                                                <label class="custom-control-label" for="cs44">Keller Williams</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="cs55" name="acs1" value="Century21">
+                                                                <label class="custom-control-label" for="cs55">Century21</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="cs66" name="acs1" value="Exp Realty">
+                                                                <label class="custom-control-label" for="cs66">Exp Realty</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="cs77" name="acs1" value="Windermere">
+                                                                <label class="custom-control-label" for="cs77">Windermere</label>
+                                                            </div>
+
+                                                           
+
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="custom-control custom-checkbox mt-4">
+                                                                <input type="checkbox" class="custom-control-input" id="cs99" name="acs1" value="Townhomes">
+                                                                <label class="custom-control-label" for="cs99">Townhomes</label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="cs10x" name="acs1" value="Manufactured">
+                                                                <label class="custom-control-label" for="cs10x">Manufactured</label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="cs11x" name="acs1" value="Lots/Land">
+                                                                <label class="custom-control-label" for="cs11x">Lots/Land</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox mt-3">
+                                                                <input type="checkbox" class="custom-control-input" id="cs12x" name="acs1" value="John L.Scott">
+                                                                <label class="custom-control-label" for="cs12x">John L.Scott</label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="cs11xx" name="acs1" value="Coldwell Banker">
+                                                                <label class="custom-control-label" for="cs11xx">Coldwell Banker</label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="cs11xxx" name="acs1" value="Remax">
+                                                                <label class="custom-control-label" for="cs11xxx">Remax</label>
+                                                            </div>
+                                                            <select>
+                                                                <option value="#" selected="">Others</option>
+                                                                <option value="#">Item</option>
+                                                                <option value="#">Item</option>
+                                                                <option value="#">Item</option>
+                                                                <option value="#">Item</option>
+                                                                <option value="#">Item</option>
+                                                            </select>
+
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <span >Commission</span>
+
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="cs88" name="acs1" value="Offers rebate">
+                                                            <label class="custom-control-label" for="cs88">Offers rebate</label>
+                                                        </div>
+                                                    <div class="custom_btn">
+                                                      <input id="filterBuyers" type="button" class="custom_align" name="" value="SAVE">
+                                                      <input type="reset"  name="" value="CANCEL">
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -821,7 +943,14 @@
         });
 
         jQuery(".dm-main > button").click(function () {
-            jQuery(".dm-part").slideToggle();
+            if($("#home-tab").hasClass('active')){
+                jQuery("#buyer-filter").slideUp();
+                jQuery("#seller-filter").slideToggle();
+            }else{
+                jQuery("#seller-filter").slideUp();
+                jQuery("#buyer-filter").slideToggle();
+            }
+            
 
         });
 
@@ -854,7 +983,10 @@
             // console.log("Saved")
             // alert("saved")
             console.log(all_agents)
-            $('.dm-part').slideToggle();
+                jQuery("#seller-filter").slideUp();
+                jQuery("#buyer-filter").slideUp();
+            
+            //$('.dm-part').slideToggle();
 			seller_filter = [];
             $('.seller-filter input[type="radio"]'). each(function(){ 
                 console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
@@ -897,6 +1029,8 @@
 
             $('.seller-filter input[type="checkbox"]'). each(function(){ 
                 console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
+
+                alert("seller")
                         
                 if($(this).is(":checked")){
                     //alert('df');
@@ -948,7 +1082,7 @@
         var buyer_filter = [];
 
         function addId(name,val){
-    //alert(name);
+    alert(name);
             if(val){
 
                 seller_filter.push(name);
@@ -979,7 +1113,7 @@
         }
 
         function showFilters(val){
-            
+            alert("sellerFilter")
             if(val){
                 $("#sellerFilter").empty();
                 console.log("@!@!@!@!"
@@ -1017,10 +1151,16 @@
 
         $(document).ready(function(){
 
-            $("#cancelFilter").on('click',function(){
+            $("#cancelFilter").on('click',function(event){
                 console.log("&^%&^% ");
-                $("#sellerFilter").empty();
-                $("#buyerFilter").empty();
+                $target = $(event.target);
+                if(!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
+                    $.each($(".unchecked-acs"), function(){
+                        $(this).prop('checked', false);  
+                    });
+                } 
+                // $("#sellerFilter").empty();
+                // $("#buyerFilter").empty();
                 $('.dm-part').slideUp();
             });
            
@@ -1042,7 +1182,18 @@
                         })
                     });*/
                 }        
-                });
+            });
+
+
+
+            $("#home-tab").click(function(){
+                jQuery(".dm-part").slideUp();
+            });
+            $("#profile-tab").click(function(){
+                jQuery(".dm-part").slideUp();
+            });
+
+               
             });
 
             
