@@ -155,9 +155,8 @@ function load_search_results() {
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
 
-            if(v['agent_picture'] == undefined)
+            if(v['agent_picture'] == undefined || v['agent_picture'] == '')
             {
-                console.log(v['agent_picture']);
                 picture_img = (
                     "<div class='toc-two-left-one'>" +
                     "<img class='rounded-circle toc-two-left-one' " +
