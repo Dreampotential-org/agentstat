@@ -26,9 +26,11 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                   </td> -->
 
                   <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
-                    <div class="custom_pin"> <a href="#">
-                    <i class="fas fa-toggle-on custom_radio  "  style="color:#CC9D04" aria-hidden="true"></i></a>
-                    <p>Pin to top</p></div> 
+                    <div class="custom_pin"> 
+                      <!--<a href="#"><i class="fas fa-toggle-on custom_radio  "  style="color:#CC9D04" aria-hidden="true"></i></a>-->
+                      <a href="#" class="toggler">&nbsp;</a>
+                      <p>Pin to top</p>
+                    </div> 
                   </td>
               </tr>
 

@@ -1304,7 +1304,7 @@ ul {
 
 .toc-two-left-two-heading-right a {
     display: inline-block;
-    font-size: 30px;
+    /*font-size: 30px;*/
     color: #CE9C05;
 }
 
@@ -2995,7 +2995,7 @@ ul {
     background: url(img/poa-title.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: initial;
     bottom: -23px;
     left: 0;
 }
@@ -3323,11 +3323,12 @@ ul {
 
 
 
-@media screen and (min-width: 766px) and (max-width: 991px) {
+@media screen and (max-width: 991px)  and (min-width: 768px){
     .po-serach-wrapper {
         border:1px solid #A9A9A9;
         border-radius: 100px;
     }
+
     .akh-2 {
         display: block!important;
     }
@@ -3336,8 +3337,20 @@ ul {
         display: none!important;
     }
 
-    .akh-4 {
+    /* .akh-4 {
         position: initial;
+    } */
+
+    .sticky {
+        top: 120px !important;
+    }
+
+    .navbar-brand img{
+        padding-left: 0;
+    }
+
+    .custom_header .row{
+        margin: 0;
     }
 }
 
@@ -3386,6 +3399,14 @@ ul {
 
     .mob-hide{
         display: none;
+    }
+
+    .navbar-brand img{
+        padding-left: 0;
+    }
+
+    .custom_header .row{
+        margin: 0;
     }
 
 }
@@ -3684,13 +3705,35 @@ td{
     }
 }
 
- @media screen and (max-width:768px){
+ @media screen and (max-width:767px){
     .sticky{
-        /* top: 51px !important; */
-        position: unset;
+        top: 100px !important;
+    }
+
+    .pt-tab-wrapper .nav-tabs .nav-link, .pt-tab-wrapper .nav-tabs .nav-link.active {
+        padding: 7px 10px !important;
+        font-size: 12px !important;
+    }
+
+    .dm-main3 > button, .dm-main > button{
+        font-size: 18px;
+    }
+
+    .pt-tab-wrapper .nav-tabs{
+        justify-content: left !important;
     }
     
 } 
+
+@media screen and (max-width: 576px){
+    .pt-tab-wrapper .nav-tabs .nav-link, .pt-tab-wrapper .nav-tabs .nav-link.active {
+        padding: 7px 10px !important;
+        font-size: 12px !important;
+    }
+    .dm-main3 > button, .dm-main > button{
+        font-size: 13px;
+    }
+}
 
 @media screen and (max-width:375px){
     .custom_tab{
@@ -3865,8 +3908,8 @@ td{
     .toc-two-left-two-heading-right-next a {
         position: relative;
         display: inline-block;
-        width: 60px;
-        height: 34px;
+        /* width: 60px;
+        height: 34px; */
         
     }
 
@@ -4089,7 +4132,8 @@ td{
         border-radius: 0px;
       }
       .city_div{
-        padding: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
    .custom_log_abs .active{
         border-bottom: 2px solid !important;
@@ -4164,3 +4208,26 @@ td{
             padding: 0px 10px;
         }
     }
+
+
+    .custom-checkbox .type-label::before{
+        border-radius: 50%;
+    }
+
+    a.toggler {
+        background: white;
+        cursor: pointer;
+        border: 2px solid red;
+        border-right-width: 15px;
+        padding: 0 5px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all .5s ease;
+    }
+    
+    a.toggler.on {
+        border: 2px solid green;
+        border-right-width: 2px;
+        border-left-width: 15px;
+    }
+    

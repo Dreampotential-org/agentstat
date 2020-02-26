@@ -402,7 +402,7 @@ function init_search_events() {
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
         //$(this).find('i').addClass('fa-toggle-off')
-        $(this).find('i').toggleClass('fa-toggle-on fa-toggle-off')
+        //$(this).find('i').toggleClass('fa-toggle-on fa-toggle-off')
         $(this).find("p").text("Pin to top")
         console.log("pin to top")
         //$(this).find("input").prop( "checked", false )
@@ -411,6 +411,11 @@ function init_search_events() {
         $(this).closest(".toc-two").detach().appendTo("#page-section")
 
     })
+
+
+    $(document).on('click', 'a.toggler' ,function(){
+        $(this).toggleClass('on');
+    });
 
 
        //MYCODE
