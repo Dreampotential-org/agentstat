@@ -74,14 +74,16 @@
 		});
 
 		$(document).on('click','#donBtn',function(){
-			if($('#one-left-in').val() == '')
-			$("#one-left-in").focus();
-			else if($('#one-right-in').val() == '')
-			$("#one-right-in").focus();
-			else
-			$(".price-amount").slideUp();
 
-        //  redirectResults(global_results)
+			$(".price-amount").slideUp();
+		// 	if($('#one-left-in').val() == '')
+		// 	$("#one-left-in").focus();
+		// 	else if($('#one-right-in').val() == '')
+		// 	$("#one-right-in").focus();
+		// 	else
+		// 	$(".price-amount").slideUp();
+
+        // //  redirectResults(global_results)
 
 		})
 
