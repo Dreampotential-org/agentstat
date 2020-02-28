@@ -140,7 +140,7 @@
                 <div class="container" >
                     <div class="pt-tab-wrapper sticky">
                         <div class="row ">
-                            <div class="col-6 col-md-6 col-sm-6">
+                            <div class="col-6 col-md-6 col-sm-6 tab_line">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active custom_font" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sellers</a>
@@ -1126,8 +1126,9 @@
                 //console.log(seller_filter);
                 showFilters(val);
             }else{
-
-                buyer_filter.push(name);
+                let data = { 'type': type, 'name':name };
+                buyer_filter.push(data);
+               // buyer_filter.push(name);
                 //console.log(buyer_filter);
                 showFilters(val);//qe245680/|ik nb0.
             }
@@ -1135,16 +1136,16 @@
         }
 
         function removeId(name, val){
-
-            if(val){
+debugger;
+            if(val == "seller"){
                 
                 //seller_filter.splice( seller_filter.indexOf(name), 1 );
                 seller_filter = $.grep(seller_filter, function(e) { return e.name!=name });
                 //console.log(seller_filter);
                 showFilters(val);
             }else{
-
-                buyer_filter.splice( buyer_filter.indexOf(name), 1 );
+                buyer_filter = $.grep(buyer_filter, function(e) { return e.name!=name });
+               // buyer_filter.splice( buyer_filter.indexOf(name), 1 );
                 //console.log(buyer_filter);
                 showFilters(val);
             }
@@ -1154,7 +1155,7 @@
             //alert("sellerFilter")
 
             console.log("$$$$ ",val);
-            if(val){
+            if(val == true || val == "seller"){
                 $("#sellerFilter").empty();
                 //console.log("@!@!@!@! "+seller_filter );
                 sellerKey='seller';
@@ -1169,7 +1170,8 @@
                 $("#buyerFilter").empty();
                 buyerKey='buyer';
                 buyer_filter.forEach((ele,index)=>{
-                     $("#buyerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele + "\", \""+ buyerKey +"\") '>"+ele+"<span><i class='fa fa-times'></i></span></button>");
+                    // $("#buyerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele + "\", \""+ buyerKey +"\") '>"+ele+"<span><i class='fa fa-times'></i></span></button>");
+                     $("#buyerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele.name +"\", \""+ buyerKey +"\", \""+ ele.type +"\") '>"+ele.name+"<span><i class='fa fa-times'></i></span></button>");
 
                     //$("#buyerFilter").append("<button class='filter-div'>"+ele+"</button>");
                 });
@@ -1179,6 +1181,7 @@
         
 
         function removeChk(val,key,type){
+            debugger;
             // //console.log("######",val,key);
             // if(key=='seller'){
             //   //console.log("In seller if... "+'.seller-filter input:checkbox[value="' + val + '"]');
@@ -1188,17 +1191,34 @@
             //   //console.log("In buyer ")
             //   $('.buyer-filter input:checkbox[value="' + val + '"]').click();
             // }
-console.log("@##@####")
+console.log("@##@####", key)
            // $('.seller-filter input:checkbox[value="' + val + '"]').prop('checked', false);
             removeId(val,key);
-            $('.seller-filter input:'+type+'[value="' + val + '"]').addClass('unchecked-acs');
-            
-            
+            if(key == "buyer")
+            {
+                $('.buyer-filter input:'+type+'[value="' + val + '"]').addClass('unchecked-acs');
+            }
+            else{
+                $('.seller-filter input:'+type+'[value="' + val + '"]').addClass('unchecked-acs');
+            }                            
         }
 
         $(document).ready(function(){
 
             $("#cancelFilter").on('click',function(event){
+                //console.log("&^%&^% ");
+                $target = $(event.target);
+                if(!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
+                    $.each($(".unchecked-acs"), function(){
+                        $(this).prop('checked', false);  
+                    });
+                } 
+                // $("#sellerFilter").empty();
+                // $("#buyerFilter").empty();
+                $('.dm-part').slideUp();
+            }); 
+
+            $("#cancelBuyers").on('click',function(event){
                 //console.log("&^%&^% ");
                 $target = $(event.target);
                 if(!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
