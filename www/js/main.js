@@ -93,7 +93,7 @@ function redirectResults(results) {
       }
     }); */
 
-    console.log(results)
+    console.log(results);
     if ('city' in results) {
         new_params.push('state=' + results['state']);
         new_params.push('city=' + results['city']);
@@ -118,7 +118,12 @@ function redirectResults(results) {
     }
 
     if ('search_input' in results) {
+      if ($('.ser').val() === results['search_input']) {
         new_params.push('search_input=' + results['search_input']);
+      }
+      else {
+        new_params.push('search_input=' + $('.ser').val());
+      }
     }
 
     search = new_params.join('&');
