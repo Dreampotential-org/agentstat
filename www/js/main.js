@@ -17,6 +17,24 @@ function set_search_input() {
     if (agent_name) {
         $(".ser").val(agent_name)
     }
+    var type = urlParams.get('type')
+    var city = urlParams.get('city')
+    
+    $("#city-search-filter").val(city)
+    $(".ser").val(agent_name)
+
+    $('.seller-filter input[type="radio"]'). each(function(){ 
+      //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
+      if($(this).val()== type){
+        $(this). prop("checked", true);
+          //alert('df');
+          //console.log($("label[for='" + this.id + "']").text());
+      }
+      if($(this).is(":not(:checked)")){
+          //console.log("Removing....",$("label[for='" + this.id + "']").text());
+         // removeId($("label[for='" + this.id + "']").text(),true);
+      }
+  });
 }
 
 function get_v_estimate() {
@@ -97,6 +115,12 @@ function redirectResults(results) {
     if ('city' in results) {
         new_params.push('state=' + results['state']);
         new_params.push('city=' + results['city']);
+        new_params.push('type=' + results['type']);
+        if('data1' in results)
+        {
+          new_params.push('data1=' + results['data1']);
+        }
+        new_params.push('type=' + results['type']);
         if ('lat' in results) {
             new_params.push('lat=' + results['lat']);
             new_params.push('lng=' + results['lng']);
@@ -131,7 +155,6 @@ function redirectResults(results) {
 }
 
 function getSearchParams(place) {
-
     console.log(place)
     var params = {}
     if (!('scope' in place) && 'name' in place) {
@@ -175,6 +198,7 @@ function init_maps() {
 }
 
 function get_page_initial_results() {
+
     const urlParams = new URLSearchParams(window.location.search);
 
     return {
@@ -184,6 +208,7 @@ function get_page_initial_results() {
         'lng': urlParams.get('lng'),
         'state': urlParams.get('state'),
         'v_estimate': urlParams.get('v_estimate'),
+        'type': urlParams.get('type'),
     }
 }
 

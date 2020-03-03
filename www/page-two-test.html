@@ -61,9 +61,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
-                            <div class="po-serach-wrapper pt-search-wrapper  ak-po">
-                                <input class="ser" type="text" name="text" placeholder="Search using your address or agent name">
-                                <div class="type ak-price">
+                            <div class="po-serach-wrapper pt-search-wrapper srch-bar ak-po">
+                                <input class="ser txt-cls" type="text" name="text" placeholder="Search using your address or agent name">
+                                <div class="type ak-price srch-price" >
                                     <p id="y-type" class="type-value">Type</p>
                                     <div class="check-type">
                                         <h6>Home Type</h6>
@@ -75,7 +75,7 @@
                                         <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br>
                                     </div>
                                 </div>
-                                <div class="price ak-price">
+                                <div class="price ak-price srch-pricevalue">
                                     <p class="d-inline-block y-price">Price</p>
                                     <div class="price-amount" id="pt-amount">
                                         <h6 class="d-linline-block">Price Range</h6>
@@ -212,9 +212,24 @@
                                                                 <label class="custom-control-label type-label" for="cs3">Multi-family</label>
                                                             </div>
 
-
+                                                            </div>
+                                                            <div class="col-sm-6 ">
+                                                            <div class="custom-control custom-checkbox mt-4">
+                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs9" name="acs" value="Townhomes">
+                                                                    <label class="custom-control-label type-label" for="cs9">Townhomes</label>
+                                                                </div>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs10" name="acs" value="Manufactured">
+                                                                    <label class="custom-control-label type-label" for="cs10">Manufactured</label>
+                                                                </div>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
+                                                                    <label class="custom-control-label type-label" for="cs11xx1">Lots/Land</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 ">
                                                             <span >Brokerage</span>
-
+                                                            
                                                             <div class="custom-control custom-checkbox">
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs4" name="acs" value="Keller Williams">
                                                                 <label class="custom-control-label" for="cs4">Keller Williams</label>
@@ -234,26 +249,8 @@
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs7" name="acs" value="Windermere">
                                                                 <label class="custom-control-label" for="cs7">Windermere</label>
                                                             </div>
-
-                                                           
-                                                           
-
-                                                        </div>
-                                                        
+                                                            </div>
                                                         <div class="col-sm-6">
-                                                            <div class="custom-control custom-checkbox mt-4">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs9" name="acs" value="Townhomes">
-                                                                <label class="custom-control-label type-label" for="cs9">Townhomes</label>
-                                                            </div>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs10" name="acs" value="Manufactured">
-                                                                <label class="custom-control-label type-label" for="cs10">Manufactured</label>
-                                                            </div>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
-                                                                <label class="custom-control-label type-label" for="cs11xx1">Lots/Land</label>
-                                                            </div>
-
                                                             <div class="custom-control custom-checkbox mt-3">
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs122" name="acs" value="John L.Scott">
                                                                 <label class="custom-control-label" for="cs122">John L.Scott</label>
@@ -283,15 +280,16 @@
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs8" name="acs" value="Discount Commission">
                                                                 <label class="custom-control-label" for="cs8">Discount Commission</label>
                                                             </div>
-                                                        </div>
-                                                    </div>
+                                                     
+                                                   
                                                    
                                                     <div class="custom_btn ">
                                                         <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
                                                         <input type="button" id="cancelFilter"  name="" value="CANCEL">
                                                       </div>
-                                                      
-                                                    
+                                                    </div>
+                                                    </div>
+                                                </div>
                                                 </form>
                                             </div>
                                             <div class=" dm-part " id="buyer-filter" >
@@ -312,16 +310,10 @@
                                                           
                                                         </div>
                                                     </div>
-                                                   
-                                                  <!-- <span >Price</span>
-                                                  <div>
-                                                    <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
-                                                    <input type="text" name="" placeholder="Max" class="form-control d-inline-block custom_price w-50">
-                                                  </div> -->
+         
                                                     <div class="row  buyer-filter ">          
                                                         <div class="col-sm-6">
                                                            
-                                                            
                                                             <span >Type</span>
 
                                                             <div class="custom-control custom-checkbox">
@@ -338,8 +330,23 @@
                                                                 <input type="radio" class="custom-control-input unchecked-acs" name="acs1" id="cs33" value="Multi-family">
                                                                 <label class="custom-control-label type-label" for="cs33">Multi-family</label>
                                                             </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="custom-control custom-checkbox mt-4">
+                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs99" name="acs1" value="Townhomes">
+                                                                    <label class="custom-control-label type-label" for="cs99">Townhomes</label>
+                                                                </div>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs10x" name="acs1" value="Manufactured">
+                                                                    <label class="custom-control-label type-label" for="cs10x">Manufactured</label>
+                                                                </div>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs11x" name="acs1" value="Lots/Land">
+                                                                    <label class="custom-control-label type-label" for="cs11x">Lots/Land</label>
+                                                                </div>
+                                                            </div>
 
-
+                                                            <div class="col-sm-6">
                                                             <span >Brokerage</span>
 
                                                             <div class="custom-control custom-checkbox">
@@ -361,24 +368,11 @@
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs77" name="acs1" value="Windermere">
                                                                 <label class="custom-control-label" for="cs77">Windermere</label>
                                                             </div>
-
+                                                            </div>
                                                            
 
-                                                        </div>
+                                                       
                                                         <div class="col-sm-6">
-                                                            <div class="custom-control custom-checkbox mt-4">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs99" name="acs1" value="Townhomes">
-                                                                <label class="custom-control-label type-label" for="cs99">Townhomes</label>
-                                                            </div>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs10x" name="acs1" value="Manufactured">
-                                                                <label class="custom-control-label type-label" for="cs10x">Manufactured</label>
-                                                            </div>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs11x" name="acs1" value="Lots/Land">
-                                                                <label class="custom-control-label type-label" for="cs11x">Lots/Land</label>
-                                                            </div>
-
                                                             <div class="custom-control custom-checkbox mt-3">
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs12x" name="acs1" value="John L.Scott">
                                                                 <label class="custom-control-label" for="cs12x">John L.Scott</label>
@@ -413,7 +407,9 @@
                                                       <input id="filterBuyers" type="button" class="custom_align" name="" value="SAVE">
                                                       <input type="button" id="cancelBuyers"  name="" value="CANCEL">
                                                     </div>
+                                               
                                                 </form>
+                                            </div>
                                             </div>
                                         </div>
 
@@ -942,18 +938,38 @@
 
         });
 
+        
         jQuery(".dm-main > button").click(function () {
-            if($("#home-tab").hasClass('active')){
+            const urlParams = new URLSearchParams(window.location.search);
+                const city = encodeURIComponent(urlParams.get('city', ''));
+                var type = urlParams.get('type');
+                setTimeout(function() {
+                    if($("#home-tab").hasClass('active')){
                 jQuery("#buyer-filter").slideUp();
                 jQuery("#seller-filter").slideToggle();
             }else{
                 jQuery("#seller-filter").slideUp();
                 jQuery("#buyer-filter").slideToggle();
             }
+                $('.seller-filter input[type="radio"]'). each(function(){ 
+                if($(this).val() == type){
+                    $(this).prop('checked', true);
+                }
+            });
+        }, 1000)
+
             
-
+            
+            $.each($("input[name='acs']:checked"), function(){
+                $(this).removeClass('unchecked-acs');
+            });
+            $.each($("input[name='acs']:not(:checked)"), function(){
+                if(!$(this).hasClass('unchecked-acs'))
+                {
+                    $(this).addClass('unchecked-acs');
+                }   
+            });
         });
-
         // $('.seller-filter input[type="checkbox"]'). click(function(){ 
         //     console.log($(this). is(":checked")+" "+$(this). is(":not(:checked)"));
                     

@@ -46,6 +46,8 @@ function get_search_filters() {
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
 
+    var type = url.searchParams.get('type')
+
     var filters = [];
 
     // work around for page load race condition..
@@ -62,7 +64,9 @@ function get_search_filters() {
     }
     else {
         filters.push('city=' + city);
-    }
+         $("#city-search-filter").append(
+            "<option value='" + city + "'>" + city + "</option>")
+          }
 
     if (agent_name != null) {
         filters.push('agent_name=' + agent_name);
@@ -82,7 +86,7 @@ function get_search_filters() {
 
     if (home_type) {
         filters.push('home_type=' + home_type);
-        set_home_type_radio(home_type)
+        set_home_type_radio(type)
     }
 
     var selected = 'selected_agent_ids=';
@@ -453,12 +457,29 @@ function init_search_events() {
         // do search
         if ($("#city-search-filter").val()) {
             var city = $("#city-search-filter").val()
+            var redio= $("form input[type='radio']:checked").val();
+                var i= 0;
+           
+
             alert(city)
+            alert(redio)
             var page_params = get_page_initial_results()
             delete page_params['lat']
             delete page_params['lng']
             page_params['search_input'] = city
             page_params['city'] = city
+            page_params['type']= redio 
+            $('.seller-filter input[type="checkbox"]'). each(function(){ 
+                //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
+                if($(this).is(":checked")){
+                    //alert('df');
+                    //console.log($("label[for='" + this.id + "']").text());
+                    i++;
+                    var data = "test"+i;
+                    page_params[data]= this.id.text(); 
+                    //addId($("label[for='" + this.id + "']").text(),true, 'checkbox');
+                }
+            });
             redirectResults(page_params)
         }
 

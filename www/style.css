@@ -3369,6 +3369,7 @@ ul {
     }
 }
 
+
 @media screen and (max-width: 991px)  and (min-width: 768px){
     .po-serach-wrapper {
         border:1px solid #A9A9A9;
@@ -3383,12 +3384,31 @@ ul {
         display: none!important;
     }
 
+    .pt-search-wrapper input.txt-cls
+    {
+        width: 200px !important;
+    }
+
+     .navbar-brand img {
+        width: 125px;
+    }
+
+    .srch-bar
+    {
+        margin-top: -38px !important;
+        width: 65% !important;
+    }
+    
     /* .akh-4 {
         position: initial;
     } */
 
     .sticky {
         top: 120px !important;
+    }
+
+    .tab-sticky{
+        top: 45px !important;
     }
 
     .navbar-brand img{
@@ -3411,9 +3431,17 @@ ul {
         margin-left: 150px !important;
     }
 
-    .type p {
+   .pt-search-wrapper .type p {
         width: 95px !important;
         font-size: 16px;
+    }
+
+    .srch-price{
+        width: 75px !important;
+    }
+    .srch-pricevalue
+    {
+        width: 70px !important;
     }
 }
 

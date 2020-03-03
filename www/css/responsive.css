@@ -312,7 +312,7 @@ Small Screen - Tablate
        /* width: 100%!important;
          display: block; */
         display: inline-block;
-        width: 300px !important; 
+        width: 300px ; 
         text-overflow: ellipsis;
         /* border: 1px solid #E5E5E5 !important; */
         border-radius: 8px;
