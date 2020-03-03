@@ -1259,7 +1259,7 @@ ul {
 
 .toc-two-left-one img {
     display: block;
-    width: 100%;
+    /* width: 100%; */
 }
 .toc-two-left-two-heading.custom {
     margin-top: 25px;
@@ -4345,3 +4345,6 @@ td{
         padding-right: 0px;
     }
     
+    .moreTxt{
+        color: skyblue;
+    }

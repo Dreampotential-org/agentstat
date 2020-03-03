@@ -160,18 +160,33 @@ function get_specilities() {
 function get_languages() {
   settings = get_settings('language-fluency', 'GET')
   $.ajax(settings).done(function (language_list) {
+
+    console.log("LANGUAGE",language_list)
     
-    var language_list = JSON.parse(response);
+    var language_list = JSON.parse(language_list);
     console.log(language_list);
     $.each(language_list, function(k, v) {
       console.log(v.id, v.val);
-      $('#languages').append(`<div class='col-lg-3 col-6'>
+      $('#languages').append(`<div class='col-lg-6 col-6'>
+
         <div class='lar-left'>
         <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
         <label for='lang-` + v.id + `'>` + v.val + `</label>
         </div>
       </div>
+    
       `);
+
+      $('#morelanguages').append(`
+      <div class='col-lg-6 col-6'>
+        <div class='lar-left'>
+        <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+        <label for='lang-` + v.id + `'>` + v.val + `</label>
+        </div>
+    </div>
+    
+  
+    `);
     });
   }).fail(function(err) {
     // alert('Got err');

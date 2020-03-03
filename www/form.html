@@ -131,8 +131,8 @@
                                             <!-- <input type="text" id="first_name" name="text" placeholder="Anna">
                                             <input class="ml-2" id="last_name" type="text" name="text" placeholder="Kovalevich"> -->
 
-                                            <input type="text" id="first_name" name="text" placeholder="Enter First Name">
-                                            <input class="ml-2" id="last_name" type="text" name="text" placeholder="Enter Last Name">
+                                            <input type="text" id="first_name" name="text" placeholder="Enter First Name" readonly>
+                                            <input class="ml-2" id="last_name" type="text" name="text" placeholder="Enter Last Name" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -230,17 +230,17 @@
                             </div>
 
                             <div class="licence ml-5">
-                                <div class="row">
+                                <div id="license" class="row">
                                     <div class="col-lg-3 align-self-end">
                                         <div class="li-left">
                                             <p class="mb-0" id="lebel">License Number </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
-                                        <div class="li-right">
-                                            <input id="license_number" style="width: 300px;" type="text" name="" placeholder="123456 WA - 08/01/2020 ">
-                                            <button id="cross"><span><i class="fas fa-times"></i></span></button>
-                                            <button>Add</button>
+                                        <div class="li-right input_fields_wrap">
+                                                <input id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020">
+                                                <!-- <button id="cross"><span><i class="fas fa-times"></i></span></button> -->
+                                                <button class="add_field_button">Add</button>
                                         </div>
                                     </div>
                                 </div>
@@ -310,11 +310,20 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <div class="la-right">
-                                            <div id="languages" class="row">
-
+                                            <div id="languages"  class="row">
+                                                
                                             </div>
+                                            
+
+                                            <div class="collapse" id="collapseExample">
+                                                <div id="morelanguages" class="row">
+
+                                                
+                                                </div>
+                                            </div>
+                                            <a class="trigger-more collapsed" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -357,33 +366,37 @@
                         <div class="addi-one">
                             <p>COMMISSION</p>
                             <div class="add-check">
-                                <label class="check-box">Lesting fees...
-								                <input type="checkbox">
+                                <input type="checkbox">
 								                <span class="checkmark"></span>
-							                  </label>
-                                <select id="listing_fee" name="carlist"> </select>
+                                <label class="check-box">Listing fees...
+							    </label>
+                                <div><select style="margin-left: 0px !important;"id="listing_fee" name="carlist"> </select></div>
                             </div>
+                            
                             <div class="add-check">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
                                 <label class="check-box">Buyer Rebate
-                                  <input type="checkbox">
-                                  <span class="checkmark"></span>
                                 </label>
-                                <select id="buyer_rebate" name="carlist">
+                                <div><select style="margin-left: 0px !important;" id="buyer_rebate" name="carlist"></select></div>
+                                <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
 							</select>
                             </div>
 
                             <div class="add-check">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
                                 <label class="check-box">Type of listing services
-                                  <input type="checkbox">
-                                  <span class="checkmark"></span>
+                                
                                 </label>
-                                <select id="type_of_listing_service" name="carlist">
-							                  </select>
+                               <div><select style="margin-left: 0px !important;" id="type_of_listing_service" name="carlist">
+                            </select></div> 
                             </div>
                             <div class="add-check">
-                                <label class="check-box">I Provide CMAs
-								<input id="provide_cma" type="checkbox">
+                                <input id="provide_cma" type="checkbox">
 								<span class="checkmark"></span>
+                                <label class="check-box">I Provide CMAs
+								
 							</label>
                             </div>
                         </div>
@@ -626,6 +639,36 @@
                 });
             });
         })(jQuery);
+
+        $('.trigger-more').click(function(){
+        if($(this).hasClass('collapsed'))  {
+        $(this).text('Less');
+        } else {
+        $(this).text('More');
+        }
+
+    });
+    
+        $(".add_field_button").click(function(){ 
+            // $("#license").append('<div class="row"><div class="col-6"> <input  id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 "></div><div class="col-3"><input type=text placeholder="State"> </div> <div class="col-3"><input type=date></div><button class="remove_field"><span><i class="fas fa-times"></i></span></button></div>')
+
+            $("#license").append('<div class="col-lg-3 align-self-end"> <div class="li-left"><p class="mb-0" id="lebel"> </p> </div> </div> <div class="col-lg-9">  <div class="li-right" style=" margin-top: 10px;""><input  id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 "> <input type="text" name="" id="state" placeholder="State" class="mr-2">  <input type="text" id="zipcode" name="" placeholder="Zipcode"><button class="remove_field"><span><i class="fas fa-times"></i></span></button></div> </div>')
+        });
+        $("#license").on("click",".remove_field", function(){
+             $(this).parent('div').remove(); 
+    })
+    $("#textbox").hide();
+    $("#buyer_rebate").click(function(){
+
+        console.log( $('#buyer_rebate').val())
+       
+        if($(this).val()=='7'){
+            $("#textbox").show();
+            } else {
+                $("#textbox").hide();
+            }
+    });
+
     </script>
 
 
