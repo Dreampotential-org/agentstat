@@ -71,6 +71,7 @@ body {
     background: white;
     color: #fdcb6e;
     margin: -42px 0px;
+    
 }
 
 .search_icon{
@@ -378,7 +379,7 @@ ul {
     /* border-bottom: 5px solid black; */
 
 }
-.activeLine{
+.main-menu-part ul li  .activeLine{
     border-bottom: 5px solid black;
 }    
   
@@ -3665,9 +3666,8 @@ ul {
     margin-right: 10px;
 }
 td{
-    /* padding: 0px !important; */
     width:25%;
-    /* width: 200px; */
+    
 }
 .custom_score{
     font-size: 14px;
@@ -4268,7 +4268,7 @@ td{
       .google_btn{
         background-color: white;
         color: black;
-        border: 1px solid #EEEEEE;
+        border: 1px solid #ced4da;
       }
       .line-text {
         width: 100%; 
@@ -4347,4 +4347,13 @@ td{
     
     .moreTxt{
         color: skyblue;
+    }
+    .facebookIcon{
+        margin: 0px 10px 0px 0px;
+        font-size: 20px;
+    }
+    .googleIcon{
+        width: 6%;
+        margin: 0px 10px 0px 0px;
+    
     }

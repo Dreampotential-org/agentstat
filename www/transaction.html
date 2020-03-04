@@ -63,6 +63,26 @@
         max-width: 700px; 
     }
 }
+table tr td:last-child {
+    border: none;
+    width: 15%;
+    text-align: center;
+
+}
+th, td{
+    border: 1px solid #dedbdb;
+    white-space: nowrap;
+    text-align: center;
+
+}
+.addBtn{
+    background: #CFE2F3;
+    color: #000099;
+    border: 1px solid;
+    padding: 0px 20px;
+    font-size: 22px;
+    font-weight: 500;
+}
 
 </style>
 
@@ -130,12 +150,12 @@
             <hr>
             <div class="pth-all-heading">
                 <br>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTransaction"><i class="fa fa-plus"></i> Add transaction</button>
+                <button  type="button" class="btn  addBtn" data-toggle="modal" data-target="#addTransaction"> <u>Add transaction</u></button>
                 <br><br>
             </div>
 
-            <table class="table-responsive table-striped table-bordered
-              mytable" id="transations-table" style="font-size:.9em">
+            <table class="table-responsive 
+              mytable" id="transations-table" style="    overflow-x: inherit;">
                 <tr class="table-heading">
                     <th>Status</th>
                     <th>List Price</th>
@@ -146,8 +166,9 @@
                     <th>Built</th>
                     <th>City</th>
                     <th>Home Type</th>
-                    <th>Notes</th>
+                    <th style="background: white;border: none;">Notes</th>
                 </tr>
+               
             </table>
         </div>
 
@@ -385,25 +406,25 @@
             </div>
         </div>
         <!-- Main jQuery -->
-        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="./js/jquery-3.4.1.min.js"></script>
 
         <!-- Bootstrap Propper jQuery -->
-        <script src="js/popper.js"></script>
+        <script src="./js/popper.js"></script>
 
         <!-- Bootstrap jQuery -->
-        <script src="js/bootstrap.js"></script>
+        <script src="./js/bootstrap.js"></script>
 
         <!-- Fontawesome Script -->
         <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
-        <script src="js/type.js"></script>
+        <script src="./js/type.js"></script>
 
-        <script src="js/owl.carousel.min.js"></script>
+        <script src="./js/owl.carousel.min.js"></script>
 
         <!-- Custom jQuery -->
-        <script src="js/scripts.js"></script>
+        <script src="./js/scripts.js"></script>
 
-        <script src="/js/conf.js"></script>
-        <script src="/js/transactions.js"></script>
+        <script src="./js/conf.js"></script>
+        <script src="./js/transactions.js"></script>
 
         <!-- Scroll-Top button -->
         <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>

@@ -126,11 +126,12 @@
 					</div>
 					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="form-group">
-                            <button type="button" id="login-btn" class="btn fb_btn login-btn btn-block"><i class="fa fa-phone" aria-hidden="true"></i>Sign Up with facebook</button>
+                            <button type="button" data-toggle="modal" data-target="#signupModal" class="btn fb_btn login-btn btn-block"><i class="fab fa-facebook-square facebookIcon"></i>Sign Up with facebook</button>
                         </div>
                         <div class="form-group">
-                            <button type="button" id="login-btn" class="btn google_btn login-btn btn-block"><i class="fa fa-google" aria-hidden="true"></i>Sign Up with Google</button>
+                            <button type="button" data-toggle="modal" data-target="#signupModal" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Sign Up with Google</button>
                         </div>
+                        
                         <div class="form-group">
                             <h2 class="line-text"><span>OR</span></h2>
                         </div>
@@ -161,7 +162,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-9 col-md-9 col-sm-6" style="margin-left: inherit;">
+                            <div class="col-6 col-md-6 col-sm-3" style="margin-left: 30px;">
                                 <div class="custom-control custom-checkbox text-center">
                                     <input type="checkbox" class="custom-control-input unchecked-acs" id="industry" name="Industry" value="Industry">
                                     <label class="custom-control-label" >Industry Professional </label>
@@ -172,7 +173,7 @@
                             <div class="col-12 col-md-12 col-sm-9 city_div">
                                 <select id='category' name="" placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
                                 <option value=''>Select your category</option>
-                                <option value='Real Estate Agent/ Broker'>Real Estate Agent/ Broker</option>
+                                <option value='secondoption' >Real Estate Agent/ Broker</option>
                                 <option value='Mortgage Lender'>Mortgage Lender</option>
                                 <option value='Home Improvement Services'>Home Improvement Services</option>
                                 <option value='Photographer'>Photographer</option>
@@ -184,54 +185,127 @@
                           </div>
                         </div>
                         <div class="form-group text-center">
-                            <button type="button" id="login-btn" class="btn login-btn buttonLogin">Continue</button>
+                            <button type="button" id="continuebtn" class="btn login-btn buttonLogin">Continue</button>
                         </div>
                         <div class="clearfix text-center">
                             <a href="#" class="pull-right continutxt" id="forgot-password">By continuing, you agree to AgentStat’s  Terms of Use</a>
                         </div>
                     </div>
 				</div>
-               
-                
             </form>
-           <!-- / <p class="text-center text-muted small">Don't have an account? <a href="/register.html">Sign up here!</a></p> -->
+        
         </div>
 
-
-
-        <!-- <div class="login-form">
-            <form action="" method="post">
-                <h3 class="text-center">
-                    Sign In To Your AgentStat Account
-                </h3>  
-                <div class="row h-100">
-                    <div class="col-lg-12 mx-auto">
-                        <div class="alert alert-danger msg" role="alert"
-                             style="display: none">
+             <!-- Modal -->
+             <div class="modal fade " id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-size modalSignup" role="document" style="transform: translateY(50%);">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div>
+                                <p>I am ....</p>
+                                <div class="form-group row text-center"> 
+                                    <div class="col-6 col-md-6 col-sm-3">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input unchecked-acs" id="homeowner" name="Homeowner" value="Homeowner  ">
+                                            <label class="custom-control-label" >Homeowner</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-6 col-sm-3">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input unchecked-acs" id="buyer" name="Buyer" value="Buyer">
+                                            <label class="custom-control-label" >Buyer</label>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+        
+                                <div class="form-group row">
+                                    <div class="col-9 col-md-9 col-sm-6" style="padding-left: 0px;">
+                                        <div class="custom-control custom-checkbox text-center">
+                                            <input type="checkbox" class="custom-control-input unchecked-acs" id="industry" name="Industry" value="Industry">
+                                            <label class="custom-control-label" >Industry Professional </label>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-12 col-md-12 col-sm-9 city_div">
+                                        <select id='category'  name="" placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
+                                        <option value=''>Select your category</option>
+                                        <option value='secondoption' >Real Estate Agent/ Broker</option>
+                                        <option value='Mortgage Lender'>Mortgage Lender</option>
+                                        <option value='Home Improvement Services'>Home Improvement Services</option>
+                                        <option value='Photographer'>Photographer</option>
+                                        <option value='Home Builder'>Home Builder</option>
+                                        <option value='Home Inspector'>Home Inspector</option>
+                                        <option value='Home Inspector'>Home Appraiser</option>
+                                        <option value='Home Inspector'>Other</option>
+                                        </select>
+                                  </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="button" id="continue" class="btn login-btn buttonLogin">Continue</button>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="email" class="form-control" id="email"  style="border-radius: 0px;" name="email" placeholder="Email address" required="required">				
+            </div>
+
+             <!-- Modal 2 -->
+             <div class="modal fade " id="continueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog  modalSignup" role="document">
+                    <div class="modal-content" style="width: 650px;">
+                        <div class="modal-body">
+                            <h4><b>To claim your profile, please enter your name here, find your profile, and click “claim profile” link under your profile picture on your profile page.</b></h4>
+                            <br>
+                            <div class="form">
+                                <div class="container">
+                                    <div class="form-wrapper">
+                                        <div class="row h-100">
+                                            <div class="col-lg-6 mx-auto">
+                                                <div class="alert alert-danger msg" role="alert"
+                                                     style="display: none">
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        <div >
+                                            <div class="form-name">
+                                                <div class="row">
+                                                    <div class="col-6 cod-md-4 col-sm-3">
+                                                        <div class="fn-right">
+                                                            <input type="text" class="form-control" id="full_name" name="text" placeholder="Full Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 cod-md-4 col-sm-3">
+                                                        <div class="fn-right">
+                                                            <select id='state' class='form-control' ></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 cod-md-4 col-sm-3">
+                                                        <div class="fn-left">
+                                                            <button id='search'
+                                                              style='margin-left:10px;' class="btn btn-success">Search</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="margin-l-s" id='select_agent' text-align='center'></div>
+                                            <br>
+                                            <div ><button disabled id='set_agent' class="btn btn-warning"> This is me</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password"  id="password" class="form-control" style="border-radius: 0px;"name="password" placeholder="Password" required="required">				
-                    </div>
-                </div>        
-                <div class="form-group">
-                    <button type="button" id="login-btn" class="btn btn-success login-btn btn-block">Sign in</button>
-                </div>
-                <div class="clearfix">
-                    <a href="#" class="pull-right" id="forgot-password">Forgot Password?</a>
-                </div>
-            </form>
-            <p class="text-center text-muted small">Don't have an account? <a href="/register.html">Sign up here!</a></p>
-        </div> -->
+            </div>
+
 
         <style>
             .login-form {
@@ -275,10 +349,15 @@
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
+            .modalSignup{
+                margin: 0 auto;
+                top: 25%;
+                transform: translateY(-50%);
+            }
         </style>
-
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
         <!-- Main jQuery -->
-        <script src="./js//jquery-3.4.1.min.js"></script>
+        <script src="./js/jquery-3.4.1.min.js"></script>
 
         <!-- Bootstrap Propper jQuery -->
         <script src="./js/popper.js"></script>
@@ -299,7 +378,7 @@
         <script src="./js/conf.js"></script>
         <script src="./js/login.js"></script>
         <script src="./js/main.js"></script>
-
+        <script src="./js/connect_agent.js"></script>
         <!-- Scroll-Top button -->
         <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
 
@@ -375,6 +454,29 @@
                     });
                 });
             })(jQuery);
+
+
+                $('#continue').click(function(){
+                   $('#signupModal').modal('hide');
+                   $('#continueModal').modal('show');
+                })
+
+                $('#continuebtn').click(function(){
+                    // $('#category').change(function(){
+                        var opval= $('#category').val();
+                        if(opval == 'secondoption'){
+                        $('#continueModal').modal('show');
+                        }
+                    //})
+                })
+                $('#continue').click(function(){
+                    // $('#category').change(function(){
+                        var opval= $('#category').val();
+                        if(opval == 'secondoption'){
+                        $('#continueModal').modal('show');
+                        }
+                    // /})
+                })
         </script>
 
     </body>

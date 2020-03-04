@@ -456,6 +456,7 @@ function init_search_events() {
     $(document).on("click", "#filterSellers", function() {
         // do search
         if ($("#city-search-filter").val()) {
+            
             var city = $("#city-search-filter").val()
             var redio= $("form input[type='radio']:checked").val();
                 var i= 0;

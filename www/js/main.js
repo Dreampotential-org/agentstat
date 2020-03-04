@@ -190,11 +190,11 @@ function init_maps() {
         types: ['address'],
     }
 
-    var autocomplete = new google.maps.places.Autocomplete(input, options);
-    autocomplete.addListener('place_changed', fillIn);
+    // var autocomplete = new google.maps.places.Autocomplete(input, options);
+    // autocomplete.addListener('place_changed', fillIn);
 
-    // var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
-    // autocomplete1.addListener('place_changed', fillIn);
+    var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
+    autocomplete1.addListener('place_changed', fillIn);
 }
 
 function get_page_initial_results() {
