@@ -6,7 +6,30 @@ function fillIn() {
     var results = getSearchParams(place)
     global_results = results
     console.log(results)
+    console.log(results.city)
+    // if(results.city == undefined){
+    //   $('#city-tab').text(results.state);
+    //   load_agent(true);
+    // }else
+    // $('#city-tab').text(results.city);
+    // load_agent(true);
     // redirectResults(results)
+}
+function fillIn1() {
+  var place = this.getPlace();
+  var addr = place.formatted_address
+
+  var results = getSearchParams(place)
+  global_results = results
+  console.log(results)
+  console.log(results.city)
+  if(results.city == undefined){
+    $('#city-tab').text(results.state);
+    load_agent(true);
+  }else
+  $('#city-tab').text(results.city);
+  load_agent(true);
+  // redirectResults(results)
 }
 
 
@@ -184,7 +207,7 @@ function getSearchParams(place) {
 
 function init_maps() {
     var input = document.getElementsByClassName('ser')[0];
-    var page_input = document.getElementById('search_input');;
+    var page_input = document.getElementById('search_input');
     var options = {
         types: ['address'],
     }
@@ -192,14 +215,15 @@ function init_maps() {
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.addListener('place_changed', fillIn);
 
-    // var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
-    // autocomplete1.addListener('place_changed', fillIn);
+    var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
+    autocomplete1.addListener('place_changed', fillIn1);
 }
 
 function get_page_initial_results() {
 
     const urlParams = new URLSearchParams(window.location.search);
-
+   
+    
     return {
         'search_input': urlParams.get('search_input'),
         'city': urlParams.get('city'),

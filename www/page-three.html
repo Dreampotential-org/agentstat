@@ -458,10 +458,17 @@
                         </li>
                         <li class="col-6 col-sm-6 pull-right">
                             <div class="d-flex justify-content-center h-100" style="float:right;">
-                                <div class="searchbar">
+                                <!-- <div class="searchbar">
                                     <input id="search_input" class="search_input" type="text" name="search-location" placeholder="Search..." autocomplete="off">
                                     <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                                </div> -->
+                                <div class="searchbar" id="search-button">
+                                    <input id="search_input" class="search_input_text " type="text" name="search-location" placeholder="Search..." autocomplete="off" style="display:none;">
+                                    <a  href="#" class="search_icon"><i   class="fas fa-search"></i></a>
                                 </div>
+                                <!-- <input type="button" id="search-button" value="search"/>
+
+                                <input type="text" id="search-text" style="display:none;"/>   -->
                             </div>
                         </li>
                     </ul>
@@ -873,8 +880,25 @@
          });
       
         });
+        // $('#search-button').hover(function () {
+        //     $('#search_input').show();		
+        // });
 
-      
+        $('#search-button').mouseover(function() { 
+            $('#search_input').show(); 
+                
+            })  
+            $('#search-button').mouseleave(function() { 
+                var txt = $('#search_input');  
+                if (txt.val() != null && txt.val()!= '') {  
+                    $('#search_input').show(); 
+                } else {  
+                     $('#search_input').hide(); 
+                    console.log('Please enter text' + txt.val())  
+                }  
+            })
+        
+       
       </script>
     <!-- <script>
         $(document).ready(function () {

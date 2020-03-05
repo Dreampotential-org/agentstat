@@ -34,12 +34,6 @@ body {
 }
 /*search form of location=============*/
  .searchbar{
-    /* margin-bottom: auto;
-    margin-top: auto;
-    height: 55px;
-    background-color: #134E60;
-    border-radius: 30px;
-    padding: 10px; */
     margin-bottom: auto;
     margin-top: auto;
     height: 50px;
@@ -60,7 +54,7 @@ body {
     transition: width 0.4s linear;
 }
 
-.searchbar:hover > .search_input{
+ /*.searchbar:hover > .search_input{
     padding: 0 10px;
     width: 100%;
     caret-color:red;
@@ -72,10 +66,16 @@ body {
     color: #fdcb6e;
     margin: -42px 0px;
     
+}*/
+
+.search_input_text{
+    background-color: #134E60;
+    border: none !important;
+    color: white;
 }
 
 .search_icon{
-    height: 40px;
+    height: 30px;
     width: 40px;
     float: right;
     display: flex;
@@ -83,7 +83,9 @@ body {
     align-items: center;
     border-radius: 50%;
     color:white;
-    text-decoration:none;
+} 
+.search_icon:hover{
+    color: white;
 }
 
 /*========================================*/

@@ -21,17 +21,25 @@ function populate_city_search_menu() {
 }
 
 
+// function show_loading_screen() {
+//     swal({
+//         title: "Crunching Numbers!",
+//         text: "Hang tight while we crunch the data to find your exact match",
+//         icon: "info",
+//         buttons: false,
+//         closeOnEsc: false,
+//         closeOnClickOutside: false,
+//     });
+// }
+
 function show_loading_screen() {
     swal({
         title: "Crunching Numbers!",
-        text: "Hang tight while we crunch the data to find your exact match",
-        icon: "info",
+        text:  "Hang tight while we crunch the numbers!",
+        imageUrl: "img/pop.png",
         buttons: false,
-        closeOnEsc: false,
-        closeOnClickOutside: false,
     });
 }
-
 
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
