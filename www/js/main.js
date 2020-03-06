@@ -208,15 +208,20 @@ function getSearchParams(place) {
 function init_maps() {
     var input = document.getElementsByClassName('ser')[0];
     var page_input = document.getElementById('search_input');
+    console.log("page_input",page_input)
     var options = {
         types: ['address'],
     }
+    
 
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.addListener('place_changed', fillIn);
+    if(page_input != null){
+      var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
+      autocomplete1.addListener('place_changed', fillIn1);
+    }
 
-    var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
-    autocomplete1.addListener('place_changed', fillIn1);
+   
 }
 
 function get_page_initial_results() {

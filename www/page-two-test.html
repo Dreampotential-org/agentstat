@@ -215,22 +215,22 @@
                                                                 <label class="custom-control-label type-label" for="cs3">Multi-family</label>
                                                             </div>
 
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="custom-control custom-checkbox mt-4 custom_radio_btn">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs9" name="acs" value="Townhomes">
+                                                                <label class="custom-control-label type-label" for="cs9">Townhomes</label>
                                                             </div>
-                                                            <div class="col-sm-6 ">
-                                                            <div class="custom-control custom-checkbox mt-4">
-                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs9" name="acs" value="Townhomes">
-                                                                    <label class="custom-control-label type-label" for="cs9">Townhomes</label>
-                                                                </div>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs10" name="acs" value="Manufactured">
-                                                                    <label class="custom-control-label type-label" for="cs10">Manufactured</label>
-                                                                </div>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
-                                                                    <label class="custom-control-label type-label" for="cs11xx1">Lots/Land</label>
-                                                                </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs10" name="acs" value="Manufactured">
+                                                                <label class="custom-control-label type-label" for="cs10">Manufactured</label>
                                                             </div>
-                                                            <div class="col-sm-6 ">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
+                                                                <label class="custom-control-label type-label" for="cs11xx1">Lots/Land</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 ">
                                                             <span >Brokerage</span>
                                                             
                                                             <div class="custom-control custom-checkbox">
@@ -252,9 +252,9 @@
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs7" name="acs" value="Windermere">
                                                                 <label class="custom-control-label" for="cs7">Windermere</label>
                                                             </div>
-                                                            </div>
+                                                        </div>
                                                         <div class="col-sm-6">
-                                                            <div class="custom-control custom-checkbox mt-3">
+                                                            <div class="custom-control custom-checkbox mt-3 custom_radio_btn">
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs122" name="acs" value="John L.Scott">
                                                                 <label class="custom-control-label" for="cs122">John L.Scott</label>
                                                             </div>
@@ -286,15 +286,16 @@
                                                      
                                                    
                                                    
-                                                    <div class="custom_btn ">
-                                                        <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
-                                                        <input type="button" id="cancelFilter"  name="" value="CANCEL">
-                                                      </div>
+                                                            <div class="custom_btn ">
+                                                                <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
+                                                                <input type="button" id="cancelFilter"  name="" value="CANCEL">
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    </div>
-                                                </div>
+                                                
                                                 </form>
                                             </div>
+                                            <!-- </div> -->
                                             <div class=" dm-part " id="buyer-filter" >
                                                 <form>
                                                     <span >Location</span>
@@ -413,11 +414,11 @@
                                                
                                                 </form>
                                             </div>
-                                            </div>
                                         </div>
+                                    <!-- </div> -->
 
-                                    </li>
-                                </ul>
+                                </li>
+                            </ul>
                             </div>
                         </div>
                     </div>
@@ -779,11 +780,11 @@
                             </div>
 
                         </div>							
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+    <!-- </div> -->
     <!-- pt-tab area end -->
 
 
@@ -959,7 +960,7 @@
                     $(this).prop('checked', true);
                 }
             });
-        }, 1000)
+        }, 100)
 
             
             

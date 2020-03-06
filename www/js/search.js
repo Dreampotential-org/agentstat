@@ -37,7 +37,8 @@ function show_loading_screen() {
         title: "Crunching Numbers!",
         text:  "Hang tight while we crunch the numbers!",
         imageUrl: "img/pop.png",
-        buttons: false,
+        showCancelButton: false,
+        showConfirmButton: false
     });
 }
 
