@@ -1,10 +1,10 @@
 function init() {
 
-  session_id = localStorage.getItem('session_id');
-  email = localStorage.getItem('email');
-  if(session_id === null || email === null) {
-    window.location = '/login.html';
-  }
+  // session_id = localStorage.getItem('session_id');
+  // email = localStorage.getItem('email');
+  // if(session_id === null || email === null) {
+  //   window.location = '/login.html';
+  // }
 
   load_states()
   init_events_connect()

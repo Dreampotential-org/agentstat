@@ -38,6 +38,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
     <!-- header-area start -->
+    <img src="blank-profile-picture.png" alt="">
     <div class="header-area two-header-area sticky-top bg-white" style="z-index: 50000;">
         <div class="container">
             <div class="row">
@@ -56,7 +57,7 @@
                             </ul>
                             <div class="main-menu-part form-menu">
                                 <ul class="float-left form-ulli-left">
-                                    <li> <a href="#" class="activeLine">HOME </a></li>
+                                    <li> <a href="#" >HOME </a></li>
                                     <li><a href="transaction.html">TRANSACTIONS </a></li>
                                     <li><a href="#">DASHBOARD  </a></li>
                                     <li><a href="#">REFERRALS </a></li>
@@ -64,12 +65,12 @@
                                 <ul class="float-right user-icon form-ulli-right ">
                                     <li>
                                         <div class="dropdown profile show">
-                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="dropdown-toggle activeLine" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span><i class="fas fa-user-circle"></i></span>
                                             </a>
 
                                             <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item " href="#">
                                                     <p>Profile Settings</p>
                                                     <span>Edit your profile info and reviews</span>
                                                 </a>
@@ -174,7 +175,9 @@
                                 <div class="row">
                                     <div class="col-lg-3 align-self-center">
                                         <div class="sn-left">
-                                            <p id="lebel">Screen name <span id="start">**</span></p>
+                                            <p id="lebel">Screen name 
+                                                <!-- <span id="start">**</span> -->
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
@@ -193,7 +196,7 @@
                                 <div class="row">
                                     <div class="col-lg-3 align-self-center">
                                         <div class="sn-left">
-                                            <p id="lebel">Connected Agent</p>
+                                            <p id="lebel">Agent Profile</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
@@ -209,7 +212,9 @@
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="file-left">
-                                            <p id="lebel">Profile photo <span id="start">**</span> </p>
+                                            <p id="lebel">Profile photo 
+                                                <!-- <span id="start">**</span>  -->
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
@@ -217,7 +222,8 @@
                                             <input id="picture" type="file" name="file" />
                                         </div>
                                         <div class="up-photo">
-                                            <img id="profile-img" src="img/s11.png" alt="">
+                                            <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
+                                            <img id="profile-img" src="img/blank-profile-picture.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -334,7 +340,7 @@
                                         <div class="year-wrapper">
                                             <p>Years in business: 5 Years</p>
                                             <span>Specialties</span>
-                                            <div class="year-wrapper-check" id="specialties">
+                                            <div class="year-wrapper-check row" id="specialties">
                                             </div>
                                         </div>
                                     </div>
@@ -452,7 +458,7 @@
                             <div class="owl-carousel form-slider owl-theme">
                                 <div class="item">
                                     <div class="item-slide text-center">
-                                        <button><span><i class="far fa-times-circle"></i></span></button>
+                                        <button><span><i class="fas fa-times"></i></span></button>
                                         <p>Anna K - 11/20/2019</p>
                                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -461,7 +467,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="item-slide text-center">
-                                        <button><span><i class="far fa-times-circle"></i></span></button>
+                                        <button><span><i class="fas fa-times"></i></span></button>
                                         <p>Anna K - 11/20/2019</p>
                                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -470,7 +476,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="item-slide text-center">
-                                        <button><span><i class="far fa-times-circle"></i></span></button>
+                                        <button><span><i class="fas fa-times"></i></span></button>
                                         <p>Anna K - 11/20/2019</p>
                                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -536,20 +542,20 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
 
     <!-- Main jQuery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
 
     <!-- Bootstrap Propper jQuery -->
-    <script src="js/popper.js"></script>
+    <script src="./js/popper.js"></script>
 
     <!-- Bootstrap jQuery -->
-    <script src="js/bootstrap.js"></script>
+    <script src="./js/bootstrap.js"></script>
 
     <!-- Fontawesome Script -->
     <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
 
-    <script src="js/fileinput.js"></script>
+    <script src="./js/fileinput.js"></script>
 
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
 
     <!-- Custom jQuery -->
     <script src="./js/scripts.js"></script>
@@ -652,7 +658,7 @@
         $(".add_field_button").click(function(){ 
             // $("#license").append('<div class="row"><div class="col-6"> <input  id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 "></div><div class="col-3"><input type=text placeholder="State"> </div> <div class="col-3"><input type=date></div><button class="remove_field"><span><i class="fas fa-times"></i></span></button></div>')
 
-            $("#license").append('<div class="col-lg-3 align-self-end"> <div class="li-left"><p class="mb-0" id="lebel"> </p> </div> </div> <div class="col-lg-9">  <div class="li-right" style=" margin-top: 10px;""><input  id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 "> <input type="text" name="" id="state" placeholder="State" class="mr-2">  <input type="text" id="zipcode" name="" placeholder="Zipcode"><button class="remove_field"><span><i class="fas fa-times"></i></span></button></div> </div>')
+            $("#license").append('<div class="col-lg-3 align-self-end"> <div class="li-left"><p class="mb-0" id="lebel"> </p> </div> </div> <div class="col-lg-9">  <div class="li-right" style=" margin-top: 10px;""><input  id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 "><button class="remove_field"><span><i class="fas fa-times"></i></span></button></div> </div>')
         });
         $("#license").on("click",".remove_field", function(){
              $(this).parent('div').remove(); 

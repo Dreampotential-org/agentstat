@@ -98,8 +98,194 @@ function load_agent(ignore_city = false) {
 
         $(".alist").remove();
         $.each(data['agent_lists'], function (k, v) {
-            
+            console.log("HERE",data['agent_lists']['description']);
+            if(data['agent_lists']['description'] == undefined){
 
+                if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
+                    var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
+                } else {
+                    var arrowStyle = ' <i class="fa fa-long-arrow-down" style="font-size:18px;color:red"></i>';
+                }
+                    var note = ``;
+                $(`<tr class='alist alist`+k+`' onclick="passBtnID('add-public-note-` + v['id'] + `')">
+                    <td>` + v['status'] + `</td>
+                    <td>` + currencyFormat(v['list_price_int']) + `</td>
+                    <td>` + currencyFormat(v['sold_price_int']) + arrowStyle + `</td>
+                    <td>` + v['days_on_market'] + arrowStyle + `</td>
+                    <td>` + v['list_date'] + `</td>
+                    <td style="white-space: nowrap;">` + v['address_text'] + `</td>
+                    <td>` + v['year_built'] + `</td>
+                    <td>` + v['city'] + `</td>
+                    <td>` + v['home_type'] + `</td>
+                    <td>` + note + `</td>
+          </tr>
+             <tr class="fidout" id="add-public-note-` + v['id'] + `" style="display: none; background: lightgray;">
+            <td colspan="10" style="padding: 6px 13px; color:gray">
+              <div class="text-left title_color">
+              ` + v['address_text'] + `
+              <table style="width:100%">
+    
+                <tr>
+                  <td style="width:35%">
+                    <table style="width:100%">
+                    
+                        <tr>
+                            <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
+                              <strong style='color:black'>Listed:</strong> <br>
+                              ` + v['list_date'] + ` <br>
+                              ` + currencyFormat(v['list_price_int']) + `
+                            </td>
+                            <td style='padding: 5px 10px;color: gray;border:none'>
+                              <strong style='color:black'>Sold:</strong> <br>
+                              ` + v['sold_date'] + ` <br>
+                              ` + currencyFormat(v['sold_price_int']) + `
+                            </td>
+                        </tr>
+                        <tr>
+                          <td colspan=2 style='text-align: left;padding: 5px 10px;color: gray;'>
+                          <strong style='color:black'>Days on market:</strong> ` + v['days_on_market'] + ` <br>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                <td style="width:5%;border-left: 2px solid #B1B1B4;"></td>
+                    <td style="width:60%">
+                      <table style="width:100%">
+                          <tr>
+                            <!-- <td style='text-align: left;padding: 5px 10px;color: gray;'">
+                              <strong style='color:black'>Type</strong>   &nbsp;&nbsp;&nbsp;` + v['home_type'] + ` <br>
+                              <strong style='color:black'>Beds</strong>  &nbsp;&nbsp;&nbsp;` + v['beds'] + ` <br>
+                              <strong style='color:black'>Baths</strong>  &nbsp;&nbsp;&nbsp;` + v['baths'] + ` <br>
+                              <strong style='color:black'>Sqft</strong>  &nbsp;&nbsp;&nbsp;1,550 <br>
+                              <strong style='color:black'>Lot</strong>  &nbsp;&nbsp;&nbsp;0.45<br>
+                              <strong style='color:black'>Year Built</strong>  &nbsp;&nbsp;&nbsp;` + v['year_built'] + ` <br>
+                               <strong style='color:black'>State</strong>  &nbsp;&nbsp;&nbsp;` + v['state'] + ` <br>
+                              <strong style='color:black'>Country</strong>  &nbsp;&nbsp;&nbsp;King<br>
+                            </td>-->
+                            <td  style="padding:0px">
+                                <strong style='color:black'>Type</strong>
+                            </td>
+                        
+                            <td  style="padding:0px">
+                                ` + v['home_type'] + `
+                            </td>
+                            <td></td>
+                            <td style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Heating</strong>
+                            </td>
+                            <td style="padding:0px;">
+                                Forced Air
+                            </td>
+    
+                        </tr>
+                        <tr>
+                            <td style="padding:0px">
+                                <strong style='color:black'>Beds</strong>
+                            </td>
+                            <td  style="padding:0px">
+                                ` + v['beds'] + `
+                            </td>
+                            <td ></td>
+                            <td style="padding:0px ;font-size: 16px;">
+                            <strong style='color:black'>Cooling</strong>
+                                
+                            </td>
+                            <td  style="padding:0px">
+                                None
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  style="padding:0px">
+                                <strong style='color:black'>Baths</strong>
+                            </td>
+                            <td  style="padding:0px">
+                                ` + v['baths'] + `
+                            </td>
+                            <td ></td>
+                            <td style="padding:0px ;font-size: 16px;">
+                            <strong style='color:black'>Parking</strong>
+                            </td>
+                            <td style="padding:0px">
+                              Attached Garage
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  style="padding:0px">
+                                <strong style='color:black'>Sqft</strong>
+                            </td>
+                            <td  style="padding:0px">
+                                1,550
+                            </td>
+                            <td ></td>
+                            <td style="padding:0px;font-size: 16px;">
+                            <strong style='color:black'>Basement</strong>
+                                
+                            </td>
+                            <td style="padding:0px">
+                                None
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td  style="padding:0px ;font-size: 16px;">
+                                <strong style='color:black'>Lot</strong>
+                            </td>
+                            <td  style="padding:0px"> 
+                                0.45 acres
+                            </td>
+                            <td></td>
+                            <td style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Flooring</strong>
+                                
+                            </td>
+                            <td  style="padding:0px">
+                               Laminate, Hardwood
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td  style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Year Built</strong>
+                            </td>
+                            <td  style="padding:0px"> 
+                            ` + v['year_built'] + `
+                            </td>
+                            <td></td>
+                                <td style="padding:0px">
+                                <strong style='color:black'>Roof</strong>
+                            </td>
+                            <td style="padding:0px">
+                                Composition
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td  style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Country</strong>
+                            </td>
+                            <td  style="padding:0px"> 
+                            King
+                            </td>
+                            <td ></td>
+    
+                            <td style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Foundation</strong>
+                            </td>
+                            <td  style="padding:0px">
+                               Crawl Raised
+                            </td>
+                        </tr>
+                    </tr>
+                      </table>
+                  </td>
+                  </tr>
+              </table>
+              </div>
+              </td>
+          </tr>`
+                
+                        ).insertAfter("#transations");
+                    }else{
             if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
                 var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
             } else {
@@ -110,189 +296,192 @@ function load_agent(ignore_city = false) {
             } else {
                 var note = `<i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i>`;
             }
-
+            
             $(`<tr class='alist alist`+k+`' onclick="passBtnID('add-public-note-` + v['id'] + `')">
-        <td>` + v['status'] + `</td>
-        <td>` + currencyFormat(v['list_price_int']) + `</td>
-        <td>` + currencyFormat(v['sold_price_int']) + arrowStyle + `</td>
-        <td>` + v['days_on_market'] + arrowStyle + `</td>
-        <td>` + v['list_date'] + `</td>
-        <td style="white-space: nowrap;">` + v['address_text'] + `</td>
-        <td>` + v['year_built'] + `</td>
-        <td>` + v['city'] + `</td>
-        <td>` + v['home_type'] + `</td>
-        <td>` + note + `</td>
-      </tr>
-         <tr class="fidout" id="add-public-note-` + v['id'] + `" style="display: none; background: lightgray;">
-        <td colspan="10" style="padding: 6px 13px; color:gray">
-          <div class="form-group">
-            <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
-            <textarea class="public-note-text form-control" id="note-` + v['id'] + `" rows="2" name="public-note" readonly></textarea>
-          </div>
-          <div class="text-left title_color">
-          ` + v['address_text'] + `
-          <table style="width:100%">
+            <td>` + v['status'] + `</td>
+            <td>` + currencyFormat(v['list_price_int']) + `</td>
+            <td>` + currencyFormat(v['sold_price_int']) + arrowStyle + `</td>
+            <td>` + v['days_on_market'] + arrowStyle + `</td>
+            <td>` + v['list_date'] + `</td>
+            <td style="white-space: nowrap;">` + v['address_text'] + `</td>
+            <td>` + v['year_built'] + `</td>
+            <td>` + v['city'] + `</td>
+            <td>` + v['home_type'] + `</td>
+            <td>` + note + `</td>
+          </tr>
+     <tr class="fidout" id="add-public-note-` + v['id'] + `" style="display: none; background: lightgray;">
+         <td colspan="10" style="padding: 6px 13px; color:gray">
+            <div class="form-group">
+                <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
+                <textarea class="public-note-text form-control" id="note-` + v['id'] + `" rows="2" name="public-note" readonly></textarea>
+            </div>
+            <div class="text-left title_color">
+            ` + v['address_text'] + `
+            <table style="width:100%">
 
-            <tr>
-              <td style="width:35%">
-                <table style="width:100%">
-                
-                    <tr>
-                        <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
-                          <strong style='color:black'>Listed:</strong> <br>
-                          ` + v['list_date'] + ` <br>
-                          ` + currencyFormat(v['list_price_int']) + `
-                        </td>
-                        <td style='padding: 5px 10px;color: gray;border:none'>
-                          <strong style='color:black'>Sold:</strong> <br>
-                          ` + v['sold_date'] + ` <br>
-                          ` + currencyFormat(v['sold_price_int']) + `
-                        </td>
-                    </tr>
-                    <tr>
-                      <td colspan=2 style='text-align: left;padding: 5px 10px;color: gray;'>
-                      <strong style='color:black'>Days on market:</strong> ` + v['days_on_market'] + ` <br>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-            <td style="width:5%;border-left: 2px solid #B1B1B4;"></td>
-                <td style="width:60%">
-                  <table style="width:100%">
-                      <tr>
-                        <!-- <td style='text-align: left;padding: 5px 10px;color: gray;'">
-                          <strong style='color:black'>Type</strong>   &nbsp;&nbsp;&nbsp;` + v['home_type'] + ` <br>
-                          <strong style='color:black'>Beds</strong>  &nbsp;&nbsp;&nbsp;` + v['beds'] + ` <br>
-                          <strong style='color:black'>Baths</strong>  &nbsp;&nbsp;&nbsp;` + v['baths'] + ` <br>
-                          <strong style='color:black'>Sqft</strong>  &nbsp;&nbsp;&nbsp;1,550 <br>
-                          <strong style='color:black'>Lot</strong>  &nbsp;&nbsp;&nbsp;0.45<br>
-                          <strong style='color:black'>Year Built</strong>  &nbsp;&nbsp;&nbsp;` + v['year_built'] + ` <br>
-                           <strong style='color:black'>State</strong>  &nbsp;&nbsp;&nbsp;` + v['state'] + ` <br>
-                          <strong style='color:black'>Country</strong>  &nbsp;&nbsp;&nbsp;King<br>
-                        </td>-->
-                        <td  style="padding:0px">
-                            <strong style='color:black'>Type</strong>
-                        </td>
+                <tr>
+                <td style="width:35%">
+                    <table style="width:100%">
                     
-                        <td  style="padding:0px">
-                            ` + v['home_type'] + `
+                        <tr>
+                            <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
+                            <strong style='color:black'>Listed:</strong> <br>
+                            ` + v['list_date'] + ` <br>
+                            ` + currencyFormat(v['list_price_int']) + `
+                            </td>
+                            <td style='padding: 5px 10px;color: gray;border:none'>
+                            <strong style='color:black'>Sold:</strong> <br>
+                            ` + v['sold_date'] + ` <br>
+                            ` + currencyFormat(v['sold_price_int']) + `
+                            </td>
+                        </tr>
+                        <tr>
+                        <td colspan=2 style='text-align: left;padding: 5px 10px;color: gray;'>
+                        <strong style='color:black'>Days on market:</strong> ` + v['days_on_market'] + ` <br>
                         </td>
-                        <td></td>
-                        <td style="padding:0px;font-size: 16px;">
-                            <strong style='color:black'>Heating</strong>
-                        </td>
-                        <td style="padding:0px;">
-                            Forced Air
-                        </td>
+                        </tr>
+                    </table>
+                    </td>
+                <td style="width:5%;border-left: 2px solid #B1B1B4;"></td>
+                    <td style="width:60%">
+                    <table style="width:100%">
+                        <tr>
+                            <!-- <td style='text-align: left;padding: 5px 10px;color: gray;'">
+                            <strong style='color:black'>Type</strong>   &nbsp;&nbsp;&nbsp;` + v['home_type'] + ` <br>
+                            <strong style='color:black'>Beds</strong>  &nbsp;&nbsp;&nbsp;` + v['beds'] + ` <br>
+                            <strong style='color:black'>Baths</strong>  &nbsp;&nbsp;&nbsp;` + v['baths'] + ` <br>
+                            <strong style='color:black'>Sqft</strong>  &nbsp;&nbsp;&nbsp;1,550 <br>
+                            <strong style='color:black'>Lot</strong>  &nbsp;&nbsp;&nbsp;0.45<br>
+                            <strong style='color:black'>Year Built</strong>  &nbsp;&nbsp;&nbsp;` + v['year_built'] + ` <br>
+                            <strong style='color:black'>State</strong>  &nbsp;&nbsp;&nbsp;` + v['state'] + ` <br>
+                            <strong style='color:black'>Country</strong>  &nbsp;&nbsp;&nbsp;King<br>
+                            </td>-->
+                            <td  style="padding:0px">
+                                <strong style='color:black'>Type</strong>
+                            </td>
+                        
+                            <td  style="padding:0px">
+                                ` + v['home_type'] + `
+                            </td>
+                            <td></td>
+                            <td style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Heating</strong>
+                            </td>
+                            <td style="padding:0px;">
+                                Forced Air
+                            </td>
 
-                    </tr>
-                    <tr>
-                        <td style="padding:0px">
-                            <strong style='color:black'>Beds</strong>
-                        </td>
-                        <td  style="padding:0px">
-                            ` + v['beds'] + `
-                        </td>
-                        <td ></td>
-                        <td style="padding:0px ;font-size: 16px;">
-                        <strong style='color:black'>Cooling</strong>
-                            
-                        </td>
-                        <td  style="padding:0px">
-                            None
-                        </td>
-                    </tr>
-                    <tr>
-                        <td  style="padding:0px">
-                            <strong style='color:black'>Baths</strong>
-                        </td>
-                        <td  style="padding:0px">
-                            ` + v['baths'] + `
-                        </td>
-                        <td ></td>
-                        <td style="padding:0px ;font-size: 16px;">
-                        <strong style='color:black'>Parking</strong>
-                        </td>
-                        <td style="padding:0px">
-                          Attached Garage
-                        </td>
-                    </tr>
-                    <tr>
-                        <td  style="padding:0px">
-                            <strong style='color:black'>Sqft</strong>
-                        </td>
-                        <td  style="padding:0px">
-                            1,550
-                        </td>
-                        <td ></td>
-                        <td style="padding:0px;font-size: 16px;">
-                        <strong style='color:black'>Basement</strong>
-                            
-                        </td>
-                        <td style="padding:0px">
-                            None
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td  style="padding:0px ;font-size: 16px;">
-                            <strong style='color:black'>Lot</strong>
-                        </td>
-                        <td  style="padding:0px"> 
-                            0.45 acres
-                        </td>
-                        <td></td>
-                        <td style="padding:0px;font-size: 16px;">
-                            <strong style='color:black'>Flooring</strong>
-                            
-                        </td>
-                        <td  style="padding:0px">
-                           Laminate, Hardwood
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td  style="padding:0px;font-size: 16px;">
-                            <strong style='color:black'>Year Built</strong>
-                        </td>
-                        <td  style="padding:0px"> 
-                        ` + v['year_built'] + `
-                        </td>
-                        <td></td>
+                        </tr>
+                        <tr>
                             <td style="padding:0px">
-                            <strong style='color:black'>Roof</strong>
-                        </td>
-                        <td style="padding:0px">
-                            Composition
-                        </td>
-                    </tr>
+                                <strong style='color:black'>Beds</strong>
+                            </td>
+                            <td  style="padding:0px">
+                                ` + v['beds'] + `
+                            </td>
+                            <td ></td>
+                            <td style="padding:0px ;font-size: 16px;">
+                            <strong style='color:black'>Cooling</strong>
+                                
+                            </td>
+                            <td  style="padding:0px">
+                                None
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  style="padding:0px">
+                                <strong style='color:black'>Baths</strong>
+                            </td>
+                            <td  style="padding:0px">
+                                ` + v['baths'] + `
+                            </td>
+                            <td ></td>
+                            <td style="padding:0px ;font-size: 16px;">
+                            <strong style='color:black'>Parking</strong>
+                            </td>
+                            <td style="padding:0px">
+                            Attached Garage
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  style="padding:0px">
+                                <strong style='color:black'>Sqft</strong>
+                            </td>
+                            <td  style="padding:0px">
+                                1,550
+                            </td>
+                            <td ></td>
+                            <td style="padding:0px;font-size: 16px;">
+                            <strong style='color:black'>Basement</strong>
+                                
+                            </td>
+                            <td style="padding:0px">
+                                None
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td  style="padding:0px;font-size: 16px;">
-                            <strong style='color:black'>Country</strong>
-                        </td>
-                        <td  style="padding:0px"> 
-                        King
-                        </td>
-                        <td ></td>
+                        <tr>
+                            <td  style="padding:0px ;font-size: 16px;">
+                                <strong style='color:black'>Lot</strong>
+                            </td>
+                            <td  style="padding:0px"> 
+                                0.45 acres
+                            </td>
+                            <td></td>
+                            <td style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Flooring</strong>
+                                
+                            </td>
+                            <td  style="padding:0px">
+                            Laminate, Hardwood
+                            </td>
+                        </tr>
 
-                        <td style="padding:0px;font-size: 16px;">
-                            <strong style='color:black'>Foundation</strong>
-                        </td>
-                        <td  style="padding:0px">
-                           Crawl Raised
-                        </td>
+                        <tr>
+                            <td  style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Year Built</strong>
+                            </td>
+                            <td  style="padding:0px"> 
+                            ` + v['year_built'] + `
+                            </td>
+                            <td></td>
+                                <td style="padding:0px">
+                                <strong style='color:black'>Roof</strong>
+                            </td>
+                            <td style="padding:0px">
+                                Composition
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td  style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Country</strong>
+                            </td>
+                            <td  style="padding:0px"> 
+                            King
+                            </td>
+                            <td ></td>
+
+                            <td style="padding:0px;font-size: 16px;">
+                                <strong style='color:black'>Foundation</strong>
+                            </td>
+                            <td  style="padding:0px">
+                            Crawl Raised
+                            </td>
+                        </tr>
                     </tr>
+                    </table>
+                </td>
                 </tr>
-                  </table>
-              </td>
-              </tr>
-          </table>
-          </div>
-          </td>
-      </tr>`
-                    ).insertAfter("#transations");
-        })
+            </table>
+            </div>
+            </td>
+        </tr>`
+                
+        ).insertAfter("#transations");
+    }
+    })
+    
 
         pagination(data['agent_lists'].length);
         console.log("HERE",data['agent_lists']);

@@ -15,12 +15,12 @@ function get_combo(callback, end_point) {
 
 
 function display_profile(profile) {
-  // console.log(profile_data);
+  //console.log(profile);
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
   $('#phone_number').val(profile.phone_number);
   $('#email').val(profile.email);
-  $('#screen_name').val(profile.screen_name);
+  $('#screen_name').val(profile.screen_name.replace(/-/g , ''));
   $('#profile_slug').text(profile.screen_name);
   $('#license_number').val(profile.license_number);
   $('#brokerage_name').val(profile.brokerage_name);
@@ -36,9 +36,15 @@ function display_profile(profile) {
   $('#provide_cma').prop('checked', profile.provide_cma);
   $('#about_me').val(profile.about_me);
 
-  if(profile.picture != '' && profile.pictue !== null) {
+  if(profile.picture != '' && profile.picture !== null ) {
     console.log(profile.picture);
+    debugger;
     $('#profile-img').prop('src', profile.picture);
+  }else{
+
+    src="img/blank-profile-picture.png"
+    $('#profile-img').prop('src', src);
+    console.log("src" ,src)
   }
 
   if (profile.connector != '' && profile.connector !== null) {
@@ -144,9 +150,12 @@ function get_specilities() {
       var response = JSON.parse(response);
       $.each(response, function(k, v) {
         console.log(v.id, v.val);
-        $('#specialties').append(`<div class='year-wrapper-check-one'>
+        $('#specialties').append(`
+        <div class='col-lg-6 col-6'>
+          <div class='year-wrapper-check-one'>
           <input type='checkbox' value='`+ v.id +`' class='specialty-checkbox' id='specialty-` + v.id + `'>
           <label for='specialty-`+ v.id + `'>` + v.val + `</label>
+        </div>
         </div>
         `);
       });

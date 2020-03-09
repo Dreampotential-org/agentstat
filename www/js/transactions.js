@@ -64,6 +64,55 @@ function load_agent() {
     }
 
     console.log(data['agent_lists']);
+    console.log("HERE",data['agent_lists']['description']);
+            if(data['agent_lists']['description'] == undefined){
+              $.each(data['agent_lists'], function(k, v) {
+              if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
+                var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
+            } else {
+                var arrowStyle = ' <i class="fa fa-long-arrow-down" style="font-size:18px;color:red"></i>';
+            }
+            if (v['year_built'] < '2') {
+                var note = `<a  onclick="passBtnID('add-public-note-` + v['id'] + `')" value="1" title="notes"><i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i></a>`;
+            } else {
+                var note = `<i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i>`;
+            }
+            $(`<tr>
+            <td class='status-`+ v['status'] +`'>` + v['status'] +`</td>
+            <td>` + currencyFormat(v['list_price_int']) + `</td>
+            <td>` + currencyFormat(v['sold_price_int']) + arrowStyle +`</td>
+            <td>` + v['days_on_market'] + arrowStyle +`</td>
+            <td>` + v['list_date'] +`</td>
+            <td>` + v['address_text'] +`</td>
+            <td>` + v['year_built'] +`</td>
+            <td>` + v['city'] +`</td>
+            <td>` + v['home_type'] +`</td>
+            <!--<td> <button class="btn btn-primary" data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')" value="1" title="notes"><i class="fa fa-plus" aria-hidden="true"></i> Note</button> </td> -->
+    
+            <td ><button class="btn " style="background: #CFE2F3;color:black;border: 1px solid;" data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')" value="1" title="notes">Add public note</button> </td>
+          </tr>
+    
+          <tr class="fidout" id="add-public-note-`+ v['id'] +`" style="display: none; background: white;">
+            <td colspan="10" style="padding: 6px 13px; color:gray">
+              <div class="form-group">
+                <!-- <input type="hidden" id="agent-`+ v['id'] +`"value="`+ v['agent_id']+ `">
+                <button type="button" class="btn btn-success notebtn" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">Save</button>
+                <label><strong>Add Public Note</strong></label>
+                <a href="#" class="closeform" style="float:right;margin-bottom:5px"><i class="fa fa-close"></i></a>
+                <textarea class="public-note-text form-control" id="note-`+ v['id'] +`" rows="5" name="public-note" ></textarea>-->
+    
+                
+                <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
+                <textarea placeholder="Add your note/explanation of sale here.This will be visible to the public." class="public-note-text form-control" id="note-` + v['id'] + `" rows="2" name="public-note" style="border:none !important" ></textarea>
+                <button type="button" class="btn btn-success notebtn" data-id="`+ v['id'] +`" style="float:right;margin-bottom:5px;margin-top:10px">Save</button>
+                </div>
+            </td>
+          </tr>
+    
+            `).insertAfter(".table-heading");
+        });
+        }
+            else{
 
     $.each(data['agent_lists'], function(k, v) {
       if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
@@ -276,6 +325,7 @@ function load_agent() {
 
         `).insertAfter(".table-heading");
     });
+  }
 
   }).fail(function(err){
     console.log(err);
