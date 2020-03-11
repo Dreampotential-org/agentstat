@@ -1156,10 +1156,10 @@ ul {
 
 .pt-search-wrapper {
     /* width: 600px; */
-    margin: auto;
+    /* margin: auto; */
     position: relative;
     /*    top: -66px;*/
-    left: 19px;
+    left:100px;
     margin-top: 20px !important;
    
 }
@@ -1196,7 +1196,7 @@ ul {
 */
 .pt-search-wrapper .price p {
     /* padding: 5px 26px; */
-    padding: 5px 40px;
+    padding: 5px 20px;
 }
 
 
@@ -2337,8 +2337,8 @@ ul {
     display: none;
 } */
  .navbar-brand img {
-    padding-left: 50px;
-    width: 175px;
+    padding-left: 30px;
+    width: 165px;
 }
 .fixed .serch_btn{
    /* float: right; */
@@ -3329,7 +3329,7 @@ ul {
         width: 61% !important;
     }
     .image{
-        width: 90px !important;
+        width: 110px !important;
         top: 10px !important;
     }
 }
@@ -3349,6 +3349,9 @@ ul {
         border-radius: 100px;
         border:1px solid #A9A9A9;
     }
+    /* .pt-search-wrapper{
+        left: 30px;
+    } */
 }
 
 .akh-1 {
@@ -3386,13 +3389,16 @@ ul {
         margin-top: 25px !important;
     }
     button.btn.btn-default.searchButton {
-        margin-top: 0px !important;
+        margin-top: 7px !important;
         font-size: small !important;
     }
 }
 
 
 @media screen and (max-width: 991px)  and (min-width: 768px){
+    .pt-search-wrapper .price p{
+        padding-left: 20px;
+    }
     .po-serach-wrapper {
         border:1px solid #A9A9A9;
         border-radius: 100px;
@@ -3418,7 +3424,7 @@ ul {
     .srch-bar
     {
         margin-top: -38px !important;
-        width: 65% !important;
+        width: 71% !important;
     }
     
     /* .akh-4 {
@@ -3426,7 +3432,7 @@ ul {
     } */
 
     .sticky {
-        top: 120px !important;
+        top:42px !important;
     }
 
     .tab-sticky{
@@ -3446,7 +3452,7 @@ ul {
     }
     
     .po-serach-wrapper input.ser {
-        width: 150px !important;
+        width:200px !important;
     }
 
     .custom_search_size {
@@ -3561,9 +3567,9 @@ ul {
     #nav-new-tab {
         font-size: 16px !important;
     }
-    button.btn.btn-default.searchButton {
+    /* button.btn.btn-default.searchButton {
         margin-top: 5px;
-    }
+    } */
     
 
 }
@@ -3647,10 +3653,35 @@ ul {
         padding: 6px !important;
         width: 20%;
     }
+  
+   
 
     
 }
+.show_div{
+    display: none;
+}
+@media screen and (max-width:320px) {
 
+    .show_div{
+        display: block;
+    }
+    .hide_div{
+        display:none;
+    }
+    .ak-table {
+        overflow: auto; 
+        margin-top: 10px !important;   
+    }
+    .row_div{
+        padding-bottom: 0px !important;
+    }
+
+}
+
+/* .hide_div{
+    display: block;
+} */
 
 
 .select_div{
@@ -3741,7 +3772,7 @@ td{
         font-weight: 500;
         font-size: 12px;
         padding: 10px 40px;
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
     }
 
     .custom_div ul li:last-child a{
@@ -3823,7 +3854,7 @@ td{
 
  @media screen and (max-width:767px){
     .sticky{
-        top: 100px !important;
+        top:47px !important;
     }
 
     .pt-tab-wrapper .nav-tabs .nav-link, .pt-tab-wrapper .nav-tabs .nav-link.active {
@@ -4315,13 +4346,22 @@ td{
          display: none;
      } */
      @media screen and (max-width: 1200px) and (min-width: 992px){
-        .po-serach-wrapper input.ser {
+        /* .po-serach-wrapper input.ser {
             width: auto !important;
-        }
+        } */
     
         .custom_search_size {
             margin-left: 100px !important;
         }
+        .pt-search-wrapper {
+            width: 690px !important;
+            left: 60px !important;
+        }
+        .pt-search-wrapper input.ser {
+            width: 400px !important;
+            text-overflow: ellipsis;
+        }
+        
 
     }
 
@@ -4388,15 +4428,31 @@ td{
     @media screen and (max-width: 769px)and (min-width:650px)  {
 
         .srch-bar{
-            width: 61% !important;
-            margin-left: 140px !important;
+            width:70% !important;
+            margin-left:1px !important;
         
         }
     }
+    /* @media screen and (max-width: 770px)and (min-width:540px)  {
+
+        .srch-bar{
+            width: 69% !important;
+            margin-left: 9px !important;
+        
+        }
+    } */
     @media screen and (max-width: 767px) and (min-width: 576px){
         .navbar-brand img{
             width: 110px;
             top: 10px;
+        }
+        .po-serach-wrapper input.ser{
+            width: 200% !important;
+        }
+        .srch-bar{
+            width: 100% !important;
+            margin-left: 20px!important
+        
         }
     }
     /* @media screen and (max-width: 770px) and (min-width:576px) {
