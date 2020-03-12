@@ -4,7 +4,8 @@ var all_agents=[];
 function init_search_results() {
     load_search_results();
     init_search_events();
-    populate_city_search_menu()
+    populate_city_search_menu();
+    
 }
 
 function populate_city_search_menu() {
@@ -38,7 +39,8 @@ function show_loading_screen() {
         text:  "Hang tight while we crunch the numbers!",
         imageUrl: "img/pop.png",
         showCancelButton: false,
-        showConfirmButton: false
+        showConfirmButton: false,
+        allowOutsideClick: false
     });
 }
 
@@ -241,6 +243,22 @@ function load_search_results() {
 
       $('#result-count').html(data['total']);
       $('#page-section').html(search_result);
+
+
+      if (window.matchMedia("(max-width: 360px)").matches) 
+      { 
+          // The viewport is less than 768 pixels wide 
+         // document.write("This is a mobile device."); 
+ 
+    //alert(jQuery('td').attr('test'));
+            jQuery(".title").attr('colspan','1');
+        } else { 
+            //alert(jQuery('td').attr('test'));
+            //jQuery("td").removeAttr('test');
+            jQuery(".title").attr('colspan','3');
+    } 
+
+      
       if(city == null) $(".city_results").remove()
       set_pined_load()
       swal.close()
