@@ -251,12 +251,12 @@ function load_search_results() {
          // document.write("This is a mobile device."); 
  
     //alert(jQuery('td').attr('test'));
-     jQuery("td").attr('colspan','1');
-  } else { 
-    //alert(jQuery('td').attr('test'));
-     //jQuery("td").removeAttr('test');
-     jQuery("td").attr('colspan','3');
-      } 
+            jQuery(".title").attr('colspan','1');
+        } else { 
+            //alert(jQuery('td').attr('test'));
+            //jQuery("td").removeAttr('test');
+            jQuery(".title").attr('colspan','3');
+    } 
 
       
       if(city == null) $(".city_results").remove()
