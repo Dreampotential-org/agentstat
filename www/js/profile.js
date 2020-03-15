@@ -38,7 +38,7 @@ function display_profile(profile) {
 
   if(profile.picture != '' && profile.picture !== null ) {
     console.log(profile.picture);
-    debugger;
+    // debugger;
     $('#profile-img').prop('src', profile.picture);
   }else{
 
