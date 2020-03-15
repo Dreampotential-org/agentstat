@@ -171,31 +171,35 @@ function get_languages() {
   $.ajax(settings).done(function (language_list) {
 
     console.log("LANGUAGE",language_list)
-    
+
     var language_list = JSON.parse(language_list);
     console.log(language_list);
+    var ix = 0;
     $.each(language_list, function(k, v) {
-      console.log(v.id, v.val);
-      $('#languages').append(`<div class='col-lg-6 col-6'>
+      // console.log(v.id, v.val);
+      ix++;
+      if (ix < 7) {
+        $('#languages').append(`<div class='col-lg-6 col-6'>
 
-        <div class='lar-left'>
-        <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
-        <label for='lang-` + v.id + `'>` + v.val + `</label>
+          <div class='lar-left'>
+          <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+          <label for='lang-` + v.id + `'>` + v.val + `</label>
+          </div>
         </div>
+
+        `);
+      } else {
+        $('#morelanguages').append(`
+        <div class='col-lg-6 col-6'>
+          <div class='lar-left'>
+          <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+          <label for='lang-` + v.id + `'>` + v.val + `</label>
+          </div>
       </div>
-    
       `);
+      }
 
-      $('#morelanguages').append(`
-      <div class='col-lg-6 col-6'>
-        <div class='lar-left'>
-        <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
-        <label for='lang-` + v.id + `'>` + v.val + `</label>
-        </div>
-    </div>
-    
-  
-    `);
+
     });
   }).fail(function(err) {
     // alert('Got err');
