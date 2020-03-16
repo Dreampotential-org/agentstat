@@ -166,7 +166,12 @@ function load_search_results() {
       $.each(results, function(k, v) {
         agent_ids_order.push(v['agent_id']);
         all_agents.push(v);
+        brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0];
+        brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
+
         item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
+        item = item.split('[[brokerage_info]]').join(brokerage_info);
+
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
 

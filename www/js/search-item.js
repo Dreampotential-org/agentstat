@@ -9,7 +9,12 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
           <table >
             <tbody>
               <tr>
-                  <td colspan="3"  class="title "><a  href=[[agent_profile_link]] target="_blank"><h4 >[[agent_name]] <span class="custom_score hide_div"> | Keller Williams Seattle</span> <p class="custom_score show_div"> Keller Williams Seattle </p></a></h4> 
+                  <td colspan="3"  class="title ">
+                  <a  href=[[agent_profile_link]] target="_blank">
+                  <h4 >[[agent_name]] <span class="custom_score hide_div"> | 
+                  [[brokerage_info]]</span> 
+                  <p class="custom_score show_div">[[brokerage_info]]</p>
+                  </a></h4> 
                  
                     <span>SCORE | [[score]]</span>
                         
