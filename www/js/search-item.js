@@ -1,5 +1,5 @@
 var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
-  <div class="row" style="padding-bottom:20px">
+  <div class="row row_div" style="padding-bottom:20px">
     <div class="col-lg-3 col-md-3">
         [[agent_picture]]
     </div>
@@ -9,9 +9,12 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
           <table >
             <tbody>
               <tr>
-                  <td colspan="3"  class="title"><a href=[[agent_profile_link]] target="_blank"><h4>[[agent_name]] <span class="custom_score"> | Keller Williams Seattle</h4> </a>
+                  <td colspan="3"  class="title "><a  href=[[agent_profile_link]] target="_blank"><h4 >[[agent_name]] <span class="custom_score hide_div"> | Keller Williams Seattle</span> <p class="custom_score show_div"> Keller Williams Seattle </p></a></h4> 
+                 
                     <span>SCORE | [[score]]</span>
+                        
                   </td>
+                 
                   <!-- <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
                     <div class="custom_pin"> <a href="#">
                     <i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>
@@ -335,3 +338,7 @@ var lead_collection = `
           </div>
         </div>
       </div>`
+      
+
+      
+

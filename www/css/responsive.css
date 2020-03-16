@@ -107,7 +107,7 @@ Medium Screen - Others
         padding: 5px 15px;
     }
     .pt-search-wrapper input.ser {
-        width: 186px !important;
+        width: 186px ;
         text-overflow: ellipsis;
     }
     .pht-agent-img img {
@@ -302,7 +302,7 @@ Small Screen - Tablate
         margin-top: 15px;
     }
     .pt-search-wrapper {
-        position: initial;
+        /* position: initial; */
         width: 100%;
     }
     .pt-tab {
@@ -957,7 +957,7 @@ Small Screen - Mobile
     .po-serach-wrapper input.ser {
         border: 0px solid #E5E5E5 !important;
         display: block;
-        width: 100% !important;
+        width: 100%;
         padding: 12px 10px;
         box-shadow: 0 0 5px rgba(0,0,0,.2);
         margin-top: 0px !important;
