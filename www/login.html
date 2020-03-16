@@ -132,8 +132,12 @@
                         
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             <!-- <button type="button" data-onsuccess="onSignIn" data-theme="dark" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Connect with Facebook Google</button> -->
                             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+=======
+                            <button type="button" id="login-btn" data-toggle="modal" data-target="#signupModal" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Connect with Facebook Google</button>
+>>>>>>> c5300031707b1f5eaa804ceeb8b0d7cef9fbfcb7
                         </div>
                         
                         <div class="form-group">
@@ -191,7 +195,11 @@
                         <div class="form-group text-center">
                             <button type="button" id="continuebtn" class="btn login-btn buttonLogin">Continue</button>
                         </div>
+<<<<<<< HEAD
                         
+=======
+                      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+>>>>>>> c5300031707b1f5eaa804ceeb8b0d7cef9fbfcb7
                         <div class="clearfix text-center">
                             <a href="#" class="pull-right continutxt" id="forgot-password">By continuing, you agree to AgentStat’s  Terms of Use</a>
                         </div>
@@ -482,7 +490,18 @@
                         }
                     // /})
                 })
+                gapi.load('auth2', function() {
+                auth2 = gapi.auth2.init({
+                    client_id: 'CLIENT_ID.apps.googleusercontent.com',
+                    fetch_basic_profile: false,
+                    scope: 'profile'
+                });
 
+                // Sign the user in, and then retrieve their ID.
+                auth2.signIn().then(function() {
+                    console.log(auth2.currentUser.get().getId());
+                });
+                });
                 function onSignIn(googleUser) {
                     var profile = googleUser.getBasicProfile();
                     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
