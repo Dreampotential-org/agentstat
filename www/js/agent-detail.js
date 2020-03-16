@@ -53,7 +53,15 @@ function load_agent(ignore_city = false) {
         });
 
         $.each($('.agent_namebroker_name'), function () {
-            $(this).html(data['full_name']+' '+' <span style="font-size: 14px;color: #007bff;">| </span><span style="font-size: 14px; color: #007bff;">Keller Williams Seattle  </span>');
+            brokerage_info = data['brokerage_info'].split(/\r?\n/)[0];
+            brokerage_info += ' ' + data['city'];
+
+            $(this).html(
+              data['full_name'] +' ' +
+              `<span style="font-size: 13px;color: #007bff;">| </span>
+               <span style="font-size: 13px; color: #007bff;">` + brokerage_info + `</span>
+              `
+            );
         });
         // $.each($('.agent_name_loc'), function () {
         //     $(this).html(data['full_name']+' '+'is a ?? match for you (enter your location in the search bar to view % match)');
@@ -98,7 +106,7 @@ function load_agent(ignore_city = false) {
 
         $(".alist").remove();
         $.each(data['agent_lists'], function (k, v) {
-            console.log("HERE",data['agent_lists']['description']);
+            // console.log("HERE",data['agent_lists']['description']);
             if(data['agent_lists']['description'] == undefined){
 
                 if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
@@ -124,11 +132,11 @@ function load_agent(ignore_city = false) {
               <div class="text-left title_color">
               ` + v['address_text'] + `
               <table style="width:100%">
-    
+
                 <tr>
                   <td style="width:35%">
                     <table style="width:100%">
-                    
+
                         <tr>
                             <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
                               <strong style='color:black'>Listed:</strong> <br>
@@ -165,7 +173,7 @@ function load_agent(ignore_city = false) {
                             <td  style="padding:0px">
                                 <strong style='color:black'>Type</strong>
                             </td>
-                        
+
                             <td  style="padding:0px">
                                 ` + v['home_type'] + `
                             </td>
@@ -176,7 +184,7 @@ function load_agent(ignore_city = false) {
                             <td style="padding:0px;">
                                 Forced Air
                             </td>
-    
+
                         </tr>
                         <tr>
                             <td style="padding:0px">
@@ -188,7 +196,7 @@ function load_agent(ignore_city = false) {
                             <td ></td>
                             <td style="padding:0px ;font-size: 16px;">
                             <strong style='color:black'>Cooling</strong>
-                                
+
                             </td>
                             <td  style="padding:0px">
                                 None
@@ -219,35 +227,35 @@ function load_agent(ignore_city = false) {
                             <td ></td>
                             <td style="padding:0px;font-size: 16px;">
                             <strong style='color:black'>Basement</strong>
-                                
+
                             </td>
                             <td style="padding:0px">
                                 None
                             </td>
                         </tr>
-    
+
                         <tr>
                             <td  style="padding:0px ;font-size: 16px;">
                                 <strong style='color:black'>Lot</strong>
                             </td>
-                            <td  style="padding:0px"> 
+                            <td  style="padding:0px">
                                 0.45 acres
                             </td>
                             <td></td>
                             <td style="padding:0px;font-size: 16px;">
                                 <strong style='color:black'>Flooring</strong>
-                                
+
                             </td>
                             <td  style="padding:0px">
                                Laminate, Hardwood
                             </td>
                         </tr>
-    
+
                         <tr>
                             <td  style="padding:0px;font-size: 16px;">
                                 <strong style='color:black'>Year Built</strong>
                             </td>
-                            <td  style="padding:0px"> 
+                            <td  style="padding:0px">
                             ` + v['year_built'] + `
                             </td>
                             <td></td>
@@ -258,16 +266,16 @@ function load_agent(ignore_city = false) {
                                 Composition
                             </td>
                         </tr>
-    
+
                         <tr>
                             <td  style="padding:0px;font-size: 16px;">
                                 <strong style='color:black'>Country</strong>
                             </td>
-                            <td  style="padding:0px"> 
+                            <td  style="padding:0px">
                             King
                             </td>
                             <td ></td>
-    
+
                             <td style="padding:0px;font-size: 16px;">
                                 <strong style='color:black'>Foundation</strong>
                             </td>
@@ -283,7 +291,7 @@ function load_agent(ignore_city = false) {
               </div>
               </td>
           </tr>`
-                
+
                         ).insertAfter("#transations");
                     }else{
             if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
@@ -296,7 +304,7 @@ function load_agent(ignore_city = false) {
             } else {
                 var note = `<i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i>`;
             }
-            
+
             $(`<tr class='alist alist`+k+`' onclick="passBtnID('add-public-note-` + v['id'] + `')">
             <td>` + v['status'] + `</td>
             <td>` + currencyFormat(v['list_price_int']) + `</td>
@@ -322,7 +330,7 @@ function load_agent(ignore_city = false) {
                 <tr>
                 <td style="width:35%">
                     <table style="width:100%">
-                    
+
                         <tr>
                             <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
                             <strong style='color:black'>Listed:</strong> <br>
@@ -359,7 +367,7 @@ function load_agent(ignore_city = false) {
                             <td  style="padding:0px">
                                 <strong style='color:black'>Type</strong>
                             </td>
-                        
+
                             <td  style="padding:0px">
                                 ` + v['home_type'] + `
                             </td>
@@ -382,7 +390,7 @@ function load_agent(ignore_city = false) {
                             <td ></td>
                             <td style="padding:0px ;font-size: 16px;">
                             <strong style='color:black'>Cooling</strong>
-                                
+
                             </td>
                             <td  style="padding:0px">
                                 None
@@ -413,7 +421,7 @@ function load_agent(ignore_city = false) {
                             <td ></td>
                             <td style="padding:0px;font-size: 16px;">
                             <strong style='color:black'>Basement</strong>
-                                
+
                             </td>
                             <td style="padding:0px">
                                 None
@@ -424,13 +432,13 @@ function load_agent(ignore_city = false) {
                             <td  style="padding:0px ;font-size: 16px;">
                                 <strong style='color:black'>Lot</strong>
                             </td>
-                            <td  style="padding:0px"> 
+                            <td  style="padding:0px">
                                 0.45 acres
                             </td>
                             <td></td>
                             <td style="padding:0px;font-size: 16px;">
                                 <strong style='color:black'>Flooring</strong>
-                                
+
                             </td>
                             <td  style="padding:0px">
                             Laminate, Hardwood
@@ -441,7 +449,7 @@ function load_agent(ignore_city = false) {
                             <td  style="padding:0px;font-size: 16px;">
                                 <strong style='color:black'>Year Built</strong>
                             </td>
-                            <td  style="padding:0px"> 
+                            <td  style="padding:0px">
                             ` + v['year_built'] + `
                             </td>
                             <td></td>
@@ -457,7 +465,7 @@ function load_agent(ignore_city = false) {
                             <td  style="padding:0px;font-size: 16px;">
                                 <strong style='color:black'>Country</strong>
                             </td>
-                            <td  style="padding:0px"> 
+                            <td  style="padding:0px">
                             King
                             </td>
                             <td ></td>
@@ -477,11 +485,11 @@ function load_agent(ignore_city = false) {
             </div>
             </td>
         </tr>`
-                
+
         ).insertAfter("#transations");
     }
     })
-    
+
 
         pagination(data['agent_lists'].length);
         console.log("HERE",data['agent_lists']);
