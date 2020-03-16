@@ -114,6 +114,8 @@ function get_search_filters() {
         selected += new_agent_ids.join(',');
         filters.push(selected);
     }
+
+
     return filters
 }
 
@@ -148,6 +150,12 @@ function load_search_results() {
     if (!(state)) state = "WA"
 
     filters.push('page=1');
+    console.log(state, city);
+    if(state === null || state === 'null') {
+      state = 'WA';
+      filters.push('state=WA');
+    }
+
     filters = '?' + filters.join('&');
 
     api_call_url = 'reports/' + state + '/' + filters;
