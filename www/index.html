@@ -81,18 +81,57 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
-                            <div class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size">
-                                <input class="ser" type="text" name="text" placeholder="Search using your address or agent name">
-                                <div class="type  ">
+                            <div id="searchDiv"class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size">
+                                <!-- <div  class="price">
+                                    <p class=" dropdown-toggle" type="button" data-toggle="dropdown">Price</p>
+                                        <ul  class="dropdown-menu">
+                                            <li>Address</li>
+                                            <li>Agent Name</li>
+                                            <li>City</li>
+                                            <li>ZipCode</li>
+                                        </ul>
+                                </div> -->
+
+                                <!-- <div class="address_div">
+                                    <select style="border: none;">
+                                        <option>Address</option>
+                                        <option>Agent Name</option>
+                                        <option>City</option>
+                                        <option>ZipCode</option>
+                                      </select>
+                                </div>
+                              -->
+                              <div class="address ">
+                                <p id="y-address" class=" address-value">Address <i class="fas fa-caret-down"></i></p>
+                                <div class="address-type index-address-type">
+                                    <input class="custom_radio" type="radio" name="address"  value="Address"> Address<br/>
+                                    <input  class="custom_radio" type="radio"  name="address" value="Agent Name" > Agent Name<br/>
+                                    <input class="custom_radio" type="radio" name="address"  value="City"> City<br/>
+                                    <input  class="custom_radio" type="radio"  name="address" value="Zipcode"> ZipCode<br/>
+                                </div>
+                              </div>
+
+                              <div class="ser-state " style="display: none;">
+                                <p id="ser-state-id" class=" state-value">State <i class="fas fa-caret-down"></i></p>
+                                <div class="ser-state-type">
+                                    <input class="custom_radio" type="radio" name="statename"  value="AL"> AL<br/>
+                                    <input  class="custom_radio" type="radio"  name="statename" value="AR" > AR<br/>
+                                    <input class="custom_radio" type="radio" name="statename"  value="CA"> CA<br/>
+                                    <input  class="custom_radio" type="radio"  name="statename" value="FL"> FL<br/>
+                                </div>
+                              </div>
+                                  
+                                <input class="ser"  id="searchId" type="text" name="text" placeholder="Search ">
+                                <div class="type ">
                                     <p id="y-type" class="x-type type-value">Type</p>
                                     <div class="check-type index-check-type">
-                                            <h6>Home Type</h6>
-                                                <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br/>
-                                                <input  class="custom_radio" type="radio" name="babu" value="Manufactured"> Manufactured<br/>
-                                                <input class="custom_radio" type="radio" name="babu" value="Condos/co-ops">Condos/co-ops<br/>
-                                                <input class="custom_radio" type="radio" name="babu" value="Multi-family">Multi-family<br/>
-                                                <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br/>
-                                                <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br/>
+                                        <h6>Home Type</h6>
+                                        <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br/>
+                                        <input  class="custom_radio" type="radio" name="babu" value="Manufactured"> Manufactured<br/>
+                                        <input class="custom_radio" type="radio" name="babu" value="Condos/co-ops">Condos/co-ops<br/>
+                                        <input class="custom_radio" type="radio" name="babu" value="Multi-family">Multi-family<br/>
+                                        <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br/>
+                                        <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br/>
                                     </div>
                                 </div>
                                 <div class="price">
@@ -415,6 +454,7 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
+
                 var top = $('.po-serach-wrapper-one').offset().top;
                 $(window).scroll(function (event) {
                     var y = $(this).scrollTop();
@@ -455,9 +495,44 @@
                         } else {
                             jQuery('.header-area').removeClass('stricked-menu');
                         }
+                        if($("#searchDiv").hasClass("fixed"))
+                        {
+
+                            document.getElementById("searchId").placeholder = "Search";
+                        }else{
+                            document.getElementById("searchId").placeholder = "Search using your address or agent name";
+                        }
                     });
                 });
             })(jQuery);
+
+
+            $(".index-address-type input[type=radio]").click(function (){
+		    	var a = $(this).val();
+                //alert(a)
+                if(a=='Agent Name'){
+                    $('#y-type').hide();
+                    $('.price').hide();
+
+                    $('.ser-state').show();
+
+                }else{
+                    $('#y-type').show();
+                    $('.price').show();
+                    $('.ser-state').hide();
+                }
+
+			});
+
+                    // $('.address-value').change(function(){
+                    //     var opval= $(this).val();
+                    //     alert(opval)
+                    //     if(opval == 'Agent Name'){
+                    //     $('#y-type').hide();
+                    //     }
+                    // })
+            
+            
         </script>
     </body>
 </html>

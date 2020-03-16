@@ -20,6 +20,13 @@
 		$("#y-type").click (function (){
 			$(".check-type").slideToggle();
 		});
+		$("#y-address").click (function (){
+			$(".address-type").slideToggle();
+		});
+
+		$("#ser-state-id").click (function (){
+			$(".ser-state-type").slideToggle();
+		});
 
 		$("#bau1").click (function (){
 			$(".bau1-cotent").slideToggle();
