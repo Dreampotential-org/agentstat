@@ -72,12 +72,37 @@ function display_profile(profile) {
   });
 }
 
+function phonenumber_validate(inputtxt) {
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if(inputtxt.match(phoneno)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 function update_profile() {
   var data = {};
+  var valid = true;
+  var validation_messages = 'Please check the following error(s)!<br><br>';
 
   $.each(data_map, function(k, val) {
     data[val] = $('#'+val).val();
   });
+
+  if (phonenumber_validate($('#phone_number').val()) === false) {
+    validation_messages += 'Invalid phone number. <br>';
+    valid = false;
+  }
+
+  if (valid === false) {
+    $('#validate-message').css('display', 'block');
+    $('#validate-message').html(validation_messages);
+    return false
+  }
+
+
 
   // fluent languages
   data['language_fluencies'] = $('.lng-checkbox:checked').map(
