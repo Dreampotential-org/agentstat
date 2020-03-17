@@ -65,7 +65,27 @@
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
                             <div class="po-serach-wrapper pt-search-wrapper srch-bar ak-po">
-                                <input class="ser txt-cls" type="text" name="text" placeholder="Search using your address or agent name">
+                                <div class="address ">
+                                    <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
+                                    <div class="address-type index-address-type ">
+                                        <ul>
+                                            <li class="custom_radio">Address</li>
+                                            <li class="custom_radio">Agent Name</li>
+                                            <li class="custom_radio">City</li>
+                                            <li class="custom_radio">ZipCode</li>
+                                            </ul>
+                                    </div>
+                                  </div>
+
+                                  <div class="ser-state " style="display: none;">
+                                    <p id="ser-state-id" class=" state-value">State <i class="fas fa-caret-down"></i></p>
+                                    <div class="ser-state-type">
+                                        <ul id="allstate">
+                                        </ul>
+                                    </div>
+                                  </div>
+                                <input class="ser txt-cls" type="text" name="text" placeholder="Search">
+                               
                                 <div class="type ak-price srch-price" >
                                     <p id="y-type" class="type-value">Type</p>
                                     <div class="check-type">
@@ -122,7 +142,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="serch_btn" style="display: inline;" >
+                                <div class="serch_btn" style="display: inline;float: right;margin-top:8px;">
                                     <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
                                 </div>
                                 <!-- <div class="ser-butt ak-sb1">
@@ -1306,8 +1326,33 @@ console.log("@##@####", key)
                
             });
 
-            
-            
+            $(".index-address-type ul li").click(function (){
+                var a = $(this).text();
+                if(a =='Agent Name'){
+                    $('#y-type').hide();
+                    $('.price').hide();
+
+                    $('.ser-state').show();
+
+                }else{
+                    $('#y-type').show();
+                    $('.price').show();
+                    $('.ser-state').hide();
+                }
+
+            });
+            settings = 'https://app.agentstat.com/api/states';
+            settings['headers'] = {};
+
+                $.ajax(settings).done(function (response) {
+                    var states =(response);
+                    $.each(states, function(k, v) {
+                        $('#allstate').append("<li class='custom_radio'>"+k+"</li>");
+                        $('#statesData').append("<li class='custom_radio'>"+k+"</li>");
+                    });
+                }).fail(function(err) {
+                    show_error(err);
+                });
 
     </script>
     <!-- Scroll-Top button -->

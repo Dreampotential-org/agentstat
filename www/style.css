@@ -535,12 +535,16 @@ ul {
 .price,
 .address,
 .ser-state,
+.address-map,
+.ser-state-map,
 .ser-butt {
     display: inline-block;
 }
 
 .check-type,
 .address-type,
+.address-map-type,
+.ser-state-map-type,
 .ser-state-type,
 .price-amount {
     display: none;
@@ -562,7 +566,7 @@ ul {
     margin-bottom: 0;
     font-size: 18px;
     color: #575757;
-    padding: 16px 0;
+    padding: 10px 0;
     font-weight: 300;
     border-left: 1px solid #767676;
     border-right: 1px solid #767676;
@@ -571,11 +575,11 @@ ul {
     text-align: center;
     white-space: nowrap;
 }
-.address p, .ser-state p {
+.address p,  .address-map p{
     margin-bottom: 0;
     font-size: 18px;
     color: #575757;
-    padding: 16px 0;
+    padding: 10px 0;
     font-weight: 300;
     border-right: 1px solid #767676;
     width: 140px;
@@ -583,6 +587,19 @@ ul {
     text-align: center;
     white-space: nowrap;
 }
+.ser-state p, .ser-state-map p{
+    width: auto;
+    padding: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #575757;
+    font-weight: 300;
+    border-right: 1px solid #767676;
+    text-overflow: ellipsis;
+    text-align: center;
+    white-space: nowrap;
+}
+
 
 .price p {
     margin-bottom: 0;
@@ -644,6 +661,38 @@ ul {
     top: 42px;
     z-index: 1200;
 }
+.ser-state-type{
+    position: absolute;
+    width: 85px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 20px;
+    top: 42px;
+    z-index: 1200;
+}
+.address-map-type{
+    position: absolute;
+    width: 235px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 1200;
+}
+.ser-state-map-type{
+    position: absolute;
+    width: 85px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 1200;
+}
+
 
 .check-type h6 {
     font-size: 18px;
@@ -675,7 +724,7 @@ ul {
 
 
 .fixed .type-value, .fixed .y-price, .fixed .address-value, .fixed .state-value{
-    padding: 5px 26px !important;
+    padding: 10px 10px !important;
 }
 
 .price-amount h6 {
@@ -707,10 +756,44 @@ ul {
 .p-left {
     width: 62%;
 }
-
+.p-address {
+    width: 62%;
+}
+.highlight {
+    color: red;
+    background: yellow;
+}
 .p-left ul li {
     font-size: 16px;
     color: #3C3C3C;
+    /* margin-top: 10px; */
+}
+.index-address-type ul li:hover{
+    font-size: 16px;
+    background-color: #134E60;
+    color: white;
+    cursor: pointer;
+    /* margin-top: 10px; */
+}
+.ser-state-type ul li:hover{
+    font-size: 16px;
+    background-color: #134E60;
+    color: white;
+    cursor: pointer;
+    /* margin-top: 10px; */
+}
+.ser-state-map-type ul li:hover{
+    
+    font-size: 16px;
+    background-color: #134E60;
+    color: white;
+    cursor: pointer;
+}
+.index-address-maps-type ul li:hover{
+    font-size: 16px;
+    background-color: #134E60;
+    color: white;
+    cursor: pointer;
     /* margin-top: 10px; */
 }
 
@@ -2414,7 +2497,7 @@ ul {
 }
 
 .po-maps-wrapper-two input.ser {
-    width: 295px;
+    width: 167px;
 }
 
 .po-maps-left p {
@@ -3204,7 +3287,7 @@ ul {
     z-index: 9999999999999!important;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
-    margin-top: 7px !important;
+    margin-top:0px !important;
 }
 
 .toc-two-left-two-heading-left h4 a {
@@ -3464,7 +3547,7 @@ ul {
     } */
 
     .sticky {
-        top:42px !important;
+        top:62px !important;
     }
 
     .tab-sticky{

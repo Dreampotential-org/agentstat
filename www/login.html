@@ -11,6 +11,7 @@
         <meta name="author" content="Asad Kabir">
         <meta name="google-signin-client_id" content="852045059252-r5bn5uthorj1lejlaqmocmpasj0uhenf.apps.googleusercontent.com">
 
+
         <!-- Title -->
         <title>Login</title>
 
@@ -32,6 +33,11 @@
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="css/responsive.css" />
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
       
     </head>
 
@@ -41,7 +47,8 @@
             <![endif]-->
 
         <!-- header-area start -->
-        <div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
+        <div class="wrapper-heading sticky-top bg-white akh-4">
+        <div class="header-area sticky-header two-header-area sticky-top bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -57,7 +64,15 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                 </ul>
-                                <div class="main-menu-part form-menu">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div id="searchDiv"class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size">
+                                        <input class="ser"  id="searchId" type="text" name="text" placeholder="Search ">
+                                        <div class="serch_btn" style="display: inline;float: right;margin-top:5px;" >
+                                            <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="main-menu-part form-menu">
                                     <ul class="float-left form-ulli-left">
                                         <li><a href="#">HOME </a></li>
                                         <li><a href="#">TRANSACTIONS </a></li>
@@ -85,19 +100,21 @@
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </nav>
                     </div>
                 </div>
             </div>
         </div>
+      
+        </div>
         <!-- header-area end -->
         <div class="login-form login_content" >
             <h3 class="text-center" style="padding: 0px 10px 0px 10px;">
                 Log In To Your AgentStat Account
             </h3> 
-            <form action="" method="post" class="body_color">
+            <form action="" method="post" class="body_color" >
                 <nav>
 					<div class="nav nav-tabs custom_log_abs" id="nav-tab" role="tablist">
 						<a class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Sign In</a>
@@ -127,17 +144,15 @@
                         </div>
 					</div>
 					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <form action="" method="post" class="body_color" id="myform">
                         <div class="form-group">
                             <button type="button" id="login-btn" data-toggle="modal" data-target="#signupModal" class="btn fb_btn login-btn btn-block"><i class="fab fa-facebook-square facebookIcon"></i>Connect with Facebook</button>
                         
                         </div>
                         <div class="form-group">
-<<<<<<< HEAD
                             <!-- <button type="button" data-onsuccess="onSignIn" data-theme="dark" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Connect with Facebook Google</button> -->
                             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-=======
-                            <button type="button" id="login-btn" data-toggle="modal" data-target="#signupModal" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Connect with Facebook Google</button>
->>>>>>> c5300031707b1f5eaa804ceeb8b0d7cef9fbfcb7
+                            <!-- <button type="button" id="login-btn" data-toggle="modal" data-target="#signupModal" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Connect with Facebook Google</button> -->
                         </div>
                         
                         <div class="form-group">
@@ -145,41 +160,42 @@
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" class="form-control email_input" id="email"  style="border-radius: 0px;" name="email" placeholder="Email address" required="required">				
+                                <input type="email" class="form-control email_input" id="email"  style="border-radius: 0px;" name="email" required="required" placeholder="Email address">				
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="password"  id="password" class="form-control email_input" style="border-radius: 0px;"name="password" placeholder="Password" required="required">				
+                                <input type="password"  id="password" class="form-control email_input" style="border-radius: 0px;"name="password" required="required" placeholder="Password" >				
                             </div>
                         </div>  
-                        <div class="form-group row text-center"> 
+                        <div class="form-group row text-center "> 
                             <div class="col-6 col-md-6 col-sm-3">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input unchecked-acs" id="homeowner" name="Homeowner" value="Homeowner  ">
-                                    <label class="custom-control-label" >Homeowner</label>
+                                    
+                                    <input type="checkbox" class=" unchecked-acs" id="homeowner" name="checkboxes[]" value="checkboxes" >
+                                    <label  >Homeowner</label>
                                 </div>
                             </div>
                             <div class="col-6 col-md-6 col-sm-3">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input unchecked-acs" id="buyer" name="Buyer" value="Buyer">
-                                    <label class="custom-control-label" >Buyer</label>
+                                    <input type="checkbox" class=" unchecked-acs" id="buyer" name="checkboxes[]" value="checkboxes" >
+                                    <label >Buyer</label>
                                 </div>
                             </div>
                            
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-6 col-md-6 col-sm-3" style="margin-left: 30px;">
+                            <div class="col-9 col-md-9 col-sm-6" style="margin-left:-20px;">
                                 <div class="custom-control custom-checkbox text-center">
-                                    <input type="checkbox" class="custom-control-input unchecked-acs" id="industry" name="Industry" value="Industry">
-                                    <label class="custom-control-label" >Industry Professional </label>
+                                    <input type="checkbox" class=" unchecked-acs" id="industry" name="checkboxes[]" value="checkboxes" >
+                                    <label  >Industry Professional </label>
                                 </div>
                             </div>
                         </div> 
                         <div class="form-group row">
                             <div class="col-12 col-md-12 col-sm-9 city_div">
-                                <select id='category' name="" placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
+                                <select id='category' name="category" placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left"s>
                                 <option value=''>Select your category</option>
                                 <option value='secondoption' >Real Estate Agent/ Broker</option>
                                 <option value='Mortgage Lender'>Mortgage Lender</option>
@@ -191,15 +207,13 @@
                                 <option value='Home Inspector'>Other</option>
                                 </select>
                           </div>
+                          <div class="error" id="form_error"></div>
                         </div>
                         <div class="form-group text-center">
-                            <button type="button" id="continuebtn" class="btn login-btn buttonLogin">Continue</button>
+                            <button type="submit" id="continuebtn" class="btn login-btn buttonLogin">Continue</button>
                         </div>
-<<<<<<< HEAD
-                        
-=======
-                      <div class="g-signin2" data-onsuccess="onSignIn"></div>
->>>>>>> c5300031707b1f5eaa804ceeb8b0d7cef9fbfcb7
+                    </form>
+                      <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
                         <div class="clearfix text-center">
                             <a href="#" class="pull-right continutxt" id="forgot-password">By continuing, you agree to AgentStat’s  Terms of Use</a>
                         </div>
@@ -219,13 +233,15 @@
                                 <div class="form-group row text-center"> 
                                     <div class="col-6 col-md-6 col-sm-3">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input unchecked-acs" id="homeowner" name="Homeowner" value="Homeowner  ">
-                                            <label class="custom-control-label" >Homeowner</label>
+                                            <input type="checkbox"  name="checkbox" id="checkID" value="Geeks"> 
+                                            <label class="GFG"for="checkID"> Homeowner </label> 
+                                            <!-- <input type="checkbox" class="custom-control-input" id="homeowner" name="Homeowner" value="Homeowner  ">
+                                            <label class="custom-control-label" >Homeowner</label> -->
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-6 col-sm-3">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input unchecked-acs" id="buyer" name="Buyer" value="Buyer">
+                                            <input type="checkbox" class="custom-control-input " id="buyer" name="Buyer" value="Buyer">
                                             <label class="custom-control-label" >Buyer</label>
                                         </div>
                                     </div>
@@ -235,14 +251,14 @@
                                 <div class="form-group row">
                                     <div class="col-9 col-md-9 col-sm-6" style="padding-left: 0px;">
                                         <div class="custom-control custom-checkbox text-center">
-                                            <input type="checkbox" class="custom-control-input unchecked-acs" id="industry" name="Industry" value="Industry">
+                                            <input type="checkbox" class="custom-control-input" id="industry" name="Industry" value="Industry">
                                             <label class="custom-control-label" >Industry Professional </label>
                                         </div>
                                     </div>
                                 </div> 
                                 <div class="form-group row">
                                     <div class="col-12 col-md-12 col-sm-9 city_div">
-                                        <select id='category'  name="" placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
+                                        <select id='category'  name="category" placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
                                         <option value=''>Select your category</option>
                                         <option value='secondoption' >Real Estate Agent/ Broker</option>
                                         <option value='Mortgage Lender'>Mortgage Lender</option>
@@ -475,6 +491,10 @@
                 })
 
                 $('#continuebtn').click(function(){
+                    console.log( $("input[name*='checkboxes']:checked").length)
+                    if (($("input[name*='checkboxes']:checked").length)<=0) {
+                            alert("You must check at least 1 box");
+                        }
                     // $('#category').change(function(){
                         var opval= $('#category').val();
                         if(opval == 'secondoption'){
@@ -483,6 +503,7 @@
                     //})
                 })
                 $('#continue').click(function(){
+                    console.log( $("input.select:checked").length)
                     // $('#category').change(function(){
                         var opval= $('#category').val();
                         if(opval == 'secondoption'){
@@ -490,6 +511,49 @@
                         }
                     // /})
                 })
+
+                $(document).bind('keypress', function(e) {
+                if(e.keyCode==13){
+                    $('#continuebtn').trigger('click');
+                }
+            });
+
+
+            
+           
+            $(document).ready(function () {
+                $('#myform').validate({ 
+      
+                    // initialize the plugin
+                    rules: {
+                        email: {
+                            required: true,
+                            
+                        },
+                        password: {
+                            required: true,
+                            minlength: 5
+                        },
+                       
+                        category:{
+                            required: true
+                        }
+                        
+                    },
+                    submitHandler: function (form) {
+                        console.log( $("input.select:checked").length)
+                        if (($("input[name*='test']:checked").length)<=0) {
+                            alert("You must check at least 1 box");
+                        }
+                        return true; // for demo
+                        alert('valid form submitted'); // for demo
+                        return false; // for demo
+                    }
+                    
+                });
+
+                });
+
                 gapi.load('auth2', function() {
                 auth2 = gapi.auth2.init({
                     client_id: 'CLIENT_ID.apps.googleusercontent.com',
