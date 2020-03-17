@@ -74,6 +74,7 @@ function display_profile(profile) {
 
 function phonenumber_validate(inputtxt) {
   var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
   if(inputtxt.match(phoneno)) {
     return true;
   }
@@ -126,12 +127,14 @@ function update_profile() {
       settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
+          $('#validate-message').css('display', 'none');
 
           var msg = JSON.parse(response);
           $("#alert-message").css('display', 'block');
           setTimeout(function(){
             $('#alert-message').css('display', 'none');
           }, 3000);
+
 
       }).fail(function(err) {
           // alert('Got err');
@@ -147,6 +150,8 @@ function update_profile() {
       settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
+          $('#validate-message').css('display', 'none');
+
           var msg = JSON.parse(response);
           $("#alert-message").css('display', 'block');
           setTimeout(function(){
