@@ -533,18 +533,22 @@ ul {
 
 .type,
 .price,
+.address,
+.ser-state,
 .ser-butt {
     display: inline-block;
 }
 
 .check-type,
+.address-type,
+.ser-state-type,
 .price-amount {
     display: none;
 }
 
 .po-serach-wrapper input.ser {
     display: inline-block;
-    width: 550px;
+    width: 420px;
     font-size: 18px;
     font-weight: 300;
     color: #575757;
@@ -561,6 +565,18 @@ ul {
     padding: 16px 0;
     font-weight: 300;
     border-left: 1px solid #767676;
+    border-right: 1px solid #767676;
+    width: 140px;
+    text-overflow: ellipsis;
+    text-align: center;
+    white-space: nowrap;
+}
+.address p, .ser-state p {
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #575757;
+    padding: 16px 0;
+    font-weight: 300;
     border-right: 1px solid #767676;
     width: 140px;
     text-overflow: ellipsis;
@@ -617,6 +633,17 @@ ul {
     top: 42px;
     z-index: 1200;
 }
+.address-type, .ser-state-type{
+    position: absolute;
+    width: 235px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 20px;
+    top: 42px;
+    z-index: 1200;
+}
 
 .check-type h6 {
     font-size: 18px;
@@ -642,11 +669,12 @@ ul {
     z-index: 2500;
 }
 
-.fixed .price-amount, .fixed .index-check-type{
+.fixed .price-amount, .fixed .index-check-type , .fixed .index-address-type, .fixed .ser-state-type{
     top: 40px;
 }
 
-.fixed .type-value, .fixed .y-price{
+
+.fixed .type-value, .fixed .y-price, .fixed .address-value, .fixed .state-value{
     padding: 5px 26px !important;
 }
 
@@ -2317,6 +2345,10 @@ ul {
 .index-check-type {
     top: 57px;
 }
+.index-address-type, .ser-state-type {
+    top: 57px;
+}
+
 
 .fixed {
     position: fixed;
@@ -4476,3 +4508,6 @@ td{
         }
         
     } */
+    .address_div{
+        display: inline-block;
+    }

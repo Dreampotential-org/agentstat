@@ -10,14 +10,30 @@
 		    	var a = $(this).val();
 		    	$(".type-value").text (a);
 				$(".check-type").slideUp();
-		    });
+			});
+			$(".index-address-type input[type=radio]").click(function (){
+		    	var a = $(this).val();
+		    	$(".address-value").html (a+" <i class='fas fa-caret-down'></i>");
+				$(".address-type").slideUp();
+			});
+
+			$(".ser-state-type input[type=radio]").click(function (){
+		    	var a = $(this).val();
+		    	$(".state-value").html (a+" <i class='fas fa-caret-down'></i>");
+				$(".ser-state-type").slideUp();
+			});
+			
 
 		    $("input[type=radio]").click(function (){
 		    	var aa = $(this).val();
-		    	$(".type-value").text (aa);
-		    	$(".check-type").slideUp();
+		    	// $(".type-value").text (aa);
+				$(".check-type").slideUp();
+				// $(".address-value").text (aa);
+				$(".address-type").slideUp();
+				
+				$(".ser-state-type").slideUp();
 		    });
-
+			
 		    $(".bau1-cotent input[type=radio]").click(function (){
 		    	var b = $(this).val();
 		    	$(".bau-in").text (b);
