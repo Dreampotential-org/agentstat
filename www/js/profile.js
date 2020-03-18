@@ -29,9 +29,35 @@ function display_profile(profile) {
   $('#state').val(profile.state);
   $('#zipcode').val(profile.zipcode);
 
-  $('#buyer_rebate').val(profile.buyer_rebate);
+  if (profile.buyer_rebate !== null) {
+    $('#buyer_rebate').val(profile.buyer_rebate);
+    $('#buyer_rebate_checkbox').prop('checked', true);
+  } else {
+    $('#buyer_rebate_checkbox').prop('checked', false);
+    $('#buyer_rebate').prop('disabled', true);
+  }
+
+  if (profile.type_of_listing_service !== null) {
+    $('#type_of_listing_service').val(profile.type_of_listing_service);
+    $('#type_of_listing_service_checkbox').prop('checked', true);
+  } else {
+    $('#type_of_listing_service_checkbox').prop('checked', false);
+    $('#type_of_listing_service').prop('disabled', true);
+  }
+
+  if (profile.listing_fee !== null) {
+    $('#listing_fee').val(profile.listing_fee);
+    $('#listing_fee_checkbox').prop('checked', true);
+  } else {
+    $('#listing_fee_checkbox').prop('checked', false);
+    $('#listing_fee').prop('disabled', true);
+  }
+
+  // $('#buyer_rebate').val(profile.buyer_rebate);
+
+
   $('#listing_fee').val(profile.listing_fee);
-  $('#type_of_listing_service').val(profile.type_of_listing_service);
+  // $('#type_of_listing_service').val(profile.type_of_listing_service);
 
   $('#provide_cma').prop('checked', profile.provide_cma);
   $('#about_me').val(profile.about_me);
@@ -90,6 +116,18 @@ function update_profile() {
 
   $.each(data_map, function(k, val) {
     data[val] = $('#'+val).val();
+  });
+
+  $.each(combo_boxes, function(k, val) {
+    val = val.split('-').join('_')
+    checkbox_id = '#' + val + '_checkbox'
+    console.log(checkbox_id);
+    console.log(val);
+
+    checked_val = $(checkbox_id).prop('checked');
+    if (!checked_val) {
+      data[val] = '';
+    }
   });
 
   if (phonenumber_validate($('#phone_number').val()) === false) {
@@ -283,3 +321,21 @@ $(document).on('change click', '#connector-remove', function() {
       show_error(err);
   });
 });
+
+
+$('.combo-checkboxes:checkbox').change(function () {
+  console.log('xxxxxxx');
+  target_id = $(this).attr('target');
+  checked_value = $(this).prop('checked');
+  console.log(checked_value);
+
+  if(checked_value) {
+    $('#' + target_id).prop('disabled', false);
+  } else {
+    console.log(target_id);
+    $('#' + target_id).prop('disabled', 'disabled');
+  }
+
+});
+
+
