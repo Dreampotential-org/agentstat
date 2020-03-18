@@ -364,4 +364,6 @@ $('.combo-checkboxes:checkbox').change(function () {
 
 });
 
-
+$('#screen_name').keyup(function () {
+  $('#profile_slug').html($('#screen_name').val());
+});
