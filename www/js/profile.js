@@ -109,14 +109,17 @@ function display_profile(profile) {
   }
 
   // console.log(profile.language_fluencies);
-  get_languages();
-  $.each(profile.language_fluencies, function(k, lang_id) {
-    $('#lang-' + lang_id).prop('checked', true);
-  });
+  get_languages(profile.language_fluencies);
 
   $.each(profile.specialty, function(k, specialty_id) {
     $('#specialty-'+specialty_id).prop('checked', true);
   });
+
+  // $.each(profile.language_fluencies, function(k, lang_id) {
+  //   $('#lang-' + lang_id).prop('checked', true);
+  //   console.log('lang_id: ' + lang_id);
+  // });
+
 }
 
 function phonenumber_validate(inputtxt) {
@@ -260,23 +263,27 @@ function get_specilities() {
 
 }
 
-function get_languages() {
+function get_languages(language_ids) {
+  console.log(language_ids);
   settings = get_settings('language-fluency', 'GET')
   $.ajax(settings).done(function (language_list) {
-
-    console.log("LANGUAGE",language_list)
 
     var language_list = JSON.parse(language_list);
     console.log(language_list);
     var ix = 0;
+
     $.each(language_list, function(k, v) {
-      // console.log(v.id, v.val);
+      checked = '';
+      if ($.inArray( v.id, language_ids) !== -1) {
+        checked = ' checked ';
+      }
+
       ix++;
       if (ix < 7) {
         $('#languages').append(`<div class='col-lg-6 col-6'>
 
           <div class='lar-left'>
-          <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+          <input class='lng-checkbox' ` + checked + ` value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
           <label for='lang-` + v.id + `'>` + v.val + `</label>
           </div>
         </div>
@@ -286,7 +293,7 @@ function get_languages() {
         $('#morelanguages').append(`
         <div class='col-lg-6 col-6'>
           <div class='lar-left'>
-          <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+          <input class='lng-checkbox' ` + checked + ` value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
           <label for='lang-` + v.id + `'>` + v.val + `</label>
           </div>
       </div>
