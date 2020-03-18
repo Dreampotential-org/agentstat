@@ -1,9 +1,8 @@
 data_map = [
   'first_name', 'last_name', 'phone_number', 'email', 'screen_name',
-  'license_number', 'brokerage_name', 'city', 'state', 'zipcode', 'buyer_rebate', 'listing_fee',
+  'brokerage_name', 'city', 'state', 'zipcode', 'buyer_rebate', 'listing_fee',
   'provide_cma', 'about_me', 'type_of_listing_service'
 ];
-
 
 function get_profile(callback) {
   call_api(callback, 'agent-profile/');
@@ -22,12 +21,34 @@ function display_profile(profile) {
   $('#email').val(profile.email);
   $('#screen_name').val(profile.screen_name);
   $('#profile_slug').text(profile.screen_name);
-  $('#license_number').val(profile.license_number);
   $('#brokerage_name').val(profile.brokerage_name);
   $('#brokerage_address').val(profile.brokerage_address);
   $('#city').val(profile.city);
   $('#state').val(profile.state);
   $('#zipcode').val(profile.zipcode);
+
+
+
+  $.each(profile.licenses, function(k, val) {
+    if (k === 0) {
+      $('.license_number').val(val);
+    } else {
+      $("#license").append(`
+        <div class="col-lg-3 align-self-end">
+          <div class="li-left">
+            <p class="mb-0" id="lebel"></p>
+          </div>
+        </div>
+        <div class="col-lg-9">
+        <div class="li-right" style=" margin-top: 10px;"">
+          <input  class="license_number"
+          style="width: 300px;" type="text" name="mytext[]"
+          placeholder="123456 WA - 08/01/2020" value="` + val + `">
+          <button class="remove_field"><span><i class="fas fa-times"></i></span></button>
+        </div>
+      </div>`);
+    }
+  });
 
   if (profile.buyer_rebate !== null) {
     $('#buyer_rebate').val(profile.buyer_rebate);
@@ -142,6 +163,10 @@ function update_profile() {
   }
 
 
+  // licences
+  data['licenses'] = $('.license_number').map(
+    function() { return $(this).val() }
+  ).get();
 
   // fluent languages
   data['language_fluencies'] = $('.lng-checkbox:checked').map(
@@ -151,6 +176,7 @@ function update_profile() {
   data['specialties'] = $('.specialty-checkbox:checked').map(
     function() { return $(this).val() }
   ).get();
+
 
   var picture_data = $('#picture')[0].files[0]
   var reader = new FileReader();

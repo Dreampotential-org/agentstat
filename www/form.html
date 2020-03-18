@@ -244,7 +244,7 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="li-right input_fields_wrap">
-                                                <input id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020">
+                                                <input class="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020">
                                                 <!-- <button id="cross"><span><i class="fas fa-times"></i></span></button> -->
                                                 <button class="add_field_button">Add</button>
                                         </div>
@@ -335,12 +335,12 @@
                                 </div>
 
                                 <!-- year area start -->
-                                <div class="year">
+                                <div class="row year">
                                     <div class="container">
                                         <div class="year-wrapper">
                                             <p>Years in business: 5 Years</p>
                                             <span>Specialties</span>
-                                            <div class="year-wrapper-check row" id="specialties">
+                                            <div class="year-wrapper-check row" id="specialties" style="margin-left:10px">
                                             </div>
                                         </div>
                                     </div>
@@ -660,10 +660,20 @@
     });
     
         $(".add_field_button").click(function(){ 
-            // $("#license").append('<div class="row"><div class="col-6"> <input  id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 "></div><div class="col-3"><input type=text placeholder="State"> </div> <div class="col-3"><input type=date></div><button class="remove_field"><span><i class="fas fa-times"></i></span></button></div>')
-
-            $("#license").append('<div class="col-lg-3 align-self-end"> <div class="li-left"><p class="mb-0" id="lebel"> </p> </div> </div> <div class="col-lg-9">  <div class="li-right" style=" margin-top: 10px;""><input  id="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 "><button class="remove_field"><span><i class="fas fa-times"></i></span></button></div> </div>')
+            $("#license").append(`
+              <div class="col-lg-3 align-self-end">
+                <div class="li-left">
+                  <p class="mb-0" id="lebel"></p> 
+                </div>
+              </div> 
+              <div class="col-lg-9">
+                <div class="li-right" style=" margin-top: 10px;"">
+                  <input  class="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 ">
+                  <button class="remove_field"><span><i class="fas fa-times"></i></span></button>
+                </div>
+              </div>`)
         });
+
         $("#license").on("click",".remove_field", function(){
              $(this).parent('div').remove(); 
     })
