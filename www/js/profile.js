@@ -20,7 +20,7 @@ function display_profile(profile) {
   $('#last_name').val(profile.last_name);
   $('#phone_number').val(profile.phone_number);
   $('#email').val(profile.email);
-  $('#screen_name').val(profile.screen_name.replace(/-/g , ''));
+  $('#screen_name').val(profile.screen_name);
   $('#profile_slug').text(profile.screen_name);
   $('#license_number').val(profile.license_number);
   $('#brokerage_name').val(profile.brokerage_name);
@@ -29,9 +29,35 @@ function display_profile(profile) {
   $('#state').val(profile.state);
   $('#zipcode').val(profile.zipcode);
 
-  $('#buyer_rebate').val(profile.buyer_rebate);
+  if (profile.buyer_rebate !== null) {
+    $('#buyer_rebate').val(profile.buyer_rebate);
+    $('#buyer_rebate_checkbox').prop('checked', true);
+  } else {
+    $('#buyer_rebate_checkbox').prop('checked', false);
+    $('#buyer_rebate').prop('disabled', true);
+  }
+
+  if (profile.type_of_listing_service !== null) {
+    $('#type_of_listing_service').val(profile.type_of_listing_service);
+    $('#type_of_listing_service_checkbox').prop('checked', true);
+  } else {
+    $('#type_of_listing_service_checkbox').prop('checked', false);
+    $('#type_of_listing_service').prop('disabled', true);
+  }
+
+  if (profile.listing_fee !== null) {
+    $('#listing_fee').val(profile.listing_fee);
+    $('#listing_fee_checkbox').prop('checked', true);
+  } else {
+    $('#listing_fee_checkbox').prop('checked', false);
+    $('#listing_fee').prop('disabled', true);
+  }
+
+  // $('#buyer_rebate').val(profile.buyer_rebate);
+
+
   $('#listing_fee').val(profile.listing_fee);
-  $('#type_of_listing_service').val(profile.type_of_listing_service);
+  // $('#type_of_listing_service').val(profile.type_of_listing_service);
 
   $('#provide_cma').prop('checked', profile.provide_cma);
   $('#about_me').val(profile.about_me);
@@ -72,12 +98,50 @@ function display_profile(profile) {
   });
 }
 
+function phonenumber_validate(inputtxt) {
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
+  if(inputtxt.match(phoneno)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 function update_profile() {
   var data = {};
+  var valid = true;
+  var validation_messages = 'Please check the following error(s)!<br><br>';
 
   $.each(data_map, function(k, val) {
     data[val] = $('#'+val).val();
   });
+
+  $.each(combo_boxes, function(k, val) {
+    val = val.split('-').join('_')
+    checkbox_id = '#' + val + '_checkbox'
+    console.log(checkbox_id);
+    console.log(val);
+
+    checked_val = $(checkbox_id).prop('checked');
+    if (!checked_val) {
+      data[val] = '';
+    }
+  });
+
+  if (phonenumber_validate($('#phone_number').val()) === false) {
+    validation_messages += 'Invalid phone number. <br>';
+    valid = false;
+  }
+
+  if (valid === false) {
+    $('#validate-message').css('display', 'block');
+    $('#validate-message').html(validation_messages);
+    return false
+  }
+
+
 
   // fluent languages
   data['language_fluencies'] = $('.lng-checkbox:checked').map(
@@ -101,12 +165,14 @@ function update_profile() {
       settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
+          $('#validate-message').css('display', 'none');
 
           var msg = JSON.parse(response);
           $("#alert-message").css('display', 'block');
           setTimeout(function(){
             $('#alert-message').css('display', 'none');
           }, 3000);
+
 
       }).fail(function(err) {
           // alert('Got err');
@@ -122,6 +188,8 @@ function update_profile() {
       settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
+          $('#validate-message').css('display', 'none');
+
           var msg = JSON.parse(response);
           $("#alert-message").css('display', 'block');
           setTimeout(function(){
@@ -253,3 +321,21 @@ $(document).on('change click', '#connector-remove', function() {
       show_error(err);
   });
 });
+
+
+$('.combo-checkboxes:checkbox').change(function () {
+  console.log('xxxxxxx');
+  target_id = $(this).attr('target');
+  checked_value = $(this).prop('checked');
+  console.log(checked_value);
+
+  if(checked_value) {
+    $('#' + target_id).prop('disabled', false);
+  } else {
+    console.log(target_id);
+    $('#' + target_id).prop('disabled', 'disabled');
+  }
+
+});
+
+

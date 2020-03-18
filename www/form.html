@@ -372,38 +372,39 @@
                         <div class="addi-one">
                             <p>COMMISSION</p>
                             <div class="add-check">
-                                <input type="checkbox">
+                                <input type="checkbox" class="combo-checkboxes" id="listing_fee_checkbox" target='listing_fee'>
 								                <span class="checkmark"></span>
-                                <label class="check-box">Listing fees...
-							    </label>
-                                <div><select style="margin-left: 0px !important;"id="listing_fee" name="carlist"> </select></div>
+                                <label class="check-box" for="listing_fee_checkbox">Listing fees...</label>
+                                <div>
+                                  <select style="margin-left: 0px !important;" id="listing_fee"></select>
+                                </div>
                             </div>
                             
                             <div class="add-check">
-                                <input type="checkbox">
+                                <input type="checkbox" class="combo-checkboxes" target='buyer_rebate' id="buyer_rebate_checkbox">
                                 <span class="checkmark"></span>
-                                <label class="check-box">Buyer Rebate
-                                </label>
-                                <div><select style="margin-left: 0px !important;" id="buyer_rebate" name="carlist"></select></div>
-                                <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
-							</select>
+                                <label class="check-box" for="buyer_rebate_checkbox">Buyer Rebate</label>
+                                <div>
+                                  <select style="margin-left: 0px !important;" id="buyer_rebate"></select>
+                                </div>
+                                <div id="textbox" style="padding-top: 10px;"><input type="number"></div> 
+                                </select>
                             </div>
 
                             <div class="add-check">
-                                <input type="checkbox">
+                                <input type="checkbox" class="combo-checkboxes" target='type_of_listing_service' id="type_of_listing_service_checkbox">
                                 <span class="checkmark"></span>
-                                <label class="check-box">Type of listing services
-                                
-                                </label>
-                               <div><select style="margin-left: 0px !important;" id="type_of_listing_service" name="carlist">
-                            </select></div> 
+                                <label class="check-box" for="type_of_listing_service_checkbox">Type of listing services</label>
+
+                                <div>
+                                  <select style="margin-left: 0px !important;" id="type_of_listing_service"></select>
+                                </div> 
                             </div>
+
                             <div class="add-check">
-                                <input id="provide_cma" type="checkbox">
-								<span class="checkmark"></span>
-                                <label class="check-box">I Provide CMAs
-								
-							</label>
+                                <input id="provide_cma" type="checkbox"> 
+                                <span class="checkmark"></span>
+                                <label class="check-box">I Provide CMAs</label>
                             </div>
                         </div>
                     </div>
@@ -529,6 +530,9 @@
                       Your profile has been saved.
                   </div>
 
+                  <div class="alert alert-danger" id="validate-message"
+                    style="display: none" role="alert">
+                  </div>
               </div>
               <div class="col-lg-4"></div>
 
