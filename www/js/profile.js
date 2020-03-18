@@ -43,7 +43,7 @@ function display_profile(profile) {
         <div class="li-right" style=" margin-top: 10px;"">
           <input  class="license_number"
           style="width: 300px;" type="text" name="mytext[]"
-          placeholder="123456 WA - 08/01/2020" value="` + val + `">
+          placeholder="123456 WA - 08/01/2020" value="` + val + `" readonly>
           <button class="remove_field"><span><i class="fas fa-times"></i></span></button>
         </div>
       </div>`);
