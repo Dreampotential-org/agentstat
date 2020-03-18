@@ -40,7 +40,7 @@
 
 		    $("input[type=radio]").click(function (){
 		    	var aa = $(this).val();
-		    	// $(".type-value").text (aa);
+		    	$(".type-value").text (aa);
 				$(".check-type").slideUp();
 		    });
 			

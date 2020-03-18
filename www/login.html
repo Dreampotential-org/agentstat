@@ -1,62 +1,75 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-    <head>
-        <!-- Meta setup -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="keywords" content="">
-        <meta name="decription" content="">
-        <meta name="author" content="Asad Kabir">
-        <meta name="google-signin-client_id" content="852045059252-r5bn5uthorj1lejlaqmocmpasj0uhenf.apps.googleusercontent.com">
+<head>
+    <!-- Meta setup -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="decription" content="">
+    <meta name="author" content="Asad Kabir">
+    <meta name="google-signin-client_id"
+        content="852045059252-r5bn5uthorj1lejlaqmocmpasj0uhenf.apps.googleusercontent.com">
 
 
-        <!-- Title -->
-        <title>Login</title>
+    <!-- Title -->
+    <title>Login</title>
 
-        <!-- Fav Icon -->
-        <link rel="icon" href="img/fav.png" />
+    <!-- Fav Icon -->
+    <link rel="icon" href="img/fav.png" />
 
-        <link href="css/fileinput.css" rel="stylesheet" type="text/css">
+    <link href="css/fileinput.css" rel="stylesheet" type="text/css">
 
-        <!-- Include Owl-Carusol -->
-        <link rel="stylesheet" href="css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <!-- Include Owl-Carusol -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
 
-        <!-- Include Bootstrap -->
-        <link rel="stylesheet" href="css/bootstrap.css" />
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
 
-        <!-- Main StyleSheet -->
-        <link rel="stylesheet" href="style.css" />
+    <!-- Main StyleSheet -->
+    <link rel="stylesheet" href="style.css" />
 
-        <!-- Responsive CSS -->
-        <link rel="stylesheet" href="css/responsive.css" />
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 
-      
-    </head>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+        <script src="https://apis.google.com/js/api:client.js"></script>
 
-    <body>
-        <!--[if lte IE 9]>
+</head>
+<style>
+   .error{
+    color: red;
+    font-size: smaller; 
+    text-align: center;
+   }
+</style>
+
+<body>
+    <!--[if lte IE 9]>
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
             <![endif]-->
 
-        <!-- header-area start -->
-        <div class="wrapper-heading sticky-top bg-white akh-4">
-        <div class="header-area sticky-header two-header-area sticky-top bg-white">
-            <div class="container">
+    <!-- header-area start -->
+    <div class="wrapper-heading sticky-top bg-white">
+        <div class="header-area sticky-top bg-white custom_header">
+            <!-- <div class="header-area sticky-header two-header-area sticky-top bg-white"> -->
+            <div class="">
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-md navbar-light">
-                            <a class="navbar-brand form-logo" href="index.html">
+                            <a class="navbar-brand " href="index.html">
                                 <img src="img/logo.png" alt="logo" />
                             </a>
-                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button"
+                                data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
                                 <span class="hamburger-box">
                                     <span class="hamburger-inner"></span>
                                 </span>
@@ -64,517 +77,907 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                 </ul>
-                                <div class="col-lg-10 offset-lg-1">
-                                    <div id="searchDiv"class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size">
-                                        <input class="ser"  id="searchId" type="text" name="text" placeholder="Search ">
-                                        <div class="serch_btn" style="display: inline;float: right;margin-top:5px;" >
-                                            <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="main-menu-part form-menu">
-                                    <ul class="float-left form-ulli-left">
-                                        <li><a href="#">HOME </a></li>
-                                        <li><a href="#">TRANSACTIONS </a></li>
-                                        <li><a href="#">DASHBOARD  </a></li>
-                                        <li><a href="#">REFERRALS </a></li>
-                                    </ul>
-                                    <ul class="float-right user-icon form-ulli-right">
-                                        <li>
-                                            <div class="dropdown profile show">
-                                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span><i class="fas fa-user-circle"></i></span>
-                                                </a>
-
-                                                <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                                    <a class="dropdown-item" href="#">
-                                                        <p>Profile Settings</p>
-                                                        <span>Edit your profile info and reviews</span>
-                                                    </a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <p>Account Settings</p>
-                                                        <span>Manage your account settings</span>
-                                                    </a>
-                                                    <a class="dropdown-item" href="#">Sign Out</a>
+                                <!-- <div class="po-search pt-search g "> -->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-10 offset-lg-1">
+                                                <div class="po-serach-wrapper pt-search-wrapper .po-serach-wrapper-one srch-bar ak-po">
+                                                    <div class="address ">
+                                                        <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
+                                                        <div class="address-type index-address-type ">
+                                                            <ul>
+                                                                <li class="custom_radio">Address</li>
+                                                                <li class="custom_radio">Agent Name</li>
+                                                                <li class="custom_radio">City</li>
+                                                                <li class="custom_radio">ZipCode</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                        
+                                                    <div class="ser-state " style="display: none;">
+                                                        <p id="ser-state-id" class=" state-value">State <i class="fas fa-caret-down"></i></p>
+                                                        <div class="ser-state-type">
+                                                            <ul id="allstate">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <input class="ser txt-cls" type="text" name="text" placeholder="Search">
+                        
+                                                    <div class="type ak-price srch-price">
+                                                        <p id="y-type" class="type-value">Type</p>
+                                                        <div class="check-type">
+                                                            <h6>Home Type</h6>
+                                                            <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
+                                                            <input class="custom_radio" type="radio" name="babu" value="Manufactured">
+                                                            Manufactured<br>
+                                                            <input class="custom_radio" type="radio" name="babu"
+                                                                value="Condos/co-ops">Condos/co-ops<br>
+                                                            <input class="custom_radio" type="radio" name="babu"
+                                                                value="Multi-family">Multi-family<br>
+                                                            <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br>
+                                                            <input class="custom_radio" id="babu" type="radio" name="babu"
+                                                                value="Townhomes">Townhomes<br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price ak-price srch-pricevalue">
+                                                        <p class="d-inline-block y-price">Price</p>
+                                                        <div class="price-amount" id="pt-amount">
+                                                            <h6 class="d-linline-block">Price Range</h6>
+                                                            <!-- <input id="one-left-in" type="text" name="" placeholder="$100K"> <span> -</span>
+                                                            <input id="one-right-in" type="text" name="" placeholder="$500K"> -->
+                                                            <input id="one-left-in" type="text" name="" placeholder="MIN"> <span> -</span>
+                                                            <input id="one-right-in" type="text" name="" placeholder="MAX">
+                                                            <div class="price-wrapper">
+                                                                <div class="p-left">
+                                                                    <ul>
+                                                                        <li>$<span class="price_padding">50</span>K+</li>
+                                                                        <li>$<span class="price_padding">100</span>K+</li>
+                                                                        <li>$<span class="price_padding">150</span>K+</li>
+                                                                        <li>$<span class="price_padding">300</span>K+</li>
+                                                                        <li>$<span class="price_padding">400</span>K+</li>
+                                                                        <li>$<span class="price_padding">500</span>K+</li>
+                                                                        <li>$<span class="price_padding">600</span>K+</li>
+                                                                        <li>$<span class="price_padding">700</span>K+</li>
+                                                                        <li>$<span class="price_padding">800</span>K+</li>
+                                                                        <li>$<span class="price_padding">900</span>K+</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="p-right">
+                                                                    <ul>
+                                                                        <li>$200K</li>
+                                                                        <li>$300K</li>
+                                                                        <li>$400K</li>
+                                                                        <li>$500K</li>
+                                                                        <li>$600K</li>
+                                                                        <li>$700K</li>
+                                                                        <li>$800K</li>
+                                                                        <li>$900K</li>
+                                                                        <li>$1M</li>
+                                                                        <li>Any price</li>
+                                                                    </ul>
+                                                                </div>
+                        
+                                                            </div>
+                                                            <div id="donBtn" class="text-center" style="padding: 14px;">
+                                                                <button>Done</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="serch_btn" style="display: inline;float: right;margin-top:8px;">
+                                                        <button class="btn btn-default searchButton"><span><i
+                                                                    class="fas fa-search"></i></span></button>
+                                                    </div>
+                                                    <!-- <div class="ser-butt ak-sb1">
+                                                        <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
+                                                    </div> -->
                                                 </div>
                                             </div>
-                                        </li>
-                                    </ul>
-                                </div> -->
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
                             </div>
                         </nav>
                     </div>
                 </div>
             </div>
         </div>
-      
-        </div>
-        <!-- header-area end -->
-        <div class="login-form login_content" >
-            <h3 class="text-center" style="padding: 0px 10px 0px 10px;">
-                Log In To Your AgentStat Account
-            </h3> 
-            <form action="" method="post" class="body_color" >
-                <nav>
-					<div class="nav nav-tabs custom_log_abs" id="nav-tab" role="tablist">
-						<a class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Sign In</a>
-						<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">New Acount</a>
-					</div>
-				</nav>
+       
+    </div>
 
-                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="tab-pane fade show active" id="nav-signIn-tab" role="tabpanel" aria-labelledby="nav-signIn">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="email" class="form-control email_input" id="email"  style="border-radius: 0px;" name="email" placeholder="Email address" required="required">				
-                                </div>
+    <!-- </div> -->
+    <!-- header-area end -->
+    <div class="login-form login_content ">
+        <h3 class="text-center" style="padding: 0px 10px 0px 10px;">
+            Log In To Your AgentStat Account
+        </h3>
+        <form action="" method="post" class="body_color">
+            <nav>
+                <div class="nav nav-tabs custom_log_abs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="true">Sign In</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                        aria-controls="nav-profile" aria-selected="false">New Acount</a>
+                </div>
+            </nav>
+
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="tab-pane fade show active" id="nav-signIn-tab" role="tabpanel"
+                        aria-labelledby="nav-signIn">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="email" class="form-control email_input" id="email"
+                                    style="border-radius: 0px;" name="email" placeholder="Email address">
+
                             </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="password"  id="password" class="form-control email_input" style="border-radius: 0px;"name="password" placeholder="Password" required="required">				
-                                </div>
-                            </div>        
-                        </div>
-                        <div class="form-group text-center">
-                            <button type="button" id="login-btn" class="btn login-btn buttonLogin">Log in</button>
-                        </div>
-                        <div class="clearfix text-center">
-                            <a href="#" class="pull-right" id="forgot-password">Forgot Password?</a>
-                        </div>
-					</div>
-					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <form action="" method="post" class="body_color" id="myform">
-                        <div class="form-group">
-                            <button type="button" id="login-btn" data-toggle="modal" data-target="#signupModal" class="btn fb_btn login-btn btn-block"><i class="fab fa-facebook-square facebookIcon"></i>Connect with Facebook</button>
-                        
                         </div>
                         <div class="form-group">
-                            <!-- <button type="button" data-onsuccess="onSignIn" data-theme="dark" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Connect with Facebook Google</button> -->
-                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                            <div class="input-group">
+                                <input type="password" id="password" class="form-control email_input"
+                                    style="border-radius: 0px;" name="password" placeholder="Password">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="button" id="login-btn" class="btn login-btn buttonLogin">Log in</button>
+                    </div>
+                    <div class="clearfix text-center">
+                        <a href="#" class="pull-right" id="forgot-password">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <form action="" method="post" class="body_color" id="myform">
+                        <div class="form-group">
+                            <button type="button" id="btn-fb" class="btn fb_btn login-btn btn-block"><i
+                                    class="fab fa-facebook-square facebookIcon"></i>Connect with Facebook</button>
+
+                        </div>
+
+
+                        <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" onlogout="logOutUser();">
+</fb:login-button> -->
+
+<!-- <div id="status">
+</div> -->
+
+
+                        <div id="my-signin2"></div>
+
+                        <div class="form-group">
+                            <!-- <button type="button" class="btn google_btn login-btn btn-block">
+                                <img class="googleIcon g-signin2"  id="googleSignIn" src="./img/google.png">Connect with  Google</button> -->
+
+
                             <!-- <button type="button" id="login-btn" data-toggle="modal" data-target="#signupModal" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Connect with Facebook Google</button> -->
                         </div>
-                        
+
                         <div class="form-group">
                             <h2 class="line-text"><span>OR</span></h2>
                         </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="email" class="form-control email_input" id="email"  style="border-radius: 0px;" name="email" required="required" placeholder="Email address">				
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="password"  id="password" class="form-control email_input" style="border-radius: 0px;"name="password" required="required" placeholder="Password" >				
-                            </div>
-                        </div>  
-                        <div class="form-group row text-center "> 
-                            <div class="col-6 col-md-6 col-sm-3">
-                                <div class="custom-control custom-checkbox">
-                                    
-                                    <input type="checkbox" class=" unchecked-acs" id="homeowner" name="checkboxes[]" value="checkboxes" >
-                                    <label  >Homeowner</label>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-6 col-sm-3">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class=" unchecked-acs" id="buyer" name="checkboxes[]" value="checkboxes" >
-                                    <label >Buyer</label>
-                                </div>
-                            </div>
-                           
-                        </div>
+                        <div id='idAll' class="error">
 
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="email" class="form-control email_input" id="email1"
+                                    style="border-radius: 0px;" name="email" placeholder="Email address"
+                                    required="required">
+                            </div>
+                            <div id='idEmail' class="error">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password" id="password1" class="form-control email_input"
+                                    style="border-radius: 0px;" name="password" placeholder="Password"
+                                    required="required">
+                            </div>
+                            <div id='idPassword'class="error">
+
+                            </div>
+                        </div>
+                        <div class="form-group row text-center ">
+                            <div class="col-6 col-md-6 col-sm-3">
+                                <div class="custom-control custom-checkbox">
+
+                                    <input type="checkbox" class="unchecked-acs" id="homeowner" name="checkbox[]"
+                                        value="checkboxes1">
+                                    <label>Homeowner</label>
+                                </div>
+                                
+                            </div>
+                            <div class="col-6 col-md-6 col-sm-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class=" unchecked-acs" id="buyer" name="checkbox[]"
+                                        value="checkboxes2">
+                                    <label>Buyer</label>
+                                </div>
+                            </div>
+                            
+                        </div>
                         <div class="form-group row">
                             <div class="col-9 col-md-9 col-sm-6" style="margin-left:-20px;">
                                 <div class="custom-control custom-checkbox text-center">
-                                    <input type="checkbox" class=" unchecked-acs" id="industry" name="checkboxes[]" value="checkboxes" >
-                                    <label  >Industry Professional </label>
+                                    <input type="checkbox" class="unchecked-acs" id="industry" name="checkbox[]"
+                                        value="checkboxes3">
+                                    <label>Industry Professional </label>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
+                        <div id='idcheck' style="color: red;font-size: smaller;">
+
+                        </div>
                         <div class="form-group row">
                             <div class="col-12 col-md-12 col-sm-9 city_div">
-                                <select id='category' name="category" placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left"s>
-                                <option value=''>Select your category</option>
-                                <option value='secondoption' >Real Estate Agent/ Broker</option>
-                                <option value='Mortgage Lender'>Mortgage Lender</option>
-                                <option value='Home Improvement Services'>Home Improvement Services</option>
-                                <option value='Photographer'>Photographer</option>
-                                <option value='Home Builder'>Home Builder</option>
-                                <option value='Home Inspector'>Home Inspector</option>
-                                <option value='Home Inspector'>Home Appraiser</option>
-                                <option value='Home Inspector'>Other</option>
+                                <select id='category' name="category" placeholder="Select your category"
+                                    class="form-control d-inline-block custom_city w-50 float-left" s>
+                                    <option value=''>Select your category</option>
+                                    <option value='secondoption'>Real Estate Agent/ Broker</option>
+                                    <option value='Mortgage Lender'>Mortgage Lender</option>
+                                    <option value='Home Improvement Services'>Home Improvement Services</option>
+                                    <option value='Photographer'>Photographer</option>
+                                    <option value='Home Builder'>Home Builder</option>
+                                    <option value='Home Inspector'>Home Inspector</option>
+                                    <option value='Home Inspector'>Home Appraiser</option>
+                                    <option value='Home Inspector'>Other</option>
                                 </select>
-                          </div>
-                          <div class="error" id="form_error"></div>
+                                
+                            </div>
+                            <div id='idSelect'style="color: red;font-size: smaller;">
+
+                            </div>
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" id="continuebtn" class="btn login-btn buttonLogin">Continue</button>
+                            <button  id="continuebtn1" value="Submit"
+                                class="btn login-btn buttonLogin">Continue</button>
                         </div>
                     </form>
-                      <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
-                        <div class="clearfix text-center">
-                            <a href="#" class="pull-right continutxt" id="forgot-password">By continuing, you agree to AgentStat’s  Terms of Use</a>
-                        </div>
+                    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+                    <div class="clearfix text-center">
+                        <a href="#" class="pull-right continutxt" id="forgot-password">By continuing, you agree to
+                            AgentStat’s Terms of Use</a>
                     </div>
-				</div>
-            </form>
-        
-        </div>
+                </div>
+            </div>
+        </form>
 
-             <!-- Modal -->
-             <div class="modal fade " id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-size modalSignup" role="document" style="transform: translateY(50%);">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div>
-                                <p>I am ....</p>
-                                <div class="form-group row text-center"> 
-                                    <div class="col-6 col-md-6 col-sm-3">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox"  name="checkbox" id="checkID" value="Geeks"> 
-                                            <label class="GFG"for="checkID"> Homeowner </label> 
-                                            <!-- <input type="checkbox" class="custom-control-input" id="homeowner" name="Homeowner" value="Homeowner  ">
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade " id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-size modalSignup" role="document" style="transform: translateY(50%);">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <p>I am ....</p>
+                        <div class="form-group row text-center">
+                            <div class="col-6 col-md-6 col-sm-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="checkbox" id="checkID" value="Geeks">
+                                    <label class="GFG" for="checkID"> Homeowner </label>
+                                    <!-- <input type="checkbox" class="custom-control-input" id="homeowner" name="Homeowner" value="Homeowner  ">
                                             <label class="custom-control-label" >Homeowner</label> -->
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-6 col-sm-3">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input " id="buyer" name="Buyer" value="Buyer">
-                                            <label class="custom-control-label" >Buyer</label>
-                                        </div>
-                                    </div>
-                                   
                                 </div>
-        
-                                <div class="form-group row">
-                                    <div class="col-9 col-md-9 col-sm-6" style="padding-left: 0px;">
-                                        <div class="custom-control custom-checkbox text-center">
-                                            <input type="checkbox" class="custom-control-input" id="industry" name="Industry" value="Industry">
-                                            <label class="custom-control-label" >Industry Professional </label>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="form-group row">
-                                    <div class="col-12 col-md-12 col-sm-9 city_div">
-                                        <select id='category'  name="category" placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
-                                        <option value=''>Select your category</option>
-                                        <option value='secondoption' >Real Estate Agent/ Broker</option>
-                                        <option value='Mortgage Lender'>Mortgage Lender</option>
-                                        <option value='Home Improvement Services'>Home Improvement Services</option>
-                                        <option value='Photographer'>Photographer</option>
-                                        <option value='Home Builder'>Home Builder</option>
-                                        <option value='Home Inspector'>Home Inspector</option>
-                                        <option value='Home Inspector'>Home Appraiser</option>
-                                        <option value='Home Inspector'>Other</option>
-                                        </select>
-                                  </div>
+                            </div>
+                            <div class="col-6 col-md-6 col-sm-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input " id="buyer" name="Buyer"
+                                        value="Buyer">
+                                    <label class="custom-control-label">Buyer</label>
                                 </div>
-                                <div class="form-group text-center">
-                                    <button type="button" id="continue" class="btn login-btn buttonLogin">Continue</button>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-9 col-md-9 col-sm-6" style="padding-left: 0px;">
+                                <div class="custom-control custom-checkbox text-center">
+                                    <input type="checkbox" class="custom-control-input" id="industry" name="Industry"
+                                        value="Industry">
+                                    <label class="custom-control-label">Industry Professional </label>
                                 </div>
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <div class="col-12 col-md-12 col-sm-9 city_div">
+                                <select id='category' name="category" placeholder="Select your category"
+                                    class="form-control d-inline-block custom_city w-50 float-left">
+                                    <option value=''>Select your category</option>
+                                    <option value='secondoption'>Real Estate Agent/ Broker</option>
+                                    <option value='Mortgage Lender'>Mortgage Lender</option>
+                                    <option value='Home Improvement Services'>Home Improvement Services</option>
+                                    <option value='Photographer'>Photographer</option>
+                                    <option value='Home Builder'>Home Builder</option>
+                                    <option value='Home Inspector'>Home Inspector</option>
+                                    <option value='Home Inspector'>Home Appraiser</option>
+                                    <option value='Home Inspector'>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="button" id="continue" class="btn login-btn buttonLogin">Continue</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-             <!-- Modal 2 -->
-             <div class="modal fade " id="continueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog  modalSignup" role="document">
-                    <div class="modal-content" style="width: 650px;">
-                        <div class="modal-body">
-                            <h4><b>To claim your profile, please enter your name here, find your profile, and click “claim profile” link under your profile picture on your profile page.</b></h4>
-                            <br>
-                            <div class="form">
-                                <div class="container">
-                                    <div class="form-wrapper">
-                                        <div class="row h-100">
-                                            <div class="col-lg-6 mx-auto">
-                                                <div class="alert alert-danger msg" role="alert"
-                                                     style="display: none">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade " id="continueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog  modalSignup" role="document">
+            <div class="modal-content" style="width: 650px;">
+                <div class="modal-body">
+                    <h4><b>To claim your profile, please enter your name here, find your profile, and click “claim
+                            profile” link under your profile picture on your profile page.</b></h4>
+                    <br>
+                    <div class="form">
+                        <div class="container">
+                            <div class="form-wrapper">
+                                <div class="row h-100">
+                                    <div class="col-lg-6 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="display: none">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="form-name">
+                                        <div class="row">
+                                            <div class="col-6 cod-md-4 col-sm-3">
+                                                <div class="fn-right">
+                                                    <input type="text" class="form-control" id="full_name" name="text"
+                                                        placeholder="Full Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-4 cod-md-4 col-sm-3">
+                                                <div class="fn-right">
+                                                    <select id='state' class='form-control'></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 cod-md-4 col-sm-3">
+                                                <div class="fn-left">
+                                                    <button id='search' style='margin-left:10px;'
+                                                        class="btn btn-success">Search</button>
                                                 </div>
                                             </div>
                                         </div>
-            
-                                        <div >
-                                            <div class="form-name">
-                                                <div class="row">
-                                                    <div class="col-6 cod-md-4 col-sm-3">
-                                                        <div class="fn-right">
-                                                            <input type="text" class="form-control" id="full_name" name="text" placeholder="Full Name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4 cod-md-4 col-sm-3">
-                                                        <div class="fn-right">
-                                                            <select id='state' class='form-control' ></select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-2 cod-md-4 col-sm-3">
-                                                        <div class="fn-left">
-                                                            <button id='search'
-                                                              style='margin-left:10px;' class="btn btn-success">Search</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <div class="margin-l-s" id='select_agent' text-align='center'></div>
-                                            <br>
-                                            <div ><button disabled id='set_agent' class="btn btn-warning"> This is me</button>
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="margin-l-s" id='select_agent' text-align='center'></div>
+                                    <br>
+                                    <div><button disabled id='set_agent' class="btn btn-warning"> This is me</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
+
             </div>
+        </div>
+    </div>
 
 
-        <style>
-            .login-form {
-                width: 450px;
-                margin: 30px auto;
-            }
-            .login-form form {
-                margin-bottom: 15px;
-                background: #f7f7f7;
-                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-                padding: 30px;
-            }
-            .input-group-addon {
-                padding: 8px 26px 0px 10px;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 1;
-                color: #555;
-                text-align: center;
-                background-color: #eee;
-                border: 1px solid #ccc;
-                border-right-color: rgb(204, 204, 204);
-                border-right-style: solid;
-                border-right-width: 1px;
-                border-radius: 4px;
-                border-top-right-radius: 4px;
-                border-bottom-right-radius: 4px;
-            }
-            .input-group-addon, .input-group-btn {
-                width: 1%;
-                white-space: nowrap;
-                vertical-align: middle;
-            }
-            .input-group .form-control, .input-group-addon, .input-group-btn {
-                display: table-cell;
-            }
-            .input-group-addon .fa {
-                font-size: 18px;
-            }
-            .input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-            .modalSignup{
-                margin: 0 auto;
-                top: 25%;
-                transform: translateY(-50%);
-            }
-        </style>
- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
-        <!-- Main jQuery -->
-        <script src="./js/jquery-3.4.1.min.js"></script>
+    <style>
+        .login-form {
+            width: 450px;
+            margin: 0px auto;
+        }
 
-        <!-- Bootstrap Propper jQuery -->
-        <script src="./js/popper.js"></script>
+        .login-form form {
+            margin-bottom: 15px;
+            background: #f7f7f7;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
 
-        <!-- Bootstrap jQuery -->
-        <script src="./js/bootstrap.js"></script>
+        .input-group-addon {
+            padding: 8px 26px 0px 10px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1;
+            color: #555;
+            text-align: center;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-right-color: rgb(204, 204, 204);
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-radius: 4px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
 
-        <!-- Fontawesome Script -->
-        <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+        .input-group-addon,
+        .input-group-btn {
+            width: 1%;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
 
-        <script src="./js/fileinput.js"></script>
+        .input-group .form-control,
+        .input-group-addon,
+        .input-group-btn {
+            display: table-cell;
+        }
 
-        <script src="./js/owl.carousel.min.js"></script>
+        .input-group-addon .fa {
+            font-size: 18px;
+        }
 
-        <!-- Custom jQuery -->
-        <script src="./js/scripts.js"></script>
+        .input-group .form-control:first-child,
+        .input-group-addon:first-child,
+        .input-group-btn:first-child>.btn,
+        .input-group-btn:first-child>.btn-group>.btn,
+        .input-group-btn:first-child>.dropdown-toggle,
+        .input-group-btn:last-child>.btn-group:not(:last-child)>.btn,
+        .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
 
-        <script src="./js/conf.js"></script>
-        <script src="./js/login.js"></script>
-        <script src="./js/main.js"></script>
-        <script src="./js/connect_agent.js"></script>
-        <!-- Scroll-Top button -->
-        <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+        .modalSignup {
+            margin: 0 auto;
+            top: 25%;
+            transform: translateY(-50%);
+        }
+    </style>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+    <!-- Main jQuery -->
+    <script src="./js/jquery-3.4.1.min.js"></script>
 
-        <script>
-            $('input[type="file"]').fileinput({
-                multipleText: '{0} files',
-                showMultipleNames: true,
-            });
+    <!-- Bootstrap Propper jQuery -->
+    <script src="./js/popper.js"></script>
 
-            $('#more').click(function () {
-                $('.more-content').slideDown();
-            });
+    <!-- Bootstrap jQuery -->
+    <script src="./js/bootstrap.js"></script>
 
-            $('#fwe').click(function () {
-                $('.more-content').slideUp();
-            });
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
 
-            $('.form-slider').owlCarousel({
-                loop: true,
-                margin: 0,
-                center: false,
-                nav: false,
-                dots: true,
-                autoplay: false,
-                autoplayTimeout: 2000,
-                responsiveClass: true,
-                responsiveRefreshRate: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    768: {
-                        items: 3
-                    },
-                    960: {
-                        items: 3
-                    },
-                    1200: {
-                        items: 3
-                    },
-                    1920: {
-                        items: 3
-                    }
+    <script src="./js/fileinput.js"></script>
+
+    <script src="./js/owl.carousel.min.js"></script>
+
+    <!-- Custom jQuery -->
+    <script src="./js/scripts.js"></script>
+
+    <script src="./js/conf.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/connect_agent.js"></script>
+    <!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
+
+
+    
+    <!-- Scroll-Top button -->
+    <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+    <script  type = "text/javascript">
+		function ValidateEmail(email) {
+			var expr = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return expr.test(email);
+		};
+		$.noConflict();
+
+        $('input[type="file"]').fileinput({
+            multipleText: '{0} files',
+            showMultipleNames: true,
+        });
+
+        $('#more').click(function () {
+            $('.more-content').slideDown();
+        });
+
+        $('#fwe').click(function () {
+            $('.more-content').slideUp();
+        });
+
+        $('.form-slider').owlCarousel({
+            loop: true,
+            margin: 0,
+            center: false,
+            nav: false,
+            dots: true,
+            autoplay: false,
+            autoplayTimeout: 2000,
+            responsiveClass: true,
+            responsiveRefreshRate: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 3
+                },
+                960: {
+                    items: 3
+                },
+                1200: {
+                    items: 3
+                },
+                1920: {
+                    items: 3
                 }
-            });
+            }
+        });
 
-            var owl = $('.form-slider');
-            owl.owlCarousel();
-            // Go to the next item
-            $('.owl-nextx').click(function () {
-                owl.trigger('next.owl.carousel');
-            })
-            // Go to the previous item
-            $('.owl-prevx').click(function () {
-                // With optional speed parameter
-                // Parameters has to be in square bracket '[]'
-                owl.trigger('prev.owl.carousel', [300]);
-            });
+        var owl = $('.form-slider');
+        owl.owlCarousel();
+        // Go to the next item
+        $('.owl-nextx').click(function () {
+            owl.trigger('next.owl.carousel');
+        })
+        // Go to the previous item
+        $('.owl-prevx').click(function () {
+            // With optional speed parameter
+            // Parameters has to be in square bracket '[]'
+            owl.trigger('prev.owl.carousel', [300]);
+        });
 
-            $('#cross').click(function () {
-                $('#lnumber').removeAttr('placeholder')
-            });
+        $('#cross').click(function () {
+            $('#lnumber').removeAttr('placeholder')
+        });
 
-            (function ($) {
-                $(document).ready(function () {
-
-                    jQuery(window).on('scroll', function () {
-                        if (jQuery(window).scrollTop()) {
-                            jQuery('.sticky-header').addClass('form-black');
-                        } else {
-                            jQuery('.sticky-header').removeClass('form-black');
-                        }
-                    });
-                });
-            })(jQuery);
-
-
-                $('#continue').click(function(){
-                   $('#signupModal').modal('hide');
-                   $('#continueModal').modal('show');
-                })
-
-                $('#continuebtn').click(function(){
-                    console.log( $("input[name*='checkboxes']:checked").length)
-                    if (($("input[name*='checkboxes']:checked").length)<=0) {
-                            alert("You must check at least 1 box");
-                        }
-                    // $('#category').change(function(){
-                        var opval= $('#category').val();
-                        if(opval == 'secondoption'){
-                        $('#continueModal').modal('show');
-                        }
-                    //})
-                })
-                $('#continue').click(function(){
-                    console.log( $("input.select:checked").length)
-                    // $('#category').change(function(){
-                        var opval= $('#category').val();
-                        if(opval == 'secondoption'){
-                        $('#continueModal').modal('show');
-                        }
-                    // /})
-                })
-
-                $(document).bind('keypress', function(e) {
-                if(e.keyCode==13){
-                    $('#continuebtn').trigger('click');
-                }
-            });
-
-
-            
-           
+        (function ($) {
             $(document).ready(function () {
-                $('#myform').validate({ 
-      
-                    // initialize the plugin
-                    rules: {
-                        email: {
-                            required: true,
-                            
-                        },
-                        password: {
-                            required: true,
-                            minlength: 5
-                        },
-                       
-                        category:{
-                            required: true
-                        }
-                        
-                    },
-                    submitHandler: function (form) {
-                        console.log( $("input.select:checked").length)
-                        if (($("input[name*='test']:checked").length)<=0) {
-                            alert("You must check at least 1 box");
-                        }
-                        return true; // for demo
-                        alert('valid form submitted'); // for demo
-                        return false; // for demo
+
+                jQuery(window).on('scroll', function () {
+                    if (jQuery(window).scrollTop()) {
+                        jQuery('.sticky-header').addClass('form-black');
+                    } else {
+                        jQuery('.sticky-header').removeClass('form-black');
                     }
-                    
                 });
+            });
+        })(jQuery);
 
-                });
 
-                gapi.load('auth2', function() {
-                auth2 = gapi.auth2.init({
-                    client_id: 'CLIENT_ID.apps.googleusercontent.com',
-                    fetch_basic_profile: false,
-                    scope: 'profile'
-                });
+        $('#continue').click(function () {
+            $('#signupModal').modal('hide');
+            $('#continueModal').modal('show');
+        })
 
-                // Sign the user in, and then retrieve their ID.
-                auth2.signIn().then(function() {
-                    console.log(auth2.currentUser.get().getId());
-                });
-                });
-                function onSignIn(googleUser) {
-                    var profile = googleUser.getBasicProfile();
-                    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                    console.log('Name: ' + profile.getName());
-                    console.log('Image URL: ' + profile.getImageUrl());
-                    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+       
+            $('#continuebtn1').click(function(e){
+					e.preventDefault();
+                         var email =$('#email1').val();
+                         var password=$('#password1').val();
+
+						if ($('#email1').val() == '' || password.length ==0  ) {
+                            // alert("Please enter fill all required fields");
+                            $('#idAll').html("Please enter fill all required fields").delay(5000).fadeOut();
+						}
+						else if (!ValidateEmail($('#email1').val())) {
+                            // alert("Invalid email address.");
+                            $('#idEmail').html("Invalid email address.").delay(5000).fadeOut();
+						}
+						else if( password.length < 8){
+                            // alert("Please enter valid password");
+                            $('#idPassword').html("Please enter valid password").delay(5000).fadeOut();
+						}
+						else if (($("input[name*='checkbox']:checked").length)<=0) {
+                            // alert("You must check at least 1 box");
+                            $('#idcheck').html("You must check at least 1 box").delay(5000).fadeOut();
+
+                        }else if($('#category').val() == ''){
+                            // alert("You must select the value");
+                            $('#idSelect').html("You must select the value").delay(5000).fadeOut();
+                        }
+						else {
+							alert("Form Submitted Successfuly!");
+							$('#email1').val('');
+							$('#password1').val('');
+							$("input[name*='checkbox']:checked").each(function(){
+								$(this).prop("checked", false);
+							});
+							$("#myform1").submit();
+							var opval= $('#category').val();
+								if(opval == 'secondoption'){
+								$('#continueModal').modal('show');
+							}
+							//return true;
+                        }
+						
+
+
+            console.log($("input[name*='checkboxes']:checked").length)
+            // if (($("input[name*='checkboxes']:checked").length)<=0) {
+            //         alert("You must check at least 1 box");
+            //     }
+            // $('#category').change(function(){
+            var opval = $('#category').val();
+            if (opval == 'secondoption') {
+                $('#continueModal').modal('show');
+            }
+            //})
+        })
+        $('#continue').click(function () {
+            console.log($("input.select:checked").length)
+            // $('#category').change(function(){
+            var opval = $('#category').val();
+            if (opval == 'secondoption') {
+                $('#continueModal').modal('show');
+            }
+            // /})
+        })
+
+        $(document).bind('keypress', function (e) {
+            if (e.keyCode == 13) {
+                $('#continuebtn1').trigger('click');
+            }
+        });
+
+
+
+
+
+        $(document).ready(function () {
+
+            $('#btn-fb').on('click', function () {
+                //checkLoginState();
+                FB.login(statusChangeCallback, {scope: 'email,public_profile', return_scopes: true});
+            })
+
+
+            // $('#myform').validate({
+
+
+            //     // initialize the plugin
+            //     rules: {
+            //         email: {
+            //             required: true,
+
+            //         },
+            //         password: {
+            //             required: true,
+
+            //         },
+
+            //         'checkbox[]': {
+            //             required: true,
+            //             minlength: 1
+            //         },
+
+
+            //     },
+            //     messages: {
+            //         'checkbox[]': "* You must check at least one checkbox.",
+
+            //     },
+
+            //     // submitHandler: function (form) {
+            //     //     // console.log( $("input.select:checked").length)
+            //     //     // if (($("input[name*='test']:checked").length)<=0) {
+            //     //     //     alert("You must check at least 1 box");
+            //     //     // }
+            //     //     // return true; // for demo
+            //     //     alert('valid form submitted'); // for demo
+            //     //     return false; // for demo
+            //     // },
+
+
+            // });
+
+        });
+        function onLoadGoogleCallback(){
+        gapi.load('auth2', function() {
+            auth2 = gapi.auth2.init({
+            client_id: '852045059252-tvc1vd3auf6al0ad8k4odh9519ea2tq0.apps.googleusercontent.com',
+            cookiepolicy: 'single_host_origin',
+            scope: 'profile'
+            });
+
+        auth2.attachClickHandler(element, {},
+            function(googleUser) {
+                console.log('Signed in: ' + googleUser.getBasicProfile().getName());
+            }, function(error) {
+                console.log('Sign-in error', error);
+            }
+            );
+        });
+
+        element = document.getElementById('googleSignIn');
+        }
+
+
+
+        // gapi.load('auth2', function () {
+        //     auth2 = gapi.auth2.init({
+        //         client_id: 'CLIENT_ID.apps.googleusercontent.com',
+        //         fetch_basic_profile: false,
+        //         scope: 'profile'
+        //     });
+
+        //     // Sign the user in, and then retrieve their ID.
+        //     auth2.signIn().then(function () {
+        //         console.log(auth2.currentUser.get().getId());
+        //     });
+        // });
+        // function onSignIn(googleUser) {
+        //     var profile = googleUser.getBasicProfile();
+        //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        //     console.log('Name: ' + profile.getName());
+        //     console.log('Image URL: ' + profile.getImageUrl());
+        //     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        // }
+
+        $(document).ready(function () {
+
+            var top = $('.po-serach-wrapper-one').offset().top;
+            $(window).scroll(function (event) {
+                var y = $(this).scrollTop();
+                if (y >= top)
+                    $('.po-serach-wrapper-one').addClass('fixed');
+                else
+                    $('.po-serach-wrapper-one').removeClass('fixed');
+
+            });
+
+        });
+        $(window).on('scroll', function () {
+            console.log("LENGTH " + $(this).scrollTop())
+            if ($('.stricked-menu').length) {
+                var strickyScrollPos = 50;
+                if ($(window).scrollTop() > strickyScrollPos) {
+                    $('.stricked-menu').fadeIn(100);
+                } else if ($(this).scrollTop() <= strickyScrollPos) {
+                    //$('.stricked-menu').fadeOut(100);
+                }
+            }
+            if ($('.stricked-menu').length) {
+                var headerScrollPos = 50;
+                var stricky = $('.stricked-menu');
+                if ($(window).scrollTop() > headerScrollPos) {
+                    stricky.addClass('stricky-fixed');
+                } else if ($(this).scrollTop() <= headerScrollPos) {
+                    stricky.removeClass('stricky-fixed');
+                }
+            }
+        });
+        (function ($) {
+            $(document).ready(function () {
+
+                jQuery(window).on('scroll', function () {
+                    if (jQuery(window).scrollTop()) {
+                        jQuery('.header-area').addClass('stricked-menu');
+                    } else {
+                        jQuery('.header-area').removeClass('stricked-menu');
+
                     }
-        </script>
+                });
+            });
+        })(jQuery);
 
-    </body>
+
+    </script>
+
+
+
+    <script>
+
+        function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+            console.log('statusChangeCallback');
+            console.log(response);                   // The current login status of the person.
+            if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                testAPI();
+            } else {                                 // Not logged into your webpage or we are unable to tell.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this webpage.';
+            }
+        }
+
+
+        function checkLoginState() {               // Called when a person is finished with the Login Button.
+            FB.getLoginStatus(function (response) {   // See the onlogin handler
+                statusChangeCallback(response);
+            });
+        }
+
+        function logOutUser() {
+            alert("here");
+        }
+
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '2254233461545530',
+                cookie: true,                     // Enable cookies to allow the server to access the session.
+                xfbml: true,                     // Parse social plugins on this webpage.
+                version: 'v6.0'           // Use this Graph API version for this call.
+            });
+
+
+            FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
+                statusChangeCallback(response);        // Returns the login status.
+            });
+        };
+
+
+        (function (d, s, id) {                      // Load the SDK asynchronously
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+        function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function (response) {
+                // console.log(response)
+                console.log('Successful login for: ' + response.name);
+                document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
+            });
+        }
+
+    </script>
+
+
+
+<script>
+    var googleUser = {};
+    var startApp = function() {
+      gapi.load('auth2', function(){
+        // Retrieve the singleton for the GoogleAuth library and set up the client.
+        auth2 = gapi.auth2.init({
+          client_id: '852045059252-r5bn5uthorj1lejlaqmocmpasj0uhenf.apps.googleusercontent.com',
+          cookiepolicy: 'single_host_origin',
+          // Request scopes in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+        attachSignin(document.getElementById('customBtn'));
+      });
+    };
+  
+    function attachSignin(element) {
+      console.log(element.id);
+      auth2.attachClickHandler(element, {},
+          function(googleUser) {
+            document.getElementById('name').innerText = "Signed in: " +
+                googleUser.getBasicProfile().getName();
+          }, function(error) {
+            alert(JSON.stringify(error, undefined, 2));
+          });
+    }
+    </script>
+    <script>startApp();</script>
+
+
+    <script>
+        function onSuccess(googleUser) {
+          console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        }
+        function onFailure(error) {
+          console.log(error);
+        }
+        function renderButton() {
+          gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 389,
+            'height': 50,
+            'longtitle': true,
+            'theme': 'light',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure
+          });
+        }
+      </script>
+
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+</body>
 
 </html>
