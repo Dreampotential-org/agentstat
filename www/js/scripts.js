@@ -23,9 +23,15 @@
 		$("#y-address").click (function (){
 			$(".address-type").slideToggle();
 		});
+		$("#y-address-map").click (function (){
+			$(".address-map-type").slideToggle();
+		});
 
 		$("#ser-state-id").click (function (){
 			$(".ser-state-type").slideToggle();
+		});
+		$("#ser-state-map-id").click (function (){
+			$(".ser-state-map-type").slideToggle();
 		});
 
 		$("#bau1").click (function (){
