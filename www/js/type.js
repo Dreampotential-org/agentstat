@@ -6,9 +6,14 @@
 				$(".check-type").slideUp();
 		    });
 
-		    $(".index-check-type input[type=radio]").click(function (){
-		    	var a = $(this).val();
-		    	$(".type-value").text (a);
+		    // $(".index-check-type input[type=radio]").click(function (){
+		    // 	var a = $(this).val();
+		    // 	$(".type-value").text (a);
+			// 	$(".check-type").slideUp();
+			// });
+			$(".index-check-type ul li").click(function (){
+				var a = $(this).text();
+		    	$(".type-value").html (a+" <i class='fas fa-caret-down'></i>");
 				$(".check-type").slideUp();
 			});
 			$(".index-address-type ul li").click(function (){
@@ -35,15 +40,27 @@
 		    	$(".state-value").html (a+" <i class='fas fa-caret-down'></i>");
 				$(".ser-state-type").slideUp();
 			});
+
+			$("#type-map").on('click','li', function (){
+				var a = $(this).text();
+		    	$(".bau-in").html (a+" <i class='fas fa-caret-down'></i>");
+				$(".ser-state-type").slideUp();
+			});
+			
 			
 			
 
-		    $("input[type=radio]").click(function (){
+		    // $("input[type=radio]").click(function (){
+		    // 	var aa = $(this).val();
+		    // 	$(".type-value").text (aa);
+			// 	$(".check-type").slideUp();
+		    // });
+			
+			$(".index-check-type ul li").click(function (){
 		    	var aa = $(this).val();
-		    	$(".type-value").text (aa);
+		    	// $(".type-value").text (aa);
 				$(".check-type").slideUp();
 		    });
-			
 			$(".index-address-type ul li").click(function (){
 		    	var aa = $(this).val();
 				// $(".address-value").text (aa);
@@ -58,12 +75,16 @@
 				
 				$(".ser-state-map-type").slideUp();
 		    });
-		    $(".bau1-cotent input[type=radio]").click(function (){
-		    	var b = $(this).val();
-		    	$(".bau-in").text (b);
-		    	$(".bau1-cotent").slideUp();
+		    // $(".bau1-cotent input[type=radio]").click(function (){
+		    // 	var b = $(this).val();
+		    // 	$(".bau-in").text (b);
+		    // 	$(".bau1-cotent").slideUp();
+		    // });
+			$(".bau1-cotent ul li").click(function (){
+		    	var aa = $(this).val();
+		    	// $(".type-value").text (aa);
+				$(".bau1-cotent").slideUp();
 		    });
-
 
 
 		    function three () {

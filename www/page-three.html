@@ -154,48 +154,24 @@
                                   </div>
                                 <input class="ser" type="text" name="text" placeholder="Search" autocomplete="off">
                                 <div class="type ak-price">
-                                    <p id="y-type" class="type-value">Type</p>
-                                    <div class="check-type">
+                                    <p id="y-type" class="type-value">Type <i class="fas fa-caret-down"></i></p>
+                                    <div class="check-type index-check-type">
                                         <h6>Home Type</h6>
-                                        <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
+                                        <ul>
+                                            <li class="custom_radio"> Houses</li>
+                                            <li  class="custom_radio" > Manufactured</li>
+                                            <li class="custom_radio" >Condos/co-ops</li>
+                                            <li class="custom_radio">Multi-family</li>
+                                            <li class="custom_radio">Lots/Land</li>
+                                            <li class="custom_radio">Townhomes</li>
+                                        </ul>
+                                        <!-- <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
                                         <input  class="custom_radio" type="radio" name="babu" value="Manufactured"> Manufactured<br>
                                         <input class="custom_radio" type="radio" name="babu" value="Condos/co-ops">Condos/co-ops<br>
                                         <input class="custom_radio" type="radio" name="babu" value="Multi-family">Multi-family<br>
                                         <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br>
                                         <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br>
-                                        <!-- <input class="custom_radio" type="checkbox" name="babu" value="Houses"> Houses<br>
-                                        <input  class="custom_radio" type="checkbox" name="babu" value="Manufactured"> Manufactured<br>
-                                        <input class="custom_radio" type="checkbox" name="babu" value="Condos/co-ops">Condos/co-ops<br>
-                                        <input class="custom_radio" type="checkbox" name="babu" value="Multi-family">Multi-family<br>
-                                        <input class="custom_radio" type="checkbox" name="babu" value="Lots/Land">Lots/Land<br>
-                                        <input class="custom_radio" id="babu" type="checkbox" name="babu" value="Townhomes">Townhomes<br> -->
-                                        <!-- <label class="check-box">Houses
-                                            <input type="radio" name="babu" value="Houses">
-                                            <span class="checkmark"></span>
-                                        </label> 
-                                        <label class="check-box">Manufactured
-                                            <input type="radio" name="babu" value="Manufactured">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="check-box">Condos/co-ops
-                                            <input type="radio" name="babu" value="Condos/co-ops">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="check-box">Multi-family
-                                            <input type="radio" name="babu" value="Multi-family">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="check-box">Lots/Land
-                                            <input type="radio" name="babu" value="Lots/Land">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="check-box">Townhomes
-                                            <input id="babu" type="radio" name="babu" value="Townhomes">
-                                            <span class="checkmark"></span>
-                                        </label> -->
-                                        <!-- <div class="doneBtn">
-                                            <button id="btnDone" >Done</button>
-                                        </div> -->
+                                        -->
                                     </div>
                                 </div>
                                 <div class="price ak-price">
@@ -889,6 +865,32 @@
         //   });
 
         $(document).ready(function(){
+               $(".state-value").click(function(){
+                   //alert($('#allstate li').length);
+                   if(('#allstate li').length >0){
+                    $('#allstate').addClass('scrollState');
+                   }
+                   $('#allstate li').click(function(){
+                        $('#allstate li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                   $(this).addClass('statehightLight')
+                    })
+                   
+                   
+                })
+                $('.index-check-type ul li').click(function(){
+                        $('.index-check-type ul li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                    $(this).addClass('statehightLight')
+                })
          $("#expand").click(function(){
               $('.content').toggleClass('showEle');
               $('.content').toggleClass('hideEle');
@@ -918,6 +920,13 @@
             })
         
             $(".index-address-type ul li").click(function (){
+                $('.index-address-type ul li').each(function(){
+                    if($(this).hasClass('statehightLight')){
+                        $(this).removeClass("statehightLight")
+                    }
+                
+                })
+                $(this).addClass("statehightLight")
                 var a = $(this).text();
                 if(a =='Agent Name'){
                     $('#y-type').hide();
@@ -944,6 +953,19 @@
                 }).fail(function(err) {
                     show_error(err);
                 });
+
+                $(document).click(function (e) {
+                e.stopPropagation();
+                var container = $(".address ");
+                var stateContainer = $(".ser-state");
+              
+                if (container.has(e.target).length === 0) {
+                    $('.address-type').hide();
+                }
+                if (stateContainer.has(e.target).length === 0) {
+                    $('.ser-state-type').hide();
+                }
+            })
       </script>
     <!-- <script>
         $(document).ready(function () {

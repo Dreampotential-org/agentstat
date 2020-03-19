@@ -87,15 +87,23 @@
                                 <input class="ser txt-cls" type="text" name="text" placeholder="Search">
                                
                                 <div class="type ak-price srch-price" >
-                                    <p id="y-type" class="type-value">Type</p>
-                                    <div class="check-type">
+                                    <p id="y-type" class="type-value">Type  <i class="fas fa-caret-down"></i></p>
+                                    <div class="check-type index-check-type">
                                         <h6>Home Type</h6>
-                                        <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
+                                        <ul>
+                                            <li class="custom_radio"> Houses</li>
+                                            <li  class="custom_radio" > Manufactured</li>
+                                            <li class="custom_radio" >Condos/co-ops</li>
+                                            <li class="custom_radio">Multi-family</li>
+                                            <li class="custom_radio">Lots/Land</li>
+                                            <li class="custom_radio">Townhomes</li>
+                                        </ul>
+                                        <!-- <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
                                         <input  class="custom_radio" type="radio" name="babu" value="Manufactured"> Manufactured<br>
                                         <input class="custom_radio" type="radio" name="babu" value="Condos/co-ops">Condos/co-ops<br>
                                         <input class="custom_radio" type="radio" name="babu" value="Multi-family">Multi-family<br>
                                         <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br>
-                                        <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br>
+                                        <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br> -->
                                     </div>
                                 </div>
                                 <div class="price ak-price srch-pricevalue">
@@ -1289,6 +1297,31 @@ console.log("@##@####", key)
             });
            
             $(document).click(function(event) { 
+                $(".state-value").click(function(){
+                   //alert($('#allstate li').length);
+                   if(('#allstate li').length >0){
+                    $('#allstate').addClass('scrollState');
+                   }
+                   $('#allstate li').click(function(){
+                        $('#allstate li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                   $(this).addClass('statehightLight')
+                    })
+                   
+                })
+                $('.index-check-type ul li').click(function(){
+                        $('.index-check-type ul li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                    $(this).addClass('statehightLight')
+                })
                 $target = $(event.target);
                 /*$.each($("input[name='acs']:not(:checked)"), function(){
                     $(this).addClass('unchecked-acs');
@@ -1327,6 +1360,13 @@ console.log("@##@####", key)
             });
 
             $(".index-address-type ul li").click(function (){
+                $('.index-address-type ul li').each(function(){
+                    if($(this).hasClass('statehightLight')){
+                        $(this).removeClass("statehightLight")
+                    }
+                
+                })
+                $(this).addClass("statehightLight")
                 var a = $(this).text();
                 if(a =='Agent Name'){
                     $('#y-type').hide();
@@ -1353,6 +1393,19 @@ console.log("@##@####", key)
                 }).fail(function(err) {
                     show_error(err);
                 });
+
+                $(document).click(function (e) {
+                e.stopPropagation();
+                var container = $(".address ");
+                var stateContainer = $(".ser-state");
+              
+                if (container.has(e.target).length === 0) {
+                    $('.address-type').hide();
+                }
+                if (stateContainer.has(e.target).length === 0) {
+                    $('.ser-state-type').hide();
+                }
+            })
 
     </script>
     <!-- Scroll-Top button -->
