@@ -27,7 +27,7 @@ function display_profile(profile) {
   $('#state').val(profile.state);
   $('#zipcode').val(profile.zipcode);
 
-
+  get_specilities(profile.specialties);
 
   $.each(profile.licenses, function(k, val) {
     if (k === 0) {
@@ -108,17 +108,7 @@ function display_profile(profile) {
     `);
   }
 
-  // console.log(profile.language_fluencies);
   get_languages(profile.language_fluencies);
-
-  $.each(profile.specialty, function(k, specialty_id) {
-    $('#specialty-'+specialty_id).prop('checked', true);
-  });
-
-  // $.each(profile.language_fluencies, function(k, lang_id) {
-  //   $('#lang-' + lang_id).prop('checked', true);
-  //   console.log('lang_id: ' + lang_id);
-  // });
 
 }
 
@@ -241,16 +231,21 @@ function load_combo(data, combo) {
   });
 }
 
-function get_specilities() {
+function get_specilities(specialty_ids) {
   settings = get_settings('specialty/', 'GET')
+
   $.ajax(settings).done(function (response) {
       var response = JSON.parse(response);
       $.each(response, function(k, v) {
-        console.log(v.id, v.val);
+        checked = '';
+        if ($.inArray(v.id, specialty_ids) !== -1) {
+          checked = ' checked ';
+        }
+
         $('#specialties').append(`
         <div class='col-lg-6 col-6'>
           <div class='year-wrapper-check-one'>
-          <input type='checkbox' value='`+ v.id +`' class='specialty-checkbox' id='specialty-` + v.id + `'>
+          <input type='checkbox' ` + checked + ` value='`+ v.id +`' class='specialty-checkbox' id='specialty-` + v.id + `'>
           <label for='specialty-`+ v.id + `'>` + v.val + `</label>
         </div>
         </div>
@@ -333,7 +328,6 @@ $.each(combo_boxes, function(k, val){
   get_combo(function(resp) { load_combo(resp, val) }, val);
 });
 
-get_specilities();
 
 get_profile(function(resp) { display_profile(resp) });
 
