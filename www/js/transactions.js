@@ -7,7 +7,7 @@ function init() {
 }
 
 function currencyFormat(num) {
-  return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 function passBtnID(id) {
@@ -77,16 +77,39 @@ function load_agent() {
             } else {
                 var note = `<i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i>`;
             }
+             
+            if(v['home_type'] != null || v['home_type'] != undefined ){
+              var hometype= v['home_type'].replace('_',' ')
+            }else{
+              var hometype= v['home_type'];
+            }
+            // date = v['list_date'] ;
+            // console.log(date)
+            // date =v['list_date'].split("/").reverse().join("-");
+            // alert(date)
+            // $("#customer_date").val(date);
+            console.log("old date",v['list_date'])
+            var date = v['list_date'].split('-');
+            date.reverse();
+            var reversedate = date.join('-');
+            console.log("new date",reversedate)
+
+         
+            // alert(v['list_price_int'].toFixed(2)); 
+            // var value=v['list_price_int'];
+            // console.log(value)
+            // console.log((value).toFixed(2))
+
             $(`<tr>
             <td class='status-`+ v['status'] +`'>` + v['status'] +`</td>
             <td>` + currencyFormat(v['list_price_int']) + `</td>
             <td>` + currencyFormat(v['sold_price_int']) + arrowStyle +`</td>
             <td>` + v['days_on_market'] + arrowStyle +`</td>
-            <td>` + v['list_date'] +`</td>
+            <td>` + reversedate +`</td>
             <td>` + v['address_text'] +`</td>
             <td>` + v['year_built'] +`</td>
             <td>` + v['city'] +`</td>
-            <td>` + v['home_type'] +`</td>
+            <td style="text-transform: lowercase;" id="homeType">` + hometype  +`</td>
             <!--<td> <button class="btn btn-primary" data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')" value="1" title="notes"><i class="fa fa-plus" aria-hidden="true"></i> Note</button> </td> -->
     
             <td ><button class="btn " style="background: #CFE2F3;color:black;border: 1px solid;" data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')" value="1" title="notes">Add public note</button> </td>
@@ -331,6 +354,7 @@ function load_agent() {
     console.log(err);
   });
 }
+
 
 
 $(document).on('change click', '.closeform', function() {
