@@ -18,11 +18,13 @@
         <!-- Include Bootstrap -->
         <link rel="stylesheet" href="css/bootstrap.css" />
 
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="css/responsive.css" />
+
         <!-- Main StyleSheet -->
         <link rel="stylesheet" href="style.css" />
 
-        <!-- Responsive CSS -->
-        <link rel="stylesheet" href="css/responsive.css" />
+        
 
     </head>
     <body>
@@ -84,7 +86,7 @@
                             <div id="searchDiv"class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size">
                               <div class="address ">
                                 <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
-                                <div class="address-type index-address-type ">
+                                <div id="dropdownaddress" class="address-type index-address-type ">
                                     <ul>
                                         <li class="custom_radio">Address</li>
                                         <li class="custom_radio">Agent Name</li>
@@ -97,7 +99,7 @@
                               <div class="ser-state " style="display: none;">
                                 <p id="ser-state-id" class=" state-value">State <i class="fas fa-caret-down"></i></p>
                                 <div class="ser-state-type">
-                                    <ul id="allstate">
+                                    <ul id="allstate" >
                                     </ul>
                                     <!-- <input class="custom_radio" type="radio" name="statename"  value="AL"> AL<br/>
                                     <input  class="custom_radio" type="radio"  name="statename" value="AR" > AR<br/>
@@ -108,15 +110,23 @@
                                   
                                 <input class="ser"  id="searchId" type="text" name="text" placeholder="Search ">
                                 <div class="type ">
-                                    <p id="y-type" class="x-type type-value">Type</p>
+                                    <p id="y-type" class="x-type type-value">Type <i class="fas fa-caret-down"></i></p>
                                     <div class="check-type index-check-type">
-                                        <h6>Home Type</h6>
-                                        <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br/>
+                                        <!-- <h6>Home Type</h6> -->
+                                        <ul>
+                                        <li class="custom_radio"> Houses</li>
+                                        <li  class="custom_radio" > Manufactured</li>
+                                        <li class="custom_radio" >Condos/co-ops</li>
+                                        <li class="custom_radio">Multi-family</li>
+                                        <li class="custom_radio">Lots/Land</li>
+                                        <li class="custom_radio">Townhomes</li>
+                                    </ul>
+                                        <!-- <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br/>
                                         <input  class="custom_radio" type="radio" name="babu" value="Manufactured"> Manufactured<br/>
                                         <input class="custom_radio" type="radio" name="babu" value="Condos/co-ops">Condos/co-ops<br/>
                                         <input class="custom_radio" type="radio" name="babu" value="Multi-family">Multi-family<br/>
                                         <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br/>
-                                        <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br/>
+                                        <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br/> -->
                                     </div>
                                 </div>
                                 <div class="price">
@@ -163,7 +173,7 @@
                                 <!-- <div class="ser-butt">
                                     <button><span><i class="fas fa-search"></i></span></button>
                                 </div> -->
-                                <div class="serch_btn" style="display: inline;float: right;margin-top:5px;" >
+                                <div class="serch_btn" >
                                     <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
                                 </div>
                             </div>
@@ -344,10 +354,18 @@
                                 </div>
                                     <input class="ser" type="text" name="text" placeholder="Search">
                                     <div class="type">
-                                        <p id="bau1" class="bau-in">Type</p>
+                                        <p id="bau1" class="bau-in">Type<i class="fas fa-caret-down"></i></p>
                                         <div class="bau1-cotent">
-                                            <h6>Home Type</h6>
-                                            <label class="check-box">Houses
+                                            <!-- <h6>Home Type</h6> -->
+                                            <ul id="type-map">
+                                                <li class="custom_radio"> Houses</li>
+                                                <li  class="custom_radio" > Manufactured</li>
+                                                <li class="custom_radio" >Condos/co-ops</li>
+                                                <li class="custom_radio">Multi-family</li>
+                                                <li class="custom_radio">Lots/Land</li>
+                                                <li class="custom_radio">Townhomes</li>
+                                            </ul>
+                                            <!-- <label class="check-box">Houses
                                                 <input type="radio" name="babu" value="Houses">
                                                  
                                             </label><br>
@@ -370,7 +388,7 @@
                                             <label class="check-box">Townhomes
                                                 <input id="babu" type="radio" name="babu" value="Townhomes">
                                                 <span class="checkmark"></span>
-                                            </label>
+                                            </label> -->
                                         </div>
                                     </div>
                                     <div class="price">
@@ -463,7 +481,63 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
+                $(".state-value").click(function(){
+                   //alert($('#allstate li').length);
+                   if(('#allstate li').length >0){
+                    $('#allstate').addClass('scrollState');
+                   }
 
+                  
+                   $('#allstate li').click(function(){
+                        $('#allstate li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                   $(this).addClass('statehightLight')
+                    })
+                })
+
+                $(".state-map-value").click(function(){
+                   //alert($('#allstate li').length);
+                   if(('#statesData li').length >0){
+                    $('#statesData').addClass('scrollState');
+                   }
+
+                  
+                   $('#statesData li').click(function(){
+                        $('#statesData li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                   $(this).addClass('statehightLight')
+                    })
+                })
+
+                $('#type-map li').click(function(){
+                        $('#type-map li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                   $(this).addClass('statehightLight')
+                    })
+
+                $('.index-check-type ul li').click(function(){
+                        $('.index-check-type ul li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                    $(this).addClass('statehightLight')
+                })
+
+            
                 var top = $('.po-serach-wrapper-one').offset().top;
                 $(window).scroll(function (event) {
                     var y = $(this).scrollTop();
@@ -475,6 +549,10 @@
                 });
 
             });
+
+          
+
+
             $(window).on('scroll', function() {
               console.log("LENGTH "+$(this).scrollTop())
               if ($('.stricked-menu').length) {
@@ -497,6 +575,7 @@
             });
             (function ($) {
                 $(document).ready(function () {
+                      
 
                     jQuery(window).on('scroll', function () {
                         if (jQuery(window).scrollTop()) {
@@ -504,20 +583,28 @@
                         } else {
                             jQuery('.header-area').removeClass('stricked-menu');
                         }
-                        if($("#searchDiv").hasClass("fixed"))
-                        {
+                        // if($("#searchDiv").hasClass("fixed"))
+                        // {
 
-                            document.getElementById("searchId").placeholder = "Search";
-                        }else{
-                            document.getElementById("searchId").placeholder = "Search using your address or agent name";
-                        }
+                        //     document.getElementById("searchId").placeholder = "Search";
+                        // }else{
+                        //     document.getElementById("searchId").placeholder = "Search using your address or agent name";
+                        // }
                     });
                 });
             })(jQuery);
-
-
+        
+          
             $(".index-address-type ul li").click(function (){
+                    $('.index-address-type ul li').each(function(){
+                        if($(this).hasClass('statehightLight')){
+                            $(this).removeClass("statehightLight")
+                        }
+                      
+                    })
+                    $(this).addClass("statehightLight")
                 var a = $(this).text();
+                
                 if(a =='Agent Name'){
                     $('#y-type').hide();
                     $('.price').hide();
@@ -530,7 +617,15 @@
                     $('.ser-state').hide();
                 }
             });
+           
             $(".index-address-map-type ul li").click(function (){
+                $('.index-address-map-type ul li').each(function(){
+                        if($(this).hasClass('statehightLight')){
+                            $(this).removeClass("statehightLight")
+                        }
+                      
+                    })
+                    $(this).addClass("statehightLight")
 		    	var a = $(this).attr('value');
                 if(a=='Agent Name'){
 
@@ -545,15 +640,36 @@
                     $('.ser-state-map').hide();
                 }
             });
+
+            $(document).click(function (e) {
+                e.stopPropagation();
+                var container = $(".address ");
+                var stateContainer = $(".ser-state");
+                var addressContainer = $(".address-map");
+                var mapStateContainer = $(".ser-state-map ");
+                var typeContainer = $(".type");
+                var typeMapContainer=$(".type")
+              
+                if (container.has(e.target).length === 0) {
+                    $('.address-type').hide();
+                }
+                if (stateContainer.has(e.target).length === 0) {
+                    $('.ser-state-type').hide();
+                }
+                if (addressContainer.has(e.target).length === 0) {
+                    $('.address-map-type').hide();
+                }
+                if (mapStateContainer.has(e.target).length === 0) {
+                    $('.ser-state-map-type').hide();
+                }
+                if (typeContainer.has(e.target).length === 0) {
+                    $('.index-check-type').hide();
+                }
+                if (typeMapContainer.has(e.target).length === 0) {
+                    $('.bau1-cotent').hide();
+                }
+            })
             
-            $(".po-what").click(function(){
-                $(".address-type").slideUp();
-                $('.ser-state-map').slideUp();
-            })
-            $(".po-world").click(function(){
-                $(".address-type").slideUp();
-                $('.ser-state-map').slideUp();
-            })
 
             // $(".index-address-type ul li").click(function (){
 		    // 	var a = $(this).val();

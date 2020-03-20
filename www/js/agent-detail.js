@@ -58,8 +58,8 @@ function load_agent(ignore_city = false) {
 
             $(this).html(
               data['full_name'] +' ' +
-              `<span style="font-size: 13px;color: #007bff;">| </span>
-               <span style="font-size: 13px; color: #007bff;">` + brokerage_info + `</span>
+              `<span style="font-size: 13px;color: #007bff;"> </span>
+               <!-- <span style="font-size: 13px; color: #007bff;">` + brokerage_info + `</span>-->
               `
             );
         });
