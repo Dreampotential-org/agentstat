@@ -146,19 +146,28 @@ function load_search_results() {
     var filters = get_search_filters();
     var state = urlParams.get('state');
     var city = urlParams.get('city');
-    var agent_name=urlParams.get('agent_name')
+    var zipcode = urlParams.get('zipcode');
+    var agent_name=urlParams.get('agent_name');
+
     if (!(state)) state = "WA"
 
     filters.push('page=1');
-    console.log(state, city);
+
     if(state === null || state === 'null') {
       state = 'WA';
       filters.push('state=WA');
     }
 
-    filters = '?' + filters.join('&');
+    zipcode_filters = [];
+    if ((zipcode)) {
+      api_call_url = 'reports-zipcode/' + zipcode + '/';
+      $(".custom_radio")[3].click();
+    } else {
+      filters = '?' + filters.join('&');
+      api_call_url = 'reports/' + state + '/' + filters;
+    }
 
-    api_call_url = 'reports/' + state + '/' + filters;
+
     console.log("API Request: " + api_call_url);
 
     var settings = get_settings(api_call_url, 'GET');
@@ -262,8 +271,6 @@ function load_search_results() {
       { 
           // The viewport is less than 768 pixels wide 
          // document.write("This is a mobile device."); 
- 
-    //alert(jQuery('td').attr('test'));
             jQuery(".title").attr('colspan','1');
         } else { 
             //alert(jQuery('td').attr('test'));

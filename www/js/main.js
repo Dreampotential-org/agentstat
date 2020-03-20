@@ -127,6 +127,15 @@ function redirectResults(results) {
     var params = search_params.split('&');
     var new_params = [];
 
+
+    if ($('#y-address').text() === 'ZipCode ') {
+
+      zipcode = $('.ser').val();
+      new_params.push('zipcode=' + zipcode);
+      search = new_params.join('&');
+      window.location = '/page-two-test.html?' + search;
+    }
+
     /* $.each(params, function(k, v) {
       if(v.split("=")[0] !== 'agent_name') {
         new_params.push(v);
