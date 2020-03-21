@@ -5,7 +5,7 @@ function init_search_results() {
     load_search_results();
     init_search_events();
     populate_city_search_menu();
-    
+
 }
 
 function populate_city_search_menu() {
@@ -161,14 +161,30 @@ function load_search_results() {
 
 
     if ((zipcode)) {
+
       api_call_url = 'reports-zipcode/' + zipcode + '/';
       $(".custom_radio")[3].click();
+
     } else if (city_search) {
+
       api_call_url = 'reports-city/' + city_search + '/';
       $(".custom_radio")[2].click();
+
     } else {
       filters = '?' + filters.join('&');
+
+      if ((agent_name)) {
+        $(".custom_radio")[1].click();
+
+
+
+        $(window).on("load", function () {
+          $("li:contains(" + state + ")").click();
+        });
+
+      }
       api_call_url = 'reports/' + state + '/' + filters;
+
     }
 
 
@@ -271,18 +287,18 @@ function load_search_results() {
       $('#page-section').html(search_result);
 
 
-      if (window.matchMedia("(max-width: 360px)").matches) 
-      { 
-          // The viewport is less than 768 pixels wide 
-         // document.write("This is a mobile device."); 
+      if (window.matchMedia("(max-width: 360px)").matches)
+      {
+          // The viewport is less than 768 pixels wide
+         // document.write("This is a mobile device.");
             jQuery(".title").attr('colspan','1');
-        } else { 
+        } else {
             //alert(jQuery('td').attr('test'));
             //jQuery("td").removeAttr('test');
             jQuery(".title").attr('colspan','3');
-    } 
+    }
 
-      
+
       if(city == null) $(".city_results").remove()
       set_pined_load()
       swal.close()
@@ -320,7 +336,7 @@ function set_pined_load() {
             // click to set the button pined
             $(".toc-two[agent_id='" + agent_id + "']").find(
                 ".toc-two-left-two-heading-right").click()
-                
+
         }
     }
     //MYCODE
@@ -507,11 +523,11 @@ function init_search_events() {
     $(document).on("click", "#filterSellers", function() {
         // do search
         if ($("#city-search-filter").val()) {
-            
+
             var city = $("#city-search-filter").val()
             var redio= $("form input[type='radio']:checked").val();
                 var i= 0;
-           
+
 
             alert(city)
             alert(redio)
@@ -520,15 +536,15 @@ function init_search_events() {
             delete page_params['lng']
             page_params['search_input'] = city
             page_params['city'] = city
-            page_params['type']= redio 
-            $('.seller-filter input[type="checkbox"]'). each(function(){ 
+            page_params['type']= redio
+            $('.seller-filter input[type="checkbox"]'). each(function(){
                 //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
                 if($(this).is(":checked")){
                     //alert('df');
                     //console.log($("label[for='" + this.id + "']").text());
                     i++;
                     var data = "test"+i;
-                    page_params[data]= this.id.text(); 
+                    page_params[data]= this.id.text();
                     //addId($("label[for='" + this.id + "']").text(),true, 'checkbox');
                 }
             });

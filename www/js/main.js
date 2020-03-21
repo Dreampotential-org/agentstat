@@ -134,12 +134,27 @@ function redirectResults(results) {
       search = new_params.join('&');
 
       window.location = '/page-two-test.html?' + search;
+      return false;
     } else if (search_type == 'City ') {
       city = $('.ser').val();
       new_params.push('city_search=' + city);
       search = new_params.join('&');
 
       window.location = '/page-two-test.html?' + search;
+      return false;
+    } else if (search_type == 'Agent Name ') {
+      state = $.trim($('#ser-state-id').text());
+      agent_name = $('.ser').val();
+
+      new_params.push('agent_name=' + agent_name);
+      new_params.push('state=' + state);
+
+      search = new_params.join('&');
+
+      console.log(search);
+      // return false;
+      window.location = '/page-two-test.html?' + search;
+      return false;
     }
 
     /* $.each(params, function(k, v) {
