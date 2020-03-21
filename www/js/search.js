@@ -146,6 +146,7 @@ function load_search_results() {
     var filters = get_search_filters();
     var state = urlParams.get('state');
     var city = urlParams.get('city');
+    var city_search = urlParams.get('city_search');
     var zipcode = urlParams.get('zipcode');
     var agent_name=urlParams.get('agent_name');
 
@@ -158,10 +159,13 @@ function load_search_results() {
       filters.push('state=WA');
     }
 
-    zipcode_filters = [];
+
     if ((zipcode)) {
       api_call_url = 'reports-zipcode/' + zipcode + '/';
       $(".custom_radio")[3].click();
+    } else if (city_search) {
+      api_call_url = 'reports-city/' + city_search + '/';
+      $(".custom_radio")[2].click();
     } else {
       filters = '?' + filters.join('&');
       api_call_url = 'reports/' + state + '/' + filters;

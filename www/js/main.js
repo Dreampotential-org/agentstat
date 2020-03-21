@@ -127,12 +127,18 @@ function redirectResults(results) {
     var params = search_params.split('&');
     var new_params = [];
 
-
-    if ($('#y-address').text() === 'ZipCode ') {
-
+    search_type = $('#y-address').text();
+    if (search_type === 'ZipCode ') {
       zipcode = $('.ser').val();
       new_params.push('zipcode=' + zipcode);
       search = new_params.join('&');
+
+      window.location = '/page-two-test.html?' + search;
+    } else if (search_type == 'City ') {
+      city = $('.ser').val();
+      new_params.push('city_search=' + city);
+      search = new_params.join('&');
+
       window.location = '/page-two-test.html?' + search;
     }
 
