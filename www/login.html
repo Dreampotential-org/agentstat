@@ -240,8 +240,8 @@
                         <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" onlogout="logOutUser();">
 </fb:login-button> -->
 
-<!-- <div id="status">
-</div> -->
+<div id="status">
+</div>
 
 
                         <div id="my-signin2"></div>
@@ -813,7 +813,10 @@
 
         $(document).ready(function () {
 
-            var top = $('.po-serach-wrapper-one').offset().top;
+            var top = $('.po-serach-wrapper-one').offset();
+             if (top !== undefined) {
+                top = top.top;
+             }
             $(window).scroll(function (event) {
                 var y = $(this).scrollTop();
                 if (y >= top)
@@ -922,11 +925,6 @@
             });
         }
 
-    </script>
-
-
-
-<script>
     var googleUser = {};
     var startApp = function() {
       gapi.load('auth2', function(){
@@ -942,7 +940,7 @@
     };
   
     function attachSignin(element) {
-      console.log(element.id);
+      // console.log(element.id);
       auth2.attachClickHandler(element, {},
           function(googleUser) {
             document.getElementById('name').innerText = "Signed in: " +
