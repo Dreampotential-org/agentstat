@@ -3396,7 +3396,7 @@ ul {
     } */
 @media screen and (min-width: 990px) {
     .po-search.pt-search{
-        margin-top: -60px;
+        margin-top: -45px;
     }
     .fixed .po-serach-wrapper {
         /* padding: 8px 10px; */
@@ -4157,7 +4157,7 @@ td{
     }
     .sticky {
         position: sticky;
-        top:40px;
+        top:57px;
         background-color: white;
         /* padding: 50px; */
         font-size: 20px;
