@@ -1,4 +1,5 @@
-data_map = [
+var profile_id = null;
+var data_map = [
   'first_name', 'last_name', 'phone_number', 'email', 'screen_name',
   'brokerage_name', 'city', 'state', 'zipcode', 'buyer_rebate', 'listing_fee',
   'provide_cma', 'about_me', 'type_of_listing_service'
@@ -26,6 +27,7 @@ function display_profile(profile) {
   $('#city').val(profile.city);
   $('#state').val(profile.state);
   $('#zipcode').val(profile.zipcode);
+  profile_id = profile.id;
 
   get_specilities(profile.specialties);
 
@@ -367,4 +369,28 @@ $('.combo-checkboxes:checkbox').change(function () {
 
 $('#screen_name').keyup(function () {
   $('#profile_slug').html($('#screen_name').val());
+});
+
+$(document).on('change click', '#review-add-btn', function() {
+  var data = {};
+  data['full_name'] = $('#review-name').val();
+  data['email'] = $('#review-email').val();
+  data['review'] = $('#review').val();
+
+  review_date = new Date($('#review-date').val());
+  data['date'] = review_date.toJSON();
+
+
+  settings = get_settings('review/' + profile_id + '/', 'POST', JSON.stringify(data))
+
+  $.ajax(settings).done(function (response) {
+    var msg = JSON.parse(response);
+    console.log(msg);
+    $('#review-msg').html('Review has been added!');
+
+  }).fail(function(err) {
+      console.log(err);
+      // show_error(err);
+      $('#review-msg').html(err)
+  });
 });
