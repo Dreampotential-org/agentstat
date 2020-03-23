@@ -175,7 +175,7 @@
                                 <div class="row">
                                     <div class="col-lg-3 align-self-center">
                                         <div class="sn-left">
-                                            <p id="lebel">Screen name 
+                                            <p id="lebel">Screen name
                                                 <!-- <span id="start">**</span> -->
                                             </p>
                                         </div>
@@ -212,7 +212,7 @@
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="file-left">
-                                            <p id="lebel">Profile photo 
+                                            <p id="lebel">Profile photo
                                                 <!-- <span id="start">**</span>  -->
                                             </p>
                                         </div>
@@ -322,14 +322,14 @@
                                     <div class="col-lg-3">
                                         <div class="la-right">
                                             <div id="languages"  class="row" style="width:700px">
-                                                
+
                                             </div>
-                                            
+
 
                                             <div class="collapse" id="collapseExample">
                                                 <div id="morelanguages" class="row" style="width: 700px">
 
-                                                
+
                                                 </div>
                                             </div>
                                             <a class="trigger-more collapsed" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">More</a>
@@ -351,7 +351,7 @@
 
                                 <!-- year area start -->
                             </div>
-                          
+
                         </div>
                     </div>
                 </div>
@@ -382,7 +382,7 @@
                                   <select style="margin-left: 0px !important;" id="listing_fee"></select>
                                 </div>
                             </div>
-                            
+
                             <div class="add-check">
                                 <input type="checkbox" class="combo-checkboxes" target='buyer_rebate' id="buyer_rebate_checkbox">
                                 <span class="checkmark"></span>
@@ -390,7 +390,7 @@
                                 <div>
                                   <select style="margin-left: 0px !important;" id="buyer_rebate"></select>
                                 </div>
-                                <div id="textbox" style="padding-top: 10px;"><input type="number"></div> 
+                                <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
                                 </select>
                             </div>
 
@@ -401,11 +401,11 @@
 
                                 <div>
                                   <select style="margin-left: 0px !important;" id="type_of_listing_service"></select>
-                                </div> 
+                                </div>
                             </div>
 
                             <div class="add-check">
-                                <input id="provide_cma" type="checkbox"> 
+                                <input id="provide_cma" type="checkbox">
                                 <span class="checkmark"></span>
                                 <label class="check-box">I Provide CMAs</label>
                             </div>
@@ -429,7 +429,7 @@
                         <div class="modal-dialog modal-size" role="document" style="transform: translateY(50%);">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <div class="review-body">    
+                                    <div class="review-body">
                                         <p>Add a Review</p>
                                         <input class="backcolorInput" id="review-name" type="text" name="text" placeholder="Reviewer name">
                                         <input class="backcolorInput" id="review-email" type="text" name="text" placeholder="Reviewer e-mail">
@@ -441,7 +441,7 @@
                                         </div>
                                         <div class="text-center" id="review-msg">
                                         </div>
-                              
+
                                     </div>
                                 </div>
 
@@ -460,34 +460,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="slider-wrapper">
-                            <div class="owl-carousel form-slider owl-theme">
-                                <div class="item">
-                                    <div class="item-slide text-center">
-                                        <button><span><i class="fas fa-times"></i></span></button>
-                                        <p>Anna K - 11/20/2019</p>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            </span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="item-slide text-center">
-                                        <button><span><i class="fas fa-times"></i></span></button>
-                                        <p>Anna K - 11/20/2019</p>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            </span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="item-slide text-center">
-                                        <button><span><i class="fas fa-times"></i></span></button>
-                                        <p>Anna K - 11/20/2019</p>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            </span>
-                                    </div>
-                                </div>
+                            <div class="owl-carousel form-slider owl-theme" id="reviews">
+
                             </div>
                             <div class="owl-nav">
                                 <div class="owl-prevx"><i class="fas fa-angle-left"></i></div>
@@ -563,7 +537,6 @@
 
     <script src="./js/fileinput.js"></script>
 
-    <script src="./js/owl.carousel.min.js"></script>
 
     <!-- Custom jQuery -->
     <script src="./js/scripts.js"></script>
@@ -571,6 +544,8 @@
     <script src="./js/conf.js"></script>
     <script src="./js/profile.js"></script>
     <script src="./js/main.js"></script>
+
+    <script src="./js/owl.carousel.min.js"></script>
 
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
@@ -662,14 +637,14 @@
         }
 
     });
-    
-        $(".add_field_button").click(function(){ 
+
+        $(".add_field_button").click(function(){
             $("#license").append(`
               <div class="col-lg-3 align-self-end">
                 <div class="li-left">
-                  <p class="mb-0" id="lebel"></p> 
+                  <p class="mb-0" id="lebel"></p>
                 </div>
-              </div> 
+              </div>
               <div class="col-lg-9">
                 <div class="li-right" style=" margin-top: 10px;"">
                   <input  class="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 ">
@@ -679,13 +654,13 @@
         });
 
         $("#license").on("click",".remove_field", function(){
-             $(this).parent('div').remove(); 
+             $(this).parent('div').remove();
     })
     $("#textbox").hide();
     $("#buyer_rebate").click(function(){
 
         console.log( $('#buyer_rebate').val())
-       
+
         if($(this).val()=='7'){
             $("#textbox").show();
             } else {

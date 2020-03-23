@@ -111,7 +111,41 @@ function display_profile(profile) {
   }
 
   get_languages(profile.language_fluencies);
+  get_reviews();
 
+}
+
+
+function get_reviews() {
+  settings = get_settings('review/' + profile_id + '/', 'GET');
+
+  $.ajax(settings).done(function (response) {
+      var response = JSON.parse(response);
+      console.log(response);
+
+      $.each(response, function(k, v) {
+        console.log(k, v);
+        console.log(v.full_name);
+
+        d = new Date(v.date);
+        $('.owl-carousel').trigger(
+          'add.owl.carousel', [`
+          <div class="item">
+            <div class="item-slide text-center">
+                <button><span><i class="fas fa-times"></i></span></button>
+                <p>` + v.full_name + ` - ` + v.date.split('T')[0] +`</p>
+                <span>
+                ` + v.review + `
+                </span>
+            </div>
+          </div>`]
+        ).trigger('refresh.owl.carousel');
+
+      });
+  }).fail(function(err) {
+      // alert('Got err');
+      console.log(err);
+  });
 }
 
 function phonenumber_validate(inputtxt) {
