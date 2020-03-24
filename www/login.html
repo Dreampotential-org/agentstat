@@ -284,17 +284,21 @@
                             <div class="col-6 col-md-6 col-sm-3">
                                 <div class="custom-control custom-checkbox">
 
-                                    <input type="checkbox" class="unchecked-acs" id="homeowner" name="checkbox[]"
-                                        value="checkboxes1">
-                                    <label>Homeowner</label>
+                                    <input type="radio" class="unchecked-acs"
+                                                        id="homeowner"
+                                                        name="member_type[]"
+                                        value="Homeowner">
+                                    <label for="homeowner">Homeowner</label>
                                 </div>
                                 
                             </div>
                             <div class="col-6 col-md-6 col-sm-3">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class=" unchecked-acs" id="buyer" name="checkbox[]"
-                                        value="checkboxes2">
-                                    <label>Buyer</label>
+                                    <input type="radio" class=" unchecked-acs"
+                                                        id="buyer"
+                                                        name="member_type[]"
+                                        value="Buyer">
+                                    <label for="buyer">Buyer</label>
                                 </div>
                             </div>
                             
@@ -302,9 +306,11 @@
                         <div class="form-group row">
                             <div class="col-9 col-md-9 col-sm-6" style="margin-left:-20px;">
                                 <div class="custom-control custom-checkbox text-center">
-                                    <input type="checkbox" class="unchecked-acs" id="industry" name="checkbox[]"
-                                        value="checkboxes3">
-                                    <label>Industry Professional </label>
+                                    <input type="radio" class="unchecked-acs"
+                                                        id="industry"
+                                                        name="member_type[]"
+                                        value="Industry Professional">
+                                    <label for="industry">Industry Professional </label>
                                 </div>
                             </div>
                         </div>
@@ -680,15 +686,37 @@
 							$("input[name*='checkbox']:checked").each(function(){
 								$(this).prop("checked", false);
 							});
-							$("#myform1").submit();
+							// $("#myform1").submit();
 							var opval= $('#category').val();
 								if(opval == 'secondoption'){
 								$('#continueModal').modal('show');
 							}
+              console.log('ssssss');
 							//return true;
-                        }
-						
+          }
 
+          var data = {};
+          data['email'] = $('#email1').val()
+          data['password'] = $('#password1').val()
+          data['category'] = $('#category').val()
+          data['member_type'] = $("input[name='member_type[]']:checked").val();
+          console.log(data);
+          
+          settings = get_settings('create-agent/', 'POST', JSON.stringify(data))
+
+          settings['headers'] = {};
+          console.log(settings);
+
+          $.ajax(settings).done(function (response) {
+            var msg = JSON.parse(response);
+            // console.log(msg);
+            console.log(msg['token']);
+            localStorage.session_id = msg['token'];
+            window.location = '/form.html';
+          }).fail(function(err) {
+            // show_error(err);
+            console.log(err);
+          });
 
             console.log($("input[name*='checkboxes']:checked").length)
             // if (($("input[name*='checkboxes']:checked").length)<=0) {
