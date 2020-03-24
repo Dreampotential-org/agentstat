@@ -197,6 +197,9 @@ function update_profile() {
     function() { return $(this).val() }
   ).get();
 
+  data['licenses'] = data['licenses'].filter(function(v){return v!==''});
+
+
   // fluent languages
   data['language_fluencies'] = $('.lng-checkbox:checked').map(
     function() { return $(this).val() }
