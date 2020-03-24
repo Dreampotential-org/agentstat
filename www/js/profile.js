@@ -424,6 +424,9 @@ $(document).on('change click', '#review-add-btn', function() {
     var msg = JSON.parse(response);
     console.log(msg);
     $('#review-msg').html('Review has been added!');
+    setTimeout(function () {
+       window.location.href = "/form.html#reviews";
+    }, 2000);
 
   }).fail(function(err) {
       console.log(err);
