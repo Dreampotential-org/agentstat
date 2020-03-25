@@ -162,7 +162,7 @@ function phonenumber_validate(inputtxt) {
 function update_profile() {
   var data = {};
   var valid = true;
-  var validation_messages = 'Please check the following error(s)!<br><br>';
+  var validation_messages = '';
 
   $.each(data_map, function(k, val) {
     data[val] = $('#'+val).val();
@@ -181,13 +181,19 @@ function update_profile() {
   });
 
   if (phonenumber_validate($('#phone_number').val()) === false) {
-    validation_messages += 'Invalid phone number. <br>';
+    validation_messages += 'Invalid phone number.';
     valid = false;
   }
 
   if (valid === false) {
-    $('#validate-message').css('display', 'block');
-    $('#validate-message').html(validation_messages);
+    // $('#validate-message').css('display', 'block');
+    // $('#validate-message').html(validation_messages);
+
+    swal(validation_messages, {
+      buttons: false,
+      timer: 3000,
+    });
+
     return false
   }
 
@@ -439,7 +445,6 @@ $(document).on('change click', '#review-add-btn', function() {
 
 
 $(document).on('change click', '.swal-button--confirm', function() {
-  console.log('tessssss');
   window.location.href = "/form.html#reviews";
   location.reload();
 });
