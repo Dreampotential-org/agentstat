@@ -186,14 +186,8 @@ function update_profile() {
   }
 
   if (valid === false) {
-    // $('#validate-message').css('display', 'block');
-    // $('#validate-message').html(validation_messages);
 
-    swal(validation_messages, {
-      buttons: false,
-      timer: 3000,
-    });
-
+    show_message(validation_messages);
     return false
   }
 
@@ -232,11 +226,8 @@ function update_profile() {
           $('#validate-message').css('display', 'none');
 
           var msg = JSON.parse(response);
-          $("#alert-message").css('display', 'block');
-          setTimeout(function(){
-            $('#alert-message').css('display', 'none');
-          }, 3000);
 
+          show_message('Your profile has been saved.');
 
       }).fail(function(err) {
           // alert('Got err');
@@ -255,10 +246,8 @@ function update_profile() {
           $('#validate-message').css('display', 'none');
 
           var msg = JSON.parse(response);
-          $("#alert-message").css('display', 'block');
-          setTimeout(function(){
-            $('#alert-message').css('display', 'none');
-          }, 3000);
+
+          show_message('Your profile has been saved.');
       }).fail(function(err) {
           // alert('Got err');
           show_error(err);
@@ -396,7 +385,6 @@ $(document).on('change click', '#connector-remove', function() {
 
 
 $('.combo-checkboxes:checkbox').change(function () {
-  console.log('xxxxxxx');
   target_id = $(this).attr('target');
   checked_value = $(this).prop('checked');
   console.log(checked_value);
@@ -448,3 +436,11 @@ $(document).on('change click', '.swal-button--confirm', function() {
   window.location.href = "/form.html#reviews";
   location.reload();
 });
+
+
+function show_message(message) {
+    swal(message, {
+      buttons: false,
+      timer: 3000,
+    });
+}
