@@ -424,13 +424,22 @@ $(document).on('change click', '#review-add-btn', function() {
     var msg = JSON.parse(response);
     console.log(msg);
     $('#review-msg').html('Review has been added!');
-    setTimeout(function () {
-       window.location.href = "/form.html#reviews";
-    }, 2000);
+
+    swal({
+      icon: "success",
+    });
+
 
   }).fail(function(err) {
       console.log(err);
       // show_error(err);
       $('#review-msg').html(err)
   });
+});
+
+
+$(document).on('change click', '.swal-button--confirm', function() {
+  console.log('tessssss');
+  window.location.href = "/form.html#reviews";
+  location.reload();
 });
