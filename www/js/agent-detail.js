@@ -16,6 +16,13 @@ $(document).on('change click', '#claim_action', function() {
 
 
 function load_agent(ignore_city = false) {
+    full_path = window.location.pathname;
+
+    var screen_name = null
+    if (full_path.split('/')[1] == 'p') {
+      screen_name = full_path.split('/')[2]
+    }
+
     var city = null;
 
     if (ignore_city === false) {
@@ -34,8 +41,14 @@ function load_agent(ignore_city = false) {
       }
     }
 
+    var api_call_url = '';
 
-    var api_call_url = 'agents/' + agent_id + '/';
+    if (screen_name) {
+      api_call_url = 'agents/' + screen_name  + '/'
+    } else {
+      api_call_url = 'agents/' + agent_id + '/';
+    }
+
     if (city !== null) {
         api_call_url += '?city=' + city;
     }
