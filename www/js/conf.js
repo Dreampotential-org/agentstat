@@ -1,4 +1,5 @@
 API_URL = 'https://app.agentstat.com/api/';
+// UNCOMMENT to connect to local django-zillow api instance
 // API_URL = 'http://localhost:8000/api/';
 
 
