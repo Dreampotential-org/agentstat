@@ -298,7 +298,7 @@ function load_search_results() {
 
 
       // if(city == null) $(".city_results").remove()
-      if(city_search == null) $(".city_results").remove()
+      if(city_search == null && city == null) $(".city_results").remove()
 
       set_pined_load()
       swal.close()
