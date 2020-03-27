@@ -176,8 +176,6 @@ function load_search_results() {
       if ((agent_name)) {
         $(".custom_radio")[1].click();
 
-
-
         $(window).on("load", function () {
           $("li:contains(" + state + ")").click();
         });
@@ -275,6 +273,7 @@ function load_search_results() {
         item = item.split('[[condo_sold]]').join(
           get_val_from_breakdown(v, 'Condo', false))
 
+
         //item = item.split('[[overall_listings_breakdown_json]]').join(
         //    array_to_text(v['overall_listings_breakdown_json']))
 
@@ -299,7 +298,9 @@ function load_search_results() {
     }
 
 
-      if(city == null) $(".city_results").remove()
+      // if(city == null) $(".city_results").remove()
+      if(city_search == null) $(".city_results").remove()
+
       set_pined_load()
       swal.close()
 
