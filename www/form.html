@@ -39,7 +39,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
     <!-- header-area start -->
-    <img src="blank-profile-picture.png" alt="">
+    <img style="display: none;" src="blank-profile-picture.png" alt="">
     <div class="header-area two-header-area sticky-top bg-white" style="z-index: 50000;">
         <div class="container">
             <div class="row">
@@ -71,7 +71,7 @@
                                             </a>
 
                                             <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item " href="#">
+                                                <a class="dropdown-item " href="connect-profile.html">
                                                     <p>Profile Settings</p>
                                                     <span>Edit your profile info and reviews</span>
                                                 </a>
@@ -224,7 +224,7 @@
                                         </div>
                                         <div class="up-photo">
                                             <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
-                                            <img id="profile-img" src="img/blank-profile-picture.png" alt="">
+                                            <img id="profile-img"  alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -344,7 +344,7 @@
                                         <div class="year-wrapper">
                                             <p>Years in business: 5 Years</p>
                                             <span>Specialties</span>
-                                            <div class="year-wrapper-check row" id="specialties" style="margin-left:10px">
+                                            <div class="year-wrapper-check row" id="specialties" style="margin-left:10px;width: 450px;margin-top: 20px;">
                                             </div>
                                         </div>
                                     </div>
@@ -688,6 +688,11 @@
     $( function() {
       $( "#review-date" ).datepicker();
     } );
+
+    var str = document.getElementById("screen_name").innerHTML; 
+    var res = str.replace("-", " ");
+    document.getElementById("screen_name").innerHTML = res;
+
     </script>
 
 
