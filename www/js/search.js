@@ -166,7 +166,6 @@ function load_search_results() {
       $(".custom_radio")[3].click();
 
     } else if (city_search) {
-
       api_call_url = 'reports-city/' + city_search + '/';
       $(".custom_radio")[2].click();
 
@@ -307,6 +306,11 @@ function load_search_results() {
       if(urlParams.get('search_input')) {
         $(".ser").val(urlParams.get('search_input'))
       }
+
+      if(urlParams.get('city_search')) {
+        $(".ser").val(urlParams.get('city_search'))
+      }
+
     }).fail(function(err) {
         // alert('Got err');
         $('.msg').html(err['responseText']);
