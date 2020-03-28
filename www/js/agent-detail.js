@@ -37,7 +37,7 @@ function load_agent(ignore_city = false) {
         $(".claim_profile").attr("onclick", "javascript: return false");
 
       } else {
-        $(".claim_profile").attr("href", "/signup.html?agent_id=" + agent_id)
+        $(".claim_profile").attr("href", "/login.html?agent_id=" + agent_id)
       }
     }
 
@@ -96,7 +96,9 @@ function load_agent(ignore_city = false) {
         $('#about_us').html(data['about_us']);
 
         if(data['claimed'] === true) {
-          $('#claim_wrapper').css('display', 'none');
+            $('#already_claim_wrapper').css('display', 'block');
+        } else {
+            $('#claim_wrapper').css('display', 'block');
         }
 
         overall_score = data['scores'][0]['overall_l2s_ratio'] || 100
@@ -629,6 +631,16 @@ $(document).on('change click', '#overall-tab', function () {
     $('#overallTabContent').css('display', 'block');
 
     load_agent(true);
+});
+
+$(document).on('click', '#already_claim_profile', function () {
+    $('#want-claim').css('display', 'block');
+    $('#submit-proof-form').css('display', 'none');
+});
+
+$(document).on('click', '#want-claim-yes', function () {
+    $('#want-claim').css('display', 'none');
+    $('#submit-proof-form').css('display', 'block');
 });
 
 function pagination(page){

@@ -377,7 +377,7 @@ $(document).on('change click', '#connector-remove', function() {
 
   $.ajax(settings).done(function (response) {
       var msg = JSON.parse(response);
-      $('#agent-connector').html('Add new connection.');
+      $('#agent-connector').html('<a href="/connect-profile.html" target="_blank">Add new connection</a>');
   }).fail(function(err) {
       // alert('Got err');
       console.log(err);

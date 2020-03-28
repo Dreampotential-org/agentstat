@@ -9,7 +9,8 @@
     <meta name="keywords" content="">
     <meta name="decription" content="">
     <meta name="author" content="Asad Kabir">
-    <meta name="google-signin-client_id" content="852045059252-r5bn5uthorj1lejlaqmocmpasj0uhenf.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="852045059252-r5bn5uthorj1lejlaqmocmpasj0uhenf.apps.googleusercontent.com">
 
 
     <!-- Title -->
@@ -104,7 +105,7 @@
                         
                                                     <div class="type ak-price srch-price">
                                                         <p id="y-type" class="type-value">Type</p>
-                                                        <div class="check-type index-check-type">
+                                                        <div class="check-type">
                                                             <!-- <h6>Home Type</h6> -->
                                                             <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
                                                             <input class="custom_radio" type="radio" name="babu" value="Manufactured">
@@ -162,7 +163,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="serch_btn">
+                                                    <div class="serch_btn" style="display: inline;float: right;margin-top:8px;">
                                                         <button class="btn btn-default searchButton"><span><i
                                                                     class="fas fa-search"></i></span></button>
                                                     </div>
@@ -711,7 +712,21 @@
             // console.log(msg);
             console.log(msg['token']);
             localStorage.session_id = msg['token'];
-            window.location = '/connect-profile.html';
+            //window.location = '/form.html';
+
+            var opval = $('#category').val();
+            if (agent_id && opval == 'secondoption') {
+                claim_api(agent_id);
+                setTimeout(function (){
+                  window.location = '/form.html';
+                }, 1000);
+            } else {
+                if (opval == 'secondoption') {
+                    $('#continueModal').modal('show');
+                } else {
+                    window.location = '/form.html';
+                }
+            }
           }).fail(function(err) {
             // show_error(err);
             console.log(err);
@@ -722,10 +737,6 @@
             //         alert("You must check at least 1 box");
             //     }
             // $('#category').change(function(){
-            var opval = $('#category').val();
-            if (opval == 'secondoption') {
-                $('#continueModal').modal('show');
-            }
             //})
         })
         $('#continue').click(function () {
@@ -1001,9 +1012,9 @@
       </script>
 
     <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
-    <!-- <script
-      src="https://apis.google.com/js/platform.js?onload=renderButton" async
-      defer></script> -->
+    <!--
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    -->
 
 </body>
 

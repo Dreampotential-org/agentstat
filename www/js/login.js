@@ -53,3 +53,19 @@ $(document).on('change click', '#forgot-password', function() {
   }
 
 });
+
+function getParamUrlValue(key) {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var agent_id = url.searchParams.get(key);
+}
+
+$(document).ready(function() {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  agent_id = url.searchParams.get('agent_id');
+  if(agent_id) {
+    $('[href="#nav-profile"]').tab('show');
+    $("#category").val("secondoption");
+  } 
+});
