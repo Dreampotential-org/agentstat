@@ -128,82 +128,40 @@ function redirectResults(results) {
     var new_params = [];
 
     search_type = $('#y-address').text();
-    if (search_type === 'ZipCode ') {
-      zipcode = $('.ser').val();
-      new_params.push('zipcode=' + zipcode);
-      search = new_params.join('&');
 
-      window.location = '/page-two-test.html?' + search;
-      return false;
-    } else if (search_type == 'City ') {
-      city = $('.ser').val();
-      new_params.push('city_search=' + city);
-      search = new_params.join('&');
+    search_address = localStorage.getItem('search_address');
+    search_zipcode = localStorage.getItem('search_zipcode');
+    search_city = localStorage.getItem('search_city');
+    search_agent_name = localStorage.getItem('search_agent_name');
+    search_state = localStorage.getItem('search_state');
 
-      window.location = '/page-two-test.html?' + search;
-      return false;
-    } else if (search_type == 'Agent Name ') {
-      state = $.trim($('#ser-state-id').text());
-      agent_name = $('.ser').val();
-
-      new_params.push('agent_name=' + agent_name);
-      new_params.push('state=' + state);
-
-      search = new_params.join('&');
-
-      console.log(search);
-      // return false;
-      window.location = '/page-two-test.html?' + search;
-      return false;
+    if (search_address) {
+      new_params.push('address=' + search_address);
     }
 
-    /* $.each(params, function(k, v) {
-      if(v.split("=")[0] !== 'agent_name') {
-        new_params.push(v);
-      }
-    }); */
-
-    console.log(results);
-    if ('city' in results) {
-        new_params.push('state=' + results['state']);
-        new_params.push('city=' + results['city']);
-        new_params.push('type=' + results['type']);
-        if('data1' in results)
-        {
-          new_params.push('data1=' + results['data1']);
-        }
-        new_params.push('type=' + results['type']);
-        if ('lat' in results) {
-            new_params.push('lat=' + results['lat']);
-            new_params.push('lng=' + results['lng']);
-        }
-    }
-    else {
-        new_agent_name = $('.ser').val();
-        new_params.push('agent_name=' + new_agent_name);
+    if (search_zipcode) {
+      new_params.push('zipcode=' + search_zipcode);
     }
 
-    if (get_v_estimate()) {
-        new_params.push('v_estimate=' + get_v_estimate());
+    if (search_city) {
+      new_params.push('city=' + search_city);
     }
 
-    if (get_home_type()) {
-        new_params.push('home_type=' + get_home_type());
-    } else {
-        new_params.push('home_type=SINGLE_FAMILY');
+    if (search_agent_name) {
+      new_params.push('agent_name=' + search_agent_name);
     }
 
-    if ('search_input' in results) {
-      if ($('.ser').val() === results['search_input']) {
-        new_params.push('search_input=' + results['search_input']);
-      }
-      else {
-        new_params.push('search_input=' + $('.ser').val());
-      }
+    if (search_state) {
+      new_params.push('state=' + search_state);
     }
 
     search = new_params.join('&');
-    window.location = '/page-two-test.html?' + search;
+    window.location = '/page-two-test.html?' + search
+    // val = '/page-two-test.html?' + search;
+    // console.log(val);
+
+    return false;
+
 }
 
 function getSearchParams(place) {
@@ -242,7 +200,7 @@ function init_maps() {
     var options = {
         types: ['address'],
     }
-    
+
 
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.addListener('place_changed', fillIn);
@@ -251,14 +209,13 @@ function init_maps() {
       autocomplete1.addListener('place_changed', fillIn1);
     }
 
-   
+
 }
 
 function get_page_initial_results() {
 
     const urlParams = new URLSearchParams(window.location.search);
-   
-    
+
     return {
         'search_input': urlParams.get('search_input'),
         'city': urlParams.get('city'),
@@ -275,7 +232,7 @@ function init() {
     console.log(global_results)
 
     try {
-        init_maps();
+        // init_maps();
     } catch(ex) {
         console.log(ex)
     }
@@ -403,3 +360,47 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
 
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('f6y6f4usghc5');
+
+localStorage.current_search_type = 'Address';
+
+$(document).ready(function () {
+    address = localStorage.search_address;
+    if (address) {
+      $('.ser').val(address)
+    }
+});
+
+if (localStorage.search_vals == null || localStorage.search_vals == 'null') {
+  console.log('local testsss')
+  localStorage.search_vals = {};
+  console.log(localStorage.search_vals);
+}
+
+$(document).on('click', '.custom_radio', function() {
+  localStorage.current_search_type = $(this).text();
+  search_key = localStorage.current_search_type.toLowerCase();
+  search_key = 'search_' + search_key.split(' ').join('_');
+
+  if (search_key === 'search_agent_name') {
+    $('#ser-state-id').html(localStorage.search_state);
+  }
+
+  $('.ser').val(localStorage.getItem(search_key));
+});
+
+$(document).on('click', '#allstate>li', function() {
+  localStorage.setItem('search_state', $(this).text());
+});
+
+$('.ser').change(function() {
+  console.log(localStorage.current_search_type);
+  console.log($(this).val());
+  console.log(localStorage.current_search_type);
+  // var obj = localStorage.getItem('search_vals');
+  search_key = localStorage.current_search_type.toLowerCase();
+  search_key = 'search_' + search_key.split(' ').join('_');
+  console.log(search_key);
+
+  localStorage.setItem(search_key, $(this).val());
+
+});
