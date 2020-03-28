@@ -126,6 +126,8 @@ function get_reviews() {
       $.each(response, function(k, v) {
         console.log(k, v);
         console.log(v.full_name);
+        formatted_date = v.date.split('T')[0].split('-')
+        formatted_date = formatted_date[1] + '-' + formatted_date[2] + '-' + formatted_date[0];
 
         d = new Date(v.date);
         $('.owl-carousel').trigger(
@@ -133,7 +135,7 @@ function get_reviews() {
           <div class="item">
             <div class="item-slide text-center">
                 <button><span><i class="fas fa-times"></i></span></button>
-                <p>` + v.full_name + ` - ` + v.date.split('T')[0] +`</p>
+                <p>` + v.full_name + ` - ` + formatted_date +`</p>
                 <span>
                 ` + v.review + `
                 </span>
