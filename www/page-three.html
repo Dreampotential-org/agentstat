@@ -287,10 +287,14 @@
                                     </ul>
                                 </div>
                                 <br>
-                                <div class="col-lg-12" id="claim_wrapper">
+                                <div class="col-lg-12" id="claim_wrapper" style="display:none;">
                                     <br>
                                     <h5><a href="/signup.html" class='claim_profile'>Claim Profile</a></h5>
                                     <p>Specialties: Buyer’s Agent, Listing Agent Relocation</p>
+                                </div>
+                                <div class="col-lg-12" id="already_claim_wrapper" style="display:none;">
+                                    <br>
+                                    <h5><a href="javascript:void(0)" id='already_claim_profile' data-toggle="modal" data-target="#alreadyClaimedModal">Claimed</a></h5>
                                 </div>
                             </div>
                         </div>
@@ -787,6 +791,68 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <!--  Agent Already claimed Modal  -->
+    <div class="modal fade " id="alreadyClaimedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog  modalSignup" role="document">
+            <div class="modal-content" style="width: 650px;">
+                <div class="modal-body">
+                    <h4><b>If you want to dispute the claim and provide proof of identity.</b></h4>
+                    <br>
+                    <div class="form">
+                        <div class="container">
+                            <div class="form-wrapper">
+                                <div id="want-claim" class="text-center">
+                                    <button class="btn btn-success" type="button" id="want-claim-yes">Yes</button>
+                                    <button class="btn btn-danger" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                                <div id="submit-proof-form" style="display:none;">
+                                    <div class="row h-100">
+                                        <div class="col-lg-6 mx-auto">
+                                            <div class="alert alert-danger msg" role="alert" style="display: none"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="file-left">
+                                                <p id="lebel">Photo ID
+                                                    <span id="start">*</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="file-right">
+                                                <input id="picture" type="file" name="file" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="file-left">
+                                                <p id="lebel">Real State License
+                                                    <span id="start">*</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="file-right">
+                                                <input id="picture" type="file" name="file" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div><button disabled id='set_agent' class="btn btn-warning"> Submit Proof</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 

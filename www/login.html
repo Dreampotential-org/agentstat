@@ -712,7 +712,22 @@
             // console.log(msg);
             console.log(msg['token']);
             localStorage.session_id = msg['token'];
-            window.location = '/form.html';
+            //window.location = '/form.html';
+
+            var opval = $('#category').val();
+            if (agent_id && opval == 'secondoption') {
+                claim_api(agent_id);
+                setTimeout(function (){
+                  window.location = '/form.html';
+                }, 1000);
+            } else {
+                if (opval == 'secondoption') {
+                    $('#continueModal').modal('show');
+                } else {
+                    window.location = '/form.html';
+                }
+            }
+
           }).fail(function(err) {
             // show_error(err);
             console.log(err);
@@ -723,10 +738,14 @@
             //         alert("You must check at least 1 box");
             //     }
             // $('#category').change(function(){
-            var opval = $('#category').val();
+            
+            // hassan comment start
+            /*var opval = $('#category').val();
             if (opval == 'secondoption') {
                 $('#continueModal').modal('show');
-            }
+            }*/
+            // hassan comment end
+            
             //})
         })
         $('#continue').click(function () {
