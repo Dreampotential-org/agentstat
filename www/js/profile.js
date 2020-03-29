@@ -203,7 +203,7 @@ function update_profile() {
     return false
   }
 
-  data['#phone_number'] = phone_number_concate;
+  data['phone_number'] = phone_number_concate;
 
 
   // licences
