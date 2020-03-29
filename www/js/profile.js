@@ -18,7 +18,9 @@ function display_profile(profile) {
   //console.log(profile);
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
-  $('#phone_number').val(profile.phone_number);
+  $('#phone_number_1').val(profile.phone_number.substring(0, 3));
+  $('#phone_number_2').val(profile.phone_number.substring(3, 6));
+  $('#phone_number_3').val(profile.phone_number.substring(6, 10));
   $('#email').val(profile.email);
   $('#screen_name').val(profile.screen_name);
   $('#profile_slug').text(profile.screen_name);
@@ -97,7 +99,14 @@ function display_profile(profile) {
   }
 
   if (profile.connector != '' && profile.connector !== null) {
-    console.log(profile.connector);
+    
+    var res = profile.connector.agent_name.split(" ");
+    $('#first_name').val(res[0]);
+    $('#last_name').val(res[1]);
+    $("#first_name").prop("disabled", true);
+    $("#last_name").prop("disabled", true);
+
+
     $('#agent-connector').html(`
       <a target='_blank' href='/page-three.html?agent_id=` + profile.connector.id + `'>` + profile.connector.agent_name + `</a> |
       <a id='connector-remove'
@@ -182,7 +191,8 @@ function update_profile() {
     }
   });
 
-  if (phonenumber_validate($('#phone_number').val()) === false) {
+  var phone_number_concate =  $('#phone_number_1').val()+$('#phone_number_2').val()+$('#phone_number_3').val();
+  if (phonenumber_validate(phone_number_concate) === false) {
     validation_messages += 'Invalid phone number.';
     valid = false;
   }
@@ -192,6 +202,8 @@ function update_profile() {
     show_message(validation_messages);
     return false
   }
+
+  data['#phone_number'] = phone_number_concate;
 
 
   // licences

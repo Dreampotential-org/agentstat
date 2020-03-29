@@ -144,14 +144,26 @@
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="fn-left">
-                                            <p>Phone Number </p>
+                                            <p>Phone Number <span id="start">*</span></p>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="fn-right">
+                                            <input type="text" id="phone_number_1" placeholder="xxx" class="col-lg-1">
+                                            <input type="text" id="phone_number_2" placeholder="xxx" class="col-lg-1">
+                                            <input type="text" id="phone_number_3" placeholder="xxxx" class="col-lg-1">
+
+                                            <i class="fa fa-info-circle" data-toggle="tooltip" title="This is required because this is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
+                                        </div>
+
+                                        <!-- <div class="fn-right">
                                             <input style="width: 300px;"
                                             id="phone_number" type="text" name="text" placeholder="Phone number">
-                                        </div>
+
+                                            
+
+                                            
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -634,6 +646,7 @@
         });
 
         (function($) {
+            $('[data-toggle="tooltip"]').tooltip();
             $(document).ready(function() {
 
                 jQuery(window).on('scroll', function() {
@@ -648,7 +661,7 @@
 
         $('.trigger-more').click(function(){
         if($(this).hasClass('collapsed'))  {
-        $(this).text('Less');
+        $(this).text('Fewer');
         } else {
         $(this).text('More');
         }
