@@ -18,9 +18,6 @@ function display_profile(profile) {
   //console.log(profile);
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
-  $('#phone_number_1').val(profile.phone_number.substring(0, 3));
-  $('#phone_number_2').val(profile.phone_number.substring(3, 6));
-  $('#phone_number_3').val(profile.phone_number.substring(6, 10));
   $('#email').val(profile.email);
   $('#screen_name').val(profile.screen_name);
   $('#profile_slug').text(profile.screen_name);
@@ -30,6 +27,20 @@ function display_profile(profile) {
   $('#state').val(profile.state);
   $('#zipcode').val(profile.zipcode);
   profile_id = profile.id;
+
+  if (profile.phone_number !== null) {
+    $('#phone_number_1').val(profile.phone_number.substring(0, 3));
+    $('#phone_number_2').val(profile.phone_number.substring(3, 6));
+    $('#phone_number_3').val(profile.phone_number.substring(6, 10));
+  }
+
+  if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
+    var screen_name = profile.connector.agent_name.replace(/\s/g, '-').toLowerCase();
+    $('#screen_name').val(screen_name);
+    $('#profile_slug').html(screen_name)
+  } else {
+    $('#screen_name').val(profile.screen_name);
+  }
 
   get_specilities(profile.specialties);
 
@@ -105,6 +116,8 @@ function display_profile(profile) {
     $('#last_name').val(res[1]);
     $("#first_name").prop("disabled", true);
     $("#last_name").prop("disabled", true);
+
+
 
 
     $('#agent-connector').html(`
@@ -449,6 +462,36 @@ $(document).on('change click', '#review-add-btn', function() {
 $(document).on('change click', '.swal-button--confirm', function() {
   window.location.href = "/form.html#reviews";
   location.reload();
+});
+
+$(document).on('click', '#verify_slug', function() {
+
+  if ($('#screen_name').val() === '') {
+    show_message('Enter Screen Name');
+    return false;
+  }
+
+  $('#verify-spinner').show();
+  $('#verify-ok').hide();
+  $('#verify-not').hide();
+
+  var screen_name = $('#screen_name').val();
+  settings = get_settings('screen-name-available/' + screen_name, 'GET');
+
+  $.ajax(settings).done(function (response) {
+    var response = JSON.parse(response);
+    if (response.available) {
+      $('#verify-spinner').hide();
+      $('#verify-ok').show();
+      $('#verify-not').hide();
+    } else {
+      $('#verify-spinner').hide();
+      $('#verify-ok').hide();
+      $('#verify-not').show();
+    }
+  }).fail(function(err) {
+      console.log(err);
+  });
 });
 
 

@@ -31,6 +31,9 @@
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css" />
 
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="css/custom.css" />
+
     <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
 </head>
 
@@ -155,15 +158,6 @@
 
                                             <i class="fa fa-info-circle" data-toggle="tooltip" title="This is required because this is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
                                         </div>
-
-                                        <!-- <div class="fn-right">
-                                            <input style="width: 300px;"
-                                            id="phone_number" type="text" name="text" placeholder="Phone number">
-
-                                            
-
-                                            
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -194,8 +188,14 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
-                                        <div class="sn-right">
-                                            <input required type="text" id="screen_name" name="text" placeholder="Annakova">
+                                        <div class="sn-right input_fields_wrap">
+                                            <input required type="text" id="screen_name" name="text" placeholder="Enter Screen Name">
+                                            <button id="verify_slug" class="inline-btn">
+                                                Verify 
+                                                <i id="verify-spinner" class="fas fa-spinner fa-spin" style="display: none;"></i> 
+                                                <i id="verify-ok" class="fa fa-check-circle" style="display: none;"></i> 
+                                                <i id="verify-not" class="fa fa-times-circle" style="display: none;"></i>
+                                            </button>
                                             <p>Profile URL :
                                             www.agentstat.com/p/<span id="profile_slug"></span>/</p>
                                         </div>
