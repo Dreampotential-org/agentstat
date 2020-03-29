@@ -427,6 +427,9 @@ $('.combo-checkboxes:checkbox').change(function () {
 
 $('#screen_name').keyup(function () {
   $('#profile_slug').html($('#screen_name').val());
+  $('#verify-spinner').hide();
+  $('#verify-ok').hide();
+  $('#verify-not').hide();
 });
 
 $(document).on('change click', '#review-add-btn', function() {
