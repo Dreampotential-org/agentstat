@@ -31,6 +31,9 @@
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css" />
 
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="css/custom.css" />
+
     <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
 </head>
 
@@ -144,13 +147,16 @@
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="fn-left">
-                                            <p>Phone Number </p>
+                                            <p>Phone Number <span id="start">*</span></p>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="fn-right">
-                                            <input style="width: 300px;"
-                                            id="phone_number" type="text" name="text" placeholder="Phone number">
+                                            <input type="text" id="phone_number_1" placeholder="xxx" class="col-lg-1">
+                                            <input type="text" id="phone_number_2" placeholder="xxx" class="col-lg-1">
+                                            <input type="text" id="phone_number_3" placeholder="xxxx" class="col-lg-1">
+
+                                            <i class="fa fa-info-circle" data-toggle="tooltip" title="This is required because this is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
                                         </div>
                                     </div>
                                 </div>
@@ -182,8 +188,14 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
-                                        <div class="sn-right">
-                                            <input required type="text" id="screen_name" name="text" placeholder="Annakova">
+                                        <div class="sn-right input_fields_wrap">
+                                            <input required type="text" id="screen_name" name="text" placeholder="Enter Screen Name">
+                                            <button id="verify_slug" class="inline-btn">
+                                                Verify 
+                                                <i id="verify-spinner" class="fas fa-spinner fa-spin" style="display: none;"></i> 
+                                                <i id="verify-ok" class="fa fa-check-circle" style="display: none;"></i> 
+                                                <i id="verify-not" class="fa fa-times-circle" style="display: none;"></i>
+                                            </button>
                                             <p>Profile URL :
                                             www.agentstat.com/p/<span id="profile_slug"></span>/</p>
                                         </div>
@@ -237,24 +249,35 @@
                             </div>
 
                             <div class="licence ml-5">
-                                <div id="license" class="row">
+                                <div class="row">
                                     <div class="col-lg-3 align-self-end">
                                         <div class="li-left">
                                             <p class="mb-0" id="lebel">License Number </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
-                                        <div class="li-right input_fields_wrap">
-                                                <input class="license_number"
-                                                style="width: 300px;"
-                                                type="text" name="mytext[]"
-                                                placeholder="123456 WA - 08/01/2020" readonly>
-                                                <!-- <button id="cross"><span><i class="fas fa-times"></i></span></button> -->
-                                                <button class="add_field_button">Add</button>
+                                        <div class="fn-right">
+                                            <input type="text" id="license_no_1" placeholder="Number(xxxxxx)" class="col-lg-2">
+                                            <input type="text" id="license_no_2" placeholder="State(xx)" class="col-lg-2">
+                                            <input type="text" id="license_no_3" placeholder="Date(dd/mm/yyyy)" class="col-lg-2">
+                                            <button id="add-license" class="inline-btn">Add</button>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="col-lg-3 align-self-end">
+                                        <div class="li-left">
+                                            <p class="mb-0" id="lebel"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9" style="margin-top: 5px;">
+                                        <div id="added-license">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
 
                             <div class="licence ml-5">
                                 <div class="row">
@@ -634,6 +657,7 @@
         });
 
         (function($) {
+            $('[data-toggle="tooltip"]').tooltip();
             $(document).ready(function() {
 
                 jQuery(window).on('scroll', function() {
@@ -648,31 +672,13 @@
 
         $('.trigger-more').click(function(){
         if($(this).hasClass('collapsed'))  {
-        $(this).text('Less');
+        $(this).text('Fewer');
         } else {
         $(this).text('More');
         }
 
     });
 
-        $(".add_field_button").click(function(){
-            $("#license").append(`
-              <div class="col-lg-3 align-self-end">
-                <div class="li-left">
-                  <p class="mb-0" id="lebel"></p>
-                </div>
-              </div>
-              <div class="col-lg-9">
-                <div class="li-right" style=" margin-top: 10px;"">
-                  <input  class="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 ">
-                  <button class="remove_field"><span><i class="fas fa-times"></i></span></button>
-                </div>
-              </div>`)
-        });
-
-        $("#license").on("click",".remove_field", function(){
-             $(this).parent('div').remove();
-    })
     $("#textbox").hide();
     $("#buyer_rebate").click(function(){
 

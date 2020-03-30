@@ -18,7 +18,6 @@ function display_profile(profile) {
   //console.log(profile);
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
-  $('#phone_number').val(profile.phone_number);
   $('#email').val(profile.email);
   $('#screen_name').val(profile.screen_name);
   $('#profile_slug').text(profile.screen_name);
@@ -29,27 +28,28 @@ function display_profile(profile) {
   $('#zipcode').val(profile.zipcode);
   profile_id = profile.id;
 
+  if (profile.phone_number !== null) {
+    $('#phone_number_1').val(profile.phone_number.substring(0, 3));
+    $('#phone_number_2').val(profile.phone_number.substring(3, 6));
+    $('#phone_number_3').val(profile.phone_number.substring(6, 10));
+  }
+
+  if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
+    var screen_name = profile.connector.agent_name.replace(/\s/g, '-').toLowerCase();
+    $('#screen_name').val(screen_name);
+    $('#profile_slug').html(screen_name)
+  } else {
+    $('#screen_name').val(profile.screen_name);
+  }
+
   get_specilities(profile.specialties);
 
   $.each(profile.licenses, function(k, val) {
-    if (k === 0) {
-      $('.license_number').val(val);
-    } else {
-      $("#license").append(`
-        <div class="col-lg-3 align-self-end">
-          <div class="li-left">
-            <p class="mb-0" id="lebel"></p>
-          </div>
-        </div>
-        <div class="col-lg-9">
-        <div class="li-right" style=" margin-top: 10px;"">
-          <input  class="license_number"
-          style="width: 300px;" type="text" name="mytext[]"
-          placeholder="123456 WA - 08/01/2020" value="` + val + `" readonly>
-          <button class="remove_field"><span><i class="fas fa-times"></i></span></button>
-        </div>
-      </div>`);
-    }
+    $("#added-license").append(`
+        <div class="fragment" >
+          <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
+            <button type="button" class='remove-license'><i class="fa fa-times"></i></button> 
+        </div>`);
   });
 
   if (profile.buyer_rebate !== null) {
@@ -97,7 +97,16 @@ function display_profile(profile) {
   }
 
   if (profile.connector != '' && profile.connector !== null) {
-    console.log(profile.connector);
+    
+    var res = profile.connector.agent_name.split(" ");
+    $('#first_name').val(res[0]);
+    $('#last_name').val(res[1]);
+    $("#first_name").prop("disabled", true);
+    $("#last_name").prop("disabled", true);
+
+
+
+
     $('#agent-connector').html(`
       <a target='_blank' href='/page-three.html?agent_id=` + profile.connector.id + `'>` + profile.connector.agent_name + `</a> |
       <a id='connector-remove'
@@ -182,7 +191,8 @@ function update_profile() {
     }
   });
 
-  if (phonenumber_validate($('#phone_number').val()) === false) {
+  var phone_number_concate =  $('#phone_number_1').val()+$('#phone_number_2').val()+$('#phone_number_3').val();
+  if (phonenumber_validate(phone_number_concate) === false) {
     validation_messages += 'Invalid phone number.';
     valid = false;
   }
@@ -192,6 +202,8 @@ function update_profile() {
     show_message(validation_messages);
     return false
   }
+
+  data['phone_number'] = phone_number_concate;
 
 
   // licences
@@ -402,6 +414,9 @@ $('.combo-checkboxes:checkbox').change(function () {
 
 $('#screen_name').keyup(function () {
   $('#profile_slug').html($('#screen_name').val());
+  $('#verify-spinner').hide();
+  $('#verify-ok').hide();
+  $('#verify-not').hide();
 });
 
 $(document).on('change click', '#review-add-btn', function() {
@@ -439,6 +454,39 @@ $(document).on('change click', '.swal-button--confirm', function() {
   location.reload();
 });
 
+$(document).on('click', '#verify_slug', function() {
+
+  if ($('#screen_name').val() === '') {
+    show_message('Enter Screen Name');
+    return false;
+  }
+
+  $('#verify-spinner').show();
+  $('#verify-ok').hide();
+  $('#verify-not').hide();
+
+  var screen_name = $('#screen_name').val();
+  settings = get_settings('screen-name-available/' + screen_name, 'GET');
+
+  $.ajax(settings).done(function (response) {
+    var response = JSON.parse(response);
+    if (response.available) {
+      $('#verify-spinner').hide();
+      $('#verify-ok').show();
+      $('#verify-not').hide();
+    } else {
+      $('#verify-spinner').hide();
+      $('#verify-ok').hide();
+      $('#verify-not').show();
+    }
+  }).fail(function(err) {
+      console.log(err);
+      $('#verify-spinner').hide();
+      $('#verify-ok').hide();
+      $('#verify-not').hide();
+  });
+});
+
 
 function show_message(message) {
     swal(message, {
@@ -446,3 +494,22 @@ function show_message(message) {
       timer: 3000,
     });
 }
+
+$("#add-license").click(function(){
+  if ($('#license_no_1').val() == '' || $('#license_no_2').val() == '' || $('#phone_number_1').val() == '') {
+    var validation_messages = 'Invalid license number.';
+    show_message(validation_messages);
+    return false
+  }
+
+  var val = $('#license_no_1').val()+' '+$('#license_no_2').val()+' - '+$('#license_no_3').val(); 
+  $("#added-license").append(`
+      <div class="fragment" >
+        <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
+        <button type="button" class='remove-license'><i class="fa fa-times"></i></button> 
+      </div>`);
+});
+
+$('#added-license').on("click", ".remove-license",function(){
+  $(this).parent('div').remove();
+})

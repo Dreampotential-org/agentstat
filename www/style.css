@@ -555,7 +555,7 @@
      display: inline-block;
      /* width: 406px; */
      /* width:auto; */
-     width:300px;
+     width:240px;
      font-size: 18px;
      font-weight: 300;
      color: #575757;
@@ -732,7 +732,7 @@
  
  
  .fixed .type-value, .fixed .y-price, .fixed .address-value, .fixed .state-value{
-     padding: 0px 10px !important;
+     padding:5px 10px !important;
  }
  .fixed .custom_search_size {
      margin-left: 43px !important;
@@ -2421,7 +2421,7 @@
  }
  
  .bau1-cotent {
-     /* position: absolute; */
+     position: absolute;
      width: 154px;
      background: #FFFFFF;
      border: 1px solid #E5E5E5;
@@ -3271,7 +3271,7 @@
      border: 1px solid lightgray;
      padding: 0 20px;
      border-radius: 100px;
-    display: flex;
+    display: table;
  }
  
  
@@ -3916,6 +3916,10 @@
         
  /*------- Responsive CSS --------------------------------------------*/
  @media screen and (max-width: 575px){
+    .fixed{
+
+        position: absolute;
+    }
     .po-world {
         background-color: #fff;
         padding: 100px 0;
@@ -4057,8 +4061,9 @@
          border-radius: 100px !important;
      }
      .po-serach-wrapper.po-serach-wrapper-one.ak-form {
-         display: block !important;
-         overflow: hidden;
+         display: table;
+         /* display: block !important;
+         overflow: hidden; */
          padding: 10px;
          /* position: relative; */
          z-index: auto;
@@ -4136,7 +4141,7 @@
          margin-top: 0;
          position: absolute;
          top: 35%;
-         right: 19px;
+         right: 38px;
          /* background: #f1f1f1; */
          border-radius: 50px;
      }
@@ -4253,7 +4258,7 @@
         float: right;
         margin-top: 0;
         position: absolute;
-        top: 81%;
+        top: 85%;
         right: 24px;
         /* background: #f1f1f1; */
         border-radius: 50px;
@@ -4322,6 +4327,9 @@
     .horizontal_dotted_line {
         width: 200px;
     } 
+    .cust-tbl .toc-two-left-two-heading-right{
+        right: 0px !important;
+    }
  }
  
  
@@ -4449,8 +4457,8 @@
      .custom_header .row{
          margin: 0;
      }
-     .po-maps-wrapper-two.cust-wrapper {
-         display: flex;
+     .po-maps-wrapper-two .cust-wrapper {
+         display: table !important;
          background: none !important;
      }
      p#bau1 {
@@ -4587,13 +4595,13 @@
          text-align: center;
          white-space: nowrap;
      }
-     .po-serach-wrapper {
+      .po-serach-wrapper {
          border: 1px solid #A9A9A9;
          border-radius: 100px;
-         width: auto;
+          width: 462px; 
          display: flex;
 
-     }
+     } 
      .srch-bar {
          width: 100% !important;
          margin-left: 0px !important;
@@ -4671,7 +4679,7 @@
          padding: 10px 0;
          font-weight: 300;
          border-right: 1px solid #767676;
-         width: 125px !important;
+         width: 112px !important;
          text-overflow: ellipsis;
          text-align: center;
          white-space: nowrap;
@@ -4681,10 +4689,10 @@
      }
      .po-serach-wrapper input.ser {
          /* width: 240px !important; */
-         width: 120px !important;
+         width: 107px !important;
      }
      .po-serach-wrapper .type p{
-         width: 110px;
+         width:92px;
          padding: 10px 5px;
      }
      .po-serach-wrapper .price p {
@@ -4747,11 +4755,17 @@
          bottom: 40px !important;
      }
  
-     .custom_search_size {
+     /* .custom_search_size {
          margin-left:76px !important;
          margin-top: 2px;
      }
- 
+  */
+  
+  
+    .custom_search_size {
+        margin-left: 112px !important;
+        margin-top: 2px;
+    }
       #nav-new-tab {
          font-size: 16px !important;
      }
@@ -4828,6 +4842,10 @@
        border-radius: 30px;
        padding: 7px 11px;
    }
+   /* .custom_search_size {
+    margin-left:0px;
+ } */
+
  }
  @media screen and (max-width: 1199px) and (min-width: 992px){
      .po-serach-wrapper {
@@ -4852,7 +4870,7 @@
  
  
      .custom_search_size {
-         margin-left: 50px !important;
+         margin-left: 58px !important;
      }
      .pt-search-wrapper {
          width: 690px !important;
