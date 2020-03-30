@@ -249,24 +249,35 @@
                             </div>
 
                             <div class="licence ml-5">
-                                <div id="license" class="row">
+                                <div class="row">
                                     <div class="col-lg-3 align-self-end">
                                         <div class="li-left">
                                             <p class="mb-0" id="lebel">License Number </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
-                                        <div class="li-right input_fields_wrap">
-                                                <input class="license_number"
-                                                style="width: 300px;"
-                                                type="text" name="mytext[]"
-                                                placeholder="123456 WA - 08/01/2020" readonly>
-                                                <!-- <button id="cross"><span><i class="fas fa-times"></i></span></button> -->
-                                                <button class="add_field_button">Add</button>
+                                        <div class="fn-right">
+                                            <input type="text" id="license_no_1" placeholder="Number(xxxxxx)" class="col-lg-2">
+                                            <input type="text" id="license_no_2" placeholder="State(xx)" class="col-lg-2">
+                                            <input type="text" id="license_no_3" placeholder="Date(dd/mm/yyyy)" class="col-lg-2">
+                                            <button id="add-license" class="inline-btn">Add</button>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="col-lg-3 align-self-end">
+                                        <div class="li-left">
+                                            <p class="mb-0" id="lebel"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9" style="margin-top: 5px;">
+                                        <div id="added-license">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
 
                             <div class="licence ml-5">
                                 <div class="row">
@@ -668,24 +679,6 @@
 
     });
 
-        $(".add_field_button").click(function(){
-            $("#license").append(`
-              <div class="col-lg-3 align-self-end">
-                <div class="li-left">
-                  <p class="mb-0" id="lebel"></p>
-                </div>
-              </div>
-              <div class="col-lg-9">
-                <div class="li-right" style=" margin-top: 10px;"">
-                  <input  class="license_number" style="width: 300px;" type="text" name="mytext[]" placeholder="123456 WA - 08/01/2020 ">
-                  <button class="remove_field"><span><i class="fas fa-times"></i></span></button>
-                </div>
-              </div>`)
-        });
-
-        $("#license").on("click",".remove_field", function(){
-             $(this).parent('div').remove();
-    })
     $("#textbox").hide();
     $("#buyer_rebate").click(function(){
 

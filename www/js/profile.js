@@ -45,24 +45,13 @@ function display_profile(profile) {
   get_specilities(profile.specialties);
 
   $.each(profile.licenses, function(k, val) {
-    if (k === 0) {
-      $('.license_number').val(val);
-    } else {
-      $("#license").append(`
-        <div class="col-lg-3 align-self-end">
-          <div class="li-left">
-            <p class="mb-0" id="lebel"></p>
+    $("#added-license").append(`
+        <div class="fragment" >
+          <div class="form-inline">
+            <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
+            <button type="button" class='remove-license'>X</button> 
           </div>
-        </div>
-        <div class="col-lg-9">
-        <div class="li-right" style=" margin-top: 10px;"">
-          <input  class="license_number"
-          style="width: 300px;" type="text" name="mytext[]"
-          placeholder="123456 WA - 08/01/2020" value="` + val + `" readonly>
-          <button class="remove_field"><span><i class="fas fa-times"></i></span></button>
-        </div>
-      </div>`);
-    }
+        </div>`);
   });
 
   if (profile.buyer_rebate !== null) {
@@ -494,6 +483,9 @@ $(document).on('click', '#verify_slug', function() {
     }
   }).fail(function(err) {
       console.log(err);
+      $('#verify-spinner').hide();
+      $('#verify-ok').hide();
+      $('#verify-not').hide();
   });
 });
 
@@ -504,3 +496,24 @@ function show_message(message) {
       timer: 3000,
     });
 }
+
+$("#add-license").click(function(){
+  if ($('#license_no_1').val() == '' || $('#license_no_2').val() == '' || $('#phone_number_1').val() == '') {
+    var validation_messages = 'Invalid license number.';
+    show_message(validation_messages);
+    return false
+  }
+
+  var val = $('#license_no_1').val()+' '+$('#license_no_2').val()+' - '+$('#license_no_3').val(); 
+  $("#added-license").append(`
+      <div class="fragment" >
+        <div class="form-inline">
+          <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
+          <button type="button" class='remove-license'>X</button> 
+        </div>
+      </div>`);
+});
+
+$('#added-license').on("click", ".remove-license",function(){
+  $(this).parent('div').remove();
+})
