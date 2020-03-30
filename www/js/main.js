@@ -194,21 +194,21 @@ function getSearchParams(place) {
 }
 
 function init_maps() {
-    var input = document.getElementsByClassName('ser')[0];
+    var input = document.getElementsByClassName('maps_input')[0];
     var page_input = document.getElementById('search_input');
+
     console.log("page_input",page_input)
     var options = {
         types: ['address'],
     }
 
-
     var autocomplete = new google.maps.places.Autocomplete(input, options);
+
     autocomplete.addListener('place_changed', fillIn);
     if(page_input != null){
       var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
       autocomplete1.addListener('place_changed', fillIn1);
     }
-
 
 }
 
@@ -366,15 +366,10 @@ localStorage.current_search_type = 'Address';
 $(document).ready(function () {
     address = localStorage.search_address;
     if (address) {
-      $('.ser').val(address)
+      $('.ser').val(address);
+      $('.ser').addClass('maps_input');
     }
 });
-
-if (localStorage.search_vals == null || localStorage.search_vals == 'null') {
-  console.log('local testsss')
-  localStorage.search_vals = {};
-  console.log(localStorage.search_vals);
-}
 
 $(document).on('click', '.custom_radio', function() {
   localStorage.current_search_type = $(this).text();
@@ -385,6 +380,12 @@ $(document).on('click', '.custom_radio', function() {
     $('#ser-state-id').html(localStorage.search_state);
   }
 
+  if (search_key === 'search_address') {
+    $('.ser').addClass('maps_input');
+  } else {
+    $('.ser').removeClass('maps_input');
+  }
+
   $('.ser').val(localStorage.getItem(search_key));
 });
 
@@ -393,14 +394,8 @@ $(document).on('click', '#allstate>li', function() {
 });
 
 $('.ser').change(function() {
-  console.log(localStorage.current_search_type);
-  console.log($(this).val());
-  console.log(localStorage.current_search_type);
-  // var obj = localStorage.getItem('search_vals');
   search_key = localStorage.current_search_type.toLowerCase();
   search_key = 'search_' + search_key.split(' ').join('_');
-  console.log(search_key);
 
   localStorage.setItem(search_key, $(this).val());
-
 });
