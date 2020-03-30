@@ -47,10 +47,8 @@ function display_profile(profile) {
   $.each(profile.licenses, function(k, val) {
     $("#added-license").append(`
         <div class="fragment" >
-          <div class="form-inline">
-            <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
-            <button type="button" class='remove-license'>X</button> 
-          </div>
+          <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
+            <button type="button" class='remove-license'><i class="fa fa-times"></i></button> 
         </div>`);
   });
 
@@ -507,10 +505,8 @@ $("#add-license").click(function(){
   var val = $('#license_no_1').val()+' '+$('#license_no_2').val()+' - '+$('#license_no_3').val(); 
   $("#added-license").append(`
       <div class="fragment" >
-        <div class="form-inline">
-          <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
-          <button type="button" class='remove-license'>X</button> 
-        </div>
+        <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
+        <button type="button" class='remove-license'><i class="fa fa-times"></i></button> 
       </div>`);
 });
 
