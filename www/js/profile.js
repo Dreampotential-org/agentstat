@@ -205,7 +205,7 @@ function update_profile() {
 
   var phone_number_concate =  $('#phone_number_1').val()+$('#phone_number_2').val()+$('#phone_number_3').val();
   if (phonenumber_validate(phone_number_concate) === false) {
-    validation_messages += 'Invalid phone number.';
+    validation_messages += 'Invalid phone number. \n Allow Format: 123-456-7890';
     valid = false;
   }
 
@@ -521,6 +521,10 @@ $("#add-license").click(function(){
         <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
         <button type="button" class='remove-license'><i class="fa fa-times"></i></button> 
       </div>`);
+
+  $('#license_no_1').val('');
+  $('#license_no_2').val('');
+  $('#license_no_3').val('');
 });
 
 $('#added-license').on("click", ".remove-license",function(){
