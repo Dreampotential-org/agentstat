@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <!-- Meta setup -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="">
+        <meta name="decription" content="">
+        <meta name="author" content="">
+
+        <!-- Title -->
+        <title>AgentStat</title>
+
+        <!-- Fav Icon -->
+        <link rel="icon" href="/img/fav.png" />
+
+        <!-- Include Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+
+        <!-- Include Owl-Carusol -->
+        <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+
+        <!-- Main StyleSheet -->
+        <link rel="stylesheet" href="/style.css" />
+
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="/css/responsive.css" />
+        <!-- <link rel="stylesheet" href="./css/jquery.dataTables.min.css"/> -->
+        <script src="/js/sweetalert.min.js"></script>
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+        <!-- header-area start -->
+        <!-- <div class="wrapper-heading sticky-top bg-white akh-4">
+            <div class="header-area sticky-top bg-white ak-2 custom_header">
+                <div class="">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <nav class="navbar navbar-expand-md navbar-light">
+                                <a class="navbar-brand" href="index.html">
+                                    <img src="img/logo.png" alt="logo">
+                                </a>
+                                <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
+                                    </ul>
+                                    <div class="main-menu-part">
+                                        <ul>
+                                            <li><a href="#">Help</a></li>
+                                            <li><a href="/login.html">Sign up/ Login</a></li>   		
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>							
+                    </div>					
+                </div>
+            </div>	
+        </div> -->
+        <!-- header-area end -->
+
+        <div class="wrapper-heading sticky-top bg-white akh-4">
+            <!-- header-area start -->	
+            <div class="header-area sticky-top bg-white custom_header">
+                <div class="">
+                    <div class="row">
+                        <div class="col-lg-12">
+    
+                            <nav class="navbar navbar-expand-md navbar-light">
+                                <a class="navbar-brand" href="/index.html">
+                                    <img class="image" src="/img/logo.png" alt="logo" />
+                                </a>
+                                <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
+                                    </ul>
+                                    <div class="main-menu-part">
+                                        <ul>
+                                            <li><a href="/login.html">Sign up/ Login</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>							
+                    </div>					
+                </div>
+            </div>
+            <!-- <div class="header-area two-header-area akh-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <nav class="navbar navbar-expand-md navbar-light">
+                                <a class="navbar-brand" href="index.html">
+                                    <img src="img/logo.png" alt="logo">
+                                </a>						  
+                                <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">							    
+                                    </ul>
+                                    <div class="main-menu-part">
+                                        <ul>
+                                            <li><a href="#">Help</a></li>
+                                            <li><a href="#">Sign up/ Login</a></li>   		
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- header-area end -->
+
+            <!-- po-search area start -->
+            <div class="po-search pt-search g">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="po-serach-wrapper pt-search-wrapper po-serach-wrapper-one ak-form custom_search_size srch-bar ak-po">
+                                <div class="address ">
+                                    <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
+                                    <div class="address-type index-address-type ">
+                                        <ul>
+                                            <li class="custom_radio">Address</li>
+                                            <li class="custom_radio">Agent Name</li>
+                                            <li class="custom_radio">City</li>
+                                            <li class="custom_radio">ZipCode</li>
+                                            </ul>
+                                    </div>
+                                  </div>
+
+                                  <div class="ser-state " style="display: none;">
+                                    <p id="ser-state-id" class=" state-value">State <i class="fas fa-caret-down"></i></p>
+                                    <div class="ser-state-type">
+                                        <ul id="allstate">
+                                        </ul>
+                                    </div>
+                                  </div>
+                                <input class="ser txt-cls" type="text" name="text" placeholder="Search" autocomplete="off">
+                                <div class="type ak-price srch-price">
+                                    <p id="y-type" class="type-value">Type <i class="fas fa-caret-down"></i></p>
+                                    <div class="check-type index-check-type">
+                                        <!-- <h6>Home Type</h6> -->
+                                        <ul>
+                                            <li class="custom_radio"> Houses</li>
+                                            <li  class="custom_radio" > Manufactured</li>
+                                            <li class="custom_radio" >Condos/co-ops</li>
+                                            <li class="custom_radio">Multi-family</li>
+                                            <li class="custom_radio">Lots/Land</li>
+                                            <li class="custom_radio">Townhomes</li>
+                                        </ul>
+                                        <!-- <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
+                                        <input  class="custom_radio" type="radio" name="babu" value="Manufactured"> Manufactured<br>
+                                        <input class="custom_radio" type="radio" name="babu" value="Condos/co-ops">Condos/co-ops<br>
+                                        <input class="custom_radio" type="radio" name="babu" value="Multi-family">Multi-family<br>
+                                        <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br>
+                                        <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br>
+                                        -->
+                                    </div>
+                                </div>
+                                <div class="price ak-price srch-pricevalue">
+                                    <p class="d-inline-block y-price">Price</p>
+                                    <div class="price-amount" id="pt-amount">
+                                        <h6 class="d-linline-block">Price Range</h6>
+                                        <input id="one-left-in" type="text" name="" placeholder="MIN"> <span> -</span>
+                                        <input id="one-right-in" type="text" name="" placeholder="MAX">
+                                        <div class="price-wrapper">
+                                            <div class="p-left">
+                                                <ul>
+                                                    <li>$<span class="price_padding">50</span>K+</li>
+                                                    <li>$<span class="price_padding">100</span>K+</li>
+                                                    <li>$<span class="price_padding">150</span>K+</li>
+                                                    <li>$<span class="price_padding">300</span>K+</li>
+                                                    <li>$<span class="price_padding">400</span>K+</li>
+                                                    <li>$<span class="price_padding">500</span>K+</li>
+                                                    <li>$<span class="price_padding">600</span>K+</li>
+                                                    <li>$<span class="price_padding">700</span>K+</li>
+                                                    <li>$<span class="price_padding">800</span>K+</li>
+                                                    <li>$<span class="price_padding">900</span>K+</li>
+                                                </ul>
+                                            </div>
+                                            <div class="p-right">
+                                                <ul>
+                                                    <li>$200K</li>
+                                                    <li>$300K</li>
+                                                    <li>$400K</li>
+                                                    <li>$500K</li>
+                                                    <li>$600K</li>
+                                                    <li>$700K</li>
+                                                    <li>$800K</li>
+                                                    <li>$900K</li>
+                                                    <li>$1M</li>
+                                                    <li>Any price</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="donBtn"class="text-center" style="padding: 14px;">
+                                            <button >Done</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="serch_btn" >
+                                    <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
+                                </div>
+                                <!-- <div class="ser-butt ak-sb1">
+                                    <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- po-search area start -->
+        </div>
+
+        <!-- pth-agent area start -->
+        <div class="pht-agent">
+            <div class="container">
+                <div class="pth-agent-wrapper">					
+                    <div class="row">
+                        <div class="col-lg-12">
+                            
+                            <nav>
+                                <div class="nav nav-tabs nav-seller-buyer" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-links col-2 col-sm-1 active custom_tab" id="nav-new-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span class="acitv-bottom tab_font">Sellers</span> </a>
+                                    <a class="nav-item nav-links col-3 col-sm-2  " id="nav-new-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="acitv-bottom tab_font">Buyers </span> </a>
+                                    <a class="nav-item nav-links col-6 col-sm-8  pull-right" id="nav-new-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="acitv-bottom text-right tab_font">Blog</span></a>
+                                </div>
+                            </nav>
+                            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                                </div>
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                                </div>
+                                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                                </div>
+                                <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 col-md-6">
+                            <div class="pth-agent-heading">
+                                <p>AgentStat / Seattle, WA / Agent Profile</p>
+                            </div>
+                            <div class="pth-agent-left">
+                                <div class="pth-agent-left-content">
+                                    <div class="pht-agent-img toc-two-left-one">
+                                        <img src="/img/agent.png" alt="images not found" class="rounded-circle back-img">
+                                    </div>
+                                    <div class="pth-agent-content">
+                                        <!-- <h3 class='agent_name'>Agent Name <span>|</span> <span class='agent_name_city view-profile'>Keller Williams Seattle  </span></h3> -->
+                                        <!-- <h3 class='agent_namebroker_name'>agent_name <span>|Keller Williams Seattle  </span></h3> -->
+                                        <h3 class='agent_namebroker_name'>agent_name </h3>
+                                        <p>Keller Williams Seattle  </p>
+                                        <p class="rating">
+
+                                            <img src="/img/table-star-9.png" alt="Argos rating"> 4.5 Reviews <a href="#" data-toggle="modal" data-target="#exampleModal" style="display: inline-block"> Details?</a></p>
+                                    </div>
+                                </div>
+                                <div class="pth-agent-link">
+                                    <ul style="margin-top: 10px;">
+                                        <li><a href="#" class='contact-agent'>Contact Agent</a></li>
+                                    </ul>
+                                </div>
+                                <br>
+                                <div class="col-lg-12" id="claim_wrapper" style="display:none;">
+                                    <br>
+                                    <h5><a href="/signup.html" class='claim_profile'>Claim Profile</a></h5>
+                                    <p>Specialties: Buyer’s Agent, Listing Agent Relocation</p>
+                                </div>
+                                <div class="col-lg-12" id="already_claim_wrapper" style="display:none;">
+                                    <br>
+                                    <h5><a href="javascript:void(0)" id='already_claim_profile' data-toggle="modal" data-target="#alreadyClaimedModal">Claimed</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-6">
+                            <div class="pth-agent-right-content">
+                                <div class="pht-agent-heaidng">
+                                    <!-- <h4><span class="agent_name_loc"><span class='agent-first-name'></span></a> is a 97% match for you!</h4> -->
+                                    <p class="answer_agent_name"></a>Answer a few questions to see how well Agent Name’s strengths match your needs.</p>
+                                </div>
+                                <!-- <div class="pht-agent-heaidng">
+                                    <h4><span class="agent_name">[Agent Name]</a> is a ?? match for you (enter your location in the search bar to view % match)</h4>
+                                    <p>Answer a few questions to see how well Agent Name’s strengths match your needs.</p>
+                                </div> -->
+                                <div id='leads-step-one-new' class="pht-agent-content">
+                                    <h5>Are you looking to:</h5>
+                                    <div class="pth-agent-radio">
+                                        <div class="pth-ser-link">
+                                            <ul class="how_soon">
+                                                <li><a onclick="return false;" href="">Sell a Home</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">Buy a Home</a></li>
+                                                <li><a onclick="return false;" href="">Both</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='leads-step-one-buy' class="pht-agent-content" style="display: None">
+                                    <h5>What type of home are you looking to buy?</h5>
+                                    <div class="pth-agent-radio">
+                                        <div class="pth-ser-link">
+                                            <ul class="why_interest">
+                                                <li><a onclick="return false;" id="buy-home" href="">Single Family Home</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">Condominium</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">Townhouse</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">Manufactured</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">Multi-family</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="" style="margin-left: 0px !important;">Land</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='leads-step-one' class="pht-agent-content" style="display: None">
+                                    <h5>How soon are you looking to sell?</h5>
+                                    <div class="pth-agent-radio">
+                                        <div class="pth-ser-link">
+                                            <ul class="why_interest">
+                                                <li><a onclick="return false;" href="">ASAP</a></li>
+                                                <li><a onclick="return false;" href="">6-12 months</a></li>
+                                                <li><a onclick="return false;" href="">1-3 months</a></li>
+                                                <li><a onclick="return false;" href="">12+ months</a></li>
+                                                <li><a onclick="return false;" href="">3-6 months</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='leads-step-two-buy' class="pht-agent-content" style="display: None">
+                                    <h5>How much are you looking to spend?</h5>
+                                    <div class="pth-agent-radio">
+                                        <div class="pth-ser-link">
+                                            <ul class="why_interest_two">
+                                                <li><a onclick="return false;" id="buy-home" href="">$100K or less</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">$100K - $200K</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">$200K - $500K</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">$500K - $800K</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="">$800K - $1M</a></li>
+                                                <li><a onclick="return false;" id="buy-home" href="" style="margin-left: 0px !important;">More than $1M</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='leads-step-two' class="pht-agent-content" style="display: None">
+                                    <h5>Why are you interested in <span class="agent_name">[Agent Name]</span>?</h5>
+                                    <div class="pth-agent-radio">
+                                        <div class="three-serve">
+                                            <ul class="why_interest_two">
+                                                <li><a onclick="return false;" href="">I’m researching agents</a></li>
+                                                <li><a onclick="return false;" href="">I’m considering working with <span class="agent_name"></span></a></li>
+                                                <li><a onclick="return false;" href="">I have a question for <span class="agent_name"></span></a></li>		
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id='leads-step-four' class="pht-agent-content pth-three-agent-content" style="display: None">
+
+                                    <div class="pth-three-agent-content-wrapper">
+                                        <h4>Complete!</h4>
+                                        <p><span class="agent_name">[Agent Name]</span> will contact you shortly :) </p>
+                                    </div>
+
+                                </div>
+
+                                <div id='leads-step-three' class="pht-agent-content" 
+                                     style="display: None; height: 365px;">
+                                    <h5>What is the best way for <span class="agent_name">[Agent Name]</span> to reach you?</h5>
+                                    <div class="pth-agent-two-content">
+                                        <div class="pth-agent-two-left">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <label>Name <span>*</span>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id="lead_name" name="text">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label>Phone <span>*</span>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id="lead_phone" name="text">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label>Email <span>*</span>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="email" id="lead_email" name="text">
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </div>
+
+                                        <div class="pth-agent-two-right-button text-right">
+                                            <a id="lead-submit" onclick="return false;" href="">Complete</a>
+                                        </div>
+                                        <div class="pth-agent-two-right-button
+                                             text-left msg" style='clear: both;'>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pth-agent area end -->
+
+    <!-- pth-card area start -->
+    <div class="pht-card">
+        <div class="container">
+            <div class="pht-card-wrapper">
+                <div class="pht-card-heading">
+                    <h3>Agent Report Card</h3>
+                </div>
+                <div class="pht-card-tabs">
+                    <ul class="nav nav-tabs text-center" id="myTab" role="tablist">
+                        <li class="nav-item col-3 col-sm-3">
+                            <a class="nav-link active" id="overall-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Overall</a>
+                        </li>
+                        <li class="nav-item col-3 col-sm-3">
+                            <a class="nav-link " id="city-tab"
+                               data-toggle="tab" href="#city"
+                               aria-selected="false">City</a>
+                        </li>
+                        <li class="col-6 col-sm-6 pull-right">
+                            <div class="d-flex justify-content-center h-100" style="float:right;">
+                                <!-- <div class="searchbar">
+                                    <input id="search_input" class="search_input" type="text" name="search-location" placeholder="Search..." autocomplete="off">
+                                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                                </div> -->
+                                <div class="searchbar" id="search-button">
+                                    <input id="search_input" class="search_input_text " type="text" name="search-location" placeholder="Search..." autocomplete="off" style="display:none;">
+                                    <a  href="#" class="search_icon"><i   class="fas fa-search"></i></a>
+                                </div>
+                                <!-- <input type="button" id="search-button" value="search"/>
+
+                                <input type="text" id="search-text" style="display:none;"/>   -->
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="cityTabContent"
+                         style="display: none">
+
+                        <div class="tab-pane fade active show" id="city"
+                             role="tabpanel" aria-labelledby="profile-tab" >
+                             <div class="pth-content-wrapper">
+                                <div class="pth-content-oval">
+                                    <div class="owl-carousel products-slider owl-theme owl-loaded owl-drag">
+
+                                        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 988px;"><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-score">100%</span>
+                                                            </div>
+                                                            <p>Sucess Rate</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-avg-dom">18.4</span>
+                                                            </div>
+                                                            <p>Avg days on market</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-s2l-price">103.26%</span>
+                                                            </div>
+                                                            <p>Sales Price</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <img class="home-img" src="/img/home.png">
+                                                            </div>
+                                                            <p>Lorem ipsum dolor</p>
+                                                            <h6>Lorem ipsum dolor</h6>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <img class="bul-img" src="/img/bul.png" alt="images not found">
+                                                            </div>
+                                                            <p>Lorem ipsum dolor</p>
+                                                            <h6>Lorem ipsum dolor</h6>
+                                                        </div>
+                                                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+                                </div>
+                                <div class="pth-sold">
+                                    <div class="pth-sold-wrapper">
+                                        <div class="pth-sold-content map_padding" style="padding-bottom:0px">
+                                            <p style="margin-bottom:0px;">Transactions <span>Maps</span></p>
+                                            <ul>
+                                                <li>
+                                                    <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                    <span class="map_color"> 
+                                                    
+                                                        <div class="form-check location">
+                                                           
+                                                        </div>
+                                                    </span>Sold</li>
+                                                <li>
+                                                    <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                    <span class="map_color"> 
+                                                        <div class="form-check location">
+                                                           
+                                                        </div>
+                                                    </span>Failed</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="container_map ">
+                                            <div class="pth-sold-content map_padding">
+                                                <div class="pth-sold-maps content showEle">
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
+                                                    <div class="overlay ">
+                                                        <div class="icon">
+                                                        <i id="expand" class="collapsible fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;font-size: 27px;"></i> 
+                                                        <!-- <i id="contract" class="collapsible  fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;"></i> -->
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="overallTabContent">
+
+
+
+                        <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="pth-content-wrapper">
+                                <div class="pth-content-oval">
+                                    <div class="owl-carousel products-slider owl-theme owl-loaded owl-drag">
+
+                                        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 988px;"><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-score">100%</span>
+                                                            </div>
+                                                            <p>Sucess Rate</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-avg-dom">18.4</span>
+                                                            </div>
+                                                            <p>Avg days on market</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <span id="overall-s2l-price">103.26%</span>
+                                                            </div>
+                                                            <p>Sales Price</p>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <img class="home-img" src="/img/home.png">
+                                                            </div>
+                                                            <p>Lorem ipsum dolor</p>
+                                                            <h6>Lorem ipsum dolor</h6>
+                                                        </div>
+                                                    </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
+                                                        <div class="pth-content-circel text-center">
+                                                            <div class="pth-content-number">
+                                                                <img class="bul-img" src="/img/bul.png" alt="images not found">
+                                                            </div>
+                                                            <p>Lorem ipsum dolor</p>
+                                                            <h6>Lorem ipsum dolor</h6>
+                                                        </div>
+                                                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+                                </div>
+                                <div class="pth-sold">
+                                    <div class="pth-sold-wrapper">
+                                        <div class="pth-sold-content map_padding" style="padding-bottom:0px">
+                                            <p style="margin-bottom:0px;">Transactions <span>Maps</span></p>
+                                            <ul>
+                                                <li>
+                                                    <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                    <span class="map_color"> 
+                                                    
+                                                        <div class="form-check location">
+                                                           
+                                                        </div>
+                                                    </span>Sold</li>
+                                                <li>
+                                                    <input class="form-check-input2" name="solid-check" type="checkbox" value="" id="invalidCheck2" checked="">
+                                                    <span class="map_color"> 
+                                                        <div class="form-check location">
+                                                           
+                                                        </div>
+                                                    </span>Failed</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="container_map ">
+                                            <div class="pth-sold-content map_padding">
+                                                <div class="pth-sold-maps content showEle">
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193588.45304617897!2d-73.16112046892835!3d40.699971040999806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81153da534b8f%3A0x63032a1963b35f70!2sFire%20Island%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1575223109663!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" frameborder="0"></iframe>
+                                                    <div class="overlay ">
+                                                        <div class="icon">
+                                                        <i id="expand" class="collapsible fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;font-size: 27px;"></i> 
+                                                        <!-- <i id="contract" class="collapsible  fas fa-compress-arrows-alt" style="background: transparent;color: black;float: right;"></i> -->
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pth-card area end -->
+    <!-- pth-all area start -->
+    <div class="pth-all">
+        <div class="container">
+            <div class="pth-all-wrapper">
+                <div class="pth-all-heading">
+                    <h3>All Transactions</h3>
+                </div>
+                <div class="pth-all-table">
+
+                    <style>
+                        table.table tr td { font-size: .9em; }
+                    </style>
+                    <table   class="table text-center table-bordered">
+                        <tr id="transations" class="table-heading">
+                            <td>Status</td>
+                            <td>List Price</td>
+                            <td>Sold Price</td>
+                            <td>Days on Market</td>
+                            <td>List Date</td>
+                            <td>Address</td>
+                            <td>Built</td>
+                            <td>City</td>
+                            <td>Home Type</td>
+                            <td>Note</td>
+                        </tr>
+                        <!-- <thead  > 
+                            <tr >
+                                <th>Status</th>
+                                <th>List Price</th>
+                                <th>Sold Price</th>
+                                <th>Days on Market</th>
+                                <th>List Date</th>
+                                <th>Address</th>
+                                <th>Built</th>
+                                <th>City</th>
+                                <th>Home Type</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead> -->
+                        
+                    </table>
+                    
+                    <div id="pagination-here">
+                       
+
+                    </div>
+
+                    <!-- <nav aria-label="...">
+                        <ul class="pagination" style="float:right;">
+                            <li class="page-item disabled">
+                                <span class="page-link">Previous</span>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pth-all area end -->
+
+    <!-- pth-more area start -->
+    <div class="pth-more">
+        <div class="container">
+            <div class="pth-more-wrapper">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="pth-more-left">
+                            <div class="pth-more-left-heading">
+                              <h2>More about <span class='agent_name'>[Agent Name]</span></h2>
+                            </div>	
+                            <div class="pth-more-left-content" id="about_us">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6 align-self-end align-self-md-center">
+                        <div class="pth-more-right-content">
+                            <div class="pth-more-right-one pth-more-right-first">
+                                <h6>Lorem ipsum dolor sit amet</h6>
+                                <p>Cras efficitur ac metus a ullamcorper</p>
+                            </div>
+                            <div class="pth-more-right-one">
+                                <h6>Lorem ipsum dolor sit amet</h6>
+                                <p>Cras efficitur ac metus a ullamcorper</p>
+                            </div>
+                            <div class="pth-more-right-one mb-0">
+                                <h6>Lorem ipsum dolor sit amet</h6>
+                                <p>Cras efficitur ac metus a ullamcorper</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pth-more area end -->
+
+    <!-- footer area start -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-wrapper text-center">
+                <p>Copyright © agentstat.com</p>
+                <ul>
+                    <li><a href="https://agentstat.com/content/terms-of-use/">Terms of Service</a></li>
+                    <li><a href="https://agentstat.com/content/privacy-policy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- footer area end -->
+
+    <!---- Notes model------->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Notes.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--  Agent Already claimed Modal  -->
+    <div class="modal fade " id="alreadyClaimedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog  modalSignup" role="document">
+            <div class="modal-content" style="width: 650px;">
+                <div class="modal-body">
+                    <h4><b>If you want to dispute the claim and provide proof of identity.</b></h4>
+                    <br>
+                    <div class="form">
+                        <div class="container">
+                            <div class="form-wrapper">
+                                <div id="want-claim" class="text-center">
+                                    <button class="btn btn-success" type="button" id="want-claim-yes">Yes</button>
+                                    <button class="btn btn-danger" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                                <div id="submit-proof-form" style="display:none;">
+                                    <div class="row h-100">
+                                        <div class="col-lg-6 mx-auto">
+                                            <div class="alert alert-danger msg" role="alert" style="display: none"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="file-left">
+                                                <p id="lebel">Photo ID
+                                                    <span id="start">*</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="file-right">
+                                                <input id="picture" type="file" name="file" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="file-left">
+                                                <p id="lebel">Real State License
+                                                    <span id="start">*</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="file-right">
+                                                <input id="picture" type="file" name="file" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div><button disabled id='set_agent' class="btn btn-warning"> Submit Proof</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agent Reviews</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row review_txt">
+                        <div class="col-8 col-sm-8 divText">Negotiation skills:</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8">Listing Prep:<p class="small_txt">(staging, cleaning, etc)</p></div> <div class="col-4 col-sm-4 tranform_img"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8 divText">Marketing:</div> <div class="col-4 col-sm-4"><img src="img/table-star-9.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8" >Presentation:<p class="small_txt">(pictures, flyers, website)</p></div> <div class="col-4 col-sm-4 tranform_img"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8 divText">How good of a deal was your agent able to get you?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                        <div class="col-8 col-sm-8 divText">How pleasant were they to work with?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main jQuery -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+
+    <!-- Bootstrap Propper jQuery -->
+    <script src="/js/popper.js"></script>
+
+    <!-- Bootstrap jQuery -->
+    <script src="/js/bootstrap.js"></script>
+
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+    <script src="/js/type.js"></script>
+
+
+    <script src="/js/owl.carousel.min.js"></script>
+
+    <!-- Custom jQuery -->
+    <script src="/js/scripts.js"></script>
+
+    <script src="/js/conf.js"></script>
+    <script src="/js/agent-detail.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- <script src="./js/jquery.dataTables.min.js"></script> -->
+    <script type="text/javascript" src="/js/jquery.bootpag.js"></script>
+    <script>
+        // $(document).ready(function(){
+        //  $("#expand").click(function(){
+        // //    if ($(this).siblings('.showEle').length)
+        // //   { 
+        // //       $(this).siblings('.content').addClass('hideEle');
+        // //       $(this).siblings('.content').removeClass('showEle');
+              
+        // //   }
+        // //    else{
+        //        $(this).siblings('.content').addClass('showEle');
+        //       $(this).siblings('.content').removeClass('hideEle');
+        //    //}
+        //   });
+
+        //   $("#contract").click(function(){
+        // //    if ($(this).siblings('.showEle').length)
+        // //   { 
+        //       $(this).siblings('.content').addClass('hideEle');
+        //       $(this).siblings('.content').removeClass('showEle');
+              
+        // //   }
+        // //    else{
+        // //        $(this).siblings('.content').addClass('showEle');
+        // //       $(this).siblings('.content').removeClass('hideEle');
+        // //    }
+        //   });
+
+        $(document).ready(function(){
+               $(".state-value").click(function(){
+                   //alert($('#allstate li').length);
+                   if(('#allstate li').length >0){
+                    $('#allstate').addClass('scrollState');
+                   }
+                   $('#allstate li').click(function(){
+                        $('#allstate li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                   $(this).addClass('statehightLight')
+                    })
+                   
+                   
+                })
+                $('.index-check-type ul li').click(function(){
+                        $('.index-check-type ul li').each(function(){
+                        if(($(this)).hasClass('statehightLight')){
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                    $(this).addClass('statehightLight')
+                })
+         $("#expand").click(function(){
+              $('.content').toggleClass('showEle');
+              $('.content').toggleClass('hideEle');
+
+                $(this).toggleClass("fa-compress-arrows-alt");
+                $(this).toggleClass("fa-expand-arrows-alt ");
+
+         });
+      
+        });
+        // $('#search-button').hover(function () {
+        //     $('#search_input').show();		
+        // });
+
+        $('#search-button').mouseover(function() { 
+            $('#search_input').show(); 
+                
+            })  
+            $('#search-button').mouseleave(function() { 
+                var txt = $('#search_input');  
+                if (txt.val() != null && txt.val()!= '') {  
+                    $('#search_input').show(); 
+                } else {  
+                     $('#search_input').hide(); 
+                    console.log('Please enter text' + txt.val())  
+                }  
+            })
+        
+            $(".index-address-type ul li").click(function (){
+                $('.index-address-type ul li').each(function(){
+                    if($(this).hasClass('statehightLight')){
+                        $(this).removeClass("statehightLight")
+                    }
+                
+                })
+                $(this).addClass("statehightLight")
+                var a = $(this).text();
+                if(a =='Agent Name'){
+                    $('#y-type').hide();
+                    $('.price').hide();
+
+                    $('.ser-state').show();
+
+                }else{
+                    $('#y-type').show();
+                    $('.price').show();
+                    $('.ser-state').hide();
+                }
+
+            });
+             settings = 'https://app.agentstat.com/api/states';
+                settings['headers'] = {};
+
+                $.ajax(settings).done(function (response) {
+                    var states =(response);
+                    $.each(states, function(k, v) {
+                        $('#allstate').append("<li class='custom_radio'>"+k+"</li>");
+                        $('#statesData').append("<li class='custom_radio'>"+k+"</li>");
+                    });
+                }).fail(function(err) {
+                    show_error(err);
+                });
+
+                $(document).click(function (e) {
+                e.stopPropagation();
+                var container = $(".address ");
+                var stateContainer = $(".ser-state");
+              
+                if (container.has(e.target).length === 0) {
+                    $('.address-type').hide();
+                }
+                if (stateContainer.has(e.target).length === 0) {
+                    $('.ser-state-type').hide();
+                }
+            })
+      </script>
+    <!-- <script>
+        $(document).ready(function () {
+        $('#transations').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+        });
+    </script> -->
+
+    <!-- Scroll-Top button -->
+    <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+
+</body>
+</html>

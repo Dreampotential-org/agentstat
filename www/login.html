@@ -196,7 +196,7 @@
                     <a class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
                         aria-controls="nav-home" aria-selected="true">Sign In</a>
                     <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                        aria-controls="nav-profile" aria-selected="false">New Acount</a>
+                        aria-controls="nav-profile" aria-selected="false">New Account</a>
                 </div>
             </nav>
 
@@ -339,7 +339,7 @@
                         </div>
                         <div class="form-group text-center">
                             <button  id="continuebtn1" value="Submit"
-                                class="btn login-btn buttonLogin">Continue</button>
+                                class="btn login-btn buttonLogin">Continue Test</button>
                         </div>
                     </form>
                     <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
@@ -1015,7 +1015,19 @@
     <!--
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     -->
-
+    <script>
+        $("#login-btn").focus(); 
+        $("#nav-home-tab").click(function() {
+            setTimeout(() => {
+                $('#login-btn').focus();     
+            }, 200);
+        });  
+        $("#nav-profile-tab").click(function() {
+            setTimeout(() => {
+                $('#continuebtn1').focus();     
+            }, 200);
+        });  
+    </script>
 </body>
 
 </html>

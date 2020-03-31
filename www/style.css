@@ -555,7 +555,8 @@
      display: inline-block;
      /* width: 406px; */
      /* width:auto; */
-     width:240px;
+     /* width:240px; */
+     width: 350px;
      font-size: 18px;
      font-weight: 300;
      color: #575757;
@@ -570,11 +571,12 @@
      margin-bottom: 0;
      font-size: 18px;
      color: #575757;
-     padding: 10px 0;
+     padding: 5px 0;
      font-weight: 300;
      border-left: 1px solid #767676;
      border-right: 1px solid #767676;
-     width: 140px;
+     /* width: 140px; */
+     width: 171px;
      text-overflow: ellipsis;
      text-align: center;
      white-space: nowrap;
@@ -583,7 +585,7 @@
      margin-bottom: 0;
      font-size: 18px;
      color: #575757;
-     padding: 9px 0;
+     padding: 4px 0;
      /* padding: 10px 0; */
      font-weight: 300;
      border-right: 1px solid #767676;
@@ -593,8 +595,9 @@
      white-space: nowrap;
  }
  .ser-state p, .ser-state-map p{
-     width: auto;
-     padding: 10px;
+     /* width: auto; */
+     width: 200px;
+     /* padding: 10px; */
      margin-bottom: 0;
      font-size: 18px;
      color: #575757;
@@ -610,7 +613,7 @@
      margin-bottom: 0;
      font-size: 18px;
      color: #575757;
-     padding: 10px 47px;
+     /* padding: 10px 47px; */
      font-weight: 300;
  }
  
@@ -710,7 +713,9 @@
  
  .price {
      position: relative;
-     width: 82px;
+     /* width: 82px; */
+     width: 115px;
+
  }
  
  .price-amount {
@@ -1071,7 +1076,7 @@
      font-weight: 300;
      font-size: 18px;
      color: #53646E;
-     padding: 13px 0;
+     padding: 6px 6px;
      width: 86%;
  }
  
@@ -1216,7 +1221,7 @@
  }
  
  .price p {
-     padding: 10px 26px;
+     padding: 0px 26px;
  }
  
  .pt-search-wrapper input.ser {
@@ -1243,7 +1248,7 @@
  */
  .pt-search-wrapper .price p {
      /* padding: 5px 26px; */
-     padding: 10px 20px;
+     padding: 5px 20px;
  }
  
  
@@ -2323,7 +2328,7 @@
  
  
  .pt-search-wrapper .type p {
-    padding: 10px 5px;
+    padding: 3px 5px;
     width: 153px;
  }
  
@@ -3272,6 +3277,7 @@
      padding: 0 20px;
      border-radius: 100px;
     display: table;
+    /* display: flex; */
  }
  
  
@@ -3907,12 +3913,17 @@
              margin-top: 10px;
          }
          .po-search.pt-search {
-             margin-top:
-              -60px;
+             margin-top:-60px;
          }
-         .custom_search_size {
+         /* .custom_search_size {
             margin-left: 100px;
-         }
+         } */
+          .custom_search_size {
+        margin-left: 70px !important;
+     }
+     .searchButton{
+        padding: 6px 5px;
+     }
         
  /*------- Responsive CSS --------------------------------------------*/
  @media screen and (max-width: 575px){
@@ -4330,6 +4341,7 @@
     .cust-tbl .toc-two-left-two-heading-right{
         right: 0px !important;
     }
+    
  }
  
  
@@ -4384,12 +4396,18 @@
          margin-left: 30px!important
      
      }
-     .custom_search_size{
-         margin-left:89px !important;
-         /* display: flex;
-         border-radius: 30px;
-         padding: 6px; */
+     /* .custom_search_size{
+        margin-left:0px;
+     } */
+     .po-serach-wrapper{
+        width: 415px;
      }
+    
+     .fixed .custom_search_size{
+        margin-left:83px !important;
+     }
+
+
     .fixed .y-price, .fixed .address-value, .fixed .state-value{
          padding:3px 10px !important;
      }
@@ -4423,9 +4441,10 @@
          padding: 7px;
          width: 120px;
      }
-      .fixed {
+      /* .fixed {
          position: fixed !important;
-     }
+         margin-left: 80px;
+     } */
      .poa-title:after {
          content: "";
          display: block;
@@ -4444,7 +4463,8 @@
      }
      .ak-form 
      {
-         margin-top: 25px !important;
+         margin-top:22px !important;
+         
      }
  
  
@@ -4533,6 +4553,7 @@
     .horizontal_dotted_line {
         width: 200px;
     }   
+    
  }
  
  @media screen and (max-width: 991px) and (min-width: 768px){
@@ -4554,7 +4575,7 @@
          left: 0;
      }
      .po-maps-wrapper-two.cust-wrapper {
-         display: flex;
+         /* display: flex; */
          background: none !important;
      }
      p#bau1 {
@@ -4695,6 +4716,10 @@
          width:92px;
          padding: 10px 5px;
      }
+    .po-serach-wrapper .price {
+        position: relative;
+        width: 75px;
+    }
      .po-serach-wrapper .price p {
          /* padding: 10px 26px; */
          width: 120px;
@@ -4763,7 +4788,7 @@
   
   
     .custom_search_size {
-        margin-left: 112px !important;
+        margin-left: 115px !important;
         margin-top: 2px;
     }
       #nav-new-tab {
@@ -4848,12 +4873,29 @@
 
  }
  @media screen and (max-width: 1199px) and (min-width: 992px){
+    .fixed {
+        margin-left:60px !important;
+     }
      .po-serach-wrapper {
          border: 1px solid #A9A9A9;
          border-radius: 100px;
          width: auto;
          display: flex;
          
+     }
+     .custom_search_size {
+        margin-left: 54px !important;
+    }
+     .po-serach-wrapper input.ser{
+            display: inline-block;
+            width: 180px;
+            font-size: 18px;
+            font-weight: 300;
+            color: #575757;
+            padding: 0px;
+            border: 0;
+            outline: none;
+            margin: 0px 10px;
      }
      .po-serach-wrapper .address p {
          padding: 10px;
@@ -4869,9 +4911,9 @@
  
  
  
-     .custom_search_size {
+     /* .custom_search_size {
          margin-left: 58px !important;
-     }
+     } */
      .pt-search-wrapper {
          width: 690px !important;
          /* left: 60px !important; */
@@ -4890,11 +4932,11 @@
     .pt-search-wrapper .price {
         width: 100px;
     }
-    .pt-search-wrapper{
+    /* .pt-search-wrapper{
         margin-top: 24px !important;
-    }
+    } */
     .cust-wrapper{
-        display: block;
+        display: table;
     }
     .po-maps-wrapper-two.cust-wrapper {
         /* display: flex; */
@@ -4914,7 +4956,7 @@
        box-shadow: none !important;
        margin: 0;
        border-bottom: 1px solid #ccc !important;
-       height: 46px;
+       height: 36px;
        border-radius: 0;
        font-size: 16px;
        background: transparent;
@@ -4970,6 +5012,7 @@
  }
  
  @media screen and (max-width: 1250px) and (min-width: 1200px){
+   
      .po-serach-wrapper {
          border: 1px solid #A9A9A9;
          border-radius: 100px;
@@ -5007,7 +5050,7 @@
          font-size: 25px;
      }
      .custom_search_size {
-         margin-left: 100px !important;
+         margin-left: 34px !important;
      }
      .pt-search-wrapper {
          width: 690px !important;
