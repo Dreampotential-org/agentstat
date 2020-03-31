@@ -165,6 +165,18 @@ function redirectResults(results) {
       new_params.push('lng=' + lng);
     }
 
+    if (new_params.length == 0) {
+      initial = get_page_initial_results();
+      $.each(initial, function(k, v){
+        // data['navigator_' + k] = v;
+        if(k == 'search_input') {
+          new_params.push('address='+v);
+        } else {
+          new_params.push(k+'='+v);
+        }
+      });
+    }
+    // console.log(map_initial);
 
     search = new_params.join('&');
     window.location = '/page-two-test.html?' + search
@@ -233,7 +245,7 @@ function get_page_initial_results() {
     const urlParams = new URLSearchParams(window.location.search);
 
     return {
-        'search_input': urlParams.get('search_input'),
+        'search_input': urlParams.get('address'),
         'city': urlParams.get('city'),
         'lat': urlParams.get('lat'),
         'lng': urlParams.get('lng'),
@@ -245,7 +257,7 @@ function get_page_initial_results() {
 
 function init() {
     global_results = get_page_initial_results()
-    console.log(global_results)
+    console.log(global_results);
 
     try {
         init_maps();

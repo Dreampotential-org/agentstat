@@ -54,6 +54,7 @@ function get_search_filters() {
     const v_estimate = urlParams.get('v_estimate');
     const home_type = urlParams.get('home_type');
 
+
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
 
@@ -66,7 +67,14 @@ function get_search_filters() {
         if(urlParams.get('search_input')) {
             $(".ser").val(urlParams.get('search_input'))
         }
-    }, 1000)
+    }, 1000);
+
+    setTimeout(function() {
+        if($('#y-address').text().trim() && urlParams.get('address')) {
+            $(".ser").val(urlParams.get('address'))
+        }
+    }, 1000);
+
 
 
 
@@ -91,8 +99,10 @@ function get_search_filters() {
     }
 
     if (v_estimate) {
-        filters.push('v_estimate=' + v_estimate);
-        set_v_estimate(String(v_estimate))
+        if (v_estimate !== 'null') {
+          filters.push('v_estimate=' + v_estimate);
+          set_v_estimate(String(v_estimate))
+        }
     }
 
     if (home_type) {
@@ -439,7 +449,9 @@ function abbreviateNumber(value) {
 }
 
 function set_v_estimate(v_estimate) {
+  if (v_estimate != 'null') {
     $(".y-price").text("$" + abbreviateNumber(v_estimate))
+  }
 }
 
 
