@@ -34,6 +34,9 @@
     <!-- Custom Style CSS -->
     <link rel="stylesheet" href="css/custom.css" />
 
+    <!-- DatePicker CSS -->
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.css" />
+
     <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
 </head>
 
@@ -74,7 +77,7 @@
                                             </a>
 
                                             <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item " href="connect-profile.html">
+                                                <a class="dropdown-item " href="form.html">
                                                     <p>Profile Settings</p>
                                                     <span>Edit your profile info and reviews</span>
                                                 </a>
@@ -152,9 +155,9 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="fn-right">
-                                            <input type="text" id="phone_number_1" placeholder="xxx" class="col-lg-1">
-                                            <input type="text" id="phone_number_2" placeholder="xxx" class="col-lg-1">
-                                            <input type="text" id="phone_number_3" placeholder="xxxx" class="col-lg-1">
+                                            <input type="text" id="phone_number_1" placeholder="xxx" maxlength="3" pattern="\d{3}" class="col-lg-1">
+                                            <input type="text" id="phone_number_2" placeholder="xxx" maxlength="3" pattern="\d{3}" class="col-lg-1">
+                                            <input type="text" id="phone_number_3" placeholder="xxxx" maxlength="4" pattern="\d{4}" class="col-lg-1">
 
                                             <i class="fa fa-info-circle" data-toggle="tooltip" title="This is required because this is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
                                         </div>
@@ -232,7 +235,7 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="file-right">
-                                            <input id="picture" type="file" name="file" />
+                                            <input id="picture" type="file" name="file" onchange="readURL(this);" />
                                         </div>
                                         <div class="up-photo">
                                             <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
@@ -586,6 +589,8 @@
     <script src="./js/main.js"></script>
 
     <script src="./js/owl.carousel.min.js"></script>
+
+    <script src="./js/bootstrap-datepicker.min.js"></script>
 
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
