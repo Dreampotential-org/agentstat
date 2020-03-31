@@ -134,6 +134,8 @@ function redirectResults(results) {
     search_city = localStorage.getItem('search_city');
     search_agent_name = localStorage.getItem('search_agent_name');
     search_state = localStorage.getItem('search_state');
+    lat = localStorage.getItem('search_lat');
+    lng = localStorage.getItem('search_lng');
 
     if (search_address) {
       new_params.push('address=' + search_address);
@@ -154,6 +156,15 @@ function redirectResults(results) {
     if (search_state) {
       new_params.push('state=' + search_state);
     }
+
+    if (lat) {
+      new_params.push('lat=' + lat);
+    }
+
+    if (lng) {
+      new_params.push('lng=' + lng);
+    }
+
 
     search = new_params.join('&');
     window.location = '/page-two-test.html?' + search
@@ -189,7 +200,12 @@ function getSearchParams(place) {
     params['lat'] = place.geometry.location.lat()
     params['lng'] = place.geometry.location.lng()
 
-    // console.log(params)
+    localStorage.search_address = params['search_input'];
+    localStorage.search_state = params['state'];
+    localStorage.search_city = params['city'];
+    localStorage.search_lat = params['lat'];
+    localStorage.search_lng = params['lng'];
+
     return params
 }
 
@@ -232,7 +248,7 @@ function init() {
     console.log(global_results)
 
     try {
-        // init_maps();
+        init_maps();
     } catch(ex) {
         console.log(ex)
     }
