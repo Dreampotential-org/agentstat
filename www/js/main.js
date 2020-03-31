@@ -379,6 +379,15 @@ drift.load('f6y6f4usghc5');
 
 localStorage.current_search_type = 'Address';
 
+localStorage.setItem('search_address', '');
+localStorage.setItem('search_zipcode', '');
+localStorage.setItem('search_city', '');
+localStorage.setItem('search_agent_name', '');
+localStorage.setItem('search_state', '');
+localStorage.setItem('search_lat', '');
+localStorage.setItem('search_lng', '');
+
+
 $(document).ready(function () {
     address = localStorage.search_address;
     if (address) {
