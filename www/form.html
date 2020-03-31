@@ -34,6 +34,9 @@
     <!-- Custom Style CSS -->
     <link rel="stylesheet" href="css/custom.css" />
 
+    <!-- DatePicker CSS -->
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.css" />
+
     <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
 </head>
 
@@ -232,7 +235,7 @@
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="file-right">
-                                            <input id="picture" type="file" name="file" />
+                                            <input id="picture" type="file" name="file" onchange="readURL(this);" />
                                         </div>
                                         <div class="up-photo">
                                             <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
@@ -586,6 +589,8 @@
     <script src="./js/main.js"></script>
 
     <script src="./js/owl.carousel.min.js"></script>
+
+    <script src="./js/bootstrap-datepicker.min.js"></script>
 
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
