@@ -134,6 +134,8 @@ function redirectResults(results) {
     search_city = localStorage.getItem('search_city');
     search_agent_name = localStorage.getItem('search_agent_name');
     search_state = localStorage.getItem('search_state');
+    lat = localStorage.getItem('search_lat');
+    lng = localStorage.getItem('search_lng');
 
     if (search_address) {
       new_params.push('address=' + search_address);
@@ -154,6 +156,15 @@ function redirectResults(results) {
     if (search_state) {
       new_params.push('state=' + search_state);
     }
+
+    if (lat) {
+      new_params.push('lat=' + lat);
+    }
+
+    if (lng) {
+      new_params.push('lng=' + lng);
+    }
+
 
     search = new_params.join('&');
     window.location = '/page-two-test.html?' + search
@@ -189,26 +200,31 @@ function getSearchParams(place) {
     params['lat'] = place.geometry.location.lat()
     params['lng'] = place.geometry.location.lng()
 
-    // console.log(params)
+    localStorage.search_address = params['search_input'];
+    localStorage.search_state = params['state'];
+    localStorage.search_city = params['city'];
+    localStorage.search_lat = params['lat'];
+    localStorage.search_lng = params['lng'];
+
     return params
 }
 
 function init_maps() {
-    var input = document.getElementsByClassName('ser')[0];
+    var input = document.getElementsByClassName('maps_input')[0];
     var page_input = document.getElementById('search_input');
+
     console.log("page_input",page_input)
     var options = {
         types: ['address'],
     }
 
-
     var autocomplete = new google.maps.places.Autocomplete(input, options);
+
     autocomplete.addListener('place_changed', fillIn);
     if(page_input != null){
       var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
       autocomplete1.addListener('place_changed', fillIn1);
     }
-
 
 }
 
@@ -232,7 +248,7 @@ function init() {
     console.log(global_results)
 
     try {
-        // init_maps();
+        init_maps();
     } catch(ex) {
         console.log(ex)
     }
@@ -363,18 +379,22 @@ drift.load('f6y6f4usghc5');
 
 localStorage.current_search_type = 'Address';
 
+localStorage.setItem('search_address', '');
+localStorage.setItem('search_zipcode', '');
+localStorage.setItem('search_city', '');
+localStorage.setItem('search_agent_name', '');
+localStorage.setItem('search_state', '');
+localStorage.setItem('search_lat', '');
+localStorage.setItem('search_lng', '');
+
+
 $(document).ready(function () {
     address = localStorage.search_address;
     if (address) {
-      $('.ser').val(address)
+      $('.ser').val(address);
+      $('.ser').addClass('maps_input');
     }
 });
-
-if (localStorage.search_vals == null || localStorage.search_vals == 'null') {
-  console.log('local testsss')
-  localStorage.search_vals = {};
-  console.log(localStorage.search_vals);
-}
 
 $(document).on('click', '.custom_radio', function() {
   localStorage.current_search_type = $(this).text();
@@ -385,6 +405,12 @@ $(document).on('click', '.custom_radio', function() {
     $('#ser-state-id').html(localStorage.search_state);
   }
 
+  if (search_key === 'search_address') {
+    $('.ser').addClass('maps_input');
+  } else {
+    $('.ser').removeClass('maps_input');
+  }
+
   $('.ser').val(localStorage.getItem(search_key));
 });
 
@@ -393,14 +419,8 @@ $(document).on('click', '#allstate>li', function() {
 });
 
 $('.ser').change(function() {
-  console.log(localStorage.current_search_type);
-  console.log($(this).val());
-  console.log(localStorage.current_search_type);
-  // var obj = localStorage.getItem('search_vals');
   search_key = localStorage.current_search_type.toLowerCase();
   search_key = 'search_' + search_key.split(' ').join('_');
-  console.log(search_key);
 
   localStorage.setItem(search_key, $(this).val());
-
 });

@@ -13,23 +13,36 @@
         <title>AgentStat</title>
 
         <!-- Fav Icon -->
-        <link rel="icon" href="/img/fav.png" />
+        <link rel="icon" href="img/fav.png" />
 
         <!-- Include Bootstrap -->
-        <link rel="stylesheet" href="/css/bootstrap.css" />
+        <link rel="stylesheet" href="css/bootstrap.css" />
 
         <!-- Include Owl-Carusol -->
-        <link rel="stylesheet" href="/css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
-
+        <link rel="stylesheet" href="css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+        <link rel="stylesheet" href="css/responsive.css" />
         <!-- Main StyleSheet -->
-        <link rel="stylesheet" href="/style.css" />
+        <link rel="stylesheet" href="style.css" />
 
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="/css/responsive.css" />
+       
         <!-- <link rel="stylesheet" href="./css/jquery.dataTables.min.css"/> -->
-        <script src="/js/sweetalert.min.js"></script>
+        <script src="js/sweetalert.min.js"></script>
     </head>
+    <style>
+        th, td{
+        border: 1px solid #dedbdb;
+        white-space: nowrap;
+        text-align: center;
+    }
+    table tr td:last-child {
+        border: none;
+        width: 15%;
+        text-align: center;
+
+    }
+    </style>
     <body>
         <!--[if lte IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -76,8 +89,8 @@
                         <div class="col-lg-12">
     
                             <nav class="navbar navbar-expand-md navbar-light">
-                                <a class="navbar-brand" href="/index.html">
-                                    <img class="image" src="/img/logo.png" alt="logo" />
+                                <a class="navbar-brand" href="index.html">
+                                    <img class="image" src="img/logo.png" alt="logo" />
                                 </a>
                                 <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="hamburger-box">
@@ -271,7 +284,7 @@
                             <div class="pth-agent-left">
                                 <div class="pth-agent-left-content">
                                     <div class="pht-agent-img toc-two-left-one">
-                                        <img src="/img/agent.png" alt="images not found" class="rounded-circle back-img">
+                                        <img src="img/agent.png" alt="images not found" class="rounded-circle back-img">
                                     </div>
                                     <div class="pth-agent-content">
                                         <!-- <h3 class='agent_name'>Agent Name <span>|</span> <span class='agent_name_city view-profile'>Keller Williams Seattle  </span></h3> -->
@@ -280,7 +293,7 @@
                                         <p>Keller Williams Seattle  </p>
                                         <p class="rating">
 
-                                            <img src="/img/table-star-9.png" alt="Argos rating"> 4.5 Reviews <a href="#" data-toggle="modal" data-target="#exampleModal" style="display: inline-block"> Details?</a></p>
+                                            <img src="img/table-star-9.png" alt="Argos rating"> 4.5 Reviews <a href="#" data-toggle="modal" data-target="#exampleModal" style="display: inline-block"> Details?</a></p>
                                     </div>
                                 </div>
                                 <div class="pth-agent-link">
@@ -289,20 +302,16 @@
                                     </ul>
                                 </div>
                                 <br>
-                                <div class="col-lg-12" id="claim_wrapper" style="display:none;">
+                                <div class="col-lg-12" id="claim_wrapper">
                                     <br>
                                     <h5><a href="/signup.html" class='claim_profile'>Claim Profile</a></h5>
                                     <p>Specialties: Buyer’s Agent, Listing Agent Relocation</p>
-                                </div>
-                                <div class="col-lg-12" id="already_claim_wrapper" style="display:none;">
-                                    <br>
-                                    <h5><a href="javascript:void(0)" id='already_claim_profile' data-toggle="modal" data-target="#alreadyClaimedModal">Claimed</a></h5>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-6">
                             <div class="pth-agent-right-content">
-                                <div class="pht-agent-heaidng">
+                                <div class="pht-agent-heaidng" style="margin-top: 35px;">
                                     <!-- <h4><span class="agent_name_loc"><span class='agent-first-name'></span></a> is a 97% match for you!</h4> -->
                                     <p class="answer_agent_name"></a>Answer a few questions to see how well Agent Name’s strengths match your needs.</p>
                                 </div>
@@ -509,7 +518,7 @@
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <img class="home-img" src="/img/home.png">
+                                                                <img class="home-img" src="img/home.png">
                                                             </div>
                                                             <p>Lorem ipsum dolor</p>
                                                             <h6>Lorem ipsum dolor</h6>
@@ -517,7 +526,7 @@
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <img class="bul-img" src="/img/bul.png" alt="images not found">
+                                                                <img class="bul-img" src="img/bul.png" alt="images not found">
                                                             </div>
                                                             <p>Lorem ipsum dolor</p>
                                                             <h6>Lorem ipsum dolor</h6>
@@ -599,7 +608,7 @@
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <img class="home-img" src="/img/home.png">
+                                                                <img class="home-img" src="img/home.png">
                                                             </div>
                                                             <p>Lorem ipsum dolor</p>
                                                             <h6>Lorem ipsum dolor</h6>
@@ -607,7 +616,7 @@
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
-                                                                <img class="bul-img" src="/img/bul.png" alt="images not found">
+                                                                <img class="bul-img" src="img/bul.png" alt="images not found">
                                                             </div>
                                                             <p>Lorem ipsum dolor</p>
                                                             <h6>Lorem ipsum dolor</h6>
@@ -674,7 +683,7 @@
                     <style>
                         table.table tr td { font-size: .9em; }
                     </style>
-                    <table   class="table text-center table-bordered">
+                    <table   class=" table-responsive text-center" style="width: 108%;">
                         <tr id="transations" class="table-heading">
                             <td>Status</td>
                             <td>List Price</td>
@@ -685,7 +694,7 @@
                             <td>Built</td>
                             <td>City</td>
                             <td>Home Type</td>
-                            <td>Note</td>
+                            <th style="background: white;border: none;">Notes</th>
                         </tr>
                         <!-- <thead  > 
                             <tr >
@@ -796,68 +805,6 @@
         </div>
     </div>
 
-    <!--  Agent Already claimed Modal  -->
-    <div class="modal fade " id="alreadyClaimedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog  modalSignup" role="document">
-            <div class="modal-content" style="width: 650px;">
-                <div class="modal-body">
-                    <h4><b>If you want to dispute the claim and provide proof of identity.</b></h4>
-                    <br>
-                    <div class="form">
-                        <div class="container">
-                            <div class="form-wrapper">
-                                <div id="want-claim" class="text-center">
-                                    <button class="btn btn-success" type="button" id="want-claim-yes">Yes</button>
-                                    <button class="btn btn-danger" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
-                                </div>
-                                <div id="submit-proof-form" style="display:none;">
-                                    <div class="row h-100">
-                                        <div class="col-lg-6 mx-auto">
-                                            <div class="alert alert-danger msg" role="alert" style="display: none"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="file-left">
-                                                <p id="lebel">Photo ID
-                                                    <span id="start">*</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="file-right">
-                                                <input id="picture" type="file" name="file" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="file-left">
-                                                <p id="lebel">Real State License
-                                                    <span id="start">*</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="file-right">
-                                                <input id="picture" type="file" name="file" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div><button disabled id='set_agent' class="btn btn-warning"> Submit Proof</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -882,30 +829,30 @@
         </div>
     </div>
     <!-- Main jQuery -->
-    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
 
     <!-- Bootstrap Propper jQuery -->
-    <script src="/js/popper.js"></script>
+    <script src="./js/popper.js"></script>
 
     <!-- Bootstrap jQuery -->
-    <script src="/js/bootstrap.js"></script>
+    <script src="./js/bootstrap.js"></script>
 
     <!-- Fontawesome Script -->
     <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
-    <script src="/js/type.js"></script>
+    <script src="./js/type.js"></script>
 
 
-    <script src="/js/owl.carousel.min.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
 
     <!-- Custom jQuery -->
-    <script src="/js/scripts.js"></script>
+    <script src="./js/scripts.js"></script>
 
-    <script src="/js/conf.js"></script>
-    <script src="/js/agent-detail.js"></script>
-    <script src="/js/main.js"></script>
-
+    <script src="./js/conf.js"></script>
+    <script src="./js/agent-detail.js"></script>
+    <script src="./js/main.js"></script>
     <!-- <script src="./js/jquery.dataTables.min.js"></script> -->
-    <script type="text/javascript" src="/js/jquery.bootpag.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.bootpag.js"></script>
     <script>
         // $(document).ready(function(){
         //  $("#expand").click(function(){
