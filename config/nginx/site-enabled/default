@@ -20,4 +20,8 @@ server {
         location /p/ {
             try_files $uri $uri/ /page-three.html?screen_name=$uri;
         }
+
+        location /agents/ {
+            try_files $uri $uri/ /page-two-test.html?uri;
+        }
 }

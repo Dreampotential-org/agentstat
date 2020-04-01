@@ -179,9 +179,9 @@ function redirectResults(results) {
     // console.log(map_initial);
 
     search = new_params.join('&');
-    window.location = '/page-two-test.html?' + search
-    // val = '/page-two-test.html?' + search;
-    // console.log(val);
+    window.location = '/agents/?' + search
+    //val = '/page-two-test.html?' + search;
+    //console.log(val);
 
     return false;
 

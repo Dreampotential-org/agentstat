@@ -225,7 +225,7 @@ function load_search_results() {
                     "<div class='toc-two-left-one'>" +
                     "<img class='rounded-circle toc-two-left-one' " +
                         "style='border-radius: 130px;margin-top: 21px;' " +
-                        " src=' img/sh.png'></div>");
+                        " src='/img/sh.png'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
             }
         if (v['agent_picture'] !== undefined && v['agent_picture'] !== '') {
