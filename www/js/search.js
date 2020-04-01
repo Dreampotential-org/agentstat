@@ -37,7 +37,7 @@ function show_loading_screen() {
     swal({
         title: "Crunching Numbers!",
         text:  "Hang tight while we crunch the numbers!",
-        imageUrl: "img/pop.png",
+        imageUrl: "/img/pop.png",
         showCancelButton: false,
         showConfirmButton: false,
         allowOutsideClick: false
