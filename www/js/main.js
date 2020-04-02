@@ -180,8 +180,8 @@ function redirectResults(results) {
 
     search = new_params.join('&');
     window.location = '/agents/?' + search
-    //val = '/page-two-test.html?' + search;
-    //console.log(val);
+    // val = '/page-two-test.html?' + search;
+    console.log(val);
 
     return false;
 
@@ -266,7 +266,11 @@ function init() {
     }
     set_search_input()
 
-    $("body").delegate(".serch_btn", "click", function(e) {
+    // $("body").delegate(".serch_btn", "click", function(e) {
+    //     redirectResults(global_results)
+    // })
+
+    $("body").delegate("#search_button", "click", function(e) {
         redirectResults(global_results)
     })
 
@@ -347,8 +351,10 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     var url = 'https://hooks.slack.com/services/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'
+
     if (string.indexOf(substring) > -1){
-        alert('Script Error: See Browser Console for Detail');
+        console.log(substring);
+        // alert('Script Error: See Browser Console for Detail');
     } else {
         var message = [
             'Message: ' + msg,
