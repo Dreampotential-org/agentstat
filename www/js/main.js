@@ -266,13 +266,13 @@ function init() {
     }
     set_search_input()
 
-    // $("body").delegate(".serch_btn", "click", function(e) {
-    //     redirectResults(global_results)
-    // })
-
-    $("body").delegate("#search_button", "click", function(e) {
+    $("body").delegate(".serch_btn", "click", function(e) {
         redirectResults(global_results)
     })
+
+    // $("body").delegate("#search_button", "click", function(e) {
+    //     redirectResults(global_results)
+    // })
 
     $("body").delegate("#go", "click", function(e) {
       $("#agent_name_or_id").val($("#search_input_agent").val())
