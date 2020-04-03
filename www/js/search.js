@@ -75,6 +75,18 @@ function get_search_filters() {
         }
     }, 1000);
 
+    setTimeout(function() {
+        if(urlParams.get('search_input')) {
+            $(".ser-map").val(urlParams.get('search_input'))
+        }
+    }, 1000);
+
+    setTimeout(function() {
+        if($('#y-address-map').text().trim() && urlParams.get('address')) {
+            $(".ser-map").val(urlParams.get('address'))
+        }
+    }, 1000);
+
 
 
 
@@ -319,6 +331,13 @@ function load_search_results() {
 
       if(urlParams.get('city_search')) {
         $(".ser").val(urlParams.get('city_search'))
+      }
+      if(urlParams.get('search_input')) {
+        $(".ser-map").val(urlParams.get('search_input'))
+      }
+
+      if(urlParams.get('city_search')) {
+        $(".ser-map").val(urlParams.get('city_search'))
       }
 
     }).fail(function(err) {

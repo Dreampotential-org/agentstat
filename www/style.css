@@ -555,8 +555,7 @@
      display: inline-block;
      /* width: 406px; */
      /* width:auto; */
-     /* width:240px; */
-     width: 350px;
+     width:240px;
      font-size: 18px;
      font-weight: 300;
      color: #575757;
@@ -571,33 +570,44 @@
      margin-bottom: 0;
      font-size: 18px;
      color: #575757;
-     padding: 5px 0;
+     padding: 10px 0;
      font-weight: 300;
      border-left: 1px solid #767676;
      border-right: 1px solid #767676;
-     /* width: 140px; */
-     width: 171px;
+     width: 140px;
      text-overflow: ellipsis;
      text-align: center;
      white-space: nowrap;
  }
- .address p,  .address-map p{
+ .address p{
      margin-bottom: 0;
      font-size: 18px;
      color: #575757;
-     padding: 4px 0;
+     padding: 9px 0;
      /* padding: 10px 0; */
      font-weight: 300;
      border-right: 1px solid #767676;
-     width: 154px;
+     width: 200px;
      text-overflow: ellipsis;
      text-align: center;
      white-space: nowrap;
  }
- .ser-state p, .ser-state-map p{
-     /* width: auto; */
-     width: 200px;
-     /* padding: 10px; */
+ .address-map p{
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #575757;
+    padding: 9px 0;
+    /* padding: 10px 0; */
+    font-weight: 300;
+    border-right: 1px solid #767676;
+    width: 154px;
+    text-overflow: ellipsis;
+    text-align: center;
+    white-space: nowrap;
+}
+ .ser-state p {
+     width: 150px;
+     padding: 10px;
      margin-bottom: 0;
      font-size: 18px;
      color: #575757;
@@ -607,13 +617,25 @@
      text-align: center;
      white-space: nowrap;
  }
+ .ser-state-map p{
+    width: auto;
+    padding: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #575757;
+    font-weight: 300;
+    border-right: 1px solid #767676;
+    text-overflow: ellipsis;
+    text-align: center;
+    white-space: nowrap;
+}
  
  
  .price p {
      margin-bottom: 0;
      font-size: 18px;
      color: #575757;
-     /* padding: 10px 47px; */
+     padding: 10px 47px;
      font-weight: 300;
  }
  
@@ -713,9 +735,7 @@
  
  .price {
      position: relative;
-     /* width: 82px; */
-     width: 115px;
-
+     width: 82px;
  }
  
  .price-amount {
@@ -1076,8 +1096,9 @@
      font-weight: 300;
      font-size: 18px;
      color: #53646E;
-     padding: 6px 6px;
+     /* padding: 13px 0; */
      width: 86%;
+     border-right:1px solid
  }
  
  .po-maps-left button {
@@ -1221,7 +1242,7 @@
  }
  
  .price p {
-     padding: 0px 26px;
+     padding: 10px 26px;
  }
  
  .pt-search-wrapper input.ser {
@@ -1248,7 +1269,7 @@
  */
  .pt-search-wrapper .price p {
      /* padding: 5px 26px; */
-     padding: 5px 20px;
+     padding: 10px 20px;
  }
  
  
@@ -2328,7 +2349,7 @@
  
  
  .pt-search-wrapper .type p {
-    padding: 3px 5px;
+    padding: 10px 5px;
     width: 153px;
  }
  
@@ -3277,7 +3298,8 @@
      padding: 0 20px;
      border-radius: 100px;
     display: table;
-    /* display: flex; */
+    margin: 0 auto;
+    display: flex;
  }
  
  
@@ -3913,23 +3935,24 @@
              margin-top: 10px;
          }
          .po-search.pt-search {
-             margin-top:-60px;
+             margin-top:
+              -60px;
          }
-         /* .custom_search_size {
+         .custom_search_size {
             margin-left: 100px;
-         } */
-          .custom_search_size {
-        margin-left: 70px !important;
-     }
-     .searchButton{
-        padding: 6px 5px;
-     }
+         }
         
+         .cust-wrapper{
+             display: flex;
+         }
  /*------- Responsive CSS --------------------------------------------*/
  @media screen and (max-width: 575px){
     .fixed{
 
         position: absolute;
+    }
+    .cust-wrapper{
+        display: table;
     }
     .po-world {
         background-color: #fff;
@@ -4152,7 +4175,9 @@
          margin-top: 0;
          position: absolute;
          top: 35%;
-         right: 38px;
+         margin-left: -36px;
+         /* left: 82%; */
+         /* right: 38px; */
          /* background: #f1f1f1; */
          border-radius: 50px;
      }
@@ -4267,10 +4292,11 @@
     .po-maps-wrapper-two.cust-wrapper .serch_btn {
         display: inline;
         float: right;
-        margin-top: 0;
+        /* margin-top: 0; */
+        margin-top: -20px;
         position: absolute;
-        top: 85%;
-        right: 24px;
+        /* top: 85%; */
+        /* right: 24px; */
         /* background: #f1f1f1; */
         border-radius: 50px;
     }
@@ -4304,7 +4330,8 @@
          font-size: 16px !important;
      }
      .custom_search_size{
-        margin-left: 23px;
+        /* margin-left: 23px; */
+        margin: 0 auto;
      }
      .srch-bar {
         margin-top: 60px !important;
@@ -4341,7 +4368,6 @@
     .cust-tbl .toc-two-left-two-heading-right{
         right: 0px !important;
     }
-    
  }
  
  
@@ -4376,7 +4402,8 @@
          justify-content: left !important;
      }
      .po-serach-wrapper input.ser {
-         width: 80px !important;
+        width: 140px !important;
+         /* width: 80px !important; */
          box-shadow: 0 0 0 0;
      }
      .po-world {
@@ -4396,18 +4423,14 @@
          margin-left: 30px!important
      
      }
-     /* .custom_search_size{
-        margin-left:0px;
-     } */
-     .po-serach-wrapper{
-        width: 415px;
+     .custom_search_size{
+        margin-left: 21px !important;
+        /* margin-left:89px !important; */
+         /* margin-left:89px !important; */
+         /* display: flex;
+         border-radius: 30px;
+         padding: 6px; */
      }
-    
-     .fixed .custom_search_size{
-        margin-left:83px !important;
-     }
-
-
     .fixed .y-price, .fixed .address-value, .fixed .state-value{
          padding:3px 10px !important;
      }
@@ -4416,7 +4439,8 @@
      }
      .po-serach-wrapper.po-serach-wrapper-one.ak-form .address p{
          /* width: 140px; */
-         width: 95px;
+         /* width: 95px; */
+         width: 128px;
          padding: 7px 0;
      }
      .po-serach-wrapper.po-serach-wrapper-one.ak-form .price{
@@ -4441,10 +4465,10 @@
          padding: 7px;
          width: 120px;
      }
-      /* .fixed {
+     
+      .fixed {
          position: fixed !important;
-         margin-left: 80px;
-     } */
+     }
      .poa-title:after {
          content: "";
          display: block;
@@ -4463,8 +4487,7 @@
      }
      .ak-form 
      {
-         margin-top:22px !important;
-         
+         margin-top: 25px !important;
      }
  
  
@@ -4502,7 +4525,9 @@
          padding: 0 !important;
          padding-left: 6px !important;
      }
- 
+     .cust-wrapper{
+         display: flex;
+     }
  
  
      .toc-two-left-two-link{
@@ -4553,11 +4578,12 @@
     .horizontal_dotted_line {
         width: 200px;
     }   
-    
  }
  
  @media screen and (max-width: 991px) and (min-width: 768px){
-     
+    .cust-wrapper{
+        display:table;
+    }
      .owl-item.active{
          margin-right: 2px;
      }
@@ -4623,6 +4649,9 @@
          display: flex;
 
      } 
+     .po-maps-wrapper-two .price p{
+         width: 85%;
+     }
      .srch-bar {
          width: 100% !important;
          margin-left: 0px !important;
@@ -4693,7 +4722,7 @@
          width: 73% !important;
          margin-left: 74px !important;
      }
-     .address p, .address-map p {
+     .address p {
          margin-bottom: 0;
          font-size: 18px;
          color: #575757;
@@ -4705,8 +4734,21 @@
          text-align: center;
          white-space: nowrap;
      }
+     .address-map p {
+        margin-bottom: 0;
+        font-size: 18px;
+        color: #575757;
+        padding: 10px 0;
+        font-weight: 300;
+        border-right: 1px solid #767676;
+        width: 140px !important;
+        text-overflow: ellipsis;
+        text-align: center;
+        white-space: nowrap;
+    }
      .po-serach-wrapper .ser-state p{
-         width: 210px;
+         /* width: 210px; */
+         width:136px;
      }
      .po-serach-wrapper input.ser {
          /* width: 240px !important; */
@@ -4716,10 +4758,6 @@
          width:92px;
          padding: 10px 5px;
      }
-    .po-serach-wrapper .price {
-        position: relative;
-        width: 75px;
-    }
      .po-serach-wrapper .price p {
          /* padding: 10px 26px; */
          width: 120px;
@@ -4788,7 +4826,7 @@
   
   
     .custom_search_size {
-        margin-left: 115px !important;
+        margin-left: 112px !important;
         margin-top: 2px;
     }
       #nav-new-tab {
@@ -4818,7 +4856,7 @@
        box-shadow: none !important;
        margin: 0;
        border-bottom: 1px solid #ccc !important;
-       height: 43px;
+       height: 48px;
        border-radius: 0;
        font-size: 16px;
        background: transparent;
@@ -4837,7 +4875,7 @@
        color: #575757;
        padding: 9px 0;
        font-weight: 300;
-       width: 99%;
+       width: 102%;
        text-overflow: ellipsis;
        text-align: center;
        white-space: nowrap;
@@ -4855,9 +4893,10 @@
    .po-maps-wrapper-two.cust-wrapper .serch_btn {
        display: inline;
        float: right;
-       margin-top: 0;
+       /* margin-top: 0; */
+       margin-top: -21px;
        position: absolute;
-       top: 81%;
+       /* top: 81%; */
        right: 24px;
        /* background: #f1f1f1; */
        border-radius: 50px;
@@ -4873,9 +4912,6 @@
 
  }
  @media screen and (max-width: 1199px) and (min-width: 992px){
-    .fixed {
-        margin-left:60px !important;
-     }
      .po-serach-wrapper {
          border: 1px solid #A9A9A9;
          border-radius: 100px;
@@ -4883,21 +4919,7 @@
          display: flex;
          
      }
-     .custom_search_size {
-        margin-left: 54px !important;
-    }
-     .po-serach-wrapper input.ser{
-            display: inline-block;
-            width: 180px;
-            font-size: 18px;
-            font-weight: 300;
-            color: #575757;
-            padding: 0px;
-            border: 0;
-            outline: none;
-            margin: 0px 10px;
-     }
-     .po-serach-wrapper .address p {
+     /* .po-serach-wrapper .address p {
          padding: 10px;
          width: 160px;
      }
@@ -4908,12 +4930,13 @@
          padding: 10px;
          margin-top: 2px;
      }
+  */
  
  
- 
-     /* .custom_search_size {
-         margin-left: 58px !important;
-     } */
+     .custom_search_size {
+         /* margin-left: 58px !important; */
+         margin-left: 35px !important;
+     }
      .pt-search-wrapper {
          width: 690px !important;
          /* left: 60px !important; */
@@ -4932,18 +4955,38 @@
     .pt-search-wrapper .price {
         width: 100px;
     }
-    /* .pt-search-wrapper{
+    .pt-search-wrapper{
         margin-top: 24px !important;
-    } */
-    .cust-wrapper{
-        display: table;
+    }
+    .po-maps-wrapper-two.cust-wrapper .type p {
+        margin-bottom: 0;
+        font-size: 16px;
+        color: #575757;
+        padding: 9px 0;
+        font-weight: 300;
+        width: 123px;
+        text-overflow: ellipsis;
+        text-align: center;
+        white-space: nowrap;
+        border-left: 0px solid #767676 !important;
+        border-right: 1px solid #767676 !important;
+        border-radius: 0px !important;
+        background: transparent;
+    }
+    .po-maps-wrapper-two.cust-wrapper .address-map p{
+        width: 136px;
+       }
+       .po-maps-wrapper-two input.ser {
+        width: 120px;
+        border-right: 1px solid;
+    }
+    /* .cust-wrapper{
+        display: block;
     }
     .po-maps-wrapper-two.cust-wrapper {
-        /* display: flex; */
         background: none !important;
     }
     .po-maps-wrapper-two.cust-wrapper .address-map {
-       /* width: 50%; */
        float: left;
        border-bottom: 1px solid #ccc;
     }
@@ -4956,7 +4999,7 @@
        box-shadow: none !important;
        margin: 0;
        border-bottom: 1px solid #ccc !important;
-       height: 36px;
+       height: 46px;
        border-radius: 0;
        font-size: 16px;
        background: transparent;
@@ -4965,11 +5008,11 @@
        position: relative;
        padding: 0;
        width: 48%;
-   }
+   } */
    .price{
        float: unset;
    }
-   .po-maps-wrapper-two.cust-wrapper .type p {
+   /* .po-maps-wrapper-two.cust-wrapper .type p {
        margin-bottom: 0;
        font-size: 16px;
        color: #575757;
@@ -4986,7 +5029,6 @@
    }
    .po-maps-wrapper-two.cust-wrapper .price {
        position: relative;
-       /* float: left; */
        width: 40%;
        padding: 0;
    }
@@ -5000,19 +5042,17 @@
        position: absolute;
        top:50%;
        right: 24px;
-       /* background: #f1f1f1; */
        border-radius: 50px;
    }
    .po-maps-wrapper-two.cust-wrapper .serch_btn .searchButton {
        background: #e2e2e2;
        border-radius: 30px;
        padding: 7px 11px;
-   }
+   } */
  
  }
  
  @media screen and (max-width: 1250px) and (min-width: 1200px){
-   
      .po-serach-wrapper {
          border: 1px solid #A9A9A9;
          border-radius: 100px;
@@ -5050,7 +5090,7 @@
          font-size: 25px;
      }
      .custom_search_size {
-         margin-left: 34px !important;
+         margin-left: 100px !important;
      }
      .pt-search-wrapper {
          width: 690px !important;
