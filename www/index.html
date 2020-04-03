@@ -112,7 +112,10 @@
 
 
 
-                                <input class="ser maps_input"  id="searchId" type="text" name="text" placeholder="Search ">
+                                <input class="ser maps_input" id="searchId" type="text" name="text" autocomplete="no" placeholder="Search ">
+                                <input class="city_search" autocomplete='nop' type="text" name="citytext" placeholder="Search City" style="display:none" >
+
+                                <div id="suggesstion-box"></div>
                                 <div class="type ">
                                     <p id="y-type" class="x-type type-value">Type <i class="fas fa-caret-down"></i></p>
                                     <div class="check-type index-check-type">
@@ -468,7 +471,10 @@
         </div>
         <!-- footer area end -->
         <!-- Main jQuery -->
-        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="/js/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script src="js/conf.js"></script>
         <script src="js/main.js"></script>
         <!-- GOOGLE MAPS -->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>

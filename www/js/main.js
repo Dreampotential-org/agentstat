@@ -124,7 +124,6 @@ function get_home_type() {
 }
 
 function redirectResults(results) {
-  debugger
     var path = window.location.pathname;
     var search_params = window.location.search.replace('?', '');
     var params = search_params.split('&');
@@ -140,6 +139,12 @@ function redirectResults(results) {
     search_state = localStorage.getItem('search_state');
     lat = localStorage.getItem('search_lat');
     lng = localStorage.getItem('search_lng');
+
+    city_search_val = $('.city_search').val();
+    if(!(search_address) && city_search_val) {
+      search_city = city_search_val.split(',')[0];
+      search_state = city_search_val.split(',')[1];
+    }
 
     if (search_address) {
       new_params.push('address=' + search_address);
@@ -184,7 +189,7 @@ function redirectResults(results) {
 
     search = new_params.join('&');
     window.location = '/agents/?' + search
-    // val = '/page-two-test.html?' + search;
+    val = '/agents/?' + search;
     console.log(val);
 
     return false;
@@ -457,6 +462,7 @@ $(document).on('click', '.custom_radio', function() {
     $('#ser-state-map-id').html(localStorage.search_state);
   }
 
+  console.log(search_key);
   if (search_key === 'search_address') {
     $('.ser').addClass('maps_input');
   } else {
@@ -468,6 +474,15 @@ $(document).on('click', '.custom_radio', function() {
     $('.ser-map').removeClass('maps_input_maps');
   }
 
+  if (search_key === 'search_city') {
+    $('.city_search').css('display', 'block');
+    $('.city_search').attr('autocomplete', 'nop');
+    $('.ser').css('display', 'none');
+  } else {
+    $('.city_search').css('display', 'none');
+    $('.city_search').attr('autocomplete', 'nop');
+    $('.ser').css('display', 'block');
+  }
   $('.ser').val(localStorage.getItem(search_key));
   $('.ser-map').val(localStorage.getItem(search_key));
 });
@@ -488,3 +503,28 @@ $('.ser-map').change(function() {
 
   localStorage.setItem(search_key_map, $(this).val());
 });
+
+$(".city_search").autocomplete({
+    source: function (request, response) {
+
+        var city_keyword = $('.city_search').val();
+        var api_call_url = 'city-search/' + city_keyword;
+        var settings = get_settings(api_call_url, 'GET');
+        var url = settings['url'];
+        console.log('url: ' + url);
+
+        jQuery.get(url, {
+            query: request.term
+        }, function (data) {
+            console.log(data);
+            new_data = [];
+            $.each(data, function(k, v){
+              new_data.push(v.city_state);
+              console.log(v.city_state);
+            });
+            response(new_data);
+        });
+    },
+    minLength: 3
+});
+
