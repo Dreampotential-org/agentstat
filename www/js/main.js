@@ -132,11 +132,17 @@ function redirectResults(results) {
     search_type = $('#y-address').text();
     search_type_map = $('#y-address-map').text();
 
-    search_address = localStorage.getItem('search_address');
-    search_zipcode = localStorage.getItem('search_zipcode');
-    search_city = localStorage.getItem('search_city');
-    search_agent_name = localStorage.getItem('search_agent_name');
+    // search_address = localStorage.getItem('search_address');
+    // search_zipcode = localStorage.getItem('search_zipcode');
+    // search_city = localStorage.getItem('search_city');
+    // search_agent_name = localStorage.getItem('search_agent_name');
     search_state = localStorage.getItem('search_state');
+
+    search_address = $('.search_address').val();
+    search_zipcode = $('.search_zipcode').val();
+    search_city = $('.search_city').val();
+    search_agent_name = $('.search_agent_name').val();
+
     lat = localStorage.getItem('search_lat');
     lng = localStorage.getItem('search_lng');
 
@@ -444,7 +450,7 @@ $(document).ready(function () {
     }
 });
 
-$(document).on('click', '.custom_radio', function() {
+$(document).on('click', '#dropdownaddress>ul>li', function() {
   localStorage.current_search_type = $(this).text();
   search_key = localStorage.current_search_type.toLowerCase();
 
@@ -463,28 +469,14 @@ $(document).on('click', '.custom_radio', function() {
   }
 
   console.log(search_key);
-  if (search_key === 'search_address') {
-    $('.ser').addClass('maps_input');
-  } else {
-    $('.ser').removeClass('maps_input');
-  }
-  if (search_key_map === 'search_address') {
-    $('.ser-map').addClass('maps_input_maps');
-  } else {
-    $('.ser-map').removeClass('maps_input_maps');
-  }
 
-  if (search_key === 'search_city') {
-    $('.city_search').css('display', 'block');
-    $('.city_search').attr('autocomplete', 'nop');
-    $('.ser').css('display', 'none');
-  } else {
-    $('.city_search').css('display', 'none');
-    $('.city_search').attr('autocomplete', 'nop');
-    $('.ser').css('display', 'block');
-  }
+  $('.ser').css('display', 'none');
+  $('.' + search_key).css('display', 'block');
+  $('.' + search_key).attr('autocomplete', 'nop');
+
   $('.ser').val(localStorage.getItem(search_key));
   $('.ser-map').val(localStorage.getItem(search_key));
+
 });
 
 $(document).on('click', '#allstate>li', function() {
