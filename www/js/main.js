@@ -132,21 +132,23 @@ function redirectResults(results) {
     search_type = $('#y-address').text();
     search_type_map = $('#y-address-map').text();
 
-    // search_address = localStorage.getItem('search_address');
-    // search_zipcode = localStorage.getItem('search_zipcode');
-    // search_city = localStorage.getItem('search_city');
-    // search_agent_name = localStorage.getItem('search_agent_name');
+    search_address = localStorage.getItem('search_address');
+    search_zipcode = localStorage.getItem('search_zipcode');
+    search_city = localStorage.getItem('search_city');
+    search_agent_name = localStorage.getItem('search_agent_name');
+
     search_state = localStorage.getItem('search_state');
 
-    search_address = $('.search_address').val();
-    search_zipcode = $('.search_zipcode').val();
-    search_city = $('.search_city').val();
-    search_agent_name = $('.search_agent_name').val();
+    // search_address = $('.search_address').val();
+    // search_zipcode = $('.search_zipcode').val();
+    // search_city = $('.search_city').val();
+    // search_agent_name = $('.search_agent_name').val();
 
     lat = localStorage.getItem('search_lat');
     lng = localStorage.getItem('search_lng');
 
     city_search_val = $('.city_search').val();
+
     if(!(search_address) && city_search_val) {
       search_city = city_search_val.split(',')[0];
       search_state = city_search_val.split(',')[1];
@@ -161,7 +163,9 @@ function redirectResults(results) {
     }
 
     if (search_city) {
-      new_params.push('city=' + search_city);
+      city_val = search_city.split(',')
+      new_params.push('city=' + city_val[0]);
+      new_params.push('state=' + city_val[1].trim());
     }
 
     if (search_agent_name) {
@@ -195,8 +199,8 @@ function redirectResults(results) {
 
     search = new_params.join('&');
     window.location = '/agents/?' + search
-    val = '/agents/?' + search;
-    console.log(val);
+    // val = '/agents/?' + search;
+    // console.log(val);
 
     return false;
 
@@ -496,10 +500,10 @@ $('.ser-map').change(function() {
   localStorage.setItem(search_key_map, $(this).val());
 });
 
-$(".city_search").autocomplete({
+$(".search_city").autocomplete({
     source: function (request, response) {
 
-        var city_keyword = $('.city_search').val();
+        var city_keyword = $('.search_city').val();
         var api_call_url = 'city-search/' + city_keyword;
         var settings = get_settings(api_call_url, 'GET');
         var url = settings['url'];
