@@ -552,7 +552,9 @@ $(document).on('click', '#dropdownaddress>ul>li', function() {
   search_key_map = 'search_' + search_key.split(' ').join('_');
 
   if (search_key === 'search_agent_name') {
-    $('#ser-state-id').html(localStorage.search_state);
+    if (localStorage.search_state) {
+      $('#ser-state-id').html(localStorage.search_state);
+    }
     // all state
     console.log('select state');
     search_city = localStorage.getItem('search_city');
