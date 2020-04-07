@@ -137,13 +137,10 @@ function get_profile_link(agent_id) {
     const state = urlParams.get('state');
 
     if (city == "null" || city == null) {
-        console.log("CITY IS!!!" + typeof(city))
     }
     else {
         filters += '&city=' + city;
     }
-
-    console.log(filters);
     return "/page-three.html" + filters;
 }
 
@@ -194,10 +191,10 @@ function load_search_results() {
 
     }
 
-
     console.log("API Request: " + api_call_url);
 
     var settings = get_settings(api_call_url, 'GET');
+    console.log(settings['url'])
     settings['headers'] = null;
 
     show_loading_screen();
