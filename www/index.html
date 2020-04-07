@@ -118,7 +118,7 @@
                                 <div id="suggesstion-box"></div>
                                 <div class="type ">
                                     <p id="y-type" class="x-type type-value">Type <i class="fas fa-caret-down"></i></p>
-                                    <div class="check-type index-check-type">
+                                    <div id="dropdowntypes" class="check-type index-check-type">
                                         <!-- <h6>Home Type</h6> -->
                                         <ul>
                                         <li class="custom_radio"> Houses</li>
@@ -728,7 +728,7 @@
                 $.ajax(settings).done(function (response) {
                     var states =(response);
                     $.each(states, function(k, v) {
-                        $('#allstate').append("<li class='custom_radio'>"+k+"</li>");
+                        $('#allstate').append("<li class='custom_radio "+ k + "-state" + "'>"+k+"</li>");
                         $('#statesData').append("<li class='custom_radio'>"+k+"</li>");
                     });
                 }).fail(function(err) {

@@ -138,6 +138,7 @@ function redirectResults(results) {
     search_agent_name = localStorage.getItem('search_agent_name');
 
     search_state = localStorage.getItem('search_state');
+    search_home_type = localStorage.getItem('search_home_type');
 
     // search_address = $('.search_address').val();
     // search_zipcode = $('.search_zipcode').val();
@@ -154,6 +155,9 @@ function redirectResults(results) {
       search_state = city_search_val.split(',')[1];
     }
 
+    if (search_home_type) {
+      new_params.push('home_type=' + search_home_type)
+    }
     if (search_address) {
       new_params.push('address=' + search_address);
     }
@@ -165,7 +169,9 @@ function redirectResults(results) {
     if (search_city) {
       city_val = search_city.split(',')
       new_params.push('city=' + city_val[0]);
-      new_params.push('state=' + city_val[1].trim());
+      if (city_val.length > 1) {
+        new_params.push('state=' + city_val[1].trim());
+      }
     }
 
     if (search_agent_name) {
@@ -266,7 +272,7 @@ function get_page_initial_results() {
 
     const urlParams = new URLSearchParams(window.location.search);
 
-    return {
+    params = {
         'search_input': urlParams.get('address'),
         'city': urlParams.get('city'),
         'lat': urlParams.get('lat'),
@@ -274,7 +280,63 @@ function get_page_initial_results() {
         'state': urlParams.get('state'),
         'v_estimate': urlParams.get('v_estimate'),
         'type': urlParams.get('type'),
+    };
+
+    address = params['search_input'];
+    if (!(address)) {
+      address = '';
     }
+
+    agent_name = '';
+    home_type = '';
+    if (urlParams.get('agent_name')) {
+      agent_name = urlParams.get('agent_name');
+    }
+
+    city = '';
+    if (urlParams.get('city')) {
+      city = urlParams.get('city');
+    }
+
+    zipcode = '';
+    if (urlParams.get('zipcode')) {
+      city = urlParams.get('zipcode');
+    }
+
+    if (urlParams.get('home_type')) {
+      home_type = urlParams.get('home_type');
+      $('#dropdowntypes>ul>li:contains(' + home_type + ')').click();
+    }
+
+    if (!(params['state'])) {
+      params['state'] = '';
+    }
+
+    if (!(params['city'])) {
+      params['city'] = '';
+    }
+
+    if (!(address)) {
+      if(agent_name) {
+        $('#dropdownaddress>ul>li:contains("Agent Name")').click();
+      } else {
+        if(city) {
+          $('#dropdownaddress>ul>li:contains("City")').click();
+        } else {
+          if (zipcode) {
+            $('#dropdownaddress>ul>li:contains("ZipCode")').click();
+          }
+        }
+      }
+    }
+
+    localStorage.setItem('search_address', address);
+    localStorage.setItem('search_city', params['city']);
+    localStorage.setItem('search_agent_name', agent_name);
+    localStorage.setItem('search_state', params['state']);
+    localStorage.setItem('search_home_type', home_type);
+
+    return params;
 }
 
 function init() {
@@ -311,28 +373,30 @@ function init() {
         $("#agent_name_or_id").val($("#search_input_agent").val());
         $('form#filterForm').submit();
       }
-    })
+    });
 
-    $("body").delegate(".ser", "keyup", function(e) {
+  $("body").delegate(".ser", "keyup", function(e) {
       $(".pac-container").css('z-index', 99999)
       if (e.which == 13 && $('.pac-container:visible').length) return false;
       if (e.keyCode == 13) {
       }
-  })
+  });
+
   $("body").delegate(".ser-map", "keyup", function(e) {
     if (e.keyCode == 13) {
       e.preventDefault();
       $("#agent_name_or_id").val($("#search_input_agent").val());
       $('form#filterForm').submit();
     }
-  })
+  });
 
   $("body").delegate(".ser-map", "keyup", function(e) {
     $(".pac-container").css('z-index', 99999)
     if (e.which == 13 && $('.pac-container:visible').length) return false;
     if (e.keyCode == 13) {
     }
-})
+  });
+
 }
 
 window.addEventListener("DOMContentLoaded", init, false);
@@ -454,6 +518,13 @@ $(document).ready(function () {
     }
 });
 
+
+$(document).on('click', '#dropdowntypes>ul>li', function() {
+  // console.log($(this).text());
+  localStorage.setItem('search_home_type', $(this).text().trim());
+});
+
+
 $(document).on('click', '#dropdownaddress>ul>li', function() {
   localStorage.current_search_type = $(this).text();
   search_key = localStorage.current_search_type.toLowerCase();
@@ -467,12 +538,22 @@ $(document).on('click', '#dropdownaddress>ul>li', function() {
 
   if (search_key === 'search_agent_name') {
     $('#ser-state-id').html(localStorage.search_state);
+    // all state
+    console.log('select state');
+    search_city = localStorage.getItem('search_city');
+    console.log(search_city);
+
+    if (search_city) {
+      if (search_city.split(',').length > 1) {
+          search_state = search_city.split(',')[1].trim();
+          $('.'+ search_state +'-state').click();
+      }
+    }
   }
+
   if (search_key_map === 'search_agent_name') {
     $('#ser-state-map-id').html(localStorage.search_state);
   }
-
-  console.log(search_key);
 
   $('.ser').css('display', 'none');
   $('.' + search_key).css('display', 'block');
@@ -493,6 +574,7 @@ $('.ser').change(function() {
 
   localStorage.setItem(search_key, $(this).val());
 });
+
 $('.ser-map').change(function() {
   search_key_map = localStorage.current_search_type_map.toLowerCase();
   search_key_map = 'search_' + search_key_map.split(' ').join('_');
@@ -523,4 +605,3 @@ $(".search_city").autocomplete({
     },
     minLength: 3
 });
-

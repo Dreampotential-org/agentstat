@@ -21,7 +21,7 @@
     <!-- Main StyleSheet -->
     <link rel="stylesheet" href="/style.css">
 
-    
+
     <script src="/js/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
@@ -55,21 +55,21 @@
                                 </div>
                             </div>
                         </nav>
-                    </div>							
-                </div>					
+                    </div>
+                </div>
             </div>
-        </div>	
+        </div>
 
             <!-- po-search area start -->
             <div class="po-search pt-search g ">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
-                            
+
                             <div class="po-serach-wrapper pt-search-wrapper po-serach-wrapper-one ak-form custom_search_size srch-bar ak-po">
                                 <div class="address ">
                                     <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
-                                    <div class="address-type index-address-type ">
+                                    <div id="dropdownaddress" class="address-type index-address-type ">
                                         <ul>
                                             <li class="custom_radio">Address</li>
                                             <li class="custom_radio">Agent Name</li>
@@ -86,16 +86,22 @@
                                         </ul>
                                     </div>
                                   </div>
-                                <input class="ser maps_input txt-cls" type="text" name="text" placeholder="Search">
-                               
+
+                                <input class="ser search_address maps_input" id="searchId" type="text" name="text" autocomplete="no" placeholder="Search ">
+                                <input class="search_city ser" autocomplete='nop' type="text" name="citytext" placeholder="Search City" style="display:none" >
+                                <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext" placeholder="Search Agent Name" style="display:none" >
+                                <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" >
+
+
+
                                 <div class="type ak-price srch-price" >
                                     <p id="y-type" class="type-value">Type  <i class="fas fa-caret-down"></i></p>
-                                    <div class="check-type index-check-type">
+                                    <div id="dropdowntypes" class="check-type index-check-type">
                                         <!-- <h6>Home Type</h6> -->
                                         <ul>
-                                            <li class="custom_radio"> Houses</li>
-                                            <li  class="custom_radio" > Manufactured</li>
-                                            <li class="custom_radio" >Condos/co-ops</li>
+                                            <li class="custom_radio">Houses</li>
+                                            <li  class="custom_radio">Manufactured</li>
+                                            <li class="custom_radio">Condos/co-ops</li>
                                             <li class="custom_radio">Multi-family</li>
                                             <li class="custom_radio">Lots/Land</li>
                                             <li class="custom_radio">Townhomes</li>
@@ -145,7 +151,7 @@
                                                     <li>Any price</li>
                                                 </ul>
                                             </div>
-                                            
+
                                         </div>
                                         <div id="donBtn"class="text-center" style="padding: 14px;">
                                             <button >Done</button>
@@ -208,19 +214,19 @@
                                                     <div class="row">
 
                                                         <div class="col-12 col-md-12 col-sm-9">
-                                                            
-                                                          
+
+
                                                             <input type="text" name="" placeholder="Zipcode" class="form-control d-inline-block custom_city w-50">
                                                         </div>
-                                                       
+
                                                         <div class="col-12 col-md-12 col-sm-9 city_div">
                                                           <select id='city-search-filter' name="" placeholder="City" class="form-control d-inline-block custom_city w-50 float-left">
                                                             <option value=''>Select City</option>
                                                           </select>
-                                                          
+
                                                         </div>
                                                     </div>
-                                                   
+
                                                   <!--
                                                   <span >Price</span>
                                                             <div>
@@ -262,7 +268,7 @@
                                                         </div>
                                                         <div class="col-sm-6 ">
                                                             <span >Brokerage</span>
-                                                            
+
                                                             <div class="custom-control custom-checkbox">
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs4" name="acs" value="Keller Williams">
                                                                 <label class="custom-control-label" for="cs4">Keller Williams</label>
@@ -313,16 +319,16 @@
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs8" name="acs" value="Discount Commission">
                                                                 <label class="custom-control-label" for="cs8">Discount Commission</label>
                                                             </div>
-                                                     
-                                                   
-                                                   
+
+
+
                                                             <div class="custom_btn ">
                                                                 <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
                                                                 <input type="button" id="cancelFilter"  name="" value="CANCEL">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                
+
                                                 </form>
                                             </div>
                                             <!-- </div> -->
@@ -332,22 +338,22 @@
                                                     <div class="row">
 
                                                         <div class="col-12 col-md-12 col-sm-9">
-                                                            
-                                                          
+
+
                                                             <input type="text" name="" placeholder="Zipcode" class="form-control d-inline-block custom_city w-50">
                                                         </div>
-                                                       
+
                                                         <div class="col-12 col-md-12 col-sm-9 city_div">
                                                           <select id='city-search-filter' name="" placeholder="City" class="form-control d-inline-block custom_city w-50 float-left">
                                                             <option value=''>Select City</option>
                                                           </select>
-                                                          
+
                                                         </div>
                                                     </div>
-         
-                                                    <div class="row  buyer-filter ">          
+
+                                                    <div class="row  buyer-filter ">
                                                         <div class="col-sm-6">
-                                                           
+
                                                             <span >Type</span>
 
                                                             <div class="custom-control custom-checkbox">
@@ -403,9 +409,9 @@
                                                                 <label class="custom-control-label" for="cs77">Windermere</label>
                                                             </div>
                                                             </div>
-                                                           
 
-                                                       
+
+
                                                         <div class="col-sm-6">
                                                             <div class="custom-control custom-checkbox mt-3">
                                                                 <input type="checkbox" class="custom-control-input unchecked-acs" id="cs12x" name="acs1" value="John L.Scott">
@@ -429,7 +435,7 @@
                                                             </select>
 
                                                         </div>
-                                                        
+
                                                     </div>
                                                     <span >Commission</span>
 
@@ -441,7 +447,7 @@
                                                       <input id="filterBuyers" type="button" class="custom_align" name="" value="SAVE">
                                                       <input type="button" id="cancelBuyers"  name="" value="CANCEL">
                                                     </div>
-                                               
+
                                                 </form>
                                             </div>
                                         </div>
@@ -458,18 +464,18 @@
                                 <div class="tab-one-content">
                                     <div class="toc-one">
 
-                                        <div class="row"  style="padding-bottom: 33px;"> 
-                                            <div class="col-sm-6"> 
+                                        <div class="row"  style="padding-bottom: 33px;">
+                                            <div class="col-sm-6">
                                                 <p id="checkedText1">About <span id="result-count"></span> results   </p>
-                                              
+
                                             </div>
                                             <div class="col-sm-6">
                                                 <div id="sellerFilter"></div>
                                             </div>
-                                            <!-- <div class="col-sm-6"> 
-                                               
+                                            <!-- <div class="col-sm-6">
+
                                                 <ul>
-                                                  
+
 
                                                     <li>
 
@@ -482,7 +488,7 @@
                                                                 <span class="d-block">Fastest Sale</span>
                                                                 <span class="d-block">Highest Price</span>
                                                             </div>
-                                                        </div>														
+                                                        </div>
 
                                                     </li>
 
@@ -505,7 +511,7 @@
                                                                 <span class="d-block">Best Overall Items</span>
                                                                 <span class="d-block">Best Overall Items</span>
                                                             </div>
-                                                        </div>														
+                                                        </div>
 
                                                     </li>
                                                     <li>
@@ -523,12 +529,12 @@
                                                                             </div>
                                                                     <div class="row seller-filter">
                                                                         <div class="col-sm-6 ">
-                                                                            
-                                                                            
+
+
                                                                             <span >Type</span>
 
                                                                             <div class="custom-control custom-checkbox">
-                                                                              
+
                                                                                 <input type="checkbox" class="custom-control-input" id="cs1" name="acs" value="Hourse">
                                                                                 <label class="custom-control-label" for="cs1">Hourse</label>
                                                                             </div>
@@ -566,10 +572,10 @@
                                                                                 <label class="custom-control-label" for="cs7">Windermere</label>
                                                                             </div>
 
-                                                                            
+
 
                                                                         </div>
-                                                                        
+
                                                                         <div class="col-sm-6">
                                                                             <div class="custom-control custom-checkbox mt-4">
                                                                                 <input type="checkbox" class="custom-control-input" id="cs9" name="acs" value="Townhomes">
@@ -617,7 +623,7 @@
                                                                       <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
                                                                       <input type="reset"  name="" value="CANCEL">
                                                                     </div>
-                                                                    
+
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -630,22 +636,22 @@
 
                                     </div>
                                     <div class="page-two-section-wrapper custom_scroll" id="page-section">
-                                      
+
                                     </div>
                                 </div>
                             </div>
 
-                            
+
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="tab-one-content">
                                     <div class="toc-one">
 
-                                        <div class="row"> 
-                                            <div class="col-sm-6"> 
+                                        <div class="row">
+                                            <div class="col-sm-6">
                                                 <p id="checkedText1">About 6,830,000,000 results </p>
                                                 <!-- <div id="buyerFilter"></div> -->
                                             </div>
-                                            <div class="col-sm-6">  
+                                            <div class="col-sm-6">
                                                 <div id="buyerFilter"></div>
                                                 <!-- <ul>
                                                     <li>
@@ -659,12 +665,12 @@
                                                                 <span class="d-block">Price Negotiator</span>
                                                                 <span class="d-block">Wins Multi-Offers</span>
                                                             </div>
-                                                        </div>														
+                                                        </div>
 
                                                     </li>
 
                                                     <li>
-                    
+
                                                         <div class="dm-main2">
                                                             <button class="ami">
                                                                 Best Overall  ▾
@@ -690,7 +696,7 @@
 
                                                         <div class="dm-main">
                                                             <button>
-                                                                Filters  ▾       
+                                                                Filters  ▾
                                                             </button>
                                                             <div class=" dm-part">
                                                                 <form>
@@ -699,10 +705,10 @@
                                                                     <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
                                                                     <input type="text" name="" placeholder="Max" class="form-control d-inline-block custom_price w-50">
                                                                   </div>
-                                                                    <div class="row buyer-filter">          
+                                                                    <div class="row buyer-filter">
                                                                         <div class="col-sm-6">
-                                                                           
-                                                                            
+
+
                                                                             <span >Type</span>
 
                                                                             <div class="custom-control custom-checkbox">
@@ -743,7 +749,7 @@
                                                                                 <label class="custom-control-label" for="cs77">Windermere</label>
                                                                             </div>
 
-                                                                           
+
 
                                                                         </div>
                                                                         <div class="col-sm-6">
@@ -782,7 +788,7 @@
                                                                             </select>
 
                                                                         </div>
-                                                                        
+
                                                                     </div>
                                                                     <span >Commission</span>
 
@@ -809,7 +815,7 @@
                                 </div>
                             </div>
 
-                        </div>							
+                        </div>
                 </div>
             </div>
         </div>
@@ -818,33 +824,33 @@
     <!-- pt-tab area end -->
 
 
-    <div class="toc-two-left-two-link text-center lead-collect-form" >	
+    <div class="toc-two-left-two-link text-center lead-collect-form" >
         <div class="modal fade" id="myModalx">
-          <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">	
+          <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-body modalh">
-                <div class="two-link-modal">	
-                  <div class="two-link-modal-heading text-center">	
-                    <h2>Contact [[agent_full_name]]</h2>	
-                  </div>	
-                  <div class="two-link-modal-content">	
-                    <div class="row">	
-                      <div class="col-lg-6">	
-                        <div class="two-link-left custom_para">	
-                          <p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>	
-                          <p>Dis wazzup:</p>	
-                          <p>1.<span> An A-stat pro will reach out to go over your goals and answer any questions you may have.</span></p>	
-                          <p>2.<span> We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</span></p>	
-                          <p>3.<span> You sell your home quickly for top dollar!</span></p>	
-                          <div class="modal-call">	
-                            <p>Need immediate assistance?</p>	
-                            <p>Call us ANYTIME at</p>	
-                            <p>[[cell_phone]]</p>	
-                          </div>	
-                        </div>	
-                      </div>	
-                      <div class="col-lg-6">	
-                        <div class="two-link-right">	
+                <div class="two-link-modal">
+                  <div class="two-link-modal-heading text-center">
+                    <h2>Contact [[agent_full_name]]</h2>
+                  </div>
+                  <div class="two-link-modal-content">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="two-link-left custom_para">
+                          <p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>
+                          <p>Dis wazzup:</p>
+                          <p>1.<span> An A-stat pro will reach out to go over your goals and answer any questions you may have.</span></p>
+                          <p>2.<span> We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</span></p>
+                          <p>3.<span> You sell your home quickly for top dollar!</span></p>
+                          <div class="modal-call">
+                            <p>Need immediate assistance?</p>
+                            <p>Call us ANYTIME at</p>
+                            <p>[[cell_phone]]</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="two-link-right">
                         <div class="row " >
                           <div class="col-6 col-md-3 col-sm-3 div_name" >
                             <p>  Name <span style="color:red">*</span> :</p>
@@ -876,22 +882,22 @@
                             <p class="p_message"> Message</p>
                           </div>
                           <div class="col-12 col-md-12 col-sm-9 div_message" >
-                          <textarea id="message-156821"></textarea>	
+                          <textarea id="message-156821"></textarea>
                           </div>
                         </div>
-                        
-                        <div class="submit-btn">	
-                          <button type="button" data-dismiss="modal" class="font_btn">Cancel</button>	
-                          <button class="lead-submit font_btn" data-id="156821">Submit</button>	
-                          <div class="modal fade" id="con3">	
-                            <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">	
-                              <div class="modal-content">	
-                                <div class="modal-body">	
-                                  <div class="another-modal">	
-                                    <div class="another-modal-content">	
-                                      <h2>Compelete!</h2>	
-                                      <p>[Agent Name] will contact you shortly :)</p>	
-                                      <button type="button" data-dismiss="modal" >Cancel</button>	
+
+                        <div class="submit-btn">
+                          <button type="button" data-dismiss="modal" class="font_btn">Cancel</button>
+                          <button class="lead-submit font_btn" data-id="156821">Submit</button>
+                          <div class="modal fade" id="con3">
+                            <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-body">
+                                  <div class="another-modal">
+                                    <div class="another-modal-content">
+                                      <h2>Compelete!</h2>
+                                      <p>[Agent Name] will contact you shortly :)</p>
+                                      <button type="button" data-dismiss="modal" >Cancel</button>
                                     </div>
                                   </div>
                                 </div>
@@ -899,8 +905,8 @@
                             </div>
                           </div>
                         </div>
-                        <div class="modal-form-content">	
-                        <p style="text-align:left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ac metus a ullamcorper.</p>	
+                        <div class="modal-form-content">
+                        <p style="text-align:left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ac metus a ullamcorper.</p>
                         </div>
                         </div>
                         </div>
@@ -953,9 +959,9 @@
 
     <!-- Custom jQuery -->
     <script src="/js/scripts.js"></script>
-   
+
     <script type="text/javascript">
- 
+
 
         jQuery(".dm-main4 > button").click(function () {
             jQuery(".dm-part4").slideToggle();
@@ -972,7 +978,7 @@
 
         });
 
-        
+
         jQuery(".dm-main > button").click(function () {
             const urlParams = new URLSearchParams(window.location.search);
                 const city = encodeURIComponent(urlParams.get('city', ''));
@@ -985,15 +991,15 @@
                 jQuery("#seller-filter").slideUp();
                 jQuery("#buyer-filter").slideToggle();
             }
-                $('.seller-filter input[type="radio"]'). each(function(){ 
+                $('.seller-filter input[type="radio"]'). each(function(){
                 if($(this).val() == type){
                     $(this).prop('checked', true);
                 }
             });
         }, 100)
 
-            
-            
+
+
             $.each($("input[name='acs']:checked"), function(){
                 $(this).removeClass('unchecked-acs');
             });
@@ -1001,12 +1007,12 @@
                 if(!$(this).hasClass('unchecked-acs'))
                 {
                     $(this).addClass('unchecked-acs');
-                }   
+                }
             });
         });
-        // $('.seller-filter input[type="checkbox"]'). click(function(){ 
+        // $('.seller-filter input[type="checkbox"]'). click(function(){
         //     console.log($(this). is(":checked")+" "+$(this). is(":not(:checked)"));
-                    
+
         //     if($(this). is(":checked")){
         //         console.log($("label[for='" + this.id + "']").text());
         //         addId($("label[for='" + this.id + "']").text(),true);
@@ -1018,7 +1024,7 @@
         // });
 
         // $('.buyer-filter input[type="checkbox"]'). click(function(){
-                    
+
         //     if($(this). is(":checked")){
         //         console.log($("label[for='" + this.id + "']").text());
         //         addId($("label[for='" + this.id + "']").text(),false);
@@ -1035,10 +1041,10 @@
             //console.log(all_agents)
                 jQuery("#seller-filter").slideUp();
                 jQuery("#buyer-filter").slideUp();
-            
+
             //$('.dm-part').slideToggle();
 			seller_filter = [];
-            $('.seller-filter input[type="radio"]'). each(function(){ 
+            $('.seller-filter input[type="radio"]'). each(function(){
                 //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
                 if($(this).is(":checked")){
                     //alert('df');
@@ -1061,7 +1067,7 @@
                     }
                 });
 
-                $('.seller-filter input[type="checkbox"]'). each(function(){ 
+                $('.seller-filter input[type="checkbox"]'). each(function(){
                 //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
                 if($(this).is(":checked")){
                     //alert('df');
@@ -1095,10 +1101,10 @@
                 {
                     $(this).addClass('unchecked-acs');
                 }
-                
+
             });
-                
-        
+
+
             // $.each($("input[name='acs']:checked"), function(){
             //     $(this).removeClass('unchecked-acs');
             //     //alert(this.id);
@@ -1110,15 +1116,15 @@
             //     {
             //         $(this).addClass('unchecked-acs');
             //     }
-                
+
             // });
         })
         // $('#cancelFilter').click(function(){
         //     $('.dm-part').slideToggle();
         // })
-        
+
         $('#filterBuyers').click(function(){
-            
+
             jQuery("#buyer-filter").slideUp();
 
 			buyer_filter = [];
@@ -1155,11 +1161,11 @@
                 {
                     $(this).addClass('unchecked-acs');
                 }
-                
+
             });
         })
 
-        
+
 
         var seller_filter = [];
         var buyer_filter = [];
@@ -1182,12 +1188,12 @@
                 //console.log(buyer_filter);
                 showFilters(val);//qe245680/|ik nb0.
             }
-            
+
         }
 
         function removeId(name, val){
             if(val == "seller"){
-                
+
                 //seller_filter.splice( seller_filter.indexOf(name), 1 );
                 seller_filter = $.grep(seller_filter, function(e) { return e.name!=name });
                 //console.log(seller_filter);
@@ -1224,10 +1230,10 @@
 
                     //$("#buyerFilter").append("<button class='filter-div'>"+ele+"</button>");
                 });
-            }  
+            }
         }
 
-        
+
 
         function removeChk(val,key,type){
             // //console.log("######",val,key);
@@ -1248,28 +1254,28 @@ console.log("@##@####", key)
             }
             else{
                 $('.seller-filter input:'+type+'[value="' + val + '"]').addClass('unchecked-acs');
-            }                            
+            }
         }
 
         $(document).ready(function(){
 
-            // if (window.matchMedia("(max-width: 360px)").matches) 
-            // { 
-            //     // The viewport is less than 768 pixels wide 
-            //    // document.write("This is a mobile device."); 
+            // if (window.matchMedia("(max-width: 360px)").matches)
+            // {
+            //     // The viewport is less than 768 pixels wide
+            //    // document.write("This is a mobile device.");
 			// 	setTimeout(()=>{
 			// 		//alert(jQuery('td').attr('test'));
 			// 		 jQuery("td").attr('colspan','1');
 			// 	},5000);
             //         //alert(title);
             //     //alert('yess==>'+$('.title').prop('colspan'));
-            // } else { 
+            // } else {
 			// 	setTimeout(()=>{
 			// 		//alert(jQuery('td').attr('test'));
 			// 		 //jQuery("td").removeAttr('test');
 			// 		 jQuery("td").attr('colspan','3');
 			// 	},5000);
-            // } 
+            // }
 
 
             $("#cancelFilter").on('click',function(event){
@@ -1277,28 +1283,28 @@ console.log("@##@####", key)
                 $target = $(event.target);
                 if(!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
                     $.each($(".unchecked-acs"), function(){
-                        $(this).prop('checked', false);  
+                        $(this).prop('checked', false);
                     });
-                } 
+                }
                 // $("#sellerFilter").empty();
                 // $("#buyerFilter").empty();
                 $('.dm-part').slideUp();
-            }); 
+            });
 
             $("#cancelBuyers").on('click',function(event){
                 //console.log("&^%&^% ");
                 $target = $(event.target);
                 if(!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
                     $.each($(".unchecked-acs"), function(){
-                        $(this).prop('checked', false);  
+                        $(this).prop('checked', false);
                     });
-                } 
+                }
                 // $("#sellerFilter").empty();
                 // $("#buyerFilter").empty();
                 $('.dm-part').slideUp();
             });
-           
-            $(document).click(function(event) { 
+
+            $(document).click(function(event) {
                 $(".state-value").click(function(){
                    //alert($('#allstate li').length);
                    if(('#allstate li').length >0){
@@ -1313,7 +1319,7 @@ console.log("@##@####", key)
                     })
                    $(this).addClass('statehightLight')
                     })
-                   
+
                 })
                 $('.index-check-type ul li').click(function(){
                         $('.index-check-type ul li').each(function(){
@@ -1328,9 +1334,9 @@ console.log("@##@####", key)
                 /*$.each($("input[name='acs']:not(:checked)"), function(){
                     $(this).addClass('unchecked-acs');
                 });*/
-                if(!$target.closest('.dm-part').length && 
+                if(!$target.closest('.dm-part').length &&
                 $('.dm-part').is(":visible")) {
-                    
+
                     $.each($(".custom-control-input"), function(){
                         //console.log($('.custom-control-input').hasClass('unchecked-acs'))
                         if($(this).hasClass('unchecked-acs'))
@@ -1339,14 +1345,14 @@ console.log("@##@####", key)
                         $(this).prop('checked', true);
                     });
 
-                    //$(".custom-control-input").prop('checked', false);  
+                    //$(".custom-control-input").prop('checked', false);
                     //alert('seller_filter==>'+seller_filter);
                     /*seller_filter.forEach((ele,index)=>{
                         $(".custom-control-input").each((index)=>{
                             alert($(this).attr('value'));
                         })
                     });*/
-                }        
+                }
             });
 
 
@@ -1358,7 +1364,7 @@ console.log("@##@####", key)
                 jQuery(".dm-part").slideUp();
             });
 
-               
+
             });
 
             $(".index-address-type ul li").click(function (){
@@ -1366,7 +1372,7 @@ console.log("@##@####", key)
                     if($(this).hasClass('statehightLight')){
                         $(this).removeClass("statehightLight")
                     }
-                
+
                 })
                 $(this).addClass("statehightLight")
                 var a = $(this).text();
@@ -1400,7 +1406,7 @@ console.log("@##@####", key)
                 e.stopPropagation();
                 var container = $(".address ");
                 var stateContainer = $(".ser-state");
-              
+
                 if (container.has(e.target).length === 0) {
                     $('.address-type').hide();
                 }
@@ -1415,4 +1421,4 @@ console.log("@##@####", key)
 
 
 
-</body></html>  
+</body></html>
