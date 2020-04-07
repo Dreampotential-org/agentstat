@@ -202,6 +202,15 @@ function redirectResults(results) {
       });
     }
     // console.log(map_initial);
+    min_price = $('input[name=min-price]').val()
+    if (min_price) {
+      new_params.push('min_price='+min_price)
+    }
+
+    max_price = $('input[name=max-price]').val()
+    if (max_price) {
+      new_params.push('max_price='+max_price);
+    }
 
     search = new_params.join('&');
     window.location = '/agents/?' + search
@@ -300,7 +309,7 @@ function get_page_initial_results() {
 
     zipcode = '';
     if (urlParams.get('zipcode')) {
-      city = urlParams.get('zipcode');
+      zipcode = urlParams.get('zipcode');
     }
 
     if (urlParams.get('home_type')) {
@@ -331,7 +340,7 @@ function get_page_initial_results() {
     }
 
     localStorage.setItem('search_address', address);
-    localStorage.setItem('search_city', params['city']);
+    localStorage.setItem('search_city', city);
     localStorage.setItem('search_agent_name', agent_name);
     localStorage.setItem('search_state', params['state']);
     localStorage.setItem('search_home_type', home_type);
@@ -508,14 +517,20 @@ localStorage.setItem('search_lng', '');
 
 
 $(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search)
     address = localStorage.search_address;
+    city = urlParams.get('city');
+
     if (address) {
-      $('.ser').val(address);
-      $('.ser').addClass('maps_input');
+      $('.search_address').val(address);
+      $('.search_address').addClass('maps_input');
 
       $('.ser-map').val(address);
       $('.ser-map').addClass('maps_input_maps');
+    } else if (city) {
+      $('.search_city').val(city);
     }
+
 });
 
 
