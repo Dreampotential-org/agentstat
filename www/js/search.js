@@ -21,18 +21,6 @@ function populate_city_search_menu() {
     });
 }
 
-
-// function show_loading_screen() {
-//     swal({
-//         title: "Crunching Numbers!",
-//         text: "Hang tight while we crunch the data to find your exact match",
-//         icon: "info",
-//         buttons: false,
-//         closeOnEsc: false,
-//         closeOnClickOutside: false,
-//     });
-// }
-
 function show_loading_screen() {
     swal({
         title: "Crunching Numbers!",
@@ -149,13 +137,10 @@ function get_profile_link(agent_id) {
     const state = urlParams.get('state');
 
     if (city == "null" || city == null) {
-        console.log("CITY IS!!!" + typeof(city))
     }
     else {
         filters += '&city=' + city;
     }
-
-    console.log(filters);
     return "/page-three.html" + filters;
 }
 
@@ -206,10 +191,10 @@ function load_search_results() {
 
     }
 
-
     console.log("API Request: " + api_call_url);
 
     var settings = get_settings(api_call_url, 'GET');
+    console.log(settings['url'])
     settings['headers'] = null;
 
     show_loading_screen();
