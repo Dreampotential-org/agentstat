@@ -156,10 +156,14 @@ function load_search_results() {
     var city_search = urlParams.get('city_search');
     var zipcode = urlParams.get('zipcode');
     var agent_name=urlParams.get('agent_name');
+    var page_num = urlParams.get('page_num', '1');
 
     if (!(state)) state = "WA"
 
-    filters.push('page=1');
+    if (page_num == null) {
+        page_num = '1'
+    }
+    filters.push('page=' + page_num);
 
     if(state === null || state === 'null') {
       state = 'WA';
@@ -202,7 +206,7 @@ function load_search_results() {
 
       data = JSON.parse(response);
       results = data['results'];
-
+      pagination_footer(data['total'])
 
       $.each(results, function(k, v) {
         agent_ids_order.push(v['agent_id']);
@@ -596,6 +600,45 @@ function init_search_events() {
             $('#msg-' + selected_agent_id).css("display", "block");
             console.log(err);
         });
+    });
+}
+
+function insertParam(key, value)
+{
+    key = encodeURI(key); value = encodeURI(value);
+    var kvp = document.location.search.substr(1).split('&');
+    var i=kvp.length; var x; while(i--)
+    {
+        x = kvp[i].split('=');
+
+        if (x[0]==key)
+        {
+            x[1] = value;
+            kvp[i] = x.join('=');
+            break;
+        }
+    }
+
+    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+    //this will reload the page, it's likely better to store this until finished
+    document.location.search = kvp.join('&');
+}
+
+function pagination_footer(total) {
+    // init bootpag
+    const urlParams = new URLSearchParams(window.location.search);
+    var page_num = urlParams.get('page_num', '1')
+
+    if (page_num == null) {
+        page_num = '1'
+    }
+
+    $('#page-selection').bootpag({
+        total: Math.ceil(total/10),
+        page: page_num,
+        maxVisible: 8,
+    }).on("page", function(event, num){
+        insertParam('page_num', num)
     });
 }
 
