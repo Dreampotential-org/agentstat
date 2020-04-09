@@ -214,8 +214,6 @@ function redirectResults(results) {
 
     search_params_arr = search_params.split('&')
     $.each(search_params_arr, function(k, v){
-      console.log(v);
-      console.log(k);
       if (v.indexOf('agents=') > 0) {
         new_params.push(v);
       }
