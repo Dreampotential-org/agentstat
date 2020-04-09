@@ -212,10 +212,19 @@ function redirectResults(results) {
       new_params.push('max_price='+max_price);
     }
 
+    search_params_arr = search_params.split('&')
+    $.each(search_params_arr, function(k, v){
+      console.log(v);
+      console.log(k);
+      if (v.indexOf('agents=') > 0) {
+        new_params.push(v);
+      }
+    });
+
     search = new_params.join('&');
-    window.location = '/agents/?' + search
-    // val = '/agents/?' + search;
-    // console.log(val);
+    new_url = '/agents/?' + search;
+
+    window.location = new_url;
 
     return false;
 

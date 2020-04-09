@@ -374,29 +374,17 @@ function set_pined_load() {
 
 function set_pined_agent_ids() {
     var pined_agents  = $(".toc-two .toc-two-left-two-heading-right")
-    // console.log(pined_agents)
     var selected_agent_ids = ''
+
+
     for(var pined_agent of pined_agents) {
         if ($(pined_agent).hasClass("toc-two-left-two-heading-right-next")) {
             continue
         }
-        selected_agent_ids += $(pined_agent).closest(
-            ".toc-two").attr("agent_id") + ","
+        selected_agent_ids += $(pined_agent).closest(".toc-two").attr("agent_id") + ","
     }
 
-
-//MYCODE
-
-    var pined_agents  = $(".toc-two .switch_on")
-    // console.log(pined_agents)
-    var selected_agent_ids = ''
-    for(var pined_agent of pined_agents) {
-        if ($(pined_agent).hasClass("switch")) {
-            continue
-        }
-        selected_agent_ids += $(pined_agent).closest(
-            ".toc-two").attr("agent_id") + ","
-    }
+    var pined_agents  = $(".toc-two .switch_on");
 
     $("input[type='checkbox']").change(function() {
         if(this.checked) {
@@ -413,7 +401,14 @@ function set_pined_agent_ids() {
     selected_agent_ids = [...new Set(selected_agent_ids_arr)]
 
     url.searchParams.set("agents", selected_agent_ids.join(','));
+
     $("#agents").val(url.searchParams.get("agents"))
+
+    selected_agent_ids = url.searchParams.get('agents').split(',');
+    $.each(selected_agent_ids, function(k, v) {
+      $('#toggler-'+v).addClass('toggle on');
+    });
+
     window.history.pushState("", "", url)
 }
 
@@ -513,8 +508,6 @@ function init_search_events() {
         $(this).toggleClass('on');
     });
 
-
-       //MYCODE
 
     $(document).on('click', '.switch_on', function() {
         $(this).addClass("switch");

@@ -19,25 +19,10 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
                     <!--<span>SCORE | [[score]]</span>-->
                         
                   </td>
-                 
-                  <!-- <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
-                    <div class="custom_pin"> <a href="#">
-                    <i class="fas fa-thumbtack custom_radio"  style="color:#CC9D04" aria-hidden="true"></i></a>
-                    <p>Pin to top</p></div> 
-                  </td>-->
-                  <!-- <td colspan="2" class=" toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
-                  <label style="margin-bottom: 33px; "> 
-                      <input type="checkbox" >
-                      <span class="toggler slider round"></span>
-                      <a href="#" class="toggler slider round">&nbsp;</a>
-                  </label>
-                    <p>Pin to top</p>
-                  </td> -->
 
                   <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
                     <div class="custom_pin"> 
-                      <!--<a href="#"><i class="fas fa-toggle-on custom_radio  "  style="color:#CC9D04" aria-hidden="true"></i></a>-->
-                      <a href="#" class="toggler ">&nbsp;</a>
+                      <a href="#" id="toggler-[[agent_id]]"  class="toggler ">&nbsp;</a>
                       <p>Pin to top</p>
                     </div> 
                   </td>
