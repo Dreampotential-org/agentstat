@@ -683,58 +683,6 @@
             })
 
 
-            // $(".index-address-type ul li").click(function (){
-		    // 	var a = $(this).val();
-            //     alert(a)
-            //     if(a=='Agent Name'){
-            //         $('#y-type').hide();
-            //         $('.price').hide();
-
-            //         $('.ser-state').show();
-
-            //     }else{
-            //         $('#y-type').show();
-            //         $('.price').show();
-            //         $('.ser-state').hide();
-            //     }
-            //     $(this).find('.highlight').removeClass('highlight')
-            //     $(this).find('option:contains(' + $(this).val() + ')').addClass('highlight')
-            // });
-            //$('.ser-state-map').click(function(){
-                // var api_call_url = 'https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json';
-
-                // $.getJSON(api_call_url, {
-                //     tagmode: "any",
-                //     format: "json"
-                // }).done(function (response) {
-                //     data = /*JSON.parse*/(response);
-                //     console.log("state",data);
-                //     var statesData=data;
-                //     console.log("statessssss",statesData);
-                //     var $state_options = $("#statesData");
-                //     console.log("$state_options",$state_options);
-                //     for (var key in statesData){
-                //         console.log(key, statesData[key]);
-                //         $('#statesData').append("<li class='custom_radio'>"+key+"</li>");
-                //     $('#allstate').append("<li class='custom_radio'>"+key+"</li>")
-
-                //     }
-                // })
-
-                settings = 'https://app.agentstat.com/api/states';
-                settings['headers'] = {};
-
-                $.ajax(settings).done(function (response) {
-                    var states =(response);
-                    $.each(states, function(k, v) {
-                        $('#allstate').append("<li class='custom_radio "+ k + "-state" + "'>"+k+"</li>");
-                        $('#statesData').append("<li class='custom_radio'>"+k+"</li>");
-                    });
-                }).fail(function(err) {
-                    show_error(err);
-                });
-            //})
-
 
         </script>
     </body>
