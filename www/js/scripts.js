@@ -33,8 +33,10 @@
 		});
 
 		$(".ser-state-id").click (function (){
-			$(".ser-state-type").slideToggle();
+      target = $(this).attr('target');
+      $("."+target).slideToggle();
 		});
+
 		$("#ser-state-map-id").click (function (){
 			$(".ser-state-map-type").slideToggle();
 		});
