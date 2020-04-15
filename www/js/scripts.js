@@ -23,11 +23,16 @@
 		$("#y-address").click (function (){
 			$(".address-type").slideToggle();
 		});
+
+		$("#y-address-bottom").click (function (){
+			$(".address-type-bottom").slideToggle();
+		});
+
 		$("#y-address-map").click (function (){
 			$(".address-map-type").slideToggle();
 		});
 
-		$("#ser-state-id").click (function (){
+		$(".ser-state-id").click (function (){
 			$(".ser-state-type").slideToggle();
 		});
 		$("#ser-state-map-id").click (function (){

@@ -275,13 +275,18 @@ function init_maps() {
 
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.addListener('place_changed', fillIn);
-    if(page_input != null){
-      var autocomplete1 = new google.maps.places.Autocomplete(page_input, options);
-      autocomplete1.addListener('place_changed', fillIn1);
-    }else if(input_map != null){
-      var autocomplete_maps = new google.maps.places.Autocomplete(input_map, options);
-      autocomplete_maps.addListener('place_changed', fillIn);
+
+    var inputs = document.getElementsByClassName('maps_input')
+    if (inputs.length > 1) {
+      var input_bottom = inputs[1];
+      var input_map_bottom = document.getElementsByClassName('maps_input_maps')[1];
+
+
+      var autocomplete_bottom = new google.maps.places.Autocomplete(input_bottom, options);
+      autocomplete_bottom.addListener('place_changed', fillIn);
+
     }
+
 }
 
 function get_page_initial_results() {
@@ -334,13 +339,13 @@ function get_page_initial_results() {
 
     if (!(address)) {
       if(agent_name) {
-        $('#dropdownaddress>ul>li:contains("Agent Name")').click();
+        $('.dropdownaddress>ul>li:contains("Agent Name")').click();
       } else {
         if(city) {
-          $('#dropdownaddress>ul>li:contains("City")').click();
+          $('.dropdownaddress>ul>li:contains("City")').click();
         } else {
           if (zipcode) {
-            $('#dropdownaddress>ul>li:contains("ZipCode")').click();
+            $('.dropdownaddress>ul>li:contains("ZipCode")').click();
           }
         }
       }
@@ -464,6 +469,7 @@ $(document).ready(function () {
 
 // on error tell us about it.
 window.onerror = function (msg, url, lineNo, columnNo, error) {
+    console.log(msg);
     var string = msg.toLowerCase();
     var substring = "script error";
     var url = 'https://hooks.slack.com/services/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'
@@ -547,7 +553,8 @@ $(document).on('click', '#dropdowntypes>ul>li', function() {
 });
 
 
-$(document).on('click', '#dropdownaddress>ul>li', function() {
+$(document).on('click', '.dropdownaddress>ul>li', function() {
+  console.log('dropdown click');
   localStorage.current_search_type = $(this).text();
   search_key = localStorage.current_search_type.toLowerCase();
 
@@ -558,12 +565,14 @@ $(document).on('click', '#dropdownaddress>ul>li', function() {
   search_key = 'search_' + search_key.split(' ').join('_');
   search_key_map = 'search_' + search_key.split(' ').join('_');
 
+  console.log(search_key);
+  console.log(search_key_map);
+
   if (search_key === 'search_agent_name') {
     if (localStorage.search_state) {
-      $('#ser-state-id').html(localStorage.search_state);
+      $('.ser-state-id').html(localStorage.search_state);
     }
     // all state
-    console.log('select state');
     search_city = localStorage.getItem('search_city');
     console.log(search_city);
 
@@ -583,12 +592,19 @@ $(document).on('click', '#dropdownaddress>ul>li', function() {
   $('.' + search_key).css('display', 'block');
   $('.' + search_key).attr('autocomplete', 'nop');
 
+  if (search_key === 'search_city') {
+    $('.' + search_key + '_bottom').css('display', 'block');
+    $('.' + search_key + '_bottom').attr('autocomplete', 'nop');
+  }
+
   $('.ser').val(localStorage.getItem(search_key));
   $('.ser-map').val(localStorage.getItem(search_key));
 
+  $(".address-type-bottom").slideToggle();
+
 });
 
-$(document).on('click', '#allstate>li', function() {
+$(document).on('click', '.allstate>li', function() {
   localStorage.setItem('search_state', $(this).text());
 });
 
@@ -606,10 +622,15 @@ $('.ser-map').change(function() {
   localStorage.setItem(search_key_map, $(this).val());
 });
 
-$(".search_city").autocomplete({
+$(".search_city, .search_city_bottom").autocomplete({
     source: function (request, response) {
 
-        var city_keyword = $('.search_city').val();
+        if ($(this.element).hasClass('search_city_bottom')) {
+          var city_keyword = $('.search_city_bottom').val();
+        } else {
+          var city_keyword = $('.search_city').val();
+        }
+        console.log(city_keyword);
         var api_call_url = 'city-search/' + city_keyword;
         var settings = get_settings(api_call_url, 'GET');
         var url = settings['url'];

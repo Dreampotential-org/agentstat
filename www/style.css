@@ -544,6 +544,7 @@
  
  .check-type,
  .address-type,
+ .address-type-bottom,
  .address-map-type,
  .ser-state-map-type,
  .ser-state-type,
@@ -680,7 +681,7 @@
      top: 42px;
      z-index: 1200;
  }
- .address-type, .ser-state-type{
+  .address-type-bottom, .address-type, .ser-state-type{
      position: absolute;
      width: 146px;
      background: #FFFFFF;
