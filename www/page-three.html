@@ -524,16 +524,16 @@
                                                             <div class="pth-content-number">
                                                                 <img class="home-img" src="img/home.png">
                                                             </div>
-                                                            <p>Lorem ipsum dolor</p>
-                                                            <h6>Lorem ipsum dolor</h6>
+                                                            <p>Sold listings</p>
+                                                            <h6 class="sold_listings"></h6>
                                                         </div>
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
                                                                 <img class="bul-img" src="img/bul.png" alt="images not found">
                                                             </div>
-                                                            <p>Lorem ipsum dolor</p>
-                                                            <h6>Lorem ipsum dolor</h6>
+                                                            <p class="score">Rank</p>
+                                                            <h6>Rank</h6>
                                                         </div>
                                                     </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
                                 </div>
@@ -614,16 +614,16 @@
                                                             <div class="pth-content-number">
                                                                 <img class="home-img" src="img/home.png">
                                                             </div>
-                                                            <p>Lorem ipsum dolor</p>
-                                                            <h6>Lorem ipsum dolor</h6>
+                                                            <p class="overall_sold_listings">Sold listings</p>
+                                                            <h6>Sold Listings</h6>
                                                         </div>
                                                     </div></div><div class="owl-item active" style="width: 177.6px; margin-right: 20px;"><div class="item">
                                                         <div class="pth-content-circel text-center">
                                                             <div class="pth-content-number">
                                                                 <img class="bul-img" src="img/bul.png" alt="images not found">
                                                             </div>
-                                                            <p>Lorem ipsum dolor</p>
-                                                            <h6>Lorem ipsum dolor</h6>
+                                                            <p class="overall_score">Rank</p>
+                                                            <h6>Rank</h6>
                                                         </div>
                                                     </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
                                 </div>
@@ -678,8 +678,9 @@
                     <style>
                         table.table tr td { font-size: .9em; }
                     </style>
-                    <table   class=" table-responsive text-center" style="width: 108%;">
-                        <tr id="transations" class="table-heading">
+                    <table id="datatable" class="table-responsive text-center" style="width: 108%;">
+                      <thead>
+                        <tr class="table-heading">
                             <td>Status</td>
                             <td>List Price</td>
                             <td>Sold Price</td>
@@ -689,8 +690,11 @@
                             <td>Built</td>
                             <td>City</td>
                             <td>Home Type</td>
-                            <th style="background: white;border: none;">Notes</th>
+                            <td>Notes</td>
                         </tr>
+                      </thead>
+                      <tbody id="transations">
+                      </tbody>
                     </table>
                     
                     <div id="pagination-here">
@@ -877,9 +881,13 @@
     <script src="/js/conf.js"></script>
     <script src="/js/agent-detail.js"></script>
     <script src="/js/main.js"></script>
-    <!-- <script src="./js/jquery.dataTables.min.js"></script> -->
+    <!-- <script src="/js/jquery.dataTables.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="./js/jquery.bootpag.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
     <script>
         $(document).ready(function(){
                $(".state-value").click(function(){
@@ -980,7 +988,9 @@
                 if (stateContainer.has(e.target).length === 0) {
                     $('.ser-state-type').hide();
                 }
-            })
+            });
+
+      $('#datatable').dataTable();
       </script>
 
     <!-- Scroll-Top button -->
