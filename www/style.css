@@ -5098,3 +5098,19 @@
          left: 60px !important;
      }
  }
+
+ .search_city {
+     width: 100% !important;
+ }
+
+ .search_address {
+     width: 100% !important;
+ }
+
+ .search_agent_name {
+     width: 100% !important;
+ }
+
+ .search_zipcode {
+     width: 100% !important;
+ }
