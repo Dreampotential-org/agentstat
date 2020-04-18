@@ -11,7 +11,7 @@ var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
               <tr>
                   <td colspan="3"  class="title ">
                   <a  href=[[agent_profile_link]] target="_blank">
-                  <h4 >[[agent_name]] <span class="custom_score hide_div"> | 
+                  <h4 style="text-transform:capitalize;" >[[agent_name]] <span class="custom_score hide_div"> | 
                   [[brokerage_info]]</span> 
                   <p class="custom_score show_div">[[brokerage_info]]</p>
                   </a></h4> 

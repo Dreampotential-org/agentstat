@@ -211,8 +211,11 @@ function load_search_results() {
       $.each(results, function(k, v) {
         agent_ids_order.push(v['agent_id']);
         all_agents.push(v);
-        brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0];
+        brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0].toLowerCase();
         brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
+
+        v['agent_full_name'] = v['agent_full_name'].toLowerCase();
+        // brokerage_info = brokerage_info.toLowerCase();
 
         item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[brokerage_info]]').join(brokerage_info);

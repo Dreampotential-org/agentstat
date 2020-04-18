@@ -80,15 +80,15 @@ function load_agent(ignore_city = true) {
             $(this).html(data['full_name']);
         });
 
+        brokerage_info = data['brokerage_info'].split(/\r?\n/)[0];
+
+        $('.brokerage_info').html(brokerage_info.toLowerCase());
         $.each($('.agent_namebroker_name'), function () {
-            brokerage_info = data['brokerage_info'].split(/\r?\n/)[0];
             brokerage_info += ' ' + data['city'];
 
             $(this).html(
-              data['full_name'] +' ' +
-              `<span style="font-size: 13px;color: #007bff;"> </span>
-               <!-- <span style="font-size: 13px; color: #007bff;">` + brokerage_info + `</span>-->
-              `
+              data['full_name'].toLowerCase() +' ' +
+              `<span style="font-size: 13px;color: #007bff;"> </span>`
             );
         });
         // $.each($('.agent_name_loc'), function () {
