@@ -1,4 +1,5 @@
 var global_results = null;
+
 function fillIn() {
     var place = this.getPlace();
     var addr = place.formatted_address
@@ -15,6 +16,7 @@ function fillIn() {
     // load_agent(true);
     // redirectResults(results)
 }
+
 function fillIn1() {
   var place = this.getPlace();
   var addr = place.formatted_address
@@ -373,11 +375,16 @@ function init() {
 
     $("body").delegate(".serch_btn", "click", function(e) {
         redirectResults(global_results)
-    })
+    });
 
-    // $("body").delegate("#search_button", "click", function(e) {
-    //     redirectResults(global_results)
-    // })
+    $('.ser').keydown(function(e){
+        if (e.keyCode == 13) {
+          search_key = localStorage.current_search_type.toLowerCase();
+          search_key = 'search_' + search_key.split(' ').join('_');
+          localStorage.setItem(search_key, $(this).val());
+          redirectResults(global_results);
+        }
+    });
 
     $("body").delegate("#go", "click", function(e) {
       $("#agent_name_or_id").val($("#search_input_agent").val())
@@ -388,6 +395,7 @@ function init() {
       localStorage.clear()
       window.location = '/'
     })
+
     $("body").delegate(".ser", "keyup", function(e) {
       if (e.keyCode == 13) {
         e.preventDefault();
@@ -395,28 +403,6 @@ function init() {
         $('form#filterForm').submit();
       }
     });
-
-  $("body").delegate(".ser", "keyup", function(e) {
-      $(".pac-container").css('z-index', 99999)
-      if (e.which == 13 && $('.pac-container:visible').length) return false;
-      if (e.keyCode == 13) {
-      }
-  });
-
-  $("body").delegate(".ser-map", "keyup", function(e) {
-    if (e.keyCode == 13) {
-      e.preventDefault();
-      $("#agent_name_or_id").val($("#search_input_agent").val());
-      $('form#filterForm').submit();
-    }
-  });
-
-  $("body").delegate(".ser-map", "keyup", function(e) {
-    $(".pac-container").css('z-index', 99999)
-    if (e.which == 13 && $('.pac-container:visible').length) return false;
-    if (e.keyCode == 13) {
-    }
-  });
 
 }
 
@@ -547,7 +533,7 @@ $(document).ready(function () {
 });
 
 
-$(document).on('click', '#dropdowntypes>ul>li', function() {
+$(document).on('click', '.dropdowntypes>ul>li', function() {
   // console.log($(this).text());
   localStorage.setItem('search_home_type', $(this).text().trim());
 });
