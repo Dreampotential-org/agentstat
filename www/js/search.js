@@ -212,7 +212,7 @@ function load_search_results() {
         agent_ids_order.push(v['agent_id']);
         all_agents.push(v);
         brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0].toLowerCase();
-        brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
+        // brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
 
         v['agent_full_name'] = v['agent_full_name'].toLowerCase();
         // brokerage_info = brokerage_info.toLowerCase();
