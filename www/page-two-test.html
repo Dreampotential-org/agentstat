@@ -80,8 +80,8 @@
                                   </div>
 
                                   <div class="ser-state " style="display: none;">
-                                    <p class="ser-state-id state-value">State <i class="fas fa-caret-down"></i></p>
-                                    <div class="ser-state-type">
+                                    <p class="ser-state-id state-value" target="ser-state-first">State <i class="fas fa-caret-down"></i></p>
+                                    <div class="ser-state-type ser-state-first">
                                         <ul class="allstate scrollState">
                                         </ul>
                                     </div>
@@ -1308,12 +1308,11 @@ console.log("@##@####", key)
 
             $(document).click(function(event) {
                 $(".state-value").click(function(){
-                   //alert($('#allstate li').length);
-                   if(('#allstate li').length >0){
-                    $('#allstate').addClass('scrollState');
+                   if(('.allstate li').length >0){
+                    $('.allstate').addClass('scrollState');
                    }
-                   $('#allstate li').click(function(){
-                        $('#allstate li').each(function(){
+                   $('.allstate li').click(function(){
+                        $('.allstate li').each(function(){
                         if(($(this)).hasClass('statehightLight')){
                             $(this).removeClass('statehightLight')
                         }
@@ -1397,8 +1396,8 @@ console.log("@##@####", key)
                 $.ajax(settings).done(function (response) {
                     var states =(response);
                     $.each(states, function(k, v) {
-                        $('#allstate').append("<li class='custom_radio'>"+k+"</li>");
-                        $('#statesData').append("<li class='custom_radio'>"+k+"</li>");
+                      $('.allstate').append("<li class='custom_radio "+ k + "-state" + "'>"+k+"</li>");
+                      $('#statesData').append("<li class='custom_radio'>"+k+"</li>");
                     });
                 }).fail(function(err) {
                     show_error(err);
