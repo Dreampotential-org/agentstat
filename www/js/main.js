@@ -214,6 +214,12 @@ function redirectResults(results) {
       new_params.push('max_price='+max_price);
     }
 
+    $.each(params, function(k, v) {
+      if (v.split('=')[0] == 'agents') {
+        new_params.push(v);
+      }
+    });
+
     search_params_arr = search_params.split('&')
     $.each(search_params_arr, function(k, v){
       if (v.indexOf('agents=') > 0) {
@@ -593,6 +599,7 @@ $(document).on('click', '.dropdownaddress>ul>li', function() {
 $(document).on('click', '.allstate>li', function() {
   localStorage.setItem('search_state', $(this).text());
 });
+
 
 $('.ser').change(function() {
   search_key = localStorage.current_search_type.toLowerCase();
