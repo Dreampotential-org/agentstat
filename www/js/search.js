@@ -515,8 +515,7 @@ function init_search_events() {
     $(document).on('click', '.switch_on', function() {
         $(this).addClass("switch");
         $(this).find("p").text("Pin to top")
-        set_pined_agent_ids()
-
+        set_pined_agent_ids();
         $(this).closest(".toc-two").detach().appendTo("#page-section")
 
     })

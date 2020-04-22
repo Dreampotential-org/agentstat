@@ -17,8 +17,9 @@ function login() {
     window.location = '/form.html';
   }).fail(function(err) {
     // alert('Got err');
-    $('.msg').html(err['responseText']);
-    $('.msg').css("display", "block");
+    console.log(err);
+    $('.msg-login').html(err['responseText']);
+    $('.msg-login').css("display", "block");
     console.log(err);
   });
 }
@@ -26,6 +27,19 @@ function login() {
 $(document).on('change click', '#login-btn', function() {
   login();
 });
+
+$('#login-btn').keydown(function(e){
+    if (e.keyCode == 13) {
+      login();
+      return false;
+    }
+});
+
+$('#continuebtn1').keydown(function(e){
+  if (e.keyCode == 13) {
+    return false;
+  }
+})
 
 $(document).on('change click', '#forgot-password', function() {
   email = $('#email').val();
@@ -67,5 +81,5 @@ $(document).ready(function() {
   if(agent_id) {
     $('[href="#nav-profile"]').tab('show');
     $("#category").val("secondoption");
-  } 
+  }
 });

@@ -215,15 +215,14 @@
                             <div class="input-group">
                                 <input type="password" id="password" class="form-control email_input"
                                     style="border-radius: 0px;" name="password" placeholder="Password">
-
-                            </div>
-
+                            <div>
                         </div>
 
                     </div>
                     <div class="form-group text-center">
                         <button type="button" id="login-btn" class="btn login-btn buttonLogin">Log in</button>
                     </div>
+                    <div class="msg-login alert alert-danger" style="display: none">TEST</div>
                     <div class="clearfix text-center">
                         <a href="#" class="pull-right" id="forgot-password">Forgot Password?</a>
                     </div>
@@ -654,10 +653,10 @@
         })
 
        
-            $('#continuebtn1').click(function(e){
-					e.preventDefault();
-                         var email =$('#email1').val();
-                         var password=$('#password1').val();
+        $('#continuebtn1').click(function(e){
+            e.preventDefault();
+            var email =$('#email1').val();
+            var password=$('#password1').val();
 
 						if ($('#email1').val() == '' || password.length ==0  ) {
                             // alert("Please enter fill all required fields");
@@ -671,7 +670,7 @@
                             // alert("Please enter valid password");
                             $('#idPassword').html("Please enter valid password").delay(5000).fadeOut();
 						}
-						else if (($("input[name*='checkbox']:checked").length)<=0) {
+						else if ($("input[name='member_type[]']").is(":checked")) {
                             // alert("You must check at least 1 box");
                             $('#idcheck').html("You must check at least 1 box").delay(5000).fadeOut();
 
@@ -739,6 +738,7 @@
             // $('#category').change(function(){
             //})
         })
+
         $('#continue').click(function () {
             console.log($("input.select:checked").length)
             // $('#category').change(function(){
@@ -757,54 +757,12 @@
 
 
 
-
-
         $(document).ready(function () {
 
             $('#btn-fb').on('click', function () {
                 //checkLoginState();
                 FB.login(statusChangeCallback, {scope: 'email,public_profile', return_scopes: true});
             })
-
-
-            // $('#myform').validate({
-
-
-            //     // initialize the plugin
-            //     rules: {
-            //         email: {
-            //             required: true,
-
-            //         },
-            //         password: {
-            //             required: true,
-
-            //         },
-
-            //         'checkbox[]': {
-            //             required: true,
-            //             minlength: 1
-            //         },
-
-
-            //     },
-            //     messages: {
-            //         'checkbox[]': "* You must check at least one checkbox.",
-
-            //     },
-
-            //     // submitHandler: function (form) {
-            //     //     // console.log( $("input.select:checked").length)
-            //     //     // if (($("input[name*='test']:checked").length)<=0) {
-            //     //     //     alert("You must check at least 1 box");
-            //     //     // }
-            //     //     // return true; // for demo
-            //     //     alert('valid form submitted'); // for demo
-            //     //     return false; // for demo
-            //     // },
-
-
-            // });
 
         });
         function onLoadGoogleCallback(){
