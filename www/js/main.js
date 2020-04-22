@@ -15,6 +15,8 @@ function fillIn() {
     // $('#city-tab').text(results.city);
     // load_agent(true);
     // redirectResults(results)
+    $(".maps_input").focus();
+
 }
 
 function fillIn1() {
