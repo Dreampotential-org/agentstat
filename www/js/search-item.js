@@ -1,4 +1,4 @@
-var search_item_min = `<div class="toc-two" agent_id=[[agent_id]]>
+var search_item_min = `<div class="toc-two" data-sort="[[index]]" agent_id=[[agent_id]]>
   <div class="row row_div" style="padding-bottom:20px">
     <div class="col-lg-3 col-md-3">
         [[agent_picture]]

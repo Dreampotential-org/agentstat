@@ -219,6 +219,7 @@ function load_search_results() {
 
         item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[brokerage_info]]').join(brokerage_info);
+        item = item.split('[[index]]').join(k);
 
         item = item.split('[[agent_profile_link]]').join(
             get_profile_link(v['agent_id']));
@@ -495,15 +496,18 @@ function init_search_events() {
 
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
-        //$(this).find('i').addClass('fa-toggle-off')
-        //$(this).find('i').toggleClass('fa-toggle-on fa-toggle-off')
-        $(this).find("p").text("Pin to top")
-        console.log("pin to top")
+        $(this).find("p").text("Pin to top");
+
         //$(this).find("input").prop( "checked", false )
         set_pined_agent_ids()
 
-        $(this).closest(".toc-two").detach().appendTo("#page-section")
+        sort_val = $(this).closest(".toc-two").attr('data-sort');
+        sort_val = sort_val - 1;
+        if(sort_val < 0) {
+          sort_val = 0;
+        }
 
+        $(this).closest(".toc-two").detach().insertAfter("div[data-sort="+sort_val+"]");
     })
 
 
@@ -512,31 +516,13 @@ function init_search_events() {
     });
 
 
-    $(document).on('click', '.switch_on', function() {
-        $(this).addClass("switch");
-        $(this).find("p").text("Pin to top")
-        set_pined_agent_ids();
-        $(this).closest(".toc-two").detach().appendTo("#page-section")
-
-    })
-
-    $(document).on('click', '.switch', function() {
-        $(this).removeClass("switch");
-        $(this).find("p").text("Unpin")
-        set_pined_agent_ids()
-
-        $(this).closest(".toc-two").detach().prependTo("#page-section")
-    })
-    //end my code
-
+    // pin to top
     $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
         $(this).removeClass("toc-two-left-two-heading-right-next");
         //$(this).find('i').toggleClass('fa-toggle-off fa-toggle-on');
-        $(this).find("p").text("Unpin")
-        console.log("Unpin")
+        $(this).find("p").text("Unpin");
         //$(this).find("input").prop( "checked", true )
         set_pined_agent_ids()
-
         $(this).closest(".toc-two").detach().prependTo("#page-section")
     })
 
