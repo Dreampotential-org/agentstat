@@ -318,8 +318,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-12 col-md-12 col-sm-9 city_div">
-                                <select id='category' name="category" placeholder="Select your category"
-                                    class="form-control d-inline-block custom_city w-50 float-left">
+                                <select id='category' name="category" disabled placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
                                     <option value=''>Select your category</option>
                                     <option value='secondoption'>Real Estate Agent/ Broker</option>
                                     <option value='Mortgage Lender'>Mortgage Lender</option>
@@ -663,25 +662,26 @@
                             $('#idAll').html("Please enter fill all required fields").delay(5000).fadeOut();
 						}
 						else if (!ValidateEmail($('#email1').val())) {
-                            // alert("Invalid email address.");
-                            $('#idEmail').html("Invalid email address.").delay(5000).fadeOut();
+                // alert("Invalid email address.");
+                $('#idEmail').html("Invalid email address.").delay(5000).fadeOut();
 						}
 						else if( password.length < 8){
-                            // alert("Please enter valid password");
-                            $('#idPassword').html("Please enter valid password").delay(5000).fadeOut();
+                // alert("Please enter valid password");
+                $('#idPassword').html("Please enter valid password").delay(5000).fadeOut();
+                return false;
 						}
-						else if ($("input[name='member_type[]']").is(":checked")) {
+						else if ($("input[name='member_type[]']").is(":checked") == false) {
                             // alert("You must check at least 1 box");
                             $('#idcheck').html("You must check at least 1 box").delay(5000).fadeOut();
 
-                        }else if($('#category').val() == ''){
+                        }else if($('input[name="member_type[]"]:checked').val() == 'Industry Professional' && $('#category').val() == ''){
                             // alert("You must select the value");
                             $('#idSelect').html("You must select the value").delay(5000).fadeOut();
                         }
 						else {
-							alert("Form Submitted Successfuly!");
-							$('#email1').val('');
-							$('#password1').val('');
+							// alert("Form Submitted Successfuly!");
+							// $('#email1').val('');
+							// $('#password1').val('');
 							$("input[name*='checkbox']:checked").each(function(){
 								$(this).prop("checked", false);
 							});

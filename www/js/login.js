@@ -24,8 +24,23 @@ function login() {
   });
 }
 
+$(document).on('change click', 'input:radio', function() {
+  // console.log($(this).val());
+  if($(this).val() == 'Industry Professional') {
+    $("#category").prop("disabled", false);
+  } else {
+    $("#category").prop("disabled", true);
+  }
+})
+
 $(document).on('change click', '#login-btn', function() {
   login();
+});
+
+$('#continuebtn1').keydown(function(e) {
+  if (e.keyCode == 13) {
+    $('#continuebtn1').trigger('click');
+  }
 });
 
 $('#login-btn').keydown(function(e){
