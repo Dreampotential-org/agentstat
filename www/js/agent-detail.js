@@ -144,10 +144,23 @@ function load_agent(ignore_city = true) {
         $(".alist").remove();
         index = 1;
 
+        if (data['reviews'].length > 0) {
+          $.each(data['reviews'], function(k, v) {
+            console.log(v);
+            $('#reviews').append(`
+                <div class="pth-more-right-one pth-more-right-first">
+                    <h6>` + v['full_name'] +`</h6>
+                    <p>` + v['review'] + `</p>
+                </div>
+              `);
+          });
+        }
+
         $.each(data[agent_list_key], function (k, v) {
             // console.log("HERE",data['agent_lists']['description']);
             new_point = [v['address_text'], v['latitude'], v['longitude'], index++]
             locations.push(new_point);
+
 
             if(data['agent_lists']['description'] == undefined){
 
