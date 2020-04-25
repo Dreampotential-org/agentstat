@@ -20,7 +20,7 @@ function display_profile(profile) {
   $('#last_name').val(profile.last_name);
   $('#email').val(profile.email);
   $('#screen_name').val(profile.screen_name);
-  $('#profile_slug').text(profile.screen_name);
+  $('#profile_slug').text(profile.state + '/' + profile.screen_name);
   $('#brokerage_name').val(profile.brokerage_name);
   $('#brokerage_address').val(profile.brokerage_address);
   $('#city').val(profile.city);
@@ -37,7 +37,7 @@ function display_profile(profile) {
   if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
     var screen_name = profile.connector.agent_name.replace(/\s/g, '-').toLowerCase();
     $('#screen_name').val(screen_name);
-    $('#profile_slug').html(screen_name)
+    $('#profile_slug').html(profile.state.toLowerCase() + '/' + screen_name)
   } else {
     $('#screen_name').val(profile.screen_name);
   }
