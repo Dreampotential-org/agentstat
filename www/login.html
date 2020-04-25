@@ -716,15 +716,8 @@
             var opval = $('#category').val();
             if (agent_id && opval == 'secondoption') {
                 claim_api(agent_id);
-                setTimeout(function (){
-                  window.location = '/form.html';
-                }, 1000);
             } else {
-                if (opval == 'secondoption') {
-                    $('#continueModal').modal('show');
-                } else {
-                    window.location = '/form.html';
-                }
+                $('#continueModal').modal('show');
             }
           }).fail(function(err) {
             // show_error(err);
