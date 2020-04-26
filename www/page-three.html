@@ -150,7 +150,7 @@
                             <div class="po-serach-wrapper pt-search-wrapper po-serach-wrapper-one ak-form custom_search_size srch-bar ak-po">
                                 <div class="address ">
                                     <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
-                                    <div class="address-type index-address-type ">
+                                    <div class="dropdownaddress address-type index-address-type ">
                                         <ul>
                                             <li class="custom_radio">Address</li>
                                             <li class="custom_radio">Agent Name</li>
@@ -167,10 +167,13 @@
                                         </ul>
                                     </div>
                                   </div>
-                                <input class="ser txt-cls maps_input" type="text" name="text" placeholder="Search" autocomplete="off">
+                                <input class="ser search_address maps_input" id="searchId" type="text" name="text" autocomplete="no" placeholder="Search ">
+                                <input class="search_city ser" autocomplete='nop' type="text" name="citytext" placeholder="Search City" style="display:none" >
+                                <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext" placeholder="Search Agent Name" style="display:none" >
+                                <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" >
                                 <div class="type ak-price srch-price">
                                     <p id="y-type" class="type-value">Type <i class="fas fa-caret-down"></i></p>
-                                    <div class="check-type index-check-type">
+                                    <div id="dropdowntypes" class="check-type index-check-type">
                                         <!-- <h6>Home Type</h6> -->
                                         <ul>
                                             <li class="custom_radio"> Houses</li>
@@ -180,13 +183,6 @@
                                             <li class="custom_radio">Lots/Land</li>
                                             <li class="custom_radio">Townhomes</li>
                                         </ul>
-                                        <!-- <input class="custom_radio" type="radio" name="babu" value="Houses"> Houses<br>
-                                        <input  class="custom_radio" type="radio" name="babu" value="Manufactured"> Manufactured<br>
-                                        <input class="custom_radio" type="radio" name="babu" value="Condos/co-ops">Condos/co-ops<br>
-                                        <input class="custom_radio" type="radio" name="babu" value="Multi-family">Multi-family<br>
-                                        <input class="custom_radio" type="radio" name="babu" value="Lots/Land">Lots/Land<br>
-                                        <input class="custom_radio" id="babu" type="radio" name="babu" value="Townhomes">Townhomes<br>
-                                        -->
                                     </div>
                                 </div>
                                 <div class="price ak-price srch-pricevalue">
@@ -480,7 +476,7 @@
                                     <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
                                 </div> -->
                                 <div class="searchbar" id="search-button">
-                                    <input id="search_input" class="search_input_text maps_input " type="text" name="search-location" placeholder="Search..." autocomplete="off" style="display:none;">
+                                    <input id="search_input" class="search_city search_input_text" type="text" name="search-location" placeholder="Search..." autocomplete="off" style="display:none;">
                                     <a  href="#" class="search_icon"><i   class="fas fa-search"></i></a>
                                 </div>
                                 <!-- <input type="button" id="search-button" value="search"/>
@@ -846,7 +842,8 @@
 
     <!-- Main jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!-- Bootstrap Propper jQuery -->
     <script src="/js/popper.js"></script>
 
