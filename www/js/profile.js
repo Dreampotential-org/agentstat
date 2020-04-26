@@ -106,9 +106,14 @@ function display_profile(profile) {
 
 
 
+    if (profile.screen_name) {
+      profile_url = '/profile/' + profile.state.toLowerCase() + '/' + profile.screen_name;
+    } else {
+      profile_url = '/page-three.html?agent_id=' + profile.connector.id;
+    }
 
     $('#agent-connector').html(`
-      <a target='_blank' href='/page-three.html?agent_id=` + profile.connector.id + `'>` + profile.connector.agent_name + `</a> |
+      <a target='_blank' href='` + profile_url + `'>` + profile.connector.agent_name + `</a> |
       <a id='connector-remove'
         data-id='` + profile.connector.id +`'  href=''
         onclick='return false;'>Remove</a>
