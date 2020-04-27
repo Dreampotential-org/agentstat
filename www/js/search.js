@@ -221,8 +221,12 @@ function load_search_results() {
         item = item.split('[[brokerage_info]]').join(brokerage_info);
         item = item.split('[[index]]').join(k);
 
-        item = item.split('[[agent_profile_link]]').join(
-            get_profile_link(v['agent_id']));
+        if(v['screen_name']) {
+          agent_link = '/profile/' + v['state'] + '/' + v['screen_name']
+        } else {
+          agent_link = get_profile_link(v['agent_id']);
+        }
+        item = item.split('[[agent_profile_link]]').join(agent_link);
 
             if(v['agent_picture'] == undefined || v['agent_picture'] == '')
             {
