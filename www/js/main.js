@@ -347,25 +347,48 @@ function get_page_initial_results() {
       params['city'] = '';
     }
 
+
+    if ((address)) {
+      localStorage.setItem('search_address', address);
+      localStorage.setItem('search_city', '');
+      localStorage.setItem('search_agent_name', '');
+      localStorage.setItem('search_state', params['state']);
+      localStorage.setItem('search_home_type', home_type);
+    }
+
     if (!(address)) {
       if(agent_name) {
         $('.dropdownaddress>ul>li:contains("Agent Name")').click();
+        localStorage.setItem('search_address', '');
+        localStorage.setItem('search_city', '');
+        localStorage.setItem('search_agent_name', agent_name);
+        localStorage.setItem('search_state', params['state']);
+        localStorage.setItem('search_home_type', '');
+
       } else {
         if(city) {
           $('.dropdownaddress>ul>li:contains("City")').click();
+          localStorage.setItem('search_address', '');
+          localStorage.setItem('search_city', city);
+          localStorage.setItem('search_agent_name', '');
+          localStorage.setItem('search_state', params['state']);
+          localStorage.setItem('search_home_type', '');
+          console.log('CITYYYY');
+
         } else {
           if (zipcode) {
             $('.dropdownaddress>ul>li:contains("ZipCode")').click();
+
+            localStorage.setItem('search_address', '');
+            localStorage.setItem('search_city', '');
+            localStorage.setItem('search_agent_name', '');
+            localStorage.setItem('search_state', params['state']);
+            localStorage.setItem('search_home_type', home_type);
           }
         }
       }
     }
 
-    localStorage.setItem('search_address', address);
-    localStorage.setItem('search_city', city);
-    localStorage.setItem('search_agent_name', agent_name);
-    localStorage.setItem('search_state', params['state']);
-    localStorage.setItem('search_home_type', home_type);
 
     return params;
 }
@@ -593,6 +616,12 @@ $(document).on('click', '.dropdownaddress>ul>li', function() {
 
   $('.ser').val(localStorage.getItem(search_key));
   $('.ser-map').val(localStorage.getItem(search_key));
+
+  localStorage.setItem('search_address', '');
+  localStorage.setItem('search_city', '');
+  localStorage.setItem('search_agent_name', '');
+  localStorage.setItem('search_lat', '');
+  localStorage.setItem('search_lng', '');
 
   $(".address-type-bottom").slideToggle();
 
