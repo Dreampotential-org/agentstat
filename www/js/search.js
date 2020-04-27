@@ -222,7 +222,7 @@ function load_search_results() {
         item = item.split('[[index]]').join(k);
 
         if(v['screen_name']) {
-          agent_link = '/profile/' + v['state'] + '/' + v['screen_name']
+          agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['screen_name']
         } else {
           agent_link = get_profile_link(v['agent_id']);
         }
