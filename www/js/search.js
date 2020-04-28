@@ -5,7 +5,6 @@ function init_search_results() {
     load_search_results();
     init_search_events();
     populate_city_search_menu();
-
 }
 
 function populate_city_search_menu() {
@@ -115,7 +114,7 @@ function get_search_filters() {
         var new_agent_ids = []
         for(var agent_id of agent_ids.split(",")) {
             if(agent_id) {
-                // selected += agent_id + ",";
+                selected += agent_id + ",";
                 new_agent_ids.push(agent_id);
                 console.log(agent_id);
             }
@@ -157,6 +156,10 @@ function load_search_results() {
     var zipcode = urlParams.get('zipcode');
     var agent_name=urlParams.get('agent_name');
     var page_num = urlParams.get('page_num', '1');
+
+    selected_agents = urlParams.get('agents');
+    selected_agent_ids = selected_agents.split(',')
+
 
     if (!(state)) state = "WA"
 
@@ -214,12 +217,19 @@ function load_search_results() {
         brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0].toLowerCase();
         // brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
 
+
         v['agent_full_name'] = v['agent_full_name'].toLowerCase();
         // brokerage_info = brokerage_info.toLowerCase();
 
         item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
         item = item.split('[[brokerage_info]]').join(brokerage_info);
         item = item.split('[[index]]').join(k);
+
+        toggle_on = '';
+        if ($.inArray(v['agent_id'].toString(), selected_agent_ids) !== -1) {
+          toggle_on = 'on';
+        }
+        item = item.split('[[toggle_on]]').join(toggle_on);
 
         if(v['screen_name']) {
           agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['screen_name']
@@ -370,14 +380,6 @@ function set_pined_load() {
 
         }
     }
-    //MYCODE
-    for(var agent_id of agent_ids.split(",")) {
-        if(agent_id) {
-            // click to set the button pined
-            $(".toc-two[agent_id='" + agent_id + "']").find(
-                ".switch_on").click()
-        }
-    }
 }
 
 function set_pined_agent_ids() {
@@ -503,7 +505,7 @@ function init_search_events() {
         $(this).find("p").text("Pin to top");
 
         //$(this).find("input").prop( "checked", false )
-        set_pined_agent_ids()
+        // set_pined_agent_ids();
 
         sort_val = $(this).closest(".toc-two").attr('data-sort');
         sort_val = sort_val - 1;
