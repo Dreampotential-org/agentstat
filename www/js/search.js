@@ -158,7 +158,10 @@ function load_search_results() {
     var page_num = urlParams.get('page_num', '1');
 
     selected_agents = urlParams.get('agents');
-    selected_agent_ids = selected_agents.split(',')
+    selected_agent_ids = [];
+    if ((selected_agents)) {
+      selected_agent_ids = selected_agents.split(',')
+    }
 
 
     if (!(state)) state = "WA"
