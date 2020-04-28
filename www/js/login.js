@@ -50,6 +50,13 @@ $('#login-btn').keydown(function(e){
     }
 });
 
+$('#password').keydown(function(e){
+  if (e.keyCode == 13) {
+    login();
+    return false;
+  }
+});
+
 $('#continuebtn1').keydown(function(e){
   if (e.keyCode == 13) {
     return false;
