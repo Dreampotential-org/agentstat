@@ -48,7 +48,7 @@ function display_profile(profile) {
     $("#added-license").append(`
         <div class="fragment" >
           <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
-            <button type="button" class='remove-license'><i class="fa fa-times"></i></button> 
+            <button type="button" class='remove-license'><i class="fa fa-times"></i></button>
         </div>`);
   });
 
@@ -97,7 +97,7 @@ function display_profile(profile) {
   }
 
   if (profile.connector != '' && profile.connector !== null) {
-    
+
     var res = profile.connector.agent_name.split(" ");
     $('#first_name').val(res[0]);
     $('#last_name').val(res[1]);
@@ -135,7 +135,6 @@ function get_reviews() {
 
   $.ajax(settings).done(function (response) {
       var response = JSON.parse(response);
-      console.log(response);
       if (jQuery.isEmptyObject(response)) {
         $('.owl-carousel').trigger(
           'add.owl.carousel', [`
@@ -169,7 +168,7 @@ function get_reviews() {
 
         });
       }
-      
+
   }).fail(function(err) {
       // alert('Got err');
       console.log(err);
@@ -325,12 +324,10 @@ function get_specilities(specialty_ids) {
 }
 
 function get_languages(language_ids) {
-  console.log(language_ids);
   settings = get_settings('language-fluency', 'GET')
   $.ajax(settings).done(function (language_list) {
 
     var language_list = JSON.parse(language_list);
-    console.log(language_list);
     var ix = 0;
 
     $.each(language_list, function(k, v) {
@@ -394,8 +391,11 @@ $.each(combo_boxes, function(k, val){
   get_combo(function(resp) { load_combo(resp, val) }, val);
 });
 
-
-get_profile(function(resp) { display_profile(resp) });
+if(localStorage.getItem('session_id')) {
+  get_profile(function(resp) { display_profile(resp) });
+} else {
+  window.location = '/login.html';
+}
 
 
 $(document).on('change click', '.submit_btn', function() {
@@ -520,11 +520,11 @@ $("#add-license").click(function(){
     return false
   }
 
-  var val = $('#license_no_1').val()+' '+$('#license_no_2').val()+' - '+$('#license_no_3').val(); 
+  var val = $('#license_no_1').val()+' '+$('#license_no_2').val()+' - '+$('#license_no_3').val();
   $("#added-license").append(`
       <div class="fragment" >
         <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
-        <button type="button" class='remove-license'><i class="fa fa-times"></i></button> 
+        <button type="button" class='remove-license'><i class="fa fa-times"></i></button>
       </div>`);
 
   $('#license_no_1').val('');
