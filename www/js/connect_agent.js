@@ -24,7 +24,7 @@ function init_events_connect() {
     $("#set_agent").attr("disabled", "disabled")
     var state = $("#state").val()
     var agent_name = $("#full_name").val()
-    var api_call_url = 'reports/' + state + '/?agent_name=' + agent_name;
+    var api_call_url = 'reports/' + state + '/?agent_name=' + agent_name + '&check_claimed=True';
     var settings = get_settings(api_call_url, 'GET');
     settings['headers'] = null;
 
@@ -47,13 +47,25 @@ function init_events_connect() {
 function get_agent_html(agent) {
   console.log(agent)
   var profile_link = '/page-three.html?agent_id=' + agent['agent_id']
-  return (
-    "<a target='_blank' href='" + profile_link + "'>" +
-      "<input type='radio' name='select-agent' value=" +
-          agent['agent_id'] + ">" + agent['agent_full_name'] +
-      "<br>" +
-    "</a>"
-  )
+  var link = ''
+  if ((agent['claimed'])) {
+    link = (
+      "<a target='_blank' href='" + profile_link + "'>" +
+        "<input type='radio' name='select-agent' disabled>" + agent['agent_full_name'] + ' (Already claimed)' +
+        "<br>" +
+      "</a>"
+    );
+  } else {
+    link = (
+      "<a target='_blank' href='" + profile_link + "'>" +
+        "<input type='radio' name='select-agent' value=" +
+            agent['agent_id'] + ">" + agent['agent_full_name'] +
+        "<br>" +
+      "</a>"
+    );
+  }
+
+  return link
 }
 
 

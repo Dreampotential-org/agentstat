@@ -320,14 +320,14 @@
                             <div class="col-12 col-md-12 col-sm-9 city_div">
                                 <select id='category' name="category" disabled placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
                                     <option value=''>Select your category</option>
-                                    <option value='secondoption'>Real Estate Agent/ Broker</option>
+                                    <option value='Real Estate Agent/ Broker'>Real Estate Agent/ Broker</option>
                                     <option value='Mortgage Lender'>Mortgage Lender</option>
                                     <option value='Home Improvement Services'>Home Improvement Services</option>
                                     <option value='Photographer'>Photographer</option>
                                     <option value='Home Builder'>Home Builder</option>
                                     <option value='Home Inspector'>Home Inspector</option>
-                                    <option value='Home Inspector'>Home Appraiser</option>
-                                    <option value='Home Inspector'>Other</option>
+                                    <option value='Home Appraiser'>Home Appraiser</option>
+                                    <option value='Other'>Other</option>
                                 </select>
                                 
                             </div>
@@ -538,6 +538,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
     <!-- Main jQuery -->
     <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- Bootstrap Propper jQuery -->
     <script src="./js/popper.js"></script>
@@ -718,7 +719,14 @@
             if (agent_id && opval == 'secondoption') {
                 claim_api(agent_id);
             } else {
-                $('#continueModal').modal('show');
+               if(data['category'] === 'Real Estate Agent/ Broker') {
+                  $('#continueModal').modal('show');
+                  console.log(data['category']);
+                  console.log('modal show');
+               } else {
+                  window.location = '/form.html';
+                  return false;
+               }
             }
           }).fail(function(err) {
             // show_error(err);
