@@ -10,7 +10,7 @@ var search_item_min = `<div class="toc-two" data-sort="[[index]]" agent_id=[[age
             <tbody>
               <tr>
                   <td colspan="3"  class="title ">
-                  <a  href=[[agent_profile_link]] target="_blank">
+                  <a  href=[[agent_profile_link]]>
                   <h4 style="text-transform:capitalize;" >[[agent_name]] <span class="custom_score hide_div"> | 
                   [[brokerage_info]]</span> 
                   <p class="custom_score show_div">[[brokerage_info]]</p>
