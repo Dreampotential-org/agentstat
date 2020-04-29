@@ -289,10 +289,12 @@ function init_maps() {
     var inputs = document.getElementsByClassName('maps_input')
     if (inputs.length > 1) {
       var input_bottom = inputs[1];
-      var input_map_bottom = document.getElementsByClassName('maps_input_maps')[1];
+      var input_map_bottom = document.getElementsByClassName(
+        'maps_input_maps')[1];
 
 
-      var autocomplete_bottom = new google.maps.places.Autocomplete(input_bottom, options);
+      var autocomplete_bottom = new google.maps.places.Autocomplete(
+            input_bottom, options);
       autocomplete_bottom.addListener('place_changed', fillIn);
 
     }
@@ -348,6 +350,7 @@ function get_page_initial_results() {
     }
 
 
+    // XXX store in url not localstore need to be able to send direct link
     if ((address)) {
       localStorage.setItem('search_address', address);
       localStorage.setItem('search_city', '');
