@@ -516,7 +516,8 @@ function init_search_events() {
           sort_val = 0;
         }
 
-        $(this).closest(".toc-two").detach().insertAfter("div[data-sort="+sort_val+"]");
+        $(this).closest(".toc-two").detach().insertAfter(
+            "div[data-sort="+sort_val+"]");
     })
 
 
@@ -541,8 +542,7 @@ function init_search_events() {
 
             var city = $("#city-search-filter").val()
             var redio= $("form input[type='radio']:checked").val();
-                var i= 0;
-
+            var i= 0;
 
             alert(city)
             alert(redio)

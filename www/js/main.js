@@ -1,13 +1,16 @@
 var global_results = null;
 
+// Called on google maps autocomplete selection
 function fillIn() {
     var place = this.getPlace();
     var addr = place.formatted_address
 
     var results = getSearchParams(place)
     global_results = results
+
     console.log(results)
     console.log(results.city)
+
     // if(results.city == undefined){
     //   $('#city-tab').text(results.state);
     //   load_agent(true);
@@ -15,6 +18,7 @@ function fillIn() {
     // $('#city-tab').text(results.city);
     // load_agent(true);
     // redirectResults(results)
+
     $(".maps_input").focus();
 
 }
@@ -289,10 +293,12 @@ function init_maps() {
     var inputs = document.getElementsByClassName('maps_input')
     if (inputs.length > 1) {
       var input_bottom = inputs[1];
-      var input_map_bottom = document.getElementsByClassName('maps_input_maps')[1];
+      var input_map_bottom = document.getElementsByClassName(
+        'maps_input_maps')[1];
 
 
-      var autocomplete_bottom = new google.maps.places.Autocomplete(input_bottom, options);
+      var autocomplete_bottom = new google.maps.places.Autocomplete(
+            input_bottom, options);
       autocomplete_bottom.addListener('place_changed', fillIn);
 
     }
@@ -348,6 +354,7 @@ function get_page_initial_results() {
     }
 
 
+    // XXX store in url not localstore need to be able to send direct link
     if ((address)) {
       localStorage.setItem('search_address', address);
       localStorage.setItem('search_city', '');
@@ -409,11 +416,16 @@ function init() {
     });
 
     $('.ser').keydown(function(e){
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 && global_results != null) {
+          console.log(global_results)
           search_key = localStorage.current_search_type.toLowerCase();
           search_key = 'search_' + search_key.split(' ').join('_');
           localStorage.setItem(search_key, $(this).val());
-          redirectResults(global_results);
+          if (global_results &&
+              $("#y-address").text().trim() == 'Address' &&
+              'lat' in global_results && global_results['lat'] != null) {
+                redirectResults(global_results);
+            }
         }
     });
 
@@ -427,13 +439,18 @@ function init() {
       window.location = '/'
     })
 
+    /*
     $("body").delegate(".ser", "keyup", function(e) {
       if (e.keyCode == 13) {
         e.preventDefault();
-        $("#agent_name_or_id").val($("#search_input_agent").val());
-        $('form#filterForm').submit();
+        // $("#agent_name_or_id").val($("#search_input_agent").val());
+        // $('form#filterForm').submit();
+        if(global_results) {
+            redirectResults(global_results)
+        }
       }
     });
+    */
 
 }
 
