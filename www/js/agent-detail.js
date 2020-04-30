@@ -568,10 +568,6 @@ function load_agent(ignore_city = true) {
     });
 
 
-        console.log('===============');
-        console.log(data[agent_list_key].length);
-        console.log('===============');
-
         //pagination(data[agent_list_key].length);
 
         $('#datatable').DataTable();
