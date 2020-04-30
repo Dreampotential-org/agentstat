@@ -44,41 +44,6 @@
     }
     </style>
     <body>
-        <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-        <!-- header-area start -->
-        <!-- <div class="wrapper-heading sticky-top bg-white akh-4">
-            <div class="header-area sticky-top bg-white ak-2 custom_header">
-                <div class="">
-                    <div class="row">
-                        <div class="col-lg-12">
-
-                            <nav class="navbar navbar-expand-md navbar-light">
-                                <a class="navbar-brand" href="index.html">
-                                    <img src="img/logo.png" alt="logo">
-                                </a>
-                                <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav mr-auto">
-                                    </ul>
-                                    <div class="main-menu-part">
-                                        <ul>
-                                            <li><a href="#">Help</a></li>
-                                            <li><a href="/login.html">Sign up/ Login</a></li>   		
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>							
-                    </div>					
-                </div>
-            </div>	
-        </div> -->
         <!-- header-area end -->
 
         <div class="wrapper-heading sticky-top bg-white akh-4">
@@ -100,7 +65,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                     </ul>
-                                    <div class="main-menu-part">
+                                    <div id="login-menu" class="main-menu-part">
                                         <ul>
                                             <li><a href="/login.html">Sign up/ Login</a></li>
                                         </ul>
@@ -111,37 +76,6 @@
                     </div>					
                 </div>
             </div>
-            <!-- <div class="header-area two-header-area akh-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-
-                            <nav class="navbar navbar-expand-md navbar-light">
-                                <a class="navbar-brand" href="index.html">
-                                    <img src="img/logo.png" alt="logo">
-                                </a>						  
-                                <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav mr-auto">							    
-                                    </ul>
-                                    <div class="main-menu-part">
-                                        <ul>
-                                            <li><a href="#">Help</a></li>
-                                            <li><a href="#">Sign up/ Login</a></li>   		
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- header-area end -->
-
             <!-- po-search area start -->
             <div class="po-search pt-search g">
                 <div class="container">
@@ -306,7 +240,7 @@
                                 </div>
                                 <div class="col-lg-12" id="already_claim_wrapper" style="display:none;">
                                     <br>
-                                    <h5><a href="javascript:void(0)" id='already_claim_profile' data-toggle="modal" data-target="#alreadyClaimedModal">Claimed</a></h5>
+                                    <h5 id="claimed_link"><a href="#" id='already_claim_profile' data-toggle="modal" data-target="#alreadyClaimedModal">Claimed</a></h5>
                                 </div>
                             </div>
                         </div>
@@ -843,6 +777,7 @@
     <!-- Main jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!-- Bootstrap Propper jQuery -->
     <script src="/js/popper.js"></script>
@@ -865,7 +800,7 @@
     <script src="/js/main.js"></script>
     <!-- <script src="/js/jquery.dataTables.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.bootpag.js"></script>
+    <script type="text/javascript" src="/js/jquery.bootpag.js"></script>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>

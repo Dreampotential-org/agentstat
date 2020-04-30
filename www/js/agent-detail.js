@@ -72,6 +72,8 @@ function load_agent(ignore_city = true) {
     }
 
     $.ajax(settings).done(function (response) {
+
+
         data = JSON.parse(response);
 
         $('.agent_name').val(data['agent_name']);
@@ -566,11 +568,11 @@ function load_agent(ignore_city = true) {
     });
 
 
-        pagination(data[agent_list_key].length);
+        console.log('===============');
+        console.log(data[agent_list_key].length);
+        console.log('===============');
 
-        setTimeout(()=>{
-            $('#pagination-here').first().find('.active').prev().trigger('click');
-        }, 100);
+        //pagination(data[agent_list_key].length);
 
         $('#datatable').DataTable();
 
@@ -743,11 +745,9 @@ $(document).on('click', '#want-claim-yes', function () {
 
 function pagination(page){
 
-    console.log('XXXXXXXXXXXXXXXXXXXXXX');
     console.log(page);
     total = page%10 == 0 ? (page/10) : (page/10)+1;
     console.log(total);
-    console.log('XXXXXXXXXXXXXXXXXXXXXX');
 
     if (page > 1) {
       $("#pagination-here").bootpag({
