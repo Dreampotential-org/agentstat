@@ -730,8 +730,8 @@ $(document).on('change click', '#overall-tab', function () {
 });
 
 $(document).on('click', '#already_claim_profile', function () {
-    $('#want-claim').css('display', 'block');
-    $('#submit-proof-form').css('display', 'none');
+    $('#want-claim').css('display', 'none');
+    $('#submit-proof-form').css('display', 'block');
 });
 
 $(document).on('click', '#want-claim-yes', function () {
@@ -793,6 +793,67 @@ function pagination(page){
     });
 
 }
+
+function show_claim_screen() {
+    swal({
+      title: "Claim Profile!",
+      text: "Do you want to dispute the claim and provide proof of identity?",
+      icon: "warning",
+      buttons: [
+        'No, cancel it!',
+        'Yes, I am sure!'
+      ],
+      dangerMode: true,
+    }).then(function(isConfirm) {
+      if (isConfirm) {
+
+        $('#alreadyClaimedModal').modal('show');
+
+      } else {
+        // swal("Cancelled", "Your imaginary file is safe :)", "error");
+      }
+    });
+}
+
+$('#submit_proof_btn').click(function() {
+  var form_data = {};
+  var picture_data = $('#picture')[0].files[0]
+
+  var reader = new FileReader();
+  reader.readAsDataURL(picture_data);
+  var picture_base64 = '';
+
+    reader.onload = function () {
+      console.log(reader.result);
+      picture_base64 = reader.result;
+      form_data['id_picture'] = picture_base64;
+      form_data['full_name'] = $('#full_name').val();
+      form_data['email'] = $('#email').val();
+      form_data['brokerage_name'] = $('#brokerage-name').val();
+
+      settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
+
+      $.ajax(settings).done(function (response) {
+
+          $('#alreadyClaimedModal').modal('toggle');
+          swal({
+            title: "Claim Profile!",
+            text: "Your request has been saved!",
+            icon: "success",
+          }).then(function(isConfirm) {
+          });
+          console.log('aferim');
+
+      }).fail(function(err) {
+          // alert('Got err');
+          console.log(err);
+          show_error(err);
+      });
+    };
+    reader.onerror = function (error) {
+     console.log('Error: ', error);
+    };
+});
 
 window.addEventListener("DOMContentLoaded", init, false);
 // window.addEventListener("DOMContentLoaded", $('datatable').dataTable(), false);

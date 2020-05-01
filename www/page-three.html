@@ -29,6 +29,7 @@
        
         <!-- <link rel="stylesheet" href="./css/jquery.dataTables.min.css"/> -->
         <script src="/js/sweetalert.min.js"></script>
+        <script src="https://cdn.rawgit.com/taromero/swal-forms/master/swal-forms.js"></script>
     </head>
     <style>
         th, td{
@@ -240,7 +241,8 @@
                                 </div>
                                 <div class="col-lg-12" id="already_claim_wrapper" style="display:none;">
                                     <br>
-                                    <h5 id="claimed_link"><a href="#" id='already_claim_profile' data-toggle="modal" data-target="#alreadyClaimedModal">Claimed</a></h5>
+                                    <h5 id="claimed_link"><a
+                                        href="javascript:show_claim_screen();" id='already_claim_profile'>Claimed</a></h5>
                                 </div>
                             </div>
                         </div>
@@ -713,8 +715,7 @@
         </div>
     </div>
 
-    <div class="modal fade " id="alreadyClaimedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade " id="alreadyClaimedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modalSignup" role="document">
             <div class="modal-content" style="width: 650px;">
                 <div class="modal-body">
@@ -727,10 +728,52 @@
                                     <button class="btn btn-success" type="button" id="want-claim-yes">Yes</button>
                                     <button class="btn btn-danger" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
                                 </div>
-                                <div id="submit-proof-form" style="display:none;">
+                                <div id="submit-proof-form">
                                     <div class="row h-100">
                                         <div class="col-lg-6 mx-auto">
                                             <div class="alert alert-danger msg" role="alert" style="display: none"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="file-left">
+                                                <p id="lebel">Full Name
+                                                    <span id="start">*</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="file-right">
+                                                <input id="full_name" class="form-control" type="text" name="full_name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="file-left">
+                                                <p id="lebel">Email
+                                                    <span id="start">*</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="file-right">
+                                                <input id="email" class="form-control" type="text" name="email" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="file-left">
+                                                <p id="lebel">Brokerage Name
+                                                    <span id="start">*</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="file-right">
+                                                <input id="brokerage-name" class="form-control" type="text" name="brokerage_name" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -747,22 +790,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="file-left">
-                                                <p id="lebel">Real State License
-                                                    <span id="start">*</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="file-right">
-                                                <input id="picture" type="file" name="file" />
-                                            </div>
-                                        </div>
-                                    </div>
                                     <br>
-                                    <div><button disabled id='set_agent' class="btn btn-warning"> Submit Proof</button>
+                                    <div><button id='submit_proof_btn' class="btn btn-warning"> Submit Proof</button>
                                     </div>
                                 </div>
                             </div>
@@ -799,7 +828,6 @@
     <script src="/js/agent-detail.js"></script>
     <script src="/js/main.js"></script>
     <!-- <script src="/js/jquery.dataTables.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.bootpag.js"></script>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
