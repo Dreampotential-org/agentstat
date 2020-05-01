@@ -35,7 +35,7 @@ function display_profile(profile) {
   }
 
   if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
-    var screen_name = profile.connector.agent_name.replace(/\s/g, '-').toLowerCase();
+    var screen_name = profile.connector.agent_name.replace(/\s/g, '').toLowerCase();
     $('#screen_name').val(screen_name);
     $('#profile_slug').html(profile.state.toLowerCase() + '/' + screen_name)
   } else {
@@ -243,8 +243,8 @@ function update_profile() {
   var picture_data = $('#picture')[0].files[0]
   var reader = new FileReader();
   var picture_base64 = '';
-  console.log('===========');
   console.log(picture_data);
+
   if (picture_data != null) {
     reader.readAsDataURL(picture_data);
     reader.onload = function () {
