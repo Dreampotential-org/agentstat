@@ -89,6 +89,7 @@ function display_profile(profile) {
     console.log(profile.picture);
     // debugger;
     $('#profile-img').prop('src', profile.picture);
+    $('.up-photo').append('<button id="remove-profile-image" class="inline-btn">remove profile image</button>');
   }else{
 
     src="img/blank-profile-picture.png"
@@ -551,3 +552,19 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+$(document).on('click', '#remove-profile-image', function(e) {
+  console.log('remvoe profile image');
+  settings = get_settings('remove-profile-image/', 'GET');
+
+  $.ajax(settings).done(function (response) {
+    console.log('response');
+    console.log(response);
+
+    show_message('Profile picture has been removed!');
+
+    src="img/blank-profile-picture.png"
+    $('#profile-img').prop('src', src);
+
+  });
+} );
