@@ -31,11 +31,33 @@ function load_agent(ignore_city = true) {
     }
 
     var city = null;
-
     if (ignore_city === false) {
-        city = urlParams.get('city');
+      city = urlParams.get('city');
+    }
+
+    if ((agent_id)) {
+      transaction_query = agent_id;
+    } else {
+      transaction_query = screen_name;
+    }
+
+    if (city == null) {
+      $('#new_transactions').html(`
+        <iframe
+          src='http://app.agentstat.com/agentportal/transactions/` + transaction_query + `/'
+          style='width: 110%; height: 450px; border: 0'
+          ></iframe>
+      `);
+    } else {
+      $('#new_transactions').html(`
+        <iframe
+          src='http://app.agentstat.com/agentportal/transactions/` + transaction_query + `/?city=`+ city +`'
+          style='width: 110%; height: 450px; border: 0'
+          ></iframe>
+      `);
     }
     console.log(city);
+
 
     if (agent_id) {
       if (localStorage.getItem('session_id') !== null && localStorage.getItem('session_id') !== 'null') {
