@@ -24,6 +24,10 @@ function show_error(err) {
   console.log(err);
 }
 
+function get_api_route(route) {
+    return API_URL + route
+}
+
 function get_settings(url, method, data=null) {
   return {
     'async': true,

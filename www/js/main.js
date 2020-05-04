@@ -488,7 +488,8 @@ $(document).ready(function () {
 
   // console.log(JSON.stringify(data));
   $.ajax({
-    url: 'https://app.agentstat.com/api/px/',
+    // url: 'https://app.agentstat.com/api/px/',
+    url: get_api_route('px/'),
     method: 'POST',
     success: function(html) {
       strReturn = html;

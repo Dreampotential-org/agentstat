@@ -319,7 +319,7 @@
                                             <ul class="why_interest_two">
                                                 <li><a onclick="return false;" href="">I’m researching agents</a></li>
                                                 <li><a onclick="return false;" href="">I’m considering working with <span class="agent_name"></span></a></li>
-                                                <li><a onclick="return false;" href="">I have a question for <span class="agent_name"></span></a></li>		
+                                                <li><a onclick="return false;" href="">I have a question for <span class="agent_name"></span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -364,7 +364,6 @@
                                                         <input type="email" id="lead_email" name="text">
                                                     </td>
                                                 </tr>
-                                                
                                             </table>
                                         </div>
 
@@ -836,6 +835,8 @@
 
     <script>
         $(document).ready(function(){
+          // XXX move this code out of html page to help
+          // better understand what it is.
                $(".state-value").click(function(){
                    //alert($('#allstate li').length);
                    if(('#allstate li').length >0){
@@ -868,32 +869,28 @@
                 $(this).toggleClass("fa-expand-arrows-alt ");
 
          });
-      
         });
         // $('#search-button').hover(function () {
-        //     $('#search_input').show();		
+        //     $('#search_input').show();
         // });
 
-        $('#search-button').mouseover(function() { 
-            $('#search_input').show(); 
-                
-            })  
-            $('#search-button').mouseleave(function() { 
-                var txt = $('#search_input');  
-                if (txt.val() != null && txt.val()!= '') {  
-                    $('#search_input').show(); 
-                } else {  
-                     $('#search_input').hide(); 
-                    console.log('Please enter text' + txt.val())  
-                }  
+        $('#search-button').mouseover(function() {
+            $('#search_input').show();
             })
-        
+            $('#search-button').mouseleave(function() {
+                var txt = $('#search_input');
+                if (txt.val() != null && txt.val()!= '') {
+                    $('#search_input').show();
+                } else {
+                     $('#search_input').hide();
+                    console.log('Please enter text' + txt.val())
+                }
+            })
             $(".index-address-type ul li").click(function (){
                 $('.index-address-type ul li').each(function(){
                     if($(this).hasClass('statehightLight')){
                         $(this).removeClass("statehightLight")
                     }
-                
                 })
                 $(this).addClass("statehightLight")
                 var a = $(this).text();
@@ -927,7 +924,7 @@
                 e.stopPropagation();
                 var container = $(".address ");
                 var stateContainer = $(".ser-state");
-              
+
                 if (container.has(e.target).length === 0) {
                     $('.address-type').hide();
                 }
