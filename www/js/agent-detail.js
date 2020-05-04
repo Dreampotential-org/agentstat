@@ -44,14 +44,14 @@ function load_agent(ignore_city = true) {
     if (city == null) {
       $('#new_transactions').html(`
         <iframe
-          src='https://app.agentstat.com/agentportal/transactions/` + transaction_query + `/'
+          src='` + TRANSACTIONS_URL + transaction_query + `/'
           style='width: 110%; height: 450px; border: 0'
           ></iframe>
       `);
     } else {
       $('#new_transactions').html(`
         <iframe
-          src='https://app.agentstat.com/agentportal/transactions/` + transaction_query + `/?city=`+ city +`'
+          src='` + TRANSACTIONS_URL + transaction_query + `/?city=`+ city +`'
           style='width: 110%; height: 450px; border: 0'
           ></iframe>
       `);
