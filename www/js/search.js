@@ -235,9 +235,10 @@ function load_search_results() {
         item = item.split('[[toggle_on]]').join(toggle_on);
 
         if(v['screen_name']) {
-          agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['screen_name']
+          agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['screen_name'];
         } else {
-          agent_link = get_profile_link(v['agent_id']);
+          // agent_link = get_profile_link(v['agent_id']);
+          agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['agent_screen_name'];
         }
         item = item.split('[[agent_profile_link]]').join(agent_link);
 
