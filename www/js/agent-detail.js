@@ -660,6 +660,7 @@ $(document).on('change click', '#lead-submit', function () {
     data['phone'] = $('#lead_phone').val();
     data['agent'] = agent_id;
 
+
     if (data['email'] === '' || data['name'] === '' || data['phone'] === '') {
         console.log('All fields are required.');
         $('.msg').html('All fields are required');
