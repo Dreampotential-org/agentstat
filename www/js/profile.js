@@ -469,7 +469,7 @@ $(document).on('change click', '#review-add-btn', function() {
 
 
 $(document).on('change click', '.swal-button--confirm', function() {
-  window.location.href = "/form.html#reviews";
+  window.location.href = "/profile-settings/#reviews";
   location.reload();
 });
 

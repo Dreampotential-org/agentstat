@@ -238,7 +238,7 @@ function load_search_results() {
           agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['screen_name'];
         } else {
           // agent_link = get_profile_link(v['agent_id']);
-          agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['agent_screen_name'];
+          agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['agent_slug'];
         }
 
         // XXX we like this idea though we need to fix parsing profile

@@ -713,7 +713,6 @@
             // console.log(msg);
             console.log(msg['token']);
             localStorage.session_id = msg['token'];
-            //window.location = '/form.html';
 
             var opval = $('#category').val();
             if (agent_id && opval == 'secondoption') {
@@ -724,7 +723,7 @@
                   console.log(data['category']);
                   console.log('modal show');
                } else {
-                  window.location = '/form.html';
+                  window.location = '/profile-settings/';
                   return false;
                }
             }

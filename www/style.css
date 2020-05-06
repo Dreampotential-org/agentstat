@@ -2103,7 +2103,7 @@
      color: #3C3C3C;
  }
  
- .pth-all-table table tr {
+.pth-all-table table tr {
      /*background-color: rgba(216, 226, 234, 0.35);*/
  /*    border-bottom: 10px solid #fff;*/
  }
@@ -2911,7 +2911,6 @@
  
  .about-wrapper p {
      margin-bottom: 8px;
-     text-transform: capitalize;
      font-size: 18px;
      font-weight: 600;
  }
