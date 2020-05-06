@@ -26,6 +26,7 @@ function display_profile(profile) {
   $('#city').val(profile.city);
   $('#state').val(profile.state);
   $('#zipcode').val(profile.zipcode);
+  $('#years_in_bussiness').val(profile.years_in_bussiness);
   profile_id = profile.id;
 
   if (profile.phone_number !== null) {
@@ -239,6 +240,7 @@ function update_profile() {
   data['specialties'] = $('.specialty-checkbox:checked').map(
     function() { return $(this).val() }
   ).get();
+  data['years_in_bussiness'] = $('#years_in_bussiness').val();
 
 
   var picture_data = $('#picture')[0].files[0]
