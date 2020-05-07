@@ -25,15 +25,15 @@ server {
            # try_files $uri $uri/index.html;
 
         }
-        location /profile/ {
+        location /profile {
             try_files $uri $uri/ /page-three.html?screen_name=$uri;
         }
 
-        location /agents/ {
+        location /agents {
             try_files $uri $uri/ /page-two-test.html?uri;
         }
 
-        location /profile-settings/ {
+        location /profile-settings {
             try_files $uri $uri/ /form.html;
         }
 }
