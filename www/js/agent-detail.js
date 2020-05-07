@@ -45,14 +45,14 @@ function load_agent(ignore_city = true) {
       $('#new_transactions').html(`
         <iframe
           src='` + TRANSACTIONS_URL + transaction_query + `/'
-          style='width: 110%; height: 450px; border: 0'
+          style='width: 110%; height: 660px; border: 0'
           ></iframe>
       `);
     } else {
       $('#new_transactions').html(`
         <iframe
           src='` + TRANSACTIONS_URL + transaction_query + `/?city=`+ city +`'
-          style='width: 110%; height: 450px; border: 0'
+          style='width: 110%; height: 660px; border: 0'
           ></iframe>
       `);
     }

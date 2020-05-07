@@ -51,7 +51,7 @@ function create_agent() {
     // console.log(msg);
     console.log(msg['token']);
     localStorage.session_id = msg['token'];
-    window.location = '/form.html';
+    window.location = '/profile-settings/';
   }).fail(function(err) {
     show_error(err);
     console.log(err);

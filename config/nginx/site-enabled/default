@@ -1,6 +1,14 @@
+# add_header X-Frame-Options 'allow-from HTTP://LOCALHOST:8000/';
+# add_header Content-Security-Policy 'frame-ancestors localhost:8000'; 
+
 server {
+        add_header X-Frame-Options "ALLOW-FROM http://localhost:8000/";
+        add_header Content-Security-Policy "frame-ancestors localhost:8000";
+
         listen 8082 default_server;
         listen [::]:8082 default_server;
+
+
 
         resolver 8.8.8.8;
 
@@ -23,5 +31,9 @@ server {
 
         location /agents/ {
             try_files $uri $uri/ /page-two-test.html?uri;
+        }
+
+        location /profile-settings/ {
+            try_files $uri $uri/ /form.html;
         }
 }

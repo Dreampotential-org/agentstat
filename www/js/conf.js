@@ -59,7 +59,7 @@ function call_api(callback, url, settings) {
 function is_loggon() {
   session_id = localStorage.getItem('session_id');
   email = localStorage.getItem('email');
-  if(session_id === null || email === null) {
+  if(session_id === null) {
     window.location = '/login.html';
   }
 
@@ -83,7 +83,7 @@ function claim_api(agent_id) {
     $.ajax(settings).done(function (response) {
         var msg = JSON.parse(response);
         console.log(msg)
-        window.location = '/form.html';
+        window.location = '/profile-settings/';
     }).fail(function(err) {
         // alert('Got err');
         console.log(err);
