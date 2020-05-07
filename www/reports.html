@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <!-- Meta setup -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="decription" content="">
+    <meta name="author" content="Asad Kabir">
+
+    <!-- Title -->
+    <title>Inbox</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" href="img/fav.png" />
+
+    <link href="css/fileinput.css" rel="stylesheet" type="text/css">
+
+    <!-- Include Owl-Carusol -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/morris.css" />
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Main StyleSheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+</head>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- header-area start -->
+<div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand form-logo" href="index.html">
+                        <img src="img/logo.png" alt="logo" />
+                    </a>
+                    <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                        </ul>
+                        <div class="main-menu-part form-menu">
+                            <ul class="float-left form-ulli-left">
+                                <li><a href="./inbox.html">Inbox </a></li>
+                                <li><a href="./reports.html">Reporting </a></li>
+                                <li><a href="./transaction.html">Past Sales  </a></li>
+                                <li><a href="./referrals.html">Referrals </a></li>
+                                <li><a href="#">Team </a></li>
+                            </ul>
+                            <ul class="float-right user-icon form-ulli-right">
+                                <li>
+                                    <div class="dropdown profile show">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span><i class="fas fa-user-circle"></i></span>
+                                        </a>
+
+                                        <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item " href="/dashboard.html">
+                                                <p>Dashboard</p>
+                                                <span>View your stats and backend</span>
+                                            </a>
+                                            <a class="dropdown-item" href="/form.html">
+                                                <p>Profile Settings</p>
+                                                <span>Edit your profile info and account settings</span>
+                                            </a>
+                                            <a class="dropdown-item logout" href="#">Sign Out</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header-area end -->
+<div class="container">
+    <hr>
+
+    <div class="reports">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <nav class="nav-justified ">
+                    <div class="nav nav-tabs " id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true">Traffic</a>
+                        <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false">Leads</a>
+                        <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false">Refferrals </a>
+
+                    </div>
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="pop1" role="tabpanel" aria-labelledby="pop1-tab">
+
+                        <div class="reports-content">
+
+                            <div class="col-md-12">
+
+                                <div class="date-filter">
+                                    <select name="select">
+                                        <option>Last 7 Days</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12">
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+
+                                        <!-- Nav tabs -->
+                                        <ul class="nav" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#pop11">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Impressions</h1>
+                                                        <h2>78</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#pop22">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Profile Views</h1>
+                                                        <h2>61</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="col-md-12">
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div id="pop11" class="container tab-pane active">
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+
+                                                    <div class="reports-box-left">
+
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-6">
+
+                                                                <div class="reports-inner">
+
+                                                                    <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                    <p>Seattle</p>
+                                                                    <p>Seattle</p>
+                                                                    <p>Seattle</p>
+                                                                    <p>Seattle</p>
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-md-6">
+
+                                                                <div class="reports-inner">
+
+                                                                    <p>9819 (2)</p>
+                                                                    <p>9819 (2)</p>
+                                                                    <p>9819 (2)</p>
+                                                                    <p>9819 (2)</p>
+                                                                    <p>9819 (2)</p>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+                                                    </div>
+
+
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="chart" id="bar-chart" style="height: 300px;"></div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div id="pop22" class="container tab-pane fade">
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+
+                                                    <div class="reports-box-left">
+
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-6">
+
+                                                                <div class="reports-inner">
+
+                                                                    <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                    <p>Seattle</p>
+                                                                    <p>Seattle</p>
+                                                                    <p>Seattle</p>
+                                                                    <p>Seattle</p>
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-md-6">
+
+                                                                <div class="reports-inner">
+
+                                                                    <p>9819 (2)</p>
+                                                                    <p>9819 (2)</p>
+                                                                    <p>9819 (2)</p>
+                                                                    <p>9819 (2)</p>
+                                                                    <p>9819 (2)</p>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+                                                    </div>
+
+
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="chart" id="bar-chart1" style="height: 300px;"></div>
+
+                                                </div>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="pop2" role="tabpanel" aria-labelledby="pop2-tab">
+
+                        <div class="reports-content">
+
+                            <div class="col-md-12">
+
+                                <div class="date-filter">
+                                    <select name="select">
+                                        <option>Last 7 Days</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12">
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+
+                                        <!-- Nav tabs -->
+                                        <ul class="nav" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#pop111">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Sellers</h1>
+                                                        <h2>78</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#pop222">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Buyers</h1>
+                                                        <h2>61</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="col-md-12">
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div id="pop111" class="container tab-pane active">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="reports-box-left">
+
+                                                            <div class="reports-box-left-title">
+                                                                <h1>Location</h1>
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <div id="pop222" class="container tab-pane fade">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="reports-box-left">
+
+                                                            <div class="reports-box-left-title">
+                                                                <h1>Location</h1>
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="tab-pane fade" id="pop3" role="tabpanel" aria-labelledby="pop3-tab">
+
+                        <div class="reports-content">
+
+                            <div class="col-md-12">
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+
+                                        <div class="date-filter">
+                                            <select name="select">
+                                                <option>Last 7 Days</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12">
+
+                                        <!-- Nav tabs -->
+                                        <ul class="nav" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#p1">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Unique visit</h1>
+                                                        <h2>78</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#p2">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Profile visit</h1>
+                                                        <h2>61</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#p3">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Contact Requests</h1>
+                                                        <h2>61</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#p4">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Signed Red. Agr.</h1>
+                                                        <h2>61</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#p5">
+
+                                                    <div class="reports-box report-active">
+                                                        <h1>Profile views</h1>
+                                                        <h2>61</h2>
+                                                    </div>
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="col-md-12">
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div id="p1" class="container tab-pane active">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="reports-box-left">
+
+                                                            <div class="reports-box-left-title">
+                                                                <h1>Location</h1>
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <div id="p2" class="container tab-pane fade">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="reports-box-left">
+
+                                                            <div class="reports-box-left-title">
+                                                                <h1>Location</h1>
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+
+                                                </div>
+
+                                            </div>
+                                            <div id="p3" class="container tab-pane fade">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="reports-box-left">
+
+                                                            <div class="reports-box-left-title">
+                                                                <h1>Location</h1>
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+
+                                                </div>
+
+                                            </div>
+                                            <div id="p4" class="container tab-pane fade">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="reports-box-left">
+
+                                                            <div class="reports-box-left-title">
+                                                                <h1>Location</h1>
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+
+                                                </div>
+
+                                            </div>
+                                            <div id="p5" class="container tab-pane fade">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="reports-box-left">
+
+                                                            <div class="reports-box-left-title">
+                                                                <h1>Location</h1>
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>Seattle <i class="fas fa-chevron-right"></i></p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+                                                                        <p>Seattle</p>
+
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-6">
+
+                                                                    <div class="reports-inner">
+
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+                                                                        <p>9819 (2)</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<div class="space-bottom"></div>
+
+<!-- footer area start -->
+<div class="footer">
+    <div class="container">
+        <div class="footer-wrapper text-center">
+            <p>Copyright © agentstat.com</p>
+            <ul>
+                <li><a href="https://agentstat.com/content/terms-of-use/">Terms of Service</a></li>
+                <li><a href="https://agentstat.com/content/privacy-policy/">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Main jQuery -->
+<script src="js/jquery-3.4.1.min.js"></script>
+
+<!-- Bootstrap Propper jQuery -->
+<script src="js/popper.js"></script>
+
+<!-- Bootstrap jQuery -->
+<script src="js/bootstrap.js"></script>
+<script src="js/raphael.min.js"></script>
+<script src="js/morris.min.js"></script>
+
+<script>
+    $(function () {
+        "use strict";
+
+
+        //BAR CHART
+        var bar = new Morris.Bar({
+            element: 'bar-chart',
+            resize: true,
+            data: [
+                {y: '2006', a: 100, b: 90},
+                {y: '2007', a: 75, b: 65},
+                {y: '2008', a: 50, b: 40},
+                {y: '2009', a: 75, b: 65},
+                {y: '2010', a: 50, b: 40},
+                {y: '2011', a: 75, b: 65},
+                {y: '2012', a: 100, b: 90}
+            ],
+            barColors: ['#134e60'],
+            xkey: 'y',
+            ykeys: ['a'],
+            labels: ['CPU', 'DISK'],
+            hideHover: 'auto'
+        });
+
+        //BAR CHART
+        var bar1 = new Morris.Bar({
+            element: 'bar-chart1',
+            resize: true,
+            data: [
+                {y: '2006', a: 100, b: 90},
+                {y: '2007', a: 75, b: 65},
+                {y: '2008', a: 50, b: 40},
+                {y: '2009', a: 75, b: 65},
+                {y: '2010', a: 50, b: 40},
+                {y: '2011', a: 75, b: 65},
+                {y: '2012', a: 100, b: 90}
+            ],
+            barColors: ['#134e60'],
+            xkey: 'y',
+            ykeys: ['a'],
+            labels: ['CPU', 'DISK'],
+            hideHover: 'auto'
+        });
+
+    });
+</script>
+
+<!-- Fontawesome Script -->
+<script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+<script src="js/type.js"></script>
+
+<script src="js/owl.carousel.min.js"></script>
+
+<!-- Custom jQuery -->
+<script src="js/scripts.js"></script>
+
+<script src="/js/conf.js"></script>
+<script src="/js/home.js"></script>
+
+<!-- Scroll-Top button -->
+<a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+</body>
+</html>

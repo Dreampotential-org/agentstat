@@ -94,9 +94,8 @@ function load_agent(ignore_city = true) {
     }
 
     $.ajax(settings).done(function (response) {
-
-
         data = JSON.parse(response);
+        agent_id = data['id'];
 
         $('.agent_name').val(data['agent_name']);
         $('.agent-first-name').text(data['full_name'].split(" ")[0]);
