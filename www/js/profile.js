@@ -27,6 +27,13 @@ function display_profile(profile) {
   $('#state').val(profile.state);
   $('#zipcode').val(profile.zipcode);
   $('#years_in_bussiness').val(profile.years_in_bussiness);
+
+  $('#website').val(profile.website);
+  $('#blog').val(profile.blog);
+  $('#facebook').val(profile.facebook);
+  $('#twitter').val(profile.twitter);
+  $('#linkedid').val(profile.linkedin);
+
   profile_id = profile.id;
 
   if (profile.phone_number !== null) {
@@ -241,6 +248,12 @@ function update_profile() {
     function() { return $(this).val() }
   ).get();
   data['years_in_bussiness'] = $('#years_in_bussiness').val();
+
+  data['website'] = $('#website').val();
+  data['blog'] = $('#blog').val();
+  data['facebook'] = $('#facebook').val();
+  data['twitter'] = $('#twitter').val();
+  data['Linkedin'] = $('#Linkedin').val();
 
 
   var picture_data = $('#picture')[0].files[0]

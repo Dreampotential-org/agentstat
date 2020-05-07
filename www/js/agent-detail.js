@@ -106,6 +106,17 @@ function load_agent(ignore_city = true) {
 
         brokerage_info = data['brokerage_info'].split(/\r?\n/)[0];
 
+        social_medias = ['website', 'blog', 'facebook', 'twitter', 'linkedin']
+        
+        $.each(social_medias, function(k, v) {
+          if (!(data[v])) {
+            $('#' + v).css('display', 'none');
+          } else {
+            $('#' + v).attr('href', data[v]);
+          }
+
+        });
+
         $('.brokerage_info').html(brokerage_info.toLowerCase());
         $.each($('.agent_namebroker_name'), function () {
             brokerage_info += ' ' + data['city'];
