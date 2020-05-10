@@ -24,6 +24,7 @@ function getLeads() {
 				$('#how_soon_sell').html(v.how_soon_sell);
 				$('#interest_reason').html(v.interest_reason);
 				$('#message').html(v.message);
+				$('.box-right').show();
 			}
 		});
 
