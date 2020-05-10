@@ -713,6 +713,7 @@
             // console.log(msg);
             console.log(msg['token']);
             localStorage.session_id = msg['token'];
+            localStorage.email = msg['email'];
 
             var opval = $('#category').val();
             if (agent_id && opval == 'secondoption') {
