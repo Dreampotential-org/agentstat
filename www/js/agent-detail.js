@@ -5,6 +5,7 @@ var agent_id = urlParams.get('agent_id');
 
 function init() {
     load_agent();
+    $("#lead_phone").inputmask({"mask": "(999) 999-9999"});
 }
 
 function currencyFormat(num) {
@@ -601,20 +602,18 @@ function load_agent(ignore_city = true) {
 
 
         //pagination(data[agent_list_key].length);
-
         $('#datatable').DataTable();
 
+        agentTrack(agent_id);
     }).fail(function (err) {
         console.log(err);
     });
 }
 
 $(document).on('change click', '.how_soon li>a', function () {
-    var leads = {
-        'how_soon_sell': $(this).text()
-    }
+    leads = {};
+    leads['looking_for'] = $(this).text();
     var buy_home = $(this).attr('id');
-    localStorage.setItem('leads', JSON.stringify(leads));
     if (buy_home == 'buy-home') {
         $('#leads-step-one-new').css('display', 'None');
         $('#leads-step-one-buy').css('display', 'block');
@@ -622,14 +621,11 @@ $(document).on('change click', '.how_soon li>a', function () {
         $('#leads-step-one-new').css('display', 'None');
         $('#leads-step-one').css('display', 'block');
     }
-
 });
 
 $(document).on('change click', '.why_interest li>a', function () {
-    var data = JSON.parse(localStorage.getItem('leads'));
-    data['interest_reason'] = $(this).text();
+    leads['how_soon_sell'] = $(this).text();
     var buy_home = $(this).attr('id');
-    localStorage.setItem('leads', JSON.stringify(data));
     if (buy_home == 'buy-home') {
         $('#leads-step-one-buy').css('display', 'None');
         $('#leads-step-two-buy').css('display', 'block');
@@ -637,15 +633,9 @@ $(document).on('change click', '.why_interest li>a', function () {
         $('#leads-step-one').css('display', 'none');
         $('#leads-step-two').css('display', 'block');
     }
-    localStorage.setItem('leads', JSON.stringify(data));
-
-    console.log('tests');
-
 });
 $(document).on('change click', '.why_interest_two li>a', function () {
-    var data = JSON.parse(localStorage.getItem('leads'));
-    data['interest_reason'] = $(this).text();
-    localStorage.setItem('leads', JSON.stringify(data));
+    leads['interest_reason'] = $(this).text();
     var buy_home = $(this).attr('id');
     if (buy_home == 'buy-home') {
         $('#leads-step-two-buy').css('display', 'None');
@@ -654,20 +644,17 @@ $(document).on('change click', '.why_interest_two li>a', function () {
         $('#leads-step-two').css('display', 'none');
         $('#leads-step-three').css('display', 'block');
     }
-    localStorage.setItem('leads', JSON.stringify(data));
-
-    console.log('tests');
-
 });
 
 $(document).on('change click', '#lead-submit', function () {
     var data = {};
 
-    data = JSON.parse(localStorage.getItem('leads'));
+    data = leads;
 
     data['email'] = $('#lead_email').val();
     data['name'] = $('#lead_name').val();
     data['phone'] = $('#lead_phone').val();
+    data['message'] = $('#lead_message').val();
     data['agent'] = agent_id;
 
 
@@ -676,8 +663,6 @@ $(document).on('change click', '#lead-submit', function () {
         $('.msg').html('All fields are required');
         return false;
     }
-
-    localStorage.setItem('leads', JSON.stringify(data));
 
     settings = get_settings('lead/', 'POST', JSON.stringify(data));
     settings['headers'] = null;
