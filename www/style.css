@@ -5198,6 +5198,7 @@
  .nav-tabs .nav-link {
      color: #3C3C3C;
      border: none;
+     width: 130px;
  }
  .nav-tabs .nav-link.active {
      color: #3C3C3C;
