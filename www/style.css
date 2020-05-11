@@ -349,6 +349,7 @@
  
  .main-menu-part {
      width: 100%;
+     margin-top: 10px;
  }
  .main-menu-part ul {
      list-style-type: none;
