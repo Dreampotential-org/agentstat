@@ -606,8 +606,6 @@ function load_agent(ignore_city = true) {
 
         //pagination(data[agent_list_key].length);
         $('#datatable').DataTable();
-
-        agentTrack(agent_id);
     }).fail(function (err) {
         console.log(err);
     });
