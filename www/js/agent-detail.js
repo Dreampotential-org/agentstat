@@ -93,8 +93,12 @@ function load_agent(ignore_city = true) {
     if (ignore_city == false) {
       agent_list_key = 'city_agent_lists'
     }
+    show_loading_screen();
 
+    // show loading
     $.ajax(settings).done(function (response) {
+        swal.close()
+        // remove loading
         data = JSON.parse(response);
         agent_id = data['id'];
 
@@ -107,7 +111,6 @@ function load_agent(ignore_city = true) {
         brokerage_info = data['brokerage_info'].split(/\r?\n/)[0];
 
         social_medias = ['website', 'blog', 'facebook', 'twitter', 'linkedin']
-        
         $.each(social_medias, function(k, v) {
           if (!(data[v])) {
             $('#' + v).css('display', 'none');
@@ -810,6 +813,16 @@ function pagination(page){
 
     });
 
+}
+function show_loading_screen() {
+    swal({
+        title: "Crunching Numbers!",
+        text:  "Hang tight while we fetch the records!",
+        imageUrl: "/img/pop.png",
+        showCancelButton: false,
+        showConfirmButton: false,
+        allowOutsideClick: false
+    });
 }
 
 function show_claim_screen() {
