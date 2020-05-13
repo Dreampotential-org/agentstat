@@ -57,6 +57,15 @@ function load_agent(ignore_city = true) {
           ></iframe>
       `);
     }
+
+  $('#city_agent_scores').html(`
+    <iframe
+      src='` + CITY_AGENT_SCORES_URL + transaction_query + `/'
+      style='width: 110%; height: 660px; border: 0'
+      ></iframe>
+  `);
+
+
     console.log(city);
 
 
