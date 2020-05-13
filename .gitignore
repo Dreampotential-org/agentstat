@@ -1,3 +1,4 @@
 *.sw?
 /nbproject/private/
 .DS_Store
+.idea/*
