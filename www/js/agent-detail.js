@@ -57,6 +57,15 @@ function load_agent(ignore_city = true) {
           ></iframe>
       `);
     }
+
+  $('#city_agent_scores').html(`
+    <iframe
+      src='` + CITY_AGENT_SCORES_URL + transaction_query + `/'
+      style='width: 110%; height: 660px; border: 0'
+      ></iframe>
+  `);
+
+
     console.log(city);
 
 
@@ -93,8 +102,12 @@ function load_agent(ignore_city = true) {
     if (ignore_city == false) {
       agent_list_key = 'city_agent_lists'
     }
+    show_loading_screen();
 
+    // show loading
     $.ajax(settings).done(function (response) {
+        swal.close()
+        // remove loading
         data = JSON.parse(response);
         agent_id = data['id'];
 
@@ -107,7 +120,6 @@ function load_agent(ignore_city = true) {
         brokerage_info = data['brokerage_info'].split(/\r?\n/)[0];
 
         social_medias = ['website', 'blog', 'facebook', 'twitter', 'linkedin']
-        
         $.each(social_medias, function(k, v) {
           if (!(data[v])) {
             $('#' + v).css('display', 'none');
@@ -151,30 +163,7 @@ function load_agent(ignore_city = true) {
             $('#claim_wrapper').css('display', 'block');
         }
 
-        overall_score = data['scores'][0]['overall_l2s_ratio'] || 100;
-        overall_avg_dom = data['scores'][0]['overall_avg_dom'];
-        overall_s2l_price = data['scores'][0]['overall_s2l_price'];
-        overall_sold_listings = data['scores'][0]['overall_sold_listings'];
-        // overall_score = data['scores'][0]['overall_score'];
-
-        city_score = data['scores'][0]['l2s_ratio'] || 100;
-        city_avg_dom = data['scores'][0]['avg_dom'];
-        city_s2l_price = data['scores'][0]['s2l_price'];
-        sold_listings = data['scores'][0]['sold_listings'];
-        // score = data['scores'][0]['score'];
-
-        $("#overall-score").html(overall_score.toFixed(2) + '%');
-        $("#overall-avg-dom").html(overall_avg_dom.toFixed(2));
-        $("#overall-s2l-price").html(overall_s2l_price.toFixed(2) + '%');
-
-        $("#city-score").html(city_score.toFixed(2) + '%');
-        $("#city-avg-dom").html(city_avg_dom.toFixed(2));
-        $("#city-s2l-price").html(city_s2l_price.toFixed(2) + '%');
-        $('.sold_listings').html(sold_listings);
-        $('.overall_sold_listings').html(overall_sold_listings);
-        $('.overall_score').html(overall_score);
-        $('.score').html(city_score);
-
+        set_agent_tabs_default(data);
 
         $(".alist").remove();
         index = 1;
@@ -603,8 +592,6 @@ function load_agent(ignore_city = true) {
 
         //pagination(data[agent_list_key].length);
         $('#datatable').DataTable();
-
-        agentTrack(agent_id);
     }).fail(function (err) {
         console.log(err);
     });
@@ -810,6 +797,16 @@ function pagination(page){
 
     });
 
+}
+function show_loading_screen() {
+    swal({
+        title: "Crunching Numbers!",
+        text:  "Hang tight while we fetch the records!",
+        imageUrl: "/img/pop.png",
+        showCancelButton: false,
+        showConfirmButton: false,
+        allowOutsideClick: false
+    });
 }
 
 function show_claim_screen() {

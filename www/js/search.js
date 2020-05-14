@@ -20,6 +20,7 @@ function populate_city_search_menu() {
     });
 }
 
+
 function show_loading_screen() {
     swal({
         title: "Crunching Numbers!",

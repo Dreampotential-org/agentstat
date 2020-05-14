@@ -11,7 +11,7 @@
     <meta name="author" content="Asad Kabir">
 
     <!-- Title -->
-    <title>Inbox</title>
+    <title>Reports</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="img/fav.png" />
@@ -30,6 +30,9 @@
     <!-- Main StyleSheet -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="css/report.css" />
+    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css" />
 
@@ -58,10 +61,10 @@
 
                         <div class="main-menu-part form-menu">
                             <ul class="float-left form-ulli-left">
-                                <li><a  href="inbox.html">Inbox </a></li>
-                                <li><a class="active" href="reports.html">Reporting </a></li>
-                                <li><a href="#">Past Sales  </a></li>
-                                <li><a href="#">Referrals</a></li>
+                                <li><a class="active" href="inbox.html">Inbox </a></li>
+                                <li><a href="reports.html">Reporting </a></li>
+                                <li><a href="transaction.html">Past Sales  </a></li>
+                                <li><a href="referrals.html">Referrals</a></li>
                                 <li><a href="#">Team </a></li>
                             </ul>
                             <ul class="float-right user-icon form-ulli-right">
@@ -108,73 +111,55 @@
 
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="pop1" role="tabpanel" aria-labelledby="pop1-tab">
-
                     <div class="reports-content">
-
                         <div class="col-md-12">
-
                             <div class="row">
-
                                 <div class="col-md-6">
-
                                     <!-- Nav tabs -->
                                     <ul class="nav custom-nav" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active" data-toggle="tab" href="#pop11">
-
                                                 <div class="reports-box report-active">
                                                     <h1>Impressions</h1>
                                                     <h2>78</h2>
                                                 </div>
-
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" data-toggle="tab" href="#pop22">
-
                                                 <div class="reports-box report-active">
                                                     <h1>Profile Views</h1>
-                                                    <h2>61</h2>
+                                                    <h2 id="traffic-profile-views">0</h2>
                                                 </div>
-
                                             </a>
                                         </li>
-
                                     </ul>
-
                                 </div>
-
                                 <div class="col-md-6">
                                     <div class="date-filter">
-                                        <select name="select">
-                                            <option>Last 7 Days</option>
-                                            <option>Last 2 Days</option>
+                                        <select name="select" id="traffic-dropdown">
+                                            <option value="7">Last 7 Days</option>
+                                            <option value="15">Last 15 Days</option>
+                                            <option value="30">Last Month</option>
+                                            <option value="90">Last 3 Month</option>
+                                            <option value="180">Last 6 Month</option>
+                                            <option value="365">Last 12 Month</option>
                                         </select>
                                     </div>
                                 </div>
-
                                 <div class="col-md-12">
-
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div id="pop11" class=" tab-pane active">
-
                                             <div class="row">
-
                                                 <div class="col-md-6">
-
                                                     <div class="reports-box-left">
-
                                                         <div class="reports-box-left-title">
                                                             <h1>Location</h1>
                                                         </div>
-
                                                         <div class="row">
-
                                                             <div class="col-md-6">
-
                                                                 <div class="reports-inner">
-
                                                                     <p class="location-active">Seattle (4) <i class="fas fa-chevron-right"></i></p>
                                                                     <p>Everett (12)</p>
                                                                     <p>Lynnwood (13)</p>
@@ -183,137 +168,63 @@
                                                                     <p>Kirkland (2)</p>
                                                                     <p>Edmonds (2)</p>
                                                                     <p>Kirkland (2)</p>
-
-
                                                                 </div>
-
                                                             </div>
-
                                                             <div class="col-md-6">
-
                                                                 <div class="reports-inner">
-
                                                                     <p>9819 (2)</p>
                                                                     <p>9819 (2)</p>
                                                                     <p>9819 (2)</p>
                                                                     <p>9819 (2)</p>
                                                                     <p>9819 (2)</p>
-
                                                                 </div>
-
                                                             </div>
-
                                                         </div>
-
                                                     </div>
-
                                                 </div>
-                                                <div class="col-md-6">
-
-                                                    <div class="chart-right">
-
-                                                        <h1>Impressions Over Time</h1>
-                                                        <div class="chart" id="bar-chart" style="height: 200px;"></div>
-
-                                                    </div>
-
-                                                    <div class="chart-right">
-
-                                                        <h1>Impressions by Property Type</h1>
-                                                        <div class="chart" id="bar-chart-1" style="height: 200px;"></div>
-
-                                                    </div>
-
-                                                    <div class="chart-right">
-
-                                                        <h1>Impressions by Pirce Point</h1>
-                                                        <div class="chart" id="bar-chart-2" style="height: 200px;"></div>
-
-                                                    </div>
-
-                                                </div>
-
+                                                
                                             </div>
-
                                         </div>
                                         <div id="pop22" class="tab-pane fade">
-
                                             <div class="row">
-
                                                 <div class="col-md-6">
-
                                                     <div class="reports-box-left">
-
                                                         <div class="reports-box-left-title">
                                                             <h1>Location</h1>
                                                         </div>
-
                                                         <div class="row">
-
                                                             <div class="col-md-6">
-
-                                                                <div class="reports-inner">
-
-                                                                    <p>Seattle <i class="fas fa-chevron-right"></i></p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-
-
+                                                                <div id="traffic-profile-state-div" class="reports-inner">
                                                                 </div>
-
                                                             </div>
-
                                                             <div class="col-md-6">
-
-                                                                <div class="reports-inner">
-
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-
+                                                                <div id="traffic-profile-zipcode" class="reports-inner">
                                                                 </div>
-
                                                             </div>
-
                                                         </div>
-
-
-
-
                                                     </div>
-
-
-
                                                 </div>
                                                 <div class="col-md-6">
-
-                                                    <div class="chart" id="bar-chart1" style="height: 300px;"></div>
-
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views Over Time</h1>
+                                                        <div class="chart" id="bar-chart" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views by Property Type</h1>
+                                                        <div class="chart" id="bar-chart-1" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views by Pirce Point</h1>
+                                                        <div class="chart" id="bar-chart-2" style="height: 200px;"></div>
+                                                    </div>
                                                 </div>
-
                                             </div>
-
-
-
-
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
-
-
                     </div>
-
-
                 </div>
                 <div class="tab-pane fade" id="pop2" role="tabpanel" aria-labelledby="pop2-tab">
 
@@ -889,39 +800,35 @@
 <script src="js/morris.min.js"></script>
 
 <script>
-    $(function () {
-        "use strict";
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+        var target = $(e.target).attr("href") // activated tab
+
+        switch (target) {
+            case "#pop22":
+                profileChart1.redraw();
+                profileChart2.redraw();
+                profileChart3.redraw();
+                $(window).trigger('resize');
+                break;
+        }
+    }); 
+
+
+
 
 
         //BAR CHART
-        var bar = new Morris.Bar({
-            element: 'bar-chart',
-            resize: true,
-            data: [
-                {y: '2006', a: 100, b: 90},
-                {y: '2007', a: 75, b: 65},
-                {y: '2008', a: 50, b: 40},
-                {y: '2009', a: 75, b: 65},
-                {y: '2010', a: 50, b: 40},
-                {y: '2011', a: 75, b: 65},
-                {y: '2012', a: 100, b: 90}
-            ],
-            barColors: ['#4285F4'],
-            xkey: 'y',
-            ykeys: ['a'],
-            labels: ['CPU', 'DISK'],
-            hideHover: 'auto'
-        });
+        
 
 
 
-    });
-    $(function () {
-        "use strict";
+
+
 
 
         //BAR CHART
-        var bar1 = new Morris.Bar({
+        profileChart2 = new Morris.Bar({
             element: 'bar-chart-1',
             resize: true,
             data: [
@@ -942,13 +849,12 @@
 
 
 
-    });
-    $(function () {
-        "use strict";
+
+
 
 
         //BAR CHART
-        var bar2 = new Morris.Bar({
+        profileChart3 = new Morris.Bar({
             element: 'bar-chart-2',
             resize: true,
             data: [
@@ -969,7 +875,7 @@
 
 
 
-    });
+
 </script>
 
 <!-- Fontawesome Script -->
@@ -982,16 +888,10 @@
 <script src="js/scripts.js"></script>
 
 <script src="/js/conf.js"></script>
-<script src="/js/home.js"></script>
+<script src="/js/reports.js"></script>
 
 <!-- Scroll-Top button -->
 <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
-
-<script>
-    $(".btn-group-toggle").twbsToggleButtons();
-</script>
-
-
 
 </body>
 </html>
