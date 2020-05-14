@@ -1,29 +1,37 @@
 function parseProfileViews(res) {
-	$('#traffic-profile-views').html(res.hits.total.value);
+	$('#traffic-profile-views').html(res.profile_views);
 
 	var record = 1;
-	$.each(res.aggregations.group_by_client_regionName.buckets, function(k, v){
-
+	$.each(res.profile_states, function(k, v){
 		if (record == 1) {
-			var state = `<p class="traffic-profile-state location-active" data-state="`+v.key+`">`+v.key+` (`+v.doc_count+`) <i class="fas fa-chevron-right"></i></p>`;
-			zipcodeHtml('#traffic-profile-zipcode', v.group_by_client_zip.buckets);
+			var state = `<p class="traffic-profile-state location-active" data-state="`+v.client_regionName+`">`+v.client_regionName+` (`+v.region_count+`) <i class="fas fa-chevron-right"></i></p>`;
+			zipcodeHtml('#traffic-profile-zipcode', v.zipcodes);
 		} else {
-			var state = `<p class="traffic-profile-state" data-state="`+v.key+`">`+v.key+` (`+v.doc_count+`) <i class="fas fa-chevron-right hide"></i></p>`;
+			var state = `<p class="traffic-profile-state" data-state="`+v.client_regionName+`">`+v.client_regionName+` (`+v.region_count+`) <i class="fas fa-chevron-right hide"></i></p>`;
 		}
 		$('#traffic-profile-state-div').append(state);
 		record++;
 	});
 
+	profileChart1 = new Morris.Bar({
+		element: 'bar-chart',
+		resize: true,
+		data: res.profile_time_graph,
+		barColors: ['#4285F4'],
+		xkey: 'date',
+		ykeys: ['date_count'],
+		labels: ['Views'],
+		hideHover: 'auto'
+	});
 }
 
 function zipcodeHtml(element, zipcodes) {
 	$(element).html('');
 	$.each(zipcodes, function(k, v){
-		var zipcode = `<p>`+v.key+` (`+v.doc_count+`)</p>`;
+		var zipcode = `<p>`+v.client_zip+` (`+v.zip_count+`)</p>`;
 		$(element).append(zipcode);
 	});
 }
-
 
 $(document).ready(function(){
 	var days = $('#traffic-dropdown').val();
@@ -35,9 +43,9 @@ $(document).ready(function(){
 		console.log(err);
 	});
 	
-	//profileViewsjson = '{"took":2,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":{"value":7,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"group_by_client_regionName":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"Punjab","doc_count":6,"group_by_client_zip":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"54000","doc_count":6}]}},{"key":"New Jersey","doc_count":1,"group_by_client_zip":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"08854","doc_count":1}]}}]}}}';
-	//profileViewsjson = JSON.parse(profileViewsjson);
-	//parseProfileViews(profileViewsjson);
+	// profileViewsjson = '{"profile_views":14,"profile_states":[{"client_regionName":"California","region_count":4,"zipcodes":[{"client_zip":"95051","zip_count":1},{"client_zip":"95054","zip_count":3}]},{"client_regionName":"New Jersey","region_count":3,"zipcodes":[{"client_zip":"08854","zip_count":3}]},{"client_regionName":"Punjab","region_count":7,"zipcodes":[{"client_zip":"54000","zip_count":7}]}]}';
+	// profileViewsjson = JSON.parse(profileViewsjson);
+	// parseProfileViews(profileViewsjson);
 
 	$(document).on('click', '.traffic-profile-state', function() {
 		$('.traffic-profile-state').removeClass('location-active');
@@ -46,12 +54,12 @@ $(document).ready(function(){
 		$('.traffic-profile-state .fa-chevron-right').addClass('hide');
 		$(this).find('.fa-chevron-right').removeClass('hide');
 		
-		var index = profileViewsjson.aggregations.group_by_client_regionName.buckets.findIndex(x => x.key == $(this).data('state'));
-		var zipcodes = profileViewsjson.aggregations.group_by_client_regionName.buckets[index];
-		zipcodeHtml('#traffic-profile-zipcode', zipcodes.group_by_client_zip.buckets);
+		var index = profileViewsjson.profile_states.findIndex(x => x.client_regionName == $(this).data('state'));
+		var state = profileViewsjson.profile_states[index];
+		zipcodeHtml('#traffic-profile-zipcode', state.zipcodes);
 	});
 
-	$('.range-dropdown').on('change', function() {
+	$('#traffic-dropdown').on('change', function() {
 		//alert($(this).val());
 	});
 	

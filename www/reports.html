@@ -182,20 +182,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="chart-right">
-                                                        <h1>Impressions Over Time</h1>
-                                                        <div class="chart" id="bar-chart" style="height: 200px;"></div>
-                                                    </div>
-                                                    <div class="chart-right">
-                                                        <h1>Impressions by Property Type</h1>
-                                                        <div class="chart" id="bar-chart-1" style="height: 200px;"></div>
-                                                    </div>
-                                                    <div class="chart-right">
-                                                        <h1>Impressions by Pirce Point</h1>
-                                                        <div class="chart" id="bar-chart-2" style="height: 200px;"></div>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div id="pop22" class="tab-pane fade">
@@ -218,7 +205,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="chart" id="bar-chart1" style="height: 300px;"></div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views Over Time</h1>
+                                                        <div class="chart" id="bar-chart" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views by Property Type</h1>
+                                                        <div class="chart" id="bar-chart-1" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views by Pirce Point</h1>
+                                                        <div class="chart" id="bar-chart-2" style="height: 200px;"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -802,39 +800,35 @@
 <script src="js/morris.min.js"></script>
 
 <script>
-    $(function () {
-        "use strict";
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+        var target = $(e.target).attr("href") // activated tab
+
+        switch (target) {
+            case "#pop22":
+                profileChart1.redraw();
+                profileChart2.redraw();
+                profileChart3.redraw();
+                $(window).trigger('resize');
+                break;
+        }
+    }); 
+
+
+
 
 
         //BAR CHART
-        var bar = new Morris.Bar({
-            element: 'bar-chart',
-            resize: true,
-            data: [
-                {y: '2006', a: 100, b: 90},
-                {y: '2007', a: 75, b: 65},
-                {y: '2008', a: 50, b: 40},
-                {y: '2009', a: 75, b: 65},
-                {y: '2010', a: 50, b: 40},
-                {y: '2011', a: 75, b: 65},
-                {y: '2012', a: 100, b: 90}
-            ],
-            barColors: ['#4285F4'],
-            xkey: 'y',
-            ykeys: ['a'],
-            labels: ['CPU', 'DISK'],
-            hideHover: 'auto'
-        });
+        
 
 
 
-    });
-    $(function () {
-        "use strict";
+
+
 
 
         //BAR CHART
-        var bar1 = new Morris.Bar({
+        profileChart2 = new Morris.Bar({
             element: 'bar-chart-1',
             resize: true,
             data: [
@@ -855,13 +849,12 @@
 
 
 
-    });
-    $(function () {
-        "use strict";
+
+
 
 
         //BAR CHART
-        var bar2 = new Morris.Bar({
+        profileChart3 = new Morris.Bar({
             element: 'bar-chart-2',
             resize: true,
             data: [
@@ -882,7 +875,7 @@
 
 
 
-    });
+
 </script>
 
 <!-- Fontawesome Script -->
