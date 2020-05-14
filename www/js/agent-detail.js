@@ -833,15 +833,26 @@ function show_claim_screen() {
 $('#submit_proof_btn').click(function() {
   var form_data = {};
   var picture_data = $('#picture')[0].files[0]
+  var real_estate_license = $('#real-estate-license')[0].files[0]
 
   var reader = new FileReader();
   reader.readAsDataURL(picture_data);
+
+  var reader2 = new FileReader();
+  reader2.readAsDataURL(real_estate_license);
   var picture_base64 = '';
 
+  
+
     reader.onload = function () {
-      console.log(reader.result);
+
+      reader2.onload = function() {
+        real_estate_license_base64 = reader2.result;
+      }
+
       picture_base64 = reader.result;
       form_data['id_picture'] = picture_base64;
+      form_data['real_estate_license'] = picture_base64;
       form_data['full_name'] = $('#full_name').val();
       form_data['email'] = $('#email').val();
       form_data['brokerage_name'] = $('#brokerage-name').val();
