@@ -171,6 +171,10 @@ function get_reviews() {
                   <span>
                   ` + v.review + `
                   </span>
+                  <span>
+
+                  ` + v.rate + `
+                  </span>
               </div>
             </div>`]
           ).trigger('refresh.owl.carousel');
@@ -458,6 +462,7 @@ $(document).on('change click', '#review-add-btn', function() {
   data['full_name'] = $('#review-name').val();
   data['email'] = $('#review-email').val();
   data['review'] = $('#review').val();
+  data['rate'] = $(".rating").rate("getValue");
 
   review_date = new Date($('#review-date').val());
   data['date'] = review_date.toJSON();
