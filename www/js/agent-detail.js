@@ -847,13 +847,14 @@ $('#submit_proof_btn').click(function() {
       form_data['brokerage_name'] = $('#brokerage-name').val();
 
       settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
+      settings['headers'] = null;
 
       $.ajax(settings).done(function (response) {
 
           $('#alreadyClaimedModal').modal('toggle');
           swal({
             title: "Claim Profile!",
-            text: "Your request has been saved!",
+            text: "We will review your dispute and get back to you within 48 hours",
             icon: "success",
           }).then(function(isConfirm) {
           });
