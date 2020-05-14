@@ -456,6 +456,7 @@
                                         <input class="backcolorInput" id="review-email" type="text" name="text" placeholder="Reviewer e-mail">
                                         <input placeholder="Date of review" class="textbox-n backcolorInput" type="text" id="review-date">
                                         <textarea class="backcolorInput" id="review" placeholder="Review"></textarea>
+                                        <div class="rating" data-rate-value=6></div>
                                         <div class="text-center">
                                             <button class="backcolorInput" id="review-add-btn">Add</button>
                                         </div>
@@ -480,9 +481,7 @@
                             <div class="col-lg-12">
 
                                 <div class="slider-wrapper">
-                                    <div class="owl-carousel form-slider
-                                      owl-theme" id="reviews"
-                                      style="min-height: 100px">
+                                    <div class="owl-carousel form-slider owl-theme" id="reviews" style="min-height: 100px">
 
                                     </div>
                                     <div class="owl-nav">
@@ -624,6 +623,8 @@
     <!-- Main jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
 
+    <script src="http://auxiliary.github.io/rater/scripts/rater.js"></script>
+
     <!-- Bootstrap Propper jQuery -->
     <script src="/js/popper.js"></script>
 
@@ -763,6 +764,12 @@
     var str = document.getElementById("screen_name").innerHTML; 
     var res = str.replace("-", " ");
     document.getElementById("screen_name").innerHTML = res;
+
+    var options = {
+        max_value: 5,
+        step_size: 0.5,
+    }
+    $(".rating").rate(options);
 
     </script>
 
