@@ -1,10 +1,12 @@
 //API_URL = 'https://app.agentstat.com/api/';
 // UNCOMMENT to connect to local django-zillow api instance
 API_URL = 'https://app.agentstat.com/api/';
-// API_URL = 'http://localhost:8000/api/';
-
 TRANSACTIONS_URL = 'https://app.agentstat.com/agentportal/transactions/'
+CITY_AGENT_SCORES_URL = 'https://app.agentstat.com/agentportal/agent_scores/'
+
+// API_URL = 'http://localhost:8000/api/';
 // TRANSACTIONS_URL = 'http://localhost:8000/agentportal/transactions/'
+// CITY_AGENT_SCORES_URL = 'http://localhost:8000/agentportal/agent_scores/'
 
 function clean_text(text) {
   text = text.substr(0,1).toUpperCase()+text.substr(1);
