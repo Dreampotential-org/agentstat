@@ -592,6 +592,8 @@ function load_agent(ignore_city = true) {
 
         //pagination(data[agent_list_key].length);
         $('#datatable').DataTable();
+
+        agentProfileViewTrack()
     }).fail(function (err) {
         console.log(err);
     });

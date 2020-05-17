@@ -214,13 +214,14 @@ function load_search_results() {
       data = JSON.parse(response);
       results = data['results'];
       pagination_footer(data['total'])
-
+      var agent_id_on_page = [];
+      
       $.each(results, function(k, v) {
         agent_ids_order.push(v['agent_id']);
         all_agents.push(v);
         brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0].toLowerCase();
         // brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
-
+        agent_id_on_page.push(v['agent_id']);
 
         v['agent_full_name'] = v['agent_full_name'].toLowerCase();
         // brokerage_info = brokerage_info.toLowerCase();
@@ -360,6 +361,8 @@ function load_search_results() {
       if(urlParams.get('city_search')) {
         $(".ser-map").val(urlParams.get('city_search'))
       }
+
+      agentProfileImpressionTrack(agent_id_on_page);
 
     }).fail(function(err) {
         // alert('Got err');
