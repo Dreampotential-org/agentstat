@@ -1,5 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search)
 
+leads = {};
+
 var locations = [];
 var agent_id = urlParams.get('agent_id');
 
@@ -599,46 +601,157 @@ function load_agent(ignore_city = true) {
     });
 }
 
-$(document).on('change click', '.how_soon li>a', function () {
+$(document).on('change click', '#leads-start div>ul>li>a', function () {
     leads = {};
     leads['looking_for'] = $(this).text();
-    var buy_home = $(this).attr('id');
-    if (buy_home == 'buy-home') {
-        $('#leads-step-one-new').css('display', 'None');
-        $('#leads-step-one-buy').css('display', 'block');
+    var looking_for = $(this).attr('id');
+    $('#leads-start').css('display', 'None');
+    if (looking_for == 'buy-home') {
+        $('#leads-buy-step-one').css('display', 'block');
+    } else if (looking_for == 'sell-home') {
+        $('#leads-sell-step-one').css('display', 'block');
     } else {
-        $('#leads-step-one-new').css('display', 'None');
-        $('#leads-step-one').css('display', 'block');
+        leads['selling'] = {};
+        leads['buying'] = {};
+        $('#leads-both-step-one').css('display', 'block');
     }
 });
 
-$(document).on('change click', '.why_interest li>a', function () {
-    leads['how_soon_sell'] = $(this).text();
-    var buy_home = $(this).attr('id');
-    if (buy_home == 'buy-home') {
-        $('#leads-step-one-buy').css('display', 'None');
-        $('#leads-step-two-buy').css('display', 'block');
-    } else {
-        $('#leads-step-one').css('display', 'none');
-        $('#leads-step-two').css('display', 'block');
-    }
+$(document).on('change click', '#leads-both-step-one div>ul>li>a', function() {
+    leads['selling']['home_type'] = $(this).text();
+
+    $('#leads-both-step-one').css('display', 'None');
+    $('#leads-both-step-two').css('display', 'block');
 });
-$(document).on('change click', '.why_interest_two li>a', function () {
+
+$(document).on('change click', '#leads-both-step-two div>ul>li>a', function() {
+    leads['selling']['how_much'] = $(this).text();
+
+    $('#leads-both-step-two').css('display', 'None');
+    $('#leads-both-step-three').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-both-step-three div>ul>li>a', function() {
+    leads['selling']['how_soon'] = $(this).text();
+
+    $('#leads-both-step-three').css('display', 'None');
+    $('#leads-both-step-four').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-both-step-four div>ul>li>a', function() {
+    leads['buying']['home_type'] = $(this).text();
+
+    $('#leads-both-step-four').css('display', 'None');
+    $('#leads-both-step-five').css('display', 'block');
+});
+
+
+$(document).on('change click', '#leads-both-step-five div>ul>li>a', function() {
+    leads['buying']['how_much'] = $(this).text();
+
+    $('#leads-both-step-five').css('display', 'None');
+    $('#leads-both-step-six').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-both-step-six div>ul>li>a', function() {
+    leads['buying']['how_soon'] = $(this).text();
+
+    $('#leads-both-step-six').css('display', 'None');
+    $('#leads-both-step-seven').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-both-step-seven div>ul>li>a', function() {
     leads['interest_reason'] = $(this).text();
-    var buy_home = $(this).attr('id');
-    if (buy_home == 'buy-home') {
-        $('#leads-step-two-buy').css('display', 'None');
-        $('#leads-step-one').css('display', 'block');
-    } else {
-        $('#leads-step-two').css('display', 'none');
-        $('#leads-step-three').css('display', 'block');
-    }
+
+    $('#leads-both-step-seven').css('display', 'None');
+    $('#leads-form').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-buy-step-one div>ul>li>a', function() {
+    leads['home_type'] = $(this).text();
+
+    $('#leads-buy-step-one').css('display', 'None');
+    $('#leads-buy-step-two').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-buy-step-two div>ul>li>a', function() {
+    leads['how_much'] = $(this).text();
+
+    $('#leads-buy-step-two').css('display', 'None');
+    $('#leads-buy-step-three').css('display', 'block');
+});
+
+
+$(document).on('change click', '#leads-buy-step-three div>ul>li>a', function() {
+    leads['how_soon'] = $(this).text();
+
+    $('#leads-buy-step-three').css('display', 'None');
+    $('#leads-buy-step-four').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-buy-step-four div>ul>li>a', function() {
+    leads['interest_reason'] = $(this).text();
+
+    $('#leads-buy-step-four').css('display', 'None');
+    $('#leads-form').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-sell-step-one div>ul>li>a', function() {
+    leads['home_type'] = $(this).text();
+
+    $('#leads-sell-step-one').css('display', 'None');
+    $('#leads-sell-step-two').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-sell-step-two div>ul>li>a', function() {
+    //leads = {};
+    leads['how_much'] = $(this).text();
+
+    $('#leads-sell-step-two').css('display', 'None');
+    $('#leads-sell-step-three').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-sell-step-three div>ul>li>a', function() {
+    //leads = {};
+    leads['how_soon'] = $(this).text();
+
+    $('#leads-sell-step-three').css('display', 'None');
+    $('#leads-sell-step-four').css('display', 'block');
+});
+
+$(document).on('change click', '#leads-sell-step-four div>ul>li>a', function() {
+    //leads = {};
+    leads['interest_reason'] = $(this).text();
+
+    $('#leads-sell-step-four').css('display', 'None');
+    $('#leads-form').css('display', 'block');
 });
 
 $(document).on('change click', '#lead-submit', function () {
     var data = {};
 
-    data = leads;
+    if (leads['looking_for'] == 'Both') {
+      buying = leads['buying'];
+      // data = leads['selling'];
+      data = leads;
+      // leads['buying'] = null;
+      buying['interest_reason'] = data['interest_reason'];
+      buying['looking_for'] = data['looking_for'];
+
+      buying['email'] = $('#lead_email').val();
+      buying['name'] = $('#lead_name').val();
+      buying['phone'] = $('#lead_phone').val();
+      buying['message'] = $('#lead_message').val();
+      buying['agent'] = agent_id;
+      buying['lead_type'] = 'buying';
+
+      data['lead_type'] = 'selling';
+      data['home_type'] = data['selling']['home_type'];
+      data['how_much'] = data['selling']['how_much'];
+      data['how_soon'] = data['selling']['how_soon'];
+    } else {
+      data = leads;
+    }
 
     data['email'] = $('#lead_email').val();
     data['name'] = $('#lead_name').val();
@@ -659,7 +772,7 @@ $(document).on('change click', '#lead-submit', function () {
     $.ajax(settings).done(function (response) {
 
         var msg = JSON.parse(response);
-        $('#leads-step-three').css('display', 'none');
+        $('#leads-form').css('display', 'none');
         $('#leads-step-four').css('display', 'block');
 
     }).fail(function (err) {
@@ -668,6 +781,25 @@ $(document).on('change click', '#lead-submit', function () {
         console.log(err);
 
     });
+
+    if(buying) {
+
+      settings = get_settings('lead/', 'POST', JSON.stringify(buying));
+      settings['headers'] = null;
+
+      $.ajax(settings).done(function (response) {
+
+          var msg = JSON.parse(response);
+          $('#leads-form').css('display', 'none');
+          $('#leads-step-four').css('display', 'block');
+
+      }).fail(function (err) {
+
+          $('.msg').html(err['responseText']);
+          console.log(err);
+
+      });
+    }
 });
 
 $(window).on('load', function () {
@@ -678,22 +810,6 @@ $(window).on('load', function () {
         $('#city-tab').click();
     }
 });
-/*function passBtnID(id) {
-    alert($(this).attr('id'));
-    if($('.fidout').is(":visible")){
-        $('.fidout').fadeOut('slow');
-        $('#' + id).fadeIn('slow');
-
-        console.log("Visible")
-    }else{
-        console.log("not visible")
-
-        $('#' + id).fadeIn('slow');
-
-    }
-
-
-}*/
 
 $(document).on('click', '.fidin', function () {
    //alert($(this).attr('passBtnID'));
@@ -835,27 +951,39 @@ function show_claim_screen() {
 $('#submit_proof_btn').click(function() {
   var form_data = {};
   var picture_data = $('#picture')[0].files[0]
+  var real_estate_license = $('#real-estate-license')[0].files[0]
 
   var reader = new FileReader();
   reader.readAsDataURL(picture_data);
+
+  var reader2 = new FileReader();
+  reader2.readAsDataURL(real_estate_license);
   var picture_base64 = '';
 
+  
+
     reader.onload = function () {
-      console.log(reader.result);
+
+      reader2.onload = function() {
+        real_estate_license_base64 = reader2.result;
+      }
+
       picture_base64 = reader.result;
       form_data['id_picture'] = picture_base64;
+      form_data['real_estate_license'] = picture_base64;
       form_data['full_name'] = $('#full_name').val();
       form_data['email'] = $('#email').val();
       form_data['brokerage_name'] = $('#brokerage-name').val();
 
       settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
+      settings['headers'] = null;
 
       $.ajax(settings).done(function (response) {
 
           $('#alreadyClaimedModal').modal('toggle');
           swal({
             title: "Claim Profile!",
-            text: "Your request has been saved!",
+            text: "We will review your dispute and get back to you within 48 hours",
             icon: "success",
           }).then(function(isConfirm) {
           });
