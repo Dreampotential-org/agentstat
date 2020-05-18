@@ -36,6 +36,7 @@ function display_profile(profile) {
 
   profile_id = profile.id;
 
+
   if (profile.phone_number !== null) {
     $('#phone_number_1').val(profile.phone_number.substring(0, 3));
     $('#phone_number_2').val(profile.phone_number.substring(3, 6));
@@ -53,11 +54,8 @@ function display_profile(profile) {
   get_specilities(profile.specialties);
 
   $.each(profile.licenses, function(k, val) {
-    $("#added-license").append(`
-        <div class="fragment" >
-          <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
-            <button type="button" class='remove-license'><i class="fa fa-times"></i></button>
-        </div>`);
+    console.log(val);
+    add_license(val);
   });
 
   if (profile.buyer_rebate !== null) {
@@ -258,6 +256,11 @@ function update_profile() {
   data['facebook'] = $('#facebook').val();
   data['twitter'] = $('#twitter').val();
   data['Linkedin'] = $('#Linkedin').val();
+
+  data['licenses'] = []
+  $('.license_number').each(function(k, v) {
+    data['licenses'].push($(v).val());
+  });
 
 
   var picture_data = $('#picture')[0].files[0]
@@ -534,6 +537,14 @@ function show_message(message) {
     });
 }
 
+function add_license(val) {
+  $("#added-license").append(`
+      <div class="fragment" >
+        <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
+        <button type="button" class='remove-license'><i class="fa fa-times"></i></button>
+      </div>`);
+}
+
 $("#add-license").click(function(){
   if ($('#license_no_1').val() == '' || $('#license_no_2').val() == '' || $('#phone_number_1').val() == '') {
     var validation_messages = 'Invalid license number.';
@@ -542,11 +553,7 @@ $("#add-license").click(function(){
   }
 
   var val = $('#license_no_1').val()+' '+$('#license_no_2').val()+' - '+$('#license_no_3').val();
-  $("#added-license").append(`
-      <div class="fragment" >
-        <input value="` + val + `" type="text" name="mytext[]" class="license_number" disabled style="width: 150px;">
-        <button type="button" class='remove-license'><i class="fa fa-times"></i></button>
-      </div>`);
+  add_license(val);
 
   $('#license_no_1').val('');
   $('#license_no_2').val('');
