@@ -774,6 +774,13 @@ $(document).on('change click', '#lead-submit', function () {
         var msg = JSON.parse(response);
         $('#leads-form').css('display', 'none');
         $('#leads-step-four').css('display', 'block');
+        
+        if(typeof buying !== 'undefined') { 
+            saveLeadTracking(data, buying);
+        } else {
+            saveLeadTracking(data);
+        }
+        
 
     }).fail(function (err) {
 
@@ -782,7 +789,7 @@ $(document).on('change click', '#lead-submit', function () {
 
     });
 
-    if(buying) {
+    if(typeof buying !== 'undefined') {
 
       settings = get_settings('lead/', 'POST', JSON.stringify(buying));
       settings['headers'] = null;

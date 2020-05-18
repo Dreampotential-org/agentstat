@@ -104,7 +104,7 @@
                 <div class="nav nav-tabs " id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true">Traffic</a>
                     <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false">Leads</a>
-                    <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false">Refferrals </a>
+                    <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false">Referrals </a>
 
                 </div>
             </nav>
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="date-filter">
-                                        <select name="select" id="traffic-dropdown">
+                                        <select name="select" class="date-range-dropdown" id="traffic-dropdown">
                                             <option value="7">Last 7 Days</option>
                                             <option value="30">Last 30 Days</option>
                                             <option value="this">This Month</option>
@@ -158,7 +158,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <div id="traffic-impression-state-div" class="reports-inner">
+                                                                <div id="traffic-impression-city-div" class="reports-inner">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -170,16 +170,16 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="chart-right">
-                                                        <h1>Profile Views Over Time</h1>
-                                                        <div class="chart" id="impression-chart-time" style="height: 200px;"></div>
+                                                        <h1>Impressions Over Time</h1>
+                                                        <div class="chart" id="traffic-impression-chart-time" style="height: 200px;"></div>
                                                     </div>
-                                                    <!-- <div class="chart-right">
-                                                        <h1>Profile Views by Property Type</h1>
-                                                        <div class="chart" id="bar-chart-2" style="height: 200px;"></div>
-                                                    </div> -->
                                                     <div class="chart-right">
-                                                        <h1>Profile Views by Pirce Point</h1>
-                                                        <div class="chart" id="impression-chart-price" style="height: 200px;"></div>
+                                                        <h1>Impressions by Property Type</h1>
+                                                        <div class="chart" id="traffic-impression-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Impressions by Pirce Point</h1>
+                                                        <div class="chart" id="traffic-impression-chart-price" style="height: 200px;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -193,7 +193,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <div id="traffic-profile-state-div" class="reports-inner">
+                                                                <div id="traffic-profile-city-div" class="reports-inner">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -206,15 +206,15 @@
                                                 <div class="col-md-6">
                                                     <div class="chart-right">
                                                         <h1>Profile Views Over Time</h1>
-                                                        <div class="chart" id="profile-chart-time" style="height: 200px;"></div>
+                                                        <div class="chart" id="traffic-profile-chart-time" style="height: 200px;"></div>
                                                     </div>
-                                                    <!-- <div class="chart-right">
+                                                    <div class="chart-right">
                                                         <h1>Profile Views by Property Type</h1>
-                                                        <div class="chart" id="bar-chart-2" style="height: 200px;"></div>
-                                                    </div> -->
+                                                        <div class="chart" id="traffic-profile-chart-type" style="height: 200px;"></div>
+                                                    </div>
                                                     <div class="chart-right">
                                                         <h1>Profile Views by Pirce Point</h1>
-                                                        <div class="chart" id="profile-chart-price" style="height: 200px;"></div>
+                                                        <div class="chart" id="traffic-profile-chart-price" style="height: 200px;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -242,7 +242,7 @@
 
                                                 <div class="reports-box report-active">
                                                     <h1>Sellers</h1>
-                                                    <h2>78</h2>
+                                                    <h2 id="lead-seller-views">0</h2>
                                                 </div>
 
                                             </a>
@@ -252,7 +252,7 @@
 
                                                 <div class="reports-box report-active">
                                                     <h1>Buyers</h1>
-                                                    <h2>61</h2>
+                                                    <h2 id="lead-buyer-views">0</h2>
                                                 </div>
 
                                             </a>
@@ -264,8 +264,12 @@
 
                                 <div class="col-md-6">
                                     <div class="date-filter">
-                                        <select name="select">
-                                            <option>Last 7 Days</option>
+                                        <select name="select" class="date-range-dropdown" id="lead-dropdown">
+                                            <option value="7">Last 7 Days</option>
+                                            <option value="30">Last 30 Days</option>
+                                            <option value="this">This Month</option>
+                                            <option value="last">Last Month</option>
+                                            <option value="365">Year to Date</option>
                                         </select>
                                     </div>
                                 </div>
@@ -275,138 +279,84 @@
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div id="pop111" class="tab-pane active">
-
                                             <div class="row">
-
                                                 <div class="col-md-6">
-
                                                     <div class="reports-box-left">
-
                                                         <div class="reports-box-left-title">
                                                             <h1>Location</h1>
                                                         </div>
 
                                                         <div class="row">
-
                                                             <div class="col-md-6">
-
-                                                                <div class="reports-inner">
-
-                                                                    <p>Seattle <i class="fas fa-chevron-right"></i></p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-
-
+                                                                <div id="lead-seller-city-div" class="reports-inner">
                                                                 </div>
-
                                                             </div>
-
                                                             <div class="col-md-6">
-
-                                                                <div class="reports-inner">
-
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-
+                                                                <div id="lead-seller-zipcode" class="reports-inner">
                                                                 </div>
-
                                                             </div>
-
                                                         </div>
-
-
-
-
                                                     </div>
-
-
-
                                                 </div>
-                                                <div class="col-md-6"></div>
+
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Seller Leads Over Time</h1>
+                                                        <div class="chart" id="lead-seller-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Seller Leads by Property Type</h1>
+                                                        <div class="chart" id="lead-seller-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Seller Leads by Pirce Point</h1>
+                                                        <div class="chart" id="lead-seller-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
 
                                             </div>
-
-
-
                                         </div>
                                         <div id="pop222" class="tab-pane fade">
-
                                             <div class="row">
-
                                                 <div class="col-md-6">
-
                                                     <div class="reports-box-left">
-
                                                         <div class="reports-box-left-title">
                                                             <h1>Location</h1>
                                                         </div>
 
                                                         <div class="row">
-
                                                             <div class="col-md-6">
-
-                                                                <div class="reports-inner">
-
-                                                                    <p>Seattle <i class="fas fa-chevron-right"></i></p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-                                                                    <p>Seattle</p>
-
-
+                                                                <div id="lead-buyer-city-div" class="reports-inner">
                                                                 </div>
-
                                                             </div>
-
                                                             <div class="col-md-6">
-
-                                                                <div class="reports-inner">
-
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-                                                                    <p>9819 (2)</p>
-
+                                                                <div id="lead-buyer-zipcode" class="reports-inner">
                                                                 </div>
-
                                                             </div>
-
                                                         </div>
-
-
-
-
                                                     </div>
-
-
-
                                                 </div>
-                                                <div class="col-md-6"></div>
-
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Buyer Leads Over Time</h1>
+                                                        <div class="chart" id="lead-buyer-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Buyer Leads by Property Type</h1>
+                                                        <div class="chart" id="lead-buyer-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Buyer Leads by Pirce Point</h1>
+                                                        <div class="chart" id="lead-buyer-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
                                             </div>
-
-
-
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
-
                     </div>
-
-
-
                 </div>
                 <div class="tab-pane fade" id="pop3" role="tabpanel" aria-labelledby="pop3-tab">
 
@@ -424,7 +374,7 @@
                                             <a class="nav-link active" data-toggle="tab" href="#p1">
 
                                                 <div class="reports-box report-active">
-                                                    <h1>Unique visitors</h1>
+                                                    <h1>Unique Visitors</h1>
                                                     <h2>78</h2>
                                                 </div>
 
@@ -434,7 +384,7 @@
                                             <a class="nav-link" data-toggle="tab" href="#p2">
 
                                                 <div class="reports-box report-active">
-                                                    <h1>Profile views</h1>
+                                                    <h1>Profile Views</h1>
                                                     <h2>61</h2>
                                                 </div>
 
@@ -454,7 +404,7 @@
                                             <a class="nav-link" data-toggle="tab" href="#p4">
 
                                                 <div class="reports-box report-active">
-                                                    <h1>Signed Red. Agr.</h1>
+                                                    <h1>Signed Ref. Agr.</h1>
                                                     <h2>61</h2>
                                                 </div>
 
@@ -467,8 +417,12 @@
 
                                 <div class="col-md-6">
                                     <div class="date-filter">
-                                        <select name="select">
-                                            <option>Last 7 Days</option>
+                                        <select name="select" class="date-range-dropdown" id="referral-dropdown">
+                                            <option value="7">Last 7 Days</option>
+                                            <option value="30">Last 30 Days</option>
+                                            <option value="this">This Month</option>
+                                            <option value="last">Last Month</option>
+                                            <option value="365">Year to Date</option>
                                         </select>
                                     </div>
                                 </div>
@@ -800,22 +754,22 @@
 
 <script>
 
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-        var target = $(e.target).attr("href") // activated tab
+    // $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    //     var target = $(e.target).attr("href") // activated tab
 
-        switch (target) {
-            case "#pop11":
-                impressionChartTime.redraw();
-                impressionChartPrice.redraw();
-                $(window).trigger('resize');
-                break;
-            case "#pop22":
-                profileChartTime.redraw();
-                profileChartPrice.redraw();
-                $(window).trigger('resize');
-                break;
-        }
-    }); 
+    //     switch (target) {
+    //         case "#pop11":
+    //             impressionChartTime.redraw();
+    //             impressionChartPrice.redraw();
+    //             $(window).trigger('resize');
+    //             break;
+    //         case "#pop22":
+    //             profileChartTime.redraw();
+    //             profileChartPrice.redraw();
+    //             $(window).trigger('resize');
+    //             break;
+    //     }
+    // }); 
 </script>
 
 <!-- Fontawesome Script -->

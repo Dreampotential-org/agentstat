@@ -7,7 +7,7 @@ function saveVisit(data, url, queryParamsUrl) {
     var pageUrl = new URL(queryParamsUrl);
     var min_price = pageUrl.searchParams.get("min_price");
     var max_price = pageUrl.searchParams.get("max_price");
-    if (min_price != null && max_price != null) {
+    if (data['q_price_range'] == undefined && min_price != null && max_price != null) {
         var average = (parseInt(min_price.substr(1)) + parseInt(max_price.substr(1)))/2;
         data['q_price_range'] =  mapPriceRange(average);
     } 
@@ -28,33 +28,18 @@ function saveVisit(data, url, queryParamsUrl) {
     } else {
         data['q_zip'] = 'N/A';
     }
-
+    
     var type = pageUrl.searchParams.get("type");
-    if (type != null && type != 'null') {
+    if (data['q_type'] == undefined && type != null && type != 'null') {
         data['q_type'] = type;
     }
     
-    console.log(data);
-    
     settings = get_settings(url, 'POST', JSON.stringify(data));
     settings['headers'] = null;
+
     $.ajax(settings).done(function (response) {
         console.log(response);
     });
-
-    // $.ajax('http://ip-api.com/json').then(
-    //     function success(response) {
-    //         $.each(response, function(k, v){
-    //             data['client_' + k] = v;
-    //         });
-    //         data['client_ip'] = data['client_query'];
-            
-    //         console.log('bbbb');
-    //         console.log(url);
-
-            
-    //     },
-    // );
 }
 
 function agentProfileViewTrack() {
@@ -69,9 +54,38 @@ function agentProfileImpressionTrack(agent_ids) {
     data = {};
     data['agent_ids'] = agent_ids;
     data['page'] = 'search';
-    //console.log('aaaa');
+
     saveVisit(data, 'at/', window.location.href);
 }
+
+function saveLeadTracking(res, ifBoth) {
+
+    data = {};
+    data['agent'] = res['agent'];
+    data['q_price_range'] = res['how_much'];
+    data['q_type'] = res['home_type'];
+
+    if (res['looking_for'] == 'Sell a Home') {
+        data['page'] = 'seller-lead';
+        saveVisit(data, 'at/', document.referrer);
+    } else if (res['looking_for'] == 'Buy a Home') {
+        data['page'] = 'buyer-lead';
+        saveVisit(data, 'at/', document.referrer);
+    } else if (res['looking_for'] == 'Both') {
+        data['page'] = 'seller-lead';
+        saveVisit(data, 'at/', document.referrer);
+
+        if (typeof ifBoth !== 'undefined') {
+            data['q_price_range'] = ifBoth['how_much'];
+            data['q_type'] = ifBoth['home_type'];
+            data['page'] = 'buyer-lead';
+            saveVisit(data, 'at/', document.referrer);
+        }
+
+        
+    }
+}
+
 
 function mapPriceRange(val) {
     if (val <= 200) {
