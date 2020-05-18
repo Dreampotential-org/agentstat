@@ -5,10 +5,10 @@ function parseProfileViews(res) {
 	var record = 1;
 	$.each(res.profile_states, function(k, v){
 		if (record == 1) {
-			var state = `<p class="traffic-profile-state location-active" data-state="`+v.q_state+`">`+v.q_state+` (`+v.region_count+`) <i class="fas fa-chevron-right"></i></p>`;
+			var state = `<p class="traffic-profile-state location-active" data-state="`+v.q_city+`">`+v.q_city+` (`+v.region_count+`) <i class="fas fa-chevron-right"></i></p>`;
 			zipcodeHtml('#traffic-profile-zipcode', v.zipcodes);
 		} else {
-			var state = `<p class="traffic-profile-state" data-state="`+v.q_state+`">`+v.q_state+` (`+v.region_count+`) <i class="fas fa-chevron-right hide"></i></p>`;
+			var state = `<p class="traffic-profile-state" data-state="`+v.q_city+`">`+v.q_city+` (`+v.region_count+`) <i class="fas fa-chevron-right hide"></i></p>`;
 		}
 		$('#traffic-profile-state-div').append(state);
 		record++;
@@ -45,10 +45,10 @@ function parseImpressionViews(res) {
 	var record = 1;
 	$.each(res.impression_states, function(k, v){
 		if (record == 1) {
-			var state = `<p class="traffic-impression-state location-active" data-state="`+v.agent_profile_view__q_state+`">`+v.agent_profile_view__q_state+` (`+v.region_count+`) <i class="fas fa-chevron-right"></i></p>`;
+			var state = `<p class="traffic-impression-state location-active" data-state="`+v.agent_profile_view__q_city+`">`+v.agent_profile_view__q_city+` (`+v.region_count+`) <i class="fas fa-chevron-right"></i></p>`;
 			zipcodeImpressionHtml('#traffic-impression-zipcode', v.zipcodes);
 		} else {
-			var state = `<p class="traffic-impression-state" data-state="`+v.agent_profile_view__q_state+`">`+v.agent_profile_view__q_state+` (`+v.region_count+`) <i class="fas fa-chevron-right hide"></i></p>`;
+			var state = `<p class="traffic-impression-state" data-state="`+v.agent_profile_view__q_city+`">`+v.agent_profile_view__q_city+` (`+v.region_count+`) <i class="fas fa-chevron-right hide"></i></p>`;
 		}
 		$('#traffic-impression-state-div').append(state);
 		record++;
@@ -123,7 +123,7 @@ $(document).ready(function(){
 		$('.traffic-profile-state .fa-chevron-right').addClass('hide');
 		$(this).find('.fa-chevron-right').removeClass('hide');
 		
-		var index = profileViewsjson.profile_states.findIndex(x => x.q_state == $(this).data('state'));
+		var index = profileViewsjson.profile_states.findIndex(x => x.q_city == $(this).data('state'));
 		var state = profileViewsjson.profile_states[index];
 		zipcodeHtml('#traffic-profile-zipcode', state.zipcodes);
 	});
@@ -135,7 +135,7 @@ $(document).ready(function(){
 		$('.traffic-impression-state .fa-chevron-right').addClass('hide');
 		$(this).find('.fa-chevron-right').removeClass('hide');
 		
-		var index = profileViewsjson.impression_states.findIndex(x => x.agent_profile_view__q_state == $(this).data('state'));
+		var index = profileViewsjson.impression_states.findIndex(x => x.agent_profile_view__q_city == $(this).data('state'));
 		var state = profileViewsjson.impression_states[index];
 		zipcodeImpressionHtml('#traffic-impression-zipcode', state.zipcodes);
 	});

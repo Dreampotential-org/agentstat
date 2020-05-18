@@ -26,7 +26,7 @@ function saveVisit(data, url, queryParamsUrl) {
     if (zipcode != null && zipcode != 'null') {
         data['q_zip'] = zipcode;
     } else {
-        data['q_zip'] = 'All';
+        data['q_zip'] = 'N/A';
     }
 
     var type = pageUrl.searchParams.get("type");
