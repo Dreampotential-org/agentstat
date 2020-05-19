@@ -59,11 +59,10 @@ function agentProfileImpressionTrack(agent_ids) {
 }
 
 function saveLeadTracking(res, ifBoth) {
-
     data = {};
     data['agent'] = res['agent'];
     data['q_price_range'] = res['how_much'];
-    data['q_type'] = res['home_type'];
+    data['q_type'] = mapType(res['home_type']);
 
     if (res['looking_for'] == 'Sell a Home') {
         data['page'] = 'seller-lead';
@@ -77,15 +76,12 @@ function saveLeadTracking(res, ifBoth) {
 
         if (typeof ifBoth !== 'undefined') {
             data['q_price_range'] = ifBoth['how_much'];
-            data['q_type'] = ifBoth['home_type'];
+            data['q_type'] = mapType(ifBoth['home_type']);
             data['page'] = 'buyer-lead';
             saveVisit(data, 'at/', document.referrer);
         }
-
-        
     }
 }
-
 
 function mapPriceRange(val) {
     if (val <= 200) {
@@ -100,5 +96,21 @@ function mapPriceRange(val) {
         return '$800K - 1M';
     } else if (val > 1001) {
         return '$1M+';
+    }
+}
+
+function mapType(val) {
+    if (val == 'Single Family') {
+        return 'Houses';
+    } else if (val == 'Condominium') {
+        return 'Condos';
+    } else if (val == 'Townhouse') {
+        return 'Townhomes';
+    } else if (val == 'Manufactured') {
+        return 'Manufactured';
+    } else if (val == 'Multi-family') {
+        return 'Multi-Family';
+    } else if (val == 'Land') {
+        return 'Land';
     }
 }

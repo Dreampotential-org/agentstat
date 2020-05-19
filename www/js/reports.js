@@ -40,10 +40,11 @@ function parseResponse(data, type) {
 		xLabelMargin: 10
 	});
 
+	var typeDate = fillMissingTypes(data.type_graph);
 	chartType[type] = new Morris.Bar({
 		element: type+'-chart-type',
 		resize: true,
-		data: data.type_graph,
+		data: typeDate,
 		barColors: ['#4285F4'],
 		xkey: 'q_type',
 		ykeys: ['type_count'],
@@ -141,6 +142,22 @@ function fillMissingDates(data) {
 	return res;
 }
 
+function fillMissingTypes(data) {
+	var i;
+	var res = [];
+	for (i = 0; i < graphTypeArr.length; i++) {
+		var type = graphTypeArr[i];
+		var index = data.findIndex(x => x.q_type == type);
+		if (index === -1) {
+			var obj = {"q_type":type,"type_count":0};
+		} else {
+			var obj = data[index];
+		}
+		res.push(obj);
+	}
+	return res;
+}
+
 $(document).ready(function(){
 	// var startDate = new Date('2020-05-13');
 	// var endDate = new Date('2020-05-19');
@@ -155,13 +172,13 @@ $(document).ready(function(){
 
 	// var dd = fillMissingDates(timeDate);
 	// console.log(dd);
-	// return false;
-
+	
 	chartTime = {};
 	chartType = {};
 	chartPrice = {};
 
 	dateRange = [];
+	graphTypeArr = ['Houses', 'Condos', 'Townhomes', 'Manufactured', 'Multi-Family', 'Land', 'N/A'];
 	
 	dummyJson = `{
 		"traffic_profile":{
