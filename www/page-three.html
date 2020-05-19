@@ -226,8 +226,14 @@
                                           style="text-transform: capitalize">agent_name </h3>
                                         <p class="brokerage_info" style="text-transform: capitalize">Keller Williams Seattle  </p>
                                         <p class="rating">
-
-                                            <img src="/img/table-star-9.png" alt="Argos rating"> 4.5 Reviews <a href="#" data-toggle="modal" data-target="#exampleModal" style="display: inline-block"> Details?</a></p>
+                                              <div class="agent-rating" style="margin-left:250px"></div>
+                                              <div>
+                                              Reviews <a href="#" id="review-modal" data-toggle="modal" data-target="#exampleModal" style="display: inline-block"> Details?</a>
+                                              </div>
+                                              <!--
+                                              <img src="/img/table-star-9.png" alt="Argos rating"> 4.5 Reviews 
+                                              -->
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="pth-agent-link">
@@ -787,13 +793,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row review_txt">
-                        <div class="col-8 col-sm-8 divText">Negotiation skills:</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8">Listing Prep:<p class="small_txt">(staging, cleaning, etc)</p></div> <div class="col-4 col-sm-4 tranform_img"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8 divText">Marketing:</div> <div class="col-4 col-sm-4"><img src="img/table-star-9.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8" >Presentation:<p class="small_txt">(pictures, flyers, website)</p></div> <div class="col-4 col-sm-4 tranform_img"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8 divText">How good of a deal was your agent able to get you?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
-                        <div class="col-8 col-sm-8 divText">How pleasant were they to work with?</div> <div class="col-4 col-sm-4"><img src="img/table-star-10.png" alt="Argos rating"></div>
+                    <div class="row reviews">
+
                     </div>
                 </div>
             </div>
@@ -904,6 +905,7 @@
 
     <!-- Main jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="https://auxiliary.github.io/rater/scripts/rater.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

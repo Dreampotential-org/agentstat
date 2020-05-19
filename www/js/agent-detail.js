@@ -67,7 +67,6 @@ function load_agent(ignore_city = true) {
       ></iframe>
   `);
 
-
     console.log(city);
 
 
@@ -112,6 +111,9 @@ function load_agent(ignore_city = true) {
         // remove loading
         data = JSON.parse(response);
         agent_id = data['id'];
+
+        show_rating(data['average_review_rate']);
+        show_reviews(data['reviews']);
 
         $('.agent_name').val(data['agent_name']);
         $('.agent-first-name').text(data['full_name'].split(" ")[0]);
@@ -774,13 +776,13 @@ $(document).on('change click', '#lead-submit', function () {
         var msg = JSON.parse(response);
         $('#leads-form').css('display', 'none');
         $('#leads-step-four').css('display', 'block');
-        
-        if(typeof buying !== 'undefined') { 
+
+        if(typeof buying !== 'undefined') {
             saveLeadTracking(data, buying);
         } else {
             saveLeadTracking(data);
         }
-        
+
 
     }).fail(function (err) {
 
@@ -967,7 +969,7 @@ $('#submit_proof_btn').click(function() {
   reader2.readAsDataURL(real_estate_license);
   var picture_base64 = '';
 
-  
+
 
     reader.onload = function () {
 
@@ -1005,6 +1007,39 @@ $('#submit_proof_btn').click(function() {
     reader.onerror = function (error) {
      console.log('Error: ', error);
     };
+});
+
+function show_rating(rating) {
+
+    console.log('RATING', rating);
+    var options = {
+        max_value: 5,
+        step_size: 0.5,
+        selected_symbol_type: 'utf8_star',
+    }
+    $(".agent-rating").rate(options);
+    $(".agent-rating").rate("setValue", rating);
+
+    $(".agent-rating").rate("destroy");
+
+}
+
+function show_reviews(reviews) {
+  $.each(reviews, function(k, v) {
+    rating = v.rate * 2;
+    $('.reviews').append(`
+      <div style="width:450px; padding:10px">
+        ` + v.review + `
+        <img src='/img/table-star-` + rating + `.png'>
+        <br>
+        <b>` + v.full_name + `</b>
+      </div>
+    `);
+  })
+}
+
+$('#review-modal').click(function(){
+    $('#exampleModal').modal('show');
 });
 
 window.addEventListener("DOMContentLoaded", init, false);
