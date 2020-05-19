@@ -262,13 +262,13 @@ $(document).ready(function(){
 				}
 			],
 			"time_graph":[
-				{"date":"5/18/20","date_count":16},
-				{"date":"5/17/20","date_count":6},
-				{"date":"5/16/20","date_count":10},
-				{"date":"5/15/20","date_count":15},
-				{"date":"5/14/20","date_count":3},
-				{"date":"5/13/20","date_count":7},
-				{"date":"5/12/20","date_count":9}
+				{"date":"05/18/20","date_count":16},
+				{"date":"05/17/20","date_count":6},
+				{"date":"05/16/20","date_count":10},
+				{"date":"05/15/20","date_count":15},
+				{"date":"05/14/20","date_count":3},
+				{"date":"05/13/20","date_count":7},
+				{"date":"05/12/20","date_count":9}
 			],
 			"type_graph":[
 				{"q_type":"Houses","type_count":9},
