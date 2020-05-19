@@ -27,15 +27,17 @@ function parseResponse(data, type) {
 		zipcodeHtml('#'+type+'-zipcode', city.zipcodes);
 	});
 	
+	var timeData = fillMissingDates(data.time_graph);
 	chartTime[type] = new Morris.Bar({
 		element: type+'-chart-time',
 		resize: true,
-		data: data.time_graph,
+		data: timeData,
 		barColors: ['#4285F4'],
 		xkey: 'date',
 		ykeys: ['date_count'],
 		labels: ['Views'],
-		hideHover: 'auto'
+		hideHover: 'auto',
+		xLabelMargin: 10
 	});
 
 	chartType[type] = new Morris.Bar({
@@ -46,7 +48,8 @@ function parseResponse(data, type) {
 		xkey: 'q_type',
 		ykeys: ['type_count'],
 		labels: ['Views'],
-		hideHover: 'auto'
+		hideHover: 'auto',
+		xLabelMargin: 10
 	});
 
 	chartPrice[type] = new Morris.Bar({
@@ -57,7 +60,8 @@ function parseResponse(data, type) {
 		xkey: 'q_price_range',
 		ykeys: ['price_count'],
 		labels: ['Views'],
-		hideHover: 'auto'
+		hideHover: 'auto',
+		xLabelMargin: 10
 	});
 }
 
@@ -75,21 +79,91 @@ function getReport(days) {
 		$(".chart-right .chart").empty();
 
 		jsonRes = JSON.parse(response);
+		
+		var startDate = new Date(jsonRes.start_date);
+		var endDate = new Date(jsonRes.end_date);
+		dateRange = getDates(startDate, endDate);
+		
 		parseResponse(jsonRes.traffic_profile, 'traffic-profile');
 		parseResponse(jsonRes.traffic_impression, 'traffic-impression');
 		parseResponse(jsonRes.lead_seller, 'lead-seller');
 		parseResponse(jsonRes.lead_buyer, 'lead-buyer');
+
+		parseResponse(dummyJson.traffic_profile, 'referral-unique');
+		parseResponse(dummyJson.traffic_profile, 'referral-profile');
+		parseResponse(dummyJson.traffic_profile, 'referral-contact');
+		parseResponse(dummyJson.traffic_profile, 'referral-sign');
 	}).fail(function(err) {
 		console.log(err);
 	});
 }
 
+
+
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
+
+function getFormattedDate(dateStr) {
+    var dateObj = new Date (dateStr);
+	var month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
+	var day = dateObj.getDate();
+	var year = dateObj.getFullYear().toString().substr(-2);
+	return month+'/'+day+'/'+year;
+}
+
+function getDates(startDate, stopDate) {
+    var dateArray = new Array();
+    var currentDate = startDate;
+    while (currentDate <= stopDate) {
+        dateArray.push(getFormattedDate(currentDate));
+		currentDate = currentDate.addDays(1);
+	}
+    return dateArray;
+}
+
+function fillMissingDates(data) {
+	var i;
+	var res = [];
+	for (i = 0; i < dateRange.length; i++) {
+		var date = dateRange[i];
+		var index = data.findIndex(x => x.date == date);
+		if (index === -1) {
+			var obj = {"date":date,"date_count":0};
+		} else {
+			var obj = data[index];
+		}
+		res.push(obj);
+	}
+	return res;
+}
+
 $(document).ready(function(){
+	// var startDate = new Date('2020-05-13');
+	// var endDate = new Date('2020-05-19');
+	// dateRange = getDates(startDate, endDate);
+
+	// var timeDate = [
+	// 	{"date":"5/18/20","date_count":16},
+	// 	{"date":"5/17/20","date_count":6},
+	// 	{"date":"5/16/20","date_count":10},
+	// 	{"date":"5/13/20","date_count":7},
+	// ];
+
+	// var dd = fillMissingDates(timeDate);
+	// console.log(dd);
+	// return false;
+
 	chartTime = {};
 	chartType = {};
 	chartPrice = {};
+
+	dateRange = [];
 	
-	var json = `{
+	dummyJson = `{
 		"traffic_profile":{
 			"views":78,
 			"cities":[
@@ -216,12 +290,12 @@ $(document).ready(function(){
 			]
 		}
 	}`;
-	json = JSON.parse(json);
+	dummyJson = JSON.parse(dummyJson);
 
-	parseResponse(json.traffic_profile, 'referral-unique');
-	parseResponse(json.traffic_profile, 'referral-profile');
-	parseResponse(json.traffic_profile, 'referral-contact');
-	parseResponse(json.traffic_profile, 'referral-sign');
+	// parseResponse(dummyJson.traffic_profile, 'referral-unique');
+	// parseResponse(dummyJson.traffic_profile, 'referral-profile');
+	// parseResponse(dummyJson.traffic_profile, 'referral-contact');
+	// parseResponse(dummyJson.traffic_profile, 'referral-sign');
 
 	var days = $('#traffic-dropdown').val();
 	
