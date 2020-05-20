@@ -40,11 +40,11 @@ function parseResponse(data, type) {
 		xLabelMargin: 10
 	});
 
-	var typeDate = fillMissingTypes(data.type_graph);
+	var typeData = fillMissingTypes(data.type_graph);
 	chartType[type] = new Morris.Bar({
 		element: type+'-chart-type',
 		resize: true,
-		data: typeDate,
+		data: typeData,
 		barColors: ['#4285F4'],
 		xkey: 'q_type',
 		ykeys: ['type_count'],
@@ -53,10 +53,11 @@ function parseResponse(data, type) {
 		xLabelMargin: 10
 	});
 
+	var priceData = fillMissingPrices(data.price_graph);
 	chartPrice[type] = new Morris.Bar({
 		element: type+'-chart-price',
 		resize: true,
-		data: data.price_graph,
+		data: priceData,
 		barColors: ['#4285F4'],
 		xkey: 'q_price_range',
 		ykeys: ['price_count'],
@@ -99,14 +100,11 @@ function getReport(days) {
 	});
 }
 
-
-
 Date.prototype.addDays = function(days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
 }
-
 
 function getFormattedDate(dateStr) {
     var dateObj = new Date (dateStr);
@@ -158,27 +156,30 @@ function fillMissingTypes(data) {
 	return res;
 }
 
-$(document).ready(function(){
-	// var startDate = new Date('2020-05-13');
-	// var endDate = new Date('2020-05-19');
-	// dateRange = getDates(startDate, endDate);
+function fillMissingPrices(data) {
+	var i;
+	var res = [];
+	for (i = 0; i < graphPriceArr.length; i++) {
+		var price = graphPriceArr[i];
+		var index = data.findIndex(x => x.q_price_range == price);
+		if (index === -1) {
+			var obj = {"q_price_range":price,"price_count":0};
+		} else {
+			var obj = data[index];
+		}
+		res.push(obj);
+	}
+	return res;
+}
 
-	// var timeDate = [
-	// 	{"date":"5/18/20","date_count":16},
-	// 	{"date":"5/17/20","date_count":6},
-	// 	{"date":"5/16/20","date_count":10},
-	// 	{"date":"5/13/20","date_count":7},
-	// ];
-
-	// var dd = fillMissingDates(timeDate);
-	// console.log(dd);
-	
+$(document).ready(function(){	
 	chartTime = {};
 	chartType = {};
 	chartPrice = {};
 
 	dateRange = [];
-	graphTypeArr = ['Houses', 'Condos', 'Townhomes', 'Manufactured', 'Multi-Family', 'Land', 'N/A'];
+	graphTypeArr = ['Single Family', 'Condominium', 'Townhouse', 'Manufactured', 'Multi-family', 'Land', 'N/A'];
+	graphPriceArr = ['$0 - 200K', '$200 - 400K', '$400 - 600K', '$600 - 800K', '$800K - 1M', '$1M+', 'N/A'];
 	
 	dummyJson = `{
 		"traffic_profile":{
@@ -309,13 +310,7 @@ $(document).ready(function(){
 	}`;
 	dummyJson = JSON.parse(dummyJson);
 
-	// parseResponse(dummyJson.traffic_profile, 'referral-unique');
-	// parseResponse(dummyJson.traffic_profile, 'referral-profile');
-	// parseResponse(dummyJson.traffic_profile, 'referral-contact');
-	// parseResponse(dummyJson.traffic_profile, 'referral-sign');
-
-	var days = $('#traffic-dropdown').val();
-	
+	var days = $('#traffic-dropdown').val();	
 	getReport(days);
 
 	$('#traffic-dropdown, #lead-dropdown, #referral-dropdown').on('change', function() {
