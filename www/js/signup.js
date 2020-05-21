@@ -53,6 +53,7 @@ function create_agent() {
     localStorage.session_id = msg['token'];
     window.location = '/profile-settings/';
   }).fail(function(err) {
+    alert(err);
     show_error(err);
     console.log(err);
   });
