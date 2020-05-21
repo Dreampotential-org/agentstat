@@ -1025,6 +1025,14 @@ function show_rating(rating) {
 }
 
 function show_reviews(reviews) {
+  if (reviews.length == 0) {
+    $('.reviews').append(`
+      <div style="width:450px; padding:10px">
+      There is no review.
+      </div>
+    `);
+  }
+
   $.each(reviews, function(k, v) {
     rating = v.rate * 2;
     $('.reviews').append(`

@@ -40,6 +40,8 @@
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>-->
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
         <script src="https://apis.google.com/js/api:client.js"></script>
+        <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
+
 
 </head>
 <style>
@@ -731,6 +733,21 @@
           }).fail(function(err) {
             // show_error(err);
             console.log(err);
+            message = "";
+            message_data = $.parseJSON(err.responseText);
+
+            $.each(message_data, function(k, v) {
+             console.log(k, v);
+             message += k  + ': ' + v
+            });
+            // message = JSON.stringify(err.responseText, undefined, 2)
+            // show_message(err.responseText);
+            swal(message, {
+                  buttons: false,
+                  timer: 3000,
+            });
+
+
           });
 
             console.log($("input[name*='checkboxes']:checked").length)
