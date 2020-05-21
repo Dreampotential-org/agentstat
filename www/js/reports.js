@@ -106,12 +106,11 @@ Date.prototype.addDays = function(days) {
     return date;
 }
 
-function getFormattedDate(dateStr) {
-    var dateObj = new Date (dateStr);
-	var month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
-	var day = dateObj.getDate();
-	var year = dateObj.getFullYear().toString().substr(-2);
-	return month+'/'+day+'/'+year;
+function getFormattedDate(dateObj) {
+    var date = dateObj.getUTCDate();
+	var month = ("0" + (dateObj.getUTCMonth()+1)).slice(-2);
+	var year = dateObj.getUTCFullYear().toString().substr(-2);
+	return month+'/'+date+'/'+year;
 }
 
 function getDates(startDate, stopDate) {
