@@ -21,10 +21,17 @@ function getLeads() {
 				$('#phone').html(v.phone);
 				$('#email').html(v.email);
 				$('#looking_for').html(v.looking_for);
-				$('#how_soon_sell').html(v.how_soon_sell);
+				$('#home_type').html(v.home_type);
+				$('#how_much').html(v.how_much);
+				$('#how_soon').html(v.how_soon);
+				$('#home_type_buyer').html(v.home_type_buyer);
+				$('#how_much_buyer').html(v.how_much_buyer);
+				$('#how_soon_buyer').html(v.how_soon_buyer);
 				$('#interest_reason').html(v.interest_reason);
 				$('#message').html(v.message);
 				$('.box-right').show();
+
+				showQuestions(v.lead_type);
 			}
 		});
 
@@ -75,6 +82,19 @@ function niceDateTime(timedate) {
 	return datetime; 
 }
 
+function showQuestions (type) {
+	if (type == 'selling') {
+		$('.selling').show();
+		$('.buying').hide();
+	} else if (type == 'buying') {
+		$('.selling').hide();
+		$('.buying').show();
+	} else {
+		$('.selling').show();
+		$('.buying').show();
+	}
+}
+
 $(document).ready(function(){
 
 	page = 1;
@@ -103,9 +123,16 @@ $(document).ready(function(){
 		$('#phone').html(obj.phone);
 		$('#email').html(obj.email);
 		$('#looking_for').html(obj.looking_for);
-		$('#how_soon_sell').html(obj.how_soon_sell);
+		$('#home_type').html(obj.home_type);
+		$('#how_much').html(obj.how_much);
+		$('#how_soon').html(obj.how_soon);
+		$('#home_type_buyer').html(obj.home_type_buyer);
+		$('#how_much_buyer').html(obj.how_much_buyer);
+		$('#how_soon_buyer').html(obj.how_soon_buyer);
 		$('#interest_reason').html(obj.interest_reason);
 		$('#message').html(obj.message);
+
+		showQuestions(obj.lead_type);
     });
 });
 

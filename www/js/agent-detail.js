@@ -768,9 +768,25 @@ $(document).on('change click', '#lead-submit', function () {
         return false;
     }
 
+    if (data['looking_for'] == 'Sell a Home') {
+        data['lead_type'] = 'selling'; 
+    } else if (data['looking_for'] == 'Buy a Home') {
+        data['lead_type'] = 'buying';
+        data['home_type_buyer'] = data['home_type'];
+        data['how_much_buyer'] = data['how_much'];
+        data['how_soon_buyer'] = data['how_soon'];
+        delete data['home_type'];
+        delete data['how_much'];
+        delete data['how_soon'];
+    } else if (data['looking_for'] == 'Both') {
+        data['lead_type'] = 'both';
+        data['home_type_buyer'] = buying['home_type'];
+        data['how_much_buyer'] = buying['how_much'];
+        data['how_soon_buyer'] = buying['how_soon'];
+    }
+    
     settings = get_settings('lead/', 'POST', JSON.stringify(data));
     settings['headers'] = null;
-
     $.ajax(settings).done(function (response) {
 
         var msg = JSON.parse(response);
@@ -790,25 +806,6 @@ $(document).on('change click', '#lead-submit', function () {
         console.log(err);
 
     });
-
-    if(typeof buying !== 'undefined') {
-
-      settings = get_settings('lead/', 'POST', JSON.stringify(buying));
-      settings['headers'] = null;
-
-      $.ajax(settings).done(function (response) {
-
-          var msg = JSON.parse(response);
-          $('#leads-form').css('display', 'none');
-          $('#leads-step-four').css('display', 'block');
-
-      }).fail(function (err) {
-
-          $('.msg').html(err['responseText']);
-          console.log(err);
-
-      });
-    }
 });
 
 $(window).on('load', function () {

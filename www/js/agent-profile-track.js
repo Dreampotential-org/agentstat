@@ -59,8 +59,6 @@ function agentProfileImpressionTrack(agent_ids) {
 }
 
 function saveLeadTracking(res, ifBoth) {
-    console.log(res);
-    console.log(ifBoth);
     data = {};
     data['agent'] = res['agent'];
     data['q_price_range'] = res['how_much'];
