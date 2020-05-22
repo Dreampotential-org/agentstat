@@ -27,6 +27,7 @@
 .box-left-content {
     padding: 20px 10px;
     border-bottom: 1px solid #eee;
+    cursor: pointer;
 }
 .box-left-content h1 {
     font-size: 18px;
