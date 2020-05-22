@@ -195,6 +195,9 @@
     font-size: 18px;
     padding: 5px;
 }
+.location-subtitle {
+    border-bottom: 1px solid black;
+}
 
 @media (max-width: 767px ) {
 

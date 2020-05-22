@@ -28,17 +28,34 @@ function parseResponse(data, type) {
 	});
 	
 	var timeData = fillMissingDates(data.time_graph);
-	chartTime[type] = new Morris.Bar({
-		element: type+'-chart-time',
-		resize: true,
-		data: timeData,
-		barColors: ['#4285F4'],
-		xkey: 'date',
-		ykeys: ['date_count'],
-		labels: ['Views'],
-		hideHover: 'auto',
-		xLabelMargin: 10
-	});
+	var dropdown = $('#traffic-dropdown').val();
+	if (dropdown == '29' || dropdown == 'this' || dropdown == 'last') {
+		chartTime[type] = new Morris.Bar({
+			element: type+'-chart-time',
+			resize: true,
+			data: timeData,
+			barColors: ['#4285F4'],
+			xkey: 'date',
+			ykeys: ['date_count'],
+			labels: ['Views'],
+			hideHover: 'auto',
+			xLabelMargin: 1,
+			xLabelAngle: 45,
+			gridTextSize: 10
+		});
+	} else {
+		chartTime[type] = new Morris.Bar({
+			element: type+'-chart-time',
+			resize: true,
+			data: timeData,
+			barColors: ['#4285F4'],
+			xkey: 'date',
+			ykeys: ['date_count'],
+			labels: ['Views'],
+			hideHover: 'auto',
+			xLabelMargin: 1
+		});
+	}
 
 	var typeData = fillMissingTypes(data.type_graph);
 	chartType[type] = new Morris.Bar({
@@ -123,11 +140,38 @@ function getDates(startDate, stopDate) {
     return dateArray;
 }
 
+function getMonths() {
+	var date = new Date();
+	var months = [];
+	for (var i = 0; i < 12; i++) {
+		var month = ("0" + (date.getUTCMonth()+1)).slice(-2);
+		var year = date.getUTCFullYear().toString().substr(-2);
+		months.push(month+'/'+year);
+		date.setMonth(date.getMonth() - 1)
+	}
+	return months.reverse();
+}
+
+function formatForMonth(data) {
+	$.each(data, function (k, v){
+		var split = v.date.split("/");
+		v.date = parseInt(split[0])+'/'+split[1];
+	});
+	return data;
+}
+
 function fillMissingDates(data) {
+	var dropdown = $('#traffic-dropdown').val();
+	if (dropdown == '365') {
+		var range = getMonths();
+	} else {
+		var range = dateRange;
+	}
+
 	var i;
 	var res = [];
-	for (i = 0; i < dateRange.length; i++) {
-		var date = dateRange[i];
+	for (i = 0; i < range.length; i++) {
+		var date = range[i];
 		var index = data.findIndex(x => x.date == date);
 		if (index === -1) {
 			var obj = {"date":date,"date_count":0};
@@ -135,6 +179,9 @@ function fillMissingDates(data) {
 			var obj = data[index];
 		}
 		res.push(obj);
+	}
+	if (dropdown == '29' || dropdown == 'this' || dropdown == 'last') {
+		res = formatForMonth(res);
 	}
 	return res;
 }
@@ -172,6 +219,26 @@ function fillMissingPrices(data) {
 }
 
 $(document).ready(function(){	
+
+	// var startDate = new Date('2020-05-13');
+	// var endDate = new Date('2020-05-19');
+	// dateRange = getDates(startDate, endDate);
+
+	// var timeDate = [
+	// 	{"date":"05/18/20","date_count":16},
+	// 	{"date":"05/17/20","date_count":6},
+	// 	{"date":"05/16/20","date_count":10},
+	// 	{"date":"05/13/20","date_count":7},
+	// ];
+
+	// var dd = fillMissingDates(timeDate);
+	// console.log(dd);
+	// return false;
+
+	// var mm = getMonths();
+	// console.log(mm);
+	// return false;
+
 	chartTime = {};
 	chartType = {};
 	chartPrice = {};
