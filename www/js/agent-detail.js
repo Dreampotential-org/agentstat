@@ -112,7 +112,7 @@ function load_agent(ignore_city = true) {
         data = JSON.parse(response);
         agent_id = data['id'];
 
-        show_rating(data['average_review_rate']);
+        show_rating(data['average_review_rate'], data['reviews'].length);
         show_reviews(data['reviews']);
 
         $('.agent_name').val(data['agent_name']);
@@ -1006,9 +1006,16 @@ $('#submit_proof_btn').click(function() {
     };
 });
 
-function show_rating(rating) {
+function show_rating(rating, reviews_count) {
 
     console.log('RATING', rating);
+
+    if (!(rating)) {
+      $('.agent-rating').text('No reviews yet!');
+      $('.review-link').css('display', 'none');
+      return false;
+    }
+
     var options = {
         max_value: 5,
         step_size: 0.5,
@@ -1018,6 +1025,7 @@ function show_rating(rating) {
     $(".agent-rating").rate("setValue", rating);
 
     $(".agent-rating").rate("destroy");
+    $(".reviews-count").text(reviews_count);
 
 }
 
