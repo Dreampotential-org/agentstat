@@ -14,8 +14,8 @@ function parseResponse(data, type) {
 		$('#'+type+'-city-div').append(state);
 		record++;
 	});
-
-	$(document).on('click', '.'+type+'-city', function() {
+	
+	$(document).off('click', '.'+type+'-city').on('click', '.'+type+'-city', function() {
 		$('.'+type+'-city').removeClass('location-active');
 		$(this).addClass('location-active');
 
@@ -93,14 +93,18 @@ function zipcodeHtml(element, zipcodes) {
 }
 
 function getReport(days) {
-	settings = get_settings('track-report/'+days, 'GET');
+	var dates = getStartEndDate(days);
+	var reqData = {'days':days, 'start_date':dates.startDate, 'end_date':dates.endDate};
+	settings = get_settings('track-report/', 'POST', JSON.stringify(reqData));
 	$.ajax(settings).done(function (response) {
 		$(".chart-right .chart").empty();
 
 		jsonRes = JSON.parse(response);
 		
-		var startDate = new Date(jsonRes.start_date);
-		var endDate = new Date(jsonRes.end_date);
+		var timeSplit = jsonRes.server_time.split("T");
+		var time = 'T'+timeSplit[1]+'Z';
+		var startDate = new Date(jsonRes.start_date+time);
+		var endDate = new Date(jsonRes.end_date+time);
 		dateRange = getDates(startDate, endDate);
 		
 		parseResponse(jsonRes.traffic_profile, 'traffic-profile');
@@ -124,9 +128,9 @@ Date.prototype.addDays = function(days) {
 }
 
 function getFormattedDate(dateObj) {
-    var date = dateObj.getUTCDate();
-	var month = ("0" + (dateObj.getUTCMonth()+1)).slice(-2);
-	var year = dateObj.getUTCFullYear().toString().substr(-2);
+    var date = dateObj.getDate();
+	var month = ("0" + (dateObj.getMonth()+1)).slice(-2);
+	var year = dateObj.getFullYear().toString().substr(-2);
 	return month+'/'+date+'/'+year;
 }
 
@@ -143,7 +147,8 @@ function getDates(startDate, stopDate) {
 function getMonths() {
 	var date = new Date();
 	var months = [];
-	for (var i = 0; i < 12; i++) {
+	var monthCount = date.getUTCMonth()+1;
+	for (var i = 0; i < monthCount; i++) {
 		var month = ("0" + (date.getUTCMonth()+1)).slice(-2);
 		var year = date.getUTCFullYear().toString().substr(-2);
 		months.push(month+'/'+year);
@@ -160,6 +165,16 @@ function formatForMonth(data) {
 	return data;
 }
 
+function formatForYear(data) {
+	const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+	$.each(data, function (k, v){
+		var split = v.date.split("/");
+		var key = parseInt(split[0]) - 1;
+		v.date = monthNames[key];
+	});
+	return data;
+}
+
 function fillMissingDates(data) {
 	var dropdown = $('#traffic-dropdown').val();
 	if (dropdown == '365') {
@@ -167,7 +182,6 @@ function fillMissingDates(data) {
 	} else {
 		var range = dateRange;
 	}
-
 	var i;
 	var res = [];
 	for (i = 0; i < range.length; i++) {
@@ -182,6 +196,8 @@ function fillMissingDates(data) {
 	}
 	if (dropdown == '29' || dropdown == 'this' || dropdown == 'last') {
 		res = formatForMonth(res);
+	} else if (dropdown == '365') {
+		res = formatForYear(res);
 	}
 	return res;
 }
@@ -218,27 +234,34 @@ function fillMissingPrices(data) {
 	return res;
 }
 
+function getStartEndDate(type) {
+	var date = new Date();
+	var day = date.getDate();
+	var month = ("0" + (date.getMonth()+1)).slice(-2);
+	var year = date.getFullYear();
+	var endDate = year+'-'+month+'-'+day;
+
+	if (type == 'this') {
+		var startDate = year+'-'+month+'-01';
+	} else if (type == 'last') {
+		var date = new Date(date.getFullYear(),date.getMonth(),0);
+		var day = date.getDate();
+		var month = ("0" + (date.getMonth()+1)).slice(-2);
+		var year = date.getFullYear();
+		var startDate = year+'-'+month+'-01';
+		var endDate = year+'-'+month+'-'+day;
+	} else {
+		var last = new Date(date.getTime() - (type * 24 * 60 * 60 * 1000));
+		var day =last.getDate();
+		var month = ("0" + (last.getMonth()+1)).slice(-2);
+		var year=last.getFullYear();
+		var startDate = year+'-'+month+'-'+day;
+	}
+
+	return {'startDate': startDate, 'endDate': endDate};
+} 
+
 $(document).ready(function(){	
-
-	// var startDate = new Date('2020-05-13');
-	// var endDate = new Date('2020-05-19');
-	// dateRange = getDates(startDate, endDate);
-
-	// var timeDate = [
-	// 	{"date":"05/18/20","date_count":16},
-	// 	{"date":"05/17/20","date_count":6},
-	// 	{"date":"05/16/20","date_count":10},
-	// 	{"date":"05/13/20","date_count":7},
-	// ];
-
-	// var dd = fillMissingDates(timeDate);
-	// console.log(dd);
-	// return false;
-
-	// var mm = getMonths();
-	// console.log(mm);
-	// return false;
-
 	chartTime = {};
 	chartType = {};
 	chartPrice = {};
