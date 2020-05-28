@@ -2819,7 +2819,7 @@
  }
  
  .modal-size {
-     max-width: 300px;
+     max-width: 600px;
  }
  
  .review-body p {
@@ -5120,4 +5120,7 @@
  .search_zipcode {
      width: 100% !important;
  }
+ iframe .container {
+    width: 100%;
+}
 

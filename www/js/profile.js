@@ -15,7 +15,6 @@ function get_combo(callback, end_point) {
 
 
 function display_profile(profile) {
-  //console.log(profile);
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
   $('#email').val(profile.email);
@@ -54,7 +53,6 @@ function display_profile(profile) {
   get_specilities(profile.specialties);
 
   $.each(profile.licenses, function(k, val) {
-    console.log(val);
     add_license(val);
   });
 
@@ -92,7 +90,6 @@ function display_profile(profile) {
   $('#about_me').val(profile.about_me);
 
   if(profile.picture != '' && profile.picture !== null ) {
-    console.log(profile.picture);
     // debugger;
     $('#profile-img').prop('src', profile.picture);
     $('.up-photo').append('<button id="remove-profile-image" class="inline-btn">remove profile image</button>');
@@ -100,7 +97,6 @@ function display_profile(profile) {
 
     src="img/blank-profile-picture.png"
     $('#profile-img').prop('src', src);
-    console.log("src" ,src)
   }
 
   if (profile.connector != '' && profile.connector !== null) {
@@ -154,8 +150,6 @@ function get_reviews() {
         ).trigger('refresh.owl.carousel');
       } else {
         $.each(response, function(k, v) {
-          console.log(k, v);
-          console.log(v.full_name);
           formatted_date = v.date.split('T')[0].split('-')
           formatted_date = formatted_date[1] + '-' + formatted_date[2] + '-' + formatted_date[0];
 
@@ -209,8 +203,6 @@ function update_profile() {
   $.each(combo_boxes, function(k, val) {
     val = val.split('-').join('_')
     checkbox_id = '#' + val + '_checkbox'
-    console.log(checkbox_id);
-    console.log(val);
 
     checked_val = $(checkbox_id).prop('checked');
     if (!checked_val) {
@@ -266,12 +258,10 @@ function update_profile() {
   var picture_data = $('#picture')[0].files[0]
   var reader = new FileReader();
   var picture_base64 = '';
-  console.log(picture_data);
 
   if (picture_data != null) {
     reader.readAsDataURL(picture_data);
     reader.onload = function () {
-      console.log(reader.result);
       picture_base64 = reader.result;
       data['picture'] = picture_base64;
       settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
@@ -285,7 +275,6 @@ function update_profile() {
 
       }).fail(function(err) {
           // alert('Got err');
-          console.log(err);
           show_error(err);
       });
 
@@ -312,7 +301,6 @@ function update_profile() {
 }
 
 function load_combo(data, combo) {
-  // console.log(data, combo);
   $.each(data, function( key, val ) {
     combo = combo.split('-').join('_')
     $('#' + combo).append(new Option(val['val'], val['id']));
@@ -388,24 +376,6 @@ function get_languages(language_ids) {
     console.log(err);
   });
 
-  // $.ajax(settings).done(function (response) {
-
-  //     var response = JSON.parse(response);
-  //     console.log(response);
-  //     $.each(response, function(k, v) {
-  //       console.log(v.id, v.val);
-  //       $('#languages').append(`<div class='col-lg-3 col-6'>
-  //         <div class='lar-left'>
-  //         <input class='lng-checkbox' value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
-  //         <label for='lang-` + v.id + `'>` + v.val + `</label>
-  //         </div>
-  //       </div>
-  //       `);
-  //     });
-  //   }).fail(function(err) {
-  //     // alert('Got err');
-  //     console.log(err);
-  //   });
 }
 
 combo_boxes = ['listing-fee', 'buyer-rebate', 'type-of-listing-service'];
@@ -442,12 +412,10 @@ $(document).on('change click', '#connector-remove', function() {
 $('.combo-checkboxes:checkbox').change(function () {
   target_id = $(this).attr('target');
   checked_value = $(this).prop('checked');
-  console.log(checked_value);
 
   if(checked_value) {
     $('#' + target_id).prop('disabled', false);
   } else {
-    console.log(target_id);
     $('#' + target_id).prop('disabled', 'disabled');
   }
 
@@ -460,12 +428,51 @@ $('#screen_name').keyup(function () {
   $('#verify-not').hide();
 });
 
+$(document).ready(function(){
+  var options = {
+        max_value: 5,
+        step_size: 0.5,
+  }
+
+  settings = get_settings('review-category', '');
+  $.ajax(settings).done(function (response) {
+    var msg = JSON.parse(response);
+    $.each(msg['results'], function(k, v){
+      if (v.extra_info == null) {
+        extra_info = '';
+      } else {
+        extra_info = v.extra_info;
+      }
+
+      // $("#rating-category-" + v.id).rate(options);
+
+      $(`
+        <div class="col-lg-6">
+          `+ v.category + ` ` + extra_info + `
+        </div>
+      `).insertBefore('#rating-category-'+v.id);
+    });
+
+  }).fail(function(err) {
+      console.log(err);
+      // show_error(err);
+      $('#review-msg').html(err)
+  });
+
+});
+
 $(document).on('change click', '#review-add-btn', function() {
   var data = {};
   data['full_name'] = $('#review-name').val();
   data['email'] = $('#review-email').val();
   data['review'] = $('#review').val();
-  data['rate'] = $(".rating").rate("getValue");
+  data['categories'] = [];
+  $('.rating').each(function() { 
+    category_id = $(this).attr('id').split('-')[2]
+    rate = $(this).rate('getValue'); 
+    data['categories'].push({'id': category_id, 'rate': rate});
+  });
+  // data['rate'] = $(".rating").rate("getValue");
 
   review_date = new Date($('#review-date').val());
   data['date'] = review_date.toJSON();
@@ -581,13 +588,9 @@ function readURL(input) {
 }
 
 $(document).on('click', '#remove-profile-image', function(e) {
-  console.log('remvoe profile image');
   settings = get_settings('remove-profile-image/', 'GET');
 
   $.ajax(settings).done(function (response) {
-    console.log('response');
-    console.log(response);
-
     show_message('Profile picture has been removed!');
 
     src="img/blank-profile-picture.png"

@@ -48,14 +48,14 @@ function load_agent(ignore_city = true) {
       $('#new_transactions').html(`
         <iframe
           src='` + TRANSACTIONS_URL + transaction_query + `/'
-          style='width: 110%; height: 660px; border: 0'
+          style='width: 100%; height:500px; border: 0'
           ></iframe>
       `);
     } else {
       $('#new_transactions').html(`
         <iframe
           src='` + TRANSACTIONS_URL + transaction_query + `/?city=`+ city +`'
-          style='width: 110%; height: 660px; border: 0'
+          style='width: 100%; height:500px; border: 0'
           ></iframe>
       `);
     }
@@ -63,7 +63,7 @@ function load_agent(ignore_city = true) {
   $('#city_agent_scores').html(`
     <iframe
       src='` + CITY_AGENT_SCORES_URL + transaction_query + `/'
-      style='width: 110%; height: 660px; border: 0'
+      style='width: 100%; height:500px; border: 0'
       ></iframe>
   `);
 
