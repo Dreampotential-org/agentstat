@@ -1041,10 +1041,14 @@ function show_reviews(summary, reviews) {
   $.each(summary, function(k, v) {
     console.log(v);
     rating = v.summary;
+    extra_info = '<span style="font-size:14px">' + v.extra_info + '</span>';
+    if (v.extra_info == null ) {
+      extra_info = '';
+    }
     $('.reviews').append(`
       <div style="padding: 20px; width: 5500px">
         <div>
-          ` + v.category + `
+          ` + v.category + ` `+ extra_info  +`
           <br>
           <img src='/img/table-star-` + rating + `.png'>
         </div>
