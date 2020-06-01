@@ -445,12 +445,9 @@ $(document).ready(function(){
       }
 
       // $("#rating-category-" + v.id).rate(options);
-
-      $(`
-        <div class="col-lg-6">
-          `+ v.category + ` ` + extra_info + `
-        </div>
-      `).insertBefore('#rating-category-'+v.id);
+      $('#category-'+v.id).append(
+          v.category + ` ` + extra_info
+      );
     });
 
   }).fail(function(err) {
@@ -467,9 +464,9 @@ $(document).on('change click', '#review-add-btn', function() {
   data['email'] = $('#review-email').val();
   data['review'] = $('#review').val();
   data['categories'] = [];
-  $('.rating').each(function() { 
+  $('.rating').each(function() {
     category_id = $(this).attr('id').split('-')[2]
-    rate = $(this).rate('getValue'); 
+    rate = $(this).rate('getValue');
     data['categories'].push({'id': category_id, 'rate': rate});
   });
   // data['rate'] = $(".rating").rate("getValue");
