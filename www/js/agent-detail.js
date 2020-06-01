@@ -48,7 +48,7 @@ function load_agent(ignore_city = true) {
       $('#new_transactions').html(`
         <iframe
           src='` + TRANSACTIONS_URL + transaction_query + `/'
-          scrolling="no" style='width: 100%; height:500px; border: 0'
+          scrolling="no" style='width: 100%; height:700px; border: 0'
           ></iframe>
       `);
     } else {
