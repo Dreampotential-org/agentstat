@@ -36,4 +36,8 @@ server {
         location /profile-settings {
             try_files $uri $uri/ /form.html;
         }
+
+        location /past-sales {
+            try_files $uri $uri/ /transaction.html;
+        }
 }
