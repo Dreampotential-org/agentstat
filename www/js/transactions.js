@@ -133,8 +133,9 @@ function load_agent() {
         <td class="table-column">` + v['days_on_market'] + `</td>
         <td class="table-column">` + dateFormat(v['list_date']) +`</td>
         <td class="table-column">` + v['address_text'] +`</td>
-        <td class="table-column">` + v['year_built'] +`</td>
         <td class="table-column">` + v['city'] +`</td>
+        <td class="table-column">` + v['zipcode'] +`</td>
+        <td class="table-column">` + v['year_built'] +`</td>
         <td class="table-column" id="homeType">` + hometype +`</td>
         <!--<td> <button class="btn btn-primary" data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')" value="1" title="notes"><i class="fa fa-plus" aria-hidden="true"></i> Note</button> </td> -->
 
