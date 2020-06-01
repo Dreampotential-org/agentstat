@@ -10,6 +10,19 @@ function currencyFormat(num) {
   return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+function dateFormat(str) {
+  var date = new Date(str);
+  var day = date.getDate();
+  var month = ("0" + (date.getMonth()+1)).slice(-2);
+  var year = date.getFullYear().toString().substr(-2);
+  return month+'/'+day+'/'+year;
+}
+
+function makefirstLetterCapital (word) {
+  console.log(word);
+  return word.charAt(0).toUpperCase() + word.slice(1)
+}
+
 function passBtnID(id) {
 
   id_arr = id.split('-')
@@ -32,8 +45,13 @@ function passBtnID(id) {
     this.reset()
   });
 
-  $('.fidout').fadeOut('slow');
-  $('#' + id).fadeIn('slow');
+  if($('#'+id).is(':visible')){
+    $('#' + id).fadeOut('slow');
+  } else {
+    $('.fidout').fadeOut('slow');
+    $('#' + id).fadeIn('slow');
+  }
+  
 
 }
 
@@ -78,20 +96,21 @@ function load_agent() {
     }
 
     if(v['home_type'] != null || v['home_type'] != undefined ){
-      var hometype= v['home_type'].replace('_',' ')
+      var hometype= v['home_type'].replace('_',' ');
     }else{
-      var hometype= v['home_type'];
+      var hometype= (v['home_type']);
     }
+    hometype = makefirstLetterCapital(hometype.toLowerCase());
     // date = v['list_date'] ;
     // console.log(date)
     // date =v['list_date'].split("/").reverse().join("-");
     // alert(date)
     // $("#customer_date").val(date);
-    console.log("old date",v['list_date'])
-    var date = v['list_date'].split('-');
-    date.reverse();
-    var reversedate = date.join('-');
-    console.log("new date",reversedate)
+    // console.log("old date",v['list_date'])
+    // var date = v['list_date'].split('-');
+    // date.reverse();
+    // var reversedate = date.join('-');
+    // console.log("new date",reversedate)
 
  
     // alert(v['list_price_int'].toFixed(2)); 
@@ -99,22 +118,30 @@ function load_agent() {
     // console.log(value)
     // console.log((value).toFixed(2))
 
-      $(`<tr>
-        <td class='status-`+ v['status'] +`'>` + v['status'] +`</td>
-        <td>` + currencyFormat(v['list_price_int']) + `</td>
-        <td>` + currencyFormat(v['sold_price_int']) + arrowStyle +`</td>
-        <td>` + v['days_on_market'] + arrowStyle +`</td>
-        <td>` + reversedate +`</td>
-        <td>` + v['address_text'] +`</td>
-        <td>` + v['year_built'] +`</td>
-        <td>` + v['city'] +`</td>
-        <td style="text-transform: lowercase;" id="homeType">` + hometype +`</td>
+    if (v['note'] != "") {
+      var buttonText = '<i class="fa fa-edit" aria-hidden="true"></i> Edit note';
+      var buttonClass = 'btn btn-warning';
+    } else {
+      var buttonText = '<i class="fa fa-plus" aria-hidden="true"></i> Add note';
+      var buttonClass = 'btn btn-primary';
+    }
+
+      $(`<tr data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')">
+        <td class='table-column status-`+ v['status'] +`'>` + v['status'] +`</td>
+        <td class="table-column">` + currencyFormat(v['list_price_int']) + `</td>
+        <td class="table-column">` + currencyFormat(v['sold_price_int']) + arrowStyle +`</td>
+        <td class="table-column">` + v['days_on_market'] + `</td>
+        <td class="table-column">` + dateFormat(v['list_date']) +`</td>
+        <td class="table-column">` + v['address_text'] +`</td>
+        <td class="table-column">` + v['year_built'] +`</td>
+        <td class="table-column">` + v['city'] +`</td>
+        <td class="table-column" id="homeType">` + hometype +`</td>
         <!--<td> <button class="btn btn-primary" data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')" value="1" title="notes"><i class="fa fa-plus" aria-hidden="true"></i> Note</button> </td> -->
 
-        <td ><button class="btn " style="background: #CFE2F3;color:black;border: 1px solid;" data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')" value="1" title="notes">Add public note</button> </td>
+        <td class="table-column"><button class="`+ buttonClass +`" style="margin:5px;" value="1" title="notes">`+ buttonText +`</button> </td>
       </tr>
 
-      <tr class="fidout" id="add-public-note-`+ v['id'] +`" style="display: none; background: lightgray;">
+      <tr class="fidout table-color" id="add-public-note-`+ v['id'] +`" style="display: none;">
         <td colspan="10" style="padding: 6px 13px; color:gray">
           <div class="form-group">
             <!-- <input type="hidden" id="agent-`+ v['id'] +`"value="`+ v['agent_id']+ `">
@@ -125,7 +152,7 @@ function load_agent() {
 
             <button type="button" class="btn btn-success notebtn" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">Save</button>
             <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
-            <textarea class="public-note-text form-control" id="note-` + v['id'] + `" rows="2" name="public-note" readonly></textarea>
+            <textarea class="public-note-text form-control" id="note-` + v['id'] + `" rows="5" name="public-note">`+ v['note'] +`</textarea>
           </div>
           <div class="text-left" title_color>
           ` + v['address_text'] +`
@@ -137,12 +164,12 @@ function load_agent() {
                     <tr>
                         <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
                           <strong style='color:black'>Listed:</strong> <br><br>
-                          ` + v['list_date'] +` <br>
+                          ` + dateFormat(v['list_date']) +` <br>
                           ` + currencyFormat(v['list_price_int']) +`
                         </td>
                         <td style='padding: 5px 10px;color: gray;border:none'>
                           <strong style='color:black'>Sold:</strong> <br><br>
-                          ` + v['sold_date'] +` <br>
+                          ` + dateFormat(v['sold_date']) +` <br>
                           ` + currencyFormat(v['sold_price_int']) +`
                         </td>
                     </tr>
@@ -349,27 +376,28 @@ $(document).on('change click', '#save-transaction', function(){
   data['list_price_int'] = $('#list_price_int').val()
   data['sold_price_int'] = $('#sold_price_int').val()
 
-
   data['beds'] = $('#beds').val()
   data['baths'] = $('#baths').val()
 
-  console.log(data);
-
   api_call_url = 'create-transaction/';
-
   settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
-
   $.ajax(settings).done(function (response) {
-
     var msg = JSON.parse(response);
-    console.log(msg);
     $("#transaction-msg").css('display', 'block');
     setInterval(location.reload(true), 3000);
-
   }).fail(function(err) {
-
     console.log(err);
+  });
+});
 
+$(document).ready(function() {
+  $('#list_date').datepicker({
+    format: 'mm/dd/yy',
+    autoclose: true,
+  });
+  $('#sold_date').datepicker({
+    format: 'mm/dd/yy',
+    autoclose: true,
   });
 });
 

@@ -101,8 +101,6 @@ function getReport(days) {
 
 		jsonRes = JSON.parse(response);
 		
-		// var timeSplit = jsonRes.server_time.split("T");
-		// var time = 'T'+timeSplit[1]+'Z';
 		var startDate = new Date(jsonRes.start_date);
 		var endDate = new Date(jsonRes.end_date);
 		dateRange = getDates(startDate, endDate);
@@ -262,18 +260,6 @@ function getStartEndDate(type) {
 } 
 
 $(document).ready(function(){	
-	// var startDate = new Date('2020-05-23');
-	// var endDate = new Date('2020-05-29');
-	// dateRange = getDates(startDate, endDate);
-
-	// var timeDate = [
-	// 	{"date":"05/28/20","date_count":3}
-	// ];
-
-	// var dd = fillMissingDates(timeDate);
-	// console.log(dd);
-	// return false;
-
 	chartTime = {};
 	chartType = {};
 	chartPrice = {};

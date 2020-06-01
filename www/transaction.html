@@ -26,11 +26,17 @@
         <link rel="stylesheet" href="css/bootstrap.css" />
         <script src="js/bootstrap.js"></script>
 
+        <!-- Plugin CSS -->
+        <link rel="stylesheet" href="plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
+
         <!-- Main StyleSheet -->
         <link rel="stylesheet" href="style.css" />
 
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="css/responsive.css" />
+
+        <!-- Page CSS -->
+        <link rel="stylesheet" href="css/transactions.css" />
 <style>
 
 /* .status-Sold{
@@ -62,12 +68,6 @@
     .modal-dialog {
         max-width: 700px; 
     }
-}
-table tr td:last-child {
-    border: none;
-    width: 15%;
-    text-align: center;
-
 }
 th, td{
     border: 1px solid #dedbdb;
@@ -107,9 +107,9 @@ th, td{
                         <ul class="float-left form-ulli-left">
                             <li><a href="inbox.html">Inbox </a></li>
                             <li><a href="reports.html">Reporting </a></li>
-                            <li><a class="active" href="transaction.html">Past Sales  </a></li>
+                            <li><a class="active" href="past-sales">Past Sales  </a></li>
                             <li><a href="referrals.html">Referrals</a></li>
-                            <li><a href="#">Team </a></li>
+                            <li><a href="team.html">Team </a></li>
                         </ul>
                         <ul class="float-right user-icon form-ulli-right">
                             <li>
@@ -138,26 +138,25 @@ th, td{
         
         </div>
         <!-- header-area end -->
-        <div class="container">
-            <hr>
+        <div class="container-fluid">
             <div class="pth-all-heading">
                 <br>
                 <button  type="button" class="btn  addBtn" data-toggle="modal" data-target="#addTransaction"> <u>Add transaction</u></button>
                 <br><br>
             </div>
 
-            <table class="table-responsive mytable" id="transations-table" style="    overflow-x: inherit;">
-                <tr class="table-heading">
-                    <th>Status</th>
-                    <th>List Price</th>
-                    <th>Sold Price</th>
-                    <th>Days on Market</th>
-                    <th>List Date</th>
-                    <th>Address</th>
-                    <th>Built</th>
-                    <th>City</th>
-                    <th>Home Type</th>
-                    <th style="background: white;border: none;">Notes</th>
+            <table class="table-responsive" id="transations-table" style="    overflow-x: inherit;">
+                <tr class="table-heading table-color">
+                    <td class="table-column">Status</td>
+                    <td class="table-column">List Price</td>
+                    <td class="table-column">Sold Price</td>
+                    <td class="table-column">Days on Market</td>
+                    <td class="table-column">List Date</td>
+                    <td class="table-column">Address</td>
+                    <td class="table-column">Built</td>
+                    <td class="table-column">City</td>
+                    <td class="table-column">Home Type</td>
+                    <td class="table-column">Notes</td>
                 </tr>
                
             </table>
@@ -246,10 +245,10 @@ th, td{
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input id="list_date" type="text" class="add-transaction-form form-control " name="listing-date" placeholder="Listing Date" required="required">
+                                    <input id="list_date" type="text" class="add-transaction-form form-control " name="listing-date" placeholder="Listing Date" required="required" autocomplete="off">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input id="sold_date" type="text" class="add-transaction-form form-control " name="sold-date" placeholder="Sold Date" required="required">
+                                    <input id="sold_date" type="text" class="add-transaction-form form-control " name="sold-date" placeholder="Sold Date" required="required" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -411,6 +410,9 @@ th, td{
 
         <script src="./js/owl.carousel.min.js"></script>
 
+        <!-- Plugins -->
+        <script src="./plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
         <!-- Custom jQuery -->
         <script src="./js/scripts.js"></script>
 
@@ -433,7 +435,6 @@ th, td{
             $(".closeform").click(function () {
                 $('.fidout').fadeOut('slow');
             });
-            $(".btn-group-toggle").twbsToggleButtons();
 
             function trackChange(val){
                 if(val.trim() != ''){
