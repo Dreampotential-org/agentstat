@@ -544,6 +544,35 @@ function show_message(message) {
     });
 }
 
+function check_license(license) {
+  data = {}
+  data['license'] = license
+  error = false;
+
+  settings = get_settings('check-license/', 'POST', JSON.stringify(data));
+
+  $.ajax(settings).done(function (response) {
+      var response = JSON.parse(response);
+      if (response['status'] == true) {
+        show_message('License number already claimed')
+        // return false;
+        error = true;
+      } else {
+        add_license(license);
+        $('#license_no_1').val('');
+        $('#license_no_2').val('');
+        $('#license_no_3').val('');
+      }
+      console.log(response);
+      // error = false;
+  }).fail(function(err) {
+    console.log(err);
+  });
+
+  return error;
+
+}
+
 function add_license(val) {
   $("#added-license").append(`
       <div class="fragment" >
@@ -560,11 +589,9 @@ $("#add-license").click(function(){
   }
 
   var val = $('#license_no_1').val()+' '+$('#license_no_2').val()+' - '+$('#license_no_3').val();
-  add_license(val);
 
-  $('#license_no_1').val('');
-  $('#license_no_2').val('');
-  $('#license_no_3').val('');
+  check_license(val);
+
 });
 
 $('#added-license').on("click", ".remove-license",function(){
