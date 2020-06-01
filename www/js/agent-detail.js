@@ -113,7 +113,7 @@ function load_agent(ignore_city = true) {
         agent_id = data['id'];
 
         show_rating(data['average_review_rate'], data['reviews'].length);
-        show_reviews(data['reviews']);
+        show_reviews(data['review_categories'], data['reviews']);
 
         $('.agent_name').val(data['agent_name']);
         $('.agent-first-name').text(data['full_name'].split(" ")[0]);
@@ -1029,7 +1029,7 @@ function show_rating(rating, reviews_count) {
 
 }
 
-function show_reviews(reviews) {
+function show_reviews(summary, reviews) {
   if (reviews.length == 0) {
     $('.reviews').append(`
       <div style="width:450px; padding:10px">
@@ -1038,14 +1038,20 @@ function show_reviews(reviews) {
     `);
   }
 
-  $.each(reviews, function(k, v) {
-    rating = v.rate * 2;
+  $.each(summary, function(k, v) {
+    console.log(v);
+    rating = v.summary;
+    extra_info = '<span style="font-size:14px">' + v.extra_info + '</span>';
+    if (v.extra_info == null ) {
+      extra_info = '';
+    }
     $('.reviews').append(`
-      <div style="width:450px; padding:10px">
-        ` + v.review + `
-        <img src='/img/table-star-` + rating + `.png'>
-        <br>
-        <b>` + v.full_name + `</b>
+      <div style="padding: 20px; width: 5500px">
+        <div>
+          ` + v.category + ` `+ extra_info  +`
+          <br>
+          <img src='/img/table-star-` + rating + `.png'>
+        </div>
       </div>
     `);
   })
