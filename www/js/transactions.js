@@ -133,8 +133,9 @@ function load_agent() {
         <td class="table-column">` + v['days_on_market'] + `</td>
         <td class="table-column">` + dateFormat(v['list_date']) +`</td>
         <td class="table-column">` + v['address_text'] +`</td>
-        <td class="table-column">` + v['year_built'] +`</td>
         <td class="table-column">` + v['city'] +`</td>
+        <td class="table-column">` + v['zipcode'] +`</td>
+        <td class="table-column">` + v['year_built'] +`</td>
         <td class="table-column" id="homeType">` + hometype +`</td>
         <!--<td> <button class="btn btn-primary" data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')" value="1" title="notes"><i class="fa fa-plus" aria-hidden="true"></i> Note</button> </td> -->
 
@@ -142,7 +143,7 @@ function load_agent() {
       </tr>
 
       <tr class="fidout table-color" id="add-public-note-`+ v['id'] +`" style="display: none;">
-        <td colspan="10" style="padding: 6px 13px; color:gray">
+        <td colspan="11" style="padding: 6px 13px; color:gray">
           <div class="form-group">
             <!-- <input type="hidden" id="agent-`+ v['id'] +`"value="`+ v['agent_id']+ `">
             <button type="button" class="btn btn-success notebtn" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">Save</button>
