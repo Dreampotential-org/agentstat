@@ -56,4 +56,8 @@ server {
         location /team/ {
             try_files $uri $uri/ /team.html;
         }
+
+        location /login/ {
+            try_files $uri $uri/ /login.html;
+        }
 }
