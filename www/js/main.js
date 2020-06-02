@@ -434,11 +434,6 @@ function init() {
       $('form#filterForm').submit();
     })
 
-    $("body").delegate(".logout", "click", function(e) {
-      localStorage.clear()
-      window.location = '/'
-    })
-
     $("body").delegate(".ser", "keyup", function(e) {
       if (e.keyCode == 13) {
         e.preventDefault();
@@ -710,7 +705,7 @@ $(document).ready(function() {
                                                     <p>Profile Settings</p>
                                                     <span>Edit your profile info and account settings</span>
                                                 </a>
-                                                <a class="dropdown-item logout" href="#">Sign Out</a>
+                                                <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a>
                                             </div>
                                         </div>
                                     </li>

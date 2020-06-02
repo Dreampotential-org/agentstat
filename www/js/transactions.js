@@ -143,7 +143,7 @@ function load_agent() {
       </tr>
 
       <tr class="fidout table-color" id="add-public-note-`+ v['id'] +`" style="display: none;">
-        <td colspan="10" style="padding: 6px 13px; color:gray">
+        <td colspan="11" style="padding: 6px 13px; color:gray">
           <div class="form-group">
             <!-- <input type="hidden" id="agent-`+ v['id'] +`"value="`+ v['agent_id']+ `">
             <button type="button" class="btn btn-success notebtn" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">Save</button>
