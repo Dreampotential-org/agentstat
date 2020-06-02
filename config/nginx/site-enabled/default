@@ -40,4 +40,20 @@ server {
         location /past-sales {
             try_files $uri $uri/ /transaction.html;
         }
+
+        location /inbox/ {
+            try_files $uri $uri/ /inbox.html;
+        }
+
+        location /reports/ {
+            try_files $uri $uri/ /reports.html;
+        }
+
+        location /referrals/ {
+            try_files $uri $uri/ /referrals.html;
+        }
+
+        location /team/ {
+            try_files $uri $uri/ /team.html;
+        }
 }

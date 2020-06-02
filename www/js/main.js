@@ -697,11 +697,11 @@ $(document).ready(function() {
                                             </a>
 
                                             <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item " href="/inbox.html">
+                                                <a class="dropdown-item " href="/inbox/">
                                                     <p>Dashboard</p>
                                                     <span>View your stats and backend</span>
                                                 </a>
-                                                <a class="dropdown-item" href="/profile-settings">
+                                                <a class="dropdown-item" href="/profile-settings/">
                                                     <p>Profile Settings</p>
                                                     <span>Edit your profile info and account settings</span>
                                                 </a>
