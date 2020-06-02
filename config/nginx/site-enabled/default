@@ -40,8 +40,4 @@ server {
         location /past-sales {
             try_files $uri $uri/ /transaction.html;
         }
-
-        location /team {
-            try_files $uri $uri/ /team.html;
-        }
 }
