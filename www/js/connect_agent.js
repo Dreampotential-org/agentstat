@@ -10,6 +10,81 @@ function init() {
   init_events_connect()
 }
 
+function show_claim_screen() {
+    swal({
+      title: "Claim Profile!",
+      text: "Do you want to dispute the claim and provide proof of identity?",
+      icon: "warning",
+      buttons: [
+        'No, cancel it!',
+        'Yes, I am sure!'
+      ],
+      dangerMode: true,
+    }).then(function(isConfirm) {
+      if (isConfirm) {
+
+        $('#alreadyClaimedModal').modal('show');
+
+      } else {
+        // swal("Cancelled", "Your imaginary file is safe :)", "error");
+      }
+    });
+}
+
+
+$('#submit_proof_btn').click(function() {
+  var form_data = {};
+  var picture_data = $('#picture')[0].files[0]
+  var real_estate_license = $('#real-estate-license')[0].files[0]
+
+  var reader = new FileReader();
+  reader.readAsDataURL(picture_data);
+
+  var reader2 = new FileReader();
+  reader2.readAsDataURL(real_estate_license);
+  var picture_base64 = '';
+
+
+
+    reader.onload = function () {
+
+      reader2.onload = function() {
+        real_estate_license_base64 = reader2.result;
+      }
+
+      picture_base64 = reader.result;
+      form_data['id_picture'] = picture_base64;
+      form_data['real_estate_license'] = picture_base64;
+      form_data['full_name'] = $('#full_name').val();
+      form_data['email'] = $('#claim-email').val();
+      form_data['brokerage_name'] = $('#brokerage-name').val();
+
+      settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
+      settings['headers'] = null;
+
+      $.ajax(settings).done(function (response) {
+
+          $('#alreadyClaimedModal').modal('toggle');
+          swal({
+            title: "Claim Profile!",
+            text: "We will review your dispute and get back to you within 48 hours",
+            icon: "success",
+          }).then(function(isConfirm) {
+          });
+          window.location = '/profile-settings/';
+
+      }).fail(function(err) {
+          // alert('Got err');
+          console.log(err);
+          show_error(err);
+      });
+    };
+    reader.onerror = function (error) {
+     console.log('Error: ', error);
+    };
+});
+
+
 function init_events_connect() {
   $("body").delegate("#select_agent", "click", function(e) {
     $("#set_agent").removeAttr("disabled")
@@ -17,7 +92,13 @@ function init_events_connect() {
 
   $("body").delegate("#set_agent", "click", function(e) {
     connector_id = $("input[name='select-agent']:checked").val();
-    claim_api(connector_id);
+    if(typeof connector_id != 'undefined') {
+      claim_api(connector_id);
+    } else {
+      connector_id = $("input[name='claim-agent']:checked").val();
+      // dispute_profile(connector_id)
+      show_claim_screen();
+    }
   })
 
   $("body").delegate("#search", "click", function(e) {
@@ -51,7 +132,7 @@ function get_agent_html(agent) {
   if ((agent['claimed'])) {
     link = (
       "<a target='_blank' href='" + profile_link + "'>" +
-        "<input type='radio' name='select-agent' disabled>" + agent['agent_full_name'] + ' (Already claimed)' +
+        "<input type='radio' name='claim-agent'>" + agent['agent_full_name'] + ' (Profile claimed)' +
         "<br>" +
       "</a>"
     );
