@@ -60,14 +60,25 @@ function load_agent(ignore_city = true) {
       `);
     }
 
-  $('#city_agent_scores').html(`
-    <iframe
-      src='` + CITY_AGENT_SCORES_URL + transaction_query + `/'
-      scrolling="no" style='width: 100%; height:500px; border: 0'
-      ></iframe>
-  `);
+  // $('#city_agent_scores').html(`
+  //   <iframe
+  //     src='` + CITY_AGENT_SCORES_URL + transaction_query + `/'
+  //     scrolling="no" style='width: 100%; height:500px; border: 0'
+  //     ></iframe>
+  // `);
 
-    console.log(city);
+    // console.log(city);
+    var api_call_url = '';
+
+    settings = get_settings('agent_scores/' + transaction_query  + '/', 'GET');
+    settings['headers'] = null;
+    $.ajax(settings).done(function (response) {
+      data = JSON.parse(response);
+      polulate_city(data.agent_scores);
+    }).fail(function (err) {
+        console.log(err);
+    });
+
 
 
     if (agent_id) {
