@@ -75,10 +75,11 @@ function populate_transaction(agent_lists, isAgent=true) {
         if (isAgent) {
             var showClass = '';
             var noteHideClass = '';
+            var noteDiasbled = '';
             var noteHtml = `<td class="table-column"><button class="`+ buttonClass +`" style="margin:5px;" value="1" title="notes">`+ buttonText +`</button> </td>`;
         } else {
             var showClass = 'display-none';
-            
+            var noteDisabled = 'disabled';
 
             if (v['note'] != "") {
                 var noteHtml = '<td><i class="fa fa-sticky-note-o " style="font-size:21px; color: green;"></i></td>';
@@ -110,7 +111,7 @@ function populate_transaction(agent_lists, isAgent=true) {
                 <button type="button" class="btn btn-success notebtn `+showClass+`" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">Save</button>
                 <label class="`+showClass+`"><strong>`+publicNote+`</strong></label>
                 <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
-                <textarea class="public-note-text form-control `+noteHideClass+`" id="note-` + v['id'] + `" rows="5" name="public-note">`+ v['note'] +`</textarea>
+                <textarea `+noteDisabled+` class="public-note-text form-control `+noteHideClass+`" id="note-` + v['id'] + `" rows="5" name="public-note">`+ v['note'] +`</textarea>
             </div>
             <div class="text-left" title_color>
             ` + v['address_text'] +`
