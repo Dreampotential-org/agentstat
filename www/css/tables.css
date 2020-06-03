@@ -1,0 +1,6 @@
+.display-none {
+    display: none;
+}
+.detailed-table th,.detailed-table td{
+    border: none;
+}

@@ -26,6 +26,13 @@
         <link rel="stylesheet" href="/style.css" />
 
         <!-- Responsive CSS -->
+
+        <!-- Table css -->
+        <link rel="stylesheet" href="/css/transactions.css" />
+
+        <!-- Page Css -->
+        <link rel="stylesheet" href="/css/agent-detail.css" />
+        <link rel="stylesheet" href="/css/tables.css" />
        
         <!-- <link rel="stylesheet" href="./css/jquery.dataTables.min.css"/> -->
         <script src="/js/sweetalert.min.js"></script>
@@ -41,10 +48,8 @@
         text-align: center;
     }
     table tr td:last-child {
-        border: none;
         width: 15%;
         text-align: center;
-
     }
     </style>
     <body>
@@ -698,8 +703,27 @@
                 <div class="pth-all-heading">
                     <h3>All Transactions</h3>
                 </div>
-                <div class="pth-all-table" id="new_transactions"></div>
-                <div class="pth-all-table" style="display: none">
+                
+                <div class="pth-all-table" >
+                    <table class="table-responsive" id="transations-table" style="overflow-x: inherit;">
+                        <tr class="table-heading table-color">
+                            <td class="table-column">Status</td>
+                            <td class="table-column">List Price</td>
+                            <td class="table-column">Sold Price</td>
+                            <td class="table-column">Days on Market</td>
+                            <td class="table-column">List Date</td>
+                            <td class="table-column">Address</td>
+                            <td class="table-column">City</td>
+                            <td class="table-column">Zip</td>
+                            <td class="table-column">Built</td>
+                            <td class="table-column">Home Type</td>
+                            <td class="table-column">Notes</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- <div class="pth-all-table" id="new_transactions"></div> -->
+                <!-- <div class="pth-all-table" style="display: none">
 
                     <style>
                         table.table tr td { font-size: .9em; }
@@ -726,7 +750,7 @@
                     <div id="pagination-here">
                     </div>
 
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -943,6 +967,9 @@
     <script src="/js/common.js"></script>
     <!-- <script src="/js/jquery.dataTables.min.js"></script> -->
     <script type="text/javascript" src="/js/jquery.bootpag.js"></script>
+
+    <!-- Table Js -->
+    <script src="/js/tables.js"></script>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>

@@ -1,5 +1,5 @@
 .table-color {
-    background: #F2F2F2;
+    background: #F2F2F2 !important;
 }
 .container-fluid {
     padding: 0 50px;
@@ -11,10 +11,13 @@
     border-bottom: 4px solid black;
 }
 .table-heading td {
-    font-weight:500 ;
-    padding: 10px;
+    font-weight:500 !important;
+    padding: 10px !important;
 }
 .table-column {
     width: 10%;
-    padding: 0px 10px 0px 10px;
+    padding: 0px 10px 0px 10px !important;
+}
+.pth-all {
+    margin-top: 0px;
 }

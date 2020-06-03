@@ -27,7 +27,7 @@
         <script src="/js/bootstrap.js"></script>
 
         <!-- Plugin CSS -->
-        <link rel="stylesheet" href="plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
+        <link rel="stylesheet" href="/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
 
         <!-- Main StyleSheet -->
         <link rel="stylesheet" href="/style.css" />
@@ -37,6 +37,7 @@
 
         <!-- Page CSS -->
         <link rel="stylesheet" href="/css/transactions.css" />
+        <link rel="stylesheet" href="/css/tables.css" />
 <style>
 
 /* .status-Sold{
@@ -139,31 +140,30 @@ th, td{
         </div>
         <!-- header-area end -->
         <div class="container-fluid">
-            <div class="pth-all-heading">
-                <br>
-                <button  type="button" class="btn  addBtn" data-toggle="modal" data-target="#addTransaction"> <u>Add transaction</u></button>
-                <br><br>
+                <div class="pth-all-heading">
+                    <br>
+                    <button  type="button" class="btn  addBtn" data-toggle="modal" data-target="#addTransaction"> <u>Add transaction</u></button>
+                    <br><br>
+                </div>
+                <div class="pth-all">
+                <table class="table-responsive" id="transations-table" style="    overflow-x: inherit;">
+                    <tr class="table-heading table-color">
+                        <td class="table-column">Status</td>
+                        <td class="table-column">List Price</td>
+                        <td class="table-column">Sold Price</td>
+                        <td class="table-column">Days on Market</td>
+                        <td class="table-column">List Date</td>
+                        <td class="table-column">Address</td>
+                        <td class="table-column">City</td>
+                        <td class="table-column">Zip</td>
+                        <td class="table-column">Built</td>
+                        <td class="table-column">Home Type</td>
+                        <td class="table-column">Notes</td>
+                    </tr>
+                </table>
             </div>
-
-            <table class="table-responsive" id="transations-table" style="    overflow-x: inherit;">
-                <tr class="table-heading table-color">
-                    <td class="table-column">Status</td>
-                    <td class="table-column">List Price</td>
-                    <td class="table-column">Sold Price</td>
-                    <td class="table-column">Days on Market</td>
-                    <td class="table-column">List Date</td>
-                    <td class="table-column">Address</td>
-                    <td class="table-column">City</td>
-                    <td class="table-column">Zip</td>
-                    <td class="table-column">Built</td>
-                    <td class="table-column">Home Type</td>
-                    <td class="table-column">Notes</td>
-                </tr>
-               
-            </table>
         </div>
-
-
+        
         <!-- <div class="container">
             <hr>
             <div class="pth-all-heading">
@@ -419,6 +419,8 @@ th, td{
 
         <script src="/js/conf.js"></script>
         <script src="/js/common.js"></script>
+
+        <script src="/js/tables.js"></script>
         <script src="/js/transactions.js"></script>
 
         <!-- Scroll-Top button -->

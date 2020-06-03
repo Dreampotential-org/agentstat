@@ -2112,7 +2112,7 @@
  
  .pth-all-table table tr:nth-child(odd) {
      /*background-color: rgba(216, 226, 234, 0.65);*/
-     background: #e2e2e2;
+     /* background: #e2e2e2; */
  }
  
  .pth-all-table table tr td {
@@ -2137,11 +2137,7 @@
      background-color: rgba(216, 226, 234, 0.8);
  }
  
- .pth-all-table table tr.table-heading td {
-     font-weight: bold;
-     font-size: 18px!important;
-     color: #3C3C3C!important;
- }
+
  
  
  /*-- pth-all area end --*/
