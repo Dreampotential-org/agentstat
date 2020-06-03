@@ -75,7 +75,7 @@ function populate_transaction(agent_lists, isAgent=true) {
         if (isAgent) {
             var showClass = '';
             var noteHideClass = '';
-            var noteDiasbled = '';
+            var noteDisabled = '';
             var noteHtml = `<td class="table-column"><button class="`+ buttonClass +`" style="margin:5px;" value="1" title="notes">`+ buttonText +`</button> </td>`;
         } else {
             var showClass = 'display-none';
@@ -87,8 +87,7 @@ function populate_transaction(agent_lists, isAgent=true) {
             } else {
                 var noteHtml = '<td><p> </p></td>';
                 var noteHideClass = 'display-none';
-            }
-            
+            } 
         }
 
         $(`<tr data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')">
@@ -281,7 +280,27 @@ function populate_transaction(agent_lists, isAgent=true) {
             </td>
         </tr>
     
-        `).insertAfter(".table-heading");
+        `).insertAfter(".table-heading-transaction");
 
+    });
+}
+
+function polulate_city(agent_scores) {
+    $.each(agent_scores, function(k,v){
+        console.log(v);
+        $(`
+        <tr>
+            <td class="table-column"><p style="margin-top: 10px;">` + v['city'] +`</p></td>
+            <td class="table-column">` + v['agent_rank'] + `</td>
+            <td class="table-column">` + v['home_type'] +`</td>
+            <td class="table-column">` + v['rank_count'] + `</td>
+            <td class="table-column">` + v['city_stats']['avg_dom'].toFixed(2) +`</td>
+            <td class="table-column">` + v['avg_dom'].toFixed(2) +`</td>
+            <td class="table-column">` + v['city_stats']['s2l_price'].toFixed(2) +`%</td>
+            <td class="table-column">` + v['s2l_price'].toFixed(2) +`%</td>
+            <td class="table-column">` + v['sold_listings'] +`</td>
+            <td class="table-column">` + v['failed_listings'] +`</td>
+        </tr>
+        `).insertAfter(".table-heading-city");
     });
 }
