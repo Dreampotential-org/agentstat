@@ -122,7 +122,7 @@ function populate_transaction(agent_lists, isAgent=true) {
             <table class="detailed-table" style="width:100%">
                 <tr>
                 <td style="width:35%;border:none !important">
-                    <table style="width:100%">
+                    <table style="width:100%; margin-top: -65px;">
                         <tr>
                             <td colspan=1 style='text-align: left;padding: 5px 10px;color: gray; border:none'>
                                 <p class="detail-sub-header">Listed:</p>
