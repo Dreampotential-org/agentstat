@@ -12,7 +12,7 @@ function init() {
 
 function show_claim_screen() {
     swal({
-      title: "Claim Profile!",
+      title: "Profile already claimed!",
       text: "Do you want to dispute the claim and provide proof of identity?",
       icon: "warning",
       buttons: [
@@ -29,6 +29,7 @@ function show_claim_screen() {
         // swal("Cancelled", "Your imaginary file is safe :)", "error");
       }
     });
+
 }
 
 
