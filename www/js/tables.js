@@ -40,6 +40,11 @@ function makefirstLetterCapital (word) {
     return word.charAt(0).toUpperCase() + word.slice(1)
 }
 
+function onlyAddress(address) {
+    var address = address.split(',');
+    return address[0];
+}
+
 function populate_transaction(agent_lists, isAgent=true) {
 
     $.each(agent_lists, function(k, v) {
@@ -96,7 +101,7 @@ function populate_transaction(agent_lists, isAgent=true) {
             <td class="table-column">` + currencyFormat(v['sold_price_int']) + arrowStyle +`</td>
             <td class="table-column">` + v['days_on_market'] + `</td>
             <td class="table-column">` + dateFormat(v['list_date']) +`</td>
-            <td class="table-column">` + v['address_text'] +`</td>
+            <td class="table-column">` + onlyAddress(v['address_text']) +`</td>
             <td class="table-column">` + v['city'] +`</td>
             <td class="table-column">` + v['zipcode'] +`</td>
             <td class="table-column">` + v['year_built'] +`</td>
@@ -113,36 +118,38 @@ function populate_transaction(agent_lists, isAgent=true) {
                 <textarea `+noteDisabled+` class="public-note-text form-control `+noteHideClass+`" id="note-` + v['id'] + `" rows="5" name="public-note">`+ v['note'] +`</textarea>
             </div>
             <div class="text-left" title_color>
-            ` + v['address_text'] +`
+            <p class="detail-header">` + v['address_text'] +`</p>
             <table class="detailed-table" style="width:100%">
                 <tr>
                 <td style="width:35%;border:none !important">
                     <table style="width:100%">
                         <tr>
-                            <td style='text-align: left;padding: 5px 10px;color: gray; border:none'>
-                            <strong style='color:black'>Listed:</strong> <br><br>
-                            ` + dateFormat(v['list_date']) +` <br>
-                            ` + currencyFormat(v['list_price_int']) +`
+                            <td colspan=1 style='text-align: left;padding: 5px 10px;color: gray; border:none'>
+                                <p class="detail-sub-header">Listed:</p>
+                                <span class="detail-text">` + dateFormat(v['list_date']) +`</span> <br>
+                                <span class="detail-text">` + currencyFormat(v['list_price_int']) +`</span>
                             </td>
-                            <td style='padding: 5px 10px;color: gray;border:none'>
-                            <strong style='color:black'>Sold:</strong> <br><br>
-                            ` + dateFormat(v['sold_date']) +` <br>
-                            ` + currencyFormat(v['sold_price_int']) +`
+                            <td colspan=2 style='text-align: left;padding: 5px 10px;color: gray;border:none'>
+                                <p class="detail-sub-header">Sold:</p>
+                                <span class="detail-text">` + dateFormat(v['sold_date']) +` <br></span>
+                                <span class="detail-text">` + currencyFormat(v['sold_price_int']) +`</span>
                             </td>
                         </tr>
                         <tr>
                         <td colspan=2 style='text-align: left;padding: 5px 10px;color: gray;'>
-                        <strong style='color:black'>Days on market:</strong> ` + v['days_on_market']+ ` <br>
-                        </td>
+                            <span class="detail-sub-header">Days on Market:</span><span class="detail-text"> ` + v['days_on_market']+ `<span> <br>
+                            <span class="detail-sub-header">List to Sell Ratio:</span><span class="detail-text"> 100%<span> <br>
+                        </td> <br>
+                        
                         </tr>
                     </table>
                     </td>
-                    <td style="width:5%;border-left: 2px solid #B1B1B4 !important;border: none;"></td>
+                    <td style="width:5%;border-left: 2px solid black !important;border: none;"></td>
                     <td style="width:60%">
                     <table style="width:100%">
                         <tr>
                         <!-- <td style="text-align:left;">
-                            <strong>Type:</strong> ` + v['home_type'] + ` <br>
+                            <strong>Type:</strong> ` + hometype + ` <br>
                             <strong>Beds:</strong> ` + v['beds']+ ` <br>
                             <strong>Baths:</strong> ` + v['baths']+ ` <br>
                             <strong>Sqft:</strong> ` + v['sqft']+ ` <br>
@@ -159,116 +166,114 @@ function populate_transaction(agent_lists, isAgent=true) {
                             <strong>Foundation:</strong> ` + v['foundation'] + ` <br>
                             </td> -->
                             <td  style="padding:0px;border:none">
-                                <strong style='color:black'>Type</strong>
+                                <span class="detail-sub-header">Type</span>
                             </td>
                         
                             <td  style="padding:0px;border:none">
-                                ` + v['home_type'] + `
+                                <span class="detail-text">` + hometype + `</span>
                             </td>
                             <td style="border:none"></td>
                             <td style="padding:0px;font-size: 16px;border:none">
-                                <strong style='color:black'>Heating</strong>
+                                <span class="detail-sub-header">Heating</span>
                             </td>
                             <td style="padding:0px;border:none">
-                                Forced Air
+                                <span class="detail-text">Forced Air</span>
                             </td>
     
                         </tr>
                         <tr>
                             <td style="padding:0px;border:none">
-                                <strong style='color:black'>Beds</strong>
+                                <span class="detail-sub-header">Beds</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                ` + v['beds'] + `
+                                <span class="detail-text">` + v['beds'] + `</span>
                             </td>
                             <td style="border:none" ></td>
                             <td style="padding:0px ;font-size: 16px;border:none">
-                            <strong style='color:black'>Cooling</strong>
-                                
+                                <span class="detail-sub-header">Cooling</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                None
+                                <span class="detail-text">None</span>
                             </td>
                         </tr>
                         <tr>
                             <td  style="padding:0px;border:none">
-                                <strong style='color:black'>Baths</strong>
+                                <span class="detail-sub-header">Baths</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                ` + v['baths'] + `
+                                <span class="detail-text">` + v['baths'] + `</span>
                             </td>
                             <td style="border:none"></td>
                             <td style="padding:0px ;font-size: 16px;border:none">
-                            <strong style='color:black'>Parking</strong>
+                            <span class="detail-sub-header">Parking</span>
                             </td>
                             <td style="padding:0px;border:none">
-                            Attached Garage
+                                <span class="detail-text">Attached Garage</span>
                             </td>
                         </tr>
                         <tr>
                             <td  style="padding:0px;border:none">
-                                <strong style='color:black'>Sqft</strong>
+                                <span class="detail-sub-header">Sqft</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                1,550
+                                <span class="detail-text">1,550</span>
                             </td>
                             <td style="border:none"></td>
                             <td style="padding:0px;font-size: 16px;border:none">
-                            <strong style='color:black'>Basement</strong>
+                            <span class="detail-sub-header">Basement</span>
                                 
                             </td>
                             <td style="padding:0px;border:none">
-                                None
+                                <span class="detail-text">None</span>
                             </td>
                         </tr>
     
                         <tr>
                             <td  style="padding:0px ;font-size: 16px;border:none">
-                                <strong style='color:black'>Lot</strong>
+                                <span class="detail-sub-header">Lot</span>
                             </td>
                             <td  style="padding:0px;border:none"> 
-                                0.45 acres
+                                <span class="detail-text">0.45 acres</span>
                             </td>
                             <td style="border:none"></td>
                             <td style="padding:0px;font-size: 16px;border:none">
-                                <strong style='color:black'>Flooring</strong>
-                                
+                                <span class="detail-sub-header">Flooring</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                            Laminate, Hardwood
+                                <span class="detail-text">Laminate, Hardwood</span>
                             </td>
                         </tr>
     
                         <tr>
                             <td  style="padding:0px;font-size: 16px;border:none">
-                                <strong style='color:black'>Year Built</strong>
+                                <span class="detail-sub-header">Year Built</span>
                             </td>
                             <td  style="padding:0px;border:none"> 
-                            ` + v['year_built'] + `
+                                <span class="detail-text">` + v['year_built'] + `</span>
                             </td>
                             <td style="border:none"></td>
                                 <td style="padding:0px;border:none">
-                                <strong style='color:black'>Roof</strong>
+                                <span class="detail-sub-header">Roof</span>
                             </td>
                             <td style="padding:0px;border:none">
-                                Composition
+                                <span class="detail-text">Composition</span>
                             </td>
                         </tr>
     
                         <tr>
                             <td  style="padding:0px;font-size: 16px;border:none">
-                                <strong style='color:black'>Country</strong>
+                                <span class="detail-sub-header">County</span>
                             </td>
                             <td  style="padding:0px;border:none"> 
-                            King
+                                <span class="detail-text">King</span>
                             </td>
                             <td style="border:none"></td>
     
                             <td style="padding:0px;font-size: 16px;border:none">
-                                <strong style='color:black'>Foundation</strong>
+                                <span class="detail-sub-header">Foundation</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                            Crawl Raised
+                                <span class="detail-text">Crawl Raised</span>
                             </td>
                         </tr>
                     </tr>

@@ -2121,7 +2121,7 @@
      padding: 14px 0px;
  }
  
- .pth-all-table table tr td:first-child {
+ .pth-all-table table tr:not(:first-child) td:first-child {
      font-weight: 500;
      font-size: 16px;
      color: #45AE3C;
