@@ -4,3 +4,18 @@
 .detailed-table th,.detailed-table td{
     border: none;
 }
+.detail-header {
+    color: black;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.detail-sub-header {
+    color:black; font-weight: 500; margin-bottom:5px;
+}
+.detail-text {
+    color: #3C3C3C;
+    font-weight: 300;
+}
+.detailed-table td {
+    text-align: left !important;
+}
