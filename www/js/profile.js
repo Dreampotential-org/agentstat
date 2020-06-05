@@ -156,9 +156,9 @@ function get_reviews() {
           d = new Date(v.date);
           $('.owl-carousel').trigger(
             'add.owl.carousel', [`
-            <div class="item">
+            <div class="item" id='item-`+ v.id +`'>
               <div class="item-slide text-center">
-                  <button><span><i class="fas fa-times"></i></span></button>
+                  <button class="delete-review" data-profile='`+ profile_id +`' data='`+ v.id +`'><span><i class="fas fa-times"></i></span></button>
                   <p>` + v.full_name + ` - ` + formatted_date +`</p>
                   <span>
                   ` + v.review + `
@@ -622,3 +622,17 @@ $(document).on('click', '#remove-profile-image', function(e) {
 
   });
 } );
+
+$(document).on('click', '.delete-review', function(e) {
+
+  review_id = $(this).attr('data');
+  profile_id = $(this).attr('data-profile');
+  console.log(review_id);
+  settings = get_settings('review/' + profile_id + '/' + review_id, 'DELETE');
+
+  $.ajax(settings).done(function (response) {
+    show_message('Review has been deleted!');
+    $('#item-'+review_id).css('display', 'None');
+  });
+
+});
