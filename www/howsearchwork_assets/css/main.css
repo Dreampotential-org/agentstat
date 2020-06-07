@@ -602,7 +602,7 @@ video {
 
 .header-nav {
   list-style: none;
-  padding: 0 0 0 30px;
+  padding: 0 0 0 42px;
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -981,9 +981,10 @@ video {
           width: 170px; } }
 
 .jump-link {
+  z-index: 99;
   position: absolute;
-  right: 3%;
-  bottom: 25%;
+  right: 2%;
+  bottom: 2%;
   background: #3367d6;
   border-radius: 50%;
   width: 54px;
