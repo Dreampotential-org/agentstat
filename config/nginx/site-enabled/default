@@ -60,4 +60,17 @@ server {
         location /login/ {
             try_files $uri $uri/ /login.html;
         }
+
+        location /howsearchworks/ {
+            try_files $uri $uri/ /howsearchworks.html;
+        }
+
+        location /howsearchworks/organising-transactions/ {
+            try_files $uri $uri/ /howsearchworks-transactions.html;
+        }
+
+        location /howsearchworks/search-algorithm/ {
+            try_files $uri $uri/ /howsearchworks-algorithm.html;
+        }
+        
 }

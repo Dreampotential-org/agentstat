@@ -689,7 +689,7 @@ $(".search_city, .search_city_bottom").autocomplete({
 $(document).ready(function() {
   if (localStorage.getItem('session_id')) {
     $('#login-menu').html(`
-      <ul class="float-right user-icon navbar-nav mr-auto form-ulli-right ">
+      <ul class="float-right">
                                     <li>
                                         <div class="dropdown profile show">
                                             <a class="dropdown-toggle activeLine" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
