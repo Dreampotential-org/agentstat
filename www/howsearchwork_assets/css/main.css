@@ -981,6 +981,7 @@ video {
           width: 170px; } }
 
 .jump-link {
+  z-index: 99;
   position: absolute;
   right: 2%;
   bottom: 2%;
