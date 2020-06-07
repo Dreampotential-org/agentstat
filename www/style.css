@@ -1163,8 +1163,8 @@
      background-color: #3C3C3C;
      height: 60px;
      width: 100%;
-     position: relative;
-      bottom: 0;
+     position: absolute;
+     bottom: 0;
      /* position: relative; */
      /* margin-top: 25px; */
      /* position: fixed !important; */
