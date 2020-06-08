@@ -510,6 +510,7 @@ video {
       width: 700px; } }
   @media (max-width: 767px) {
     video {
+      margin: 80px auto;
       width: 100%; } }
 
 .header {
