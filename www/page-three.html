@@ -33,6 +33,7 @@
         <!-- Page Css -->
         <link rel="stylesheet" href="/css/agent-detail.css" />
         <link rel="stylesheet" href="/css/tables.css" />
+        <link rel="stylesheet" href="/css/review.css" />
        
         <!-- <link rel="stylesheet" href="./css/jquery.dataTables.min.css"/> -->
         <script src="/js/sweetalert.min.js"></script>
@@ -57,13 +58,13 @@
 
         <div class="wrapper-heading sticky-top bg-white akh-4">
             <!-- header-area start -->	
-            <div class="header-area sticky-top bg-white custom_header">
+            <div class="header-area sticky-top bg-white custom_header stricked-menu stricky-fixed">
                 <div class="">
-                    <div class="row">
+                    <div class="row" style="margin-right: 0px;">
                         <div class="col-lg-12">
     
                             <nav class="navbar navbar-expand-md navbar-light">
-                                <a class="navbar-brand" href="/index.html">
+                                <a class="navbar-brand" href="/">
                                     <img class="image" src="/img/logo.png" alt="logo" />
                                 </a>
                                 <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,12 +75,18 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                     </ul>
-                                    <div id="login-menu" class="main-menu-part">
+                                    <div  class="main-menu-part">
                                         <ul>
-                                            <li><a href="/login.html">Agents</a></li>
+                                            <li><a href="/howsearchworks/">How Search Works</a></li>
+                                        </ul>
+                                    </div>
+                                    <div id="login-menu" class="main-menu-part">
+                                        <ul class="float-right">
+                                            <li><a href="/login/">Agents</a></li>
                                         </ul>
                                     </div>
                                 </div>
+
                             </nav>
                         </div>							
                     </div>					
@@ -129,7 +136,7 @@
                                     </div>
                                 </div>
                                 <div class="price ak-price srch-pricevalue">
-                                    <p class="d-inline-block y-price">Price</p>
+                                    <p class="d-inline-block y-price">Price <i class="fas fa-caret-down"></i></p>
                                     <div class="price-amount" id="pt-amount">
                                         <div class="price-head-wrapper">
                                             <h6 class="d-linline-block">Price Range</h6>
@@ -187,36 +194,36 @@
 
         <!-- pth-agent area start -->
         <div class="pht-agent">
-            <div class="container">
-                <div class="pth-agent-wrapper">					
-                    <div class="row">
-                        <div class="col-lg-12">
-                            
-                            <nav>
-                                <div class="nav nav-tabs nav-seller-buyer" id="nav-tab" role="tablist">
-                                    <a class="nav-item nav-links col-2 col-sm-1 active custom_tab" id="nav-new-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span class="acitv-bottom tab_font">Sellers</span> </a>
-                                    <a class="nav-item nav-links col-3 col-sm-2  " id="nav-new-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="acitv-bottom tab_font">Buyers </span> </a>
-                                    <a class="nav-item nav-links col-6 col-sm-8  pull-right" id="nav-new-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="acitv-bottom text-right tab_font">Blog</span></a>
-                                </div>
-                            </nav>
-                            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-                                </div>
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-                                </div>
-                                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-
-                                </div>
-                                <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-
-                                </div>
-                            </div>
+            
+                <div class="col-lg-12" style="padding: 0;">
+                    <nav>
+                        <div class="nav nav-tabs nav-seller-buyer" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-links col-2 col-sm-1 active custom_tab" id="nav-new-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span class="acitv-bottom tab_font">Sellers</span> </a>
+                            <a class="nav-item nav-links col-3 col-sm-2  " id="nav-new-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="acitv-bottom tab_font">Buyers </span> </a>
+                            <a class="nav-item nav-links col-6 col-sm-8  pull-right" id="nav-new-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="acitv-bottom text-right tab_font">Blog</span></a>
+                        </div>
+                    </nav>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-profile-tab">
 
                         </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                        </div>
+                        <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+
+                        </div>
                     </div>
+
+                </div>
+
+            
+            <div class="container">
+                <div class="pth-agent-wrapper">					
+                    
                     <div class="row">
                         <div class="col-lg-7 col-md-6">
                             <div class="pth-agent-heading">
@@ -777,7 +784,7 @@
     <!-- pth-all area end -->
 
     <!-- pth-more area start -->
-    <div class="pth-more">
+    <div class="pth-more" style="margin-top: 0px;">
         <div class="container">
             <div class="pth-more-wrapper">
                 <div class="row">
@@ -792,7 +799,11 @@
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6 align-self-end align-self-md-center">
-                        <div class="pth-more-right-content" id="reviews">
+                        <div class="pth-more-right-content">
+                            <div class="pth-more-right-one pth-more-right-first">
+                                <div id="reviews-list" class="reviews-slider">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -958,6 +969,9 @@
     <script src="https://auxiliary.github.io/rater/scripts/rater.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <!-- Reviews slider -->
+    <script src="/js/jquery.slick-carousel.js"></script>
+
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!-- Bootstrap Propper jQuery -->
     <script src="/js/popper.js"></script>
@@ -990,6 +1004,8 @@
 
     <!-- Table Js -->
     <script src="/js/tables.js"></script>
+
+    
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>

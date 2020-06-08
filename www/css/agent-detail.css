@@ -1,3 +1,18 @@
 #transations-table {
     border: none !important;
 }
+.main-menu-part ul li  .activeLine{
+    border-bottom: none;
+}  
+.drop {
+    top: 35px;
+}
+.po-search.pt-search {
+    margin-top: -60px;
+}
+
+@media screen and (min-width: 768px){
+    .nav-seller-buyer {
+        padding-left: 150px;
+    }
+}

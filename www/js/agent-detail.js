@@ -185,14 +185,28 @@ function load_agent(ignore_city = true) {
 
         if (data['reviews'].length > 0) {
           $.each(data['reviews'], function(k, v) {
-            console.log(v);
-            $('#reviews').append(`
-                <div class="pth-more-right-one pth-more-right-first">
-                    <h6>` + v['full_name'] +`</h6>
-                    <p>` + v['review'] + `</p>
+            var ratingPercentage = parseFloat(v['rating'])*20;
+            console.log(ratingPercentage);
+            $('#reviews-list').append(`
+                <div class="one-slide">
+                    <strong class="name">`+v['full_name']+`</strong>
+                    <span class="date">`+niceDate(v['date'])+`</span>
+                    <div class="reviews-holder">
+                        <div class="review">
+                            <span class="reviews-bar">
+                                <span class="fill" style="width: `+ratingPercentage+`%;"></span>
+                            </span>
+                        </div>
+                        <a href="#" class="link">Details?</a>
+                    </div>
+                    <blockquote>
+                        <q>`+v['review']+`</q>
+                    </blockquote>
                 </div>
-              `);
+            `);
           });
+
+          initSlickCarousel();
         }
 
         populate_transaction(data[agent_list_key], false);
