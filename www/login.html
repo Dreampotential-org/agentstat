@@ -565,7 +565,6 @@
         </div>
     </div>
 
-
     <style>
         .login-form {
             width: 450px;
@@ -937,39 +936,39 @@
             });
 
         });
-        $(window).on('scroll', function () {
-            console.log("LENGTH " + $(this).scrollTop())
-            if ($('.stricked-menu').length) {
-                var strickyScrollPos = 50;
-                if ($(window).scrollTop() > strickyScrollPos) {
-                    $('.stricked-menu').fadeIn(100);
-                } else if ($(this).scrollTop() <= strickyScrollPos) {
-                    //$('.stricked-menu').fadeOut(100);
-                }
-            }
-            if ($('.stricked-menu').length) {
-                var headerScrollPos = 50;
-                var stricky = $('.stricked-menu');
-                if ($(window).scrollTop() > headerScrollPos) {
-                    stricky.addClass('stricky-fixed');
-                } else if ($(this).scrollTop() <= headerScrollPos) {
-                    stricky.removeClass('stricky-fixed');
-                }
-            }
-        });
-        (function ($) {
-            $(document).ready(function () {
+        // $(window).on('scroll', function () {
+        //     console.log("LENGTH " + $(this).scrollTop())
+        //     if ($('.stricked-menu').length) {
+        //         var strickyScrollPos = 50;
+        //         if ($(window).scrollTop() > strickyScrollPos) {
+        //             $('.stricked-menu').fadeIn(100);
+        //         } else if ($(this).scrollTop() <= strickyScrollPos) {
+        //             //$('.stricked-menu').fadeOut(100);
+        //         }
+        //     }
+        //     if ($('.stricked-menu').length) {
+        //         var headerScrollPos = 50;
+        //         var stricky = $('.stricked-menu');
+        //         if ($(window).scrollTop() > headerScrollPos) {
+        //             stricky.addClass('stricky-fixed');
+        //         } else if ($(this).scrollTop() <= headerScrollPos) {
+        //             stricky.removeClass('stricky-fixed');
+        //         }
+        //     }
+        // });
+        // (function ($) {
+        //     $(document).ready(function () {
 
-                jQuery(window).on('scroll', function () {
-                    if (jQuery(window).scrollTop()) {
-                        jQuery('.header-area').addClass('stricked-menu');
-                    } else {
-                        jQuery('.header-area').removeClass('stricked-menu');
+        //         jQuery(window).on('scroll', function () {
+        //             if (jQuery(window).scrollTop()) {
+        //                 jQuery('.header-area').addClass('stricked-menu');
+        //             } else {
+        //                 jQuery('.header-area').removeClass('stricked-menu');
 
-                    }
-                });
-            });
-        })(jQuery);
+        //             }
+        //         });
+        //     });
+        // })(jQuery);
 
 
     </script>

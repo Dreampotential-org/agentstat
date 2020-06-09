@@ -1160,22 +1160,23 @@
  
  .footer {
      z-index: 9;
-     background-color: #D8D8D8;
+     background-color: #F2F2F2;
      height: 60px;
      width: 100%;
-     position: fixed;
+     /* position: fixed; */
      bottom: 0;
-     /* position: relative; */
+     position: relative;
      /* margin-top: 25px; */
      /* position: fixed !important; */
      left: 0 !important;
      bottom: 0 !important;
      width: 100% !important;
+     color: #134E60;
  }
  
  .footer-wrapper p {
      font-size: 16px;
-     color: #fff;
+     color: #134E60;
      margin-bottom: 0px;
  }
  
@@ -1185,7 +1186,7 @@
  
  .footer-wrapper ul li a {
      display: inline-block;
-     color: #fff;
+     color: #134E60;
      font-size: 16px;
      position: relative;
      transition: all .2s ease;
@@ -5132,4 +5133,8 @@
  }
  iframe .container {
     width: 100%;
+}
+
+.page-container {
+    min-height: 90vh;
 }
