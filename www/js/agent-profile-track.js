@@ -3,36 +3,37 @@ function saveVisit(data, url, queryParamsUrl) {
     data['url'] = window.location.href;
     data['referrer'] = document.referrer;
     data['email'] = localStorage.getItem('email');
+
+    if (queryParamsUrl != '') {
+        var pageUrl = new URL(queryParamsUrl);
+        var min_price = pageUrl.searchParams.get("min_price");
+        var max_price = pageUrl.searchParams.get("max_price");
+        if (data['q_price_range'] == undefined && min_price != null && max_price != null) {
+            var average = (parseInt(min_price.substr(1)) + parseInt(max_price.substr(1)))/2;
+            data['q_price_range'] =  mapPriceRange(average);
+        } 
+
+        var state = pageUrl.searchParams.get("state");
+        if (state != null && state != 'null') {
+            data['q_state'] = state;
+        }
+
+        var city = pageUrl.searchParams.get("city");
+        if (city != null && city != 'null') {
+            data['q_city'] = city;
+        }
+
+        var zipcode = pageUrl.searchParams.get("zipcode");
+        if (zipcode != null && zipcode != 'null') {
+            data['q_zip'] = zipcode;
+        }
+        
+        var type = pageUrl.searchParams.get("type");
+        if (data['q_type'] == undefined && type != null && type != 'null') {
+            data['q_type'] = type;
+        }
+    }
     
-    var pageUrl = new URL(queryParamsUrl);
-    var min_price = pageUrl.searchParams.get("min_price");
-    var max_price = pageUrl.searchParams.get("max_price");
-    if (data['q_price_range'] == undefined && min_price != null && max_price != null) {
-        var average = (parseInt(min_price.substr(1)) + parseInt(max_price.substr(1)))/2;
-        data['q_price_range'] =  mapPriceRange(average);
-    } 
-
-    var state = pageUrl.searchParams.get("state");
-    if (state != null && state != 'null') {
-        data['q_state'] = state;
-    }
-
-    var city = pageUrl.searchParams.get("city");
-    if (city != null && city != 'null') {
-        data['q_city'] = city;
-    }
-
-    var zipcode = pageUrl.searchParams.get("zipcode");
-    if (zipcode != null && zipcode != 'null') {
-        data['q_zip'] = zipcode;
-    } else {
-        data['q_zip'] = 'N/A';
-    }
-    
-    var type = pageUrl.searchParams.get("type");
-    if (data['q_type'] == undefined && type != null && type != 'null') {
-        data['q_type'] = type;
-    }
     
     settings = get_settings(url, 'POST', JSON.stringify(data));
     settings['headers'] = null;
