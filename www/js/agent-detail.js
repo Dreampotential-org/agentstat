@@ -185,7 +185,7 @@ function load_agent(ignore_city = true) {
         agentReviewsList = data['reviews'];
         if (data['reviews'].length > 0) {
           $.each(data['reviews'], function(k, v) {
-            var ratingPercentage = parseFloat(v['rating'])*20;
+            var ratingPercentage = ratingToPercent(v['rating']);
             $('#reviews-list').append(`
                 <div class="one-slide">
                     <strong class="name">`+v['full_name']+`</strong>
@@ -623,9 +623,6 @@ $('#submit_proof_btn').click(function() {
 });
 
 function show_rating(rating, reviews_count) {
-
-    console.log('RATING', rating);
-
     if (!(rating)) {
       $('.agent-rating').text('No reviews yet!');
       $('.review-link').css('display', 'none');
@@ -655,22 +652,33 @@ function show_reviews(summary, reviews) {
   }
 
   $.each(summary, function(k, v) {
-    console.log(v);
-    rating = v.summary;
     extra_info = '<span style="font-size:14px">' + v.extra_info + '</span>';
     if (v.extra_info == null ) {
       extra_info = '';
     }
+    var ratingPercentage = ratingToPercent(v.summary);
     $('.reviews').append(`
       <div style="padding: 20px; width: 5500px">
         <div>
           ` + v.category + ` `+ extra_info  +`
           <br>
-          <img src='/img/table-star-` + rating + `.png'>
+          <div class="reviews-slider">
+              <div class="reviews-holder">
+                  <div class="review">
+                      <span class="reviews-bar">
+                          <span class="fill" style="width: `+ratingPercentage+`%;"></span>
+                      </span>
+                  </div>
+              </div>
+            </div>
         </div>
       </div>
     `);
   })
+}
+
+function ratingToPercent(rating) {
+  return parseFloat(rating)*20;
 }
 
 $('#review-modal').click(function(){
@@ -683,21 +691,21 @@ $(document).on('click', '.review-detail', function() {
     var index = agentReviewsList.findIndex(x => x.id == $(this).data('id'));
     var obj = agentReviewsList[index];
     $.each(obj.detail, function(k, v) {
-      var category_extra_info = (v.category_extra_info=='null') ? '' : v.category_extra_info;
-      var ratingPercentage = parseFloat(v['rating'])*20;
+      var category_extra_info = (v.category_extra_info===null) ? '' : '<span style="font-size:14px">' + v.category_extra_info + '</span>';;
+      var ratingPercentage = ratingToPercent(v['rating']);
       $('.review-detail-content').append(`
         <div style="padding: 20px; width: 5500px">
           <div>
             ` + v.category_name + ` `+ category_extra_info  +`
             <br>
             <div class="reviews-slider">
-            <div class="reviews-holder">
-                <div class="review">
-                    <span class="reviews-bar">
-                        <span class="fill" style="width: `+ratingPercentage+`%;"></span>
-                    </span>
-                </div>
-            </div>
+              <div class="reviews-holder">
+                  <div class="review">
+                      <span class="reviews-bar">
+                          <span class="fill" style="width: `+ratingPercentage+`%;"></span>
+                      </span>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
