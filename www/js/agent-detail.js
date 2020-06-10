@@ -182,11 +182,10 @@ function load_agent(ignore_city = true) {
 
         $(".alist").remove();
         index = 1;
-
+        agentReviewsList = data['reviews'];
         if (data['reviews'].length > 0) {
           $.each(data['reviews'], function(k, v) {
             var ratingPercentage = parseFloat(v['rating'])*20;
-            console.log(ratingPercentage);
             $('#reviews-list').append(`
                 <div class="one-slide">
                     <strong class="name">`+v['full_name']+`</strong>
@@ -197,7 +196,7 @@ function load_agent(ignore_city = true) {
                                 <span class="fill" style="width: `+ratingPercentage+`%;"></span>
                             </span>
                         </div>
-                        <a href="#" class="link">Details?</a>
+                        <a href="javascript:void(0)" class="link review-detail" data-id="`+v['id']+`">Details?</a>
                     </div>
                     <blockquote>
                         <q>`+v['review']+`</q>
@@ -676,6 +675,36 @@ function show_reviews(summary, reviews) {
 
 $('#review-modal').click(function(){
     $('#exampleModal').modal('show');
+});
+
+$(document).on('click', '.review-detail', function() {
+    $('#review-detail').modal('show');
+    $('.review-detail-content').html('');
+    var index = agentReviewsList.findIndex(x => x.id == $(this).data('id'));
+    var obj = agentReviewsList[index];
+    $.each(obj.detail, function(k, v) {
+      console.log(typeof(v.category_extra_info));
+      var category_extra_info = (v.category_extra_info=='null') ? '' : v.category_extra_info;
+      var ratingPercentage = parseFloat(v['rating'])*20;
+
+      $('.review-detail-content').append(`
+        <div style="padding: 20px; width: 5500px">
+          <div>
+            ` + v.category_name + ` `+ category_extra_info  +`
+            <br>
+            <div class="reviews-slider">
+            <div class="reviews-holder">
+                <div class="review">
+                    <span class="reviews-bar">
+                        <span class="fill" style="width: `+ratingPercentage+`%;"></span>
+                    </span>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      `);
+    })
 });
 
 window.addEventListener("DOMContentLoaded", init, false);

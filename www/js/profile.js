@@ -464,16 +464,24 @@ $(document).on('change click', '#review-add-btn', function() {
   data['email'] = $('#review-email').val();
   data['review'] = $('#review').val();
   data['categories'] = [];
+
+  var count = 0;
+  var rateTotal = 0;
   $('.rating').each(function() {
     category_id = $(this).attr('id').split('-')[2]
     rate = $(this).rate('getValue');
     data['categories'].push({'id': category_id, 'rate': rate});
+
+    rateTotal = rateTotal + parseFloat(rate);
+    count++;
   });
+
+  var avgRate = rateTotal/count;
+  data['rating'] = avgRate.toFixed(1);
   // data['rate'] = $(".rating").rate("getValue");
 
   review_date = new Date($('#review-date').val());
   data['date'] = review_date.toJSON();
-
 
   settings = get_settings('review/' + profile_id + '/', 'POST', JSON.stringify(data))
 

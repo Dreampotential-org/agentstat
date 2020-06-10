@@ -275,3 +275,15 @@
 	background: #859691;
 }
 
+.review-detail-content .reviews-slider {
+	padding: 0;
+}
+
+.review-detail-content .reviews-slider .reviews-holder {
+	display: block;
+}
+
+.review-detail-content .reviews-slider {
+	margin: 0;
+}
+
