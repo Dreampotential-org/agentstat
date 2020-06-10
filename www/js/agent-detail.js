@@ -683,10 +683,8 @@ $(document).on('click', '.review-detail', function() {
     var index = agentReviewsList.findIndex(x => x.id == $(this).data('id'));
     var obj = agentReviewsList[index];
     $.each(obj.detail, function(k, v) {
-      console.log(typeof(v.category_extra_info));
       var category_extra_info = (v.category_extra_info=='null') ? '' : v.category_extra_info;
       var ratingPercentage = parseFloat(v['rating'])*20;
-
       $('.review-detail-content').append(`
         <div style="padding: 20px; width: 5500px">
           <div>
