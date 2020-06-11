@@ -284,14 +284,25 @@ function populate_transaction(agent_lists, isAgent=true) {
             </div>
             </td>
         </tr>
-    
         `).insertAfter(".table-heading-transaction");
 
     });
 }
 
-function polulate_city(agent_scores) {
+function populate_cities(agent_scores) {
     $.each(agent_scores, function(k,v){
+
+        if (v['avg_dom'] == null) {
+            avg_dom = '-'
+        } else {
+            avg_dom = v['avg_dom'].toFixed(2)
+        }
+
+        if (v['s2l_price'] == null) {
+            s2l_price = '-'
+        } else {
+            s2l_price = v['s2l_price'].toFixed(2)
+        }
         console.log(v);
         $(`
         <tr>
@@ -300,9 +311,9 @@ function polulate_city(agent_scores) {
             <td class="table-column">` + v['home_type'] +`</td>
             <td class="table-column">` + v['rank_count'] + `</td>
             <td class="table-column">` + v['city_stats']['avg_dom'].toFixed(2) +`</td>
-            <td class="table-column">` + v['avg_dom'].toFixed(2) +`</td>
+            <td class="table-column">` + avg_dom +`</td>
             <td class="table-column">` + v['city_stats']['s2l_price'].toFixed(2) +`%</td>
-            <td class="table-column">` + v['s2l_price'].toFixed(2) +`%</td>
+            <td class="table-column">` + s2l_price +`%</td>
             <td class="table-column">` + v['sold_listings'] +`</td>
             <td class="table-column">` + v['failed_listings'] +`</td>
         </tr>
