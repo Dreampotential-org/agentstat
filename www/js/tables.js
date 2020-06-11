@@ -284,14 +284,25 @@ function populate_transaction(agent_lists, isAgent=true) {
             </div>
             </td>
         </tr>
-    
         `).insertAfter(".table-heading-transaction");
 
     });
 }
 
-function polulate_city(agent_scores) {
+function populate_cities(agent_scores) {
     $.each(agent_scores, function(k,v){
+
+        if (v['avg_dom'] == null) {
+            avg_dom = '-'
+        } else {
+            avg_dom = v['avg_dom'].toFixed(2)
+        }
+
+        if (v['s2l_price'] == null) {
+            s2l_price = '-'
+        } else {
+            s2l_price = v['s2l_price'].toFixed(2)
+        }
         console.log(v);
         var city_avg_dom = '';
         if (v['city_stats']['avg_dom']) {

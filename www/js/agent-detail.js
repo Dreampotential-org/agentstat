@@ -74,12 +74,11 @@ function load_agent(ignore_city = true) {
     settings['headers'] = null;
     $.ajax(settings).done(function (response) {
       data = JSON.parse(response);
-      polulate_city(data.agent_scores);
+        console.log(data.agent_scores)
+      populate_cities(data.agent_scores);
     }).fail(function (err) {
         console.log(err);
     });
-
-
 
     if (agent_id) {
       if (localStorage.getItem('session_id') !== null && localStorage.getItem('session_id') !== 'null') {
