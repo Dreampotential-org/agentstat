@@ -609,7 +609,6 @@ $('#submit_proof_btn').click(function() {
             icon: "success",
           }).then(function(isConfirm) {
           });
-          console.log('aferim');
 
       }).fail(function(err) {
           // alert('Got err');
