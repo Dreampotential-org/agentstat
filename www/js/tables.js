@@ -293,16 +293,36 @@ function populate_transaction(agent_lists, isAgent=true) {
 function polulate_city(agent_scores) {
     $.each(agent_scores, function(k,v){
         console.log(v);
+        var city_avg_dom = '';
+        if (v['city_stats']['avg_dom']) {
+          city_avg_dom = v['city_stats']['avg_dom'].toFixed(2);
+        }
+
+        var avg_dom = '';
+        if (v['avg_dom']) {
+          avg_dom = v['avg_dom'].toFixed(2);
+        }
+
+        var city_s2l_price = '';
+        if (v['city_stats']['s2l_price']) {
+          city_s2l_price = v['city_stats']['s2l_price'].toFixed(2);
+        }
+
+        var s2l_price = '';
+        if (v['s2l_price']) {
+          s2l_price = v['s2l_price'].toFixed(2);
+        }
+
         $(`
         <tr>
             <td class="table-column"><p style="margin-top: 10px;">` + v['city'] +`</p></td>
             <td class="table-column">` + v['agent_rank'] + `</td>
             <td class="table-column">` + v['home_type'] +`</td>
             <td class="table-column">` + v['rank_count'] + `</td>
-            <td class="table-column">` + v['city_stats']['avg_dom'].toFixed(2) +`</td>
-            <td class="table-column">` + v['avg_dom'].toFixed(2) +`</td>
-            <td class="table-column">` + v['city_stats']['s2l_price'].toFixed(2) +`%</td>
-            <td class="table-column">` + v['s2l_price'].toFixed(2) +`%</td>
+            <td class="table-column">` + city_avg_dom +`</td>
+            <td class="table-column">` + avg_dom +`</td>
+            <td class="table-column">` + city_s2l_price +`%</td>
+            <td class="table-column">` + s2l_price +`%</td>
             <td class="table-column">` + v['sold_listings'] +`</td>
             <td class="table-column">` + v['failed_listings'] +`</td>
         </tr>
