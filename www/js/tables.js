@@ -328,9 +328,8 @@ function populate_cities(agent_scores) {
         $(`
         <tr>
             <td class="table-column"><p style="margin-top: 10px;">` + v['city'] +`</p></td>
-            <td class="table-column">#` + v['agent_rank'] + ` (` + agent_percentage.toFixed(2) + `%)</td>
+            <td class="table-column">` + v['agent_rank'] + `  of ` + v['rank_count'] + ` (TOP ` + agent_percentage.toFixed(2) + `%)</td>
             <td class="table-column">` + v['home_type'] +`</td>
-            <td class="table-column">` + v['rank_count'] + `</td>
             <td class="table-column">` + city_avg_dom +`</td>
             <td class="table-column">` + avg_dom +`</td>
             <td class="table-column">` + city_s2l_price +`%</td>
