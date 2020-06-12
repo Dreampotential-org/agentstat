@@ -138,44 +138,8 @@ function get_reviews() {
 
   $.ajax(settings).done(function (response) {
       var response = JSON.parse(response);
-      if (jQuery.isEmptyObject(response)) {
-        $('.owl-carousel').trigger(
-          'add.owl.carousel', [`
-          <div class="item">
-            <div class="item-slide text-center">
-                <button><span><i class="fas fa-times"></i></span></button>
-                <p>Non</p>
-            </div>
-          </div>`]
-        ).trigger('refresh.owl.carousel');
-      } else {
-        $.each(response, function(k, v) {
-          formatted_date = v.date.split('T')[0].split('-')
-          formatted_date = formatted_date[1] + '-' + formatted_date[2] + '-' + formatted_date[0];
-
-          d = new Date(v.date);
-          $('.owl-carousel').trigger(
-            'add.owl.carousel', [`
-            <div class="item" id='item-`+ v.id +`'>
-              <div class="item-slide text-center">
-                  <button class="delete-review" data-profile='`+ profile_id +`' data='`+ v.id +`'><span><i class="fas fa-times"></i></span></button>
-                  <p>` + v.full_name + ` - ` + formatted_date +`</p>
-                  <span>
-                  ` + v.review + `
-                  </span>
-                  <span>
-
-                  ` + v.rate + `
-                  </span>
-              </div>
-            </div>`]
-          ).trigger('refresh.owl.carousel');
-
-        });
-      }
-
+      agent_review(response, 3);
   }).fail(function(err) {
-      // alert('Got err');
       console.log(err);
   });
 }

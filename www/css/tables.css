@@ -19,3 +19,8 @@
 .detailed-table td {
     text-align: left !important;
 }
+.dataTables_info {
+    width: 20%;
+    float: left;
+    padding-top: 0px !important;
+}

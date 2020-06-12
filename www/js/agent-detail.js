@@ -123,7 +123,9 @@ function load_agent(ignore_city = true) {
         data = JSON.parse(response);
         agent_id = data['id'];
 
-        show_rating(data['average_review_rate'], data['reviews'].length);
+        $('.agent-rating').html(reviewStarHtml(data['average_review_rate']));
+        $('.reviews-count').html(data['reviews'].length);
+        
         show_reviews(data['review_categories'], data['reviews']);
 
         $('.agent_name').val(data['agent_name']);
@@ -182,31 +184,8 @@ function load_agent(ignore_city = true) {
 
         $(".alist").remove();
         index = 1;
-        agentReviewsList = data['reviews'];
-        if (data['reviews'].length > 0) {
-          $.each(data['reviews'], function(k, v) {
-            var ratingPercentage = ratingToPercent(v['rating']);
-            $('#reviews-list').append(`
-                <div class="one-slide">
-                    <strong class="name">`+v['full_name']+`</strong>
-                    <span class="date">`+niceDate(v['date'])+`</span>
-                    <div class="reviews-holder">
-                        <div class="review">
-                            <span class="reviews-bar">
-                                <span class="fill" style="width: `+ratingPercentage+`%;"></span>
-                            </span>
-                        </div>
-                        <a href="javascript:void(0)" class="link review-detail" data-id="`+v['id']+`">Details?</a>
-                    </div>
-                    <blockquote>
-                        <q>`+v['review']+`</q>
-                    </blockquote>
-                </div>
-            `);
-          });
-
-          initSlickCarousel();
-        }
+        
+        agent_review(data['reviews']);
 
         populate_transaction(data[agent_list_key], false);
 
@@ -622,26 +601,6 @@ $('#submit_proof_btn').click(function() {
     };
 });
 
-function show_rating(rating, reviews_count) {
-    if (!(rating)) {
-      $('.agent-rating').text('No reviews yet!');
-      $('.review-link').css('display', 'none');
-      return false;
-    }
-
-    var options = {
-        max_value: 5,
-        step_size: 0.5,
-        selected_symbol_type: 'utf8_star',
-    }
-    $(".agent-rating").rate(options);
-    $(".agent-rating").rate("setValue", rating);
-
-    $(".agent-rating").rate("destroy");
-    $(".reviews-count").text(reviews_count);
-
-}
-
 function show_reviews(summary, reviews) {
   if (reviews.length == 0) {
     $('.reviews').append(`
@@ -656,61 +615,21 @@ function show_reviews(summary, reviews) {
     if (v.extra_info == null ) {
       extra_info = '';
     }
-    var ratingPercentage = ratingToPercent(v.summary);
+
     $('.reviews').append(`
-      <div style="padding: 20px; width: 5500px">
+      <div style="padding: 5px 20px; width: 5500px">
         <div>
           ` + v.category + ` `+ extra_info  +`
           <br>
-          <div class="reviews-slider">
-              <div class="reviews-holder">
-                  <div class="review">
-                      <span class="reviews-bar">
-                          <span class="fill" style="width: `+ratingPercentage+`%;"></span>
-                      </span>
-                  </div>
-              </div>
-            </div>
+          ` + reviewStarHtml(v.summary) +`
         </div>
       </div>
     `);
   })
 }
 
-function ratingToPercent(rating) {
-  return parseFloat(rating)*20;
-}
-
 $('#review-modal').click(function(){
     $('#exampleModal').modal('show');
-});
-
-$(document).on('click', '.review-detail', function() {
-    $('#review-detail').modal('show');
-    $('.review-detail-content').html('');
-    var index = agentReviewsList.findIndex(x => x.id == $(this).data('id'));
-    var obj = agentReviewsList[index];
-    $.each(obj.detail, function(k, v) {
-      var category_extra_info = (v.category_extra_info===null) ? '' : '<span style="font-size:14px">' + v.category_extra_info + '</span>';;
-      var ratingPercentage = ratingToPercent(v['rating']);
-      $('.review-detail-content').append(`
-        <div style="padding: 20px; width: 5500px">
-          <div>
-            ` + v.category_name + ` `+ category_extra_info  +`
-            <br>
-            <div class="reviews-slider">
-              <div class="reviews-holder">
-                  <div class="review">
-                      <span class="reviews-bar">
-                          <span class="fill" style="width: `+ratingPercentage+`%;"></span>
-                      </span>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `);
-    })
 });
 
 window.addEventListener("DOMContentLoaded", init, false);

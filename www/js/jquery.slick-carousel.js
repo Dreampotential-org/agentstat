@@ -1,21 +1,3 @@
-// jQuery(function() {
-// 	initSlickCarousel();
-// });
-
-
-// slick init
-function initSlickCarousel() {
-	jQuery('.reviews-slider').slick({
-		slidesToScroll: 1,
-		rows: 0,
-		prevArrow: '<a hrref="#" class="slick-prev"><i class="icon-double-chevron"></i></a>',
-		nextArrow: '<a hrref="#" class="slick-next"><i class="icon-double-chevron1"></i></a>',
-		dots: true,
-		dotsClass: 'slick-dots'
-	});
-}
-
-
 /*
      _ _      _       _
  ___| (_) ___| | __  (_)___

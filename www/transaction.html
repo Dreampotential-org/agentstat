@@ -29,6 +29,11 @@
         <!-- Plugin CSS -->
         <link rel="stylesheet" href="/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
 
+        <!-- Datatables CSS-->
+        <link rel="stylesheet" href="/plugins/datatables/css/dataTables.bootstrap4.min.css" />
+
+        
+
         <!-- Main StyleSheet -->
         <link rel="stylesheet" href="/style.css" />
 
@@ -38,72 +43,23 @@
         <!-- Page CSS -->
         <link rel="stylesheet" href="/css/transactions.css" />
         <link rel="stylesheet" href="/css/tables.css" />
-<style>
 
-/* .status-Sold{
-  font-weight: 500;font-size: 16px;color: #45AE3C;text-transform: uppercase
-} */
-
-#addTransaction.modal{
-    margin: 0!important;
-}
-
-#addTransaction .modal-header h4{
-    margin-bottom: 0!important;
-    width: 100%!important;
-}
-
-#addTransaction button{
-    margin: 0 auto 3px;
-}
-.numberText{
-    text-align: left;
-    width: 45%;
-    margin: auto;
-    color: #0eb2f4;
-    font-size: 30px;
-    font-weight: 300;
-}
-
-@media (min-width: 576px){
-    .modal-dialog {
-        max-width: 700px; 
-    }
-}
-th, td{
-    border: 1px solid #dedbdb;
-    white-space: nowrap;
-    text-align: center;
-
-}
-.addBtn{
-    background: #CFE2F3;
-    color: #000099;
-    border: 1px solid;
-    padding: 0px 20px;
-    font-size: 22px;
-    font-weight: 500;
-}
-
-</style>
 
     </head>
 
     <body>
         <!-- header-area start -->
         <div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
-
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand form-logo" href="/">
                     <img src="/img/logo.png" alt="logo" />
                 </a>
                 <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="hamburger-box">
-                                            <span class="hamburger-inner"></span>
-                                        </span>
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
                     <div class="main-menu-part form-menu col-lg-12">
                         <ul class="float-left form-ulli-left">
                             <li><a href="/inbox/">Inbox </a></li>
@@ -136,52 +92,36 @@ th, td{
                     </div>
                 </div>
             </nav>
-        
         </div>
         <!-- header-area end -->
         <div class="container-fluid page-container">
-                <div class="pth-all-heading">
-                    <br>
-                    <button  type="button" class="btn  addBtn" data-toggle="modal" data-target="#addTransaction"> <u>Add transaction</u></button>
-                    <br><br>
-                </div>
+            <div class="pth-all-heading">
+                <br>
+                <span class="add-transaction-btn" data-toggle="modal" data-target="#addTransaction"><b>+ Add Transaction</b></span>
+            </div>
                 <div class="pth-all">
-                <table class="table-responsive" id="transations-table" style="overflow-x: inherit;">
-                    <tr class="table-heading-transaction table-heading table-color">
-                        <td class="table-column">Status</td>
-                        <td class="table-column">List Price</td>
-                        <td class="table-column">Sold Price</td>
-                        <td class="table-column">Days on Market</td>
-                        <td class="table-column">List Date</td>
-                        <td class="table-column">Address</td>
-                        <td class="table-column">City</td>
-                        <td class="table-column">Zip</td>
-                        <td class="table-column">Built</td>
-                        <td class="table-column">Home Type</td>
-                        <td class="table-column">Notes</td>
-                    </tr>
+                <table class="table-responsive" id="transations-table" style="overflow-x: inherit; width: 100% !important;">
+                    <thead>
+                        <tr class="table-heading-transaction table-heading table-color">
+                            <td class="table-column">Status</td>
+                            <td class="table-column">List Price</td>
+                            <td class="table-column">Sold Price</td>
+                            <td class="table-column">Days on Market</td>
+                            <td class="table-column">List Date</td>
+                            <td class="table-column">Address</td>
+                            <td class="table-column">City</td>
+                            <td class="table-column">Zip</td>
+                            <td class="table-column">Built</td>
+                            <td class="table-column">Home Type</td>
+                            <td class="table-column">Notes</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table-transaction-body">
+
+                    </tbody>
                 </table>
             </div>
         </div>
-        
-        <!-- <div class="container">
-            <hr>
-            <div class="pth-all-heading">
-                <br>
-               <h4>Welcome back, <span class='agent-name'>[Agent Name]</span>! </h4>
-                <br>
-            </div>
-
-            <table class="table table-bordered" style="box-shadow: 0px 3px 12px #888888;">
-                <thead>
-                  <tr>
-                    <th><p class="numberText">6</p>Profile Views</th>
-                    <th><p class="numberText">0</p>Article Views</th>
-                    <th  style="vertical-align: initial;"><p class="numberText">0</p>Impressions</th>
-                  </tr>
-                </thead>
-            </table>
-        </div> -->
 
         <div class="space-bottom"></div>
 
@@ -364,23 +304,8 @@ th, td{
                             
                         </form>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
                 </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div> -->
                 </div>
-            
             </div>
         </div>
         <div class="space-bottom"></div>
@@ -414,6 +339,9 @@ th, td{
         <!-- Plugins -->
         <script src="/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
+        <script src="/plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+
         <!-- Custom jQuery -->
         <script src="/js/scripts.js"></script>
 
@@ -434,7 +362,6 @@ th, td{
                         td_array[i].setAttribute('style', 'font-weight: 500;font-size: 16px;color: #45AE3C;text-transform: uppercase');
                     }
                 }
-
             });
             $(".closeform").click(function () {
                 $('.fidout').fadeOut('slow');
@@ -451,6 +378,7 @@ th, td{
                     
             }
 
+            
         </script>
     </body>
 </html>

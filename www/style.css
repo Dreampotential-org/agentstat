@@ -251,7 +251,7 @@
      background-color: transparent;
      border-color: transparent transparent #f3f3f3;
      /*    border-bottom: 4px solid #CE9C05 !important;*/
-     font-size: 20px;
+     font-size: 18px;
      font-weight: bold;
      text-align: left;
      /*margin-right: 50px;*/
@@ -2131,11 +2131,18 @@
      padding: 14px 0px;
  }
  
- .pth-all-table table tr:not(:first-child) td:first-child {
+ .status-Sold {
      font-weight: 500;
      font-size: 16px;
-     color: #45AE3C;
+     color: #45AE3C !important;
  }
+
+ .status-Failed {
+    font-weight: 500;
+    font-size: 16px;
+    color: red !important;
+}
+
  
  .pth-all-table table tr td:nth-child(7) {
      padding-left: 6px;
@@ -5136,5 +5143,9 @@
 }
 
 .page-container {
-    min-height: 90vh;
+    min-height: 95vh;
+}
+
+.toc-two-left-one:before {
+    display: none;
 }

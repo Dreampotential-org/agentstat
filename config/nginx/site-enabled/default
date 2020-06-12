@@ -65,11 +65,11 @@ server {
             try_files $uri $uri/ /howsearchworks.html;
         }
 
-        location /howsearchworks/organising-transactions/ {
+        location /howsearchworks/organizing-transactions/ {
             try_files $uri $uri/ /howsearchworks-transactions.html;
         }
 
-        location /howsearchworks/search-algorithm/ {
+        location /howsearchworks/search-algorithms/ {
             try_files $uri $uri/ /howsearchworks-algorithm.html;
         }
         

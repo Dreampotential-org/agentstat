@@ -79,12 +79,12 @@ function populate_transaction(agent_lists, isAgent=true) {
         
         if (isAgent) {
             var showClass = '';
-            var noteHideClass = '';
-            var noteDisabled = '';
+            var noteInputClass = '';
+            var noteHideClass = 'display-none';
             var noteHtml = `<td class="table-column"><button class="`+ buttonClass +`" style="margin:5px;" value="1" title="notes">`+ buttonText +`</button> </td>`;
         } else {
             var showClass = 'display-none';
-            var noteDisabled = 'disabled';
+            var noteInputClass = 'display-none';
 
             if (v['note'] != "") {
                 var noteHtml = '<td><i class="fa fa-sticky-note-o " style="font-size:21px; color: green;"></i></td>';
@@ -95,7 +95,7 @@ function populate_transaction(agent_lists, isAgent=true) {
             } 
         }
 
-        $(`<tr data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')">
+        var rowHtml = `<tr data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')">
             <td class='table-column status-`+ v['status'] +`'>` + v['status'] +`</td>
             <td class="table-column">` + currencyFormat(v['list_price_int']) + `</td>
             <td class="table-column">` + currencyFormat(v['sold_price_int']) + arrowStyle +`</td>
@@ -109,13 +109,16 @@ function populate_transaction(agent_lists, isAgent=true) {
             `+noteHtml+`
         </tr>
     
-        <tr class="fidout table-color" id="add-public-note-`+ v['id'] +`" style="display: none;">
+        <tr class="fidout table-color template" id="add-public-note-`+ v['id'] +`" style="display: none;">
             <td colspan="11" style="padding: 6px 13px; color:gray">
             <div class="form-group">
                 <button type="button" class="btn btn-success notebtn `+showClass+`" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">Save</button>
                 <label class="`+showClass+`"><strong>`+publicNote+`</strong></label>
                 <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
-                <textarea `+noteDisabled+` class="public-note-text form-control `+noteHideClass+`" id="note-` + v['id'] + `" rows="5" name="public-note">`+ v['note'] +`</textarea>
+                
+                <textarea class="public-note-text form-control `+noteInputClass+`" id="note-` + v['id'] + `" rows="5" name="public-note">`+ v['note'] +`</textarea>
+                <div class="note-text `+noteHideClass+`" ><b>Note: </b>`+ v['note'] +`</div>
+                
             </div>
             <div class="text-left" title_color>
             <p class="detail-header">` + v['address_text'] +`</p>
@@ -283,17 +286,45 @@ function populate_transaction(agent_lists, isAgent=true) {
             </table>
             </div>
             </td>
+            <td style="display:none;"></td>
+            <td  style="display:none;"></td>
+            <td style="display:none;"></td>
+            <td style="display:none;"></td>
+            <td  style="display:none;"></td>
+            <td  style="display:none;"></td>
+            <td style="display:none;"></td>
+            <td  style="display:none;"></td>
+            <td  style="display:none;"></td>
+            <td  style="display:none;"></td>
         </tr>
-    
-        `).insertAfter(".table-heading-transaction");
+        `;
 
+        $("#table-transaction-body").append(rowHtml);
     });
+
+
+    $('#transations-table').dataTable({
+        "bSort" : false,
+        "bLengthChange": false,
+        "pageLength": 20,
+        "dom": 'lrtip',
+        "fnInfoCallback": function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
+            var info = 'Showing '+Math.floor(iStart/2)+' to '+Math.floor(iEnd/2)+' of '+Math.floor(iTotal/2)+' entries';
+            return info;
+        },
+        "language": {
+            paginate: {
+                next: '»',
+                previous: '«'
+            }
+          }
+    });
+    
 }
 
 function polulate_city(agent_scores) {
     $.each(agent_scores, function(k,v){
-        console.log(v);
-        $(`
+        var rowHtml = `
         <tr>
             <td class="table-column"><p style="margin-top: 10px;">` + v['city'] +`</p></td>
             <td class="table-column">` + v['agent_rank'] + `</td>
@@ -306,6 +337,21 @@ function polulate_city(agent_scores) {
             <td class="table-column">` + v['sold_listings'] +`</td>
             <td class="table-column">` + v['failed_listings'] +`</td>
         </tr>
-        `).insertAfter(".table-heading-city");
+        `;
+
+        $('#city-table-body').append(rowHtml);
+
+        $('#city-table').dataTable({
+            "bSort" : false,
+            "bLengthChange": false,
+            "pageLength": 10,
+            "dom": 'lrtip',
+            "language": {
+                paginate: {
+                    next: '»',
+                    previous: '«'
+                }
+              }
+        });
     });
 }
