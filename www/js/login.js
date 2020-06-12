@@ -9,11 +9,10 @@ function login() {
   console.log(settings);
 
   $.ajax(settings).done(function (response) {
-    var msg = JSON.parse(response);
-    console.log(msg);
-    console.log(msg['token']);
-    localStorage.session_id = msg['token'];
-    localStorage.email = msg['email'];
+    var data = JSON.parse(response);
+    localStorage.session_id = data['token'];
+    localStorage.email = data['email'];
+    localStorage.profile_id = data['profile_id'];
     window.location = '/profile-settings/';
   }).fail(function(err) {
     // alert('Got err');

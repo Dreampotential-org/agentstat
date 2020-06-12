@@ -74,12 +74,11 @@ function load_agent(ignore_city = true) {
     settings['headers'] = null;
     $.ajax(settings).done(function (response) {
       data = JSON.parse(response);
-      polulate_city(data.agent_scores);
+        console.log(data.agent_scores)
+      populate_cities(data.agent_scores);
     }).fail(function (err) {
         console.log(err);
     });
-
-
 
     if (agent_id) {
       if (localStorage.getItem('session_id') !== null && localStorage.getItem('session_id') !== 'null') {
@@ -531,7 +530,7 @@ function show_loading_screen() {
 function show_claim_screen() {
     swal({
       title: "Claim Profile!",
-      text: "Do you want to dispute the claim and provide proof of identity?",
+      text: "Profile is claimed, would you like to a dispute?",
       icon: "warning",
       buttons: [
         'No, cancel it!',
@@ -588,7 +587,6 @@ $('#submit_proof_btn').click(function() {
             icon: "success",
           }).then(function(isConfirm) {
           });
-          console.log('aferim');
 
       }).fail(function(err) {
           // alert('Got err');

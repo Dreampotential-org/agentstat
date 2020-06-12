@@ -53,7 +53,7 @@ function populate_transaction(agent_lists, isAgent=true) {
         } else {
             var arrowStyle = ' <i class="fa fa-long-arrow-down" style="font-size:18px;color:red"></i>';
         }
-        
+
         if (v['year_built'] < '2') {
             var note = `<a  onclick="passBtnID('add-public-note-` + v['id'] + `')" value="1" title="notes"><i class="fa fa-sticky-note-o" style="font-size:27px; color: green;"></i></a>`;
         } else {
@@ -322,18 +322,51 @@ function populate_transaction(agent_lists, isAgent=true) {
     
 }
 
-function polulate_city(agent_scores) {
+function populate_cities(agent_scores) {
     $.each(agent_scores, function(k,v){
-        var rowHtml = `
+
+        if (v['avg_dom'] == null) {
+            avg_dom = '-'
+        } else {
+            avg_dom = v['avg_dom'].toFixed(2)
+        }
+
+        if (v['s2l_price'] == null) {
+            s2l_price = '-'
+        } else {
+            s2l_price = v['s2l_price'].toFixed(2)
+        }
+        var agent_percentage = 100 - v['agent_rank'] / v['rank_count'] * 100
+        console.log(v);
+        var city_avg_dom = '';
+        if (v['city_stats']['avg_dom']) {
+          city_avg_dom = v['city_stats']['avg_dom'].toFixed(2);
+        }
+
+        var avg_dom = '';
+        if (v['avg_dom']) {
+          avg_dom = v['avg_dom'].toFixed(2);
+        }
+
+        var city_s2l_price = '';
+        if (v['city_stats']['s2l_price']) {
+          city_s2l_price = v['city_stats']['s2l_price'].toFixed(2);
+        }
+
+        var s2l_price = '';
+        if (v['s2l_price']) {
+          s2l_price = v['s2l_price'].toFixed(2);
+        }
+
+        $(`
         <tr>
             <td class="table-column"><p style="margin-top: 10px;">` + v['city'] +`</p></td>
-            <td class="table-column">` + v['agent_rank'] + `</td>
+            <td class="table-column">` + v['agent_rank'] + `  of ` + v['rank_count'] + ` (TOP ` + agent_percentage.toFixed(2) + `%)</td>
             <td class="table-column">` + v['home_type'] +`</td>
-            <td class="table-column">` + v['rank_count'] + `</td>
-            <td class="table-column">` + v['city_stats']['avg_dom'].toFixed(2) +`</td>
-            <td class="table-column">` + v['avg_dom'].toFixed(2) +`</td>
-            <td class="table-column">` + v['city_stats']['s2l_price'].toFixed(2) +`%</td>
-            <td class="table-column">` + v['s2l_price'].toFixed(2) +`%</td>
+            <td class="table-column">` + city_avg_dom +`</td>
+            <td class="table-column">` + avg_dom +`</td>
+            <td class="table-column">` + city_s2l_price +`%</td>
+            <td class="table-column">` + s2l_price +`%</td>
             <td class="table-column">` + v['sold_listings'] +`</td>
             <td class="table-column">` + v['failed_listings'] +`</td>
         </tr>
