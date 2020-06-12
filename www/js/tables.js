@@ -337,7 +337,7 @@ function populate_cities(agent_scores) {
             s2l_price = v['s2l_price'].toFixed(2)
         }
         var agent_percentage = 100 - v['agent_rank'] / v['rank_count'] * 100
-        console.log(v);
+        
         var city_avg_dom = '';
         if (v['city_stats']['avg_dom']) {
           city_avg_dom = v['city_stats']['avg_dom'].toFixed(2);
@@ -358,7 +358,7 @@ function populate_cities(agent_scores) {
           s2l_price = v['s2l_price'].toFixed(2);
         }
 
-        $(`
+        var rowHtml = `
         <tr>
             <td class="table-column"><p style="margin-top: 10px;">` + v['city'] +`</p></td>
             <td class="table-column">` + v['agent_rank'] + `  of ` + v['rank_count'] + ` (TOP ` + agent_percentage.toFixed(2) + `%)</td>
