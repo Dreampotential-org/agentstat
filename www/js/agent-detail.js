@@ -551,7 +551,7 @@ function show_loading_screen() {
 function show_claim_screen() {
     swal({
       title: "Claim Profile!",
-      text: "Do you want to dispute the claim and provide proof of identity?",
+      text: "Profile is claimed, would you like to dispute",
       icon: "warning",
       buttons: [
         'No, cancel it!',
