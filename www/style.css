@@ -109,7 +109,9 @@
      display: inline-block !important;
  }
  .nav-tabs .nav-seller-buyer .nav-item.show .nav-links, .nav-tabs .nav-links.active .acitv-bottom{
-     border-bottom: 2px solid #134E60 !important;
+    border-bottom: 2px solid #134E60 !important;
+    padding-left: 15px;
+    padding-right: 15px;
  }
  .pull-right{
      text-align: right !important;
@@ -1302,8 +1304,6 @@
      font-weight: 500;
      font-size: 18px;
      color: #3C3C3C;
-     padding-left: 30px;
-     padding-right: 30px;
  }
  
  .pt-tab-wrapper .nav-tabs .nav-link.active {

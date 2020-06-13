@@ -218,7 +218,8 @@
 .reviews-slider blockquote q {
     font-weight: 400;
     font-size: 18px;
-    line-height: 28px;
+	line-height: 28px;
+	white-space: pre-wrap;
 }
 
 .reviews-slider .link {

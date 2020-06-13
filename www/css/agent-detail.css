@@ -25,6 +25,9 @@
 .nav-tabs .nav-seller-buyer .nav-item.show .nav-links, .nav-tabs .nav-links.active {
     font-weight: inherit;
 }
+.pht-agent-img.toc-two-left-one:before {
+    display: none;
+}
 @media screen and (min-width: 768px){
     .nav-seller-buyer {
         padding-left: 150px;

@@ -122,10 +122,15 @@ function load_agent(ignore_city = true) {
         data = JSON.parse(response);
         agent_id = data['id'];
 
-        $('.agent-rating').html(reviewStarHtml(data['average_review_rate']));
-        $('.reviews-count').html(data['reviews'].length);
-        
-        show_reviews(data['review_categories'], data['reviews']);
+        if (data['average_review_rate'] === undefined) {
+          $('.has-review').hide();
+          $('.no-review').show();
+        } else {
+          $('.agent-rating').html(reviewStarHtml(data['average_review_rate']));
+          $('.reviews-count').html(data['reviews'].length);
+
+          show_reviews(data['review_categories'], data['reviews']); 
+        }
 
         $('.agent_name').val(data['agent_name']);
         $('.agent-first-name').text(data['full_name'].split(" ")[0]);

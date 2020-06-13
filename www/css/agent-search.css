@@ -4,3 +4,15 @@
 .serch_btn .searchButton {
     padding: 8px 15px;
 }
+.pt-tab-wrapper .nav-tabs .nav-link.active, .pt-tab-wrapper .nav-tabs .nav-link {
+    padding-top: 15px;
+    padding-bottom: 0px;
+    color: #3C3C3C;
+    font-weight: initial;
+}
+.dropdown-item {
+    margin: 5px 0px;
+}
+.drop span {
+    top: 0px;
+}
