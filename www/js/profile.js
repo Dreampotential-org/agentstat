@@ -138,7 +138,7 @@ function get_reviews() {
 
   $.ajax(settings).done(function (response) {
       var response = JSON.parse(response);
-      agent_review(response, 3);
+      agent_review(response);
   }).fail(function(err) {
       console.log(err);
   });
@@ -595,16 +595,3 @@ $(document).on('click', '#remove-profile-image', function(e) {
   });
 } );
 
-$(document).on('click', '.delete-review', function(e) {
-
-  review_id = $(this).attr('data');
-  profile_id = $(this).attr('data-profile');
-  console.log(review_id);
-  settings = get_settings('review/' + profile_id + '/' + review_id, 'DELETE');
-
-  $.ajax(settings).done(function (response) {
-    show_message('Review has been deleted!');
-    $('#item-'+review_id).css('display', 'None');
-  });
-
-});

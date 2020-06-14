@@ -43,3 +43,27 @@
     height: 100%;
     z-index: 9999;
 }
+
+.inbox {
+    height: calc(100% - 30px);
+}
+.box-left {
+    max-height: 86vh;
+}
+.inbox {
+    height: 80vh;
+    overflow: hidden;
+}
+.inbox_main {
+    overflow: hidden !important;
+}
+.inbox-box .box-right {
+    max-height: 100vh;
+    overflow: auto;
+}
+.box-right-inner h1 {
+    margin-bottom: 16px !important;
+}
+.box-right-inner p {
+    margin-bottom: 13px !important;
+}
