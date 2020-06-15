@@ -28,6 +28,9 @@
 .pht-agent-img.toc-two-left-one:before {
     display: none;
 }
+.pth-all-heading {
+    margin-top: 30px;
+}
 @media screen and (min-width: 768px){
     .nav-seller-buyer {
         padding-left: 150px;

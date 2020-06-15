@@ -193,8 +193,12 @@ function load_agent(ignore_city = true) {
 
         populate_transaction(data[agent_list_key], false);
 
-        //pagination(data[agent_list_key].length);
-        //$('#datatable').DataTable();
+        var coordinates = [];
+        $.each(data[agent_list_key], function(k, v) {
+          var obj = {lat: v.latitude, lng: v.longitude, address: v.address_text}
+          coordinates.push(obj);
+        });
+        initTransactionMap(coordinates);
 
         agentProfileViewTrack()
     }).fail(function (err) {

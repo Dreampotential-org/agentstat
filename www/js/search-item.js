@@ -22,7 +22,7 @@ var search_item_min = `<div class="toc-two" data-sort="[[index]]" agent_id=[[age
 
                   <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
                     <span class="agent_btn_wrap"><a href="#" data-toggle="modal" class='collect-lead'
-                           data-agent-id="156821" data-target="#myModalx">Connect with [[agent_name]]</a>
+                           data-agent-id="156821" data-target="#myModalx" style="text-transform:capitalize;">Connect with [[agent_name]]</a>
                     </span>
                     <div class="custom_pin"> 
                       <a href="#" id="toggler-[[agent_id]]"  class="toggler [[toggle_on]]">&nbsp;</a>
