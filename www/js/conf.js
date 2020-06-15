@@ -4,6 +4,8 @@ API_URL = 'https://app.agentstat.com/api/';
 TRANSACTIONS_URL = 'https://app.agentstat.com/agentportal/transactions/'
 CITY_AGENT_SCORES_URL = 'https://app.agentstat.com/agentportal/agent_scores/'
 
+GOOGLE_MAP_KEY = 'AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs';
+
 // API_URL = 'http://localhost:8000/api/';
 // TRANSACTIONS_URL = 'http://localhost:8000/agentportal/transactions/'
 // CITY_AGENT_SCORES_URL = 'http://localhost:8000/agentportal/agent_scores/'

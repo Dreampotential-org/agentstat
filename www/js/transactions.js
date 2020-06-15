@@ -77,7 +77,6 @@ $(document).on('change click', '.notebtn', function(){
 });
 
 $(document).on('change click', '#save-transaction', function(){
-  console.log('TEST');
   data = {}
   data['address_text'] = $('#address_text').val()
   data['city'] = $('#city').val()
@@ -91,6 +90,12 @@ $(document).on('change click', '#save-transaction', function(){
 
   data['beds'] = $('#beds').val()
   data['baths'] = $('#baths').val()
+
+  var completeAddr = data['address_text']+', '+data['city']+', '+data['state']+', '+data['zipcode'];
+  var coordinates = getCoordinates(completeAddr);
+  
+  data['latitude'] = coordinates.lat;
+  data['longitude'] = coordinates.lng;
 
   api_call_url = 'create-transaction/';
   settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
