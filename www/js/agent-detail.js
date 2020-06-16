@@ -214,7 +214,7 @@ function load_agent(ignore_city = true) {
         });
         initTransactionMap(coordinates);
 
-        //agentProfileViewTrack()
+        agentProfileViewTrack()
     }).fail(function (err) {
         console.log(err);
     });
