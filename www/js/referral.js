@@ -19,7 +19,6 @@ $.ajax(settings).done(function (response) {
       item = item.split('[[price]]').join(v['price_min'] + '-' + v['price_max'] + 'K');
       item = item.split('[[email]]').join(v['email']);
       item = item.split('[[phone]]').join(v['phone']);
-      console.log(item);
 
       $(item).insertAfter('.titleHead');
 
@@ -31,3 +30,58 @@ $.ajax(settings).done(function (response) {
     show_error(err);
 });
 
+$(document).ready(function(){
+  $('#next').click(function() {
+    console.log('TESTSSS');
+
+    if ($('#step-1').css('display') == 'block') {
+
+      var fields = ['first_name', 'last_name', 'email', 'phone_number', 'street_address',
+        'city', 'zipcode', 'price_min', 'price_max', 'referral_fee', 'deadline', 'note'];
+
+      var data = {};
+
+      $.each(fields, function(k, v) {
+        data[v] = $('#'+v).val();
+      });
+
+      console.log(data);
+
+      var seller_unrequired_fields = []
+      var buyer_unrequired_fields = []
+
+      if($('#seller-type').is(':checked')) {
+        // Seller validation
+
+      } else if ($('#buyer-type').is(':checked')) {
+        // Buyyer validation
+      }
+
+      $('#step-2').css('display', 'block');
+      $('#step-1').css('display', 'none');
+    }
+
+  });
+
+  $('#agent-search').on('keyup', function(){
+    var search_term = $(this).val();
+    if (search_term.length > 2) {
+      // console.log('search');
+      settings = get_settings('search_agent/' + search_term, 'GET');
+      settings['headers'] = null;
+
+      $.ajax(settings).done(function (response) {
+        // console.log(response);
+        data = JSON.parse(response);
+        $('#agents').empty();
+        $.each(data, function(k, v){
+          $('#agents').append(`<div class="row">
+            <div class="col-lg-1"> <input type="checkbox" id="agent-` + v['id'] + `"></div>
+            <div class="col-lg-11"><label for="agent-` + v['id'] + `">` + v['full_name'] + `</label></div></div>`);
+        });
+      });
+    }
+
+  });
+
+});

@@ -103,7 +103,7 @@
                                         </span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
+
                     <div class="main-menu-part form-menu col-lg-12">
                         <ul class="float-left form-ulli-left">
                             <li><a href="/inbox/">Inbox </a></li>
@@ -118,7 +118,7 @@
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span><i class="fas fa-user-circle"></i></span>
                                     </a>
-        
+
                                     <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item " href="/inbox/">
                                             <p>Dashboard</p>
@@ -136,7 +136,7 @@
                     </div>
                 </div>
             </nav>
-        
+
         </div>
         <!-- header-area end -->
 
@@ -144,14 +144,6 @@
             <hr>
             <div class="pth-all-heading">
                 <br>
-                <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTransaction"><i class="fa fa-plus"></i> Add transaction</button> -->
-                <!-- <table>
-                    <tr class="table-subHeading">
-                        <th class="table-subTh">Received</th>
-                        <th class="table-subTh">Sent</th>
-                    </tr>
-                </table> -->
-
             </div>
 
             <table class="table table-bordered table-hover customeTableBorder">
@@ -159,7 +151,9 @@
                     <tr>
                         <th scope="col" class="tableHead">Received</th>
                         <th scope="col" class="tableHead">Sent</th>
-                        <th colspan="6" class="newReferral">+ Send New Referral</th>
+                        <th colspan="6" class="newReferral">
+                          <button id="referralBtn" class="btn" type="button" data-toggle="modal" data-target="#myModal">+ Send New Referral</button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -251,9 +245,157 @@
                                 $(this).closest("table")
                                         .find(".collapse.in")
                                         .not(this)
-                                //.collapse('toggle')     
+                                //.collapse('toggle')
                             })
-        </script>
+
+$("#referralBtn").click(function(){
+    $("#referralModal").modal();
+});
+</script>
+
+<div class="modal" id="referralModal" tabindex="-1" role="dialog"
+  style="margin-top: 50px">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Send New Referral</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div id="step-1">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="buyer-type">Buyer</label>
+              <input type="radio" checked name="referral-type" id="buyer-type">
+            </div>
+          </div>
+          <div class="col-log-6">
+            <div class="form-group">
+              <label for="seller-type">Seller</label>
+              <input type="radio" name="referral-type" id="seller-type">
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-12">Client Contact Information</div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-6">
+            <input type="text" placeholder="First Name" id="firstname">
+          </div>
+          <div class="col-lg-6">
+            <input type="text" placeholder="Last Name" id="lastname">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-6">
+            <input type="text" placeholder="Email" id="email">
+          </div>
+          <div class="col-lg-6">
+            <input type="text" placeholder="Phone Number" id="phone_number">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-12">
+            Address
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-12">
+            <input type="text"  placeholder="Street Address" style="width: 96%"
+            id="street_address">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-6">
+            <input type="text"  placeholder="City" style="width:100%" id="city">
+          </div>
+          <div class="col-lg-3">
+            <input type="text"  placeholder="State" style="width:80%" id="state">
+          </div>
+          <div class="col-lg-3">
+            <input type="text"  placeholder="Zipcode" style="width:80%" id="zipcode">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-12">
+           Price
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-6">
+            <input type="text"  placeholder="Price Min" style="width:100%" id="price_min">
+          </div>
+          <div class="col-lg-6">
+            <input type="text"  placeholder="Price Max" style="width:92%" id="price_max">
+          </div>
+        </div>
+
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-12">
+            <input type="text"  placeholder="Referral Fee" style="width:96%" id="referral_fee">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-12">
+            <input type="date"  placeholder="Acceptance Deadline" style="width:96%" id="deadline">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-12">
+            <input type="text"  placeholder="Notes" style="width:96%" id="notes">
+          </div>
+        </div>
+        </div> <!-- step-1 end -->
+
+        <div id="step-2" style="display: none">
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-12">
+            Select Your Agent(s):
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+
+          <div class="col-lg-12">
+            <input type="text" id="agent-search" placeholder="Search by agent name or referral location" style="width:96%">
+          </div>
+
+          <div class="col-lg-12">
+            <div id="agents" style="height: 200px; padding: 20px; overflow-y: scroll">
+
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id='next' class="btn btn-primary">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     </body>
 </html>
