@@ -212,7 +212,7 @@
 }
 
 .reviews-slider blockquote {
-	margin: 0;
+	margin: 0 15px;
 }
 
 .reviews-slider blockquote q {
@@ -289,64 +289,58 @@
 }
 
 
-
 #review-div .slick-slide {
-	border: 1px solid #000;
-	padding: 12px;
-	height: 100% !important;
-	margin: 0 20px;
-	min-height: 200px !important;
-	display: flex !important;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	position: relative;
+    border: 1px solid #000;
+    padding: 12px;
+    height: 100% !important;
+    margin: 0 20px;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 #review-div .review-wrap {
-	display: block;
+    display: block;
 }
 #review-div .slick-current {
-	-webkit-transform: scale(1.15);
-	transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
 }
 #review-div .reviews-slider .slick-list {
-	padding-top: 20px !important;
-	padding-bottom: 20px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
 }
 #review-div .review-wrap button {
-	position: absolute;
-	right: 6px;
-	top: 0;
-	background: none;
-	font-size: 24px;
-	padding: 0;
-	margin: 0;
-	cursor: pointer;
-	border: none;
+    position: absolute;
+    right: 6px;
+    top: 0;
+    background: none;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: none;
 }
 #review-div .review-wrap button:hover {
-	color: red;
+    color: red;
 }
 #review-div .reviews-slider blockquote q {
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 28px;
-	max-height: 80px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	max-width: 200px;
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
-@media (min-width: 992px) {
-    #review-div .slick-slide {
-		min-width: 330px;
-	} 
-}
 .ttip {
-	position: relative;
+    position: relative;
 }
 .ttip .ttip_text {
 	visibility: hidden;
@@ -381,3 +375,22 @@
 	visibility: visible;
 	opacity: 1;
 }
+
+@media (min-width: 992px) {
+    #review-div .slick-slide {
+		min-width: 330px;
+	} 
+}
+
+
+
+/* .pth-more-right-content .slick-slide {
+	border: 0 !important;
+	max-width: 308px;
+}
+.pth-more-right-content .slick-slide button {
+    display: none;
+}
+.pth-more-right-content .slick-current {
+    transform: scale(1) !important;
+} */

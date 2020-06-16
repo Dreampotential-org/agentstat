@@ -5,9 +5,20 @@ function initTransactionMap(coordinates) {
     });
 
     $.each(coordinates, function(k, v) {
+        if (v.status == 'Sold') {
+            var imagePath = '/../img/map-green-dot.png';
+        } else {
+            var imagePath = '/../img/map-red-dot.png';
+        }
+        var image = {
+            url: imagePath,
+            scaledSize: new google.maps.Size(15, 15),
+        };
+
         var marker = new google.maps.Marker({
             position: v,
             map: map,
+            icon: image,
         });
 
         attachSecretMessage(marker ,map, v.address)

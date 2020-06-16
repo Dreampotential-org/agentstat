@@ -1640,7 +1640,7 @@ Xtra Small Screen - Small Mobile
         font-size: 20px;
     }
     .header-area {
-        padding: 15px 0px;
+        padding: 0px 0px 6px 0px;
     }
     .po-world {
         padding: 40px 0;
@@ -1667,8 +1667,8 @@ Xtra Small Screen - Small Mobile
     }
     .type {
         /* width: 49%; */
-        width: 100px;
-        padding: 5px;
+        /* width: 100px; */
+        /* padding: 5px; */
     }
     .type p {
         border: 0;
@@ -1686,7 +1686,7 @@ Xtra Small Screen - Small Mobile
     }
     .price {
         /* width: 49%; */
-        width: 100px;
+        /* width: 100px; */
         padding: 5px;
         background-color: #fff;
         border-radius: 6px;

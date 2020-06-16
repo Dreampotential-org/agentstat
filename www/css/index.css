@@ -4,3 +4,11 @@
 .footer {
     position: fixed;
 }
+@media screen and (max-width: 575px) {
+    .po-world {
+        padding: 100px 0 0 0;
+    }
+    .po-serach-wrapper.po-serach-wrapper-one.ak-form .serch_btn .searchButton {
+        padding: 5px 10px;
+    }
+}
