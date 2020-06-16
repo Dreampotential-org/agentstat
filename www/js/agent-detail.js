@@ -195,7 +195,12 @@ function load_agent(ignore_city = true) {
 
         var coordinates = [];
         $.each(data[agent_list_key], function(k, v) {
-          var obj = {lat: v.latitude, lng: v.longitude, address: v.address_text}
+          var obj = {
+            lat: v.latitude, 
+            lng: v.longitude, 
+            address: v.address_text, 
+            status: v.status
+          }
           coordinates.push(obj);
         });
         initTransactionMap(coordinates);
