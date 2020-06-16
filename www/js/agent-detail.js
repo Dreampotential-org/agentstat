@@ -184,6 +184,15 @@ function load_agent(ignore_city = true) {
             $('#claim_wrapper').css('display', 'block');
         }
 
+        if (data["specialties"] !== undefined) {
+          var specialtiesText = '';
+          $.each(data['specialties'], function(k, v) {
+            specialtiesText += v.val+', ';
+            $('.agent-specialties').show();
+          });
+          $('.agent-specialties-text').html(specialtiesText.substring(0, specialtiesText.length-2));
+        }
+
         set_agent_tabs_default(data);
 
         $(".alist").remove();
@@ -205,7 +214,7 @@ function load_agent(ignore_city = true) {
         });
         initTransactionMap(coordinates);
 
-        agentProfileViewTrack()
+        //agentProfileViewTrack()
     }).fail(function (err) {
         console.log(err);
     });
