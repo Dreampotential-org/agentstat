@@ -205,4 +205,8 @@ body {
     #pt-check, #pt-amount {
         right: 0px;
     }
+    .toc-two {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }

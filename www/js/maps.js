@@ -6,13 +6,13 @@ function initTransactionMap(coordinates) {
 
     $.each(coordinates, function(k, v) {
         if (v.status == 'Sold') {
-            var imagePath = '/../img/map-green-marker.png';
+            var imagePath = '/../img/map-green-dot.png';
         } else {
-            var imagePath = '/../img/map-red-marker.png';
+            var imagePath = '/../img/map-red-dot.png';
         }
         var image = {
             url: imagePath,
-            scaledSize: new google.maps.Size(25, 40),
+            scaledSize: new google.maps.Size(15, 15),
         };
 
         var marker = new google.maps.Marker({
