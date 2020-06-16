@@ -95,10 +95,16 @@ function populate_transaction(agent_lists, isAgent=true) {
             } 
         }
 
+        if (v['status']=='Failed') {
+            var soldPriceText = '-';
+        } else {
+            var soldPriceText = currencyFormat(v['sold_price_int']) + arrowStyle;
+        }
+
         var rowHtml = `<tr data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')">
             <td class='table-column status-`+ v['status'] +`'>` + v['status'] +`</td>
             <td class="table-column">` + currencyFormat(v['list_price_int']) + `</td>
-            <td class="table-column">` + currencyFormat(v['sold_price_int']) + arrowStyle +`</td>
+            <td class="table-column">` + soldPriceText +`</td>
             <td class="table-column">` + v['days_on_market'] + `</td>
             <td class="table-column">` + dateFormat(v['list_date']) +`</td>
             <td class="table-column">` + onlyAddress(v['address_text']) +`</td>
