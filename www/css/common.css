@@ -158,7 +158,7 @@ body {
         margin: 62px auto -16px !important;
     }
     .po-serach-wrapper.po-serach-wrapper-one.ak-form .serch_btn {
-        margin-left: 5%;
+        margin-left: 0%;
     }
     .po-serach-wrapper.po-serach-wrapper-one.ak-form {
         display: flex;
@@ -167,11 +167,11 @@ body {
         max-width: 100%;
     }
     .po-serach-wrapper input.ser {
-        width: 30% !important;
+        width: 100% !important;
         border-bottom: 0 !important;
     }
     .address p, .address-map p {
-        padding: 7px 12px;
+        padding: 7px 3px;
         font-size: 13px;
     }
     .po-serach-wrapper input.ser {
@@ -181,19 +181,28 @@ body {
     }
     .po-serach-wrapper.po-serach-wrapper-one.ak-form .type p {
         font-size: 13px;
-        padding: 7px;
+        padding: 7px 3px;
     }
     .po-serach-wrapper.po-serach-wrapper-one.ak-form .address {
         border-bottom: none;
     }
     .po-serach-wrapper.po-serach-wrapper-one.ak-form .price p {
         font-size: 13px;
-        padding: 7px 8px 5px;
+        padding: 7px 3px;
     }
     .po-serach-wrapper.po-serach-wrapper-one.ak-form .serch_btn {
         position: static;
     }
     .po-serach-wrapper.po-serach-wrapper-one.ak-form .serch_btn .searchButton {
-        padding: 4px 11px;
+        /* padding: 4px 11px; */
+    }
+    .po-search.pt-search {
+        margin-top: -60px;
+    }
+    .index-check-type {
+        left: -30px;
+    }
+    #pt-check, #pt-amount {
+        right: 0px;
     }
 }
