@@ -207,6 +207,8 @@
         <!-- Custom jQuery -->
         <script src="/js/scripts.js"></script>
         <script src="/js/conf.js"></script>
+
+        <script src="/js/sweetalert.min.js"></script>
         <script src="/js/referral-item.js"></script>
         <script src="/js/referral.js"></script>
 
@@ -288,10 +290,10 @@ $("#referralBtn").click(function(){
 
         <div class="row" style="margin-top:10px;">
           <div class="col-lg-6">
-            <input type="text" placeholder="First Name" id="firstname">
+            <input type="text" placeholder="First Name" id="first_name">
           </div>
           <div class="col-lg-6">
-            <input type="text" placeholder="Last Name" id="lastname">
+            <input type="text" placeholder="Last Name" id="last_name">
           </div>
         </div>
 
@@ -347,13 +349,13 @@ $("#referralBtn").click(function(){
 
         <div class="row" style="margin-top:10px;">
           <div class="col-lg-12">
-            <input type="text"  placeholder="Referral Fee" style="width:96%" id="referral_fee">
+            <input type="text"  placeholder="Referral Fee" style="width:96%" id="referral_fee_percentage">
           </div>
         </div>
 
         <div class="row" style="margin-top:10px;">
           <div class="col-lg-12">
-            <input type="date"  placeholder="Acceptance Deadline" style="width:96%" id="deadline">
+            <input type="date"  placeholder="Acceptance Deadline" style="width:96%" id="acceptance_deadline">
           </div>
         </div>
 
@@ -366,25 +368,50 @@ $("#referralBtn").click(function(){
 
         <div id="step-2" style="display: none">
 
-        <div class="row" style="margin-top:10px;">
-          <div class="col-lg-12">
-            Select Your Agent(s):
-          </div>
-        </div>
-
-        <div class="row" style="margin-top:10px;">
-
-          <div class="col-lg-12">
-            <input type="text" id="agent-search" placeholder="Search by agent name or referral location" style="width:96%">
-          </div>
-
-          <div class="col-lg-12">
-            <div id="agents" style="height: 200px; padding: 20px; overflow-y: scroll">
-
+          <div class="row" style="margin-top:10px;">
+            <div class="col-lg-12">
+              Select Your Agent(s):
             </div>
           </div>
 
-        </div>
+          <div class="row" style="margin-top:10px;">
+
+            <div class="col-lg-12">
+              <input type="text" id="agent-search" placeholder="Search by agent name or referral location" style="width:96%">
+            </div>
+
+            <div class="col-lg-12">
+              <div id="agents" style="height: 200px; padding: 20px; overflow-y: scroll">
+
+              </div>
+            </div>
+
+          </div>
+
+
+        </div> <!-- step-2 end -->
+
+        <div id="step-3" style="display: none">
+
+          <div class="row" style="margin-top:10px;">
+            <div class="col-lg-12">
+              Next, add your referral agreement.
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:10px; margin-left:10px">
+            <div class="col-lg-12">
+              <input type="radio" value="standart" name="agreement" id="standart-agreement" checked>
+              <label for="standart-agreement">Use standarized agreement</label>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:10px; margin-left:10px">
+            <div class="col-lg-12">
+              <input type="radio" value="own" id="own-agreement" name="agreement">
+              <label for="own-agreement">Upload your own agreement</label>
+            </div>
+          </div>
 
         </div>
 

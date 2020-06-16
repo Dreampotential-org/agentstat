@@ -1,6 +1,7 @@
 //
 profile_id = localStorage.profile_id
 settings = get_settings('referral/'+ profile_id, 'GET')
+var form_data = {};
 
 // console.log(settings);
 
@@ -32,36 +33,131 @@ $.ajax(settings).done(function (response) {
 
 $(document).ready(function(){
   $('#next').click(function() {
-    console.log('TESTSSS');
-
     if ($('#step-1').css('display') == 'block') {
 
       var fields = ['first_name', 'last_name', 'email', 'phone_number', 'street_address',
-        'city', 'zipcode', 'price_min', 'price_max', 'referral_fee', 'deadline', 'note'];
+        'city', 'zipcode', 'price_min', 'price_max', 'referral_fee_percentage',
+        'acceptance_deadline', 'notes'];
 
-      var data = {};
+      //var data = {};
 
       $.each(fields, function(k, v) {
-        data[v] = $('#'+v).val();
+        form_data[v] = $('#'+v).val();
       });
 
-      console.log(data);
+      var buyer_required_fields = ['first_name', 'last_name', 'email', 'phone_number', 'price_min', 'price_max', 'referral_fee_percentage', 'acceptance_deadline', 'notes'];
 
-      var seller_unrequired_fields = []
-      var buyer_unrequired_fields = []
+      var error = false;
 
       if($('#seller-type').is(':checked')) {
         // Seller validation
+        form_data['referral_type'] = 'Seller';
+        $.each(fields, function(k, v){
+          if ($('#'+v).val() == '') {
+            // console.log(v + ' is required');
+            swal({
+              title: "Validation Error!",
+              text: "All fields are required!",
+              icon: "warning",
+              dangerMode: true,
+            });
+            error = true;
 
-      } else if ($('#buyer-type').is(':checked')) {
+          }
+        });
+
+      } else if($('#buyer-type').is(':checked')) {
         // Buyyer validation
+        form_data['referral_type'] = 'Buyer';
+        errors = '';
+        $.each(fields, function(k, v){
+          if($.inArray(v, buyer_required_fields) && $('#'+v).val() == ''){
+            error = true;
+            errors += v + ' ';
+          }
+
+          if(error == true) {
+            swal({
+              title: "Validation Error!",
+              text: "You must fill in the following field(s)\n\n" + errors,
+              icon: "warning",
+              dangerMode: true,
+            });
+          }
+
+        });
       }
 
-      $('#step-2').css('display', 'block');
-      $('#step-1').css('display', 'none');
+      if (error == false) {
+        if($('#step-1').css('display') == 'block'){
+          $('#step-2').css('display', 'block');
+          $('#step-1').css('display', 'none');
+        }
+      }
+    } else if($('#step-2').css('display') == 'block') {
+      form_data['agent_ids'] = []
+      $('input[name="selected_agents"]:checked').each(function(){
+        console.log($(this).val());
+        form_data['agent_ids'].push($(this).val());
+      });
+
+      if(form_data['agent_ids'].length == 0) {
+        swal({
+          title: "Validation Error!",
+          text: "You should select agent(s)",
+          icon: "warning",
+          dangerMode: true,
+        });
+      } else {
+        $('#step-2').css('display', 'none');
+        $('#step-3').css('display', 'block');
+      }
+    } else if ($('#step-3').css('display') == 'block') {
+      if($('input[name=agreement]:checked').val() == 'standart') {
+        console.log('post form');
+        //formatted_date = nform_data['acceptance_deadline']);
+        data['acceptance_deadline'] = formatDate(form_data['acceptance_deadline'])
+        form_data['owner'] = profile_id;
+
+        $.each(form_data['agent_ids'], function(k, v){
+
+          form_data['agent'] = v;
+          console.log(form_data);
+          settings = get_settings('referral/', 'POST', JSON.stringify(form_data));
+          $.ajax(settings).done(function(response){
+            result = JSON.parse(response);
+            //console.log(result);
+          });
+
+        });
+
+        swal({
+          title: "Your referral has been created!",
+          icon: "success",
+          dangerMode: false,
+        });
+
+        $('#referralModal').modal('hide');
+
+      }
+
     }
 
   });
+
+  function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
   $('#agent-search').on('keyup', function(){
     var search_term = $(this).val();
@@ -75,9 +171,16 @@ $(document).ready(function(){
         data = JSON.parse(response);
         $('#agents').empty();
         $.each(data, function(k, v){
-          $('#agents').append(`<div class="row">
-            <div class="col-lg-1"> <input type="checkbox" id="agent-` + v['id'] + `"></div>
-            <div class="col-lg-11"><label for="agent-` + v['id'] + `">` + v['full_name'] + `</label></div></div>`);
+          $('#agents').append(`
+          <div class="row">
+            <div class="col-lg-1"> <input name='selected_agents' value="` + v['id'] + `" type="checkbox" id="agent-` + v['id'] + `"></div>
+            <div class="col-lg-7">
+              <label for="agent-` + v['id'] + `">` +
+                v['full_name'] + ` (` + v['state'] + `)
+              </label>
+            </div>
+            <div class="col-log-4"><a target='_blank' href="/profile/` + v['state'] + `/` + v['screen_name'] + `">View Profile</a></div>
+          </div>`);
         });
       });
     }
