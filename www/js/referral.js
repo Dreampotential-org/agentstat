@@ -37,7 +37,7 @@ $(document).ready(function(){
 
       var fields = ['first_name', 'last_name', 'email', 'phone_number', 'street_address',
         'city', 'zipcode', 'price_min', 'price_max', 'referral_fee_percentage',
-        'acceptance_deadline', 'notes'];
+        'acceptance_deadline', 'notes', 'referral_type'];
 
       //var data = {};
 
@@ -48,8 +48,9 @@ $(document).ready(function(){
       var buyer_required_fields = ['first_name', 'last_name', 'email', 'phone_number', 'price_min', 'price_max', 'referral_fee_percentage', 'acceptance_deadline', 'notes'];
 
       var error = false;
+      referral_type = $('#referral_type').val()
 
-      if($('#seller-type').is(':checked')) {
+      if(referral_type == 'Seller') {
         // Seller validation
         form_data['referral_type'] = 'Seller';
         $.each(fields, function(k, v){
@@ -66,7 +67,7 @@ $(document).ready(function(){
           }
         });
 
-      } else if($('#buyer-type').is(':checked')) {
+      } else if(referral_type == 'Buyer') {
         // Buyyer validation
         form_data['referral_type'] = 'Buyer';
         errors = '';
@@ -109,8 +110,30 @@ $(document).ready(function(){
           dangerMode: true,
         });
       } else {
-        $('#step-2').css('display', 'none');
-        $('#step-3').css('display', 'block');
+        // $('#step-2').css('display', 'none');
+        // $('#step-3').css('display', 'block');
+        data['acceptance_deadline'] = formatDate(form_data['acceptance_deadline'])
+        form_data['owner'] = profile_id;
+
+        $.each(form_data['agent_ids'], function(k, v){
+
+          form_data['agent'] = v;
+          console.log(form_data);
+          settings = get_settings('referral/', 'POST', JSON.stringify(form_data));
+          $.ajax(settings).done(function(response){
+            result = JSON.parse(response);
+            //console.log(result);
+          });
+
+        });
+
+        swal({
+          title: "Your referral has been created!",
+          icon: "success",
+          dangerMode: false,
+        });
+
+        $('#referralModal').modal('hide');
       }
     } else if ($('#step-3').css('display') == 'block') {
       if($('input[name=agreement]:checked').val() == 'standart') {
@@ -163,7 +186,7 @@ $(document).ready(function(){
     var search_term = $(this).val();
     if (search_term.length > 2) {
       // console.log('search');
-      settings = get_settings('search_agent/' + search_term, 'GET');
+      settings = get_settings('search_agent/' + 'WA/' + search_term, 'GET');
       settings['headers'] = null;
 
       $.ajax(settings).done(function (response) {
@@ -187,4 +210,24 @@ $(document).ready(function(){
 
   });
 
+  $('#radioBtn a').on('click', function(){
+    console.log('xxx');
+      var sel = $(this).data('title');
+      var tog = $(this).data('toggle');
+      $('#'+tog).prop('value', sel);
+
+      $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+      $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+  });
+
+  const $valueSpan = $('.valueSpan2');
+  const $value = $('#referral_fee_percentage');
+  $valueSpan.html($value.val());
+  $value.on('input change', () => {
+
+    $valueSpan.html($value.val()+'%');
+  });
+
 });
+
+
