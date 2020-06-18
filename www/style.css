@@ -4152,13 +4152,13 @@
      }
      .po-serach-wrapper.po-serach-wrapper-one.ak-form .ser-state p {
          width: auto;
-         padding: 9px;
+         padding: 7px 0px;
          margin-bottom: 0;
-         font-size: 16px;
+         font-size: 13px;
          color: #575757;
          font-weight: 300;
-         border-bottom: 1px solid #ccc;
-         border-right: 0px solid #ccc;
+         /* border-bottom: 1px solid #ccc; */
+         border-right: 1px solid #767676;
          text-overflow: ellipsis;
          text-align: center;
          white-space: nowrap;
