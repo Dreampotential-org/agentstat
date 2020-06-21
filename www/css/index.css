@@ -1,6 +1,9 @@
 .index-address-type, .ser-state-type {
     top:46px;
 }
+.footer{
+    position: fixed;
+}
 @media screen and (max-width: 575px) {
     .po-world {
         padding: 100px 0 0 0;
