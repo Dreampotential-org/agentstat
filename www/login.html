@@ -240,9 +240,11 @@
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <form action="" method="post" class="body_color" id="myform">
                         <div class="form-group">
-                            <button type="button" id="btn-fb" class="btn fb_btn login-btn btn-block"><i
-                                    class="fab fa-facebook-square facebookIcon"></i>Connect with Facebook</button>
 
+                            <fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
                         </div>
 
 
@@ -639,6 +641,8 @@
     <!-- Main jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="/js/fb-login.js"></script>
 
     <!-- Bootstrap Propper jQuery -->
     <script src="/js/popper.js"></script>
