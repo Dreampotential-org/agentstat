@@ -28,11 +28,11 @@ function passBtnID(id) {
     } 
 }
 
-function dateFormat(str) {
+function dateFormat(str, isFullYear=false) {
     var date = new Date(str);
     var day = date.getDate();
     var month = ("0" + (date.getMonth()+1)).slice(-2);
-    var year = date.getFullYear().toString().substr(-2);
+    var year = (isFullYear==false) ? date.getFullYear().toString().substr(-2) : date.getFullYear().toString();
     return month+'/'+day+'/'+year;
 }
   
@@ -293,15 +293,15 @@ function populate_transaction(agent_lists, isAgent=true) {
             </div>
             </td>
             <td style="display:none;"></td>
-            <td  style="display:none;"></td>
             <td style="display:none;"></td>
             <td style="display:none;"></td>
-            <td  style="display:none;"></td>
-            <td  style="display:none;"></td>
             <td style="display:none;"></td>
-            <td  style="display:none;"></td>
-            <td  style="display:none;"></td>
-            <td  style="display:none;"></td>
+            <td style="display:none;"></td>
+            <td style="display:none;"></td>
+            <td style="display:none;"></td>
+            <td style="display:none;"></td>
+            <td style="display:none;"></td>
+            <td style="display:none;"></td>
         </tr>
         `;
 
@@ -328,8 +328,138 @@ function populate_transaction(agent_lists, isAgent=true) {
     
 }
 
-function populate_cities(agent_scores) {
+function sortByType(cityTypeData, qCity='', homeType='') {
+    var arr1 = [];
+    var arr2 = [];
+    var arr3 = [];
+    $.each(cityTypeData, function(k,v){
+        if (v['home_type'] === null) {
+            arr1.push(v);
+        } else if (homeType.toLowerCase() == v['home_type'].toLowerCase()) {
+            arr2.push(v);
+            if (qCity == v['city'].toLowerCase()) {
+                matchedScoreObj = v;
+            }
+        } else {
+            arr3.push(v);
+        }
+    });
+
+    return arr1.concat(arr2).concat(arr3);
+}
+
+function sortByCity(agent_scores) {
+    var qCity = cityFilter;
+    var homeType = propertyTypeFilter;
+
+    if (qCity) {
+        var html = `<li><span>`+qCity+` <a class="remove-city-filter" href="javascript:void(0)"><i class="fa fa-times"></i></a></span></li>`;
+        $('#filter-tags').append(html);
+    }
+    if (homeType) {
+        var html = `<li><span>`+homeType+` <a class="remove-property-filter" href="javascript:void(0)"><i class="fa fa-times"></i></a></span></li>`;
+        $('#filter-tags').append(html);
+    }
+
+    qCity = qCity.toLowerCase();
+    var cityMatchedArr = [];
+    var citiesArr = [];
     $.each(agent_scores, function(k,v){
+        var cityVal = v['city'].toLowerCase();
+        if (qCity==cityVal) {
+            if(cityMatchedArr.indexOf(cityVal) === -1){
+                cityMatchedArr.push(cityVal);
+            } 
+        } else {
+            if(citiesArr.indexOf(cityVal) === -1){
+                citiesArr.push(cityVal);
+            } 
+        }
+    });
+    var cities = cityMatchedArr.concat(citiesArr);
+    
+    var finalData = [];
+    var counter = 0;
+    $.each(cities, function(k,v){
+        var cityTypeData = [];
+        $.each(agent_scores, function(k1,v1){
+            if (v == v1['city'].toLowerCase()) {
+                cityTypeData.push(v1);
+                if (qCity == v1['city'].toLowerCase() && v1['home_type'] === null) {
+                    matchedScoreObj = v1;
+                }
+
+                if (v1['home_type'] === null && counter < 5) {
+                    var agent_percentage = agentTopPercentage(v1['agent_rank'], v1['rank_count']);
+                    var html = `
+                    <div class="block-col">
+                        <div class="block">
+                            <strong class="heading" id="cvtext-`+counter+`">`+v1['city']+`</strong>
+                            <strong class="text">TOP</strong>
+                            <span class="percantege">`+agent_percentage+`%</span>
+                        </div>
+                    </div>
+                    `;
+                    $('#badges-top-rank').append(html);
+
+                    new CircleType(document.getElementById('cvtext-'+counter)).radius(150);
+                }
+            }
+        });
+        var sortedType = sortByType(cityTypeData, qCity, homeType);
+        $.each(sortedType, function(k2,v2){
+            finalData.push(v2)
+        });
+        counter++;
+    });
+
+    return finalData;
+}
+
+function getFilters() {
+    var full_path = window.location.pathname;
+    var screenName = null;
+    var slug = null;
+    var url = '';
+    if (full_path.split('/')[1] == 'profile') {
+        screenName = full_path.split('/')[3];
+        slug = full_path.split('/')[4];
+        url = API_URL+'custom-link/'+screenName+'/'+slug;
+    }
+
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('agent_id') && urlParams.has('q')) {
+        url = API_URL+'custom-link/'+urlParams.get('agent_id')+'/'+urlParams.get('q');
+    }
+
+    if (url)  {
+        var jqXHR = $.ajax({
+            url: url,
+            type: 'GET',
+            async: false,
+        });
+        
+        return JSON.parse(jqXHR.responseText);
+    } else {
+        return '';
+    }
+}
+
+function populate_cities(agent_scores) {  
+    $('#filter-tags').html('');
+    $('#badges-top-rank').html('');
+    $('#city-table-body').html('');
+
+    matchedScoreObj = {};
+    var finalData = sortByCity(agent_scores);
+
+    $.each(finalData, function(k,v){
+
+        if (v['home_type'] == null) {
+            var homeType = 'Overall';
+        } else {
+            var homeType = v['home_type'];
+        }
 
         if (v['avg_dom'] == null) {
             avg_dom = '-'
@@ -342,7 +472,6 @@ function populate_cities(agent_scores) {
         } else {
             s2l_price = v['s2l_price'].toFixed(2)
         }
-        var agent_percentage = 100 - v['agent_rank'] / v['rank_count'] * 100
         
         var city_avg_dom = '';
         if (v['city_stats']['avg_dom']) {
@@ -364,11 +493,37 @@ function populate_cities(agent_scores) {
           s2l_price = v['s2l_price'].toFixed(2);
         }
 
+        if (homeType == 'Overall') {
+            var displayNone = '';
+            var rightArrowHtml = '<i data-city="'+v['city']+'" class="fa fa-chevron-right right-arrow-city" aria-hidden="true" style="margin-left:10px;"></i>';
+            var downArrowHtml = '<i data-city="'+v['city']+'" class="fa fa-chevron-down down-arrow-city" aria-hidden="true" style="margin-left:10px;display:none;"></i>';
+            var city = '';
+        } else {
+            var displayNone = 'display:none;';
+            var rightArrowHtml = '';
+            var downArrowHtml = '';
+            var city = v['city'].replace(/\s+/g, '');
+        }
+
+        // var rowHtml = `
+        // <tr class="score-`+ city +`" style="`+displayNone+`">
+        //     <td class="table-column"><p style="margin-top: 10px;`+displayNone+`">` + v['city'] +rightArrowHtml+downArrowHtml+ ` </p></td>
+        //     <td class="table-column">` + v['agent_rank'] + `  of ` + v['rank_count'] + ` (TOP ` + agent_percentage + `%)</td>
+        //     <td class="table-column">` + homeType +`</td>
+        //     <td class="table-column">` + city_avg_dom +`</td>
+        //     <td class="table-column">` + avg_dom +`</td>
+        //     <td class="table-column">` + city_s2l_price +`%</td>
+        //     <td class="table-column">` + s2l_price +`%</td>
+        //     <td class="table-column">` + v['sold_listings'] +`</td>
+        //     <td class="table-column">` + v['failed_listings'] +`</td>
+        // </tr>
+        // `;
+
         var rowHtml = `
-        <tr>
-            <td class="table-column"><p style="margin-top: 10px;">` + v['city'] +`</p></td>
-            <td class="table-column">` + v['agent_rank'] + `  of ` + v['rank_count'] + ` (TOP ` + agent_percentage.toFixed(2) + `%)</td>
-            <td class="table-column">` + v['home_type'] +`</td>
+        <tr class="score-`+ city +`" style="`+displayNone+`">
+            <td class="table-column"><p style="margin-top: 10px;`+displayNone+`">` + v['city'] +rightArrowHtml+downArrowHtml+ ` </p></td>
+            <td class="table-column">` + homeType +`</td>
+            <td class="table-column">` + v['agent_rank'] + `/` + v['rank_count'] + `</td>
             <td class="table-column">` + city_avg_dom +`</td>
             <td class="table-column">` + avg_dom +`</td>
             <td class="table-column">` + city_s2l_price +`%</td>
@@ -379,18 +534,136 @@ function populate_cities(agent_scores) {
         `;
 
         $('#city-table-body').append(rowHtml);
-
-        $('#city-table').dataTable({
-            "bSort" : false,
-            "bLengthChange": false,
-            "pageLength": 10,
-            "dom": 'lrtip',
-            "language": {
-                paginate: {
-                    next: '»',
-                    previous: '«'
-                }
-              }
-        });
     });
+
+    ifFilterMatched();
+
+    // $('#city-table').dataTable({
+    //     "bSort" : false,
+    //     "bLengthChange": false,
+    //     "pageLength": 10,
+    //     "dom": 'lrtip',
+    //     "language": {
+    //         paginate: {
+    //             next: '»',
+    //             previous: '«'
+    //         }
+    //       }
+    // });
+}
+
+$(document).on('click', '.right-arrow-city', function(){
+    var city = $(this).data('city').replace(/\s+/g, '');
+    $('.score-'+city).fadeIn('slow');
+    $(this).hide();
+    $(this).next().show();
+});
+
+$(document).on('click', '.down-arrow-city', function(){
+    var city = $(this).data('city').replace(/\s+/g, '');
+    $('.score-'+city).fadeOut('slow');
+    $(this).hide();
+    $(this).prev().show();
+});
+
+
+$(document).on('click', '.remove-city-filter', function(){
+    $(this).hide();
+    cityFilter = '';
+    set_agent_tabs_default(agentProfileData);
+    populate_cities(cityScoreAllData);
+});
+
+$(document).on('click', '.remove-property-filter', function(){
+    $(this).hide();
+    propertyTypeFilter = '';
+    set_agent_tabs_default(agentProfileData);
+    populate_cities(cityScoreAllData);
+});
+
+$(document).on('click', '.change-duration-btn', function(){
+    var duration = $(this).data('duration');
+    load_agent_score(duration);
+});
+
+function returnFilters(customLink) {
+    var allFilter = '';
+
+    var address = '';
+    var city = '';
+    var zipcode = '';
+    if (customLink.street_address && customLink.address_city && customLink.address_zipcode) {
+        address = customLink.street_address+', '+customLink.address_city+', '+customLink.address_zipcode;
+        cityFilter = customLink.address_city;
+    } else if (customLink.city) {
+        city = customLink.city;
+        cityFilter = customLink.city;
+    } else if (customLink.zipcode) {
+        zipcode = customLink.zipcode;
+    }
+
+    if (address) {
+        allFilter = address;
+    }
+    if (city) {
+        allFilter = city;
+    }
+    if (zipcode) {
+        allFilter = zipcode;
+    }
+
+
+    var propertyType = '';
+    if (customLink.property_type) {
+        propertyType = customLink.property_type;
+        allFilter += ', '+propertyType;
+        propertyTypeFilter = customLink.property_type;
+    }
+
+    var priceRange = '';
+    if (customLink.min_price && customLink.max_price) {
+        priceRange = customLink.min_price +' - '+ customLink.max_price;
+        allFilter += ', '+priceRange;
+    }
+
+    return {
+        'address':address,
+        'city':city,
+        'zipcode':zipcode,
+        'propertyType':propertyType,
+        'priceRange':priceRange,
+        'allFilter':allFilter, 
+    };
+}
+
+function populate_custom_links(data) {
+    if (data.agent_screen_name) {
+        profile_url = '/profile/' + data.agent_state.toLowerCase() + '/' + data.agent_screen_name+'/';
+    } else {
+        profile_url = '/page-three.html?agent_id=' + data.agent_id+'&q=';
+    }
+
+    $.each(data.custom_links, function(k,v){
+        var filterObj = returnFilters(v);
+        
+        var customUrl = profile_url+v['slug'];
+        var rowHtml = `
+        <tr id="custom-link-`+v['id']+`">
+            <td class="table-column"><p style="margin-top: 10px;">` + dateFormat(v['created_at'], true) +`</p></td>
+            <td class="table-column"><a target="_blank" href="`+customUrl+`">www.agentstat.com`+customUrl+`</a></td>
+            <td class="table-column">` + filterObj.allFilter +`</td>
+            <td class="table-column">` + '33' +`</td>
+            <td class="table-column">` + '100' +`</td>
+            <td class="table-column">` + '50' +`</td>
+            <td class="table-column"><a href="javascript:void(0)" class="delete-custom-link" data-id="`+v['id']+`">` + 'Delete Link' +`</a></td>
+        </tr>
+        `;
+
+        $('#custom-links-table-body').append(rowHtml);
+    });
+}
+
+function agentTopPercentage(rank, count) {
+    var agent_percentage = 100 - rank / count * 100;
+    return agent_percentage.toFixed(2);
 }

@@ -259,7 +259,19 @@ function getStartEndDate(type) {
 	return {'startDate': startDate, 'endDate': endDate};
 } 
 
+function getCustomLink() {
+	settings = get_settings('custom-link/', 'GET');
+	$.ajax(settings).done(function (response) {
+	  	data = JSON.parse(response);
+	  	populate_custom_links(data);
+	}).fail(function (err) {
+	  	console.log(err);
+	});
+}
+
 $(document).ready(function(){	
+	getCustomLink();
+
 	chartTime = {};
 	chartType = {};
 	chartPrice = {};
@@ -440,6 +452,33 @@ $(document).ready(function(){
 		chartPrice['referral-sign'].redraw();
 
 		$(window).trigger('resize');
-    }); 
+	}); 
+	
+	$(document).on('click', '.delete-custom-link', function(){
+		var custom_link_id = $(this).data('id');
 
+		bootbox.confirm({
+			message: "Are you sure to delete this custom link?",
+			buttons: {
+				cancel: {
+					label: 'Cancel',
+					className: 'btn-default'
+				},
+				confirm: {
+					label: 'Delete',
+					className: 'btn-danger'
+				}
+			},
+			callback: function (result) {
+				if (result===true) {
+					settings = get_settings('custom-link/'+custom_link_id, 'DELETE');
+					$.ajax(settings).done(function (response) {
+						show_message('Agent link is deleted successfully.');
+						$('#custom-link-'+custom_link_id).hide();
+					});            
+				}
+			}
+		});
+	});
+	
 });

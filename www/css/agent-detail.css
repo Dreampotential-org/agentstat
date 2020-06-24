@@ -39,3 +39,112 @@
 .agent-specialties {
     display: none;
 }
+.pht-card-heading h3 {
+    margin-bottom: 10px;
+}
+.add-custom-link-btn {
+    color: #4A86E8;
+    cursor: pointer;
+    float: right;
+}
+.owl-carousel {
+	z-index: 0;
+}
+
+/* tags section css */
+
+.tags-section {
+    width: calc(100% + 140px);
+    padding: 20px;
+    margin: -61px -70px 35px;
+    display: flex;
+    justify-content: space-between;
+}
+.tags-section .tags {
+    display: flex;
+    max-width: 48%;
+    margin: 5px 0;
+    list-style: none;
+}
+.tags-section .tags li {
+    margin: 0 15px 0 0;
+}
+.tags-section .tags li span {
+    padding: 8px 20px;
+    font-size: 16px;
+    border: 1px solid #000;
+    background: #ccc;
+    display: block;
+}
+.tags-section .tags li span a {
+    display: inline-block;
+    margin-left: 8px;
+    color: #000;
+}
+.tags-section .tags li span a:hover {
+    color: #CE9C05;
+}
+.timestamps {
+    display: flex;
+    max-width: 48%;
+    margin: 5px 0;
+    list-style: none;
+    align-items: center;
+}
+.timestamps li {
+    display: inline-block;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    margin-right: -1px;
+}
+.timestamps li a {
+    padding: 8px 20px;
+    display: block;
+    color: #000;
+}
+.timestamps li a:hover,
+.timestamps li.active a {
+    background: #ccc;
+}
+
+@media (max-width: 992px) {
+    .tags-section {
+        flex-wrap: wrap;
+    }
+    .tags-section ul {
+        max-width: 100% !important;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .tags-section .tags li {
+        margin: 0 12px 0 0;
+    }
+}
+
+.pth-sold-wrapper .pth-all-table {
+    margin: 0 0 -62px -73px;
+    width: 115%;
+}
+#city-table [class^='score'] {
+    height: 53px;
+}
+@media (max-width: 1200px) {
+    .pth-sold-wrapper .pth-all-table {
+        width: 118.3%;
+        overflow: auto;
+    }
+}
+@media (max-width: 992px) {
+    .pth-sold-wrapper .pth-all-table {
+        width: 126.1%;
+    }
+}
+@media (max-width: 1200px) {
+    .pth-sold-wrapper .pth-all-table {
+        width: 139.1%;
+        margin: 0 0 -18px -73px;
+    }
+    .pth-sold-wrapper .pth-all-table tr {
+        border: 0px;
+    }
+}

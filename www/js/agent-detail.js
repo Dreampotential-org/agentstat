@@ -5,6 +5,12 @@ leads = {};
 var locations = [];
 var agent_id = urlParams.get('agent_id');
 
+var matchedScoreObj = {}
+var agentProfileData = {};
+var cityScoreAllData = {};
+var cityFilter = '';
+var propertyTypeFilter = '';
+
 function init() {
     load_agent();
     $("#lead_phone").inputmask({"mask": "(999) 999-9999"});
@@ -24,6 +30,26 @@ $(document).on('change click', '#claim_action', function() {
   claim_api(agent_id);
 });
 
+function load_agent_score(duration='') {
+
+  if (duration) {
+    var url = 'agent_scores/' + transaction_query  + '/?time_duration='+duration;
+  } else {
+    var url = 'agent_scores/' + transaction_query  + '/';
+  }
+
+  settings = get_settings(url, 'GET');
+  settings['headers'] = null;
+  $.ajax(settings).done(function (response) {
+    data = JSON.parse(response);
+    cityScoreAllData = data.agent_scores;
+    var filterObj = getFilters();  
+    returnFilters(filterObj);
+    populate_cities(data.agent_scores);
+  }).fail(function (err) {
+    console.log(err);
+  });
+}
 
 function load_agent(ignore_city = true) {
     full_path = window.location.pathname;
@@ -44,21 +70,21 @@ function load_agent(ignore_city = true) {
       transaction_query = screen_name;
     }
 
-    if (city == null) {
-      $('#new_transactions').html(`
-        <iframe
-          src='` + TRANSACTIONS_URL + transaction_query + `/'
-          scrolling="no" style='width: 100%; height:700px; border: 0'
-          ></iframe>
-      `);
-    } else {
-      $('#new_transactions').html(`
-        <iframe
-          src='` + TRANSACTIONS_URL + transaction_query + `/?city=`+ city +`'
-          scrolling="no" style='width: 100%; height:500px; border: 0'
-          ></iframe>
-      `);
-    }
+    // if (city == null) {
+    //   $('#new_transactions').html(`
+    //     <iframe
+    //       src='` + TRANSACTIONS_URL + transaction_query + `/'
+    //       scrolling="no" style='width: 100%; height:700px; border: 0'
+    //       ></iframe>
+    //   `);
+    // } else {
+    //   $('#new_transactions').html(`
+    //     <iframe
+    //       src='` + TRANSACTIONS_URL + transaction_query + `/?city=`+ city +`'
+    //       scrolling="no" style='width: 100%; height:500px; border: 0'
+    //       ></iframe>
+    //   `);
+    // }
 
   // $('#city_agent_scores').html(`
   //   <iframe
@@ -67,18 +93,7 @@ function load_agent(ignore_city = true) {
   //     ></iframe>
   // `);
 
-    // console.log(city);
-    var api_call_url = '';
-
-    settings = get_settings('agent_scores/' + transaction_query  + '/', 'GET');
-    settings['headers'] = null;
-    $.ajax(settings).done(function (response) {
-      data = JSON.parse(response);
-        console.log(data.agent_scores)
-      populate_cities(data.agent_scores);
-    }).fail(function (err) {
-        console.log(err);
-    });
+    load_agent_score();
 
     if (agent_id) {
       if (localStorage.getItem('session_id') !== null && localStorage.getItem('session_id') !== 'null') {
@@ -121,6 +136,10 @@ function load_agent(ignore_city = true) {
         // remove loading
         data = JSON.parse(response);
         agent_id = data['id'];
+
+        if (agent_id != localStorage.getItem('agent_id')) {
+          $('.add-custom-link-btn').html('');
+        }
 
         if (data['average_review_rate'] === undefined) {
           $('.has-review').hide();
@@ -193,7 +212,9 @@ function load_agent(ignore_city = true) {
           $('.agent-specialties-text').html(specialtiesText.substring(0, specialtiesText.length-2));
         }
 
+        agentProfileData = data;
         set_agent_tabs_default(data);
+        ifFilterMatched();
 
         $(".alist").remove();
         index = 1;
@@ -214,7 +235,7 @@ function load_agent(ignore_city = true) {
         });
         initTransactionMap(coordinates);
 
-        agentProfileViewTrack()
+        //agentProfileViewTrack()
     }).fail(function (err) {
         console.log(err);
     });
@@ -651,6 +672,11 @@ function show_reviews(summary, reviews) {
 
 $('#review-modal').click(function(){
     $('#exampleModal').modal('show');
+});
+
+$('.timestamps li a').click(function(){
+  $('.timestamps li').removeClass('active');
+  $(this).parent('li').addClass('active');
 });
 
 window.addEventListener("DOMContentLoaded", init, false);

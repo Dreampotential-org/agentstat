@@ -210,3 +210,11 @@ body {
         padding-right: 0px;
     }
 }
+
+#profile .owl-carousel .owl-stage {
+    display: flex;
+    justify-content: center;
+}
+#profile .pth-sold {
+    margin-top: 25px;
+}

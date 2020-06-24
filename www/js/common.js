@@ -58,3 +58,10 @@ function getCoordinates(address) {
 		lng: data.results[0].geometry.location.lng.toFixed(6),
 	}
 }
+
+function show_message(message) {
+    swal(message, {
+      buttons: false,
+      timer: 3000,
+    });
+}

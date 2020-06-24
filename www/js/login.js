@@ -13,6 +13,7 @@ function login() {
     localStorage.session_id = data['token'];
     localStorage.email = data['email'];
     localStorage.profile_id = data['profile_id'];
+    localStorage.agent_id = data['agent_id'];
     window.location = '/profile-settings/';
   }).fail(function(err) {
     // alert('Got err');
