@@ -182,7 +182,7 @@ function load_agent(ignore_city = true) {
         //     $(this).html(data['full_name']+' '+'is a ?? match for you (enter your location in the search bar to view % match)');
         // });
         $.each($('.answer_agent_name'),function(){
-            $(this).html('Answer a few questions to see how well'+' '+ data['full_name']+' '+' strengths match your needs.')
+            $(this).html('Contact'+' '+ data['full_name']);
         })
 
         var name_city = data['full_name'] + ' - ' + data['city'];
