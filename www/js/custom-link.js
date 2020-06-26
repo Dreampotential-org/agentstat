@@ -59,9 +59,13 @@ function addCustomLink(data) {
         
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('agent_id')) {
-            var url = window.location.href+'&q='+data.slug;
+            var url = window.location.protocol+'//'+window.location.hostname+window.location.pathname+'?agent_id='+urlParams.get('agent_id')+'&q='+data.slug;
         } else {
-            var url = window.location.href+'/'+data.slug;
+            var pathname = window.location.pathname;
+            var splitPathname = pathname.split('/');
+            if (splitPathname[1] == 'profile') {
+                var url = window.location.protocol+'//'+window.location.hostname+'/profile/'+splitPathname[2]+'/'+splitPathname[3]+'/'+data.slug;
+            }
         }
 
         $('#input-custom-link').val(url);

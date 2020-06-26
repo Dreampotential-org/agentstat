@@ -482,7 +482,7 @@ function populate_cities(agent_scores) {
 
         var avg_dom = '';
         if (v['avg_dom']) {
-          avg_dom = v['avg_dom'].toFixed(2);
+          avg_dom = Math.round(v['avg_dom']);
         }
 
         var city_s2l_price = '';
@@ -497,8 +497,8 @@ function populate_cities(agent_scores) {
 
         if (homeType == 'Overall') {
             var displayNone = '';
-            var rightArrowHtml = '<i data-city="'+v['city']+'" class="fa fa-chevron-right right-arrow-city" aria-hidden="true" style="margin-left:10px;"></i>';
-            var downArrowHtml = '<i data-city="'+v['city']+'" class="fa fa-chevron-down down-arrow-city" aria-hidden="true" style="margin-left:10px;display:none;"></i>';
+            var rightArrowHtml = '<p class="right-arrow-city" data-city="'+v['city']+'"> '+v['city']+' <i class="fa fa-chevron-right" aria-hidden="true" style="margin-left:10px;"></i></p>';
+            var downArrowHtml = '<p class="down-arrow-city" style="display:none;" data-city="'+v['city']+'"> '+v['city']+' <i data-city="'+v['city']+'" class="fa fa-chevron-down" aria-hidden="true" style="margin-left:10px;"></i></p>';
             var city = '';
         } else {
             var displayNone = 'display:none;';
@@ -521,15 +521,17 @@ function populate_cities(agent_scores) {
         // </tr>
         // `;
 
+        var successRate = (100 - ((v['failed_listings']/v['sold_listings'])*100));
+        var successRate = calculateSuccessRate(v['failed_listings'], v['sold_listings']);
+
         var rowHtml = `
         <tr class="score-`+ city +`" style="`+displayNone+`">
-            <td class="table-column"><p style="margin-top: 10px;`+displayNone+`">` + v['city'] +rightArrowHtml+downArrowHtml+ ` </p></td>
+            <td class="table-column">`+rightArrowHtml+downArrowHtml+ ` </td>
             <td class="table-column">` + homeType +`</td>
             <td class="table-column">` + v['agent_rank'] + `/` + v['rank_count'] + `</td>
-            <td class="table-column">` + city_avg_dom +`</td>
+            <td class="table-column">` + successRate +`%</td>
+            <td class="table-column">` + Math.round(v['s2l_price']) +`</td>
             <td class="table-column">` + avg_dom +`</td>
-            <td class="table-column">` + city_s2l_price +`%</td>
-            <td class="table-column">` + s2l_price +`%</td>
             <td class="table-column">` + v['sold_listings'] +`</td>
             <td class="table-column">` + v['failed_listings'] +`</td>
         </tr>
@@ -673,6 +675,11 @@ function populate_custom_links(data) {
 }
 
 function agentTopPercentage(rank, count) {
-    var agent_percentage = 100 - rank / count * 100;
+    var agent_percentage = rank / count * 100;
     return Math.round(agent_percentage);
+}
+
+function calculateSuccessRate(failed_listings, sold_listings) {
+    var percantege =  (100 - ((failed_listings / sold_listings) * 100));
+    return Math.round(percantege);
 }

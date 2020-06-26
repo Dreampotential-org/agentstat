@@ -24,3 +24,7 @@
     float: left;
     padding-top: 0px !important;
 }
+.right-arrow-city, .down-arrow-city { 
+    margin-top: 14px;
+    cursor: pointer; 
+}
