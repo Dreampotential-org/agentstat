@@ -30,13 +30,9 @@ $(document).on('change click', '#claim_action', function() {
   claim_api(agent_id);
 });
 
-function load_agent_score(duration='') {
+function load_agent_score(duration='36') {
 
-  if (duration) {
-    var url = 'agent_scores/' + transaction_query  + '/?time_duration='+duration;
-  } else {
-    var url = 'agent_scores/' + transaction_query  + '/';
-  }
+  var url = 'agent_scores/' + transaction_query  + '/?time_duration='+duration;
 
   settings = get_settings(url, 'GET');
   settings['headers'] = null;
@@ -52,6 +48,7 @@ function load_agent_score(duration='') {
 }
 
 function load_agent(ignore_city = true) {
+    
     full_path = window.location.pathname;
 
     var screen_name = null
@@ -137,8 +134,8 @@ function load_agent(ignore_city = true) {
         data = JSON.parse(response);
         agent_id = data['id'];
 
-        if (agent_id != localStorage.getItem('agent_id')) {
-          $('.add-custom-link-btn').html('');
+        if (agent_id == localStorage.getItem('agent_id')) {
+          $('.add-custom-link-btn').show();
         }
 
         if (data['average_review_rate'] === undefined) {
@@ -235,7 +232,7 @@ function load_agent(ignore_city = true) {
         });
         initTransactionMap(coordinates);
 
-        //agentProfileViewTrack()
+        agentProfileViewTrack()
     }).fail(function (err) {
         console.log(err);
     });
