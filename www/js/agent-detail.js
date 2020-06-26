@@ -163,7 +163,6 @@ function load_agent(ignore_city = true) {
           } else {
             $('#' + v).attr('href', data[v]);
           }
-          console.log($('#'+v).html())
         });
 
         $('.brokerage_info').html(brokerage_info.toLowerCase());

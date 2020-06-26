@@ -352,18 +352,16 @@
                                                 <div class="rating">
                                                     <div class="row has-review">
                                                         <div class="agent-rating"></div>
-                                                        <div class="review-link" style="float: left; margin-left:10px;">
+                                                        <div class="review-link" style="margin-left:10px;">
                                                             <span class="reviews-count"></span> Reviews
                                                         </div>
-                                                        <a href="#" id="review-modal" data-toggle="modal"
+                                                        <!-- <a href="#" id="review-modal" data-toggle="modal"
                                                             data-target="#exampleModal" style="display: inline-block">
-                                                            Details?</a>
+                                                            Details?</a> -->
                                                     </div>
                                                 </div>
-                                                <div class="row no-review" style="display: none;">
-                                                    <div class="review-link" style="float: left;">
-                                                        No reviews yet
-                                                    </div>
+                                                <div class="no-review" style="display: none;">
+                                                    <div class="review-link">No reviews yet</div>
                                                 </div>
                                                 <p style="margin-bottom: 5px" class="agent-specialties">
                                                     <strong>Specialties:</strong> <span
@@ -690,8 +688,7 @@
 
                                             </div>
 
-                                            <div id='leads-form' class="pht-agent-content"
-                                                style="display: None; ">
+                                            <div id='leads-form' class="pht-agent-content" style="display: None; ">
                                                 <h5>What is the best way for <span class="agent_name">[Agent
                                                         Name]</span> to reach you?</h5>
                                                 <form style="text-align: left;margin-top:10px">
@@ -723,15 +720,20 @@
                                                         <label for="lead_email"
                                                             class="col-sm-3 col-form-label">Notes:</label>
                                                         <div class="col-sm-9">
-                                                            <input class="form-control" type="email" id="lead_message"
-                                                                name="text" placeholder="Message">
+                                                            <textarea class="form-control" name="text"
+                                                                placeholder="Message" id="lead_message"
+                                                                rows="2"></textarea>
+
                                                         </div>
                                                     </div>
                                                     <div class="pth-agent-two-right-button
-                                                        text-left msg" style='clear: both; color:red; margin-bottom:5px'>
+                                                        text-left msg"
+                                                        style='clear: both; color:red; margin-bottom:5px'>
                                                     </div>
-                                                    <button id="lead-submit" type="submit" class="btn pth-agent-two-right-button"
-                                                        style="width:100%; background-color:#4999B2"  onclick="return false;" href="">
+                                                    <button id="lead-submit" type="submit"
+                                                        class="btn pth-agent-two-right-button"
+                                                        style="width:100%; background-color:#4999B2"
+                                                        onclick="return false;" href="">
                                                         Submit</button>
                                                 </form>
                                                 <!-- Rewrite Form At Top -->
