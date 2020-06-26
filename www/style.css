@@ -161,7 +161,15 @@
  }
  .form-style .form-group {
      margin-bottom: 30px;
+     
  }
+.social-login{
+     margin-bottom: 20px;
+}
+.g-signin2{
+    float: right;
+  
+}
  textarea.public-note-text.form-control {
      border-radius: 0px !important;
      background-color: #FFFFFF;
