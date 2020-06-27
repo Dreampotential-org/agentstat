@@ -97,3 +97,17 @@ function getCustomLink() {
         console.log(err);
     });
 }
+
+function getCustomLinkSlug() {
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('q')) {
+        return urlParams.get('q');
+    } else {
+        var pathname = window.location.pathname;
+        var splitPathname = pathname.split('/');
+        if (splitPathname[1] == 'profile') {
+            return splitPathname[4];
+        }
+    }
+    return '';
+}

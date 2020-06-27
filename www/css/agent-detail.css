@@ -121,10 +121,10 @@
     }
 }
 
-.pth-sold-wrapper .pth-all-table {
+/* .pth-sold-wrapper .pth-all-table {
     margin: 0 0 -62px -73px;
     width: 115%;
-}
+} */
 #city-table [class^='score'] {
     height: 53px;
 }

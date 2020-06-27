@@ -380,6 +380,7 @@ function sortByCity(agent_scores) {
     
     var finalData = [];
     var counter = 0;
+    var badgesArr = [];
     $.each(cities, function(k,v){
         var cityTypeData = [];
         $.each(agent_scores, function(k1,v1){
@@ -389,22 +390,12 @@ function sortByCity(agent_scores) {
                     matchedScoreObj = v1;
                 }
 
-                if (v1['home_type'] === null && counter < 5) {
-                    $('#badges-top-rank').show();
-
+                if (v1['home_type'] === null) {
                     var agent_percentage = agentTopPercentage(v1['agent_rank'], v1['rank_count']);
-                    var html = `
-                    <div class="block-col">
-                        <div class="block">
-                            <strong class="heading" id="cvtext-`+counter+`">`+v1['city']+`</strong>
-                            <strong class="text">TOP</strong>
-                            <span class="percantege">`+agent_percentage+`%</span>
-                        </div>
-                    </div>
-                    `;
-                    $('#badges-top-rank').append(html);
-
-                    new CircleType(document.getElementById('cvtext-'+counter)).radius(150);
+                    badgesArr.push({
+                        'agent_percentage':agent_percentage,
+                        'city':v1['city']
+                    });
                 }
             }
         });
@@ -412,6 +403,29 @@ function sortByCity(agent_scores) {
         $.each(sortedType, function(k2,v2){
             finalData.push(v2)
         });
+    });
+
+    badgesArr.sort(function(a, b) {
+        return a.agent_percentage - b.agent_percentage;
+    });
+
+    $.each(badgesArr, function(k,v){
+        $('#badges-top-rank').show();
+        if (counter < 5) {
+            var splitCity = v['city'].split(' ');
+            var html = `
+            <div class="block-col">
+                <div class="block">
+                    <strong class="heading" id="cvtext-`+counter+`">`+splitCity[0]+`</strong>
+                    <strong class="text">TOP</strong>
+                    <span class="percantege">`+v['agent_percentage']+`%</span>
+                </div>
+            </div>
+            `;
+            $('#badges-top-rank').append(html);
+
+            new CircleType(document.getElementById('cvtext-'+counter)).radius(150);
+        }
         counter++;
     });
 
@@ -663,20 +677,35 @@ function populate_custom_links(data) {
             <td class="table-column"><p style="margin-top: 10px;">` + dateFormat(v['created_at'], true) +`</p></td>
             <td class="table-column"><a target="_blank" href="`+customUrl+`">www.agentstat.com`+customUrl+`</a></td>
             <td class="table-column">` + filterObj.allFilter +`</td>
-            <td class="table-column">` + '33' +`</td>
-            <td class="table-column">` + '100' +`</td>
-            <td class="table-column">` + '50' +`</td>
+            <td class="table-column">` + v['total_view'] +`</td>
+            <td class="table-column">` + v['contact_request'] +`</td>
+            <td class="table-column">` + v['unique_visitor'] +`</td>
             <td class="table-column"><a href="javascript:void(0)" class="delete-custom-link" data-id="`+v['id']+`">` + 'Delete Link' +`</a></td>
         </tr>
         `;
 
         $('#custom-links-table-body').append(rowHtml);
     });
+
+    $('#custom-links-table').dataTable({
+        "bSort" : false,
+        "bLengthChange": false,
+        "pageLength": 10,
+        "dom": 'lrtip',
+        "language": {
+            paginate: {
+                next: '»',
+                previous: '«'
+            }
+          }
+    });
 }
 
 function agentTopPercentage(rank, count) {
     var agent_percentage = rank / count * 100;
-    return Math.round(agent_percentage);
+    agent_percentage = Math.round(agent_percentage);
+    agent_percentage = (agent_percentage == 0) ? 1 : agent_percentage;
+    return agent_percentage;
 }
 
 function calculateSuccessRate(failed_listings, sold_listings) {
