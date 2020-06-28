@@ -365,15 +365,17 @@ function sortByCity(agent_scores) {
     var cityMatchedArr = [];
     var citiesArr = [];
     $.each(agent_scores, function(k,v){
-        var cityVal = v['city'].toLowerCase();
-        if (qCity==cityVal) {
-            if(cityMatchedArr.indexOf(cityVal) === -1){
-                cityMatchedArr.push(cityVal);
-            } 
-        } else {
-            if(citiesArr.indexOf(cityVal) === -1){
-                citiesArr.push(cityVal);
-            } 
+        if (v['city'] !== null) {
+            var cityVal = v['city'].toLowerCase();
+            if (qCity==cityVal) {
+                if(cityMatchedArr.indexOf(cityVal) === -1){
+                    cityMatchedArr.push(cityVal);
+                } 
+            } else {
+                if(citiesArr.indexOf(cityVal) === -1){
+                    citiesArr.push(cityVal);
+                } 
+            }
         }
     });
     var cities = cityMatchedArr.concat(citiesArr);
@@ -384,7 +386,7 @@ function sortByCity(agent_scores) {
     $.each(cities, function(k,v){
         var cityTypeData = [];
         $.each(agent_scores, function(k1,v1){
-            if (v == v1['city'].toLowerCase()) {
+            if (v1['city'] !== null && v == v1['city'].toLowerCase()) {
                 cityTypeData.push(v1);
                 if (qCity == v1['city'].toLowerCase() && v1['home_type'] === null) {
                     matchedScoreObj = v1;
@@ -573,7 +575,7 @@ function populate_cities(agent_scores) {
     //             next: '»',
     //             previous: '«'
     //         }
-    //       }
+    //     },
     // });
 }
 
@@ -595,14 +597,14 @@ $(document).on('click', '.down-arrow-city', function(){
 $(document).on('click', '.remove-city-filter', function(){
     $(this).hide();
     cityFilter = '';
-    set_agent_tabs_default(agentProfileData);
+    setOverallAgentScore();
     populate_cities(cityScoreAllData);
 });
 
 $(document).on('click', '.remove-property-filter', function(){
     $(this).hide();
     propertyTypeFilter = '';
-    set_agent_tabs_default(agentProfileData);
+    setOverallAgentScore();
     populate_cities(cityScoreAllData);
 });
 
@@ -712,3 +714,36 @@ function calculateSuccessRate(failed_listings, sold_listings) {
     var percantege =  (100 - ((failed_listings / sold_listings) * 100));
     return Math.round(percantege);
 }
+
+function setOverallAgentScore() {
+    var successRate = calculateSuccessRate(agentOverallScoreObj['failed_listings'], agentOverallScoreObj['sold_listings']);
+
+    $('.overall_score').html(successRate+'%');
+    $("#overall-avg-dom").html(Math.round(agentOverallScoreObj['avg_dom']));
+    $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_price']));
+    $('.overall_sold_listings').html(agentOverallScoreObj['sold_listings']);
+    
+}
+
+function ifFilterMatched() {
+    if (Object.keys(matchedScoreObj).length > 0) {
+        var successRate = calculateSuccessRate(matchedScoreObj['failed_listings'], matchedScoreObj['sold_listings']);
+        $('#overall-score').html(successRate+'%');
+        
+
+        if (matchedScoreObj['avg_dom']) {
+            var city_avg_dom = Math.round(matchedScoreObj['avg_dom']);
+            $('#overall-avg-dom').html(city_avg_dom);
+        }
+    
+        if (matchedScoreObj['s2l_price']) {
+            var s2l_price = Math.round(matchedScoreObj['s2l_price']);
+            $('#overall-s2l-price').html(s2l_price);
+        }
+       
+        if (matchedScoreObj['sold_listings']) {
+            $('.overall_sold_listings').html(matchedScoreObj['sold_listings']);
+        }
+    }
+}
+
