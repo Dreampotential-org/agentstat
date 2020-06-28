@@ -1,5 +1,4 @@
 function set_agent_tabs_default(data) {
-    console.log(data);
     if (data['scores'][0] != undefined)  {
         $("#overall-avg-dom").html(data['overall_avg_dom'].toFixed(2));
         $("#overall-s2l-price").html(
@@ -8,6 +7,7 @@ function set_agent_tabs_default(data) {
 
         $('.overall_score').html('-');
     }
+    
 }
 
 function ifFilterMatched() {

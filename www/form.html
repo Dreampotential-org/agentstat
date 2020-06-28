@@ -47,6 +47,12 @@
     <link rel="stylesheet" href="/css/profile.css" />
 
     <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Cropper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
+
+
 </head>
 
 <body>
@@ -58,28 +64,31 @@
             <a class="navbar-brand form-logo" href="/">
                 <img src="/img/logo.png" alt="logo" />
             </a>
-            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
+            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
+
                 <div class="main-menu-part form-menu col-lg-12">
                     <ul class="float-left form-ulli-left">
                         <li><a href="/inbox/">Inbox </a></li>
                         <li><a href="/reports/">Reporting </a></li>
-                        <li><a href="/past-sales/">Past Sales  </a></li>
+                        <li><a href="/past-sales/">Past Sales </a></li>
                         <li><a href="/referrals/">Referrals</a></li>
                         <li><a href="/team/">Team </a></li>
                     </ul>
                     <ul class="float-right user-icon form-ulli-right">
                         <li>
                             <div class="dropdown profile show">
-                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span><i class="fas fa-user-circle"></i></span>
                                 </a>
-    
+
                                 <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item " href="/inbox/">
                                         <p>Dashboard</p>
@@ -97,574 +106,639 @@
                 </div>
             </div>
         </nav>
-    
+
     </div>
     <!-- header-area end -->
 
     <div class="full-formx">
 
-            <!-- profile area start -->
-            <div class="profile">
-                <div class="container">
+        <!-- profile area start -->
+        <div class="profile">
+            <div class="container">
 
 
-                    <div class="profile-heading">
-                        <h2>Profile Settings</h2>
-                        <h4>BASIC INFORMATION</h4>
+
+                <div class="row" style="margin-top:20px">
+                    <div class="col-md-4">
+                        <!-- <img class="my-image"
+                            src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg" /> -->
+                            <img class="my-image" src=""/>
                     </div>
                 </div>
+
+
+
+
+                <div class="profile-heading">
+                    <h2>Profile Settings</h2>
+                    <h4>BASIC INFORMATION</h4>
+                </div>
             </div>
-            <!-- profile area end -->
+        </div>
+        <!-- profile area end -->
 
-            <!-- form-area start -->
-            <div class="form">
-                <div class="container">
-                    <div class="form-wrapper">
-                        <div class="row h-100">
-                          <div class="col-lg-6 mx-auto">
-                            <div class="alert alert-danger msg" role="alert"
-                              style="display: none">
-                            </div>
-                          </div>
-                        </div>
+        <!-- form-area start -->
+        <div class="form">
+            <div class="container">
+                <div class="form-wrapper">
 
-                        <div class="basic-form-info">
-                            <div class="form-name ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="fn-left">
-                                            <p>Full name </p>
-                                        </div>
+
+                    <div class="basic-form-info">
+                        <div class="form-name ml-5">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="fn-left">
+                                        <p>Full name </p>
                                     </div>
-                                    <div class="col-lg-9">
-                                        <div class="fn-right">
-                                            <!-- <input type="text" id="first_name" name="text" placeholder="Anna">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="fn-right">
+                                        <!-- <input type="text" id="first_name" name="text" placeholder="Anna">
                                             <input class="ml-2" id="last_name" type="text" name="text" placeholder="Kovalevich"> -->
 
-                                            <input type="text" id="first_name" name="text" placeholder="Enter First Name" readonly>
-                                            <input class="ml-2" id="last_name" type="text" name="text" placeholder="Enter Last Name" readonly>
-                                        </div>
+                                        <input type="text" id="first_name" name="text" placeholder="Enter First Name"
+                                            readonly>
+                                        <input class="ml-2" id="last_name" type="text" name="text"
+                                            placeholder="Enter Last Name" readonly>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-name ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="fn-left">
-                                            <p>Phone Number <span id="start">*</span></p>
-                                        </div>
+                        <div class="form-name ml-5">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="fn-left">
+                                        <p>Phone Number <span id="start"></span></p>
                                     </div>
-                                    <div class="col-lg-9">
-                                        <div class="fn-right">
-                                            <input type="text" id="phone_number_1" placeholder="xxx" maxlength="3" pattern="\d{3}" class="col-lg-1">
-                                            <input type="text" id="phone_number_2" placeholder="xxx" maxlength="3" pattern="\d{3}" class="col-lg-1">
-                                            <input type="text" id="phone_number_3" placeholder="xxxx" maxlength="4" pattern="\d{4}" class="col-lg-1">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="fn-right">
+                                        <input type="text" id="phone_number_1" placeholder="xxx" maxlength="3"
+                                            pattern="\d{3}" class="col-lg-1">
+                                        <input type="text" id="phone_number_2" placeholder="xxx" maxlength="3"
+                                            pattern="\d{3}" class="col-lg-1">
+                                        <input type="text" id="phone_number_3" placeholder="xxxx" maxlength="4"
+                                            pattern="\d{4}" class="col-lg-1">
 
-                                            <i class="fa fa-info-circle" data-toggle="tooltip" title="This is required because this is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
-                                        </div>
+                                        <i class="fa fa-info-circle" data-toggle="tooltip"
+                                            title="This is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-name ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="fn-left">
-                                            <p>Email </p>
-                                        </div>
+                        <div class="form-name ml-5">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="fn-left">
+                                        <p>Email </p>
                                     </div>
-                                    <div class="col-lg-9">
-                                        <div class="fn-right">
-                                            <input style="width: 300px;"
-                                            id="email" type="email" required name="text" placeholder="agentname@brokerage.com">
-                                        </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="fn-right">
+                                        <input style="width: 300px;" id="email" type="email" required name="text"
+                                            placeholder="agentname@brokerage.com">
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="screen-name ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3 align-self-center">
-                                        <div class="sn-left">
-                                            <p id="lebel">Screen name
-                                                <!-- <span id="start">**</span> -->
-                                            </p>
-                                        </div>
+                        <div class="screen-name ml-5">
+                            <div class="row">
+                                <div class="col-lg-3 align-self-center">
+                                    <div class="sn-left">
+                                        <p id="lebel">Screen name
+                                            <!-- <span id="start">**</span> -->
+                                        </p>
                                     </div>
-                                    <div class="col-lg-9">
-                                        <div class="sn-right input_fields_wrap">
-                                            <input required type="text" id="screen_name" name="text" placeholder="Enter Screen Name" style="width: 300px">
-                                            <p>Profile URL :
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="sn-right input_fields_wrap">
+                                        <input required type="text" id="screen_name" name="text"
+                                            placeholder="Enter Screen Name" style="width: 300px">
+                                        <p>Profile URL :
                                             www.agentstat.com/profile/<span id="profile_slug"></span>/</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
-                            <div class="screen-name ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3 align-self-center">
-                                        <div class="sn-left">
-                                            <p id="lebel">Agent Profile</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <div class="sn-right">
-                                          <div id="agent-connector">
-                                          </div>
-                                        </div>
+                        </div>
+                        <div class="screen-name ml-5">
+                            <div class="row">
+                                <div class="col-lg-3 align-self-center">
+                                    <div class="sn-left">
+                                        <p id="lebel">Agent Profile</p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="file ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="file-left">
-                                            <p id="lebel">Profile photo
-                                                <!-- <span id="start">**</span>  -->
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <div class="file-right">
-                                            <input id="picture" type="file" name="file" onchange="readURL(this);" />
-                                        </div>
-                                        <div class="up-photo" style="text-align: center;">
-                                            <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
-                                            <img id="profile-img"  alt="">
+                                <div class="col-lg-9">
+                                    <div class="sn-right">
+                                        <div id="agent-connector">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="basic-form-info">
-                            <div class="profile-heading">
-                                <h4>License Information</h4>
-                            </div>
-
-                            <div class="licence ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3 align-self-end">
-                                        <div class="li-left">
-                                            <p class="mb-0" id="lebel">License Number </p>
-                                        </div>
+                        <div class="file ml-5">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="file-left">
+                                        <p id="lebel">Profile photo
+                                            <!-- <span id="start">**</span>  -->
+                                        </p>
                                     </div>
-                                    <div class="col-lg-9">
-                                        <div class="fn-right">
-                                            <input type="text" id="license_no_1" placeholder="Number(xxxxxx)" class="col-lg-2">
-                                            <input type="text" id="license_no_2" placeholder="State(xx)" class="col-lg-2">
-                                            <input type="text" id="license_no_3" placeholder="Date(dd/mm/yyyy)" class="col-lg-2">
-                                            <button id="add-license" class="inline-btn">Add</button>
-                                        </div>
-                                        
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="file-right">
+                                        <input id="picture" type="file" name="file" onchange="readURL(this);" />
                                     </div>
-
-                                    <div class="col-lg-3 align-self-end">
-                                        <div class="li-left">
-                                            <p class="mb-0" id="lebel"></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9" style="margin-top: 5px;">
-                                        <div id="added-license">
-                                        </div>
+                                    <div class="up-photo" style="text-align: center;">
+                                        <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
+                                        <img id="profile-img" alt="">
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
+                    <div class="basic-form-info">
+                        <div class="profile-heading">
+                            <h4>License Information</h4>
+                        </div>
 
-
-                            <div class="licence ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3 align-self-end">
-                                        <div class="li-left">
-                                            <p class="mb-0" id="lebel">Brokerage Name </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <div class="li-right br-right">
-                                            <input type="text" id="brokerage_name" name="" placeholder="Keller Williams Grenter Settle">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="licence ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3 align-self-end">
-                                        <div class="li-left">
-                                            <p class="mb-0" id="lebel">Brokerage Address </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <div class="li-right br-right">
-                                            <input type="text" id="brokerage_address" name="" placeholder="1307 N 45th St #300">
-                                        </div>
+                        <div class="licence ml-5">
+                            <div class="row">
+                                <div class="col-lg-3 align-self-end">
+                                    <div class="li-left">
+                                        <p class="mb-0" id="lebel">License Number </p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="licence ml-5">
-                                <div class="row">
-                                    <div class="col-lg-3 align-self-end">
-                                        <div class="li-left">
-                                            <p class="mb-0" id="lebel">City, State, ZIP</p>
-                                        </div>
+                                <div class="col-lg-9">
+                                    <div class="fn-right">
+                                        <input type="text" id="license_no_1" placeholder="License #" class="col-lg-2">
+                                        <select style= "border-radius: 3px;padding:5px" class="col-lg-3 li-right" id="license_no_2">
+                                            <option>select state</option>
+                                        </select>
+                                        <!-- <input type="text" id="license_no_2" placeholder="State" class="col-lg-2"> -->
+                                        <input type="date" id="license_no_3" placeholder="MM/DD/YYY" class="col-lg-3">
+                                        <button id="add-license" class="inline-btn">Add</button>
                                     </div>
-                                    <div class="col-lg-9">
-                                        <div class="li-right sl-right">
-                                            <input type="text" name="" id="city" placeholder="Settle" class="mr-2">
-                                            <input type="text" name=""
-                                            id="state" placeholder="WA" class="mr-2">
 
-                                            <input type="text" id="zipcode" name="" placeholder="98103">
-                                        </div>
+                                </div>
+
+                                <div class="col-lg-3 align-self-end">
+                                    <div class="li-left">
+                                        <p class="mb-0" id="lebel"></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9" style="margin-top: 5px;">
+                                    <div id="added-license">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="language">
-
-                            <div class="profile-heading">
-                                <h4>HIGHLIGHTS</h4>
-                            </div>
-                            <div class="highlight-wrpper pl-5">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="la-left">
-                                            <p id="lebel">
-                                                Language fluency <small>(Optional)</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="la-right">
-                                            <div id="languages"  class="row" style="width:700px">
-
-                                            </div>
 
 
-                                            <div class="collapse" id="collapseExample">
-                                                <div id="morelanguages" class="row" style="width: 700px">
-
-
-                                                </div>
-                                            </div>
-                                            <a class="trigger-more collapsed" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">More</a>
-                                        </div>
+                        <div class="licence ml-5">
+                            <div class="row">
+                                <div class="col-lg-3 align-self-end">
+                                    <div class="li-left">
+                                        <p class="mb-0" id="lebel">Brokerage Name </p>
                                     </div>
                                 </div>
-
-                                <!-- year area start -->
-                                <div class="row year">
-                                    <div class="container">
-                                        <div class="year-wrapper">
-                                            <p>Years in business: <input type="text" id="years_in_bussiness"></p>
-                                            <span>Specialties</span>
-                                            <div class="year-wrapper-check row" id="specialties" style="margin-left:10px;width: 450px;margin-top: 20px;">
-                                            </div>
-                                        </div>
+                                <div class="col-lg-9">
+                                    <div class="li-right br-right">
+                                        <input type="text" id="brokerage_name" name="" placeholder="Brokerage Name">
                                     </div>
                                 </div>
-
-                                <!-- year area start -->
                             </div>
-
                         </div>
+
+                        <div class="licence ml-5">
+                            <div class="row">
+                                <div class="col-lg-3 align-self-end">
+                                    <div class="li-left">
+                                        <p class="mb-0" id="lebel">Brokerage Address</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="li-right br-right">
+                                        <input type="text" id="brokerage_address" name="" placeholder="Street Address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="licence ml-5">
+                            <div class="row">
+                                <div class="col-lg-3 align-self-end">
+                                    <div class="li-left">
+                                        <p class="mb-0" id="lebel">City, State, ZIP</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="li-right sl-right">
+                                        <input type="text" name="" id="city" placeholder="City" class="mr-2">
+                                        <select style= "border-radius: 3px;padding:5px" class="col-lg-3 li-right mr-2" id="state" name="">
+                                            <option>select state</option>
+                                        </select>
+                                        <!-- <input type="text" name="" id="state" placeholder="State" class="mr-2"> -->
+
+                                        <input type="text" id="zipcode" name="" placeholder="Zipcode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="language">
+
+                        <div class="profile-heading">
+                            <h4>HIGHLIGHTS</h4>
+                        </div>
+                        <div class="highlight-wrpper pl-5">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="la-left">
+                                        <p id="lebel">
+                                            Language fluency <small>(Optional)</small>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="la-right">
+                                        <div id="languages" class="row" style="width:700px">
+
+                                        </div>
+
+
+                                        <div class="collapse" id="collapseExample">
+                                            <div id="morelanguages" class="row" style="width: 700px">
+
+
+                                            </div>
+                                        </div>
+                                        <a class="trigger-more collapsed" role="button" data-toggle="collapse"
+                                            href="#collapseExample" aria-expanded="false"
+                                            aria-controls="collapseExample">More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- year area start -->
+                            <div class="row year" style="margin-top:20px">
+                                <div class="container">
+                                    <div class="year-wrapper">
+                                        <p><strong>In Business Since</strong> <small>(Optional) </small>
+                                            <!-- <input type="text" id="years_in_bussiness"> -->
+                                            <select
+                                                style="margin-left: 35px;border-radius: 3px;padding:5px"
+                                                id="years_in_bussiness">
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2014">2014</option>
+                                                <option value="2013">2013</option>
+                                                <option value="2012">2012</option>
+                                                <option value="2011">2011</option>
+                                                <option value="2010">2010</option>
+                                                <option value="2009">2009</option>
+                                                <option value="2008">2008</option>
+                                                <option value="2007">2007</option>
+                                                <option value="2006">2006</option>
+                                                <option value="2005">2005</option>
+                                                <option value="2004">2004</option>
+                                                <option value="2003">2003</option>
+                                                <option value="2002">2002</option>
+                                                <option value="2001">2001</option>
+                                                <option value="2000">2000</option>
+                                                <option value="before 2000">Before 2000</option>
+                                            </select>
+                                        </p>
+                                        <span>Specialties</span>
+                                        <div class="year-wrapper-check row" id="specialties"
+                                            style="margin-left:10px;width: 450px;margin-top: 20px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- year area start -->
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <!-- form-area end -->
+        </div>
+        <!-- form-area end -->
 
-            <!-- agent-area start -->
-            <div class="agent">
-                <div class="container">
-                    <div class="agent-wrapper">
-                        <p></p>
-                    </div>
+        <!-- agent-area start -->
+        <div class="agent">
+            <div class="container">
+                <div class="agent-wrapper">
+                    <p></p>
                 </div>
             </div>
-            <!-- agent-area end -->
+        </div>
+        <!-- agent-area end -->
 
-            <!-- addi area start -->
-            <div class="addi">
-                <div class="container">
-                    <div class="addi-wapper">
-                        <div class="addi-one">
-                            <h4 style="font-size: 20px">COMMISSION</h4>
-                            <div class="add-check">
-                                <input type="checkbox" class="combo-checkboxes" id="listing_fee_checkbox" target='listing_fee'>
-								                <span class="checkmark"></span>
-                                <label class="check-box" for="listing_fee_checkbox">Listing fees...</label>
-                                <div>
-                                  <select style="margin-left: 0px !important;" id="listing_fee"></select>
-                                </div>
-                            </div>
-
-                            <div class="add-check">
-                                <input type="checkbox" class="combo-checkboxes" target='buyer_rebate' id="buyer_rebate_checkbox">
-                                <span class="checkmark"></span>
-                                <label class="check-box" for="buyer_rebate_checkbox">Buyer Rebate</label>
-                                <div>
-                                  <select style="margin-left: 0px !important;" id="buyer_rebate"></select>
-                                </div>
-                                <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
+        <!-- addi area start -->
+        <div class="addi">
+            <div class="container">
+                <div class="addi-wapper">
+                    <div class="addi-one">
+                        <h4 style="font-size: 20px">COMMISSION</h4>
+                        <div class="add-check">
+                            <input type="checkbox" class="combo-checkboxes" id="listing_fee_checkbox"
+                                target='listing_fee'>
+                            <span class="checkmark"></span>
+                            <label class="check-box" for="listing_fee_checkbox">Listing fees</label>
+                            <div>
+                                <select style="margin-left: 0px !important;" id="listing_fee">
+                                <option value = ''>Select</option>
                                 </select>
                             </div>
+                        </div>
 
-                            <div class="add-check">
-                                <input type="checkbox" class="combo-checkboxes" target='type_of_listing_service' id="type_of_listing_service_checkbox">
-                                <span class="checkmark"></span>
-                                <label class="check-box" for="type_of_listing_service_checkbox">Type of listing services</label>
-
-                                <div>
-                                  <select style="margin-left: 0px !important;" id="type_of_listing_service"></select>
-                                </div>
+                        <div class="add-check">
+                            <input type="checkbox" class="combo-checkboxes" target='buyer_rebate'
+                                id="buyer_rebate_checkbox">
+                            <span class="checkmark"></span>
+                            <label class="check-box" for="buyer_rebate_checkbox">Buyer Rebate</label>
+                            <div>
+                                <select style="margin-left: 0px !important;" id="buyer_rebate">
+                                    <option value = ''>Select</option>
+                                </select>
                             </div>
+                            <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
+                            </select>
+                        </div>
 
-                            <div class="add-check">
-                                <input id="provide_cma" type="checkbox">
-                                <span class="checkmark"></span>
-                                <label class="check-box">I Provide CMAs</label>
+                        <div class="add-check">
+                            <input type="checkbox" class="combo-checkboxes" target='type_of_listing_service'
+                                id="type_of_listing_service_checkbox">
+                            <span class="checkmark"></span>
+                            <label class="check-box" for="type_of_listing_service_checkbox">Type of listing
+                                services</label>
+
+                            <div>
+                                <select style="margin-left: 0px !important;" id="type_of_listing_service">
+                                    <option value = ''>Select</option>
+                                </select>
                             </div>
+                        </div>
+
+                        <div class="add-check">
+                            <input id="provide_cma" type="checkbox">
+                            <span class="checkmark"></span>
+                            <label class="check-box">I Provide CMAs</label>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- addi area end -->
+        </div>
+        <!-- addi area end -->
 
-            <!-- review area start -->
-            <div class="review mt-3">
-                <div class="container">
-                    <div class="review-wrapper">
-                        <h4 style="font-size: 20px;width: auto;float: left;">REVIEWS</h4>
-                        <a name='reviews' style="margin-left:10px;"></a>
-                        <!-- Button trigger modal -->
-                        <button type="button" data-toggle="modal" data-target="#exampleModal">Add</button>
-                    </div>
+        <!-- review area start -->
+        <div class="review mt-3">
+            <div class="container">
+                <div class="review-wrapper">
+                    <h4 style="font-size: 20px;width: auto;float: left;">REVIEWS</h4>
+                    <a name='reviews' style="margin-left:10px;"></a>
+                    <!-- Button trigger modal -->
+                    <button type="button" data-toggle="modal" data-target="#exampleModal">Add</button>
+                </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-size" role="document" style="transform: translateY(20%);">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <div class="review-body">
-                                        <p>Add a Review</p>
-                                        <input class="backcolorInput" id="review-name" type="text" name="text" placeholder="Reviewer name">
-                                        <input class="backcolorInput" id="review-email" type="text" name="text" placeholder="Reviewer e-mail">
-                                        <input placeholder="Date of review" class="textbox-n backcolorInput" type="text" id="review-date">
-                                        <textarea class="backcolorInput" id="review" placeholder="Review"></textarea>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-size" role="document" style="transform: translateY(20%);">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="review-body">
+                                    <p>Add a Review</p>
+                                    <input class="backcolorInput" id="review-name" type="text" name="text"
+                                        placeholder="Reviewer name">
+                                    <input class="backcolorInput" id="review-email" type="text" name="text"
+                                        placeholder="Reviewer e-mail">
+                                    <input placeholder="Date of review" class="textbox-n backcolorInput" type="text"
+                                        id="review-date">
+                                    <textarea class="backcolorInput" id="review" placeholder="Review"></textarea>
 
 
-                                        <div class="review-categories"> 
+                                    <div class="review-categories">
 
-                                          <div class="row">
+                                        <div class="row">
                                             <div class="col-lg-6" id="category-1">
 
                                             </div>
                                             <div class="col-lg-6">
-                                              <div class="rating" id='rating-category-1' data-rate-value=5></div>
+                                                <div class="rating" id='rating-category-1' data-rate-value=5></div>
                                             </div>
-                                          </div>
+                                        </div>
 
-                                          <div class="row">
+                                        <div class="row">
                                             <div class="col-lg-6" id="category-2">
 
                                             </div>
                                             <div class="col-lg-6">
-                                              <div class="rating" id='rating-category-2' data-rate-value=5></div>
+                                                <div class="rating" id='rating-category-2' data-rate-value=5></div>
                                             </div>
-                                          </div>
+                                        </div>
 
-                                          <div class="row">
+                                        <div class="row">
                                             <div class="col-lg-6" id="category-3">
 
                                             </div>
                                             <div class="col-lg-6">
-                                              <div class="rating" id='rating-category-3' data-rate-value=5></div>
+                                                <div class="rating" id='rating-category-3' data-rate-value=5></div>
                                             </div>
-                                          </div>
+                                        </div>
 
-                                          <div class="row">
+                                        <div class="row">
                                             <div class="col-lg-6" id="category-4">
 
                                             </div>
                                             <div class="col-lg-6">
-                                              <div class="rating" id='rating-category-4' data-rate-value=5></div>
+                                                <div class="rating" id='rating-category-4' data-rate-value=5></div>
                                             </div>
-                                          </div>
+                                        </div>
 
-                                          <div class="row">
+                                        <div class="row">
                                             <div class="col-lg-6" id="category-5">
 
                                             </div>
                                             <div class="col-lg-6">
-                                              <div class="rating" id='rating-category-5' data-rate-value=5></div>
+                                                <div class="rating" id='rating-category-5' data-rate-value=5></div>
                                             </div>
-                                          </div>
+                                        </div>
 
-                                          <div class="row">
+                                        <div class="row">
                                             <div class="col-lg-6" id="category-6">
 
                                             </div>
                                             <div class="col-lg-6">
-                                              <div class="rating" id='rating-category-6' data-rate-value=5></div>
+                                                <div class="rating" id='rating-category-6' data-rate-value=5></div>
                                             </div>
-                                          </div>
-
                                         </div>
-
-                                        <div class="text-center">
-                                            <button class="backcolorInput" id="review-add-btn">Add</button>
-                                        </div>
-                                        <div class="text-center" id="review-msg"></div>
 
                                     </div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
+                                    <div class="text-center">
+                                        <button class="backcolorInput" id="review-add-btn">Add</button>
+                                    </div>
+                                    <div class="text-center" id="review-msg"></div>
 
-                </div>
-            </div>
-            <!-- review area end -->
-
-            <!-- slider area start -->
-            <div id="review-div" class="slider">
-                <div class="container">
-                    <div class="slier-bordr">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="reviews-list" class="reviews-slider">
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
+
             </div>
-            <!-- slider area end -->
+        </div>
+        <!-- review area end -->
 
-            <div class="review mt-3">
-                <div class="container">
-                    <div class="review-wrapper">
-                        <h4 style="font-size: 20px;">SOCIAL MEDIA</h4>
-                        <!-- Button trigger modal -->
-                    </div>
-
-                    <div class="row" style="margin-left:10px">
-                        <div class="col-lg-3 align-self-end">
-                            <div class="li-left">
-                                <p class="mb-0">Website (Optional)</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="li-right br-right">
-                                <input type="text" id="website" placeholder="http://www.yourcompany.com">
-                            </div>
-                        </div>
-                    </div>
-                  
-                    <div class="row" style="margin:10px 0px 0px 10px">
-                        <div class="col-lg-3 align-self-end">
-                            <div class="li-left">
-                                <p class="mb-0">Blog (Optional)</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="li-right br-right">
-                                <input type="text" id="blog" placeholder="http://www.yourblog.com">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row" style="margin:10px 0px 0px 10px">
-                        <div class="col-lg-3 align-self-end">
-                            <div class="li-left">
-                                <p class="mb-0">Facebook (Optional)</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="li-right br-right">
-                                <input type="text" id="facebook" placeholder="https://www.facebook.com/[username]">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row" style="margin:10px 0px 0px 10px">
-                        <div class="col-lg-3 align-self-end">
-                            <div class="li-left">
-                                <p class="mb-0">Twitter (Optional)</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="li-right br-right">
-                                <input type="text" id="twitter" placeholder="https://twitter.com/[username]">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row" style="margin:10px 0px 0px 10px">
-                        <div class="col-lg-3 align-self-end">
-                            <div class="li-left">
-                                <p class="mb-0">Linkedin (Optional)</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="li-right br-right">
-                                <input type="text" id="linkedin" placeholder="https://www.linkedin.com/in/[username]">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- about area start -->
-            <div class="about mt-3">
-                <div class="container">
+        <!-- slider area start -->
+        <div id="review-div" class="slider">
+            <div class="container">
+                <div class="slier-bordr">
                     <div class="row">
-                        <div class="col-lg-8">
-                            <div class="about-wrapper">
-                                <p>About me </p>
-                                <textarea id="about_me" class="ml-5 mt-3" placeholder="Type Here......"></textarea>
+                        <div class="col-lg-12">
+                            <div id="reviews-list" class="reviews-slider">
                             </div>
-                            <div class="about-submit ml-5">
-                                <ul>
-                                    <li class="mr-2">
-                                      <button class="btn btn-primary submit_btn">Submit</button>
-                                    </li>
-                                    <li><a class="btn btn-secondary" href="#"> Cancel</a></li>
-                                </ul>
-                            </div>
-
-
                         </div>
-                        <div class="col-lg-4"></div>
-                    </div>
-                    <div class="row" style="margin-top:10px;">
-
-                      <div class="col-lg-2"></div>
-                      <div class="col-lg-6">
-
-                          <div class="alert alert-primary" id="alert-message"
-                            style="display: none" role="alert">
-                              Your profile has been saved.
-                          </div>
-
-                          <div class="alert alert-danger" id="validate-message" style="display: none" role="alert">
-                          </div>
-                      </div>
-                      <div class="col-lg-4"></div>
-
                     </div>
                 </div>
             </div>
-            <!-- about area end -->
+        </div>
+        <!-- slider area end -->
+
+        <div class="review mt-3">
+            <div class="container">
+                <div class="review-wrapper">
+                    <h4 style="font-size: 20px;">SOCIAL MEDIA <small>(Optional)</small></h4>
+                    <!-- Button trigger modal -->
+                </div>
+
+                <div class="row" style="margin-left:10px">
+                    <div class="col-lg-3 align-self-end">
+                        <div class="li-left">
+                            <p class="mb-0">Website </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-9" style="left: -3px;">
+                        <div class="li-right br-right">
+                            <input type="text" id="website" placeholder="Company Website Url">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin:10px 0px 0px 10px">
+                    <div class="col-lg-3 align-self-end">
+                        <div class="li-left">
+                            <p class="mb-0">Blog</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="li-right br-right">
+                            <input  type="text" id="blog" placeholder="Blog url">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin:10px 0px 0px 10px">
+                    <div class="col-lg-3 align-self-end">
+                        <div class="li-left">
+                            <p class="mb-0">Facebook</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="li-right br-right">
+                            <input type="text" id="facebook" placeholder="Facebook Profile page Url">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin:10px 0px 0px 10px">
+                    <div class="col-lg-3 align-self-end">
+                        <div class="li-left">
+                            <p class="mb-0">Twitter</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="li-right br-right">
+                            <input type="text" id="twitter" placeholder="Twitter Profile Url">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin:10px 0px 0px 10px">
+                    <div class="col-lg-3 align-self-end">
+                        <div class="li-left">
+                            <p class="mb-0">Linkedin</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="li-right br-right">
+                            <input type="text" id="linkedin" placeholder="Linkedin Profile Url">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- about area start -->
+        <div class="about mt-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="about-wrapper">
+                            <p>About me </p>
+                            <textarea id="about_me" class="ml-5 mt-3" placeholder="Type Here......"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 mx-auto">
+                                <div class="alert alert-danger msg" role="alert" style="display: none">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-submit ml-5">
+                            <ul>
+                                <li class="mr-2">
+                                    <button class="btn btn-primary submit_btn">Submit</button>
+                                </li>
+                                <li><a class="btn btn-secondary" href="#"> Cancel</a></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-6">
+
+                        <div class="alert alert-primary" id="alert-message" style="display: none" role="alert">
+                            Your profile has been saved.
+                        </div>
+
+                        <div class="alert alert-danger" id="validate-message" style="display: none" role="alert">
+                        </div>
+                    </div>
+                    <div class="col-lg-4"></div>
+
+                </div>
+            </div>
+        </div>
+        <!-- about area end -->
 
     </div>
 
@@ -682,7 +756,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="review-detail" tabindex="-1" role="dialog" aria-labelledby="review-detail" aria-hidden="true">
+    <div class="modal fade" id="review-detail" tabindex="-1" role="dialog" aria-labelledby="review-detail"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -693,14 +768,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="row review-detail-content">
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
 
     <!-- Main jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
@@ -723,12 +799,13 @@
 
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-     
+
     <!-- Custom jQuery -->
     <script src="/js/scripts.js"></script>
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://raw.githubusercontent.com/phstc/jquery-dateFormat/master/dist/jquery-dateformat.min.js"></script>
+    <script
+        src="https://raw.githubusercontent.com/phstc/jquery-dateFormat/master/dist/jquery-dateformat.min.js"></script>
 
     <!-- Bootbox confirm box -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
@@ -744,34 +821,55 @@
 
     <script src="/js/bootstrap-datepicker.min.js"></script>
 
+    <!-- Cropper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
-
     <script>
+        $(document).ready(function () {
+            $('.my-image').croppie(
+                {
+                    enableExif: true,
+                    viewport: {
+                        width: 200,
+                        height: 200
+                    },
+                    boundary: { width: 300, height: 300 },
+                    
+
+                }
+            );
+        })
+
+    </script>
+    <script>
+
         $('input[type="file"]').fileinput({
             multipleText: '{0} files',
             showMultipleNames: true,
         });
 
-        $('#more').click(function() {
+        $('#more').click(function () {
             $('.more-content').slideDown();
         });
 
-        $('#fwe').click(function() {
+        $('#fwe').click(function () {
             $('.more-content').slideUp();
         });
 
-        $('#cross').click(function() {
+        $('#cross').click(function () {
             $('#lnumber').removeAttr('placeholder')
         });
-        $(document).ready(function(){
-            $('.main-menu-part ul li a').click(function(){
+        $(document).ready(function () {
+            $('.main-menu-part ul li a').click(function () {
                 $('.main-menu-part li a').removeClass("activeLine");
                 $(this).addClass("activeLine");
             });
         });
 
-        (function($) {
+        (function ($) {
             $('[data-toggle="tooltip"]').tooltip();
             // $(document).ready(function() {
 
@@ -785,40 +883,40 @@
             // });
         })(jQuery);
 
-        $('.trigger-more').click(function(){
-        if($(this).hasClass('collapsed'))  {
-        $(this).text('Fewer');
-        } else {
-        $(this).text('More');
-        }
+        $('.trigger-more').click(function () {
+            if ($(this).hasClass('collapsed')) {
+                $(this).text('Fewer');
+            } else {
+                $(this).text('More');
+            }
 
-    });
+        });
 
-    $("#textbox").hide();
-    $("#buyer_rebate").click(function(){
+        $("#textbox").hide();
+        $("#buyer_rebate").click(function () {
 
-        console.log( $('#buyer_rebate').val())
+            console.log($('#buyer_rebate').val())
 
-        if($(this).val()=='7'){
-            $("#textbox").show();
+            if ($(this).val() == '7') {
+                $("#textbox").show();
             } else {
                 $("#textbox").hide();
             }
-    });
+        });
 
-    $( function() {
-      $( "#review-date" ).datepicker();
-    } );
+        $(function () {
+            $("#review-date").datepicker();
+        });
 
-    var str = document.getElementById("screen_name").innerHTML; 
-    var res = str.replace("-", " ");
-    document.getElementById("screen_name").innerHTML = res;
+        var str = document.getElementById("screen_name").innerHTML;
+        var res = str.replace("-", " ");
+        document.getElementById("screen_name").innerHTML = res;
 
-    var options = {
-        max_value: 5,
-        step_size: 0.5,
-    }
-    $(".rating").rate(options);
+        var options = {
+            max_value: 5,
+            step_size: 0.5,
+        }
+        $(".rating").rate(options);
 
     </script>
 

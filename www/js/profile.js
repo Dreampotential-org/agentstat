@@ -52,7 +52,7 @@ function display_profile(profile) {
 
   get_specilities(profile.specialties);
 
-  $.each(profile.licenses, function(k, val) {
+  $.each(profile.licenses, function (k, val) {
     add_license(val);
   });
 
@@ -73,6 +73,8 @@ function display_profile(profile) {
   }
 
   if (profile.listing_fee !== null) {
+    console.log(profile.listing_fee)
+    console.log('LISTING')
     $('#listing_fee').val(profile.listing_fee);
     $('#listing_fee_checkbox').prop('checked', true);
   } else {
@@ -89,13 +91,13 @@ function display_profile(profile) {
   $('#provide_cma').prop('checked', profile.provide_cma);
   $('#about_me').val(profile.about_me);
 
-  if(profile.picture != '' && profile.picture !== null ) {
+  if (profile.picture != '' && profile.picture !== null) {
     // debugger;
     $('#profile-img').prop('src', profile.picture);
     $('.up-photo').append('<button id="remove-profile-image" class="inline-btn">remove profile image</button>');
-  }else{
+  } else {
 
-    src="img/blank-profile-picture.png"
+    src = "img/blank-profile-picture.png"
     $('#profile-img').prop('src', src);
   }
 
@@ -118,7 +120,7 @@ function display_profile(profile) {
     $('#agent-connector').html(`
       <a target='_blank' href='` + profile_url + `'>` + profile.connector.agent_name + `</a> |
       <a id='connector-remove'
-        data-id='` + profile.connector.id +`'  href=''
+        data-id='` + profile.connector.id + `'  href=''
         onclick='return false;'>Remove</a>
     `);
   } else {
@@ -137,17 +139,28 @@ function get_reviews() {
   settings = get_settings('review/' + profile_id + '/', 'GET');
 
   $.ajax(settings).done(function (response) {
-      var response = JSON.parse(response);
-      agent_review(response);
-  }).fail(function(err) {
-      console.log(err);
+    var response = JSON.parse(response);
+    agent_review(response);
+  }).fail(function (err) {
+    console.log(err);
   });
 }
 
+function get_allStates() {
+  var states = null
+  $.ajax({
+    url: 'https://app.agentstat.com/api/states/',
+    async: false,
+    success: function (response) {
+      states = response
+    }
+  })
+  return states
+}
 function phonenumber_validate(inputtxt) {
   var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
-  if(inputtxt.match(phoneno)) {
+  if (inputtxt.match(phoneno)) {
     return true;
   }
   else {
@@ -160,11 +173,11 @@ function update_profile() {
   var valid = true;
   var validation_messages = '';
 
-  $.each(data_map, function(k, val) {
-    data[val] = $('#'+val).val();
+  $.each(data_map, function (k, val) {
+    data[val] = $('#' + val).val();
   });
 
-  $.each(combo_boxes, function(k, val) {
+  $.each(combo_boxes, function (k, val) {
     val = val.split('-').join('_')
     checkbox_id = '#' + val + '_checkbox'
 
@@ -174,7 +187,7 @@ function update_profile() {
     }
   });
 
-  var phone_number_concate =  $('#phone_number_1').val()+$('#phone_number_2').val()+$('#phone_number_3').val();
+  var phone_number_concate = $('#phone_number_1').val() + $('#phone_number_2').val() + $('#phone_number_3').val();
   if (phonenumber_validate(phone_number_concate) === false) {
     validation_messages += 'Invalid phone number. \n Allow Format: 123-456-7890';
     valid = false;
@@ -191,30 +204,30 @@ function update_profile() {
 
   // licences
   data['licenses'] = $('.license_number').map(
-    function() { return $(this).val() }
+    function () { return $(this).val() }
   ).get();
 
-  data['licenses'] = data['licenses'].filter(function(v){return v!==''});
+  data['licenses'] = data['licenses'].filter(function (v) { return v !== '' });
 
 
   // fluent languages
   data['language_fluencies'] = $('.lng-checkbox:checked').map(
-    function() { return $(this).val() }
+    function () { return $(this).val() }
   ).get();
 
   data['specialties'] = $('.specialty-checkbox:checked').map(
-    function() { return $(this).val() }
+    function () { return $(this).val() }
   ).get();
   data['years_in_bussiness'] = $('#years_in_bussiness').val();
 
-  data['website'] = $('#website').val();
-  data['blog'] = $('#blog').val();
-  data['facebook'] = $('#facebook').val();
-  data['twitter'] = $('#twitter').val();
-  data['Linkedin'] = $('#Linkedin').val();
+  data['website'] = formatURL($('#website').val());
+  data['blog'] = formatURL($('#blog').val());
 
+  data['facebook'] = formatURL($('#facebook').val());
+  data['twitter'] = formatURL($('#twitter').val());
+  data['Linkedin'] = formatURL($('#Linkedin').val());
   data['licenses'] = []
-  $('.license_number').each(function(k, v) {
+  $('.license_number').each(function (k, v) {
     data['licenses'].push($(v).val());
   });
 
@@ -231,41 +244,42 @@ function update_profile() {
       settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
-          $('#validate-message').css('display', 'none');
+        $('#validate-message').css('display', 'none');
 
-          var msg = JSON.parse(response);
+        var msg = JSON.parse(response);
 
-          show_message('Your profile has been saved.');
+        show_message('Your profile has been saved.');
 
-      }).fail(function(err) {
-          // alert('Got err');
-          show_error(err);
+      }).fail(function (err) {
+        // alert('Got err');
+        console.log(err)
+        show_error(err);
       });
 
     };
     reader.onerror = function (error) {
-     console.log('Error: ', error);
+      console.log('Error: ', error);
     };
   } else {
-      settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
+    settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
-      $.ajax(settings).done(function (response) {
-          $('#validate-message').css('display', 'none');
+    $.ajax(settings).done(function (response) {
+      $('#validate-message').css('display', 'none');
 
-          var msg = JSON.parse(response);
+      var msg = JSON.parse(response);
 
-          show_message('Your profile has been saved.');
-      }).fail(function(err) {
-          // alert('Got err');
-          show_error(err);
-      });
+      show_message('Your profile has been saved.');
+    }).fail(function (err) {
+      // alert('Got err');
+      show_error(err);
+    });
   }
 
 
 }
 
 function load_combo(data, combo) {
-  $.each(data, function( key, val ) {
+  $.each(data, function (key, val) {
     combo = combo.split('-').join('_')
     $('#' + combo).append(new Option(val['val'], val['id']));
   });
@@ -275,28 +289,45 @@ function get_specilities(specialty_ids) {
   settings = get_settings('specialty/', 'GET')
 
   $.ajax(settings).done(function (response) {
-      var response = JSON.parse(response);
-      $.each(response, function(k, v) {
-        checked = '';
-        if ($.inArray(v.id, specialty_ids) !== -1) {
-          checked = ' checked ';
-        }
+    var response = JSON.parse(response);
+    $.each(response, function (k, v) {
+      checked = '';
+      if ($.inArray(v.id, specialty_ids) !== -1) {
+        checked = ' checked ';
+      }
 
-        $('#specialties').append(`
+      $('#specialties').append(`
         <div class='col-lg-6 col-6'>
           <div class='year-wrapper-check-one'>
-          <input type='checkbox' ` + checked + ` value='`+ v.id +`' class='specialty-checkbox' id='specialty-` + v.id + `'>
+          <input type='checkbox' ` + checked + ` value='` + v.id + `' class='specialty-checkbox' id='specialty-` + v.id + `'>
           <label for='specialty-`+ v.id + `'>` + v.val + `</label>
         </div>
         </div>
         `);
-      });
-  }).fail(function(err) {
-      // alert('Got err');
-      console.log(err);
+    });
+  }).fail(function (err) {
+    // alert('Got err');
+    console.log(err);
   });
 
 }
+
+// ONLY Four Specialities Can be Checked
+$(document).on('change', '.specialty-checkbox', function () {
+  var current = $(this)
+  if (current.is(':checked') == true) {
+    var nchecked = 0
+    $('.specialty-checkbox').each(function () {
+      if ($(this).is(':checked') == true) {
+        nchecked += 1
+      }
+    })
+    if (nchecked > 4) {
+      alert('atmost four specialities can be checked at a time.')
+      current.prop("checked", false)
+    }
+  }
+})
 
 function get_languages(language_ids) {
   settings = get_settings('language-fluency', 'GET')
@@ -305,9 +336,9 @@ function get_languages(language_ids) {
     var language_list = JSON.parse(language_list);
     var ix = 0;
 
-    $.each(language_list, function(k, v) {
+    $.each(language_list, function (k, v) {
       checked = '';
-      if ($.inArray( v.id, language_ids) !== -1) {
+      if ($.inArray(v.id, language_ids) !== -1) {
         checked = ' checked ';
       }
 
@@ -335,7 +366,7 @@ function get_languages(language_ids) {
 
 
     });
-  }).fail(function(err) {
+  }).fail(function (err) {
     // alert('Got err');
     console.log(err);
   });
@@ -344,31 +375,31 @@ function get_languages(language_ids) {
 
 combo_boxes = ['listing-fee', 'buyer-rebate', 'type-of-listing-service'];
 
-$.each(combo_boxes, function(k, val){
-  get_combo(function(resp) { load_combo(resp, val) }, val);
+$.each(combo_boxes, function (k, val) {
+  get_combo(function (resp) { load_combo(resp, val) }, val);
 });
 
-if(localStorage.getItem('session_id')) {
-  get_profile(function(resp) { display_profile(resp) });
+if (localStorage.getItem('session_id')) {
+  get_profile(function (resp) { display_profile(resp) });
 } else {
   window.location = '/login.html';
 }
 
 
-$(document).on('change click', '.submit_btn', function() {
+$(document).on('change click', '.submit_btn', function () {
   update_profile();
 });
 
-$(document).on('change click', '#connector-remove', function() {
+$(document).on('change click', '#connector-remove', function () {
   settings = get_settings('agent-connector', 'DELETE')
 
   $.ajax(settings).done(function (response) {
-      var msg = JSON.parse(response);
-      $('#agent-connector').html('<a href="/connect-profile.html" target="_blank">Add new connection</a>');
-  }).fail(function(err) {
-      // alert('Got err');
-      console.log(err);
-      show_error(err);
+    var msg = JSON.parse(response);
+    $('#agent-connector').html('<a href="/connect-profile.html" target="_blank">Add new connection</a>');
+  }).fail(function (err) {
+    // alert('Got err');
+    console.log(err);
+    show_error(err);
   });
 });
 
@@ -377,7 +408,7 @@ $('.combo-checkboxes:checkbox').change(function () {
   target_id = $(this).attr('target');
   checked_value = $(this).prop('checked');
 
-  if(checked_value) {
+  if (checked_value) {
     $('#' + target_id).prop('disabled', false);
   } else {
     $('#' + target_id).prop('disabled', 'disabled');
@@ -392,16 +423,26 @@ $('#screen_name').keyup(function () {
   $('#verify-not').hide();
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
   var options = {
-        max_value: 5,
-        step_size: 0.5,
+    max_value: 5,
+    step_size: 0.5,
   }
 
+  // SET ALL STATES
+  var states = get_allStates()
+  Object.keys(states).forEach(function (key) {
+    $('#license_no_2').append('<option value = ' + key + '>' + states[key] + '</option>')
+    $('#state').append('<option value = ' + key + '>' + states[key] + '</option>')
+  });
+
+
+
   settings = get_settings('review-category', '');
+
   $.ajax(settings).done(function (response) {
     var msg = JSON.parse(response);
-    $.each(msg['results'], function(k, v){
+    $.each(msg['results'], function (k, v) {
       if (v.extra_info == null) {
         extra_info = '';
       } else {
@@ -409,20 +450,21 @@ $(document).ready(function(){
       }
 
       // $("#rating-category-" + v.id).rate(options);
-      $('#category-'+v.id).append(
-          v.category + ` ` + extra_info
+      $('#category-' + v.id).append(
+        v.category + ` ` + extra_info
       );
     });
 
-  }).fail(function(err) {
-      console.log(err);
-      // show_error(err);
-      $('#review-msg').html(err)
+  }).fail(function (err) {
+    console.log(err);
+    // show_error(err);
+    $('#review-msg').html(err)
   });
+
 
 });
 
-$(document).on('change click', '#review-add-btn', function() {
+$(document).on('change click', '#review-add-btn', function () {
   var data = {};
   data['full_name'] = $('#review-name').val();
   data['email'] = $('#review-email').val();
@@ -431,16 +473,16 @@ $(document).on('change click', '#review-add-btn', function() {
 
   var count = 0;
   var rateTotal = 0;
-  $('.rating').each(function() {
+  $('.rating').each(function () {
     category_id = $(this).attr('id').split('-')[2]
     rate = $(this).rate('getValue');
-    data['categories'].push({'id': category_id, 'rate': rate});
+    data['categories'].push({ 'id': category_id, 'rate': rate });
 
     rateTotal = rateTotal + parseFloat(rate);
     count++;
   });
 
-  var avgRate = rateTotal/count;
+  var avgRate = rateTotal / count;
   data['rating'] = avgRate.toFixed(1);
   // data['rate'] = $(".rating").rate("getValue");
 
@@ -459,20 +501,20 @@ $(document).on('change click', '#review-add-btn', function() {
     });
 
 
-  }).fail(function(err) {
-      console.log(err);
-      // show_error(err);
-      $('#review-msg').html(err)
+  }).fail(function (err) {
+    console.log(err);
+    // show_error(err);
+    $('#review-msg').html(err)
   });
 });
 
 
-$(document).on('change click', '.swal-button--confirm', function() {
+$(document).on('change click', '.swal-button--confirm', function () {
   window.location.href = "/profile-settings/#reviews";
   location.reload();
 });
 
-$(document).on('click', '#verify_slug', function() {
+$(document).on('click', '#verify_slug', function () {
 
   if ($('#screen_name').val() === '') {
     show_message('Enter Screen Name');
@@ -497,20 +539,20 @@ $(document).on('click', '#verify_slug', function() {
       $('#verify-ok').hide();
       $('#verify-not').show();
     }
-  }).fail(function(err) {
-      console.log(err);
-      $('#verify-spinner').hide();
-      $('#verify-ok').hide();
-      $('#verify-not').hide();
+  }).fail(function (err) {
+    console.log(err);
+    $('#verify-spinner').hide();
+    $('#verify-ok').hide();
+    $('#verify-not').hide();
   });
 });
 
 
 function show_message(message) {
-    swal(message, {
-      buttons: false,
-      timer: 3000,
-    });
+  swal(message, {
+    buttons: false,
+    timer: 3000,
+  });
 }
 
 function check_license(license) {
@@ -521,20 +563,20 @@ function check_license(license) {
   settings = get_settings('check-license/', 'POST', JSON.stringify(data));
 
   $.ajax(settings).done(function (response) {
-      var response = JSON.parse(response);
-      if (response['status'] == true) {
-        show_message('License number already claimed')
-        // return false;
-        error = true;
-      } else {
-        add_license(license);
-        $('#license_no_1').val('');
-        $('#license_no_2').val('');
-        $('#license_no_3').val('');
-      }
-      console.log(response);
-      // error = false;
-  }).fail(function(err) {
+    var response = JSON.parse(response);
+    if (response['status'] == true) {
+      show_message('License number already claimed')
+      // return false;
+      error = true;
+    } else {
+      add_license(license);
+      $('#license_no_1').val('');
+      $('#license_no_2').val('');
+      $('#license_no_3').val('');
+    }
+    console.log(response);
+    // error = false;
+  }).fail(function (err) {
     console.log(err);
   });
 
@@ -550,20 +592,20 @@ function add_license(val) {
       </div>`);
 }
 
-$("#add-license").click(function(){
+$("#add-license").click(function () {
   if ($('#license_no_1').val() == '' || $('#license_no_2').val() == '' || $('#phone_number_1').val() == '') {
     var validation_messages = 'Invalid license number.';
     show_message(validation_messages);
     return false
   }
 
-  var val = $('#license_no_1').val()+' '+$('#license_no_2').val()+' - '+$('#license_no_3').val();
+  var val = $('#license_no_1').val() + ' ' + $('#license_no_2').val() + ' - ' + $('#license_no_3').val();
 
   check_license(val);
 
 });
 
-$('#added-license').on("click", ".remove-license",function(){
+$('#added-license').on("click", ".remove-license", function () {
   $(this).parent('div').remove();
 });
 
@@ -583,15 +625,24 @@ function readURL(input) {
   }
 }
 
-$(document).on('click', '#remove-profile-image', function(e) {
+function formatURL(string) {
+  if ((string == null) || (string == '')) return ''
+  if (!~string.indexOf("http")) {
+    string = "http://" + string;
+  }
+  console.log(string)
+  return string
+}
+
+$(document).on('click', '#remove-profile-image', function (e) {
   settings = get_settings('remove-profile-image/', 'GET');
 
   $.ajax(settings).done(function (response) {
     show_message('Profile picture has been removed!');
 
-    src="img/blank-profile-picture.png"
+    src = "img/blank-profile-picture.png"
     $('#profile-img').prop('src', src);
 
   });
-} );
+});
 
