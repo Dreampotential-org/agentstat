@@ -47,6 +47,11 @@ function agentProfileViewTrack() {
     data = {};
     data['agent'] = agent_id;
     data['page'] = 'profile';
+
+    var customLink = getCustomLinkSlug();
+    if (customLink) {
+        data['custom_slug'] = customLink;
+    }
     
     saveVisit(data, 'at/', document.referrer);
 }
@@ -64,6 +69,11 @@ function saveLeadTracking(res, ifBoth) {
     data['agent'] = res['agent'];
     data['q_price_range'] = res['how_much'];
     data['q_type'] = res['home_type'];
+
+    var customLink = getCustomLinkSlug();
+    if (customLink) {
+        data['custom_slug'] = customLink;
+    }
 
     if (res['looking_for'] == 'Sell a Home') {
         data['page'] = 'seller-lead';

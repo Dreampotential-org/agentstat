@@ -6,8 +6,8 @@ var locations = [];
 var agent_id = urlParams.get('agent_id');
 
 var matchedScoreObj = {}
-var agentProfileData = {};
 var cityScoreAllData = {};
+var agentOverallScoreObj = {}
 var cityFilter = '';
 var propertyTypeFilter = '';
 
@@ -41,6 +41,17 @@ function load_agent_score(duration = '36') {
     cityScoreAllData = data.agent_scores;
     var filterObj = getFilters();
     returnFilters(filterObj);
+
+    $.each(data.overall_scores, function (k, v) {
+      if (v.time_duration == duration) {
+        agentOverallScoreObj = v;
+      }
+    });
+    if (Object.keys(agentOverallScoreObj).length === 0) {
+      agentOverallScoreObj = data.overall_scores[0];
+    }
+    setOverallAgentScore();
+
     populate_cities(data.agent_scores);
   }).fail(function (err) {
     console.log(err);
@@ -164,7 +175,7 @@ function load_agent(ignore_city = true) {
       lang = lang.substring(0, lang.length - 2)
       $('.agent-languages-text').text(lang)
     }
-    else $('.agent-languages').css('display','none')
+    else $('.agent-languages').css('display', 'none')
 
 
     brokerage_info = data['brokerage_info'].split(/\r?\n/)[0];

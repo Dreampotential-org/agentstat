@@ -118,13 +118,15 @@
 
 
 
-                <div class="row" style="margin-top:20px">
-                    <div class="col-md-4">
-                        <!-- <img class="my-image"
-                            src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg" /> -->
-                            <img class="my-image" src=""/>
+                <!-- <div class="row" style="margin-top:20px">
+                    <div class="col-md-4" id="image_upload_area">
+                        <input type="file" id="upload" value="Choose a file" accept="image/*" onchange="readURLtemp(this)">
+                        <img class="my-image" style="width:100%" src="" />
+                        <input type="hidden" class="cropped-image" name="imagebase64">
+
+                        <button class="save-image">Save image</button>
                     </div>
-                </div>
+                </div> -->
 
 
 
@@ -248,13 +250,18 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-lg-9">
-                                    <div class="file-right">
-                                        <input id="picture" type="file" name="file" onchange="readURL(this);" />
+                                <div class="col-lg-3">
+                                    <div id="image_upload_div">
+                                        <input type="file" id="upload" value="Choose a file" accept="image/*"
+                                            onchange="readURLtemp(this)">
+                                        <input type="hidden" class="cropped-image" name="imagebase64">
+                                        <br>
+                                        <img class="my-image" style="height:300px" src="" />
+                                        <!-- <input id="picture" type="file" name="file" onchange="readURL(this);" /> -->
                                     </div>
-                                    <div class="up-photo" style="text-align: center;">
+                                    <!-- <div class="up-photo" style="text-align: center;"> -->
                                         <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
-                                        <img id="profile-img" alt="">
+                                        <!-- <img id="profile-img" alt=""> -->
                                     </div>
                                 </div>
                             </div>
@@ -276,7 +283,8 @@
                                 <div class="col-lg-9">
                                     <div class="fn-right">
                                         <input type="text" id="license_no_1" placeholder="License #" class="col-lg-2">
-                                        <select style= "border-radius: 3px;padding:5px" class="col-lg-3 li-right" id="license_no_2">
+                                        <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right"
+                                            id="license_no_2">
                                             <option>select state</option>
                                         </select>
                                         <!-- <input type="text" id="license_no_2" placeholder="State" class="col-lg-2"> -->
@@ -340,7 +348,8 @@
                                 <div class="col-lg-9">
                                     <div class="li-right sl-right">
                                         <input type="text" name="" id="city" placeholder="City" class="mr-2">
-                                        <select style= "border-radius: 3px;padding:5px" class="col-lg-3 li-right mr-2" id="state" name="">
+                                        <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right mr-2"
+                                            id="state" name="">
                                             <option>select state</option>
                                         </select>
                                         <!-- <input type="text" name="" id="state" placeholder="State" class="mr-2"> -->
@@ -392,8 +401,7 @@
                                     <div class="year-wrapper">
                                         <p><strong>In Business Since</strong> <small>(Optional) </small>
                                             <!-- <input type="text" id="years_in_bussiness"> -->
-                                            <select
-                                                style="margin-left: 35px;border-radius: 3px;padding:5px"
+                                            <select style="margin-left: 35px;border-radius: 3px;padding:5px"
                                                 id="years_in_bussiness">
                                                 <option value="2020">2020</option>
                                                 <option value="2019">2019</option>
@@ -459,7 +467,7 @@
                             <label class="check-box" for="listing_fee_checkbox">Listing fees</label>
                             <div>
                                 <select style="margin-left: 0px !important;" id="listing_fee">
-                                <option value = ''>Select</option>
+                                    <option value=''>Select</option>
                                 </select>
                             </div>
                         </div>
@@ -471,7 +479,7 @@
                             <label class="check-box" for="buyer_rebate_checkbox">Buyer Rebate</label>
                             <div>
                                 <select style="margin-left: 0px !important;" id="buyer_rebate">
-                                    <option value = ''>Select</option>
+                                    <option value=''>Select</option>
                                 </select>
                             </div>
                             <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
@@ -487,7 +495,7 @@
 
                             <div>
                                 <select style="margin-left: 0px !important;" id="type_of_listing_service">
-                                    <option value = ''>Select</option>
+                                    <option value=''>Select</option>
                                 </select>
                             </div>
                         </div>
@@ -647,7 +655,7 @@
                     </div>
                     <div class="col-lg-9">
                         <div class="li-right br-right">
-                            <input  type="text" id="blog" placeholder="Blog url">
+                            <input type="text" id="blog" placeholder="Blog url">
                         </div>
                     </div>
                 </div>
@@ -827,23 +835,7 @@
 
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
-    <script>
-        $(document).ready(function () {
-            $('.my-image').croppie(
-                {
-                    enableExif: true,
-                    viewport: {
-                        width: 200,
-                        height: 200
-                    },
-                    boundary: { width: 300, height: 300 },
-                    
 
-                }
-            );
-        })
-
-    </script>
     <script>
 
         $('input[type="file"]').fileinput({

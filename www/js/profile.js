@@ -74,7 +74,6 @@ function display_profile(profile) {
 
   if (profile.listing_fee !== null) {
     console.log(profile.listing_fee)
-    console.log('LISTING')
     $('#listing_fee').val(profile.listing_fee);
     $('#listing_fee_checkbox').prop('checked', true);
   } else {
@@ -93,12 +92,33 @@ function display_profile(profile) {
 
   if (profile.picture != '' && profile.picture !== null) {
     // debugger;
-    $('#profile-img').prop('src', profile.picture);
-    $('.up-photo').append('<button id="remove-profile-image" class="inline-btn">remove profile image</button>');
+    $('.my-image').attr('src', profile.picture)
+
+    // $('.my-image').prop('src', profile.picture);
+    // $upload_crop = $('.my-image').croppie(
+    //   {
+    //     enableExif: true,
+    //     viewport: {
+    //       width: 200,
+    //       height: 200,
+    //       type: 'circle'
+    //     },
+    //     boundary: { width: 300, height: 300 },
+    //   }
+    // )
+    // $upload_crop.croppie('result', {
+    //   type: 'canvas',
+    //   size: 'viewport'
+    // }).then(function (resp) {
+    //   $('.cropped-image').val(resp)
+    //   console.log($('.cropped-image').val())
+    // })
+    // $('.up-photo').append('<button id="remove-profile-image" class="inline-btn">remove profile image</button>');
   } else {
 
     src = "img/blank-profile-picture.png"
-    $('#profile-img').prop('src', src);
+    $('.my-image').prop('src', src);
+
   }
 
   if (profile.connector != '' && profile.connector !== null) {
@@ -232,15 +252,18 @@ function update_profile() {
   });
 
 
-  var picture_data = $('#picture')[0].files[0]
+
+  var picture_data = $('#upload')[0].files[0]
   var reader = new FileReader();
   var picture_base64 = '';
-
   if (picture_data != null) {
     reader.readAsDataURL(picture_data);
     reader.onload = function () {
       picture_base64 = reader.result;
-      data['picture'] = picture_base64;
+
+      data['picture'] = $('.cropped-image').val();
+      console.log($('.cropped-image').val())
+
       settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
       $.ajax(settings).done(function (response) {
@@ -624,7 +647,58 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+var $upload_crop;
+function readURLtemp(input) {
 
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('.my-image').attr('src', e.target.result);
+      $upload_crop = $('.my-image').croppie(
+        {
+          enableExif: true,
+          viewport: {
+            width: 200,
+            height: 200,
+            type: 'circle'
+          },
+          boundary: { width: 300, height: 300 },
+        }
+      )
+      $upload_crop.croppie('result', {
+        type: 'canvas',
+        size: "original",
+        quality: 1
+      }).then(function (resp) {
+        $('.cropped-image').val(resp)
+        console.log($('.cropped-image').val())
+      })
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+  else {
+    $('.my-image').attr('src', '');
+    $('.croppie-container').remove()
+    $upload_crop = null
+    $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+  }
+}
+
+
+$(document).on('change', '.croppie-container', function () {
+  if ($upload_crop != null) {
+    $upload_crop.croppie('result', {
+      type: 'canvas',
+      size: "original",
+      quality: 1
+    }).then(function (resp) {
+      $('.cropped-image').val(resp)
+      console.log($('.cropped-image').val())
+    })
+  }
+})
 function formatURL(string) {
   if ((string == null) || (string == '')) return ''
   if (!~string.indexOf("http")) {
