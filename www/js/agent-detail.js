@@ -232,10 +232,6 @@ function load_agent(ignore_city = true) {
       $('.agent-specialties-text').html(specialtiesText.substring(0, specialtiesText.length - 2));
     }
 
-    agentProfileData = data;
-    set_agent_tabs_default(data);
-    ifFilterMatched();
-
     $(".alist").remove();
     index = 1;
 
