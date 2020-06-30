@@ -620,8 +620,8 @@ $("#add-license").click(function () {
     show_message(validation_messages);
     return false
   }
-
-  var val = $('#license_no_1').val() + ' ' + $('#license_no_2').val() + ' - ' + $('#license_no_3').val();
+  var date = new Date($('#license_no_3').val())
+  var val = $('#license_no_1').val() + ' ' + $('#license_no_2').val() + ' - ' + date.toLocaleDateString();
 
   check_license(val);
 
