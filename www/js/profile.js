@@ -93,7 +93,7 @@ function display_profile(profile) {
   if (profile.picture != '' && profile.picture !== null) {
     // debugger;
     $('.my-image').attr('src', profile.picture)
-
+    $('#remove-profile-image').css('display','block')
     // $('.my-image').prop('src', profile.picture);
     // $upload_crop = $('.my-image').croppie(
     //   {
@@ -115,8 +115,7 @@ function display_profile(profile) {
     // })
     // $('.up-photo').append('<button id="remove-profile-image" class="inline-btn">remove profile image</button>');
   } else {
-
-    src = "img/blank-profile-picture.png"
+    src = "/img/blank-profile-picture.png"
     $('.my-image').prop('src', src);
 
   }
@@ -715,9 +714,9 @@ $(document).on('click', '#remove-profile-image', function (e) {
   $.ajax(settings).done(function (response) {
     show_message('Profile picture has been removed!');
 
-    src = "img/blank-profile-picture.png"
-    $('#profile-img').prop('src', src);
-
+    src = "/img/blank-profile-picture.png"
+    $('.my-image').prop('src', src);
+    $('#remove-profile-image').css('display','none')
   });
 });
 

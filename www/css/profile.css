@@ -7,3 +7,17 @@
 .review-wrapper button {
     margin-left: 0px;
 }
+
+#remove-profile-image{
+    display:none;
+    background-color:lightgray;
+    padding-left:9px;
+    padding-right:9px;
+    border-radius:5px; 
+    position:absolute;
+    left:100%;
+    z-index: 10;
+}
+#remove-profile-image:hover{
+    cursor: pointer;
+}

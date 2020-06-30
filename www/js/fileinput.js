@@ -7,7 +7,7 @@
             title: 'Choose file',
             multipleText: '{0} files',
             showMultipleNames: false,
-            buttonClass: 'btn btn-default',
+            buttonClass: 'btn btn-info',
             selectedClass: 'file-selected',
             clearButton: '<button type="button" class="fileinput-clear close">&times;</button>',
             complete: function () {}

@@ -256,497 +256,498 @@
                                             onchange="readURLtemp(this)">
                                         <input type="hidden" class="cropped-image" name="imagebase64">
                                         <br>
-                                        <img class="my-image" style="height:300px" src=""/>
+                                        <span id="remove-profile-image">x</span>
+                                        <img class="my-image" style="height:300px" src="/img/blank-profile-picture.png" />
+
                                         <!-- <input id="picture" type="file" name="file" onchange="readURL(this);" /> -->
                                     </div>
                                     <!-- <div class="up-photo" style="text-align: center;"> -->
-                                        <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
-                                        <!-- <img id="profile-img" alt=""> -->
-                                    </div>
+                                    <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
+                                    <!-- <img id="profile-img" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="basic-form-info">
+                    <div class="profile-heading">
+                        <h4>License Information</h4>
+                    </div>
+
+                    <div class="licence ml-5">
+                        <div class="row">
+                            <div class="col-lg-3 align-self-end">
+                                <div class="li-left">
+                                    <p class="mb-0" id="lebel">License Number </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="fn-right">
+                                    <input type="text" id="license_no_1" placeholder="License #" class="col-lg-2">
+                                    <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right"
+                                        id="license_no_2">
+                                        <option>select state</option>
+                                    </select>
+                                    <!-- <input type="text" id="license_no_2" placeholder="State" class="col-lg-2"> -->
+                                    <input type="date" id="license_no_3" placeholder="MM/DD/YYY" class="col-lg-3">
+                                    <button id="add-license" class="inline-btn">Add</button>
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-3 align-self-end">
+                                <div class="li-left">
+                                    <p class="mb-0" id="lebel"></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9" style="margin-top: 5px;">
+                                <div id="added-license">
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="basic-form-info">
-                        <div class="profile-heading">
-                            <h4>License Information</h4>
+
+
+                    <div class="licence ml-5">
+                        <div class="row">
+                            <div class="col-lg-3 align-self-end">
+                                <div class="li-left">
+                                    <p class="mb-0" id="lebel">Brokerage Name </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="li-right br-right">
+                                    <input type="text" id="brokerage_name" name="" placeholder="Brokerage Name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="licence ml-5">
+                        <div class="row">
+                            <div class="col-lg-3 align-self-end">
+                                <div class="li-left">
+                                    <p class="mb-0" id="lebel">Brokerage Address</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="li-right br-right">
+                                    <input type="text" id="brokerage_address" name="" placeholder="Street Address">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="licence ml-5">
+                        <div class="row">
+                            <div class="col-lg-3 align-self-end">
+                                <div class="li-left">
+                                    <p class="mb-0" id="lebel">City, State, ZIP</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="li-right sl-right">
+                                    <input type="text" name="" id="city" placeholder="City" class="mr-2">
+                                    <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right mr-2"
+                                        id="state" name="">
+                                        <option>select state</option>
+                                    </select>
+                                    <!-- <input type="text" name="" id="state" placeholder="State" class="mr-2"> -->
+
+                                    <input type="text" id="zipcode" name="" placeholder="Zipcode">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="language">
+
+                    <div class="profile-heading">
+                        <h4>HIGHLIGHTS</h4>
+                    </div>
+                    <div class="highlight-wrpper pl-5">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="la-left">
+                                    <p id="lebel">
+                                        Language fluency <small>(Optional)</small>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="la-right">
+                                    <div id="languages" class="row" style="width:700px">
+
+                                    </div>
+
+
+                                    <div class="collapse" id="collapseExample">
+                                        <div id="morelanguages" class="row" style="width: 700px">
+
+
+                                        </div>
+                                    </div>
+                                    <a class="trigger-more collapsed" role="button" data-toggle="collapse"
+                                        href="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">More</a>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="licence ml-5">
-                            <div class="row">
-                                <div class="col-lg-3 align-self-end">
-                                    <div class="li-left">
-                                        <p class="mb-0" id="lebel">License Number </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="fn-right">
-                                        <input type="text" id="license_no_1" placeholder="License #" class="col-lg-2">
-                                        <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right"
-                                            id="license_no_2">
-                                            <option>select state</option>
+                        <!-- year area start -->
+                        <div class="row year" style="margin-top:20px">
+                            <div class="container">
+                                <div class="year-wrapper">
+                                    <p><strong>In Business Since</strong> <small>(Optional) </small>
+                                        <!-- <input type="text" id="years_in_bussiness"> -->
+                                        <select style="margin-left: 35px;border-radius: 3px;padding:5px"
+                                            id="years_in_bussiness">
+                                            <option value="2020">2020</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                            <option value="2010">2010</option>
+                                            <option value="2009">2009</option>
+                                            <option value="2008">2008</option>
+                                            <option value="2007">2007</option>
+                                            <option value="2006">2006</option>
+                                            <option value="2005">2005</option>
+                                            <option value="2004">2004</option>
+                                            <option value="2003">2003</option>
+                                            <option value="2002">2002</option>
+                                            <option value="2001">2001</option>
+                                            <option value="2000">2000</option>
+                                            <option value="before 2000">Before 2000</option>
                                         </select>
-                                        <!-- <input type="text" id="license_no_2" placeholder="State" class="col-lg-2"> -->
-                                        <input type="date" id="license_no_3" placeholder="MM/DD/YYY" class="col-lg-3">
-                                        <button id="add-license" class="inline-btn">Add</button>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-lg-3 align-self-end">
-                                    <div class="li-left">
-                                        <p class="mb-0" id="lebel"></p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9" style="margin-top: 5px;">
-                                    <div id="added-license">
+                                    </p>
+                                    <span>Specialties</span>
+                                    <div class="year-wrapper-check row" id="specialties"
+                                        style="margin-left:10px;width: 450px;margin-top: 20px;">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-
-
-                        <div class="licence ml-5">
-                            <div class="row">
-                                <div class="col-lg-3 align-self-end">
-                                    <div class="li-left">
-                                        <p class="mb-0" id="lebel">Brokerage Name </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="li-right br-right">
-                                        <input type="text" id="brokerage_name" name="" placeholder="Brokerage Name">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="licence ml-5">
-                            <div class="row">
-                                <div class="col-lg-3 align-self-end">
-                                    <div class="li-left">
-                                        <p class="mb-0" id="lebel">Brokerage Address</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="li-right br-right">
-                                        <input type="text" id="brokerage_address" name="" placeholder="Street Address">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="licence ml-5">
-                            <div class="row">
-                                <div class="col-lg-3 align-self-end">
-                                    <div class="li-left">
-                                        <p class="mb-0" id="lebel">City, State, ZIP</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="li-right sl-right">
-                                        <input type="text" name="" id="city" placeholder="City" class="mr-2">
-                                        <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right mr-2"
-                                            id="state" name="">
-                                            <option>select state</option>
-                                        </select>
-                                        <!-- <input type="text" name="" id="state" placeholder="State" class="mr-2"> -->
-
-                                        <input type="text" id="zipcode" name="" placeholder="Zipcode">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- year area start -->
                     </div>
 
-                    <div class="language">
-
-                        <div class="profile-heading">
-                            <h4>HIGHLIGHTS</h4>
-                        </div>
-                        <div class="highlight-wrpper pl-5">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="la-left">
-                                        <p id="lebel">
-                                            Language fluency <small>(Optional)</small>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="la-right">
-                                        <div id="languages" class="row" style="width:700px">
-
-                                        </div>
-
-
-                                        <div class="collapse" id="collapseExample">
-                                            <div id="morelanguages" class="row" style="width: 700px">
-
-
-                                            </div>
-                                        </div>
-                                        <a class="trigger-more collapsed" role="button" data-toggle="collapse"
-                                            href="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample">More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- year area start -->
-                            <div class="row year" style="margin-top:20px">
-                                <div class="container">
-                                    <div class="year-wrapper">
-                                        <p><strong>In Business Since</strong> <small>(Optional) </small>
-                                            <!-- <input type="text" id="years_in_bussiness"> -->
-                                            <select style="margin-left: 35px;border-radius: 3px;padding:5px"
-                                                id="years_in_bussiness">
-                                                <option value="2020">2020</option>
-                                                <option value="2019">2019</option>
-                                                <option value="2018">2018</option>
-                                                <option value="2017">2017</option>
-                                                <option value="2016">2016</option>
-                                                <option value="2015">2015</option>
-                                                <option value="2014">2014</option>
-                                                <option value="2013">2013</option>
-                                                <option value="2012">2012</option>
-                                                <option value="2011">2011</option>
-                                                <option value="2010">2010</option>
-                                                <option value="2009">2009</option>
-                                                <option value="2008">2008</option>
-                                                <option value="2007">2007</option>
-                                                <option value="2006">2006</option>
-                                                <option value="2005">2005</option>
-                                                <option value="2004">2004</option>
-                                                <option value="2003">2003</option>
-                                                <option value="2002">2002</option>
-                                                <option value="2001">2001</option>
-                                                <option value="2000">2000</option>
-                                                <option value="before 2000">Before 2000</option>
-                                            </select>
-                                        </p>
-                                        <span>Specialties</span>
-                                        <div class="year-wrapper-check row" id="specialties"
-                                            style="margin-left:10px;width: 450px;margin-top: 20px;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- year area start -->
-                        </div>
-
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- form-area end -->
+    </div>
+    <!-- form-area end -->
 
-        <!-- agent-area start -->
-        <div class="agent">
-            <div class="container">
-                <div class="agent-wrapper">
-                    <p></p>
-                </div>
+    <!-- agent-area start -->
+    <div class="agent">
+        <div class="container">
+            <div class="agent-wrapper">
+                <p></p>
             </div>
         </div>
-        <!-- agent-area end -->
+    </div>
+    <!-- agent-area end -->
 
-        <!-- addi area start -->
-        <div class="addi">
-            <div class="container">
-                <div class="addi-wapper">
-                    <div class="addi-one">
-                        <h4 style="font-size: 20px">COMMISSION</h4>
-                        <div class="add-check">
-                            <input type="checkbox" class="combo-checkboxes" id="listing_fee_checkbox"
-                                target='listing_fee'>
-                            <span class="checkmark"></span>
-                            <label class="check-box" for="listing_fee_checkbox">Listing fees</label>
-                            <div>
-                                <select style="margin-left: 0px !important;" id="listing_fee">
-                                    <option value=''>Select</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="add-check">
-                            <input type="checkbox" class="combo-checkboxes" target='buyer_rebate'
-                                id="buyer_rebate_checkbox">
-                            <span class="checkmark"></span>
-                            <label class="check-box" for="buyer_rebate_checkbox">Buyer Rebate</label>
-                            <div>
-                                <select style="margin-left: 0px !important;" id="buyer_rebate">
-                                    <option value=''>Select</option>
-                                </select>
-                            </div>
-                            <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
+    <!-- addi area start -->
+    <div class="addi">
+        <div class="container">
+            <div class="addi-wapper">
+                <div class="addi-one">
+                    <h4 style="font-size: 20px">COMMISSION</h4>
+                    <div class="add-check">
+                        <input type="checkbox" class="combo-checkboxes" id="listing_fee_checkbox" target='listing_fee'>
+                        <span class="checkmark"></span>
+                        <label class="check-box" for="listing_fee_checkbox">Listing fees</label>
+                        <div>
+                            <select style="margin-left: 0px !important;" id="listing_fee">
+                                <option value=''>Select</option>
                             </select>
                         </div>
+                    </div>
 
-                        <div class="add-check">
-                            <input type="checkbox" class="combo-checkboxes" target='type_of_listing_service'
-                                id="type_of_listing_service_checkbox">
-                            <span class="checkmark"></span>
-                            <label class="check-box" for="type_of_listing_service_checkbox">Type of listing
-                                services</label>
-
-                            <div>
-                                <select style="margin-left: 0px !important;" id="type_of_listing_service">
-                                    <option value=''>Select</option>
-                                </select>
-                            </div>
+                    <div class="add-check">
+                        <input type="checkbox" class="combo-checkboxes" target='buyer_rebate'
+                            id="buyer_rebate_checkbox">
+                        <span class="checkmark"></span>
+                        <label class="check-box" for="buyer_rebate_checkbox">Buyer Rebate</label>
+                        <div>
+                            <select style="margin-left: 0px !important;" id="buyer_rebate">
+                                <option value=''>Select</option>
+                            </select>
                         </div>
+                        <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
+                        </select>
+                    </div>
 
-                        <div class="add-check">
-                            <input id="provide_cma" type="checkbox">
-                            <span class="checkmark"></span>
-                            <label class="check-box">I Provide CMAs</label>
+                    <div class="add-check">
+                        <input type="checkbox" class="combo-checkboxes" target='type_of_listing_service'
+                            id="type_of_listing_service_checkbox">
+                        <span class="checkmark"></span>
+                        <label class="check-box" for="type_of_listing_service_checkbox">Type of listing
+                            services</label>
+
+                        <div>
+                            <select style="margin-left: 0px !important;" id="type_of_listing_service">
+                                <option value=''>Select</option>
+                            </select>
                         </div>
+                    </div>
+
+                    <div class="add-check">
+                        <input id="provide_cma" type="checkbox">
+                        <span class="checkmark"></span>
+                        <label class="check-box">I Provide CMAs</label>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- addi area end -->
+    </div>
+    <!-- addi area end -->
 
-        <!-- review area start -->
-        <div class="review mt-3">
-            <div class="container">
-                <div class="review-wrapper">
-                    <h4 style="font-size: 20px;width: auto;float: left;">REVIEWS</h4>
-                    <a name='reviews' style="margin-left:10px;"></a>
-                    <!-- Button trigger modal -->
-                    <button type="button" data-toggle="modal" data-target="#exampleModal">Add</button>
-                </div>
+    <!-- review area start -->
+    <div class="review mt-3">
+        <div class="container">
+            <div class="review-wrapper">
+                <h4 style="font-size: 20px;width: auto;float: left;">REVIEWS</h4>
+                <a name='reviews' style="margin-left:10px;"></a>
+                <!-- Button trigger modal -->
+                <button type="button" data-toggle="modal" data-target="#exampleModal">Add</button>
+            </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-size" role="document" style="transform: translateY(20%);">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="review-body">
-                                    <p>Add a Review</p>
-                                    <input class="backcolorInput" id="review-name" type="text" name="text"
-                                        placeholder="Reviewer name">
-                                    <input class="backcolorInput" id="review-email" type="text" name="text"
-                                        placeholder="Reviewer e-mail">
-                                    <input placeholder="Date of review" class="textbox-n backcolorInput" type="text"
-                                        id="review-date">
-                                    <textarea class="backcolorInput" id="review" placeholder="Review"></textarea>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-size" role="document" style="transform: translateY(20%);">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="review-body">
+                                <p>Add a Review</p>
+                                <input class="backcolorInput" id="review-name" type="text" name="text"
+                                    placeholder="Reviewer name">
+                                <input class="backcolorInput" id="review-email" type="text" name="text"
+                                    placeholder="Reviewer e-mail">
+                                <input placeholder="Date of review" class="textbox-n backcolorInput" type="text"
+                                    id="review-date">
+                                <textarea class="backcolorInput" id="review" placeholder="Review"></textarea>
 
 
-                                    <div class="review-categories">
+                                <div class="review-categories">
 
-                                        <div class="row">
-                                            <div class="col-lg-6" id="category-1">
+                                    <div class="row">
+                                        <div class="col-lg-6" id="category-1">
 
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="rating" id='rating-category-1' data-rate-value=5></div>
-                                            </div>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6" id="category-2">
-
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="rating" id='rating-category-2' data-rate-value=5></div>
-                                            </div>
+                                        <div class="col-lg-6">
+                                            <div class="rating" id='rating-category-1' data-rate-value=5></div>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6" id="category-3">
-
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="rating" id='rating-category-3' data-rate-value=5></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6" id="category-4">
-
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="rating" id='rating-category-4' data-rate-value=5></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6" id="category-5">
-
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="rating" id='rating-category-5' data-rate-value=5></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6" id="category-6">
-
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="rating" id='rating-category-6' data-rate-value=5></div>
-                                            </div>
-                                        </div>
-
                                     </div>
 
-                                    <div class="text-center">
-                                        <button class="backcolorInput" id="review-add-btn">Add</button>
+                                    <div class="row">
+                                        <div class="col-lg-6" id="category-2">
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="rating" id='rating-category-2' data-rate-value=5></div>
+                                        </div>
                                     </div>
-                                    <div class="text-center" id="review-msg"></div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6" id="category-3">
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="rating" id='rating-category-3' data-rate-value=5></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6" id="category-4">
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="rating" id='rating-category-4' data-rate-value=5></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6" id="category-5">
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="rating" id='rating-category-5' data-rate-value=5></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6" id="category-6">
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="rating" id='rating-category-6' data-rate-value=5></div>
+                                        </div>
+                                    </div>
 
                                 </div>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
+                                <div class="text-center">
+                                    <button class="backcolorInput" id="review-add-btn">Add</button>
+                                </div>
+                                <div class="text-center" id="review-msg"></div>
 
-            </div>
-        </div>
-        <!-- review area end -->
-
-        <!-- slider area start -->
-        <div id="review-div" class="slider">
-            <div class="container">
-                <div class="slier-bordr">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div id="reviews-list" class="reviews-slider">
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
-        <!-- slider area end -->
+    </div>
+    <!-- review area end -->
 
-        <div class="review mt-3">
-            <div class="container">
-                <div class="review-wrapper">
-                    <h4 style="font-size: 20px;">SOCIAL MEDIA <small>(Optional)</small></h4>
-                    <!-- Button trigger modal -->
-                </div>
-
-                <div class="row" style="margin-left:10px">
-                    <div class="col-lg-3 align-self-end">
-                        <div class="li-left">
-                            <p class="mb-0">Website </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-9" style="left: -3px;">
-                        <div class="li-right br-right">
-                            <input type="text" id="website" placeholder="Company Website Url">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style="margin:10px 0px 0px 10px">
-                    <div class="col-lg-3 align-self-end">
-                        <div class="li-left">
-                            <p class="mb-0">Blog</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="li-right br-right">
-                            <input type="text" id="blog" placeholder="Blog url">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style="margin:10px 0px 0px 10px">
-                    <div class="col-lg-3 align-self-end">
-                        <div class="li-left">
-                            <p class="mb-0">Facebook</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="li-right br-right">
-                            <input type="text" id="facebook" placeholder="Facebook Profile page Url">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style="margin:10px 0px 0px 10px">
-                    <div class="col-lg-3 align-self-end">
-                        <div class="li-left">
-                            <p class="mb-0">Twitter</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="li-right br-right">
-                            <input type="text" id="twitter" placeholder="Twitter Profile Url">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style="margin:10px 0px 0px 10px">
-                    <div class="col-lg-3 align-self-end">
-                        <div class="li-left">
-                            <p class="mb-0">Linkedin</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="li-right br-right">
-                            <input type="text" id="linkedin" placeholder="Linkedin Profile Url">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- about area start -->
-        <div class="about mt-3">
-            <div class="container">
+    <!-- slider area start -->
+    <div id="review-div" class="slider">
+        <div class="container">
+            <div class="slier-bordr">
                 <div class="row">
-                    <div class="col-lg-8">
-                        <div class="about-wrapper">
-                            <p>About me </p>
-                            <textarea id="about_me" class="ml-5 mt-3" placeholder="Type Here......"></textarea>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 mx-auto">
-                                <div class="alert alert-danger msg" role="alert" style="display: none">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="about-submit ml-5">
-                            <ul>
-                                <li class="mr-2">
-                                    <button class="btn btn-primary submit_btn">Submit</button>
-                                </li>
-                                <li><a class="btn btn-secondary" href="#"> Cancel</a></li>
-                            </ul>
-                        </div>
-
-
-                    </div>
-                    <div class="col-lg-4"></div>
-                </div>
-                <div class="row" style="margin-top:10px;">
-
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-6">
-
-                        <div class="alert alert-primary" id="alert-message" style="display: none" role="alert">
-                            Your profile has been saved.
-                        </div>
-
-                        <div class="alert alert-danger" id="validate-message" style="display: none" role="alert">
+                    <div class="col-lg-12">
+                        <div id="reviews-list" class="reviews-slider">
                         </div>
                     </div>
-                    <div class="col-lg-4"></div>
-
                 </div>
             </div>
         </div>
-        <!-- about area end -->
+    </div>
+    <!-- slider area end -->
+
+    <div class="review mt-3">
+        <div class="container">
+            <div class="review-wrapper">
+                <h4 style="font-size: 20px;">SOCIAL MEDIA <small>(Optional)</small></h4>
+                <!-- Button trigger modal -->
+            </div>
+
+            <div class="row" style="margin-left:10px">
+                <div class="col-lg-3 align-self-end">
+                    <div class="li-left">
+                        <p class="mb-0">Website </p>
+                    </div>
+                </div>
+                <div class="col-lg-9" style="left: -3px;">
+                    <div class="li-right br-right">
+                        <input type="text" id="website" placeholder="Company Website Url">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin:10px 0px 0px 10px">
+                <div class="col-lg-3 align-self-end">
+                    <div class="li-left">
+                        <p class="mb-0">Blog</p>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="li-right br-right">
+                        <input type="text" id="blog" placeholder="Blog url">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin:10px 0px 0px 10px">
+                <div class="col-lg-3 align-self-end">
+                    <div class="li-left">
+                        <p class="mb-0">Facebook</p>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="li-right br-right">
+                        <input type="text" id="facebook" placeholder="Facebook Profile page Url">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin:10px 0px 0px 10px">
+                <div class="col-lg-3 align-self-end">
+                    <div class="li-left">
+                        <p class="mb-0">Twitter</p>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="li-right br-right">
+                        <input type="text" id="twitter" placeholder="Twitter Profile Url">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin:10px 0px 0px 10px">
+                <div class="col-lg-3 align-self-end">
+                    <div class="li-left">
+                        <p class="mb-0">Linkedin</p>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="li-right br-right">
+                        <input type="text" id="linkedin" placeholder="Linkedin Profile Url">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- about area start -->
+    <div class="about mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="about-wrapper">
+                        <p>About me </p>
+                        <textarea id="about_me" class="ml-5 mt-3" placeholder="Type Here......"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mx-auto">
+                            <div class="alert alert-danger msg" role="alert" style="display: none">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-submit ml-5">
+                        <ul>
+                            <li class="mr-2">
+                                <button class="btn btn-primary submit_btn">Submit</button>
+                            </li>
+                            <li><a class="btn btn-secondary" href="#"> Cancel</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+            <div class="row" style="margin-top:10px;">
+
+                <div class="col-lg-2"></div>
+                <div class="col-lg-6">
+
+                    <div class="alert alert-primary" id="alert-message" style="display: none" role="alert">
+                        Your profile has been saved.
+                    </div>
+
+                    <div class="alert alert-danger" id="validate-message" style="display: none" role="alert">
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+
+            </div>
+        </div>
+    </div>
+    <!-- about area end -->
 
     </div>
 
