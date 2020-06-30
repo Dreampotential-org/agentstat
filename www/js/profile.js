@@ -679,10 +679,11 @@ function readURLtemp(input) {
     reader.readAsDataURL(input.files[0]);
   }
   else {
-    $('.my-image').attr('src', '');
     $('.croppie-container').remove()
     $upload_crop = null
     $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+    $('.my-image').attr('src', '/img/blank-profile-picture.png');
+    $('.cropped-image').val('')
   }
 }
 
