@@ -217,10 +217,23 @@ function load_agent(ignore_city = true) {
     }
     $('#about_us').html(data['about_us']);
 
+    // if (data['claimed'] === true) {
+    //   <a href="javascript:show_claim_screen();" id="already_claim_profile">Claimed</a>
+    // } else {
+    //   if (isLogin) {
+    //     <a href="/profile-connect.html" id="">Claim Profile</a>
+    //   } else {
+    //     <a href="/login.html" id="">Claim Profile</a>
+    //   }
+    // }
+
     if (data['claimed'] === true) {
-      $('#already_claim_wrapper').css('display', 'block');
+      $('#already_claim_wrapper').css('display', 'inline-block');
     } else {
-      $('#claim_wrapper').css('display', 'block');
+      $('#claim_wrapper').css('display', 'inline-block');
+      if (localStorage.getItem('session_id')){
+        $('#claim_wrapper a').attr('href', '/connect-profile.html')
+      }
     }
 
     if (data["specialties"] !== undefined) {
