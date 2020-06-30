@@ -601,6 +601,10 @@ function showScorePageNo(pageNo) {
         end = i;
     }
     start++;
+
+    if (end > cityOverallCount) {
+        end = cityOverallCount;
+    }
     var info = 'Showing '+start+' to '+end+' of '+cityOverallCount+' entries';
     $('#city-table_info').html(info);
 }
