@@ -454,8 +454,8 @@ $(document).ready(function () {
   // SET ALL STATES
   var states = get_allStates()
   Object.keys(states).forEach(function (key) {
-    $('#license_no_2').append('<option value = ' + key + '>' + states[key] + '</option>')
-    $('#state').append('<option value = ' + key + '>' + states[key] + '</option>')
+    $('#license_no_2').append('<option value = ' + key + '>' + key + '</option>')
+    $('#state').append('<option value = ' + key + '>' + key + '</option>')
   });
 
 
