@@ -106,6 +106,9 @@
 .timestamps li.active a {
     background: #ccc;
 }
+#leads-form input, #leads-form textarea {
+    border-radius: 5px;
+}
 
 @media (max-width: 992px) {
     .tags-section {
