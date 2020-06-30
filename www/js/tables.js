@@ -592,6 +592,18 @@ function loadPagination() {
 }
 
 function showScorePageNo(pageNo) {
+
+    $('#city-table_previous').removeClass('disabled');
+    if (pageNo == 1) {
+        $('#city-table_previous').addClass('disabled');
+    }
+
+    var totalPages = Math.ceil(cityOverallCount/10);
+    $('#city-table_next').removeClass('disabled');
+    if (pageNo == totalPages) {
+        $('#city-table_next').addClass('disabled');
+    }
+
     $('.score-overall-row').hide();
     pageNo = pageNo - 1;
     var start = pageNo*10;
@@ -620,16 +632,7 @@ $(document).on('click', '#city-table_paginate .page-link', function() {
         activePaginationPageNo = page;
     }
     
-    $('#city-table_previous').removeClass('disabled');
-    if (activePaginationPageNo == 1) {
-        $('#city-table_previous').addClass('disabled');
-    }
-
-    var totalPages = Math.ceil(cityOverallCount/10);
-    $('#city-table_next').removeClass('disabled');
-    if (activePaginationPageNo == totalPages) {
-        $('#city-table_next').addClass('disabled');
-    }
+    
 
     showScorePageNo(activePaginationPageNo);
 
