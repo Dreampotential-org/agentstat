@@ -10,6 +10,8 @@ var cityScoreAllData = {};
 var agentOverallScoreObj = {}
 var cityFilter = '';
 var propertyTypeFilter = '';
+var cityOverallCount = 1;
+var activePaginationPageNo = 1;
 
 function init() {
   load_agent();

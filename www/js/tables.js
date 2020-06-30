@@ -471,6 +471,7 @@ function populate_cities(agent_scores) {
     matchedScoreObj = {};
     var finalData = sortByCity(agent_scores);
 
+    cityOverallCount = 1;
     $.each(finalData, function(k,v){
 
         if (v['home_type'] == null) {
@@ -516,32 +517,21 @@ function populate_cities(agent_scores) {
             var rightArrowHtml = '<p class="right-arrow-city" data-city="'+v['city']+'"> '+v['city']+' <i class="fa fa-chevron-right" aria-hidden="true" style="margin-left:10px;"></i></p>';
             var downArrowHtml = '<p class="down-arrow-city" style="display:none;" data-city="'+v['city']+'"> '+v['city']+' <i data-city="'+v['city']+'" class="fa fa-chevron-down" aria-hidden="true" style="margin-left:10px;"></i></p>';
             var city = '';
+            var rowNumber = 'score-row-'+cityOverallCount;
+            cityOverallCount++;
         } else {
             var displayNone = 'display:none;';
             var rightArrowHtml = '';
             var downArrowHtml = '';
             var city = v['city'].replace(/\s+/g, '');
+            var rowNumber = '';
         }
-
-        // var rowHtml = `
-        // <tr class="score-`+ city +`" style="`+displayNone+`">
-        //     <td class="table-column"><p style="margin-top: 10px;`+displayNone+`">` + v['city'] +rightArrowHtml+downArrowHtml+ ` </p></td>
-        //     <td class="table-column">` + v['agent_rank'] + `  of ` + v['rank_count'] + ` (TOP ` + agent_percentage + `%)</td>
-        //     <td class="table-column">` + homeType +`</td>
-        //     <td class="table-column">` + city_avg_dom +`</td>
-        //     <td class="table-column">` + avg_dom +`</td>
-        //     <td class="table-column">` + city_s2l_price +`%</td>
-        //     <td class="table-column">` + s2l_price +`%</td>
-        //     <td class="table-column">` + v['sold_listings'] +`</td>
-        //     <td class="table-column">` + v['failed_listings'] +`</td>
-        // </tr>
-        // `;
 
         var successRate = (100 - ((v['failed_listings']/v['sold_listings'])*100));
         var successRate = calculateSuccessRate(v['failed_listings'], v['sold_listings']);
 
         var rowHtml = `
-        <tr class="score-`+ city +`" style="`+displayNone+`">
+        <tr class="score-`+ city +` `+rowNumber+` score-overall-row" style="`+displayNone+`">
             <td class="table-column">`+rightArrowHtml+downArrowHtml+ ` </td>
             <td class="table-column">` + homeType +`</td>
             <td class="table-column">` + v['agent_rank'] + `/` + v['rank_count'] + `</td>
@@ -556,6 +546,8 @@ function populate_cities(agent_scores) {
         $('#city-table-body').append(rowHtml);
     });
 
+    cityOverallCount--;
+
     ifFilterMatched();
 
     var cityFilterClean = cityFilter.toLowerCase().replace(/\s/g, '');
@@ -563,21 +555,83 @@ function populate_cities(agent_scores) {
     if (cityFilterClean == matchedCityClean) {
         $('#city-table-body .score- .table-column .right-arrow-city').first().click();
     }
-    
 
-    // $('#city-table').dataTable({
-    //     "bSort" : false,
-    //     "bLengthChange": false,
-    //     "pageLength": 10,
-    //     "dom": 'lrtip',
-    //     "language": {
-    //         paginate: {
-    //             next: '»',
-    //             previous: '«'
-    //         }
-    //     },
-    // });
+    loadPagination();
 }
+
+function loadPagination() {
+    $('#city-table_paginate .pagination').html('');
+
+    var pages = Math.ceil(cityOverallCount/10);
+    var html = `
+    <li class="paginate_button page-item previous disabled" id="city-table_previous">
+        <a href="javascript:void(0)" data-page="prev" class="page-link">«</a>
+    </li>`;
+    
+    for (var i = 1; i <= pages; i++) {
+        var active = '';
+        if (i == 1) {
+            active = 'active';
+        }
+        html += `
+        <li class="paginate_button page-item page-item-`+i+` `+active+`">
+            <a href="javascript:void(0)" data-page="`+i+`" class="page-link">`+i+`</a>
+        </li>
+        `;
+    }
+
+    html += `
+    <li class="paginate_button page-item next" id="city-table_next">
+        <a href="javascript:void(0)" data-page="next" class="page-link">»</a>
+    </li> 
+    `;
+
+    $('#city-table_paginate .pagination').append(html);
+
+    showScorePageNo(1);
+}
+
+function showScorePageNo(pageNo) {
+    $('.score-overall-row').hide();
+    pageNo = pageNo - 1;
+    var start = pageNo*10;
+    var end = 0;
+    for(var i=start+1; i <= start+10; i++ ) {
+        $('.score-row-'+i).show();
+        end = i;
+    }
+    start++;
+    var info = 'Showing '+start+' to '+end+' of '+cityOverallCount+' entries';
+    $('#city-table_info').html(info);
+}
+
+$(document).on('click', '#city-table_paginate .page-link', function() {
+    var page = $(this).data('page');
+    console.log(page);
+    if (page == 'prev') {
+        activePaginationPageNo--;
+    } else if (page == 'next') {
+        activePaginationPageNo++;
+    } else {
+        activePaginationPageNo = page;
+    }
+    
+    $('#city-table_previous').removeClass('disabled');
+    if (activePaginationPageNo == 1) {
+        $('#city-table_previous').addClass('disabled');
+    }
+
+    var totalPages = Math.ceil(cityOverallCount/10);
+    $('#city-table_next').removeClass('disabled');
+    if (activePaginationPageNo == totalPages) {
+        $('#city-table_next').addClass('disabled');
+    }
+
+    showScorePageNo(activePaginationPageNo);
+
+    $('#city-table_paginate .page-item').removeClass('active');
+    $('.page-item-'+activePaginationPageNo).addClass('active');
+});
 
 $(document).on('click', '.right-arrow-city', function(){
     var city = $(this).data('city').replace(/\s+/g, '');
