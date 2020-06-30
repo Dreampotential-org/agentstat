@@ -124,6 +124,7 @@ $(document).on('click', '.review-detail', function() {
     $('.review-detail-content').html('');
     var index = agentReviewsList.findIndex(x => x.id == $(this).data('id'));
     var obj = agentReviewsList[index];
+    console.log(obj.detail)
     $.each(obj.detail, function(k, v) {
         var category_extra_info = (v.category_extra_info===null) ? '' : '<span style="font-size:14px">' + v.category_extra_info + '</span>';
         $('.review-detail-content').append(`

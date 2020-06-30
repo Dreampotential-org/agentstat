@@ -450,6 +450,7 @@ $(document).ready(function () {
     max_value: 5,
     step_size: 0.5,
   }
+  $('#license_no_3').datepicker({format: 'mm-dd-yyyy' })
 
   // SET ALL STATES
   var states = get_allStates()
@@ -621,7 +622,9 @@ $("#add-license").click(function () {
     return false
   }
   var date = new Date($('#license_no_3').val())
-  var val = $('#license_no_1').val() + ' ' + $('#license_no_2').val() + ' - ' + date.toLocaleDateString();
+
+  date = date.getMonth()+1+'-'+date.getDate()+'-'+date.getFullYear()
+  var val = $('#license_no_1').val() + ' ' + $('#license_no_2').val() + ' - ' + date;
 
   check_license(val);
 
