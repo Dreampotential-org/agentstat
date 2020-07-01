@@ -110,6 +110,10 @@
     border-radius: 5px;
 }
 
+#city-table_paginate {
+    margin-top: 5px;
+}
+
 @media (max-width: 992px) {
     .tags-section {
         flex-wrap: wrap;
