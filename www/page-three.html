@@ -326,29 +326,27 @@
                                         <div class="pth-agent-heading">
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-5">
                                                 <div class="pht-agent-img toc-two-left-one">
                                                     <img src="/img/agent.png" alt="images not found"
                                                         class="rounded-circle back-img">
                                                 </div>
                                             </div>
-                                            <div class="col-md-8">
+                                            <div class="col-md-7">
                                                 <div style="margin-top:30px">
                                                     <h3 class='agent_namebroker_name'
                                                         style="text-transform: capitalize; white-space: nowrap; display: inline-block;">
                                                         agent_name
                                                     </h3>
-                                                    <div id="already_claim_wrapper"
-                                                        style="display: none;">
+                                                    <div id="already_claim_wrapper" style="display: none;">
                                                         <h6 id="claimed_link"><a href="javascript:show_claim_screen();"
                                                                 id="already_claim_profile">Claimed</a></h6>
 
                                                     </div>
-                                                    <div id="claim_wrapper"
-                                                        style="display: none;">
+                                                    <div id="claim_wrapper" style="display: none;">
                                                         <h6><a href="/login.html" class='u'>Claim Profile</a></h6>
                                                     </div>
-                                                    
+
                                                 </div>
 
                                                 <p class="brokerage_info"
@@ -369,13 +367,14 @@
                                                 <div class="no-review" style="display: none;">
                                                     <div class="review-link">No reviews yet</div>
                                                 </div>
-                                                <p style="margin-bottom: 5px" class="agent-specialties">
+                                                <p style="margin-bottom: 5px; display: none;" class="agent-specialties">
                                                     <strong>Specialties:</strong> <span
                                                         class="agent-specialties-text"></span></p>
-                                                <p style="margin-bottom: 5px" class="agent-languages">
+                                                <p style="margin-bottom: 5px; display: none;" class="agent-languages">
                                                     <strong>Languages:</strong> <span
                                                         class="agent-languages-text"></span>
                                                 </p>
+
                                                 <div class="social-media">
                                                     <a href="" target="_blank" id="website"><img src='/img/website.png'
                                                             style="width: 20px; height:20px"></a>
@@ -389,6 +388,32 @@
                                                     <a href="" target="_blank" id="linkedin"><img
                                                             src='/img/linkedin.png'
                                                             style="width: 20px; height:20px"></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="commision" style="margin-top:30px">
+                                                    <p style="margin-bottom: 5px; display: none;"
+                                                        class="agent-listing-fee">
+                                                        <strong>Listing Fee:</strong> <span
+                                                            class="agent-listing-fee-text"></span>
+                                                    </p>
+                                                    <p style="margin-bottom: 5px; display: none;"
+                                                        class="agent-buyer-rebate">
+                                                        <strong>Buyer Rebate:</strong> <span
+                                                            class="agent-buyer-rebate-text"></span>
+                                                    </p>
+                                                    <p style="margin-bottom: 5px; display: none;"
+                                                        class="agent-listing-service">
+                                                        <strong>Listing Service:</strong> <span
+                                                            class="agent-listing-service-text"></span>
+                                                    </p>
+                                                    <p style="margin-bottom: 5px; display: none;"
+                                                        class="agent-provide-cmas">
+                                                        <strong>Provides CMAs</strong>
+                                                        <i style="color:green" class="fa fa-check"
+                                                            aria-hidden="true"></i>
+
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -951,10 +976,12 @@
                                                                 </thead>
                                                                 <tbody id="city-table-body"></tbody>
                                                             </table>
-                                                            <div class="dataTables_info" id="city-table_info" role="status" aria-live="polite">
+                                                            <div class="dataTables_info" id="city-table_info"
+                                                                role="status" aria-live="polite">
                                                                 <!-- Showing 0 to 10 of 134 entries -->
                                                             </div>
-                                                            <div class="dataTables_paginate paging_simple_numbers" id="city-table_paginate">
+                                                            <div class="dataTables_paginate paging_simple_numbers"
+                                                                id="city-table_paginate">
                                                                 <ul class="pagination">
                                                                     <!-- <li class="paginate_button page-item previous disabled" id="transations-table_previous">
                                                                         <a href="#" data-dt-idx="0" tabindex="0" class="page-link">«</a>

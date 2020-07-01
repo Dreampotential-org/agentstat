@@ -32,7 +32,7 @@ function display_profile(profile) {
   $('#facebook').val(profile.facebook);
   $('#twitter').val(profile.twitter);
   $('#linkedid').val(profile.linkedin);
-
+  $('#other-speciality-text').val(profile.other_speciality_note)
   profile_id = profile.id;
 
 
@@ -237,6 +237,7 @@ function update_profile() {
   data['specialties'] = $('.specialty-checkbox:checked').map(
     function () { return $(this).val() }
   ).get();
+  data['other_speciality_note'] = $('#other-speciality-text').val()
   data['years_in_bussiness'] = $('#years_in_bussiness').val();
 
   data['website'] = formatURL($('#website').val());
@@ -329,7 +330,10 @@ function get_specilities(specialty_ids) {
       if ($.inArray(v.id, specialty_ids) !== -1) {
         checked = ' checked ';
       }
-
+      if ((v.id == '6') && (checked == ' checked ')) {
+        console.log('CHECKED')
+        $('#other-speciality-text').css('display', 'block')
+      }
       $('#specialties').append(`
         <div class='col-lg-6 col-6'>
           <div class='year-wrapper-check-one'>
@@ -338,6 +342,7 @@ function get_specilities(specialty_ids) {
         </div>
         </div>
         `);
+
     });
   }).fail(function (err) {
     // alert('Got err');
@@ -362,7 +367,17 @@ $(document).on('change', '.specialty-checkbox', function () {
     }
   }
 })
-
+$(document).on('change', '.specialty-checkbox', function () {
+  if ($(this).attr('id') == 'specialty-6') {
+    if ($(this).is(':checked')) {
+      $('#other-speciality-text').css('display', 'block')
+    }
+    else {
+      $('#other-speciality-text').css('display', 'none')
+      $('#other-speciality-text').val('')
+    }
+  }
+})
 function get_languages(language_ids) {
   settings = get_settings('language-fluency', 'GET')
   $.ajax(settings).done(function (language_list) {

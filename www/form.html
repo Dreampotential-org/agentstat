@@ -256,7 +256,8 @@
                                             onchange="uploadTrigger(this)">
                                         <br>
                                         <span id="remove-profile-image">x</span>
-                                        <img class="my-image" style="height:300px" src="/img/blank-profile-picture.png" />
+                                        <img class="my-image" style="height:300px"
+                                            src="/img/blank-profile-picture.png" />
                                         <!-- <input id="picture" type="file" name="file" onchange="readURL(this);" /> -->
                                     </div>
                                     <!-- <div class="up-photo" style="text-align: center;"> -->
@@ -285,11 +286,11 @@
                                     <input type="text" id="license_no_1" placeholder="License #" class="col-lg-2">
                                     <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right"
                                         id="license_no_2">
-                                        <option selected value="">select state</option>
+                                        <option selected disabled value="">select state</option>
                                     </select>
                                     <!-- <input type="text" id="license_no_2" placeholder="State" class="col-lg-2"> -->
                                     <!-- <input type="date" id="license_no_3" placeholder="MM/DD/YYY" class="col-lg-3"> -->
-                                    <input id="license_no_3"class="col-lg-3" placeholder="mm-dd-yyyy"> 
+                                    <input id="license_no_3" class="col-lg-3" placeholder="mm-dd-yyyy">
 
                                     <button id="add-license" class="inline-btn">Add</button>
                                 </div>
@@ -352,7 +353,7 @@
                                     <input type="text" name="" id="city" placeholder="City" class="mr-2">
                                     <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right mr-2"
                                         id="state" name="">
-                                        <option value="">select state</option>
+                                        <option selected disabled value="">select state</option>
                                     </select>
                                     <!-- <input type="text" name="" id="state" placeholder="State" class="mr-2"> -->
 
@@ -405,7 +406,7 @@
                                         <!-- <input type="text" id="years_in_bussiness"> -->
                                         <select style="margin-left: 35px;border-radius: 3px;padding:5px"
                                             id="years_in_bussiness">
-                                            <option >Select Year</option>
+                                            <option selected disabled value="">Select Year</option>
                                             <option value="2020">2020</option>
                                             <option value="2019">2019</option>
                                             <option value="2018">2018</option>
@@ -433,6 +434,9 @@
                                     <span>Specialties</span>
                                     <div class="year-wrapper-check row" id="specialties"
                                         style="margin-left:10px;width: 450px;margin-top: 20px;">
+                                    </div>
+                                    <div class="li-right"  style="margin-left:25px;">
+                                        <input maxlength="20" style="display:none" id="other-speciality-text" placeholder="Other Specialties" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -469,7 +473,7 @@
                         <label class="check-box" for="listing_fee_checkbox">Listing fees</label>
                         <div>
                             <select style="margin-left: 0px !important;" id="listing_fee">
-                                <option value=''>Select</option>
+                                <option selected disabled value="">Select</option>
                             </select>
                         </div>
                     </div>
@@ -481,7 +485,7 @@
                         <label class="check-box" for="buyer_rebate_checkbox">Buyer Rebate</label>
                         <div>
                             <select style="margin-left: 0px !important;" id="buyer_rebate">
-                                <option value=''>Select</option>
+                                <option selected disabled value="">Select</option>
                             </select>
                         </div>
                         <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
@@ -497,7 +501,7 @@
 
                         <div>
                             <select style="margin-left: 0px !important;" id="type_of_listing_service">
-                                <option value=''>Select</option>
+                                <option selected disabled value="">Select</option>
                             </select>
                         </div>
                     </div>

@@ -246,6 +246,21 @@ function load_agent(ignore_city = true) {
       });
       $('.agent-specialties-text').html(specialtiesText.substring(0, specialtiesText.length - 2));
     }
+    if((data['listing_fee']!="" )&& (data['listing_fee']!=null )){
+      $('.agent-listing-fee').css('display','block')
+      $('.agent-listing-fee-text').html(data['listing_fee'])
+    }
+    if((data['buyer_rebate']!="" )&& (data['buyer_rebate']!=null )){
+      $('.agent-buyer-rebate').css('display','block')
+      $('.agent-buyer-rebate-text').html(data['buyer_rebate'])
+    }
+    if((data['type_of_listing_service']!="" )&& (data['type_of_listing_service']!=null )){
+      $('.agent-listing-service').css('display','block')
+      $('.agent-listing-service-text').html(data['type_of_listing_service'])
+    }
+    if((data['provide_cma']!="" )&& (data['provide_cma']!=null )){
+      $('.agent-provide-cmas').css('display','block')
+    }
 
     $(".alist").remove();
     index = 1;
@@ -271,6 +286,8 @@ function load_agent(ignore_city = true) {
     console.log(err);
   });
 }
+
+
 
 $(document).on('change click', '#leads-start div>ul>li>a', function () {
   leads = {};
