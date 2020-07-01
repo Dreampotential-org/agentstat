@@ -125,10 +125,10 @@
                                 </div>
 
                                 <div class="ser-state " style="display: none;">
-                                    <p id="ser-state-id" class=" state-value">State <i class="fas fa-caret-down"></i>
+                                    <p class="ser-state-id state-value" target="ser-state-first">State <i class="fas fa-caret-down"></i>
                                     </p>
-                                    <div class="ser-state-type">
-                                        <ul id="allstate">
+                                    <div class="ser-state-type ser-state-first">
+                                        <ul class="allstate scrollState">
                                         </ul>
                                     </div>
                                 </div>
@@ -1494,11 +1494,11 @@
             // better understand what it is.
             $(".state-value").click(function () {
                 //alert($('#allstate li').length);
-                if (('#allstate li').length > 0) {
-                    $('#allstate').addClass('scrollState');
+                if (('.allstate li').length > 0) {
+                    $('.allstate').addClass('scrollState');
                 }
-                $('#allstate li').click(function () {
-                    $('#allstate li').each(function () {
+                $('.allstate li').click(function () {
+                    $('.allstate li').each(function () {
                         if (($(this)).hasClass('statehightLight')) {
                             $(this).removeClass('statehightLight')
                         }
@@ -1568,7 +1568,7 @@
         $.ajax(settings).done(function (response) {
             var states = (response);
             $.each(states, function (k, v) {
-                $('#allstate').append("<li class='custom_radio'>" + k + "</li>");
+                $('.allstate').append("<li class='custom_radio'>" + k + "</li>");
                 $('#statesData').append("<li class='custom_radio'>" + k + "</li>");
             });
         }).fail(function (err) {
