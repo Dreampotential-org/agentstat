@@ -130,7 +130,7 @@ function display_profile(profile) {
 
 
 
-    if (profile.screen_name) {
+    if (profile.screen_name && profile.state) {
       profile_url = '/profile/' + profile.state.toLowerCase() + '/' + profile.screen_name;
     } else {
       profile_url = '/page-three.html?agent_id=' + profile.connector.id;
