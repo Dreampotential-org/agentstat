@@ -93,7 +93,7 @@ function display_profile(profile) {
   if (profile.picture != '' && profile.picture !== null) {
     // debugger;
     $('.my-image').attr('src', profile.picture)
-    $('#remove-profile-image').css('display','block')
+    $('#remove-profile-image').css('display', 'block')
     // $('.my-image').prop('src', profile.picture);
     // $upload_crop = $('.my-image').croppie(
     //   {
@@ -259,24 +259,36 @@ function update_profile() {
     reader.readAsDataURL(picture_data);
     reader.onload = function () {
       picture_base64 = reader.result;
+      $upload_crop.croppie('result', {
+        type: 'base64',
+        size: "original",
+        quality: 1
+      }).then(function (resp) {
 
-      data['picture'] = $('.cropped-image').val();
-      console.log($('.cropped-image').val())
+        data['picture'] = resp;
 
-      settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
+        settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
-      $.ajax(settings).done(function (response) {
-        $('#validate-message').css('display', 'none');
+        $.ajax(settings).done(function (response) {
+          $('#validate-message').css('display', 'none');
 
-        var msg = JSON.parse(response);
+          var msg = JSON.parse(response);
 
-        show_message('Your profile has been saved.');
+          show_message('Your profile has been saved.');
 
-      }).fail(function (err) {
-        // alert('Got err');
-        console.log(err)
-        show_error(err);
-      });
+          $('.croppie-container').remove()
+          $upload_crop = null
+          $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+          $('.my-image').attr('src', data['picture']);
+          $('#upload').val('')
+          $('#remove-profile-image').css('display', 'block')
+          $('.fileinput-name').html('')
+        }).fail(function (err) {
+          // alert('Got err');
+          console.log(err)
+          show_error(err);
+        });
+      })
 
     };
     reader.onerror = function (error) {
@@ -450,7 +462,7 @@ $(document).ready(function () {
     max_value: 5,
     step_size: 0.5,
   }
-  $('#license_no_3').datepicker({format: 'mm-dd-yyyy' })
+  $('#license_no_3').datepicker({ format: 'mm-dd-yyyy' })
 
   // SET ALL STATES
   var states = get_allStates()
@@ -623,7 +635,7 @@ $("#add-license").click(function () {
   }
   var date = new Date($('#license_no_3').val())
 
-  date = date.getMonth()+1+'-'+date.getDate()+'-'+date.getFullYear()
+  date = date.getMonth() + 1 + '-' + date.getDate() + '-' + date.getFullYear()
   var val = $('#license_no_1').val() + ' ' + $('#license_no_2').val() + ' - ' + date;
 
   check_license(val);
@@ -649,7 +661,49 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+
 var $upload_crop;
+
+
+function readImage(input) {
+  var reader = new FileReader()
+  reader.onload = function (e) {
+    $('.my-image').attr('src', e.target.result)
+    $upload_crop = $('.my-image').croppie(
+      {
+        enableExif: true,
+        viewport: {
+          width: 200,
+          height: 200,
+          type: 'circle'
+        },
+        boundary: { width: 300, height: 300 },
+      }
+    )
+  }
+  reader.readAsDataURL(input.files[0]);
+
+}
+function uploadTrigger(input) {
+  if (input.files && input.files[0]) {
+    if ($upload_crop != null) {
+      $('.croppie-container').remove()
+      $upload_crop = null
+      $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+    }
+    readImage(input)
+    $('#remove-profile-image').css('display', 'none')
+  }
+  else {
+
+    $('.croppie-container').remove()
+    $upload_crop = null
+    $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+    $('.my-image').attr('src', '/img/blank-profile-picture.png');
+  }
+}
+
 function readURLtemp(input) {
 
   if (input.files && input.files[0]) {
@@ -689,19 +743,18 @@ function readURLtemp(input) {
   }
 }
 
+$(document).on('click', '#remove-profile-image', function (e) {
+  settings = get_settings('remove-profile-image/', 'GET');
 
-$(document).on('change', '.croppie-container', function () {
-  if ($upload_crop != null) {
-    $upload_crop.croppie('result', {
-      type: 'canvas',
-      size: "original",
-      quality: 1
-    }).then(function (resp) {
-      $('.cropped-image').val(resp)
-      console.log($('.cropped-image').val())
-    })
-  }
-})
+  $.ajax(settings).done(function (response) {
+    show_message('Profile picture has been removed!');
+
+    src = "/img/blank-profile-picture.png"
+    $('.my-image').prop('src', src);
+    $('#remove-profile-image').css('display', 'none')
+  });
+});
+
 function formatURL(string) {
   if ((string == null) || (string == '')) return ''
   if (!~string.indexOf("http")) {
@@ -711,15 +764,4 @@ function formatURL(string) {
   return string
 }
 
-$(document).on('click', '#remove-profile-image', function (e) {
-  settings = get_settings('remove-profile-image/', 'GET');
-
-  $.ajax(settings).done(function (response) {
-    show_message('Profile picture has been removed!');
-
-    src = "/img/blank-profile-picture.png"
-    $('.my-image').prop('src', src);
-    $('#remove-profile-image').css('display','none')
-  });
-});
 

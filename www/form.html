@@ -253,12 +253,10 @@
                                 <div class="col-lg-3">
                                     <div id="image_upload_div">
                                         <input type="file" id="upload" value="Choose a file" accept="image/*"
-                                            onchange="readURLtemp(this)">
-                                        <input type="hidden" class="cropped-image" name="imagebase64">
+                                            onchange="uploadTrigger(this)">
                                         <br>
                                         <span id="remove-profile-image">x</span>
                                         <img class="my-image" style="height:300px" src="/img/blank-profile-picture.png" />
-
                                         <!-- <input id="picture" type="file" name="file" onchange="readURL(this);" /> -->
                                     </div>
                                     <!-- <div class="up-photo" style="text-align: center;"> -->
