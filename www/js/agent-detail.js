@@ -233,7 +233,7 @@ function load_agent(ignore_city = true) {
       $('#already_claim_wrapper').css('display', 'inline-block');
     } else {
       $('#claim_wrapper').css('display', 'inline-block');
-      if (localStorage.getItem('session_id')){
+      if (localStorage.getItem('session_id')) {
         $('#claim_wrapper a').attr('href', '/connect-profile.html')
       }
     }
@@ -241,25 +241,28 @@ function load_agent(ignore_city = true) {
     if (data["specialties"] !== undefined) {
       var specialtiesText = '';
       $.each(data['specialties'], function (k, v) {
-        specialtiesText += v.val + ', ';
+        if (v.id == 6) { specialtiesText += data['other_speciality_note'] +', '}
+        else {
+          specialtiesText += v.val + ', ';
+        }
         $('.agent-specialties').show();
       });
       $('.agent-specialties-text').html(specialtiesText.substring(0, specialtiesText.length - 2));
     }
-    if((data['listing_fee']!="" )&& (data['listing_fee']!=null )){
-      $('.agent-listing-fee').css('display','block')
+    if ((data['listing_fee'] != "") && (data['listing_fee'] != null)) {
+      $('.agent-listing-fee').css('display', 'block')
       $('.agent-listing-fee-text').html(data['listing_fee'])
     }
-    if((data['buyer_rebate']!="" )&& (data['buyer_rebate']!=null )){
-      $('.agent-buyer-rebate').css('display','block')
+    if ((data['buyer_rebate'] != "") && (data['buyer_rebate'] != null)) {
+      $('.agent-buyer-rebate').css('display', 'block')
       $('.agent-buyer-rebate-text').html(data['buyer_rebate'])
     }
-    if((data['type_of_listing_service']!="" )&& (data['type_of_listing_service']!=null )){
-      $('.agent-listing-service').css('display','block')
+    if ((data['type_of_listing_service'] != "") && (data['type_of_listing_service'] != null)) {
+      $('.agent-listing-service').css('display', 'block')
       $('.agent-listing-service-text').html(data['type_of_listing_service'])
     }
-    if((data['provide_cma']!="" )&& (data['provide_cma']!=null )){
-      $('.agent-provide-cmas').css('display','block')
+    if ((data['provide_cma'] != "") && (data['provide_cma'] != null)) {
+      $('.agent-provide-cmas').css('display', 'block')
     }
 
     $(".alist").remove();

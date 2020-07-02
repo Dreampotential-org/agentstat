@@ -331,7 +331,6 @@ function get_specilities(specialty_ids) {
         checked = ' checked ';
       }
       if ((v.id == '6') && (checked == ' checked ')) {
-        console.log('CHECKED')
         $('#other-speciality-text').css('display', 'block')
       }
       $('#specialties').append(`
