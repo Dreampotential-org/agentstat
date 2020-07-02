@@ -1,3 +1,32 @@
+const urlParams = new URLSearchParams(window.location.search);
+var hash = urlParams.get('hash')
+console.log(hash)
+
+if (hash) {
+  // console.log('ssss');
+  data = {}
+  data['hash_str'] = hash
+  settings = get_settings('login-with-code/', 'POST', JSON.stringify(data))
+  settings['headers'] = {};
+
+  $.ajax(settings).done(function (response) {
+    var data = JSON.parse(response);
+    localStorage.session_id = data['token'];
+    localStorage.email = data['email'];
+    localStorage.profile_id = data['profile_id'];
+    localStorage.agent_id = data['agent_id'];
+    window.location = '/profile-settings/';
+  }).fail(function(err) {
+    // alert('Got err');
+    console.log(err);
+    $('.msg-login').html(err['responseText']);
+    $('.msg-login').css("display", "block");
+    console.log(err);
+  });
+
+}
+
+
 function login() {
   var data = {};
   data['email'] = $('#email').val()
