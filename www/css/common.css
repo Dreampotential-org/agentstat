@@ -11,10 +11,14 @@ body {
 .footer {
     flex-shrink: 0;
 }
+.ak-table table {
+    position: relative;
+}
 .agent_btn_wrap {
     position: absolute;
-    right: 67px;
-    top: 79px;
+    right: 21px;
+    top: 50%;
+    margin-top: -10px;
 }
 .agent_btn_wrap a {
     background-color: #fff;
@@ -84,9 +88,7 @@ body {
 }
 @media (max-width: 1199px) {
     .agent_btn_wrap {
-        position: absolute;
-        right: 44px;
-        top: 80px;
+        max-width: 200px;
     }
     .custom_pin {
         margin-right: 10px;

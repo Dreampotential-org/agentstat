@@ -16,3 +16,127 @@
 .drop span {
     top: 0px;
 }
+
+.highlighted {
+    border: 3px solid #ffc90e;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin: 0 auto 33px;
+    width: calc(100% - 6px);
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.highlighted h4 {
+    font-weight: bold;
+}
+.highlighted .col-md-12 {
+    height: 100%;
+    padding-top: 22px;
+}
+.highlighted .col-lg-3 {
+    margin-top: -22px;
+}
+.form_sec {
+    padding-left: 15px;
+    position: relative;
+}
+.form_sec:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -200px;
+    bottom: -200px;
+    width: 1px;
+    background: #7f7f7f;
+}
+.form_sec h4 {
+    display: block;
+    margin-bottom: 30px;
+    color: #000;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+}
+.form_sec li {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    justify-content: space-between;
+}
+.form_sec li.half input {
+    width: 49% !important;
+}
+.form_sec li input[type="text"] {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #e6e8ea;
+    border-radius: 8px;
+    color: rgba(0,0,0,0.6);
+    font-size: 16px;
+    padding: 0 10px;
+    line-height: 35px;
+}
+.form_sec li input[type="submit"] {
+    width: 100%;
+    max-width: 170px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 40px;
+    background: #22b14c;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: 0.3s ease-in;
+}
+.form_sec li input[type="submit"]:hover {
+    background: #2F6373;
+}
+
+@media (max-width: 1200px) {
+    .highlighted .col-lg-3 {
+        margin-top: -15px;
+    }
+    .highlighted .col-lg-3 img {
+        max-width: 100%;
+    }
+    .highlighted .col-lg-4 {
+        padding-bottom: 24px;
+    }
+}
+@media (max-width: 992px) {
+    .form_sec {
+        padding-left: 0;
+    }
+    .form_sec:before {
+        display: none;
+    }
+    .highlighted .col-lg-3 img {
+        margin: 10px auto 0;
+    }
+    .form_sec h4 {
+        font-size: 14px;
+    }
+    .form_sec h4 br {
+        display: none;
+    }
+    .highlighted table {
+        width: 100%;
+    }
+    .highlighted table tr td:last-child {
+        width: 8%;
+    }
+    .highlighted .horizontal_dotted_line {
+        width: 100% !important;
+    }
+}
+@media (max-width: 767px) {
+    .highlighted .col-lg-3 .toc-two-left-one {
+        display: block;
+    }
+}
