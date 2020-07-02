@@ -244,7 +244,9 @@ function load_agent(ignore_city = true) {
         if (v.id == 6) { specialtiesText += data['other_speciality_note'] +', '}
         else {
           specialtiesText += v.val + ', ';
+
         }
+        $('.agent-specialties-text').html(specialtiesText)
         $('.agent-specialties').show();
       });
       $('.agent-specialties-text').html(specialtiesText.substring(0, specialtiesText.length - 2));
