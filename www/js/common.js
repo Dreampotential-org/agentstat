@@ -65,3 +65,14 @@ function show_message(message) {
       timer: 3000,
     });
 }
+
+function parseQuerystring(){
+    var foo = window.location.href.split('?')[1].split('#')[0].split('&');
+    var dict = {};
+    var elem = [];
+    for (var i = foo.length - 1; i >= 0; i--) {
+        elem = foo[i].split('=');
+        dict[elem[0]] = elem[1];
+    };
+    return dict;
+};
