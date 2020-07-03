@@ -670,12 +670,18 @@ $('#query-submit').on('click', function(){
     data['address'] = address;
     data['queryParams'] = queryParams;
 
+    $('#submit-query-spinner').show();
+    $('#submit-query-check').hide();
     settings = get_settings('sent-email/', 'POST', JSON.stringify(data));
     $.ajax(settings).done(function (response) {
         data = JSON.parse(response);
         $('#query-name').val('');
         $('#query-phone').val('');
         $('#query-address').val('');
+
+        $('#submit-query-spinner').hide();
+        $('#submit-query-check').show();
+        $('#submit-query-text').html('Sent ');
     }).fail(function (err) {
         alert('There is an internal server side error, please try later.')
         return false;

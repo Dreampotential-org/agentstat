@@ -148,6 +148,10 @@ function redirectResults(results) {
     search_state = localStorage.getItem('search_state');
     search_home_type = localStorage.getItem('search_home_type');
 
+    if (search_type != 'Agent Name ' && $('#y-type').text() != 'Type ') {
+      search_home_type = $('#y-type').text().trim();
+    }
+
     // search_address = $('.search_address').val();
     // search_zipcode = $('.search_zipcode').val();
     // search_city = $('.search_city').val();
@@ -237,7 +241,7 @@ function redirectResults(results) {
     new_url = '/agents/?' + search;
 
     window.location = new_url;
-
+    
     return false;
 
 }

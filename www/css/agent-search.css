@@ -79,7 +79,7 @@
     padding: 0 10px;
     line-height: 35px;
 }
-.form_sec li input[type="submit"] {
+.form_sec li input[type="submit"], .form_sec li button {
     width: 100%;
     max-width: 170px;
     height: 40px;
@@ -94,7 +94,7 @@
     margin: 0 auto;
     transition: 0.3s ease-in;
 }
-.form_sec li input[type="submit"]:hover {
+.form_sec li input[type="submit"]:hover, .form_sec li button:hover {
     background: #2F6373;
 }
 
