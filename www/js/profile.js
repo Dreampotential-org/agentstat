@@ -642,7 +642,7 @@ function add_license(val) {
 }
 
 $("#add-license").click(function () {
-  if ($('#license_no_1').val() == '' || $('#license_no_2').val() == '' || $('#phone_number_1').val() == '') {
+  if ($('#license_no_1').val() == '' || $('#license_no_2').val() == '' || $('#license_no_3').val() == '') {
     var validation_messages = 'Invalid license number.';
     show_message(validation_messages);
     return false
