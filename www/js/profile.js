@@ -155,7 +155,7 @@ function display_profile(profile) {
 
 
 function get_reviews() {
-  settings = get_settings('review/' + profile_id + '/', 'GET');
+  settings = get_settings('revi-ew/' + profile_id + '/', 'GET');
 
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
@@ -187,7 +187,45 @@ function phonenumber_validate(inputtxt) {
   }
 }
 
+
+$(document).on('click', '#image_save', function () {
+  // Save Image Only 
+  $('#save_image_loading').css('display', 'inline-block')
+  $('#image_save_btn').attr('disabled', 'true')
+  var picture_data = $('#upload')[0].files[0]
+  if (picture_data != null) {
+    $upload_crop.croppie('result', {
+      type: 'base64',
+      size: "original",
+      quality: 1
+    }).then(function (resp) {
+      var data = {}
+      data['picture'] = resp;
+      settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
+      $.ajax(settings).done(function (response) {
+        show_message('Your profile Image has been saved.');
+        $('.croppie-container').remove()
+        $upload_crop = null
+        $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+        $('.my-image').attr('src', data['picture']);
+        $('#upload').val('')
+        $('#remove-profile-image').css('display', 'block')
+        $('#image_save').css('display', 'none')
+        $('.fileinput-name').html('')
+
+        $('#save_image_loading').css('display', 'none')
+        $('.image_save_btn').removeAttr('disabled')
+      })
+    })
+  }
+
+
+})
 function update_profile() {
+  //Show Loading Icon and Disable Submit Button
+  $('#submit_loading').css('display', 'inline-block')
+  $('.submit_btn').attr('disabled', 'true')
+
   var data = {};
   var valid = true;
   var validation_messages = '';
@@ -275,6 +313,11 @@ function update_profile() {
 
           var msg = JSON.parse(response);
 
+          //Hide Loading Icon and Enable Submit Button
+          $('#submit_loading').css('display', 'none')
+          $('.submit_btn').removeAttr('disabled', 'false')
+
+
           show_message('Your profile has been saved.');
 
           $('.croppie-container').remove()
@@ -283,11 +326,18 @@ function update_profile() {
           $('.my-image').attr('src', data['picture']);
           $('#upload').val('')
           $('#remove-profile-image').css('display', 'block')
+          $('#image_save').css('display', 'none')
           $('.fileinput-name').html('')
         }).fail(function (err) {
           // alert('Got err');
+
+          //Hide Loading Icon and Enable Submit Button
+          $('#submit_loading').css('display', 'none')
+          $('.submit_btn').removeAttr('disabled', 'false')
+          $('#image_save').css('display', 'none')
           console.log(err)
           show_error(err);
+
         });
       })
 
@@ -299,12 +349,20 @@ function update_profile() {
     settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
     $.ajax(settings).done(function (response) {
+      //Hide Loading Icon and Enable Submit Button
+      $('#submit_loading').css('display', 'none')
+      $('.submit_btn').removeAttr('disabled', 'none')
+
       $('#validate-message').css('display', 'none');
 
       var msg = JSON.parse(response);
 
       show_message('Your profile has been saved.');
     }).fail(function (err) {
+      //Hide Loading Icon and Enable Submit Button
+      $('#submit_loading').css('display', 'none')
+      $('.submit_btn').removeAttr('disabled', 'false')
+
       // alert('Got err');
       show_error(err);
     });
@@ -708,6 +766,7 @@ function uploadTrigger(input) {
     }
     readImage(input)
     $('#remove-profile-image').css('display', 'none')
+    $('#image_save').css('display', 'block')
   }
   else {
 
@@ -715,6 +774,8 @@ function uploadTrigger(input) {
     $upload_crop = null
     $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
     $('.my-image').attr('src', '/img/blank-profile-picture.png');
+    console.log("UPLOAD TRIGGER ELSE")
+    $('#image_save').css('display', 'none')
   }
 }
 
@@ -766,6 +827,7 @@ $(document).on('click', '#remove-profile-image', function (e) {
     src = "/img/blank-profile-picture.png"
     $('.my-image').prop('src', src);
     $('#remove-profile-image').css('display', 'none')
+    $('#save_image').css('display', 'none')
   });
 });
 

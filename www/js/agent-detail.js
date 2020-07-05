@@ -228,10 +228,13 @@ function load_agent(ignore_city = true) {
     //     <a href="/login.html" id="">Claim Profile</a>
     //   }
     // }
-
-    if (data['claimed'] === true) {
+    if (localStorage.agent_id == agent_id) {
+      $('#edit_profile_wrapper').css('display', 'inline-block');
+    }
+    else if (data['claimed'] === true) {
       $('#already_claim_wrapper').css('display', 'inline-block');
-    } else {
+    }
+    else {
       $('#claim_wrapper').css('display', 'inline-block');
       if (localStorage.getItem('session_id')) {
         $('#claim_wrapper a').attr('href', '/connect-profile.html')
@@ -241,7 +244,7 @@ function load_agent(ignore_city = true) {
     if (data["specialties"] !== undefined) {
       var specialtiesText = '';
       $.each(data['specialties'], function (k, v) {
-        if (v.id == 6) { specialtiesText += data['other_speciality_note'] +', '}
+        if (v.id == 6) { specialtiesText += 'Other: ' + data['other_speciality_note'] + ', ' }
         else {
           specialtiesText += v.val + ', ';
 

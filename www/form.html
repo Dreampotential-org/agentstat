@@ -254,12 +254,20 @@
                                     <div id="image_upload_div">
                                         <input type="file" id="upload" value="Choose a file" accept="image/*"
                                             onchange="uploadTrigger(this)">
+                                        
+                                        <div id="image_save" style="display:none">
+                                            <button id="image_save_btn" class="btn btn-primary">Save Image
+                                                <i id="save_image_loading" class="fa fa-spinner"
+                                                    style="display:none"></i>
+                                            </button>
+                                        </div>
                                         <br>
                                         <span id="remove-profile-image">x</span>
                                         <img class="my-image" style="height:300px"
                                             src="/img/blank-profile-picture.png" />
                                         <!-- <input id="picture" type="file" name="file" onchange="readURL(this);" /> -->
                                     </div>
+
                                     <!-- <div class="up-photo" style="text-align: center;"> -->
                                     <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
                                     <!-- <img id="profile-img" alt=""> -->
@@ -370,33 +378,7 @@
                         <h4>HIGHLIGHTS</h4>
                     </div>
                     <div class="highlight-wrpper pl-5">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="la-left">
-                                    <p id="lebel">
-                                        Language fluency <small>(Optional)</small>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="la-right">
-                                    <div id="languages" class="row" style="width:700px">
 
-                                    </div>
-
-
-                                    <div class="collapse" id="collapseExample">
-                                        <div id="morelanguages" class="row" style="width: 700px">
-
-
-                                        </div>
-                                    </div>
-                                    <a class="trigger-more collapsed" role="button" data-toggle="collapse"
-                                        href="#collapseExample" aria-expanded="false"
-                                        aria-controls="collapseExample">More</a>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- year area start -->
                         <div class="row year" style="margin-top:20px">
@@ -431,19 +413,54 @@
                                             <option value="before 2000">Before 2000</option>
                                         </select>
                                     </p>
-                                    <span>Specialties</span>
-                                    <div class="year-wrapper-check row" id="specialties"
-                                        style="margin-left:10px;width: 450px;margin-top: 20px;">
-                                    </div>
-                                    <div class="li-right" style="margin-left:25px;">
-                                        <input maxlength="20" style="display:none" id="other-speciality-text"
-                                            placeholder="Other Specialties" type="text">
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- year area start -->
+                        <!-- year area End -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span><strong>Specialties</strong></span>
+                                <div class="year-wrapper-check row" id="specialties"
+                                    style="margin-left:10px;width: 450px;margin-top: 20px;">
+                                </div>
+                                <div class="li-right" style="margin-left:25px;">
+                                    <input maxlength="20" style="display:none" id="other-speciality-text"
+                                        placeholder="Other Specialties" type="text">
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <!-- Languages Area Start -->
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="la-left">
+                                    <p id="lebel">
+                                        <strong>Language fluency</strong> <small>(Optional)</small>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="la-right">
+                                    <div id="languages" class="row" style="width:700px">
+
+                                    </div>
+
+
+                                    <div class="collapse" id="collapseExample">
+                                        <div id="morelanguages" class="row" style="width: 700px">
+
+
+                                        </div>
+                                    </div>
+                                    <a class="trigger-more collapsed" role="button" data-toggle="collapse"
+                                        href="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Languages Area End -->
                     </div>
 
                 </div>
@@ -726,7 +743,10 @@
                     <div class="about-submit ml-5">
                         <ul>
                             <li class="mr-2">
-                                <button class="btn btn-primary submit_btn">Submit</button>
+                                <button class="btn btn-primary submit_btn">
+                                    Submit
+                                    <i id="submit_loading" class="fa fa-spinner" style="display:none"></i>
+                                </button>
                             </li>
                             <li><a class="btn btn-secondary" href="#"> Cancel</a></li>
                         </ul>
