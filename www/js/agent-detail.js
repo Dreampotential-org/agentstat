@@ -167,6 +167,11 @@ function load_agent(ignore_city = true) {
       $(this).html(data['full_name']);
     });
 
+    // Render Years In Business
+    if (data['years_in_bussiness']){
+      $('.agent-in-business').css('display', 'block')
+      $('.agent-in-business-text').text(data['years_in_bussiness'])
+    }
     // Add Languages
     if (data['language_fluencies'].length > 0) {
       var lang = ''
@@ -243,7 +248,12 @@ function load_agent(ignore_city = true) {
 
     if (data["specialties"] !== undefined) {
       var specialtiesText = '';
+      
+      //Sort wrt sorting
+      data["specialties"] = data["specialties"].sort((a, b) => (a.sorting > b.sorting) ? 1 : -1)
+
       $.each(data['specialties'], function (k, v) {
+        
         if (v.id == 6) { specialtiesText += 'Other: ' + data['other_speciality_note'] + ', ' }
         else {
           specialtiesText += v.val + ', ';
