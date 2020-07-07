@@ -1134,7 +1134,10 @@
         $(document).ready(function () {
             //Render agent-contact-form
             
-            $('#agent-contact-form').load('agent-contact-form.html')
+            // $('#agent-contact-form').load('agent-contact-form.html')
+            $.get('/agent-contact-form.html', function(response){
+                $('#agent-contact-form').html(response)
+            })
             // XXX move this code out of html page to help
             // better understand what it is.
             $(".state-value").click(function () {
