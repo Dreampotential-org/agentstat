@@ -16,3 +16,6 @@
 .drop span {
     top: 0px;
 }
+#leads-form input, #leads-form textarea {
+    border-radius: 5px;
+}

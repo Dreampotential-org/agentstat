@@ -162,7 +162,9 @@ function load_agent(ignore_city = true) {
     }
 
     $('.agent_name').val(data['agent_name']);
+    
     $('.agent-first-name').text(data['full_name'].split(" ")[0]);
+    
     $.each($('.agent_name'), function () {
       $(this).html(data['full_name']);
     });
@@ -278,6 +280,12 @@ function load_agent(ignore_city = true) {
     }
     if ((data['provide_cma'] != "") && (data['provide_cma'] != null)) {
       $('.agent-provide-cmas').css('display', 'block')
+    }
+
+    // Render Licenses T Bottom
+    if(data['licenses'].length >0){
+      var lic = data['licenses'][0]
+      $('#license_about').text(' - '+lic.split(' ')[0]+' - '+lic.split(' ')[1])
     }
 
     $(".alist").remove();

@@ -1,5 +1,6 @@
 <html lang="en-US">
-  <head>
+
+<head>
     <!-- Meta setup -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,44 +31,48 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
 
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="page-container">
         <div class="wrapper-heading sticky-top bg-white akh-4">
             <!-- header-area start -->
-             <div class="header-area sticky-top bg-white custom_header stricked-menu stricky-fixed">
-            <div class="">
-                <div class="row" style="margin-right: 0px;">
-                    <div class="col-lg-12">
+            <div class="header-area sticky-top bg-white custom_header stricked-menu stricky-fixed">
+                <div class="">
+                    <div class="row" style="margin-right: 0px;">
+                        <div class="col-lg-12">
 
-                        <nav class="navbar navbar-expand-md navbar-light">
-                            <a class="navbar-brand" href="/">
-                                <img class="image" src="/img/logo.png" alt="logo" />
-                            </a>
-                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
-                                </span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav mr-auto">
-                                </ul>
-                                <div  class="main-menu-part">
-                                    <ul>
-                                        <li><a href="/howsearchworks/">How Search Works</a></li>
+                            <nav class="navbar navbar-expand-md navbar-light">
+                                <a class="navbar-brand" href="/">
+                                    <img class="image" src="/img/logo.png" alt="logo" />
+                                </a>
+                                <button class="hamburger hamburger--squeeze navbar-toggler" type="button"
+                                    data-toggle="collapse" data-target="#navbarSupportedContent"
+                                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
                                     </ul>
+                                    <div class="main-menu-part">
+                                        <ul>
+                                            <li><a href="/howsearchworks/">How Search Works</a></li>
+                                        </ul>
+                                    </div>
+                                    <div id="login-menu" class="main-menu-part">
+                                        <ul class="float-right">
+                                            <li><a href="/login/">Agents</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div id="login-menu" class="main-menu-part">
-                                    <ul class="float-right">
-                                        <li><a href="/login/">Agents</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
             <!-- po-search area start -->
             <div class="po-search pt-search g ">
@@ -75,41 +80,48 @@
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
 
-                            <div class="po-serach-wrapper pt-search-wrapper po-serach-wrapper-one ak-form custom_search_size srch-bar ak-po">
+                            <div
+                                class="po-serach-wrapper pt-search-wrapper po-serach-wrapper-one ak-form custom_search_size srch-bar ak-po">
                                 <div class="address ">
-                                    <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
+                                    <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i>
+                                    </p>
                                     <div class="dropdownaddress address-type index-address-type ">
                                         <ul>
                                             <li class="custom_radio">Address</li>
                                             <li class="custom_radio">Agent Name</li>
                                             <li class="custom_radio">City</li>
                                             <li class="custom_radio">ZipCode</li>
-                                            </ul>
+                                        </ul>
                                     </div>
-                                  </div>
+                                </div>
 
-                                  <div class="ser-state " style="display: none;">
-                                    <p class="ser-state-id state-value" target="ser-state-first">State <i class="fas fa-caret-down"></i></p>
+                                <div class="ser-state " style="display: none;">
+                                    <p class="ser-state-id state-value" target="ser-state-first">State <i
+                                            class="fas fa-caret-down"></i></p>
                                     <div class="ser-state-type ser-state-first">
                                         <ul class="allstate scrollState">
                                         </ul>
                                     </div>
-                                  </div>
+                                </div>
 
-                                <input class="ser search_address maps_input" id="searchId" type="text" name="text" autocomplete="no" placeholder="Search ">
-                                <input class="search_city ser" autocomplete='nop' type="text" name="citytext" placeholder="Search City" style="display:none" >
-                                <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext" placeholder="Search Agent Name" style="display:none" >
-                                <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" >
+                                <input class="ser search_address maps_input" id="searchId" type="text" name="text"
+                                    autocomplete="no" placeholder="Search ">
+                                <input class="search_city ser" autocomplete='nop' type="text" name="citytext"
+                                    placeholder="Search City" style="display:none">
+                                <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext"
+                                    placeholder="Search Agent Name" style="display:none">
+                                <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext"
+                                    placeholder="Search Zip Code" style="display:none">
 
 
 
-                                <div class="type ak-price srch-price" >
-                                    <p id="y-type" class="type-value">Type  <i class="fas fa-caret-down"></i></p>
+                                <div class="type ak-price srch-price">
+                                    <p id="y-type" class="type-value">Type <i class="fas fa-caret-down"></i></p>
                                     <div id="dropdowntypes" class="check-type index-check-type">
                                         <!-- <h6>Home Type</h6> -->
                                         <ul>
                                             <li class="custom_radio">Houses</li>
-                                            <li  class="custom_radio">Manufactured</li>
+                                            <li class="custom_radio">Manufactured</li>
                                             <li class="custom_radio">Condos/co-ops</li>
                                             <li class="custom_radio">Multi-family</li>
                                             <li class="custom_radio">Lots/Land</li>
@@ -128,7 +140,8 @@
                                     <div class="price-amount" id="pt-amount">
                                         <div class="price-head-wrapper">
                                             <h6 class="d-linline-block">Price Range</h6>
-                                            <input id="one-left-in" type="text" name="" placeholder="MIN"> <span> -</span>
+                                            <input id="one-left-in" type="text" name="" placeholder="MIN"> <span>
+                                                -</span>
                                             <input id="one-right-in" type="text" name="" placeholder="MAX">
                                         </div>
                                         <div class="price-wrapper">
@@ -162,13 +175,14 @@
                                             </div>
 
                                         </div>
-                                        <div id="donBtn"class="text-center" style="padding: 14px;">
-                                            <button >Done</button>
+                                        <div id="donBtn" class="text-center" style="padding: 14px;">
+                                            <button>Done</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="serch_btn" >
-                                    <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
+                                <div class="serch_btn">
+                                    <button class="btn btn-default searchButton"><span><i
+                                                class="fas fa-search"></i></span></button>
                                 </div>
                                 <!-- <div class="ser-butt ak-sb1">
                                     <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
@@ -183,26 +197,29 @@
 
 
         <!-- pt-tab area start -->
-        <div class="fixed-tab  " >
-            <div class="pt-tab" id="close" >
-                <div class="container" >
+        <div class="fixed-tab  ">
+            <div class="pt-tab" id="close">
+                <div class="container">
                     <div class="pt-tab-wrapper">
                         <div class="row ">
                             <div class="col-6 col-md-6 col-sm-6 tab_line">
-                                <ul class="nav nav-tabs" id="myTab"
-                                  role="tablist" style="margin-top:-10px">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-top:-10px">
                                     <li class="nav-item">
-                                        <a class="nav-link active custom_font" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sellers</a>
+                                        <a class="nav-link active custom_font" id="home-tab" data-toggle="tab"
+                                            href="#home" role="tab" aria-controls="home"
+                                            aria-selected="true">Sellers</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link custom_font" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Buyers</a>
+                                        <a class="nav-link custom_font" id="profile-tab" data-toggle="tab"
+                                            href="#profile" role="tab" aria-controls="profile"
+                                            aria-selected="false">Buyers</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-6 col-md-6  col-sm-6" style="margin-top: 6px;">
                                 <ul class="nav filter_align">
-                                    <li >
-                                        <div class="dm-main3" >
+                                    <li>
+                                        <div class="dm-main3">
                                             <button class="ami">
                                                 Sort ▾
                                             </button>
@@ -213,31 +230,33 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li >
+                                    <li>
                                         <div class="dm-main ">
                                             <button>
-                                                Filters  ▾
+                                                Filters ▾
                                             </button>
-                                            <div class="dm-part" id="seller-filter" >
+                                            <div class="dm-part" id="seller-filter">
                                                 <form>
-                                                    <span >Location</span>
+                                                    <span>Location</span>
                                                     <div class="row">
 
                                                         <div class="col-12 col-md-12 col-sm-9">
 
 
-                                                            <input type="text" name="" placeholder="Zipcode" class="form-control d-inline-block custom_city w-50">
+                                                            <input type="text" name="" placeholder="Zipcode"
+                                                                class="form-control d-inline-block custom_city w-50">
                                                         </div>
 
                                                         <div class="col-12 col-md-12 col-sm-9 city_div">
-                                                          <select id='city-search-filter' name="" placeholder="City" class="form-control d-inline-block custom_city w-50 float-left">
-                                                            <option value=''>Select City</option>
-                                                          </select>
+                                                            <select id='city-search-filter' name="" placeholder="City"
+                                                                class="form-control d-inline-block custom_city w-50 float-left">
+                                                                <option value=''>Select City</option>
+                                                            </select>
 
                                                         </div>
                                                     </div>
 
-                                                  <!--
+                                                    <!--
                                                   <span >Price</span>
                                                             <div>
                                                               <input type="text" name="" placeholder="Min" class="form-control d-inline-block custom_price w-50 float-left">
@@ -245,72 +264,113 @@
                                                             </div>-->
                                                     <div class="row seller-filter">
                                                         <div class="col-sm-6 ">
-                                                            <span >Type</span>
+                                                            <span>Type</span>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs1" name="acs" value="House">
-                                                                <label class="custom-control-label type-label" for="cs1">House</label>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs" id="cs1"
+                                                                    name="acs" value="House">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs1">House</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs2" name="acs" value="Condos/co-ops">
-                                                                <label class="custom-control-label type-label" for="cs2">Condos/co-ops</label>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs" id="cs2"
+                                                                    name="acs" value="Condos/co-ops">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs2">Condos/co-ops</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs3" name="acs" value="Multi-family">
-                                                                <label class="custom-control-label type-label" for="cs3">Multi-family</label>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs" id="cs3"
+                                                                    name="acs" value="Multi-family">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs3">Multi-family</label>
                                                             </div>
 
                                                         </div>
                                                         <div class="col-sm-6 ">
-                                                            <div class="custom-control custom-checkbox mt-4 custom_radio_btn">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs9" name="acs" value="Townhomes">
-                                                                <label class="custom-control-label type-label" for="cs9">Townhomes</label>
+                                                            <div
+                                                                class="custom-control custom-checkbox mt-4 custom_radio_btn">
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs" id="cs9"
+                                                                    name="acs" value="Townhomes">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs9">Townhomes</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs10" name="acs" value="Manufactured">
-                                                                <label class="custom-control-label type-label" for="cs10">Manufactured</label>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs" id="cs10"
+                                                                    name="acs" value="Manufactured">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs10">Manufactured</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
-                                                                <label class="custom-control-label type-label" for="cs11xx1">Lots/Land</label>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs11xx1" id="cs10" name="acs" value="Lots/Land">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs11xx1">Lots/Land</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6 ">
-                                                            <span >Brokerage</span>
+                                                            <span>Brokerage</span>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs4" name="acs" value="Keller Williams">
-                                                                <label class="custom-control-label" for="cs4">Keller Williams</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs4"
+                                                                    name="acs" value="Keller Williams">
+                                                                <label class="custom-control-label" for="cs4">Keller
+                                                                    Williams</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs5" name="acs" value="Century21">
-                                                                <label class="custom-control-label" for="cs5">Century21</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs5"
+                                                                    name="acs" value="Century21">
+                                                                <label class="custom-control-label"
+                                                                    for="cs5">Century21</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs6" name="acs" value="Exp Realty">
-                                                                <label class="custom-control-label" for="cs6">Exp Realty</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs6"
+                                                                    name="acs" value="Exp Realty">
+                                                                <label class="custom-control-label" for="cs6">Exp
+                                                                    Realty</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs7" name="acs" value="Windermere">
-                                                                <label class="custom-control-label" for="cs7">Windermere</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs7"
+                                                                    name="acs" value="Windermere">
+                                                                <label class="custom-control-label"
+                                                                    for="cs7">Windermere</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <div class="custom-control custom-checkbox mt-3 custom_radio_btn">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs122" name="acs" value="John L.Scott">
-                                                                <label class="custom-control-label" for="cs122">John L.Scott</label>
+                                                            <div
+                                                                class="custom-control custom-checkbox mt-3 custom_radio_btn">
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs122" name="acs" value="John L.Scott">
+                                                                <label class="custom-control-label" for="cs122">John
+                                                                    L.Scott</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs111" name="acs" value="Coldwell Banker">
-                                                                <label class="custom-control-label" for="cs111">Coldwell Banker</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs111" name="acs" value="Coldwell Banker">
+                                                                <label class="custom-control-label" for="cs111">Coldwell
+                                                                    Banker</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs1111" name="acs" value="Remax">
-                                                                <label class="custom-control-label" for="cs1111">Remax</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs1111" name="acs" value="Remax">
+                                                                <label class="custom-control-label"
+                                                                    for="cs1111">Remax</label>
                                                             </div>
                                                             <select class="form-control custom_select">
                                                                 <option value="#" selected="">Others</option>
@@ -323,18 +383,23 @@
 
                                                         </div>
                                                         <div class=" col-md-12 col-sm-6">
-                                                            <span >Commission</span>
+                                                            <span>Commission</span>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs8" name="acs" value="Discount Commission">
-                                                                <label class="custom-control-label" for="cs8">Discount Commission</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs8"
+                                                                    name="acs" value="Discount Commission">
+                                                                <label class="custom-control-label" for="cs8">Discount
+                                                                    Commission</label>
                                                             </div>
 
 
 
                                                             <div class="custom_btn ">
-                                                                <input id="filterSellers" type="button" class="custom_align" name="" value="SAVE">
-                                                                <input type="button" id="cancelFilter"  name="" value="CANCEL">
+                                                                <input id="filterSellers" type="button"
+                                                                    class="custom_align" name="" value="SAVE">
+                                                                <input type="button" id="cancelFilter" name=""
+                                                                    value="CANCEL">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -342,21 +407,23 @@
                                                 </form>
                                             </div>
                                             <!-- </div> -->
-                                            <div class=" dm-part " id="buyer-filter" >
+                                            <div class=" dm-part " id="buyer-filter">
                                                 <form>
-                                                    <span >Location</span>
+                                                    <span>Location</span>
                                                     <div class="row">
 
                                                         <div class="col-12 col-md-12 col-sm-9">
 
 
-                                                            <input type="text" name="" placeholder="Zipcode" class="form-control d-inline-block custom_city w-50">
+                                                            <input type="text" name="" placeholder="Zipcode"
+                                                                class="form-control d-inline-block custom_city w-50">
                                                         </div>
 
                                                         <div class="col-12 col-md-12 col-sm-9 city_div">
-                                                          <select id='city-search-filter' name="" placeholder="City" class="form-control d-inline-block custom_city w-50 float-left">
-                                                            <option value=''>Select City</option>
-                                                          </select>
+                                                            <select id='city-search-filter' name="" placeholder="City"
+                                                                class="form-control d-inline-block custom_city w-50 float-left">
+                                                                <option value=''>Select City</option>
+                                                            </select>
 
                                                         </div>
                                                     </div>
@@ -364,76 +431,115 @@
                                                     <div class="row  buyer-filter ">
                                                         <div class="col-sm-6">
 
-                                                            <span >Type</span>
+                                                            <span>Type</span>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" name="acs1" id="cs1x" value="House">
-                                                                <label class="custom-control-label type-label" for="cs1x">House</label>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    name="acs1" id="cs1x" value="House">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs1x">House</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" name="acs1" id="cs23" value="Condos/co-ops">
-                                                                <label class="custom-control-label type-label" for="cs23">Condos/co-ops</label>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    name="acs1" id="cs23" value="Condos/co-ops">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs23">Condos/co-ops</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="radio" class="custom-control-input unchecked-acs" name="acs1" id="cs33" value="Multi-family">
-                                                                <label class="custom-control-label type-label" for="cs33">Multi-family</label>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    name="acs1" id="cs33" value="Multi-family">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs33">Multi-family</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="custom-control custom-checkbox mt-4">
-                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs99" name="acs1" value="Townhomes">
-                                                                    <label class="custom-control-label type-label" for="cs99">Townhomes</label>
-                                                                </div>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs10x" name="acs1" value="Manufactured">
-                                                                    <label class="custom-control-label type-label" for="cs10x">Manufactured</label>
-                                                                </div>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input type="radio" class="custom-control-input unchecked-acs" id="cs11x" name="acs1" value="Lots/Land">
-                                                                    <label class="custom-control-label type-label" for="cs11x">Lots/Land</label>
-                                                                </div>
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs" id="cs99"
+                                                                    name="acs1" value="Townhomes">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs99">Townhomes</label>
                                                             </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs10x" name="acs1" value="Manufactured">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs10x">Manufactured</label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="radio"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs11x" name="acs1" value="Lots/Land">
+                                                                <label class="custom-control-label type-label"
+                                                                    for="cs11x">Lots/Land</label>
+                                                            </div>
+                                                        </div>
 
-                                                            <div class="col-sm-6">
-                                                            <span >Brokerage</span>
+                                                        <div class="col-sm-6">
+                                                            <span>Brokerage</span>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs44" name="acs1" value="Keller Williams">
-                                                                <label class="custom-control-label" for="cs44">Keller Williams</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs44"
+                                                                    name="acs1" value="Keller Williams">
+                                                                <label class="custom-control-label" for="cs44">Keller
+                                                                    Williams</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs55" name="acs1" value="Century21">
-                                                                <label class="custom-control-label" for="cs55">Century21</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs55"
+                                                                    name="acs1" value="Century21">
+                                                                <label class="custom-control-label"
+                                                                    for="cs55">Century21</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs66" name="acs1" value="Exp Realty">
-                                                                <label class="custom-control-label" for="cs66">Exp Realty</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs66"
+                                                                    name="acs1" value="Exp Realty">
+                                                                <label class="custom-control-label" for="cs66">Exp
+                                                                    Realty</label>
                                                             </div>
 
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs77" name="acs1" value="Windermere">
-                                                                <label class="custom-control-label" for="cs77">Windermere</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs" id="cs77"
+                                                                    name="acs1" value="Windermere">
+                                                                <label class="custom-control-label"
+                                                                    for="cs77">Windermere</label>
                                                             </div>
-                                                            </div>
+                                                        </div>
 
 
 
                                                         <div class="col-sm-6">
                                                             <div class="custom-control custom-checkbox mt-3">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs12x" name="acs1" value="John L.Scott">
-                                                                <label class="custom-control-label" for="cs12x">John L.Scott</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs12x" name="acs1" value="John L.Scott">
+                                                                <label class="custom-control-label" for="cs12x">John
+                                                                    L.Scott</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs11xx" name="acs1" value="Coldwell Banker">
-                                                                <label class="custom-control-label" for="cs11xx">Coldwell Banker</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs11xx" name="acs1" value="Coldwell Banker">
+                                                                <label class="custom-control-label"
+                                                                    for="cs11xx">Coldwell Banker</label>
                                                             </div>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input unchecked-acs" id="cs11xxx" name="acs1" value="Remax">
-                                                                <label class="custom-control-label" for="cs11xxx">Remax</label>
+                                                                <input type="checkbox"
+                                                                    class="custom-control-input unchecked-acs"
+                                                                    id="cs11xxx" name="acs1" value="Remax">
+                                                                <label class="custom-control-label"
+                                                                    for="cs11xxx">Remax</label>
                                                             </div>
                                                             <select>
                                                                 <option value="#" selected="">Others</option>
@@ -447,42 +553,46 @@
                                                         </div>
 
                                                     </div>
-                                                    <span >Commission</span>
+                                                    <span>Commission</span>
 
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input unchecked-acs" id="cs88" name="acs1" value="Offers rebate">
-                                                            <label class="custom-control-label" for="cs88">Offers rebate</label>
-                                                        </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox"
+                                                            class="custom-control-input unchecked-acs" id="cs88"
+                                                            name="acs1" value="Offers rebate">
+                                                        <label class="custom-control-label" for="cs88">Offers
+                                                            rebate</label>
+                                                    </div>
                                                     <div class="custom_btn">
-                                                      <input id="filterBuyers" type="button" class="custom_align" name="" value="SAVE">
-                                                      <input type="button" id="cancelBuyers"  name="" value="CANCEL">
+                                                        <input id="filterBuyers" type="button" class="custom_align"
+                                                            name="" value="SAVE">
+                                                        <input type="button" id="cancelBuyers" name="" value="CANCEL">
                                                     </div>
 
                                                 </form>
                                             </div>
                                         </div>
-                                    <!-- </div> -->
+                                        <!-- </div> -->
 
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                        <div class="tab-content " id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="tab-one-content">
-                                    <div class="toc-one">
+                    <div class="tab-content " id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-one-content">
+                                <div class="toc-one">
 
-                                        <div class="row"  style="padding-bottom: 33px;">
-                                            <div class="col-sm-6">
-                                                <p id="checkedText1">About <span id="result-count"></span> results   </p>
+                                    <div class="row" style="padding-bottom: 33px;">
+                                        <div class="col-sm-6">
+                                            <p id="checkedText1">About <span id="result-count"></span> results </p>
 
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div id="sellerFilter"></div>
-                                            </div>
-                                            <!-- <div class="col-sm-6">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div id="sellerFilter"></div>
+                                        </div>
+                                        <!-- <div class="col-sm-6">
 
                                                 <ul>
 
@@ -642,26 +752,27 @@
                                                 </ul>
                                                 <div id="sellerFilter"></div>
                                             </div> -->
-                                        </div>
-
                                     </div>
-                                    <div class="page-two-section-wrapper custom_scroll" id="page-section">
 
-                                    </div>
-                                    <div id='page-selection'></div>
+                                </div>
+                                <div class="page-two-section-wrapper custom_scroll" id="page-section">
+
+                                </div>
+                                <div id='page-selection'></div>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div style="display:table-cell; vertical-align:middle; text-align:center"></div>
+                                    <img width="350px" src="/img/coming-soon.png"
+                                        style="margin-left: auto; margin-right: auto; display: block; margin-top: 150px;">
                                 </div>
                             </div>
-
-
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div style="display:table-cell; vertical-align:middle; text-align:center"></div>
-                                            <img width="350px" src="/img/coming-soon.png" style="margin-left: auto; margin-right: auto; display: block; margin-top: 150px;">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="tab-one-content">
+                        </div>
+                        <!-- <div class="tab-one-content">
                                     <div class="toc-one">
 
                                         <div class="row">
@@ -671,7 +782,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div id="buyerFilter"></div> -->
-                                                <!-- <ul>
+                        <!-- <ul>
                                                     <li>
 
                                                         <div class="dm-main4">
@@ -824,121 +935,138 @@
 
                                                     </li>
                                                 </ul>	 -->
-                                            <!-- </div>
+                        <!-- </div>
 
                                         </div>
 
                                     </div>
 
                                 </div> -->
-                            </div>
+                    </div>
 
-                        </div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
+
     <!-- </div> -->
     <!-- pt-tab area end -->
 
 
-    <div class="toc-two-left-two-link text-center lead-collect-form" >
+
+    <div class="toc-two-left-two-link text-center lead-collect-form">
         <div class="modal fade" id="myModalx">
-          <div class="modal-dialog modal-lg pt-modal modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-body modalh">
-                <div class="two-link-modal">
-                  <div class="two-link-modal-heading text-center">
-                    <h2>Contact [[agent_full_name]]</h2>
-                  </div>
-                  <div class="two-link-modal-content">
+            <div class="modal-dialog modal-lg pt-modal modal-dialog-centered" style="width:410px">
+                <div class="modal-content">
                     <div class="row">
-                      <div class="col-lg-6">
-                        <div class="two-link-left custom_para">
-                          <p>An Agentstat concierge will reach out to you within 60 seconds during business hours.</p>
-                          <p>Dis wazzup:</p>
-                          <p>1.<span> An A-stat pro will reach out to go over your goals and answer any questions you may have.</span></p>
-                          <p>2.<span> We'll do our best to connect you with [agent first name] and if you'd like, introduce you to other Agentstat Top 1% agents in the area.</span></p>
-                          <p>3.<span> You sell your home quickly for top dollar!</span></p>
-                          <div class="modal-call">
-                            <p>Need immediate assistance?</p>
-                            <p>Call us ANYTIME at</p>
-                            <p>[[cell_phone]]</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="two-link-right">
-                        <div class="row dn2" >
-                          <div class="col-6 col-md-3 col-sm-12 div_name" >
-                            <p>  Name <span style="color:red">*</span> :</p>
-                          </div>
-                          <div class="col-9 col-md-9 col-sm-12 div_input" >
-                            <input type="text" id="name-[[agent_id]]" name="name">
-                          </div>
-                        </div>
+                        <!-- <div class="col-md-2"></div> -->
+                        <div class="col-md-12" id="agent-contact-form">
 
-                        <div class="row dn2" >
-                          <div class="col-6 col-md-3 col-sm-12 div_name" >
-                            <p>  Phone <span style="color:red">*</span> :</p>
-                          </div>
-                          <div class="col-9 col-md-9 col-sm-12 div_input" >
-                            <input type="tel" name="" required="">
-                          </div>
                         </div>
-
-                        <div class="row dn2" >
-                          <div class="col-6 col-md-3 col-sm-12 div_name" >
-                            <p>  Email<span style="color:red">*</span> :</p>
-                          </div>
-                          <div class="col-9 col-md-9 col-sm-12 div_input" >
-                            <input type="email" name="">
-                          </div>
-                        </div>
-                        <div class="row " >
-                          <div class="col-12 col-md-12 col-sm-12 " >
-                            <p class="p_message"> Message</p>
-                          </div>
-                          <div class="col-12 col-md-12 col-sm-12 div_message" >
-                          <textarea id="message-156821"></textarea>
-                          </div>
-                        </div>
-
-                        <div class="submit-btn">
-                          <button type="button" data-dismiss="modal" class="font_btn">Cancel</button>
-                          <button class="lead-submit font_btn" data-id="156821">Submit</button>
-                          <div class="modal fade" id="con3">
-                            <div class="modal-dialog modal-md pt-another-modal modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-body">
-                                  <div class="another-modal">
-                                    <div class="another-modal-content">
-                                      <h2>Compelete!</h2>
-                                      <p>[Agent Name] will contact you shortly :)</p>
-                                      <button type="button" data-dismiss="modal" >Cancel</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="modal-form-content">
-                        <p style="text-align:left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ac metus a ullamcorper.</p>
-                        </div>
-                        </div>
-                        </div>
-                      </div>
                     </div>
-                  </div>
+                    <!-- <div class="modal-body modalh">
+                        <div class="two-link-modal">
+                            
+                            <div class="two-link-modal-heading text-center">
+                                <h2>Contact [[agent_full_namex]]</h2>
+                            </div>
+                            <div class="two-link-modal-content">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="two-link-left custom_para">
+                                            <p>An Agentstat concierge will reach out to you within 60 seconds during
+                                                business hours.</p>
+                                            <p>Dis wazzup:</p>
+                                            <p>1.<span> An A-stat pro will reach out to go over your goals and answer
+                                                    any questions you may have.</span></p>
+                                            <p>2.<span> We'll do our best to connect you with [agent first name] and if
+                                                    you'd like, introduce you to other Agentstat Top 1% agents in the
+                                                    area.</span></p>
+                                            <p>3.<span> You sell your home quickly for top dollar!</span></p>
+                                            <div class="modal-call">
+                                                <p>Need immediate assistance?</p>
+                                                <p>Call us ANYTIME at</p>
+                                                <p>[[cell_phone]]</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="two-link-right">
+                                            <div class="row dn2">
+                                                <div class="col-6 col-md-3 col-sm-12 div_name">
+                                                    <p> Name <span style="color:red">*</span> :</p>
+                                                </div>
+                                                <div class="col-9 col-md-9 col-sm-12 div_input">
+                                                    <input type="text" id="name-[[agent_id]]" name="name">
+                                                </div>
+                                            </div>
+
+                                            <div class="row dn2">
+                                                <div class="col-6 col-md-3 col-sm-12 div_name">
+                                                    <p> Phone <span style="color:red">*</span> :</p>
+                                                </div>
+                                                <div class="col-9 col-md-9 col-sm-12 div_input">
+                                                    <input type="tel" name="" required="">
+                                                </div>
+                                            </div>
+
+                                            <div class="row dn2">
+                                                <div class="col-6 col-md-3 col-sm-12 div_name">
+                                                    <p> Email<span style="color:red">*</span> :</p>
+                                                </div>
+                                                <div class="col-9 col-md-9 col-sm-12 div_input">
+                                                    <input type="email" name="">
+                                                </div>
+                                            </div>
+                                            <div class="row ">
+                                                <div class="col-12 col-md-12 col-sm-12 ">
+                                                    <p class="p_message"> Message</p>
+                                                </div>
+                                                <div class="col-12 col-md-12 col-sm-12 div_message">
+                                                    <textarea id="message-156821"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="submit-btn">
+                                                <button type="button" data-dismiss="modal"
+                                                    class="font_btn">Cancel</button>
+                                                <button class="lead-submit font_btn" data-id="156821">Submit</button>
+                                                <div class="modal fade" id="con3">
+                                                    <div
+                                                        class="modal-dialog modal-md pt-another-modal modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body">
+                                                                <div class="another-modal">
+                                                                    <div class="another-modal-content">
+                                                                        <h2>Compelete!</h2>
+                                                                        <p>[Agent Name] will contact you shortly :)</p>
+                                                                        <button type="button"
+                                                                            data-dismiss="modal">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-form-content">
+                                                <p style="text-align:left">Lorem ipsum dolor sit amet, consectetur
+                                                    adipiscing elit. Cras efficitur ac metus a ullamcorper.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div> -->
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+    </div>
+
 
     <!-- footer area start -->
     <div class="footer">
@@ -953,8 +1081,7 @@
         </div>
     </div>
     <!-- footer area end -->
-    
-    </div>
+
 
 
     <!-- Main jQuery -->
@@ -973,10 +1100,16 @@
     <script src="/js/search.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/common.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
 
     <!-- Fontawesome Script -->
-    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all"><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all"><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css"
+        media="all">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css"
+        media="all">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
 
     <script src="/js/type.js"></script>
 
@@ -1007,35 +1140,35 @@
 
         jQuery(".dm-main > button").click(function () {
             const urlParams = new URLSearchParams(window.location.search);
-                const city = encodeURIComponent(urlParams.get('city', ''));
-                var type = urlParams.get('type');
-                setTimeout(function() {
-                    if($("#home-tab").hasClass('active')){
-                jQuery("#buyer-filter").slideUp();
-                jQuery("#seller-filter").slideToggle();
-            }else{
-                jQuery("#seller-filter").slideUp();
-                jQuery("#buyer-filter").slideToggle();
-            }
-                $('.seller-filter input[type="radio"]'). each(function(){
-                if($(this).val() == type){
-                    $(this).prop('checked', true);
+            const city = encodeURIComponent(urlParams.get('city', ''));
+            var type = urlParams.get('type');
+            setTimeout(function () {
+                if ($("#home-tab").hasClass('active')) {
+                    jQuery("#buyer-filter").slideUp();
+                    jQuery("#seller-filter").slideToggle();
+                } else {
+                    jQuery("#seller-filter").slideUp();
+                    jQuery("#buyer-filter").slideToggle();
                 }
-            });
-        }, 100)
+                $('.seller-filter input[type="radio"]').each(function () {
+                    if ($(this).val() == type) {
+                        $(this).prop('checked', true);
+                    }
+                });
+            }, 100)
 
 
 
-            $.each($("input[name='acs']:checked"), function(){
+            $.each($("input[name='acs']:checked"), function () {
                 $(this).removeClass('unchecked-acs');
             });
-            $.each($("input[name='acs']:not(:checked)"), function(){
-                if(!$(this).hasClass('unchecked-acs'))
-                {
+            $.each($("input[name='acs']:not(:checked)"), function () {
+                if (!$(this).hasClass('unchecked-acs')) {
                     $(this).addClass('unchecked-acs');
                 }
             });
         });
+
         // $('.seller-filter input[type="checkbox"]'). click(function(){
         //     console.log($(this). is(":checked")+" "+$(this). is(":not(:checked)"));
 
@@ -1061,70 +1194,69 @@
         //     }
         // });
 
-        $('#filterSellers').click(function(){
+        $('#filterSellers').click(function () {
             // console.log("Saved")
             // alert("saved")
             //console.log(all_agents)
-                jQuery("#seller-filter").slideUp();
-                jQuery("#buyer-filter").slideUp();
+            jQuery("#seller-filter").slideUp();
+            jQuery("#buyer-filter").slideUp();
 
             //$('.dm-part').slideToggle();
-			seller_filter = [];
-            $('.seller-filter input[type="radio"]'). each(function(){
+            seller_filter = [];
+            $('.seller-filter input[type="radio"]').each(function () {
                 //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
-                if($(this).is(":checked")){
+                if ($(this).is(":checked")) {
                     //alert('df');
                     //console.log($("label[for='" + this.id + "']").text());
-                    addId($("label[for='" + this.id + "']").text(),true, 'radio');
+                    addId($("label[for='" + this.id + "']").text(), true, 'radio');
                 }
-                if($(this).is(":not(:checked)")){
+                if ($(this).is(":not(:checked)")) {
                     //console.log("Removing....",$("label[for='" + this.id + "']").text());
-                   // removeId($("label[for='" + this.id + "']").text(),true);
+                    // removeId($("label[for='" + this.id + "']").text(),true);
                 }
             });
-             $('.buyer-filter input[type="radio"]'). each(function(){
-                    if($(this). is(":checked")){
-                        //console.log($("label[for='" + this.id + "']").text());
-                        addId($("label[for='" + this.id + "']").text(),false);
-                    }
-                    if(!$(this). is(":checked")){
-                        //console.log($("label[for='" + this.id + "']").text());
-                        removeId($("label[for='" + this.id + "']").text(),false);
-                    }
-                });
+            $('.buyer-filter input[type="radio"]').each(function () {
+                if ($(this).is(":checked")) {
+                    //console.log($("label[for='" + this.id + "']").text());
+                    addId($("label[for='" + this.id + "']").text(), false);
+                }
+                if (!$(this).is(":checked")) {
+                    //console.log($("label[for='" + this.id + "']").text());
+                    removeId($("label[for='" + this.id + "']").text(), false);
+                }
+            });
 
-                $('.seller-filter input[type="checkbox"]'). each(function(){
+            $('.seller-filter input[type="checkbox"]').each(function () {
                 //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
-                if($(this).is(":checked")){
+                if ($(this).is(":checked")) {
                     //alert('df');
                     //console.log($("label[for='" + this.id + "']").text());
-                    addId($("label[for='" + this.id + "']").text(),true, 'checkbox');
+                    addId($("label[for='" + this.id + "']").text(), true, 'checkbox');
                 }
-                if($(this).is(":not(:checked)")){
+                if ($(this).is(":not(:checked)")) {
                     //console.log("Removing....",$("label[for='" + this.id + "']").text());
-                   // removeId($("label[for='" + this.id + "']").text(),true);
+                    // removeId($("label[for='" + this.id + "']").text(),true);
                 }
             });
-             $('.buyer-filter input[type="checkbox"]'). each(function(){
-                    if($(this). is(":checked")){
-                        //console.log($("label[for='" + this.id + "']").text());
-                        addId($("label[for='" + this.id + "']").text(),false);
-                    }
-                    if(!$(this). is(":checked")){
-                       // console.log($("label[for='" + this.id + "']").text());
-                        removeId($("label[for='" + this.id + "']").text(),false);
-                    }
-                });
+            $('.buyer-filter input[type="checkbox"]').each(function () {
+                if ($(this).is(":checked")) {
+                    //console.log($("label[for='" + this.id + "']").text());
+                    addId($("label[for='" + this.id + "']").text(), false);
+                }
+                if (!$(this).is(":checked")) {
+                    // console.log($("label[for='" + this.id + "']").text());
+                    removeId($("label[for='" + this.id + "']").text(), false);
+                }
+            });
 
-            $.each($("input[name='acs']:checked"), function(){
+            $.each($("input[name='acs']:checked"), function () {
                 $(this).removeClass('unchecked-acs');
                 //alert(this.id);
                 //addId($("label[for='" + this.id + "']").text(),true);
             });
-            $.each($("input[name='acs']:not(:checked)"), function(){
+            $.each($("input[name='acs']:not(:checked)"), function () {
                 //removeId($("label[for='" + this.id + "']").text(),true);
-                if(!$(this).hasClass('unchecked-acs'))
-                {
+                if (!$(this).hasClass('unchecked-acs')) {
                     $(this).addClass('unchecked-acs');
                 }
 
@@ -1149,42 +1281,41 @@
         //     $('.dm-part').slideToggle();
         // })
 
-        $('#filterBuyers').click(function(){
+        $('#filterBuyers').click(function () {
 
             jQuery("#buyer-filter").slideUp();
 
-			buyer_filter = [];
-             $('.buyer-filter input[type="radio"]'). each(function(){
-                if($(this). is(":checked")){
+            buyer_filter = [];
+            $('.buyer-filter input[type="radio"]').each(function () {
+                if ($(this).is(":checked")) {
                     //console.log($("label[for='" + this.id + "']").text());
-                    addId($("label[for='" + this.id + "']").text(),false, 'radio');
+                    addId($("label[for='" + this.id + "']").text(), false, 'radio');
                 }
-                if(!$(this). is(":checked")){
+                if (!$(this).is(":checked")) {
                     //console.log($("label[for='" + this.id + "']").text());
-                    removeId($("label[for='" + this.id + "']").text(),false);
-                }
-            });
-
-            $('.buyer-filter input[type="checkbox"]'). each(function(){
-                if($(this). is(":checked")){
-                    //console.log($("label[for='" + this.id + "']").text());
-                    addId($("label[for='" + this.id + "']").text(),false, 'checkbox');
-                }
-                if(!$(this). is(":checked")){
-                    //console.log($("label[for='" + this.id + "']").text());
-                    removeId($("label[for='" + this.id + "']").text(),false);
+                    removeId($("label[for='" + this.id + "']").text(), false);
                 }
             });
 
-            $.each($("input[name='acs1']:checked"), function(){
+            $('.buyer-filter input[type="checkbox"]').each(function () {
+                if ($(this).is(":checked")) {
+                    //console.log($("label[for='" + this.id + "']").text());
+                    addId($("label[for='" + this.id + "']").text(), false, 'checkbox');
+                }
+                if (!$(this).is(":checked")) {
+                    //console.log($("label[for='" + this.id + "']").text());
+                    removeId($("label[for='" + this.id + "']").text(), false);
+                }
+            });
+
+            $.each($("input[name='acs1']:checked"), function () {
                 $(this).removeClass('unchecked-acs');
                 //alert(this.id);
                 //addId($("label[for='" + this.id + "']").text(),true);
             });
-            $.each($("input[name='acs1']:not(:checked)"), function(){
+            $.each($("input[name='acs1']:not(:checked)"), function () {
                 //removeId($("label[for='" + this.id + "']").text(),true);
-                if(!$(this).hasClass('unchecked-acs'))
-                {
+                if (!$(this).hasClass('unchecked-acs')) {
                     $(this).addClass('unchecked-acs');
                 }
 
@@ -1196,63 +1327,63 @@
         var seller_filter = [];
         var buyer_filter = [];
 
-        function addId(name,val,type){
+        function addId(name, val, type) {
 
             console.log("&&&&&&&&&");
             console.log(buyer_filter, val);
             console.log("&&&&&&&&&");
 
-            if(val){
-                let data = { 'type': type, 'name':name };
+            if (val) {
+                let data = { 'type': type, 'name': name };
                 seller_filter.push(data);
                 //console.log(seller_filter);
                 showFilters(val);
-            }else{
-                let data = { 'type': type, 'name':name };
+            } else {
+                let data = { 'type': type, 'name': name };
                 buyer_filter.push(data);
-               // buyer_filter.push(name);
+                // buyer_filter.push(name);
                 //console.log(buyer_filter);
                 showFilters(val);//qe245680/|ik nb0.
             }
 
         }
 
-        function removeId(name, val){
-            if(val == "seller"){
+        function removeId(name, val) {
+            if (val == "seller") {
 
                 //seller_filter.splice( seller_filter.indexOf(name), 1 );
-                seller_filter = $.grep(seller_filter, function(e) { return e.name!=name });
+                seller_filter = $.grep(seller_filter, function (e) { return e.name != name });
                 //console.log(seller_filter);
                 showFilters(val);
-            }else{
-                buyer_filter = $.grep(buyer_filter, function(e) { return e.name!=name });
-               // buyer_filter.splice( buyer_filter.indexOf(name), 1 );
+            } else {
+                buyer_filter = $.grep(buyer_filter, function (e) { return e.name != name });
+                // buyer_filter.splice( buyer_filter.indexOf(name), 1 );
                 //console.log(buyer_filter);
                 showFilters(val);
             }
         }
 
-        function showFilters(val){
+        function showFilters(val) {
             //alert("sellerFilter")
 
-            console.log("$$$$ ",val);
-            if(val == true || val == "seller"){
+            console.log("$$$$ ", val);
+            if (val == true || val == "seller") {
                 $("#sellerFilter").empty();
                 //console.log("@!@!@!@! "+seller_filter );
-                sellerKey='seller';
-                seller_filter.forEach((ele,index)=>{
-                    $("#sellerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele.name +"\", \""+ sellerKey +"\", \""+ ele.type +"\") '>"+ele.name+"<span><i class='fa fa-times'></i></span></button>");
+                sellerKey = 'seller';
+                seller_filter.forEach((ele, index) => {
+                    $("#sellerFilter").append("<button class='filter-div' onclick='removeChk(\"" + ele.name + "\", \"" + sellerKey + "\", \"" + ele.type + "\") '>" + ele.name + "<span><i class='fa fa-times'></i></span></button>");
 
                     //$("#sellerFilter").append("<button class='filter-div'>"+ele+"</button>");
                 });
 
             }
-            else{
+            else {
                 $("#buyerFilter").empty();
-                buyerKey='buyer';
-                buyer_filter.forEach((ele,index)=>{
+                buyerKey = 'buyer';
+                buyer_filter.forEach((ele, index) => {
                     // $("#buyerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele + "\", \""+ buyerKey +"\") '>"+ele+"<span><i class='fa fa-times'></i></span></button>");
-                     $("#buyerFilter").append("<button class='filter-div' onclick='removeChk(\""+ ele.name +"\", \""+ buyerKey +"\", \""+ ele.type +"\") '>"+ele.name+"<span><i class='fa fa-times'></i></span></button>");
+                    $("#buyerFilter").append("<button class='filter-div' onclick='removeChk(\"" + ele.name + "\", \"" + buyerKey + "\", \"" + ele.type + "\") '>" + ele.name + "<span><i class='fa fa-times'></i></span></button>");
 
                     //$("#buyerFilter").append("<button class='filter-div'>"+ele+"</button>");
                 });
@@ -1261,7 +1392,7 @@
 
 
 
-        function removeChk(val,key,type){
+        function removeChk(val, key, type) {
             // //console.log("######",val,key);
             // if(key=='seller'){
             //   //console.log("In seller if... "+'.seller-filter input:checkbox[value="' + val + '"]');
@@ -1271,44 +1402,275 @@
             //   //console.log("In buyer ")
             //   $('.buyer-filter input:checkbox[value="' + val + '"]').click();
             // }
-console.log("@##@####", key)
-           // $('.seller-filter input:checkbox[value="' + val + '"]').prop('checked', false);
-            removeId(val,key);
-            if(key == "buyer")
-            {
-                $('.buyer-filter input:'+type+'[value="' + val + '"]').addClass('unchecked-acs');
+            console.log("@##@####", key)
+            // $('.seller-filter input:checkbox[value="' + val + '"]').prop('checked', false);
+            removeId(val, key);
+            if (key == "buyer") {
+                $('.buyer-filter input:' + type + '[value="' + val + '"]').addClass('unchecked-acs');
             }
-            else{
-                $('.seller-filter input:'+type+'[value="' + val + '"]').addClass('unchecked-acs');
+            else {
+                $('.seller-filter input:' + type + '[value="' + val + '"]').addClass('unchecked-acs');
             }
         }
 
-        $(document).ready(function(){
+        $(document).ready(function () {
 
             // if (window.matchMedia("(max-width: 360px)").matches)
             // {
             //     // The viewport is less than 768 pixels wide
             //    // document.write("This is a mobile device.");
-			// 	setTimeout(()=>{
-			// 		//alert(jQuery('td').attr('test'));
-			// 		 jQuery("td").attr('colspan','1');
-			// 	},5000);
+            // 	setTimeout(()=>{
+            // 		//alert(jQuery('td').attr('test'));
+            // 		 jQuery("td").attr('colspan','1');
+            // 	},5000);
             //         //alert(title);
             //     //alert('yess==>'+$('.title').prop('colspan'));
             // } else {
-			// 	setTimeout(()=>{
-			// 		//alert(jQuery('td').attr('test'));
-			// 		 //jQuery("td").removeAttr('test');
-			// 		 jQuery("td").attr('colspan','3');
-			// 	},5000);
+            // 	setTimeout(()=>{
+            // 		//alert(jQuery('td').attr('test'));
+            // 		 //jQuery("td").removeAttr('test');
+            // 		 jQuery("td").attr('colspan','3');
+            // 	},5000);
             // }
 
+            
 
-            $("#cancelFilter").on('click',function(event){
+            // START AGENT CONTACT FORM
+            var agent_id = null
+            var agent_name = null
+            $('#myModalx').on('hidden.bs.modal', function () {
+                $('#leads-start').css('display','block')
+                $('#leads-step-four').css('display', 'none')
+            });
+
+            $(document).on('click', '#contact-agent-modal-button', function () {
+                agent_id = $(this).parents('.toc-two')[0].getAttribute('agent_id')
+                agent_name = $(this).parents('tr').find('td').first().text().trim().split(' ')[0]
+
+                $('.agent_name').text(agent_name)
+            })
+            $.get('/agent-contact-form.html', function (response) {
+                console.log(response)
+                $('#agent-contact-form').html(response)
+                $('.pth-agent-right-content').css('padding-left', 0)
+                $('.modal-content').css({ 'border-radius': '8px', 'padding': 0 })
+                $('.pht-agent-content').css({ 'border': 'none' })
+            })
+
+            $(document).on('change click', '#leads-start div>ul>li>a', function () {
+                leads = {};
+                leads['looking_for'] = $(this).text();
+                var looking_for = $(this).attr('id');
+                $('#leads-start').css('display', 'None');
+                if (looking_for == 'buy-home') {
+                    $('#leads-buy-step-one').css('display', 'block');
+                } else if (looking_for == 'sell-home') {
+                    $('#leads-sell-step-one').css('display', 'block');
+                } else {
+                    leads['selling'] = {};
+                    leads['buying'] = {};
+                    $('#leads-both-step-one').css('display', 'block');
+                }
+            });
+
+            $(document).on('change click', '#leads-both-step-one div>ul>li>a', function () {
+                leads['selling']['home_type'] = $(this).text();
+
+                $('#leads-both-step-one').css('display', 'None');
+                $('#leads-both-step-two').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-both-step-two div>ul>li>a', function () {
+                leads['selling']['how_much'] = $(this).text();
+
+                $('#leads-both-step-two').css('display', 'None');
+                $('#leads-both-step-three').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-both-step-three div>ul>li>a', function () {
+                leads['selling']['how_soon'] = $(this).text();
+
+                $('#leads-both-step-three').css('display', 'None');
+                $('#leads-both-step-four').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-both-step-four div>ul>li>a', function () {
+                leads['buying']['home_type'] = $(this).text();
+
+                $('#leads-both-step-four').css('display', 'None');
+                $('#leads-both-step-five').css('display', 'block');
+            });
+
+
+            $(document).on('change click', '#leads-both-step-five div>ul>li>a', function () {
+                leads['buying']['how_much'] = $(this).text();
+
+                $('#leads-both-step-five').css('display', 'None');
+                $('#leads-both-step-six').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-both-step-six div>ul>li>a', function () {
+                leads['buying']['how_soon'] = $(this).text();
+
+                $('#leads-both-step-six').css('display', 'None');
+                $('#leads-both-step-seven').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-both-step-seven div>ul>li>a', function () {
+
+                leads['interest_reason'] = $(this).text();
+
+                $('#leads-both-step-seven').css('display', 'None');
+                $('#leads-form').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-buy-step-one div>ul>li>a', function () {
+                leads['home_type'] = $(this).text();
+
+                $('#leads-buy-step-one').css('display', 'None');
+                $('#leads-buy-step-two').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-buy-step-two div>ul>li>a', function () {
+                leads['how_much'] = $(this).text();
+
+                $('#leads-buy-step-two').css('display', 'None');
+                $('#leads-buy-step-three').css('display', 'block');
+            });
+
+
+            $(document).on('change click', '#leads-buy-step-three div>ul>li>a', function () {
+                leads['how_soon'] = $(this).text();
+
+                $('#leads-buy-step-three').css('display', 'None');
+                $('#leads-buy-step-four').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-buy-step-four div>ul>li>a', function () {
+                leads['interest_reason'] = $(this).text();
+
+                $('#leads-buy-step-four').css('display', 'None');
+                $('#leads-form').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-sell-step-one div>ul>li>a', function () {
+                leads['home_type'] = $(this).text();
+
+                $('#leads-sell-step-one').css('display', 'None');
+                $('#leads-sell-step-two').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-sell-step-two div>ul>li>a', function () {
+                //leads = {};
+                leads['how_much'] = $(this).text();
+
+                $('#leads-sell-step-two').css('display', 'None');
+                $('#leads-sell-step-three').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-sell-step-three div>ul>li>a', function () {
+                //leads = {};
+                leads['how_soon'] = $(this).text();
+
+                $('#leads-sell-step-three').css('display', 'None');
+                $('#leads-sell-step-four').css('display', 'block');
+            });
+
+            $(document).on('change click', '#leads-sell-step-four div>ul>li>a', function () {
+                //leads = {};
+                leads['interest_reason'] = $(this).text();
+
+                $('#leads-sell-step-four').css('display', 'None');
+                $('#leads-form').css('display', 'block');
+            });
+
+            $(document).on('change click', '#lead-submit', function () {
+                var data = {};
+
+                if (leads['looking_for'] == 'Both') {
+                    buying = leads['buying'];
+                    // data = leads['selling'];
+                    data = leads;
+                    // leads['buying'] = null;
+                    buying['interest_reason'] = data['interest_reason'];
+                    buying['looking_for'] = data['looking_for'];
+
+                    buying['email'] = $('#lead_email').val();
+                    buying['name'] = $('#lead_name').val();
+                    buying['phone'] = $('#lead_phone').val();
+                    buying['message'] = $('#lead_message').val();
+                    buying['agent'] = agent_id;
+                    buying['lead_type'] = 'buying';
+
+                    data['lead_type'] = 'selling';
+                    data['home_type'] = data['selling']['home_type'];
+                    data['how_much'] = data['selling']['how_much'];
+                    data['how_soon'] = data['selling']['how_soon'];
+                } else {
+                    data = leads;
+                }
+
+                data['email'] = $('#lead_email').val();
+                data['name'] = $('#lead_name').val();
+                data['phone'] = $('#lead_phone').val();
+                data['message'] = $('#lead_message').val();
+                data['agent'] = agent_id;
+
+
+                if (data['email'] === '' || data['name'] === '' || data['phone'] === '') {
+                    console.log('All fields are required.');
+                    $('.msg').html('All fields are required');
+                    return false;
+                }
+
+                if (data['looking_for'] == 'Sell a Home') {
+                    data['lead_type'] = 'selling';
+                } else if (data['looking_for'] == 'Buy a Home') {
+                    data['lead_type'] = 'buying';
+                    data['home_type_buyer'] = data['home_type'];
+                    data['how_much_buyer'] = data['how_much'];
+                    data['how_soon_buyer'] = data['how_soon'];
+                    delete data['home_type'];
+                    delete data['how_much'];
+                    delete data['how_soon'];
+                } else if (data['looking_for'] == 'Both') {
+                    data['lead_type'] = 'both';
+                    data['home_type_buyer'] = buying['home_type'];
+                    data['how_much_buyer'] = buying['how_much'];
+                    data['how_soon_buyer'] = buying['how_soon'];
+                }
+
+                settings = get_settings('lead/', 'POST', JSON.stringify(data));
+                settings['headers'] = null;
+                $.ajax(settings).done(function (response) {
+
+                    var msg = JSON.parse(response);
+                    $('#leads-form').css('display', 'none');
+                    $('#leads-step-four').css('display', 'block');
+
+                    if (typeof buying !== 'undefined') {
+                        saveLeadTracking(data, buying);
+                    } else {
+                        saveLeadTracking(data);
+                    }
+
+
+                }).fail(function (err) {
+
+                    $('.msg').html(err['responseText']);
+                    console.log(err);
+
+                });
+            });
+
+            // END AGENT CONTACT FORM
+
+
+            $("#cancelFilter").on('click', function (event) {
                 //console.log("&^%&^% ");
                 $target = $(event.target);
-                if(!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
-                    $.each($(".unchecked-acs"), function(){
+                if (!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
+                    $.each($(".unchecked-acs"), function () {
                         $(this).prop('checked', false);
                     });
                 }
@@ -1317,11 +1679,11 @@ console.log("@##@####", key)
                 $('.dm-part').slideUp();
             });
 
-            $("#cancelBuyers").on('click',function(event){
+            $("#cancelBuyers").on('click', function (event) {
                 //console.log("&^%&^% ");
                 $target = $(event.target);
-                if(!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
-                    $.each($(".unchecked-acs"), function(){
+                if (!$target.closest('.dm-part').length && $('.dm-part').is(":visible")) {
+                    $.each($(".unchecked-acs"), function () {
                         $(this).prop('checked', false);
                     });
                 }
@@ -1330,25 +1692,25 @@ console.log("@##@####", key)
                 $('.dm-part').slideUp();
             });
 
-            $(document).click(function(event) {
-                $(".state-value").click(function(){
-                   if(('.allstate li').length >0){
-                    $('.allstate').addClass('scrollState');
-                   }
-                   $('.allstate li').click(function(){
-                        $('.allstate li').each(function(){
-                        if(($(this)).hasClass('statehightLight')){
-                            $(this).removeClass('statehightLight')
-                        }
+            $(document).click(function (event) {
+                $(".state-value").click(function () {
+                    if (('.allstate li').length > 0) {
+                        $('.allstate').addClass('scrollState');
+                    }
+                    $('.allstate li').click(function () {
+                        $('.allstate li').each(function () {
+                            if (($(this)).hasClass('statehightLight')) {
+                                $(this).removeClass('statehightLight')
+                            }
 
-                    })
-                   $(this).addClass('statehightLight')
+                        })
+                        $(this).addClass('statehightLight')
                     })
 
                 })
-                $('.index-check-type ul li').click(function(){
-                        $('.index-check-type ul li').each(function(){
-                        if(($(this)).hasClass('statehightLight')){
+                $('.index-check-type ul li').click(function () {
+                    $('.index-check-type ul li').each(function () {
+                        if (($(this)).hasClass('statehightLight')) {
                             $(this).removeClass('statehightLight')
                         }
 
@@ -1359,15 +1721,15 @@ console.log("@##@####", key)
                 /*$.each($("input[name='acs']:not(:checked)"), function(){
                     $(this).addClass('unchecked-acs');
                 });*/
-                if(!$target.closest('.dm-part').length &&
-                $('.dm-part').is(":visible")) {
+                if (!$target.closest('.dm-part').length &&
+                    $('.dm-part').is(":visible")) {
 
-                    $.each($(".custom-control-input"), function(){
+                    $.each($(".custom-control-input"), function () {
                         //console.log($('.custom-control-input').hasClass('unchecked-acs'))
-                        if($(this).hasClass('unchecked-acs'))
-                        $(this).prop('checked', false);
+                        if ($(this).hasClass('unchecked-acs'))
+                            $(this).prop('checked', false);
                         else
-                        $(this).prop('checked', true);
+                            $(this).prop('checked', true);
                     });
 
                     //$(".custom-control-input").prop('checked', false);
@@ -1382,68 +1744,71 @@ console.log("@##@####", key)
 
 
 
-            $("#home-tab").click(function(){
+            $("#home-tab").click(function () {
                 jQuery(".dm-part").slideUp();
             });
-            $("#profile-tab").click(function(){
+            $("#profile-tab").click(function () {
                 jQuery(".dm-part").slideUp();
             });
 
 
-            });
+        });
 
-            $(".index-address-type ul li").click(function (){
-                $('.index-address-type ul li').each(function(){
-                    if($(this).hasClass('statehightLight')){
-                        $(this).removeClass("statehightLight")
-                    }
-
-                })
-                $(this).addClass("statehightLight")
-                var a = $(this).text();
-                if(a =='Agent Name'){
-                    $('#y-type').hide();
-                    $('.price').hide();
-
-                    $('.ser-state').show();
-
-                }else{
-                    $('#y-type').show();
-                    $('.price').show();
-                    $('.ser-state').hide();
+        $(".index-address-type ul li").click(function () {
+            $('.index-address-type ul li').each(function () {
+                if ($(this).hasClass('statehightLight')) {
+                    $(this).removeClass("statehightLight")
                 }
 
-            });
-            settings = 'https://app.agentstat.com/api/states';
-            settings['headers'] = {};
-
-                $.ajax(settings).done(function (response) {
-                    var states =(response);
-                    $.each(states, function(k, v) {
-                      $('.allstate').append("<li class='custom_radio "+ k + "-state" + "'>"+k+"</li>");
-                      $('#statesData').append("<li class='custom_radio'>"+k+"</li>");
-                    });
-                }).fail(function(err) {
-                    show_error(err);
-                });
-
-                $(document).click(function (e) {
-                e.stopPropagation();
-                var container = $(".address ");
-                var stateContainer = $(".ser-state");
-
-                if (container.has(e.target).length === 0) {
-                    $('.address-type').hide();
-                }
-                if (stateContainer.has(e.target).length === 0) {
-                    $('.ser-state-type').hide();
-                }
             })
+            $(this).addClass("statehightLight")
+            var a = $(this).text();
+            if (a == 'Agent Name') {
+                $('#y-type').hide();
+                $('.price').hide();
 
+                $('.ser-state').show();
+
+            } else {
+                $('#y-type').show();
+                $('.price').show();
+                $('.ser-state').hide();
+            }
+
+        });
+        settings = 'https://app.agentstat.com/api/states';
+        settings['headers'] = {};
+
+        $.ajax(settings).done(function (response) {
+            var states = (response);
+            $.each(states, function (k, v) {
+                $('.allstate').append("<li class='custom_radio " + k + "-state" + "'>" + k + "</li>");
+                $('#statesData').append("<li class='custom_radio'>" + k + "</li>");
+            });
+        }).fail(function (err) {
+            show_error(err);
+        });
+
+        $(document).click(function (e) {
+            e.stopPropagation();
+            var container = $(".address ");
+            var stateContainer = $(".ser-state");
+
+            if (container.has(e.target).length === 0) {
+                $('.address-type').hide();
+            }
+            if (stateContainer.has(e.target).length === 0) {
+                $('.ser-state-type').hide();
+            }
+        })
+
+        // $('#agent-contact').load('123.html')
     </script>
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
 
 
 
-</body></html>
+</body>
+
+</html>

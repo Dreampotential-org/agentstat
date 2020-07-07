@@ -1,4 +1,4 @@
-var search_item_min = `<div class="toc-two" data-sort="[[index]]" agent_id=[[agent_id]]>
+var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[agent_id]]>
   <div class="row row_div" style="padding-bottom:20px">
     <div class="col-lg-3 col-md-3">
         [[agent_picture]]
@@ -26,7 +26,7 @@ var search_item_min = `<div class="toc-two" data-sort="[[index]]" agent_id=[[age
                       <a href="#" id="toggler-[[agent_id]]"  class="toggler [[toggle_on]]">&nbsp;</a>
                       <p>Pin to top</p>
                     </div> 
-                    <span class="agent_btn_wrap"><a href="#" data-toggle="modal" class='collect-lead'
+                    <span class="agent_btn_wrap"><a href="#" id="contact-agent-modal-button" data-toggle="modal" class='collect-lead'
                            data-agent-id="156821" data-target="#myModalx" style="text-transform:capitalize;">Connect with [[agent_name]]</a>
                     </span>
                   </td>
@@ -231,7 +231,9 @@ var search_item_min = `<div class="toc-two" data-sort="[[index]]" agent_id=[[age
 
         </div>
         </div>
-        </div>`
+        </div>
+`
+
 
 var lead_collection = `
       <div class="toc-two-left-two-link text-center lead-collect-form" >  
@@ -331,7 +333,7 @@ var lead_collection = `
           </div>
         </div>
       </div>`
-      
 
-      
+
+
 
