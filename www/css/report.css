@@ -199,6 +199,9 @@
 .location-subtitle {
     border-bottom: 1px solid black;
 }
+.chart-right h1 {
+    margin-left: 10px;
+}
 
 @media (max-width: 767px ) {
 
