@@ -646,6 +646,25 @@ function pagination_footer(total) {
     });
 }
 
+function getNationwideScore(time_duration=36) {
+    var url = 'nationwide-score/' + time_duration;
+
+    settings = get_settings(url, 'GET');
+    settings['headers'] = null;
+    $.ajax(settings).done(function (response) {
+        data = JSON.parse(response);
+        $('#nationwide-success-rate').html(data.success_rate_average.toFixed(2) + '%');
+        $('#nationwide-sold-listing').html(data.total_sold_listing);
+        $('#nationwide-failed-listing').html(data.total_failed_listing);
+        $('#nationwide-s2l-price').html(data.s2l_price_average.toFixed(2) + '%');
+        $('#nationwide-single-family-sold').html(data.single_family_sold_average.toFixed(2));
+        $('#nationwide-condo-family-sold').html(data.condo_family_sold_average.toFixed(2));
+    }).fail(function (err) {
+        console.log(err);
+    });
+}
+getNationwideScore();
+
 $('#query-submit').on('click', function(){
 
     var name = $('#query-name').val();
