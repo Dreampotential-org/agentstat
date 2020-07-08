@@ -241,7 +241,7 @@ function redirectResults(results) {
     new_url = '/agents/?' + search;
 
     window.location = new_url;
-    
+
     return false;
 
 }
@@ -280,13 +280,48 @@ function getSearchParams(place) {
     return params
 }
 
+// Fixes google autocomplete search so enter selects first address
+function pacSelectFirst(input){
+    // store the original event binding function
+    var _addEventListener = (input.addEventListener) ? input.addEventListener : input.attachEvent;
+
+    function addEventListenerWrapper(type, listener) {
+    // Simulate a 'down arrow' keypress on hitting 'return' when no pac suggestion is selected,
+    // and then trigger the original listener.
+
+    if (type == "keydown") {
+      var orig_listener = listener;
+      listener = function (event) {
+        var suggestion_selected = $(".pac-item-selected").length > 0;
+        if (event.which == 13 && !suggestion_selected) {
+          var simulated_downarrow = $.Event("keydown",
+                                            {keyCode:40, which:40})
+          orig_listener.apply(input, [simulated_downarrow]);
+        }
+        orig_listener.apply(input, [event]);
+      };
+    }
+
+    // add the modified listener
+    _addEventListener.apply(input, [type, listener]);
+  }
+
+  if (input.addEventListener)
+    input.addEventListener = addEventListenerWrapper;
+  else if (input.attachEvent)
+    input.attachEvent = addEventListenerWrapper;
+}
+
+
+
 function init_maps() {
 
     var input = document.getElementsByClassName('maps_input')[0];
     var input_map = document.getElementsByClassName('maps_input_maps')[0];
     var page_input = document.getElementById('search_input');
+    pacSelectFirst(input)
 
-    console.log("page_input",page_input)
+    console.log("page_input", page_input)
     var options = {
         types: ['address'],
     }
@@ -420,15 +455,31 @@ function init() {
     });
 
     $('.ser').keydown(function(e){
+        // only for address search lat/lng bits
         if (e.keyCode == 13 && global_results != null) {
           console.log(global_results)
           search_key = localStorage.current_search_type.toLowerCase();
           search_key = 'search_' + search_key.split(' ').join('_');
           localStorage.setItem(search_key, $(this).val());
+
+          // xxx  could delete and merge with loop below.
           if (global_results &&
               $("#y-address").text().trim() == 'Address' &&
               'lat' in global_results && global_results['lat'] != null) {
                 redirectResults(global_results);
+            }
+            else {
+              // keep retrying if address search. This is to
+              // wait until frontend has lat/lng return to
+              // auto trigger search once filled.
+              setInterval(function() {
+                if (global_results &&
+                    $("#y-address").text().trim() == 'Address' &&
+                      'lat' in global_results &&
+                      global_results['lat'] != null) {
+                    redirectResults(global_results);
+                }
+             }, 200)
             }
         }
     });
@@ -439,6 +490,7 @@ function init() {
     })
 
     $("body").delegate(".ser", "keyup", function(e) {
+      if ($("#y-address").text().trim() == 'Address') return
       if (e.keyCode == 13) {
         e.preventDefault();
         // $("#agent_name_or_id").val($("#search_input_agent").val());
