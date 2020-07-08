@@ -1532,27 +1532,31 @@
 
 
 
-            // START AGENT CONTACT FORM
+            // ----------------------START AGENT CONTACT FORM---------------
             var agent_id = null
             var agent_name = null
+            //When Contact Modal is dismissed, Remove its Html
             $('#myModalx').on('hidden.bs.modal', function () {
                 $('#leads-start').css('display', 'block')
                 $('#leads-step-four').css('display', 'none')
+                $('#agent-contact-form').html('')
             });
 
+            //When Pop Up Button for Contact is Clicked, Get Form's Html
             $(document).on('click', '#contact-agent-modal-button', function () {
                 agent_id = $(this).parents('.toc-two')[0].getAttribute('agent_id')
                 agent_name = $(this).parents('tr').find('td').first().text().trim().split(' ')[0]
 
                 $('.agent_name').text(agent_name)
+
+                $.get('/agent-contact-form.html', function (response) {
+                    $('#agent-contact-form').html(response)
+                    $('.pth-agent-right-content').css('padding-left', 0)
+                    $('.modal-content').css({ 'border-radius': '8px', 'padding': 0 })
+                    $('.pht-agent-content').css({ 'border': 'none' })
+                })
             })
-            $.get('/agent-contact-form.html', function (response) {
-                console.log(response)
-                $('#agent-contact-form').html(response)
-                $('.pth-agent-right-content').css('padding-left', 0)
-                $('.modal-content').css({ 'border-radius': '8px', 'padding': 0 })
-                $('.pht-agent-content').css({ 'border': 'none' })
-            })
+
 
             $(document).on('change click', '#leads-start div>ul>li>a', function () {
                 leads = {};
@@ -1760,7 +1764,7 @@
                 });
             });
 
-            // END AGENT CONTACT FORM
+            // ----------------------END AGENT CONTACT FORM---------------
 
 
             $("#cancelFilter").on('click', function (event) {
