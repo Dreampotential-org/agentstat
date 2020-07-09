@@ -76,8 +76,6 @@ function get_search_filters() {
     }, 1000);
 
 
-
-
     if (city == "null" || city == null) {
         console.log("CITY IS!!!" + typeof(city))
     }
@@ -679,7 +677,7 @@ $('#query-submit').on('click', function(){
     var queryParams = {};
     $.each(parseQuerystring(), function(k,v){
         if (v!='' && v!='null') {
-            queryParams[k] = decodeURI(v); 
+            queryParams[k] = decodeURI(v);
         }
     })
 

@@ -283,7 +283,7 @@ function load_agent(ignore_city = true) {
     }
 
     // Render Licenses T Bottom
-    if(data['licenses'].length >0){
+    if(data['licenses'] !== undefined && data['licenses'].length >0){
       var lic = data['licenses'][0]
       $('#license_about').text(' - '+lic.split(' ')[0]+' - '+lic.split(' ')[1])
     }
