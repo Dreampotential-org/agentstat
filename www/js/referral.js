@@ -1,6 +1,14 @@
 //
-profile_id = localStorage.profile_id
-settings = get_settings('referral/'+ profile_id, 'GET')
+profile_id = localStorage.profile_id;
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+received = urlParams.get('received');
+
+if (received == 'true') {
+  settings = get_settings('referral-received/'+ profile_id, 'GET')
+} else {
+  settings = get_settings('referral/'+ profile_id, 'GET')
+}
 var form_data = {};
 
 // console.log(settings);
@@ -122,16 +130,20 @@ $(document).ready(function(){
           settings = get_settings('referral/', 'POST', JSON.stringify(form_data));
           $.ajax(settings).done(function(response){
             result = JSON.parse(response);
-            //console.log(result);
+            console.log(result);
+            window.location = result['sign_url'] + '?redirect_uri=https://agentstat.com/referrals/';
           });
 
         });
 
+
+        /*
         swal({
           title: "Your referral has been created!",
           icon: "success",
           dangerMode: false,
         });
+        */
 
         $('#referralModal').modal('hide');
       }
@@ -224,7 +236,6 @@ $(document).ready(function(){
   const $value = $('#referral_fee_percentage');
   $valueSpan.html($value.val());
   $value.on('input change', () => {
-
     $valueSpan.html($value.val()+'%');
   });
 
