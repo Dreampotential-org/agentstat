@@ -150,12 +150,23 @@ function display_profile(profile) {
 
   get_languages(profile.language_fluencies);
   get_reviews();
+  //importZillowReviews()
+}
 
+function importZillowReviews() {
+  settings = get_settings('sync-zillow-review/', 'GET');
+
+  $.ajax(settings).done(function (response) {
+    var response = JSON.parse(response);
+    agent_review(response);
+  }).fail(function (err) {
+    console.log(err);
+  });
 }
 
 
 function get_reviews() {
-  settings = get_settings('revi-ew/' + profile_id + '/', 'GET');
+  settings = get_settings('review/' + profile_id + '/', 'GET');
 
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);

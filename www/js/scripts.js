@@ -60,7 +60,9 @@
 
 		$(document).on('click', '.p-left ul li',function (){
 
-			min = $(this).find('span').text();
+			min = $(this).text().substr(1).replace(',', '');
+			min = parseInt(min)/1000;
+			
 
 			if($("#one-right-in").val() < min);
 			$("#one-right-in").val('');
@@ -72,7 +74,7 @@
 			for(let i=0 ; i<10 ; i++){
 				let maxPrice = val * 25;
 				val++;
-				priceList += '<li>$'+maxPrice+'K</li>'
+				priceList += '<li>$'+maxPrice+',000</li>'
 			}
 			$('.p-right ul').append(priceList);
 

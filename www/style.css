@@ -796,6 +796,7 @@
  .price-amount input {
      display: inline-block;
      width: 44%;
+     height: 30px;
      border: 1px solid #C4C4C4;
      border-radius: 8px;
      font-weight: 300;
