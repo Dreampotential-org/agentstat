@@ -1,4 +1,4 @@
-var profile_id = null;
+var agent_id = null
 var data_map = [
   'first_name', 'last_name', 'phone_number', 'email', 'screen_name',
   'brokerage_name', 'city', 'state', 'zipcode', 'buyer_rebate', 'listing_fee',
@@ -32,9 +32,11 @@ function display_profile(profile) {
   $('#facebook').val(profile.facebook);
   $('#twitter').val(profile.twitter);
   $('#linkedid').val(profile.linkedin);
-  $('#other-speciality-text').val(profile.other_speciality_note)
-  profile_id = profile.id;
+  $('#other-speciality-text').val(profile.other_speciality_note);
 
+  if (profile.connector.id !== undefined) {
+    agent_id = profile.connector.id;
+  }
 
   if (profile.phone_number !== null) {
     $('#phone_number_1').val(profile.phone_number.substring(0, 3));
@@ -136,11 +138,15 @@ function display_profile(profile) {
       profile_url = '/page-three.html?agent_id=' + profile.connector.id;
     }
 
+    // $('#agent-connector').html(`
+    //   <a target='_blank' href='` + profile_url + `'>` + profile.connector.agent_name + `</a> |
+    //   <a id='connector-remove'
+    //     data-id='` + profile.connector.id + `'  href=''
+    //     onclick='return false;'>Remove</a>
+    // `);
+
     $('#agent-connector').html(`
-      <a target='_blank' href='` + profile_url + `'>` + profile.connector.agent_name + `</a> |
-      <a id='connector-remove'
-        data-id='` + profile.connector.id + `'  href=''
-        onclick='return false;'>Remove</a>
+      <a target='_blank' href='` + profile_url + `'>` + profile.connector.agent_name + `</a>
     `);
   } else {
     $('#agent-connector').html(`
@@ -166,7 +172,7 @@ function importZillowReviews() {
 
 
 function get_reviews() {
-  settings = get_settings('review/' + profile_id + '/', 'GET');
+  settings = get_settings('review/' + agent_id + '/', 'GET');
 
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
@@ -607,7 +613,7 @@ $(document).on('change click', '#review-add-btn', function () {
   review_date = new Date($('#review-date').val());
   data['date'] = review_date.toJSON();
 
-  settings = get_settings('review/' + profile_id + '/', 'POST', JSON.stringify(data))
+  settings = get_settings('review/' + agent_id + '/', 'POST', JSON.stringify(data))
 
   $.ajax(settings).done(function (response) {
     var msg = JSON.parse(response);
