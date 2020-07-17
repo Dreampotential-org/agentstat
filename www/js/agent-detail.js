@@ -147,6 +147,8 @@ function load_agent(ignore_city = true) {
     data = JSON.parse(response);
     agent_id = data['id'];
 
+    get_reviews()
+
     if (agent_id == localStorage.getItem('agent_id')) {
       $('.add-custom-link-btn').show();
     }
@@ -291,7 +293,7 @@ function load_agent(ignore_city = true) {
     $(".alist").remove();
     index = 1;
 
-    agent_profile_review(data['reviews']);
+    agent_review(data['reviews']);
 
     populate_transaction(data[agent_list_key], false);
 
@@ -742,6 +744,16 @@ function show_reviews(summary, reviews) {
       </div>
     `);
   })
+}
+
+function get_reviews() {
+  settings = get_settings('review/' + agent_id + '/', 'GET');
+  $.ajax(settings).done(function (response) {
+    var response = JSON.parse(response);
+    agent_review(response['reviews'], 1);
+  }).fail(function (err) {
+    console.log(err);
+  });
 }
 
 $('#review-modal').click(function () {

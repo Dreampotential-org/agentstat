@@ -21,3 +21,9 @@
 #remove-profile-image:hover{
     cursor: pointer;
 }
+.dataTables_info {
+    float: left;
+}
+#review-listing_wrapper {
+    border-bottom: 1px solid #ACACAD;
+}

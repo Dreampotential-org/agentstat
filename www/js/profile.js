@@ -156,7 +156,6 @@ function display_profile(profile) {
 
   get_languages(profile.language_fluencies);
   get_reviews();
-  //importZillowReviews()
 }
 
 function importZillowReviews() {
@@ -164,7 +163,8 @@ function importZillowReviews() {
 
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
-    agent_review(response);
+    show_message('Your import review request is inprocess, Normally it takes 20 hours.', 10000);
+    $('#import-review').attr("disabled", "disabled");
   }).fail(function (err) {
     console.log(err);
   });
@@ -173,10 +173,20 @@ function importZillowReviews() {
 
 function get_reviews() {
   settings = get_settings('review/' + agent_id + '/', 'GET');
-
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
-    agent_review(response);
+    if (response.allow_sync == false) {
+      var time = secondsToHms(response.remaining_time);
+      var tooltip = "You have already requested to import review. We're working on it. It will be there in "+time.h+" and "+time.m+"."
+      $('#review-tooltip').attr("title", tooltip);
+      $('#import-review').attr("disabled", "disabled");
+    } else if (response.allow_sync == true && response.last_sync != '') {
+      var time = niceDateTime(response.last_sync);
+      var tooltip = "Last sync reviews: "+time+".";
+      $('#review-tooltip').attr("title", tooltip);
+      $('#import-review').html("Re-sync Zillow Reviews");
+      agent_review(response['reviews'], 2);
+    }
   }).fail(function (err) {
     console.log(err);
   });
@@ -672,10 +682,10 @@ $(document).on('click', '#verify_slug', function () {
 });
 
 
-function show_message(message) {
+function show_message(message, duration=3000) {
   swal(message, {
     buttons: false,
-    timer: 3000,
+    timer: duration,
   });
 }
 
@@ -846,6 +856,10 @@ $(document).on('click', '#remove-profile-image', function (e) {
     $('#remove-profile-image').css('display', 'none')
     $('#save_image').css('display', 'none')
   });
+});
+
+$(document).on('click', '#import-review', function(){
+  importZillowReviews();
 });
 
 function formatURL(string) {

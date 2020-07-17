@@ -37,6 +37,9 @@
     <!-- DatePicker CSS -->
     <link rel="stylesheet" href="/css/bootstrap-datepicker3.css" />
 
+    <!-- Data Tables CSS-->
+    <link rel="stylesheet" href="/plugins/datatables/css/dataTables.bootstrap4.min.css" />
+
     <!-- Revire Css -->
     <link rel="stylesheet" href="/css/review.css" />
 
@@ -542,11 +545,13 @@
                 <h4 style="font-size: 20px;width: auto;float: left;">REVIEWS</h4>
                 <a name='reviews' style="margin-left:10px;"></a>
                 <!-- Button trigger modal -->
-                <button type="button" data-toggle="modal" data-target="#exampleModal">Add</button>
+                <button id="import-review" type="button">Import Zillow Review</button>
+                <i id="review-tooltip" class="fa fa-info-circle" data-toggle="tooltip"
+                    title="Import review from zillow. It will take 20 hours to fetch review."></i>
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-size" role="document" style="transform: translateY(20%);">
                     <div class="modal-content">
@@ -630,7 +635,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -639,14 +644,24 @@
     <!-- slider area start -->
     <div id="review-div" class="slider">
         <div class="container">
-            <div class="slier-bordr">
+            <!-- <div class="slier-bordr">
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="reviews-list" class="reviews-slider">
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <table id="review-listing">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="review-listing-body">
+                    
+                </tbody>
+            </table>
         </div>
     </div>
     <!-- slider area end -->
@@ -844,6 +859,9 @@
 
     <!-- Bootbox confirm box -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+    <script src="/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
 
     <!-- Reviews slider -->
     <script src="/js/jquery.slick-carousel.js"></script>
