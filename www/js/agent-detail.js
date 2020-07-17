@@ -293,8 +293,6 @@ function load_agent(ignore_city = true) {
     $(".alist").remove();
     index = 1;
 
-    agent_review(data['reviews']);
-
     populate_transaction(data[agent_list_key], false);
 
     var coordinates = [];
@@ -751,7 +749,7 @@ function get_reviews() {
   settings['headers'] = null;
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
-    agent_review(response['reviews'], 1);
+    agent_review(response.reviews, 1);
   }).fail(function (err) {
     console.log(err);
   });
