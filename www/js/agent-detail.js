@@ -748,6 +748,7 @@ function show_reviews(summary, reviews) {
 
 function get_reviews() {
   settings = get_settings('review/' + agent_id + '/', 'GET');
+  settings['headers'] = null;
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
     agent_review(response['reviews'], 1);
