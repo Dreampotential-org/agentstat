@@ -156,3 +156,48 @@
     }
 }
 
+/* new code for review section */ 
+
+
+#review-listing_wrapper {
+    padding: 0 10px;
+}
+#review-listing_wrapper table {
+    table-layout: fixed;
+    width: 100%;
+}
+#review-listing_wrapper table td {
+    border: 0;
+}
+#review-listing_wrapper .review-info {
+    text-align: left;
+}
+#review-listing_wrapper .review-text {
+    text-align: left;
+}
+.rating-popup .popup-heading .flag {
+    right: 0 !important;
+}
+.rating-popup .popup-content p {
+    white-space: normal;
+    text-align: left;
+}
+#review-listing_info {
+    margin-top: 6px;
+}
+
+@media (max-width: 1200px) {
+    .rating-popup .popup-heading h3 {
+        margin: 10px 0 0;
+        text-align: left;
+    }
+    #review-listing_paginate {
+        margin: 52px 0 0;
+    }
+    #review-listing_paginate ul {
+        justify-content: flex-start !important;
+    }
+    .rating-popup .popup-heading .rating-star {
+        width: auto !important;
+    }
+}
