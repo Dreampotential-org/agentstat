@@ -34,9 +34,12 @@ function display_profile(profile) {
   $('#linkedid').val(profile.linkedin);
   $('#other-speciality-text').val(profile.other_speciality_note);
 
-  if (profile.connector !== undefined && profile.connector.id !== undefined) {
-    agent_id = profile.connector.id;
-  }
+  agent_id = null;
+  try {
+    if (profile.connector.id !== undefined) {
+      agent_id = profile.connector.id;
+    }
+  } catch(err) { }
 
   if (profile.phone_number !== null) {
     $('#phone_number_1').val(profile.phone_number.substring(0, 3));
