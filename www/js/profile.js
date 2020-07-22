@@ -34,7 +34,7 @@ function display_profile(profile) {
   $('#linkedid').val(profile.linkedin);
   $('#other-speciality-text').val(profile.other_speciality_note);
 
-  if (profile.connector.id !== undefined) {
+  if (profile.connector !== undefined && profile.connector.id !== undefined) {
     agent_id = profile.connector.id;
   }
 
