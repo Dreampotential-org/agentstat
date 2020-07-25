@@ -24,7 +24,7 @@ function agent_review(reviewList, pageSize=1) {
 
         var subHtml = '';
 
-        $.each(v['detail'], function(k1, v1){
+        $.each(v['detail'].reverse(), function(k1, v1){
             var subRatingPercentage = ratingToPercent(v1['rating']);
             subHtml += '<li>';
                 subHtml += '<span class="review-text">'+v1['category_name']+':</span>';
