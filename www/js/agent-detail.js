@@ -185,9 +185,8 @@ function load_agent(ignore_city = true) {
 
       lang = lang.substring(0, lang.length - 2)
       $('.agent-languages-text').text(lang)
+      $('.agent-languages').show();
     }
-    else $('.agent-languages').css('display', 'none')
-
 
     brokerage_info = data['brokerage_info'].split(/\r?\n/)[0];
 
@@ -257,15 +256,18 @@ function load_agent(ignore_city = true) {
       data["specialties"] = data["specialties"].sort((a, b) => (a.sorting > b.sorting) ? 1 : -1)
 
       $.each(data['specialties'], function (k, v) {
-        
-        if (v.id == 6) { specialtiesText += 'Other: ' + data['other_speciality_note'] + ', ' }
-        else {
+        if (v.id != 6) {
           specialtiesText += v.val + ', ';
-
         }
-        $('.agent-specialties-text').html(specialtiesText)
-        $('.agent-specialties').show();
       });
+
+      $.each(data['specialties'], function (k, v) {
+        if (v.id == 6) {
+          specialtiesText += 'Other: ' + data['other_speciality_note'] + ', ' 
+        }
+      });
+
+      $('.agent-specialties').show();
       $('.agent-specialties-text').html(specialtiesText.substring(0, specialtiesText.length - 2));
     }
     if ((data['listing_fee'] != "") && (data['listing_fee'] != null)) {

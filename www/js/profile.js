@@ -57,6 +57,13 @@ function display_profile(profile) {
 
   get_specilities(profile.specialties);
 
+  if (profile.connector.real_estate_licence !== null && profile.connector.real_estate_licence != '') {
+    $("#added-license").append(`
+    <div class="fragment" >
+      <input value="` + profile.connector.real_estate_licence + `" type="text" name="mytext[]" data-type="zillow" class="license_number" disabled style="width: 150px;">
+    </div>`);
+  }
+
   $.each(profile.licenses, function (k, val) {
     add_license(val);
   });
@@ -306,11 +313,13 @@ function update_profile() {
 
   // licences
   data['licenses'] = $('.license_number').map(
-    function () { return $(this).val() }
+    function () { 
+      if ($(this).data('type') != 'zillow') {
+        return $(this).val();
+      }
+    }
   ).get();
-
   data['licenses'] = data['licenses'].filter(function (v) { return v !== '' });
-
 
   // fluent languages
   data['language_fluencies'] = $('.lng-checkbox:checked').map(
@@ -329,12 +338,6 @@ function update_profile() {
   data['facebook'] = formatURL($('#facebook').val());
   data['twitter'] = formatURL($('#twitter').val());
   data['Linkedin'] = formatURL($('#Linkedin').val());
-  data['licenses'] = []
-  $('.license_number').each(function (k, v) {
-    data['licenses'].push($(v).val());
-  });
-
-
 
   var picture_data = $('#upload')[0].files[0]
   var reader = new FileReader();
