@@ -31,7 +31,11 @@ function agent_review(reviewList, pageSize=1) {
                 subHtml += '<span class="rating-star"><span class="fill" style="width: '+subRatingPercentage+'%;"></span></span>';
             subHtml += '</li>';
         });
-
+        
+        var reviewText = v['review'];
+        if (v['review_body_extra'] !== null && v['review_body_extra'] != '') {
+            reviewText += ' '+v['review_body_extra'];
+        }
         var html = `
         <tr>
             <td>
@@ -54,7 +58,7 @@ function agent_review(reviewList, pageSize=1) {
                                     `+subHtml+`
                                 </ul>
                                 <div class="popup-content active">
-                                    <p>`+v['review']+` - `+v['review_body_extra']+`</p>
+                                    <p>`+reviewText+`</p>
                                 </div>
                             </div>
                         </div>
