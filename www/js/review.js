@@ -79,8 +79,8 @@ function agent_review(reviewList, pageSize=1) {
             "dom": 'lrtip',
             "language": {
                 paginate: {
-                    next: '»',
-                    previous: '«'
+                    next: 'NEXT',
+                    previous: false
                 }
               }
         });

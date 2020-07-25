@@ -166,29 +166,44 @@ function importZillowReviews() {
 
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
-    show_message('Your import review request is inprocess, Normally it takes 20 hours.', 10000);
+    show_message('Success! Please allow 24 hours for your leads to imports.', 10000);
     $('#import-review').attr("disabled", "disabled");
   }).fail(function (err) {
     console.log(err);
   });
 }
 
+$(document).ready(function(){
+  $('#import-review').on('click',function(){
+      bootbox.confirm({
+          message: "I authorize agentstat.com to screenshot and sync my reviews from my public zillow profile to be displayed on my agentstat.com profile.",
+          buttons: {
+              cancel: {
+                  label: 'Cancel',
+                  className: 'btn-default'
+              },
+              confirm: {
+                  label: 'Import',
+                  className: 'btn-success'
+              }
+          },
+          callback: function (result) {
+              if (result===true) {
+                  importZillowReviews();         
+              }
+          }
+      });
+  });
+});
 
 function get_reviews() {
   settings = get_settings('review/' + agent_id + '/', 'GET');
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
-    if (response.allow_sync == false) {
-      var time = secondsToHms(response.remaining_time);
-      var tooltip = "You have already requested to import review. We're working on it. It will be there in "+time.h+" and "+time.m+"."
-      $('#review-tooltip').attr("title", tooltip);
-      $('#import-review').attr("disabled", "disabled");
-    } else if (response.allow_sync == true && response.last_sync != '') {
-      var time = niceDateTime(response.last_sync);
-      var tooltip = "Last sync reviews: "+time+".";
-      $('#review-tooltip').attr("title", tooltip);
-      $('#import-review').html("Re-sync Zillow Reviews");
-      agent_review(response['reviews'], 2);
+    if (response.allow_sync == true) {
+        $('#import-review').show();
+    } else if (response.allow_sync == false) {
+        agent_review(response['reviews'], 3);
     }
   }).fail(function (err) {
     console.log(err);
@@ -859,10 +874,6 @@ $(document).on('click', '#remove-profile-image', function (e) {
     $('#remove-profile-image').css('display', 'none')
     $('#save_image').css('display', 'none')
   });
-});
-
-$(document).on('click', '#import-review', function(){
-  importZillowReviews();
 });
 
 function formatURL(string) {

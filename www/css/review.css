@@ -230,3 +230,33 @@
 		margin: 0;
 	}
 }
+
+
+#review-listing_paginate {
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top: 12px;
+}
+#review-listing_wrapper #review-listing_info {
+    display: none;
+}
+#review-listing_paginate ul.pagination {
+    justify-content: flex-start;
+}
+#review-listing_paginate .pagination a {
+    border-radius: 50%;
+    color: #333;
+    margin: 0 3px 0 0;
+    padding: 0;
+    height: 36px;
+    width: 36px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 500;
+    border: none;
+}
+#review-listing_paginate .pagination a:hover,
+#review-listing_paginate .pagination .active a {
+    background: #333;
+    color: #fff;
+}
