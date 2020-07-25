@@ -260,3 +260,21 @@
     background: #333;
     color: #fff;
 }
+.no-review {
+	margin-bottom: 5px;
+}
+.flag {
+	cursor: pointer;
+}
+.flag:hover {
+	opacity: 0.5;
+}
+.reviews span{
+	float: left;
+}
+.reviews .rating-popup{
+	padding: 0px;
+}
+.modal-sm {
+	max-width: 300px !important;
+}

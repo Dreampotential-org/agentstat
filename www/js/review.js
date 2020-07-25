@@ -5,13 +5,11 @@ function ratingToPercent(rating) {
 function reviewStarHtml(rating) {
     var ratingPercentage = ratingToPercent(rating);
     var html = `
-        <div class="reviews-slider">
-            <div class="reviews-holder">
-                <div class="review">
-                    <span class="reviews-bar">
-                        <span class="fill" style="width: `+ratingPercentage+`%;"></span>
-                    </span>
-                </div>
+        <div class="rating-popup">
+            <div class="reviews-sub-ratings">
+                <span class="rating-star">
+                    <span class="fill" style="width: `+ratingPercentage+`%;"></span>
+                </span>
             </div>
         </div>
     `;

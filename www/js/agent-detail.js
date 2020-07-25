@@ -153,16 +153,6 @@ function load_agent(ignore_city = true) {
       $('.add-custom-link-btn').show();
     }
 
-    if (data['average_review_rate'] === undefined) {
-      $('.has-review').hide();
-      $('.no-review').show();
-    } else {
-      $('.agent-rating').html(reviewStarHtml(data['average_review_rate']));
-      $('.reviews-count').html(data['reviews'].length);
-
-      show_reviews(data['review_categories'], data['reviews']);
-    }
-
     $('.agent_name').val(data['agent_name']);
     
     $('.agent-first-name').text(data['full_name'].split(" ")[0]);
@@ -259,15 +249,16 @@ function load_agent(ignore_city = true) {
         if (v.id != 6) {
           specialtiesText += v.val + ', ';
         }
+        $('.agent-specialties').show();
       });
 
       $.each(data['specialties'], function (k, v) {
         if (v.id == 6) {
           specialtiesText += 'Other: ' + data['other_speciality_note'] + ', ' 
         }
+        $('.agent-specialties').show();
       });
 
-      $('.agent-specialties').show();
       $('.agent-specialties-text').html(specialtiesText.substring(0, specialtiesText.length - 2));
     }
     if ((data['listing_fee'] != "") && (data['listing_fee'] != null)) {
@@ -290,6 +281,10 @@ function load_agent(ignore_city = true) {
     if(data['licenses'] !== undefined && data['licenses'] !== null && data['licenses'].length >0){
       var lic = data['licenses'][0]
       $('#license_about').text(' - '+lic.split(' ')[0]+' - '+lic.split(' ')[1])
+    }
+
+    if (data['real_estate_licence'] !== null && data['real_estate_licence'] != '') {
+      $('#license_about').text(' - '+data['real_estate_licence']);
     }
 
     $(".alist").remove();
@@ -736,11 +731,10 @@ function show_reviews(summary, reviews) {
 
     $('.reviews').append(`
       <div style="padding: 5px 20px; width: 5500px">
-        <div>
-          ` + v.category + ` ` + extra_info + `
-          <br>
-          ` + reviewStarHtml(v.summary) + `
-        </div>
+
+          <span>` + v.category + extra_info + `: </span>
+          <span style="margin: 3px 0 0 10px;">` + reviewStarHtml(v.summary) + `</span>
+
       </div>
     `);
   })
@@ -752,6 +746,16 @@ function get_reviews() {
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
     agent_review(response.reviews, 1);
+
+    if (response.average_review_rate === null) {
+      $('.has-review').hide();
+      $('.no-review').show();
+    } else {
+      $('.agent-rating').html(reviewStarHtml(response.average_review_rate));
+      $('.reviews-count').html(response.reviews.length);
+
+      show_reviews(response.average_review_categories, response.reviews);
+    }
   }).fail(function (err) {
     console.log(err);
   });

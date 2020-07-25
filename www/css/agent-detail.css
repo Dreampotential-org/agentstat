@@ -185,6 +185,15 @@
 #review-listing_info {
     margin-top: 6px;
 }
+.agent-profile-head {
+    font-size: 14px;
+}
+.agent-profile-head .rating-popup {
+    padding: 0;
+}
+.agent-profile-head .rating-popup .reviews-sub-ratings {
+    padding: 0 0 11px;
+}
 
 @media (max-width: 1200px) {
     .rating-popup .popup-heading h3 {

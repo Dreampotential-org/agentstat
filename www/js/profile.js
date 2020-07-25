@@ -85,7 +85,6 @@ function display_profile(profile) {
   }
 
   if (profile.listing_fee !== null) {
-    console.log(profile.listing_fee)
     $('#listing_fee').val(profile.listing_fee);
     $('#listing_fee_checkbox').prop('checked', true);
   } else {
