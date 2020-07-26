@@ -247,7 +247,7 @@ $(document).on('click', '#image_save', function () {
   if (picture_data != null) {
     $upload_crop.croppie('result', {
       type: 'base64',
-      size: {width:'500', height:'500'},
+      size: {width:'350', height:'350'},
       quality: 1
     }).then(function (resp) {
       var data = {}
