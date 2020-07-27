@@ -265,7 +265,7 @@ $(document).on('click', '#image_save', function () {
         $('.fileinput-name').html('')
 
         $('#save_image_loading').css('display', 'none')
-        $('.image_save_btn').removeAttr('disabled')
+        $('#image_save_btn').removeAttr('disabled')
       })
     })
   }
