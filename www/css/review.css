@@ -53,7 +53,7 @@
 
 .rating-popup .popup-heading .flag {
 	position: absolute;
-	right: 40px;
+	right: 5px;
 	top: 5px;
 }
 
@@ -277,4 +277,8 @@
 }
 .modal-sm {
 	max-width: 300px !important;
+}
+.agent-tab-item .container {
+	padding-left: 0px;
+	padding-right: 0px;
 }
