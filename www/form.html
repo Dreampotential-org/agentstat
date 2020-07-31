@@ -121,8 +121,8 @@
 				<div class="tabset-sidebar">
 					<strong class="title">PROFILE SETTINGS</strong>
 					<ul class="tabset" id="agent-tabs">
-						<li class="active">
-							<a href="#info">
+						<li>
+							<a id="info-tab" href="#info">
 								<span class="icon">
 									<img src="/img/info-icon.png" alt="Basic">
 								</span>
@@ -130,7 +130,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#license">
+							<a id="license-tab" href="#license">
 								<span class="icon">
 									<img src="/img/license-icon.png" alt="License">
 								</span>
@@ -138,7 +138,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#highlight">
+							<a id="highlight-tab" href="#highlight">
 								<span class="icon">
 									<img src="/img/Highlight-icon.png" alt="Highlights">
 								</span>
@@ -146,7 +146,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#comision">
+							<a id="comision-tab" href="#comision">
 								<span class="icon">
 									<img src="/img/Commision-icon.png" alt="Commision">
 								</span>
@@ -154,7 +154,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#review">
+							<a id="review-tab" href="#review">
 								<span class="icon">
 									<img src="/img/review-icon.png" alt="Reviews">
 								</span>
@@ -162,7 +162,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#social">
+							<a id="social-tab" href="#social">
 								<span class="icon">
 									<img src="/img/social-media-icon.png" alt="Social Media">
 								</span>
@@ -170,7 +170,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#about">
+							<a id="about-tab" href="#about">
 								<span class="icon">
 									<img src="/img/about-me-icon.png" alt="About Me">
 								</span>
@@ -278,10 +278,9 @@
                                         <br>
                                         <span id="remove-profile-image">x</span>
                                         <img class="my-image" style="height:300px" src="/img/blank-profile-picture.png" />
-                                        <!-- <input id="picture" type="file" name="file" onchange="readURL(this);" /> -->
                                     </div>
-									<div class="btns-area tabset" id="agent-tabs">
-										<a href="#license" class="next-btn nextbtn">next step</a>
+									<div class="btns-area">
+										<a href="javascript:void(0)" class="next-btn nextbtn" onclick="changeTab('license')">next step</a>
 									</div>
 								</div>
 							</div>
@@ -359,8 +358,8 @@
 										</div>
 									</div>
 									<div class="btns-area">
-										<a href="#" class="back-btn backbtn">BACK</a>
-										<a href="#" class="next-btn nextbtn">next step</a>
+										<a href="#" class="back-btn backbtn" onclick="changeTab('info')">BACK</a>
+										<a href="#" class="next-btn nextbtn" onclick="changeTab('highlight')">next step</a>
 									</div>
 								</div>
 							</div>
@@ -431,8 +430,8 @@
 											aria-controls="collapseExample">More</a>
 											
 									<div class="btns-area">
-										<a href="#" class="back-btn backbtn">BACK</a>
-										<a href="#" class="next-btn nextbtn">next step</a>
+										<a href="#" class="back-btn backbtn" onclick="changeTab('license')">BACK</a>
+										<a href="#" class="next-btn nextbtn" onclick="changeTab('comision')">next step</a>
 									</div>
 								</div>
 							</div>
@@ -495,8 +494,8 @@
 										</label>
 									</div>
 									<div class="btns-area">
-										<a href="#" class="back-btn backbtn">BACK</a>
-										<a href="#" class="next-btn nextbtn">next step</a>
+										<a href="#" class="back-btn backbtn" onclick="changeTab('highlight')">BACK</a>
+										<a href="#" class="next-btn nextbtn" onclick="changeTab('review')">next step</a>
 									</div>
 								</div>
 							</div>
@@ -659,8 +658,8 @@
 									</div>
 								</div>
 								<div class="btns-area">
-									<a href="#" class="back-btn backbtn">BACK</a>
-									<a href="#" class="next-btn nextbtn">next step</a>
+									<a href="#" class="back-btn backbtn" onclick="changeTab('comision')">BACK</a>
+									<a href="#" class="next-btn nextbtn" onclick="changeTab('social')">next step</a>
 								</div>
 							</div>
 						</div>
@@ -720,8 +719,8 @@
 										</div>
 									</div>
 									<div class="btns-area">
-										<a href="#" class="back-btn backbtn">BACK</a>
-										<a href="#" class="next-btn nextbtn">next step</a>
+										<a href="#" class="back-btn backbtn" onclick="changeTab('review')">BACK</a>
+										<a href="#" class="next-btn nextbtn" onclick="changeTab('about')">next step</a>
 									</div>
 								</div>
 							</div>
@@ -749,7 +748,7 @@
 										</div>
 									</div>
 									<div class="btns-area">
-										<a href="#" class="back-btn backbtn">BACK</a>
+										<a href="#" class="back-btn backbtn" onclick="changeTab('social')">BACK</a>
 										<a href="javascript:void(0)" class="next-btn finish submit_btn">Finish</a>
 									</div>
 									<div class="row" style="margin-top: 15px;">

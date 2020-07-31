@@ -917,4 +917,15 @@ function formatURL(string) {
   return string
 }
 
+function changeTab(tab) {  
+  $('#agent-tabs li a').removeClass('active');
+  $('#agent-tabs li a').addClass('inactive');
+
+  $('#'+tab+'-tab').removeClass('inactive');
+  $('#'+tab+'-tab').addClass('active');
+
+  $('.tab-content-area .agent-tab-item').hide();
+  $('#'+tab).show();
+}
+
 
