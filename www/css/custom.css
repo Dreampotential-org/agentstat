@@ -29,9 +29,7 @@ display: inline-block;
 }
 
 .remove-license {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
-    background:#ccc;
+    float: right;
+    background: #ccc;
 }
 

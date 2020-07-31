@@ -46,8 +46,10 @@
     <!-- Common css for all pages -->
     <link rel="stylesheet" href="/css/common.css" />
 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Page CSS -->
-    <link rel="stylesheet" href="/css/profile.css" />
+
+    <link rel="stylesheet" href="/css/profile-new.css" />
 
     <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
 
@@ -113,151 +115,160 @@
     </div>
     <!-- header-area end -->
 
-    <div class="full-formx">
-
-        <!-- profile area start -->
-        <div class="profile">
-            <div class="container">
-
-
-
-                <!-- <div class="row" style="margin-top:20px">
-                    <div class="col-md-4" id="image_upload_area">
-                        <input type="file" id="upload" value="Choose a file" accept="image/*" onchange="readURLtemp(this)">
-                        <img class="my-image" style="width:100%" src="" />
-                        <input type="hidden" class="cropped-image" name="imagebase64">
-
-                        <button class="save-image">Save image</button>
-                    </div>
-                </div> -->
-
-
-
-
-                <div class="profile-heading">
-                    <h2>Profile Settings</h2>
-                    <h4>BASIC INFORMATION</h4>
-                </div>
-            </div>
-        </div>
-        <!-- profile area end -->
-
-        <!-- form-area start -->
-        <div class="form">
-            <div class="container">
-                <div class="form-wrapper">
-
-
-                    <div class="basic-form-info">
-                        <div class="form-name ml-5">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="fn-left">
-                                        <p>Full name </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="fn-right">
-                                        <!-- <input type="text" id="first_name" name="text" placeholder="Anna">
-                                            <input class="ml-2" id="last_name" type="text" name="text" placeholder="Kovalevich"> -->
-
-                                        <input type="text" id="first_name" name="text" placeholder="Enter First Name"
-                                            readonly>
-                                        <input class="ml-2" id="last_name" type="text" name="text"
-                                            placeholder="Enter Last Name" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-name ml-5">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="fn-left">
-                                        <p>Phone Number <span id="start"></span></p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="fn-right">
-                                        <input type="text" id="phone_number_1" placeholder="xxx" maxlength="3"
-                                            pattern="\d{3}" class="col-lg-1">
-                                        <input type="text" id="phone_number_2" placeholder="xxx" maxlength="3"
-                                            pattern="\d{3}" class="col-lg-1">
-                                        <input type="text" id="phone_number_3" placeholder="xxxx" maxlength="4"
-                                            pattern="\d{4}" class="col-lg-1">
-
-                                        <i class="fa fa-info-circle" data-toggle="tooltip"
+    <div class="tabs-section">
+		<div class="tabs-section-container">
+			<div class="wrap">
+				<div class="tabset-sidebar">
+					<strong class="title">PROFILE SETTINGS</strong>
+					<ul class="tabset" id="agent-tabs">
+						<li class="active">
+							<a href="#info">
+								<span class="icon">
+									<img src="/img/info-icon.png" alt="Basic">
+								</span>
+								<span class="text">Basic Information</span>
+							</a>
+						</li>
+						<li>
+							<a href="#license">
+								<span class="icon">
+									<img src="/img/license-icon.png" alt="License">
+								</span>
+								<span class="text">License Information</span>
+							</a>
+						</li>
+						<li>
+							<a href="#highlight">
+								<span class="icon">
+									<img src="/img/Highlight-icon.png" alt="Highlights">
+								</span>
+								<span class="text">Highlights</span>
+							</a>
+						</li>
+						<li>
+							<a href="#comision">
+								<span class="icon">
+									<img src="/img/Commision-icon.png" alt="Commision">
+								</span>
+								<span class="text">Commision</span>
+							</a>
+						</li>
+						<li>
+							<a href="#review">
+								<span class="icon">
+									<img src="/img/review-icon.png" alt="Reviews">
+								</span>
+								<span class="text">Reviews</span>
+							</a>
+						</li>
+						<li>
+							<a href="#social">
+								<span class="icon">
+									<img src="/img/social-media-icon.png" alt="Social Media">
+								</span>
+								<span class="text">Social Media</span>
+							</a>
+						</li>
+						<li>
+							<a href="#about">
+								<span class="icon">
+									<img src="/img/about-me-icon.png" alt="About Me">
+								</span>
+								<span class="text">About Me</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-content-area">
+					<form accept="#" class="tab-content">
+						<div id="info" class="agent-tab-item">
+							<a href="#" class="accordion-opener">
+								<span class="icon">
+									<img src="/img/info-icon.png" alt="Basic">
+								</span>
+								<span class="text">Basic Information</span>
+							</a>
+							<div class="accordion-slide">
+								<strong class="tab-heading">
+									<span class="icon">
+										<img src="/img/info-icon.png" alt="information">
+									</span>
+									<span class="text">Basic Information</span>
+								</strong>
+								<div class="fields-area">
+									<div class="form-group">
+										<label for="name">Full Name</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="first_name" placeholder="First Name">
+											</div>
+											<div class="field-holder">
+												<input type="text" id="last_name" placeholder="Last Name">
+											</div>
+										</div>
+									</div>
+									<div class="form-group number">
+										<label for="number">Phone Number</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="phone_number_1" placeholder="xxx" maxlength="3"
+												pattern="\d{3}">
+											</div>
+											<div class="field-holder">
+												<input  type="text" id="phone_number_2" placeholder="xxx" maxlength="3"
+												pattern="\d{3}">
+											</div>
+											<div class="field-holder">
+												<input  type="text" id="phone_number_3" placeholder="xxxx" maxlength="4"
+												pattern="\d{4}">
+											</div>
+											<i class="fa fa-info-circle" data-toggle="tooltip"
                                             title="This is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-name ml-5">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="fn-left">
-                                        <p>Email </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="fn-right">
-                                        <input style="width: 300px;" id="email" type="email" required name="text"
-                                            placeholder="agentname@brokerage.com">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="screen-name ml-5">
-                            <div class="row">
-                                <div class="col-lg-3 align-self-center">
-                                    <div class="sn-left">
-                                        <p id="lebel">Screen name
-                                            <!-- <span id="start">**</span> -->
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="sn-right input_fields_wrap">
-                                        <input required type="text" id="screen_name" name="text"
-                                            placeholder="Enter Screen Name" style="width: 300px">
-                                        <p>Profile URL :
-                                            www.agentstat.com/profile/<span id="profile_slug"></span>/</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="screen-name ml-5">
-                            <div class="row">
-                                <div class="col-lg-3 align-self-center">
-                                    <div class="sn-left">
-                                        <p id="lebel">Agent Profile</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="sn-right">
-                                        <div id="agent-connector">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="file ml-5">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="file-left">
-                                        <p id="lebel">Profile photo
-                                            <!-- <span id="start">**</span>  -->
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div id="image_upload_div">
-                                        <input type="file" id="upload" value="Choose a file" accept="image/*"
-                                            onchange="uploadTrigger(this)">
-                                        
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="mail">Email</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="email" id="email" required placeholder="agentname@brokerage.com">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="screen">Screen Name</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="screen_name" placeholder="Enter Screen Name" required>
+											</div>
+										</div>
+										<p>Profile URL :
+											www.agentstat.com/profile/<span id="profile_slug"></span>/</p>
+									</div>
+									<div class="form-group">
+										<label>Agent Profile</label>
+										<div class="fields-wrap">
+											<span class="link-holder">
+												<div id="agent-connector">
+												</div>
+											</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Profile Photo</label>
+										<div class="fields-wrap">
+											<div class="upload-area">
+												<label>
+													<input type="file" id="upload" accept="image/*" onchange="uploadTrigger(this)">
+													<span class="fake-file-label">
+														<span class="add-text">Add Photo</span>
+														<span class="file-text">Drop files or click here to upload</span>
+														<span class="upload-btn">Chose Files</span>
+													</span>
+												</label>
+											</div>
+										</div>
+									</div>
+									<div id="image_upload_div">                                       
                                         <div id="image_save" style="display:none">
                                             <button id="image_save_btn" class="btn btn-primary">Save Image
                                                 <i id="save_image_loading" class="fa fa-spinner fa-spin"
@@ -269,557 +280,534 @@
                                         <img class="my-image" style="height:300px" src="/img/blank-profile-picture.png" />
                                         <!-- <input id="picture" type="file" name="file" onchange="readURL(this);" /> -->
                                     </div>
-
-                                    <!-- <div class="up-photo" style="text-align: center;"> -->
-                                    <!-- <img id="profile-img" src="img/s11.png" alt=""> -->
-                                    <!-- <img id="profile-img" alt=""> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="basic-form-info">
-                    <div class="profile-heading">
-                        <h4>License Information</h4>
-                    </div>
-
-                    <div class="licence ml-5">
-                        <div class="row">
-                            <div class="col-lg-3 align-self-end">
-                                <div class="li-left">
-                                    <p class="mb-0" id="lebel">License Number </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="fn-right">
-                                    <input type="text" id="license_no_1" placeholder="License #" class="col-lg-2">
-                                    <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right"
-                                        id="license_no_2">
-                                        <option selected disabled value="">State</option>
-                                    </select>
-                                    <!-- <input type="text" id="license_no_2" placeholder="State" class="col-lg-2"> -->
-                                    <!-- <input type="date" id="license_no_3" placeholder="MM/DD/YYY" class="col-lg-3"> -->
-                                    <input id="license_no_3" class="col-lg-3" placeholder="MM-DD-YYYY">
-
-                                    <button id="add-license" class="inline-btn">Add</button>
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-3 align-self-end">
-                                <div class="li-left">
-                                    <p class="mb-0" id="lebel"></p>
-                                </div>
-                            </div>
-                            <div class="col-lg-9" style="margin-top: 5px;">
-                                <div id="added-license">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="licence ml-5">
-                        <div class="row">
-                            <div class="col-lg-3 align-self-end">
-                                <div class="li-left">
-                                    <p class="mb-0" id="lebel">Brokerage Name </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="li-right br-right">
-                                    <input type="text" id="brokerage_name" name="" placeholder="Brokerage Name">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="licence ml-5">
-                        <div class="row">
-                            <div class="col-lg-3 align-self-end">
-                                <div class="li-left">
-                                    <p class="mb-0" id="lebel">Brokerage Address</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="li-right br-right">
-                                    <input type="text" id="brokerage_address" name="" placeholder="Street Address">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="licence ml-5">
-                        <div class="row">
-                            <div class="col-lg-3 align-self-end">
-                                <div class="li-left">
-                                    <p class="mb-0" id="lebel">City, State, ZIP</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="li-right sl-right">
-                                    <input type="text" name="" id="city" placeholder="City" class="mr-2">
-                                    <select style="border-radius: 3px;padding:5px" class="col-lg-3 li-right mr-2"
-                                        id="state" name="">
-                                        <option selected disabled value="">State</option>
-                                    </select>
-                                    <!-- <input type="text" name="" id="state" placeholder="State" class="mr-2"> -->
-
-                                    <input type="text" id="zipcode" name="" placeholder="Zipcode">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="language">
-
-                    <div class="profile-heading">
-                        <h4>HIGHLIGHTS</h4>
-                    </div>
-                    <div class="highlight-wrpper pl-5">
-
-
-                        <!-- year area start -->
-                        <div class="row year" style="margin-top:20px">
-                            <div class="container">
-                                <div class="year-wrapper">
-                                    <p><strong>In Business Since</strong> <small>(Optional) </small>
-                                        <!-- <input type="text" id="years_in_bussiness"> -->
-                                        <select style="margin-left: 35px;border-radius: 3px;padding:5px"
-                                            id="years_in_bussiness">
-                                            <option selected disabled value="">Select Year</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2017">2017</option>
-                                            <option value="2016">2016</option>
-                                            <option value="2015">2015</option>
-                                            <option value="2014">2014</option>
-                                            <option value="2013">2013</option>
-                                            <option value="2012">2012</option>
-                                            <option value="2011">2011</option>
-                                            <option value="2010">2010</option>
-                                            <option value="2009">2009</option>
-                                            <option value="2008">2008</option>
-                                            <option value="2007">2007</option>
-                                            <option value="2006">2006</option>
-                                            <option value="2005">2005</option>
-                                            <option value="2004">2004</option>
-                                            <option value="2003">2003</option>
-                                            <option value="2002">2002</option>
-                                            <option value="2001">2001</option>
-                                            <option value="2000">2000</option>
-                                            <option value="before 2000">Before 2000</option>
-                                        </select>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- year area End -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <span><strong>Specialties</strong></span>
-                                <div class="year-wrapper-check row" id="specialties"
-                                    style="margin-left:10px;width: 450px;margin-top: 20px;">
-                                </div>
-                                <div class="li-right" style="margin-left:25px;">
-                                    <input maxlength="20" style="display:none" id="other-speciality-text"
-                                        placeholder="Other Specialties" type="text">
-                                </div>
-                            </div>
-
-                        </div>
-                        <br>
-                        <!-- Languages Area Start -->
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="la-left">
-                                    <p id="lebel">
-                                        <strong>Language fluency</strong> <small>(Optional)</small>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="la-right">
-                                    <div id="languages" class="row" style="width:700px">
-
-                                    </div>
-
-
-                                    <div class="collapse" id="collapseExample">
-                                        <div id="morelanguages" class="row" style="width: 700px">
-
-
-                                        </div>
-                                    </div>
-                                    <a class="trigger-more collapsed" role="button" data-toggle="collapse"
-                                        href="#collapseExample" aria-expanded="false"
-                                        aria-controls="collapseExample">More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Languages Area End -->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- form-area end -->
-
-    <!-- agent-area start -->
-    <div class="agent">
-        <div class="container">
-            <div class="agent-wrapper">
-                <p></p>
-            </div>
-        </div>
-    </div>
-    <!-- agent-area end -->
-
-    <!-- addi area start -->
-    <div class="addi">
-        <div class="container">
-            <div class="addi-wapper">
-                <div class="addi-one">
-                    <h4 style="font-size: 20px">COMMISSION</h4>
-                    <div class="add-check">
-                        <input type="checkbox" class="combo-checkboxes" id="listing_fee_checkbox" target='listing_fee'>
-                        <span class="checkmark"></span>
-                        <label class="check-box" for="listing_fee_checkbox">Listing fees</label>
-                        <div>
-                            <select style="margin-left: 0px !important;" id="listing_fee">
-                                <option selected disabled value="">Select</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="add-check">
-                        <input type="checkbox" class="combo-checkboxes" target='buyer_rebate'
-                            id="buyer_rebate_checkbox">
-                        <span class="checkmark"></span>
-                        <label class="check-box" for="buyer_rebate_checkbox">Buyer Rebate</label>
-                        <div>
-                            <select style="margin-left: 0px !important;" id="buyer_rebate">
-                                <option selected disabled value="">Select</option>
-                            </select>
-                        </div>
-                        <div id="textbox" style="padding-top: 10px;"><input type="number"></div>
-                        </select>
-                    </div>
-
-                    <div class="add-check">
-                        <input type="checkbox" class="combo-checkboxes" target='type_of_listing_service'
-                            id="type_of_listing_service_checkbox">
-                        <span class="checkmark"></span>
-                        <label class="check-box" for="type_of_listing_service_checkbox">Type of listing
-                            services</label>
-
-                        <div>
-                            <select style="margin-left: 0px !important;" id="type_of_listing_service">
-                                <option selected disabled value="">Select</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="add-check">
-                        <input id="provide_cma" type="checkbox">
-                        <span class="checkmark"></span>
-                        <label class="check-box">I Provide CMAs</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- addi area end -->
-
-    <!-- review area start -->
-    <div class="review mt-3">
-        <div class="container">
-            <div class="review-wrapper">
-                <h4 style="font-size: 20px;width: auto;float: left;">REVIEWS</h4>
-                <a name='reviews' style="margin-left:10px;"></a>
-                <button id="import-review" type="button" style="display: none;">Import from Zillow</button>
-            </div>
-
-            <!-- Modal -->
-            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-size" role="document" style="transform: translateY(20%);">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="review-body">
-                                <p>Add a Review</p>
-                                <input class="backcolorInput" id="review-name" type="text" name="text"
-                                    placeholder="Reviewer name">
-                                <input class="backcolorInput" id="review-email" type="text" name="text"
-                                    placeholder="Reviewer e-mail">
-                                <input placeholder="Date of review" class="textbox-n backcolorInput" type="text"
-                                    id="review-date">
-                                <textarea class="backcolorInput" id="review" placeholder="Review"></textarea>
-
-
-                                <div class="review-categories">
-
-                                    <div class="row">
-                                        <div class="col-lg-6" id="category-1">
-
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="rating" id='rating-category-1' data-rate-value=5></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6" id="category-2">
-
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="rating" id='rating-category-2' data-rate-value=5></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6" id="category-3">
-
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="rating" id='rating-category-3' data-rate-value=5></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6" id="category-4">
-
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="rating" id='rating-category-4' data-rate-value=5></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6" id="category-5">
-
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="rating" id='rating-category-5' data-rate-value=5></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6" id="category-6">
-
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="rating" id='rating-category-6' data-rate-value=5></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="text-center">
-                                    <button class="backcolorInput" id="review-add-btn">Add</button>
-                                </div>
-                                <div class="text-center" id="review-msg"></div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div> -->
-
-        </div>
-    </div>
-    <!-- review area end -->
-
-    <!-- slider area start -->
-    <div id="review-div" class="slider">
-        <div class="container">
-            <!-- <div class="slier-bordr">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div id="reviews-list" class="reviews-slider">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <table id="review-listing">
-                <thead>
-                    <tr>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="review-listing-body">
-                    
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- slider area end -->
-
-    <div class="review mt-3">
-        <div class="container">
-            <div class="review-wrapper">
-                <h4 style="font-size: 20px;">SOCIAL MEDIA <small>(Optional)</small></h4>
-                <!-- Button trigger modal -->
-            </div>
-
-            <div class="row" style="margin-left:10px">
-                <div class="col-lg-3 align-self-end">
-                    <div class="li-left">
-                        <p class="mb-0">Website </p>
-                    </div>
-                </div>
-                <div class="col-lg-9" style="left: -3px;">
-                    <div class="li-right br-right">
-                        <input type="text" id="website" placeholder="Company Website Url">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" style="margin:10px 0px 0px 10px">
-                <div class="col-lg-3 align-self-end">
-                    <div class="li-left">
-                        <p class="mb-0">Blog</p>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="li-right br-right">
-                        <input type="text" id="blog" placeholder="Blog url">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" style="margin:10px 0px 0px 10px">
-                <div class="col-lg-3 align-self-end">
-                    <div class="li-left">
-                        <p class="mb-0">Facebook</p>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="li-right br-right">
-                        <input type="text" id="facebook" placeholder="Facebook Profile page Url">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" style="margin:10px 0px 0px 10px">
-                <div class="col-lg-3 align-self-end">
-                    <div class="li-left">
-                        <p class="mb-0">Twitter</p>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="li-right br-right">
-                        <input type="text" id="twitter" placeholder="Twitter Profile Url">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" style="margin:10px 0px 0px 10px">
-                <div class="col-lg-3 align-self-end">
-                    <div class="li-left">
-                        <p class="mb-0">Linkedin</p>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="li-right br-right">
-                        <input type="text" id="linkedin" placeholder="Linkedin Profile Url">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- about area start -->
-    <div class="about mt-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="about-wrapper">
-                        <p>About me </p>
-                        <textarea id="about_me" class="ml-5 mt-3" placeholder="Type Here......"></textarea>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 mx-auto">
-                            <div class="alert alert-danger msg" role="alert" style="display: none">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-submit ml-5">
-                        <ul>
-                            <li class="mr-2">
-                                <button class="btn btn-primary submit_btn">
-                                    Submit
-                                    <i id="submit_loading" class="fa fa-spinner fa-spin" style="display:none"></i>
-                                </button>
-                            </li>
-                            <li><a class="btn btn-secondary" href="#"> Cancel</a></li>
-                        </ul>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-4"></div>
-            </div>
-            <div class="row" style="margin-top:10px;">
-
-                <div class="col-lg-2"></div>
-                <div class="col-lg-6">
-
-                    <div class="alert alert-primary" id="alert-message" style="display: none" role="alert">
-                        Your profile has been saved.
-                    </div>
-
-                    <div class="alert alert-danger" id="validate-message" style="display: none" role="alert">
-                    </div>
-                </div>
-                <div class="col-lg-4"></div>
-
-            </div>
-        </div>
-    </div>
-    <!-- about area end -->
-
-    </div>
-
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <div class="footer-wrapper text-center">
-                <p>Copyright © agentstat.com</p>
-                <ul>
-                    <li><a href="https://agentstat.com/content/terms-of-use/">Terms of Service</a></li>
-                    <li><a href="https://agentstat.com/content/privacy-policy/">Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="review-detail" tabindex="-1" role="dialog" aria-labelledby="review-detail"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Review Detail</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row review-detail-content">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+									<div class="btns-area tabset" id="agent-tabs">
+										<a href="#license" class="next-btn nextbtn">next step</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="license" class="agent-tab-item">
+							<a href="#" class="accordion-opener">
+								<span class="icon">
+									<img src="/img/license-icon.png" alt="License">
+								</span>
+								<span class="text">License Information</span>
+							</a>
+							<div class="accordion-slide">
+								<strong class="tab-heading">
+									<span class="icon">
+										<img src="/img/license-icon.png" alt="License">
+									</span>
+									<span class="text">License Information</span>
+								</strong>
+								<div class="fields-area">
+									<div class="form-group">
+										<label for="license">License Number</label>
+										<div class="add-row">
+											<div class="fields-wrap">
+												<div class="field-holder">
+													<input type="text" id="license_no_1" placeholder="License #">
+												</div>
+												<span class="fake-select">
+													<select id="license_no_2">
+														<option selected disabled value="">State</option>
+													</select>
+												</span>
+												<div class="field-holder">
+													<input type="text" id="license_no_3"  placeholder="MM-DD-YYYY">
+												</div>
+											</div>
+											<a href="javascript:void(0)" id="add-license" class="add-btn">Add</a>
+											<div class="new-fields">
+												<div class="fields-wrap">
+													<div id="added-license">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="brokerage">Brokerage Name</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="brokerage_name" placeholder="Brokerage Name">
+											</div>
+										</div>
+									</div>
+									<div class="form-group brokerage-address">
+										<label for="adress">Brokerage Address</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="brokerage_address" placeholder="Street Address">
+											</div>
+										</div>
+									</div>
+									<div class="form-group three-col">
+										<label for="city">City, State, ZIP</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="city" placeholder="City">
+											</div>
+											<span class="fake-select">
+												<select id="state">
+													<option selected disabled value="">State</option>
+												</select>
+											</span>
+											<div class="field-holder">
+												<input type="text" id="city" placeholder="Zipcode">
+											</div>
+										</div>
+									</div>
+									<div class="btns-area">
+										<a href="#" class="back-btn backbtn">BACK</a>
+										<a href="#" class="next-btn nextbtn">next step</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="highlight" class="agent-tab-item">
+							<a href="#" class="accordion-opener">
+								<span class="icon">
+									<img src="/img/Highlight-icon.png" alt="Highlights">
+								</span>
+							<span class="text">Highlights</span>
+							</a>
+							<div class="accordion-slide">
+								<strong class="tab-heading">
+									<span class="icon">
+										<img src="/img/Highlight-icon.png" alt="Highlights">
+									</span>
+									<span class="text">Highlights</span>
+								</strong>
+								<div class="fields-area">
+									<div class="form-group">
+										<label>In Business Since (optional)</label>
+										<span class="fake-select">
+											<select id="years_in_bussiness">
+												<option selected disabled value="">Select Year</option>
+												<option value="2020">2020</option>
+												<option value="2019">2019</option>
+												<option value="2018">2018</option>
+												<option value="2017">2017</option>
+												<option value="2016">2016</option>
+												<option value="2015">2015</option>
+												<option value="2014">2014</option>
+												<option value="2013">2013</option>
+												<option value="2012">2012</option>
+												<option value="2011">2011</option>
+												<option value="2010">2010</option>
+												<option value="2009">2009</option>
+												<option value="2008">2008</option>
+												<option value="2007">2007</option>
+												<option value="2006">2006</option>
+												<option value="2005">2005</option>
+												<option value="2004">2004</option>
+												<option value="2003">2003</option>
+												<option value="2002">2002</option>
+												<option value="2001">2001</option>
+												<option value="2000">2000</option>
+												<option value="before 2000">Before 2000</option>
+											</select>
+										</span>
+									</div>
+									<div class="form-group">
+										<label>Specialities</label>
+										<ul id="specialties" class="checklist">
+										</ul>
+									</div>
+									<div class="form-group">
+										<label>Language Fluency (optional)</label>
+										<ul id="languages" class="checklist">
+										</ul>
+										
+										<div class="collapse" id="collapseExample">
+											<ul id="morelanguages" class="checklist">
+											</ul>
+										</div>
+									</div>
+
+									<a class="trigger-more collapsed" role="button" data-toggle="collapse"
+											href="#collapseExample" aria-expanded="false"
+											aria-controls="collapseExample">More</a>
+											
+									<div class="btns-area">
+										<a href="#" class="back-btn backbtn">BACK</a>
+										<a href="#" class="next-btn nextbtn">next step</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="comision" class="agent-tab-item">
+							<a href="#" class="accordion-opener">
+								<span class="icon">
+									<img src="/img/Commision-icon.png" alt="Commision">
+								</span>
+								<span class="text">Commision</span>
+							</a>
+							<div class="accordion-slide">
+								<strong class="tab-heading">
+									<span class="icon">
+										<img src="/img/Commision-icon.png" alt="Commision">
+									</span>
+									<span class="text">Commision</span>
+								</strong>
+								<div class="fields-area">
+									<div class="commision-info">
+										<label class="checkbox-label">
+											<input type="checkbox" class="combo-checkboxes" target='listing_fee'
+                            id="listing_fee_checkbox" checked>
+											<span class="fake-label">Listing Fee</span>
+										</label>
+										<span class="fake-select">
+											<select id="listing_fee">
+												<option selected disabled value="">Select</option>
+											</select>
+										</span>
+									</div>
+									<div class="commision-info">
+										<label class="checkbox-label">
+											<input type="checkbox" class="combo-checkboxes" target='buyer_rebate'
+											id="buyer_rebate_checkbox">
+											<span class="fake-label">Buyer Rebate</span>
+										</label>
+										<span class="fake-select">
+											<select id="buyer_rebate">
+												<option selected disabled value="">Select</option>
+											</select>
+										</span>
+									</div>
+									<div class="commision-info">
+										<label class="checkbox-label">
+											<input type="checkbox" class="combo-checkboxes" target='type_of_listing_service'
+											id="type_of_listing_service_checkbox">
+											<span class="fake-label">Type of listing services</span>
+										</label>
+										<span class="fake-select">
+											<select id="type_of_listing_service">
+												<option selected disabled value="">Select</option>
+											</select>
+										</span>
+									</div>
+									<div class="commision-info">
+										<label class="checkbox-label">
+											<input id="provide_cma" type="checkbox">
+											<span class="fake-label">I Provide CMAs</span>
+										</label>
+									</div>
+									<div class="btns-area">
+										<a href="#" class="back-btn backbtn">BACK</a>
+										<a href="#" class="next-btn nextbtn">next step</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="review" class="agent-tab-item">
+							<a href="#" class="accordion-opener">
+								<span class="icon">
+									<img src="/img/review-icon.png" alt="Reviews">
+								</span>
+								<span class="text">Reviews</span>
+							</a>
+							<div class="accordion-slide">
+								<strong class="tab-heading">
+									<span class="icon">
+										<img src="/img/review-icon.png" alt="Reviews">
+									</span>
+									<span class="text">Reviews</span>
+								</strong>
+								<div class="review-info-area">
+									<div class="review-row">
+										<div class="review-col">
+											<div class="block">
+												<div class="review-heading">
+													<span class="rating">
+														<img src="/img/rating01.png" alt="rating">
+													</span>
+													<a href="#" class="flag">
+														<img src="/img/flag01.png" alt="flag">
+													</a>
+												</div>
+												<span class="title">Highly likely to recommend</span>
+												<div class="review-info">
+													<span class="text">April 24th,2020 - Rebecca Wall</span>
+													<span class="text">Bought a Single Family Home in 2020 in Bremerton, WA.</span>
+												</div>
+												<ul class="reviews-sub-ratings">
+													<li>
+														<span class="review-text">Negotiable Skills: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">Responsiveness: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">Process expertise: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">local Knowledge: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+												</ul>
+												<p>If you are looking for a home In Klteap County (and beyond), Ida is the person to go to. Not only is she extremely knowledgeable about the market in this area, but she is patient and fun to boot! We took a lot of time trying to find the right fit for us and Ida was there for us every step of the way, all the way through closing. 1100% believe we could not have done this process without her and my husband and I found ourselves saying frequently "thank goodness we have Ida'. Call her!</p>
+											</div>
+										</div>
+										<div class="review-col">
+											<div class="block">
+												<div class="review-heading">
+													<span class="rating">
+														<img src="/img/rating01.png" alt="rating">
+													</span>
+													<a href="#" class="flag">
+														<img src="/img/flag01.png" alt="flag">
+													</a>
+												</div>
+												<span class="title">Highly likely to recommend</span>
+												<div class="review-info">
+													<span class="text">January 17th,2020 - Racheih 2012</span>
+													<span class="text">Bought a Single Family Home in 2019 in Belfair, WA.</span>
+												</div>
+												<ul class="reviews-sub-ratings">
+													<li>
+														<span class="review-text">Negotiable Skills: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">Responsiveness: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">Process expertise: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">local Knowledge: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+												</ul>
+												<p>Ida was truly amazing to work with when buying our first home. She was only a call or text away if we ever needed anything or had any questions arise. She led us step by step during the entfre process and her knowledge of the town's history and surrounding areas was very helpful. I would definitely recommend her as a realtor to anyone looking to buy a new home.</p>
+											</div>
+										</div>
+										<div class="review-col">
+											<div class="block">
+												<div class="review-heading">
+													<span class="rating">
+														<img src="/img/rating01.png" alt="rating">
+													</span>
+													<a href="#" class="flag">
+														<img src="/img/flag01.png" alt="flag">
+													</a>
+												</div>
+												<span class="title">Highly likely to recommend</span>
+												<div class="review-info">
+													<span class="text">January 14th,2020 - ed Hager</span>
+													<span class="text">Sold a Single Family Home in 2019 in Pouslsbo, WA</span>
+												</div>
+												<ul class="reviews-sub-ratings">
+													<li>
+														<span class="review-text">Negotiable Skills: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">Responsiveness: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">Process expertise: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+													<li>
+														<span class="review-text">local Knowledge: </span>
+														<span class="rating">
+															<img src="/img/rating01.png" alt="rating">
+														</span>
+													</li>
+												</ul>
+												<p>Loved working with Ida. She knows what she is doing and helped me prepare my house for a quick sale... in November no less and over the asking price. After receiving an offer, she was very helpful Ifning up people I needed to help close the deal.</p>
+											</div>
+										</div>
+									</div>
+									<div class="pager-area">
+										<div class="text-field">
+											<input type="text" placeholder="1">
+										</div>
+										<span class="text"> Of 32 </span>
+										<a href="#" class="next">Next</a>
+									</div>
+								</div>
+								<div class="btns-area">
+									<a href="#" class="back-btn backbtn">BACK</a>
+									<a href="#" class="next-btn nextbtn">next step</a>
+								</div>
+							</div>
+						</div>
+						<div id="social" class="agent-tab-item">
+							<a href="#" class="accordion-opener">
+								<span class="icon">
+									<img src="/img/social-media-icon.png" alt="Social Media">
+								</span>
+								<span class="text">Social Media</span>
+							</a>
+							<div class="accordion-slide">
+								<strong class="tab-heading">
+									<span class="icon">
+										<img src="/img/social-media-icon.png" alt="Social Media">
+									</span>
+									<span class="text">Social Media (Optional)</span>
+								</strong>
+								<div class="fields-area social">
+									<div class="form-group">
+										<label for="webiste">Website</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="website" placeholder="Company Website Url">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="blog">Blog</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="blog" placeholder="Blog url">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="facebook">Facebook</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="facebook" placeholder="Facebook Profile page Url">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="twitter">Twitter</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="twitter" placeholder="Twitter Profile Url">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="linkedin">Linkedin</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="linkedin" placeholder="Linkedin profile URL">
+											</div>
+										</div>
+									</div>
+									<div class="btns-area">
+										<a href="#" class="back-btn backbtn">BACK</a>
+										<a href="#" class="next-btn nextbtn">next step</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="about" class="agent-tab-item">
+							<a href="#" class="accordion-opener">
+								<span class="icon">
+									<img src="/img/about-me-icon.png" alt="About Me">
+								</span>
+								<span class="text">About Me</span>
+							</a>
+							<div class="accordion-slide">
+								<strong class="tab-heading">
+									<span class="icon">
+										<img src="/img/about-me-icon.png" alt="About Me">
+									</span>
+									<span class="text">About Me</span>
+								</strong>
+								<div class="fields-area about">
+									<div class="form-group">
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<textarea id="about_me" placeholder="Type here..."></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="btns-area">
+										<a href="#" class="back-btn backbtn">BACK</a>
+										<a href="javascript:void(0)" class="next-btn finish submit_btn">Finish</a>
+									</div>
+									<div class="row" style="margin-top: 15px;">
+										<div class="col-lg-8 mx-auto">
+											<div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script>
+		jQuery('#agent-tabs.tabset > li >a:not(:first)').addClass('inactive');
+			jQuery('#agent-tabs.tabset > li >a:first').addClass('active');
+			jQuery('.agent-tab-item').hide();
+			jQuery('.agent-tab-item:first').show();
+			jQuery('#agent-tabs.tabset > li >a').click(function(e){
+					e.preventDefault();
+					var tab = jQuery(this).attr('href');
+					if(jQuery(this).hasClass('inactive')){
+							jQuery('#agent-tabs.tabset >li >a').addClass('inactive').removeClass('active');
+							jQuery(this).removeClass('inactive').addClass('active');
+							jQuery('.agent-tab-item').hide();
+							jQuery(tab).fadeIn();
+					}
+					jQuery(tab).find("input:first").focus();
+			});
+			$('.nextbtn').click(function(){
+			  $('.tabset > .active').next('li').find('a').trigger('click');
+			  $('.tabset > .active').next('li').addClass('active');
+			  $('.tabset > .active').prev('li').removeClass('active');
+			});
+			$('.backbtn').click(function(){
+			  $('.tabset > .active').prev('li').find('a').trigger('click');
+			  $('.tabset > .active').prev('li').addClass('active');
+			  $('.tabset > .active').next('li').removeClass('active');
+			});
+
+        jQuery('.accordion-opener').next().css('display', 'block');
+        if(jQuery(window).width() < 1024) {
+            jQuery('.accordion-opener').next().css('display', 'none');
+            jQuery(".accordion-opener").unbind("click");
+            jQuery(".accordion-opener").bind("click", function () {
+                jQuery('.accordion-opener').next().slideUp();
+                jQuery('.accordion-opener').removeClass('active');
+                if (jQuery(this).next().is(':visible') == false) {
+                    jQuery(this).addClass('active');
+                    jQuery(this).next().slideDown();
+                }
+            });
+        }
+	</script>
 
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>

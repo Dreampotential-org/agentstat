@@ -257,7 +257,7 @@ $(document).on('click', '#image_save', function () {
         show_message('Your profile Image has been saved.');
         $('.croppie-container').remove()
         $upload_crop = null
-        $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+        $('#image_upload_div').append('<img class="my-image" style="width:300px;height:300px;" src="" />')
         $('.my-image').attr('src', data['picture']);
         $('#upload').val('')
         $('#remove-profile-image').css('display', 'block')
@@ -308,7 +308,8 @@ function update_profile() {
   }
 
   data['phone_number'] = phone_number_concate;
-
+  data['brokerage_address'] = $('#brokerage_address').val();
+  data['provide_cma'] = $('#provide_cma').prop('checked');
 
   // licences
   data['licenses'] = $('.license_number').map(
@@ -374,7 +375,7 @@ function update_profile() {
           $('#upload').val('')
           $('#remove-profile-image').css('display', 'block')
           $('#image_save').css('display', 'none')
-          $('.fileinput-name').html('')
+          $('.fileinput-name').html('');
         }).fail(function (err) {
           // alert('Got err');
 
@@ -438,14 +439,26 @@ function get_specilities(specialty_ids) {
       if ((v.id == '6') && (checked == ' checked ')) {
         $('#other-speciality-text').css('display', 'block')
       }
+      // $('#specialties').append(`
+      //   <div class='col-lg-6 col-6'>
+      //     <div class='year-wrapper-check-one'>
+      //     <input type='checkbox' ` + checked + ` value='` + v.id + `' class='specialty-checkbox' id='specialty-` + v.id + `'>
+      //     <label for='specialty-`+ v.id + `'>` + v.val + `</label>
+      //   </div>
+      //   </div>
+      //   `);
+
+      
+
       $('#specialties').append(`
-        <div class='col-lg-6 col-6'>
-          <div class='year-wrapper-check-one'>
-          <input type='checkbox' ` + checked + ` value='` + v.id + `' class='specialty-checkbox' id='specialty-` + v.id + `'>
-          <label for='specialty-`+ v.id + `'>` + v.val + `</label>
-        </div>
-        </div>
-        `);
+        <li>
+          <label class="checkbox-label">
+            <input class='specialty-checkbox' type="checkbox" `+checked+` value="`+v.id+`" id="specialty-`+v.id+`">
+            <span class="fake-label">`+v.val+`</span>
+          </label>
+        </li>
+      `);
+
 
     });
   }).fail(function (err) {
@@ -497,24 +510,41 @@ function get_languages(language_ids) {
 
       ix++;
       if (ix < 7) {
-        $('#languages').append(`<div class='col-lg-6 col-6'>
+        // $('#languages').append(`<div class='col-lg-6 col-6'>
 
-          <div class='lar-left'>
-          <input class='lng-checkbox' ` + checked + ` value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
-          <label for='lang-` + v.id + `'>` + v.val + `</label>
-          </div>
-        </div>
+        //   <div class='lar-left'>
+        //   <input class='lng-checkbox' ` + checked + ` value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+        //   <label for='lang-` + v.id + `'>` + v.val + `</label>
+        //   </div>
+        // </div>
+        // `);
 
+        $('#languages').append(`
+        <li>
+          <label class="checkbox-label">
+            <input class='lng-checkbox' type="checkbox" `+checked+` value="`+v.id+`" id="lang-`+v.id+`">
+            <span class="fake-label">`+v.val+`</span>
+          </label>
+        </li>
         `);
+
       } else {
+      //   $('#morelanguages').append(`
+      //   <div class='col-lg-6 col-6'>
+      //     <div class='lar-left'>
+      //     <input class='lng-checkbox' ` + checked + ` value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
+      //     <label for='lang-` + v.id + `'>` + v.val + `</label>
+      //     </div>
+      // </div>
+      // `);
         $('#morelanguages').append(`
-        <div class='col-lg-6 col-6'>
-          <div class='lar-left'>
-          <input class='lng-checkbox' ` + checked + ` value='` + v.id + `' id='lang-` + v.id + `' type='checkbox' >
-          <label for='lang-` + v.id + `'>` + v.val + `</label>
-          </div>
-      </div>
-      `);
+        <li>
+          <label class="checkbox-label">
+            <input class='lng-checkbox' type="checkbox" `+checked+` value="`+v.id+`" id="lang-`+v.id+`">
+            <span class="fake-label">`+v.val+`</span>
+          </label>
+        </li>
+        `);
       }
 
 
@@ -809,7 +839,7 @@ function uploadTrigger(input) {
     if ($upload_crop != null) {
       $('.croppie-container').remove()
       $upload_crop = null
-      $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+      $('#image_upload_div').append('<img class="my-image" style="width:300px; height:300px;" src="" />')
     }
     readImage(input)
     $('#remove-profile-image').css('display', 'none')
@@ -819,7 +849,7 @@ function uploadTrigger(input) {
 
     $('.croppie-container').remove()
     $upload_crop = null
-    $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+    $('#image_upload_div').append('<img class="my-image" style="width:300px; height:300px;" src="" />')
     $('.my-image').attr('src', '/img/blank-profile-picture.png');
     console.log("UPLOAD TRIGGER ELSE")
     $('#image_save').css('display', 'none')
