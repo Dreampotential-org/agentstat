@@ -113,6 +113,15 @@ body {
     padding: 12px 5px;
 }
 
+#other-speciality-text {
+	position: relative;
+    width: 280px;
+    height: 43px;
+    border-radius: 10px;
+    background: #f4f4f4;
+    border: 2px solid #e2e2e2;
+}
+
 .tabs-section {
 	font-family: "Roboto", sans-serif;
 	background: #f4f6f8;
