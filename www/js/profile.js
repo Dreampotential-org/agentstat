@@ -34,6 +34,24 @@ function display_profile(profile) {
   $('#linkedid').val(profile.linkedin);
   $('#other-speciality-text').val(profile.other_speciality_note);
 
+  if (profile.brokerage_name == null) {
+    var brokerage_info = profile.connector.brokerage_info.split(/\r?\n/)[0];
+    $('#brokerage_name').val(brokerage_info);
+  }
+  if (profile.brokerage_address == null) {
+    $('#brokerage_address').val(profile.connector.street_address);
+  }
+  if (profile.city == null) {
+    $('#city').val(profile.connector.city);
+  }
+  if (profile.state == null) {
+    $('#state').val(profile.connector.state);
+  }
+  if (profile.zipcode == null) {
+    $('#zipcode').val(profile.connector.zip_code);
+  }
+
+
   agent_id = null;
   try {
     if (profile.connector.id !== undefined) {
