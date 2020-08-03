@@ -122,6 +122,10 @@ body {
     border: 2px solid #e2e2e2;
 }
 
+#morelanguages {
+	margin-top: 22px;
+}
+
 .tabs-section {
 	font-family: "Roboto", sans-serif;
 	background: #f4f6f8;
@@ -753,7 +757,6 @@ body {
 	position: relative;
 	width: 33.333%;
 	padding: 0 15px;
-	margin: 0 0 38px;
 }
 
 .tabs-section .checkbox-label {
@@ -784,8 +787,8 @@ body {
 	position: absolute;
 	left: 0;
 	top: 1px;
-	width: 19px;
-	height: 19px;
+	width: 20px;
+	height: 20px;
 	-webkit-transition: all .4s ease;
 	transition: all .4s ease;
 }
