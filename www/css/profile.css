@@ -119,7 +119,8 @@ body {
     height: 43px;
     border-radius: 10px;
     background: #f4f4f4;
-    border: 2px solid #e2e2e2;
+	border: 2px solid #e2e2e2;
+	margin-top: 20px;
 }
 
 #morelanguages {

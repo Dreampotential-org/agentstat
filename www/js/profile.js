@@ -190,16 +190,19 @@ function importZillowReviews() {
 
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
-    show_message('Success! Please allow 24 hours for your leads to imports.', 10000);
+    show_message('Success! Please allow 24 hours for your leads to import.', 10000);
     $('#import-review').attr("disabled", "disabled");
   }).fail(function (err) {
     console.log(err);
   });
 }
 
+
+
 $(document).ready(function(){
   $('#import-review').on('click',function(){
       bootbox.confirm({
+          centerVertical: true,
           message: "I authorize agentstat.com to screenshot and sync my reviews from my public zillow profile to be displayed on my agentstat.com profile.",
           buttons: {
               cancel: {
@@ -207,7 +210,7 @@ $(document).ready(function(){
                   className: 'btn-default'
               },
               confirm: {
-                  label: 'Import',
+                  label: 'Accept',
                   className: 'btn-success'
               }
           },
