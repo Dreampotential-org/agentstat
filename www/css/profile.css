@@ -1330,3 +1330,6 @@ body {
 	}
 }
 
+@media (min-width: 1023px) {
+	.tabs-section .wrap { min-height: 900px }
+}
