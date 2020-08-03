@@ -126,6 +126,10 @@ body {
 	margin-top: 22px;
 }
 
+.upload-area .fileinput-wrapper {
+	display: none;
+}
+
 .tabs-section {
 	font-family: "Roboto", sans-serif;
 	background: #f4f6f8;
