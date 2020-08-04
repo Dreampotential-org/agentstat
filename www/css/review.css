@@ -271,12 +271,13 @@
 }
 .reviews span{
 	float: left;
+	width: 140px;
 }
 .reviews .rating-popup{
 	padding: 0px;
 }
 .modal-sm {
-	max-width: 300px !important;
+	max-width: 400px !important;
 }
 .agent-tab-item .container {
 	padding-left: 0px;

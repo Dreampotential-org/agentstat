@@ -31,6 +31,10 @@
     flex-wrap: wrap;
     overflow: hidden;
 }
+.highlighted .title a {
+    pointer-events: none;
+    cursor: default;
+}
 .highlighted h4 {
     font-weight: bold;
 }
@@ -142,4 +146,11 @@
     .highlighted .col-lg-3 .toc-two-left-one {
         display: block;
     }
+}
+.toc-one ul li:nth-child(3),
+.toc-one ul li:nth-child(4) {
+    max-width: 99% !important;
+}
+.toc-one ul li #query-submit {
+    max-width: 99% !important;
 }

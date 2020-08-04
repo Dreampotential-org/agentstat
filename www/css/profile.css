@@ -1346,3 +1346,7 @@ body {
 @media (min-width: 1023px) {
 	.tabs-section .wrap { min-height: 900px }
 }
+select:disabled,
+input[disabled] {
+	rgb(170, 170, 170) !important;
+}
