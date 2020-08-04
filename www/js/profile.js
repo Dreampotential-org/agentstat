@@ -35,8 +35,10 @@ function display_profile(profile) {
   $('#other-speciality-text').val(profile.other_speciality_note);
 
   if (profile.brokerage_name == null) {
-    var brokerage_info = profile.connector.brokerage_info.split(/\r?\n/)[0];
-    $('#brokerage_name').val(brokerage_info);
+    if (profile.connector && profile.connector.brokerage_info) {
+        var brokerage_info = profile.connector.brokerage_info.split(/\r?\n/)[0];
+        $('#brokerage_name').val(brokerage_info);
+    }
   }
   if (profile.brokerage_address == null) {
     $('#brokerage_address').val(profile.connector.street_address);
