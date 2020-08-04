@@ -41,7 +41,9 @@ function display_profile(profile) {
     }
   }
   if (profile.brokerage_address == null) {
-    $('#brokerage_address').val(profile.connector.street_address);
+    if (profile.connector && profile.connector.street_address) {
+        $('#brokerage_address').val(profile.connector.street_address);
+    }
   }
   if (profile.city == null) {
     $('#city').val(profile.connector.city);
