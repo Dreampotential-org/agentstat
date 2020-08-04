@@ -147,8 +147,11 @@
         display: block;
     }
 }
-.form_sec ul li:nth-child(3),
-.form_sec ul li:nth-child(4) {
+.form_sec ul li {
+    max-width: 100% !important;
+}
+.form_sec ul li:nth-child(2),
+.form_sec ul li:nth-child(3) {
     max-width: 99% !important;
 }
 .form_sec ul li #query-submit {
