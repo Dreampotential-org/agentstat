@@ -181,7 +181,12 @@ function display_profile(profile) {
     `);
   }
 
-  get_languages(profile.language_fluencies);
+  
+
+  setTimeout(function() {
+    get_languages(profile.language_fluencies);
+  }, 500);
+
   get_reviews();
 }
 
@@ -517,10 +522,11 @@ $(document).on('change', '.specialty-checkbox', function () {
   }
 })
 function get_languages(language_ids) {
+  console.log(language_ids);
   settings = get_settings('language-fluency', 'GET')
-  $.ajax(settings).done(function (language_list) {
+  $.ajax(settings).done(function (response) {
 
-    var language_list = JSON.parse(language_list);
+    var language_list = JSON.parse(response);
     var ix = 0;
 
     $.each(language_list, function (k, v) {
@@ -643,28 +649,28 @@ $(document).ready(function () {
 
 
 
-  settings = get_settings('review-category', '');
+  // settings = get_settings('review-category', '');
 
-  $.ajax(settings).done(function (response) {
-    var msg = JSON.parse(response);
-    $.each(msg['results'], function (k, v) {
-      if (v.extra_info == null) {
-        extra_info = '';
-      } else {
-        extra_info = v.extra_info;
-      }
+  // $.ajax(settings).done(function (response) {
+  //   var msg = JSON.parse(response);
+  //   $.each(msg['results'], function (k, v) {
+  //     if (v.extra_info == null) {
+  //       extra_info = '';
+  //     } else {
+  //       extra_info = v.extra_info;
+  //     }
 
-      // $("#rating-category-" + v.id).rate(options);
-      $('#category-' + v.id).append(
-        v.category + ` ` + extra_info
-      );
-    });
+  //     // $("#rating-category-" + v.id).rate(options);
+  //     $('#category-' + v.id).append(
+  //       v.category + ` ` + extra_info
+  //     );
+  //   });
 
-  }).fail(function (err) {
-    console.log(err);
-    // show_error(err);
-    $('#review-msg').html(err)
-  });
+  // }).fail(function (err) {
+  //   console.log(err);
+  //   // show_error(err);
+  //   $('#review-msg').html(err)
+  // });
 
 
 });

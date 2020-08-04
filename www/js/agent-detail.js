@@ -752,7 +752,7 @@ function get_reviews() {
       $('.no-review').show();
     } else {
       $('.agent-rating').html(reviewStarHtml(response.average_review_rate));
-      $('.reviews-count').html(response.reviews.length);
+      $('.reviews-count').html(response.reviews.length+' Reviews');
 
       show_reviews(response.average_review_categories, response.reviews);
     }
