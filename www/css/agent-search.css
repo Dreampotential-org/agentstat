@@ -153,7 +153,8 @@
 .form_sec ul li:nth-child(2),
 .form_sec ul li:nth-child(3) {
     max-width: 99% !important;
+    width: 100%;
 }
 .form_sec ul li #query-submit {
-    max-width: 99% !important;
+    max-width: 100% !important;
 }
