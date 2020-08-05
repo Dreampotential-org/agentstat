@@ -199,7 +199,7 @@ function importZillowReviews() {
 
   $.ajax(settings).done(function (response) {
     var response = JSON.parse(response);
-    show_message('Success! Please allow 24 hours for your leads to import.', 10000);
+    show_message('SUCCESS! Please allow 24 hours for reviews to import.', 10000);
     $('#import-review').attr("disabled", "disabled");
   }).fail(function (err) {
     console.log(err);
