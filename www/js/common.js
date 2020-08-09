@@ -100,6 +100,7 @@ function secondsToHms(d) {
 }
 
 function isTeamMember() {
+	console.log(localStorage.getItem("role"));
 	if (localStorage.getItem("role") == 'team') {
 		//header tabs
 		$('.inbox-link').hide();

@@ -30,17 +30,13 @@ if (hash) {
 
 function login() {
   var data = {};
-  data['email'] = $('#email').val()
-  data['password'] = $('#password').val()
-  console.log(data);
+  data['email'] = $('#email').val();
+  data['password'] = $('#password').val();
 
   settings = get_settings('login/', 'POST', JSON.stringify(data))
   settings['headers'] = {};
-  console.log(settings);
-
   $.ajax(settings).done(function (response) {
     var data = JSON.parse(response);
-    console.log(data);
     localStorage.session_id = data['token'];
     localStorage.email = data['email'];
     localStorage.profile_id = data['profile_id'];
@@ -48,8 +44,6 @@ function login() {
     localStorage.role = data['role'];
     window.location = '/profile-settings/';
   }).fail(function(err) {
-    // alert('Got err');
-    console.log(err);
     $('.msg-login').html(err['responseText']);
     $('.msg-login').css("display", "block");
     console.log(err);
@@ -57,7 +51,6 @@ function login() {
 }
 
 $(document).on('change click', 'input:radio', function() {
-  // console.log($(this).val());
   if($(this).val() == 'Industry Professional') {
     $("#category").prop("disabled", false);
   } else {
