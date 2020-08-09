@@ -64,13 +64,13 @@ function is_loggon() {
   session_id = localStorage.getItem('session_id');
   email = localStorage.getItem('email');
   if(session_id === null) {
-    window.location = '/login.html';
+    window.location = '/login/';
   }
 
   call_api(
     function(res) {
       if (res == false) {
-        window.location = '/login.html';
+        window.location = '/login/';
       }
       $('#profile-views').text(res['profile_views']);
       $('.agent-name').text(res['first_name'] + ' '  + res['last_name']);

@@ -1,7 +1,11 @@
 $("body").delegate(".logout", "click", function(e) {
-    localStorage.clear();
-    window.location = '/';
+    logout();
 });
+
+function logout() {
+	localStorage.clear();
+    window.location = '/';
+}
 
 function formatAMPM(timedate) {
 	const date = new Date(timedate);
@@ -94,3 +98,28 @@ function secondsToHms(d) {
     };
     return obj;
 }
+
+function isTeamMember() {
+	if (localStorage.getItem("role") == 'team') {
+		//header tabs
+		$('.inbox-link').hide();
+		$('.reports-link').hide();
+		$('.past-sales-link').hide();
+		$('.team-link').hide();
+
+		//profile page
+		$('#info-tab').hide();
+		$('#license-tab').hide();
+		$('#highlight-tab').hide();
+		$('#comision-tab').hide();
+		$('#review-tab').hide();
+		$('#social-tab').hide();
+		$('#about-tab').hide();
+
+		changeTab('account-information');
+	}	
+}
+
+$(document).ready(function(){
+	isTeamMember();
+});

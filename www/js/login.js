@@ -15,6 +15,7 @@ if (hash) {
     localStorage.email = data['email'];
     localStorage.profile_id = data['profile_id'];
     localStorage.agent_id = data['agent_id'];
+    localStorage.role = data['role'];
     window.location = '/profile-settings/';
   }).fail(function(err) {
     // alert('Got err');
@@ -39,10 +40,12 @@ function login() {
 
   $.ajax(settings).done(function (response) {
     var data = JSON.parse(response);
+    console.log(data);
     localStorage.session_id = data['token'];
     localStorage.email = data['email'];
     localStorage.profile_id = data['profile_id'];
     localStorage.agent_id = data['agent_id'];
+    localStorage.role = data['role'];
     window.location = '/profile-settings/';
   }).fail(function(err) {
     // alert('Got err');

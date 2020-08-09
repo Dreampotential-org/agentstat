@@ -112,7 +112,7 @@ function load_agent(ignore_city = true) {
       $(".claim_profile").attr("onclick", "javascript: return false");
 
     } else {
-      $(".claim_profile").attr("href", "/login.html?agent_id=" + agent_id)
+      $(".claim_profile").attr("href", "/login/?agent_id=" + agent_id)
     }
   }
 

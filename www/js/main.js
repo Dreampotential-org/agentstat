@@ -746,26 +746,26 @@ $(document).ready(function() {
   if (localStorage.getItem('session_id')) {
     $('#login-menu').html(`
       <ul class="float-right">
-                                    <li>
-                                        <div class="dropdown profile show">
-                                            <a class="dropdown-toggle activeLine" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span><i class="fas fa-user-circle"></i></span>
-                                            </a>
+        <li>
+            <div class="dropdown profile show">
+                <a class="dropdown-toggle activeLine" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span><i class="fas fa-user-circle"></i></span>
+                </a>
 
-                                            <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item " href="/inbox/">
-                                                    <p>Dashboard</p>
-                                                    <span>View your stats and backend</span>
-                                                </a>
-                                                <a class="dropdown-item" href="/profile-settings/">
-                                                    <p>Profile Settings</p>
-                                                    <span>Edit your profile info and account settings</span>
-                                                </a>
-                                                <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-      `);
+                <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item inbox-link" href="/inbox/">
+                        <p>Dashboard</p>
+                        <span>View your stats and backend</span>
+                    </a>
+                    <a class="dropdown-item" href="/profile-settings/">
+                        <p>Profile Settings</p>
+                        <span>Edit your profile info and account settings</span>
+                    </a>
+                    <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a>
+                </div>
+            </div>
+        </li>
+      </ul>
+    `);
   }
 });

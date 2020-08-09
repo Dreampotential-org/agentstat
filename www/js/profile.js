@@ -46,13 +46,19 @@ function display_profile(profile) {
     }
   }
   if (profile.city == null) {
-    $('#city').val(profile.connector.city);
+    if (profile.connector && profile.connector.city) {
+      $('#city').val(profile.connector.city);
+    }
   }
   if (profile.state == null) {
-    $('#state').val(profile.connector.state);
+    if (profile.connector && profile.connector.state) {
+      $('#state').val(profile.connector.state);
+    }
   }
   if (profile.zipcode == null) {
-    $('#zipcode').val(profile.connector.zip_code);
+    if (profile.connector && profile.connector.zip_code) {
+      $('#zipcode').val(profile.connector.zip_code);
+    }
   }
 
 
@@ -69,7 +75,7 @@ function display_profile(profile) {
     $('#phone_number_3').val(profile.phone_number.substring(6, 10));
   }
 
-  if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
+  if (profile.screen_name === null && profile.connector != '' && profile.connector !== null && profile.state !== null) {
     var screen_name = profile.connector.agent_name.replace(/\s/g, '').toLowerCase();
     $('#screen_name').val(screen_name);
     $('#profile_slug').html(profile.state.toLowerCase() + '/' + screen_name)
@@ -79,7 +85,7 @@ function display_profile(profile) {
 
   get_specilities(profile.specialties);
 
-  if (profile.connector.real_estate_licence !== null && profile.connector.real_estate_licence != '') {
+  if (profile.connector && profile.connector.real_estate_licence !== null && profile.connector.real_estate_licence != '') {
     $("#added-license").append(`
     <div class="fragment" >
       <input value="` + profile.connector.real_estate_licence + `" type="text" name="mytext[]" data-type="zillow" class="license_number" disabled style="width: 150px;">
@@ -181,7 +187,7 @@ function display_profile(profile) {
     `);
   } else {
     $('#agent-connector').html(`
-      <a href='/connect-profile.html' target='_blank'>Add new connection</a>
+      <a href='/connect-profile/' target='_blank'>Add new connection</a>
     `);
   }
 
@@ -596,7 +602,7 @@ $.each(combo_boxes, function (k, val) {
 if (localStorage.getItem('session_id')) {
   get_profile(function (resp) { display_profile(resp) });
 } else {
-  window.location = '/login.html';
+  window.location = '/login/';
 }
 
 
@@ -609,7 +615,7 @@ $(document).on('change click', '#connector-remove', function () {
 
   $.ajax(settings).done(function (response) {
     var msg = JSON.parse(response);
-    $('#agent-connector').html('<a href="/connect-profile.html" target="_blank">Add new connection</a>');
+    $('#agent-connector').html('<a href="/connect-profile/" target="_blank">Add new connection</a>');
   }).fail(function (err) {
     // alert('Got err');
     console.log(err);
@@ -958,5 +964,44 @@ function changeTab(tab) {
   $('.tab-content-area .agent-tab-item').hide();
   $('#'+tab).show();
 }
+
+$('#save_password_btn').click(function(){
+  $('.password-msg').hide();
+
+  var old_password = $('#current-password').val();
+  var new_password = $('#new-password').val();
+  var repeat_password = $('#repeat-password').val();
+
+  if (old_password == '' || new_password == '' || repeat_password == '') {
+    $('.password-msg').html('Password fields are required');
+    $('.password-msg').show();
+    return false;
+  }
+
+  if (new_password != repeat_password) {
+    $('.password-msg').html('New password and confirm does not matched');
+    $('.password-msg').show();
+    return false;
+  }
+
+  data = {}
+  data['old_password'] = old_password;
+  data['new_password'] = new_password;
+
+  settings = get_settings('change-password/', 'POST', JSON.stringify(data))
+  $.ajax(settings).done(function (response) {
+    var data = JSON.parse(response);
+    if (data.status == true) {
+      setTimeout(function(){ 
+        show_message('SUCCESS! Your password has been successfully changed.');
+        logout();
+      }, 5000);
+    }
+  }).fail(function(err) {
+    var err = JSON.parse(err.responseText);
+    $('.password-msg').html(err.msg);
+    $('.password-msg').show();
+  });
+});
 
 

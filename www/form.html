@@ -80,11 +80,11 @@
 
                 <div class="main-menu-part form-menu col-lg-12">
                     <ul class="float-left form-ulli-left">
-                        <li><a href="/inbox/">Inbox </a></li>
-                        <li><a href="/reports/">Reporting </a></li>
-                        <li><a href="/past-sales/">Past Sales </a></li>
-                        <li><a href="/referrals/">Referrals</a></li>
-                        <li><a href="/team/">Team </a></li>
+                        <li class="inbox-link"><a href="/inbox/">Inbox </a></li>
+                        <li class="reports-link"><a href="/reports/">Reporting </a></li>
+                        <li class="past-sales-link"><a href="/past-sales/">Past Sales </a></li>
+                        <li class="referrals-link"><a href="/referrals/">Referrals</a></li>
+                        <li class="team-link"><a href="/team/">Team </a></li>
                     </ul>
                     <ul class="float-right user-icon form-ulli-right">
                         <li>
@@ -95,7 +95,7 @@
                                 </a>
 
                                 <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item " href="/inbox/">
+                                    <a class="dropdown-item inbox-link" href="/inbox/">
                                         <p>Dashboard</p>
                                         <span>View your stats and backend</span>
                                     </a>
@@ -175,6 +175,14 @@
 									<img src="/img/about-me-icon.png" alt="About Me">
 								</span>
 								<span class="text">About Me</span>
+							</a>
+						</li>
+						<li>
+							<a id="account-information-tab" href="#account-information">
+								<span class="icon">
+									<img src="/img/lock-512.png" alt="Account Information">
+								</span>
+								<span class="text">Account Information</span>
 							</a>
 						</li>
 					</ul>
@@ -649,6 +657,66 @@
 									<div class="row" style="margin-top: 15px;">
 										<div class="col-lg-8 mx-auto">
 											<div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="account-information" class="agent-tab-item">
+							<a href="#" class="accordion-opener">
+								<span class="icon">
+									<img src="/img/lock-512.png" alt="Account Information">
+								</span>
+								<span class="text">Account Information</span>
+							</a>
+							<div class="accordion-slide">
+								<strong class="tab-heading">
+									<span class="icon">
+										<img src="/img/lock-512.png" alt="Account Information">
+									</span>
+									<span class="text">Account Information</span>
+								</strong>
+								<div class="fields-area social">
+									<div class="form-group">
+										<label for="webiste">Username</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="text" id="username" disabled placeholder="Username">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="blog">Current Password</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="password" id="current-password" placeholder="Current Password">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="facebook">New Password</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="password" id="new-password" placeholder="New Password">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="twitter">Repeat Password</label>
+										<div class="fields-wrap">
+											<div class="field-holder">
+												<input type="password" id="repeat-password" placeholder="Repeat Password">
+											</div>
+										</div>
+									</div>
+									
+									<div class="btns-area">
+										<a href="javascript:void(0)" class="next-btn finish" id="save_password_btn">Save</a>
+									</div>
+									<div class="row" style="margin-top: 15px;">
+										<div class="col-lg-8 mx-auto">
+											<div class="alert alert-danger password-msg" role="alert" style="margin-bottom:0px; display:none">
 											</div>
 										</div>
 									</div>

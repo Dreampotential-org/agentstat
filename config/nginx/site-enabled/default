@@ -72,5 +72,9 @@ server {
         location /howsearchworks/search-algorithms/ {
             try_files $uri $uri/ /howsearchworks-algorithm.html;
         }
+
+        location /connect-profile/ {
+            try_files $uri $uri/ /connect-profile.html;
+        }
         
 }
