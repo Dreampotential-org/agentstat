@@ -18,6 +18,7 @@ function display_profile(profile) {
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
   $('#email').val(profile.email);
+  $('#username').val(profile.email);
   $('#screen_name').val(profile.screen_name);
   $('#profile_slug').text(profile.state + '/' + profile.screen_name);
   $('#brokerage_name').val(profile.brokerage_name);
