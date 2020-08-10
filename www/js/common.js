@@ -100,25 +100,30 @@ function secondsToHms(d) {
 }
 
 function isTeamMember() {
-	console.log(localStorage.getItem("role"));
 	if (localStorage.getItem("role") == 'team') {
 		//header tabs
-		$('.inbox-link').hide();
-		$('.reports-link').hide();
-		$('.past-sales-link').hide();
-		$('.team-link').hide();
+		$('.referrals-link').show();
 
 		//profile page
-		$('#info-tab').hide();
-		$('#license-tab').hide();
-		$('#highlight-tab').hide();
-		$('#comision-tab').hide();
-		$('#review-tab').hide();
-		$('#social-tab').hide();
-		$('#about-tab').hide();
+		$('#account-information-tab').show();
 
 		changeTab('account-information');
-	}	
+	} else {
+		//header tabs
+		$('.header-link').show();
+
+		//profile page
+		$('#info-tab').show();
+		$('#license-tab').show();
+		$('#highlight-tab').show();
+		$('#comision-tab').show();
+		$('#review-tab').show();
+		$('#social-tab').show();
+		$('#about-tab').show();
+		$('#account-information-tab').show();
+
+		changeTab('info');
+	}
 }
 
 $(document).ready(function(){

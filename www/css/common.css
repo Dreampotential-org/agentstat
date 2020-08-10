@@ -261,6 +261,9 @@ body {
      white-space: normal;
      word-wrap: break-word; 
 }
+.header-link {
+    display: none;
+}
 
 @media (max-width: 1200px) {
      .pht-agent-img img {

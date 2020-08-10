@@ -1115,6 +1115,9 @@ body {
 .fields-wrap .fa-info-circle {
 	margin-top: 13px;
 }
+.tab-link {
+	display: none;
+}
 @media (min-width: 768px) {
 	.tabs-section .fields-area.about .btns-area {
 		padding-right: 45px;

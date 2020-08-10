@@ -80,11 +80,11 @@
 
                 <div class="main-menu-part form-menu col-lg-12">
                     <ul class="float-left form-ulli-left">
-                        <li class="inbox-link"><a href="/inbox/">Inbox </a></li>
-                        <li class="reports-link"><a href="/reports/">Reporting </a></li>
-                        <li class="past-sales-link"><a href="/past-sales/">Past Sales </a></li>
-                        <li class="referrals-link"><a href="/referrals/">Referrals</a></li>
-                        <li class="team-link"><a href="/team/">Team </a></li>
+                        <li class="inbox-link header-link"><a href="/inbox/">Inbox </a></li>
+                        <li class="reports-link header-link"><a href="/reports/">Reporting </a></li>
+                        <li class="past-sales-link header-link"><a href="/past-sales/">Past Sales </a></li>
+                        <li class="referrals-link header-link"><a href="/referrals/">Referrals</a></li>
+                        <li class="team-link header-link"><a href="/team/">Team </a></li>
                     </ul>
                     <ul class="float-right user-icon form-ulli-right">
                         <li>
@@ -122,7 +122,7 @@
 					<strong class="title">PROFILE SETTINGS</strong>
 					<ul class="tabset" id="agent-tabs">
 						<li>
-							<a id="info-tab" href="#info">
+							<a id="info-tab" href="#info" style="display: none;">
 								<span class="icon">
 									<img src="/img/info-icon.png" alt="Basic">
 								</span>
@@ -130,7 +130,7 @@
 							</a>
 						</li>
 						<li>
-							<a id="license-tab" href="#license">
+							<a id="license-tab" href="#license" style="display: none;">
 								<span class="icon">
 									<img src="/img/license-icon.png" alt="License">
 								</span>
@@ -138,7 +138,7 @@
 							</a>
 						</li>
 						<li>
-							<a id="highlight-tab" href="#highlight">
+							<a id="highlight-tab" href="#highlight" style="display: none;">
 								<span class="icon">
 									<img src="/img/Highlight-icon.png" alt="Highlights">
 								</span>
@@ -146,7 +146,7 @@
 							</a>
 						</li>
 						<li>
-							<a id="comision-tab" href="#comision">
+							<a id="comision-tab" href="#comision" style="display: none;">
 								<span class="icon">
 									<img src="/img/Commision-icon.png" alt="Commision">
 								</span>
@@ -154,7 +154,7 @@
 							</a>
 						</li>
 						<li>
-							<a id="review-tab" href="#review">
+							<a id="review-tab" href="#review" style="display: none;">
 								<span class="icon">
 									<img src="/img/review-icon.png" alt="Reviews">
 								</span>
@@ -162,7 +162,7 @@
 							</a>
 						</li>
 						<li>
-							<a id="social-tab" href="#social">
+							<a id="social-tab" href="#social" style="display: none;">
 								<span class="icon">
 									<img src="/img/social-media-icon.png" alt="Social Media">
 								</span>
@@ -170,7 +170,7 @@
 							</a>
 						</li>
 						<li>
-							<a id="about-tab" href="#about">
+							<a id="about-tab" href="#about" style="display: none;">
 								<span class="icon">
 									<img src="/img/about-me-icon.png" alt="About Me">
 								</span>
@@ -178,7 +178,7 @@
 							</a>
 						</li>
 						<li>
-							<a id="account-information-tab" href="#account-information">
+							<a id="account-information-tab" href="#account-information" style="display: none;">
 								<span class="icon">
 									<img src="/img/lock-512.png" alt="Account Information">
 								</span>
@@ -744,30 +744,30 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script>
 		jQuery('#agent-tabs.tabset > li >a:not(:first)').addClass('inactive');
-			jQuery('#agent-tabs.tabset > li >a:first').addClass('active');
-			jQuery('.agent-tab-item').hide();
-			jQuery('.agent-tab-item:first').show();
-			jQuery('#agent-tabs.tabset > li >a').click(function(e){
-					e.preventDefault();
-					var tab = jQuery(this).attr('href');
-					if(jQuery(this).hasClass('inactive')){
-							jQuery('#agent-tabs.tabset >li >a').addClass('inactive').removeClass('active');
-							jQuery(this).removeClass('inactive').addClass('active');
-							jQuery('.agent-tab-item').hide();
-							jQuery(tab).fadeIn();
-					}
-					jQuery(tab).find("input:first").focus();
-			});
-			$('.nextbtn').click(function(){
-			  $('.tabset > .active').next('li').find('a').trigger('click');
-			  $('.tabset > .active').next('li').addClass('active');
-			  $('.tabset > .active').prev('li').removeClass('active');
-			});
-			$('.backbtn').click(function(){
-			  $('.tabset > .active').prev('li').find('a').trigger('click');
-			  $('.tabset > .active').prev('li').addClass('active');
-			  $('.tabset > .active').next('li').removeClass('active');
-			});
+		// jQuery('#agent-tabs.tabset > li >a:first').addClass('active');
+		jQuery('.agent-tab-item').hide();
+		// jQuery('.agent-tab-item:first').show();
+		jQuery('#agent-tabs.tabset > li >a').click(function(e){
+			e.preventDefault();
+			var tab = jQuery(this).attr('href');
+			if(jQuery(this).hasClass('inactive')){
+					jQuery('#agent-tabs.tabset >li >a').addClass('inactive').removeClass('active');
+					jQuery(this).removeClass('inactive').addClass('active');
+					jQuery('.agent-tab-item').hide();
+					jQuery(tab).fadeIn();
+			}
+			jQuery(tab).find("input:first").focus();
+		});
+		$('.nextbtn').click(function(){
+			$('.tabset > .active').next('li').find('a').trigger('click');
+			$('.tabset > .active').next('li').addClass('active');
+			$('.tabset > .active').prev('li').removeClass('active');
+		});
+		$('.backbtn').click(function(){
+			$('.tabset > .active').prev('li').find('a').trigger('click');
+			$('.tabset > .active').prev('li').addClass('active');
+			$('.tabset > .active').next('li').removeClass('active');
+		});
 
         jQuery('.accordion-opener').next().css('display', 'block');
         if(jQuery(window).width() < 1024) {
