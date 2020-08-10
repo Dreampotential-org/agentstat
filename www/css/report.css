@@ -202,7 +202,13 @@
 .chart-right h1 {
     margin-left: 10px;
 }
-
+.add-custom-link-btn {
+    color: #4A86E8;
+    cursor: pointer;
+}
+.pth-all-heading {
+    margin-top: 15px;
+}
 @media (max-width: 767px ) {
 
     .box-right-inner {

@@ -100,29 +100,36 @@ function secondsToHms(d) {
 }
 
 function isTeamMember() {
+	var path = window.location.pathname;
+
 	if (localStorage.getItem("role") == 'team') {
 		//header tabs
 		$('.referrals-link').show();
 
 		//profile page
-		$('#account-information-tab').show();
+		if (path == '/profile-settings/') {
+			$('#account-information-tab').show();
 
-		changeTab('account-information');
+			changeTab('account-information');
+		}
 	} else {
 		//header tabs
 		$('.header-link').show();
 
 		//profile page
-		$('#info-tab').show();
-		$('#license-tab').show();
-		$('#highlight-tab').show();
-		$('#comision-tab').show();
-		$('#review-tab').show();
-		$('#social-tab').show();
-		$('#about-tab').show();
-		$('#account-information-tab').show();
+		if (path == '/profile-settings/') {
+			$('#info-tab').show();
+			$('#license-tab').show();
+			$('#highlight-tab').show();
+			$('#comision-tab').show();
+			$('#review-tab').show();
+			$('#social-tab').show();
+			$('#about-tab').show();
+			$('#account-information-tab').show();
 
-		changeTab('info');
+			changeTab('info');
+		}
+		
 	}
 }
 

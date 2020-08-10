@@ -724,13 +724,18 @@ function returnFilters(customLink) {
     };
 }
 
-function populate_custom_links(data) {
+function populate_custom_links(data, destroy=false) {
+    if (destroy) {
+        $('#custom-links-table').DataTable().clear().destroy();
+    }
+
     if (data.agent_screen_name && data.agent_state) {
         profile_url = '/profile/' + data.agent_state.toLowerCase() + '/' + data.agent_screen_name+'/';
     } else {
         profile_url = '/page-three.html?agent_id=' + data.agent_id+'&q=';
     }
 
+    $('#custom-links-table-body').html('');
     $.each(data.custom_links, function(k,v){
         var filterObj = returnFilters(v);
         
@@ -760,8 +765,8 @@ function populate_custom_links(data) {
                 next: '»',
                 previous: '«'
             }
-          }
-    });
+        }
+    }); 
 }
 
 function agentTopPercentage(rank, count) {

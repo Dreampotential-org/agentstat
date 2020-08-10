@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="/css/popup.css" />
+
+<div class="link-lightbox-area">
+    <div class="link-lightbox-holder">
+        <div class="link-lightbox-wrap">
+            <div class="lightbox-container">
+                <form action="#" class="link-detail">
+                    <strong class="heading"><a href="#">Create your custom link</a></strong>
+                    <div class="step-area">
+                        <div class="step-wrap">
+                            <strong class="title">1. Select your search parameters.</strong>
+                            <div class="field-holder">
+                                <div class="wrap">
+                                    <div class="radio-wrap">
+                                        <input type="radio" id="radio1" class="q-address" name="q-address"
+                                            value="address" checked>
+                                        <label for="radio1"></label>
+                                    </div>
+                                    <div class="field-wrap">
+                                        <label for="search" class="label">Search using address</label>
+                                        <div class="input-holder">
+                                            <input type="text" class="form-control" id="q-address-street"
+                                                placeholder="Street address">
+                                        </div>
+                                        <div class="input-wrap">
+                                            <div class="input-holder">
+                                                <input type="text" class="form-control" id="q-address-city"
+                                                    placeholder="City">
+                                            </div>
+                                            <div class="input-holder">
+                                                <input type="text" class="form-control" id="q-address-zipcode"
+                                                    placeholder="Zipcode">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wrap">
+                                    <div class="radio-wrap">
+                                        <input type="radio" id="radio2" class="q-address" name="q-address"
+                                            value="city">
+                                        <label for="radio2"></label>
+                                    </div>
+                                    <div class="field-wrap">
+                                        <label for="city" class="label">Search using city</label>
+                                        <div class="input-holder city">
+                                            <input type="text" class="form-control" id="q-city" placeholder="City">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wrap" style="display: none;">
+                                    <div class="radio-wrap">
+                                        <input type="radio" id="radio3" class="q-address" name="q-address"
+                                            value="zipcode">
+                                        <label for="radio3"></label>
+                                    </div>
+                                    <div class="field-wrap">
+                                        <label for="code" class="label">Search using zipcode</label>
+                                        <div class="input-holder code">
+                                            <input type="text" class="form-control" id="q-zipcode"
+                                                placeholder="Zipcode">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-wrap">
+                            <strong class="title">2. Select your filters</strong>
+                            <div class="field-holder">
+                                <div class="select-holder">
+                                    <label for="type" class="label">Property Type</label>
+                                    <span class="fake-select">
+                                        <select id="q-property-type">
+                                            <option value="">Select Type</option>
+                                            <option>Single Family</option>
+                                            <option>Condo</option>
+                                            <option>Townhouse</option>
+                                            <option>Manufactured</option>
+                                            <option>Multi Family</option>
+                                            <option>Land</option>
+                                            <option>Apartment</option>
+                                            <option>Lot</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- <div class="field-holder field-2" style="display: none;">
+                                <div class="select-holder">
+                                    <label for="range" class="label">Min. Price</label>
+                                    <span class="fake-select">
+                                        <select id="range">
+                                            <option>Select</option>
+                                            <option>Select</option>
+                                            <option>Select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="select-holder">
+                                    <label for="range" class="label">Max. Price</label>
+                                    <span class="fake-select">
+                                        <select id="range">
+                                            <option>Select</option>
+                                            <option>Select</option>
+                                            <option>Select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <input id="save-custom-link" type="submit" value="Create Link">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="success-lightbox-area">
+    <div class="success-lightbox-holder">
+        <div class="success-lightbox-wrap">
+            <div class="lightbox-container">
+                <form action="#" class="success-detail">
+                    <strong class="heading"><a href="#">Create your custom link</a></strong>
+                    <span class="tick-icon"></span>
+                    <div class="success-msg">
+                        <strong class="success-title">Success</strong>
+                        <span class="text">Custom link created Successfully</span>
+                    </div>
+                    <div class="website-address">
+                        <input id="input-custom-link" readonly type="text"
+                            placeholder="www.agentstat.com/profile/wa/usemame/statisticsl">
+                        <a href="javascript:void(0)" class="copy-link">Copy</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="success-link" style="display: none;">success link</a>
+
+<script src="/js/popup.js"></script>
