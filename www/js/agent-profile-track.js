@@ -73,6 +73,12 @@ function saveLeadTracking(res, ifBoth) {
     var customLink = getCustomLinkSlug();
     if (customLink) {
         data['custom_slug'] = customLink;
+
+        var contactRequestdata = {};
+        contactRequestdata['custom_slug'] = customLink;
+        contactRequestdata['page'] = 'lead-request';
+        contactRequestdata['agent'] = res['agent'];
+        saveVisit(contactRequestdata, 'at/', document.referrer);
     }
 
     if (res['looking_for'] == 'Sell a Home') {

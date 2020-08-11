@@ -158,3 +158,9 @@
 .form_sec ul li #query-submit {
     max-width: 100% !important;
 }
+
+@media screen and (max-width: 576px) {
+    .toc-one ul {
+        width: auto;
+    }
+}
