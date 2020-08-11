@@ -1542,7 +1542,7 @@
             });
 
             //When Pop Up Button for Contact is Clicked, Get Form's Html
-            $(document).on('click', '#contact-agent-modal-button', function () {
+            $(document).on('click', '.contact-agent-modal-button', function () {
                 agent_id = $(this).parents('.toc-two')[0].getAttribute('agent_id')
                 agent_name = $(this).parents('tr').find('td').first().text().trim().split(' ')[0]
 

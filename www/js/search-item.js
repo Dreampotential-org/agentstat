@@ -26,7 +26,7 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
                       <a href="#" id="toggler-[[agent_id]]"  class="toggler [[toggle_on]]">&nbsp;</a>
                       <p>Pin to top</p>
                     </div> 
-                    <span class="agent_btn_wrap"><a href="#" id="contact-agent-modal-button" data-toggle="modal" class='collect-lead'
+                    <span class="agent_btn_wrap"><a href="#" data-toggle="modal" class='contact-agent-modal-button collect-lead'
                            data-agent-id="156821" data-target="#myModalx" style="text-transform:capitalize;">Connect with [[agent_name]]</a>
                     </span>
                   </td>
@@ -107,7 +107,7 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
       <ul style="padding-top:10px">
       <!--<li><a href="#">Call [[cell_phone]]</a></li>-->
       <li>
-        <a href="#" data-toggle="modal" class='collect-lead' data-agent-id="156821" data-target="#myModalx">Connect with [[agent_name]]</a>
+        <a href="#" data-toggle="modal" class='contact-agent-modal-button collect-lead' data-agent-id="156821" data-target="#myModalx">Connect with [[agent_name]]</a>
       </li>
       </ul>
     <div>
