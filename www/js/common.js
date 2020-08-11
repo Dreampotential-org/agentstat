@@ -124,6 +124,7 @@ function isTeamMember() {
 			$('#social-tab').show();
 			$('#about-tab').show();
 			$('#account-information-tab').show();
+			$('#noti-setting-tab').show();
 
 			changeTab('info');
 		}
