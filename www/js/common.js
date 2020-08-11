@@ -1,11 +1,7 @@
 $("body").delegate(".logout", "click", function(e) {
-    logout();
-});
-
-function logout() {
-	localStorage.clear();
+    localStorage.clear();
     window.location = '/';
-}
+});
 
 function formatAMPM(timedate) {
 	const date = new Date(timedate);
@@ -108,9 +104,11 @@ function isTeamMember() {
 
 		//profile page
 		if (path == '/profile-settings/') {
+			$('#info-tab').show();
 			$('#account-information-tab').show();
+			$('.not-info-for-team').hide();
 
-			changeTab('account-information');
+			changeTab('info');
 		}
 	} else {
 		//header tabs

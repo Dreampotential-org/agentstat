@@ -18,7 +18,7 @@ function display_profile(profile) {
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
   $('#email').val(profile.email);
-  $('#username').val(profile.email);
+  $('#username').val(profile.username);
   $('#screen_name').val(profile.screen_name);
   $('#profile_slug').text(profile.state + '/' + profile.screen_name);
   $('#brokerage_name').val(profile.brokerage_name);
@@ -333,7 +333,7 @@ function update_profile() {
   });
 
   var phone_number_concate = $('#phone_number_1').val() + $('#phone_number_2').val() + $('#phone_number_3').val();
-  if (phonenumber_validate(phone_number_concate) === false) {
+  if (localStorage.getItem("role") != 'team' && phonenumber_validate(phone_number_concate) === false) {
     validation_messages += 'Invalid phone number. \n Allow Format: 123-456-7890';
     valid = false;
   }
@@ -995,7 +995,8 @@ $('#save_password_btn').click(function(){
     if (data.status == true) {
       setTimeout(function(){ 
         show_message('SUCCESS! Your password has been successfully changed.');
-        logout();
+        localStorage.clear();
+        window.location = '/login/';
       }, 5000);
     }
   }).fail(function(err) {
