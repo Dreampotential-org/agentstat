@@ -1747,6 +1747,7 @@
                     var msg = JSON.parse(response);
                     $('#leads-form').css('display', 'none');
                     $('#leads-step-four').css('display', 'block');
+                    $('#leads-step-four .agent_name').html(agent_name);
 
                     if (typeof buying !== 'undefined') {
                         saveLeadTracking(data, buying);
