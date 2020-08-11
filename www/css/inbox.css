@@ -49,6 +49,7 @@
 }
 .box-left {
     max-height: 86vh;
+    border-right: 1px solid #777676;
 }
 .inbox {
     height: 80vh;
@@ -66,4 +67,7 @@
 }
 .box-right-inner p {
     margin-bottom: 13px !important;
+}
+.unread-msg {
+    font-weight: 700;
 }

@@ -133,6 +133,31 @@ function isTeamMember() {
 	}
 }
 
+function inboxNotificationBadge(count) {
+	if (count == 0) {
+		$('.inbox-notification').html('Inbox');
+	} else if (count > 0) {
+		var badge = 'Inbox <span class="badge">'+count+'</span>';
+		$('.inbox-notification').html(badge);
+	}
+}
+
+function inboxNotification() {
+	settings = get_settings('inbox-notification/', 'GET');
+
+	$.ajax(settings).done(function (response) {
+		var data = JSON.parse(response);
+		// if (data.unread_count > 0) {
+		// 	var badge = 'Inbox <span class="badge">'+data.unread_count+'</span>';
+		// 	$('.inbox-notification').html(badge);
+		// }
+		inboxNotificationBadge(data.unread_count);
+	}).fail(function(err) {
+		console.log(err);
+	});
+}
+
 $(document).ready(function(){
 	isTeamMember();
+	inboxNotification();
 });

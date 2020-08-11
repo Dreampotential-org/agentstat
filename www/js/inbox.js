@@ -5,8 +5,13 @@ function getLeads() {
 		var msgs = JSON.parse(response);
 		$.each(msgs, function(k, v) {
 			record += 1;
+
+			var boldClass = '';
+			if (record > 1 && v.is_read == 0) {
+				var boldClass = 'unread-msg';
+			}
 		  	var html = `
-		  		<div class="box-left-content `+(record==1 ? 'inbox-active' : '')+` msg-detail" data-id="`+v.id+`">
+		  		<div class="box-left-content `+boldClass+` `+(record==1 ? 'inbox-active' : '')+` msg-detail" data-id="`+v.id+`">
                     <h1>`+v.name+`</h1><span>`+niceDate(v.created_at, false)+`</span>
                     <p>`+v.phone+`</p>
                     <p>`+v.email+`</p>
@@ -32,9 +37,12 @@ function getLeads() {
 				$('.box-right').show();
 
 				showQuestions(v.lead_type);
+				
+				if (v.is_read == 0) {
+					readMessageStatus(v.id);
+				}
 			}
 		});
-
 		
 		page += 1;
 	}).fail(function(err) {
@@ -57,8 +65,20 @@ function showQuestions (type) {
 	}
 }
 
-$(document).ready(function(){
+function readMessageStatus(leadId) {
+	settings = get_settings('read-message-status/'+leadId, 'GET');
 
+	$.ajax(settings).done(function (response) {
+		var data = JSON.parse(response);
+		if (data.status == true) {
+			inboxNotificationBadge(data.unread_count);
+		}
+	}).fail(function(err) {
+		console.log(err);
+	});
+}
+
+$(document).ready(function(){
 	page = 1;
 	record = 0;
 	morePage = true;
@@ -95,6 +115,11 @@ $(document).ready(function(){
 		$('#message').html(obj.message);
 
 		showQuestions(obj.lead_type);
+
+		if (obj.is_read == 0) {
+			$(this).removeClass('unread-msg');
+			readMessageStatus(obj.id);
+		}
     });
 });
 
