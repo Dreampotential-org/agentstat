@@ -135,11 +135,8 @@ function display_profile(profile) {
     $('.my-image').attr('src', profile.picture);
     $('#remove-profile-image').css('display', 'block');
     
-    var src = localStorage.getItem("profile-image");
-    if (src === null || src == '') {
-      localStorage.setItem("profile-image", profile.picture);
-      headerDisplayImage();
-    }
+    localStorage.setItem("profile-image", profile.picture);
+    headerDisplayImage();
     // $('.my-image').prop('src', profile.picture);
     // $upload_crop = $('.my-image').croppie(
     //   {
