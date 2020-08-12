@@ -101,6 +101,7 @@ function isTeamMember() {
 	if (localStorage.getItem("role") == 'team') {
 		//header tabs
 		$('.referrals-link').show();
+		$('.inbox-link').hide();
 
 		//profile page
 		if (path == '/profile-settings/') {
@@ -146,10 +147,6 @@ function inboxNotification() {
 
 	$.ajax(settings).done(function (response) {
 		var data = JSON.parse(response);
-		// if (data.unread_count > 0) {
-		// 	var badge = 'Inbox <span class="badge">'+data.unread_count+'</span>';
-		// 	$('.inbox-notification').html(badge);
-		// }
 		inboxNotificationBadge(data.unread_count);
 	}).fail(function(err) {
 		console.log(err);
