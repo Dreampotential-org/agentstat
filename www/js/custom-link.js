@@ -56,6 +56,11 @@ $(document).on('click', '.copy-link',function(){
     $temp.val($('#input-custom-link').val()).select();
     document.execCommand("copy");
     $temp.remove();
+
+    $('.copy-link').tooltip('show');
+    setTimeout(function(){ 
+        $('.copy-link').tooltip('hide'); 
+    }, 3000);
 });
 
 $(document).on('click', '.delete-custom-link',function(){
