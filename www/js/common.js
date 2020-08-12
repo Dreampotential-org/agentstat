@@ -59,10 +59,10 @@ function getCoordinates(address) {
 	}
 }
 
-function show_message(message) {
+function show_message(message, duration=5000) {
     swal(message, {
       buttons: false,
-      timer: 3000,
+      timer: duration,
     });
 }
 
@@ -156,7 +156,16 @@ function inboxNotification() {
 	});
 }
 
+function headerDisplayImage() {
+	var src = localStorage.getItem("profile-image");
+	if (src !== null && src != '') {
+		var html = '<img src="'+src+'"></img>'
+		$('.display-picture').html(html);
+	}
+}
+
 $(document).ready(function(){
 	isTeamMember();
 	inboxNotification();
+	headerDisplayImage();
 });
