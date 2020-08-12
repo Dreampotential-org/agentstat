@@ -273,8 +273,8 @@ body {
 }
 .inbox-notification .badge {
     position: absolute;
-    top: -5px;
-    right: -10px;
+    top: 0px;
+    right: -2px;
     border-radius: 50%;
     background: red;
     color: white;
