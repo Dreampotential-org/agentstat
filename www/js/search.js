@@ -213,7 +213,7 @@ function load_search_results() {
       results = data['results'];
       pagination_footer(data['total'])
       var agent_id_on_page = [];
-      
+
       $.each(results, function(k, v) {
         agent_ids_order.push(v['agent_id']);
         all_agents.push(v);
@@ -248,7 +248,7 @@ function load_search_results() {
 
         // agent_link = get_profile_link(v['agent_id']);
         //}
-          
+
         item = item.split('[[agent_profile_link]]').join(agent_link);
 
             if(v['agent_picture'] == undefined || v['agent_picture'] == '')
@@ -291,6 +291,10 @@ function load_search_results() {
         item = item.split('[[overall_sold_listings]]').join(
             v['overall_sold_listings']);
         item = item.split('[[sold_listings]]').join(v['sold_listings']);
+
+        if (v['sold_listings'] == 0) {
+            return
+        }
 
         item = item.split('[[overall_avg_dom]]').join(
             v['overall_avg_dom'].toFixed(1));
