@@ -171,8 +171,34 @@ function isAndroid() {
 	}
 }
 
+function loadProfileImage() {
+	var reload = true;
+    
+    var ImageSrc = localStorage.getItem("profile-image");
+    if (ImageSrc !== null && ImageSrc != '') {
+        var urlParams = new URLSearchParams(ImageSrc);
+        var expire = urlParams.get('Expires');
+        var current = Math.floor(Date.now() / 1000);
+        if (expire > current) {
+			headerDisplayImage();
+            reload = false;
+        }
+    }
+    
+    if (reload) {
+        settings = get_settings('agent-profile-image/', 'GET');
+        $.ajax(settings).done(function (response) {
+            var data = JSON.parse(response);
+			localStorage.setItem("profile-image", data.picture);
+			headerDisplayImage();
+        }).fail(function(err) {
+            console.log(err);
+        });
+    }
+}
+
 $(document).ready(function(){
 	isTeamMember();
 	inboxNotification();
-	headerDisplayImage();
+	loadProfileImage();
 });
