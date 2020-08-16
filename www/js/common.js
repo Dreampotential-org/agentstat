@@ -155,7 +155,7 @@ function inboxNotification() {
 
 function headerDisplayImage() {
 	var src = localStorage.getItem("profile-image");
-	if (src !== null && src != '') {
+	if (src !== null && src != 'null'  && src != '') {
 		var html = '<img src="'+src+'"></img>'
 		$('.display-picture').html(html);
 	}
@@ -198,7 +198,9 @@ function loadProfileImage() {
 }
 
 $(document).ready(function(){
-	isTeamMember();
-	inboxNotification();
-	loadProfileImage();
+	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
+		isTeamMember();
+		inboxNotification();
+		loadProfileImage();
+	}	
 });

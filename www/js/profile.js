@@ -539,7 +539,6 @@ $(document).on('change', '.specialty-checkbox', function () {
   }
 })
 function get_languages(language_ids) {
-  console.log(language_ids);
   settings = get_settings('language-fluency', 'GET')
   $.ajax(settings).done(function (response) {
 
