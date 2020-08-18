@@ -101,6 +101,30 @@ $(document).ready(function(){
         if($('#step-1').css('display') == 'block'){
           $('#step-2').css('display', 'block');
           $('#step-1').css('display', 'none');
+
+
+          settings = get_settings('reports/WA/?page=1', 'GET');
+          settings['headers'] = null;
+
+          $.ajax(settings).done(function (response) {
+            // console.log(response);
+            data = JSON.parse(response);
+            $('#agents').empty();
+            $.each(data['results'], function(k, v){
+
+              $('#agents').append(`
+              <div class="row">
+                <div class="col-lg-1"> <input name='selected_agents' value="` + v['agent_id'] + `" type="checkbox" id="agent-` + v['id'] + `"></div>
+                <div class="col-lg-7">
+                  <label for="agent-` + v['agent_id'] + `">` +
+                    v['agent_full_name'] + ` (` + v['agent_state'] + `)
+                  </label>
+                </div>
+                <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['screen_name'] + `">View Profile</a></div>
+              </div>`);
+            });
+          });
+
         }
       }
     } else if($('#step-2').css('display') == 'block') {
@@ -118,8 +142,6 @@ $(document).ready(function(){
           dangerMode: true,
         });
       } else {
-        // $('#step-2').css('display', 'none');
-        // $('#step-3').css('display', 'block');
         data['acceptance_deadline'] = formatDate(form_data['acceptance_deadline'])
         form_data['owner'] = profile_id;
 
@@ -135,15 +157,6 @@ $(document).ready(function(){
           });
 
         });
-
-
-        /*
-        swal({
-          title: "Your referral has been created!",
-          icon: "success",
-          dangerMode: false,
-        });
-        */
 
         $('#referralModal').modal('hide');
       }
@@ -196,29 +209,38 @@ $(document).ready(function(){
 
   $('#agent-search').on('keyup', function(){
     var search_term = $(this).val();
+
+    settings = get_settings('reports/WA/?page=1', 'GET');
+    settings['headers'] = null;
+
     if (search_term.length > 2) {
       // console.log('search');
-      settings = get_settings('search_agent/' + 'WA/' + search_term, 'GET');
-      settings['headers'] = null;
 
-      $.ajax(settings).done(function (response) {
-        // console.log(response);
-        data = JSON.parse(response);
-        $('#agents').empty();
-        $.each(data, function(k, v){
-          $('#agents').append(`
-          <div class="row">
-            <div class="col-lg-1"> <input name='selected_agents' value="` + v['id'] + `" type="checkbox" id="agent-` + v['id'] + `"></div>
-            <div class="col-lg-7">
-              <label for="agent-` + v['id'] + `">` +
-                v['full_name'] + ` (` + v['state'] + `)
-              </label>
-            </div>
-            <div class="col-log-4"><a target='_blank' href="/profile/` + v['state'] + `/` + v['screen_name'] + `">View Profile</a></div>
-          </div>`);
-        });
-      });
+      settings = get_settings('reports/WA/?agent_name=' + search_term +'&page=1', 'GET');
+      settings['headers'] = null;
     }
+
+
+    $.ajax(settings).done(function (response) {
+      // console.log(response);
+      data = JSON.parse(response);
+      $('#agents').empty();
+      $.each(data['results'], function(k, v){
+
+        $('#agents').append(`
+        <div class="row">
+          <div class="col-lg-1"> <input name='selected_agents' value="` + v['agent_id'] + `" type="checkbox" id="agent-` + v['id'] + `"></div>
+          <div class="col-lg-7">
+            <label for="agent-` + v['agent_id'] + `">` +
+              v['agent_full_name'] + ` (` + v['agent_state'] + `)
+            </label>
+          </div>
+          <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['screen_name'] + `">View Profile</a></div>
+        </div>`);
+      });
+
+    });
+
 
   });
 
