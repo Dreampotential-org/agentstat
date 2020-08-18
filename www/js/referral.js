@@ -53,7 +53,7 @@ $(document).ready(function(){
         form_data[v] = $('#'+v).val();
       });
 
-      var buyer_required_fields = ['first_name', 'last_name', 'email', 'phone_number', 'price_min', 'price_max', 'referral_fee_percentage', 'acceptance_deadline', 'notes'];
+      var buyer_required_fields = ['first_name', 'last_name', 'email', 'phone_number', 'price_min', 'price_max', 'referral_fee_percentage', 'acceptance_deadline'];
 
       var error = false;
       referral_type = $('#referral_type').val()
@@ -62,7 +62,7 @@ $(document).ready(function(){
         // Seller validation
         form_data['referral_type'] = 'Seller';
         $.each(fields, function(k, v){
-          if ($('#'+v).val() == '') {
+          if ($('#'+v).val() == '' && v !== 'notes') {
             // console.log(v + ' is required');
             swal({
               title: "Validation Error!",
@@ -71,7 +71,6 @@ $(document).ready(function(){
               dangerMode: true,
             });
             error = true;
-
           }
         });
 
@@ -80,7 +79,8 @@ $(document).ready(function(){
         form_data['referral_type'] = 'Buyer';
         errors = '';
         $.each(fields, function(k, v){
-          if($.inArray(v, buyer_required_fields) && $('#'+v).val() == ''){
+          console.log(buyer_required_fields);
+          if($.inArray(v, buyer_required_fields) !== -1 && $('#'+v).val() == ''){
             error = true;
             errors += v + ' ';
           }
