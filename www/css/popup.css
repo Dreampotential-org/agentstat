@@ -889,3 +889,6 @@ select::-ms-expand {
     background-color:#39f;
     color:white;
 }
+.link-lightbox-area .form-control {
+	border-radius: 0px;
+}

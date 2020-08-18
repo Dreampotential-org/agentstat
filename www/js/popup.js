@@ -204,3 +204,9 @@ $('.fake-select select').each(function () {
     });
 
 });
+
+$(document).ready(function(){
+	$('.copy-link').tooltip({
+		trigger : 'manual',
+	});
+});

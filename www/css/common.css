@@ -273,11 +273,15 @@ body {
 }
 .inbox-notification .badge {
     position: absolute;
-    top: -5px;
-    right: -10px;
+    top: 0px;
+    right: -2px;
     border-radius: 50%;
     background: red;
     color: white;
+}
+.display-picture img {
+    height:35px; 
+    margin-top: -10px;
 }
 @media (max-width: 1200px) {
      .pht-agent-img img {

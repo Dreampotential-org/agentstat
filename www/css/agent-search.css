@@ -164,3 +164,8 @@
         width: auto;
     }
 }
+@media (max-width: 992px) {
+    .highlighted .col-md-12 {
+      height: auto !important;
+    }
+}

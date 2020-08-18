@@ -56,6 +56,11 @@ $(document).on('click', '.copy-link',function(){
     $temp.val($('#input-custom-link').val()).select();
     document.execCommand("copy");
     $temp.remove();
+
+    $('.copy-link').tooltip('show');
+    setTimeout(function(){ 
+        $('.copy-link').tooltip('hide'); 
+    }, 3000);
 });
 
 $(document).on('click', '.delete-custom-link',function(){
@@ -108,7 +113,7 @@ function addCustomLink(data) {
         }
 
         if (url == ''){
-            if (customlink_agent_screen_name !== null && customlink_agent_state !== null) {
+            if (customlink_agent_screen_name !== null && customlink_agent_screen_name !=''  && customlink_agent_state !== null && customlink_agent_state != '') {
                 var url = window.location.protocol+'//'+window.location.hostname+'/profile/'+customlink_agent_state+'/'+customlink_agent_screen_name+'/'+data.slug;
             } else if (customlink_agent_id !== null) {
                 var url = window.location.protocol+'//'+window.location.hostname+window.location.pathname+'?agent_id='+customlink_agent_id+'&q='+data.slug;   

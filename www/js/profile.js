@@ -132,8 +132,11 @@ function display_profile(profile) {
 
   if (profile.picture != '' && profile.picture !== null) {
     // debugger;
-    $('.my-image').attr('src', profile.picture)
-    $('#remove-profile-image').css('display', 'block')
+    $('.my-image').attr('src', profile.picture);
+    $('#remove-profile-image').css('display', 'block');
+    
+    localStorage.setItem("profile-image", profile.picture);
+    headerDisplayImage();
     // $('.my-image').prop('src', profile.picture);
     // $upload_crop = $('.my-image').croppie(
     //   {
@@ -303,6 +306,9 @@ $(document).on('click', '#image_save', function () {
 
         $('#save_image_loading').css('display', 'none')
         $('#image_save_btn').removeAttr('disabled')
+
+        localStorage.setItem("profile-image", data['picture']);
+        headerDisplayImage();
       })
     })
   }
@@ -533,7 +539,6 @@ $(document).on('change', '.specialty-checkbox', function () {
   }
 })
 function get_languages(language_ids) {
-  console.log(language_ids);
   settings = get_settings('language-fluency', 'GET')
   $.ajax(settings).done(function (response) {
 
@@ -769,14 +774,6 @@ $(document).on('click', '#verify_slug', function () {
   });
 });
 
-
-function show_message(message, duration=3000) {
-  swal(message, {
-    buttons: false,
-    timer: duration,
-  });
-}
-
 function check_license(license) {
   data = {}
   data['license'] = license
@@ -943,6 +940,8 @@ $(document).on('click', '#remove-profile-image', function (e) {
     $('.my-image').prop('src', src);
     $('#remove-profile-image').css('display', 'none')
     $('#save_image').css('display', 'none')
+
+    $('.display-picture').html('<i class="fas fa-user-circle"></i>');
   });
 });
 
@@ -989,20 +988,23 @@ $('#save_password_btn').click(function(){
   data['old_password'] = old_password;
   data['new_password'] = new_password;
 
-  settings = get_settings('change-password/', 'POST', JSON.stringify(data))
+  $('#change_password_loading').show();
+  settings = get_settings('change-password/', 'POST', JSON.stringify(data));
   $.ajax(settings).done(function (response) {
     var data = JSON.parse(response);
     if (data.status == true) {
+      $('#change_password_loading').hide();
+      show_message('SUCCESS! Your password has been successfully changed.', 6000);
       setTimeout(function(){ 
-        show_message('SUCCESS! Your password has been successfully changed.');
         localStorage.clear();
         window.location = '/login/';
-      }, 5000);
+      }, 6000);
     }
   }).fail(function(err) {
     var err = JSON.parse(err.responseText);
     $('.password-msg').html(err.msg);
     $('.password-msg').show();
+    $('#change_password_loading').hide();
   });
 });
 

@@ -59,10 +59,10 @@ function getCoordinates(address) {
 	}
 }
 
-function show_message(message) {
+function show_message(message, duration=5000) {
     swal(message, {
       buttons: false,
-      timer: 3000,
+      timer: duration,
     });
 }
 
@@ -101,6 +101,7 @@ function isTeamMember() {
 	if (localStorage.getItem("role") == 'team') {
 		//header tabs
 		$('.referrals-link').show();
+		$('.inbox-link').hide();
 
 		//profile page
 		if (path == '/profile-settings/') {
@@ -146,17 +147,60 @@ function inboxNotification() {
 
 	$.ajax(settings).done(function (response) {
 		var data = JSON.parse(response);
-		// if (data.unread_count > 0) {
-		// 	var badge = 'Inbox <span class="badge">'+data.unread_count+'</span>';
-		// 	$('.inbox-notification').html(badge);
-		// }
 		inboxNotificationBadge(data.unread_count);
 	}).fail(function(err) {
 		console.log(err);
 	});
 }
 
+function headerDisplayImage() {
+	var src = localStorage.getItem("profile-image");
+	if (src !== null && src != 'null'  && src != '') {
+		var html = '<img src="'+src+'"></img>'
+		$('.display-picture').html(html);
+	}
+}
+
+function isAndroid() {
+	var ua = navigator.userAgent.toLowerCase();
+	var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+	if(isAndroid) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function loadProfileImage() {
+	var reload = true;
+    
+    var ImageSrc = localStorage.getItem("profile-image");
+    if (ImageSrc !== null && ImageSrc != '') {
+        var urlParams = new URLSearchParams(ImageSrc);
+        var expire = urlParams.get('Expires');
+        var current = Math.floor(Date.now() / 1000);
+        if (expire > current) {
+			headerDisplayImage();
+            reload = false;
+        }
+    }
+    
+    if (reload) {
+        settings = get_settings('agent-profile-image/', 'GET');
+        $.ajax(settings).done(function (response) {
+            var data = JSON.parse(response);
+			localStorage.setItem("profile-image", data.picture);
+			headerDisplayImage();
+        }).fail(function(err) {
+            console.log(err);
+        });
+    }
+}
+
 $(document).ready(function(){
-	isTeamMember();
-	inboxNotification();
+	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
+		isTeamMember();
+		inboxNotification();
+		loadProfileImage();
+	}	
 });

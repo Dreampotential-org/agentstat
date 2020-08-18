@@ -749,7 +749,7 @@ $(document).ready(function() {
         <li>
             <div class="dropdown profile show">
                 <a class="dropdown-toggle activeLine" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span><i class="fas fa-user-circle"></i></span>
+                    <span class="display-picture"><i class="fas fa-user-circle"></i></span>
                 </a>
 
                 <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
