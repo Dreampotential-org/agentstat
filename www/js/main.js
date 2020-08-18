@@ -11,14 +11,6 @@ function fillIn() {
     console.log(results)
     console.log(results.city)
 
-    // if(results.city == undefined){
-    //   $('#city-tab').text(results.state);
-    //   load_agent(true);
-    // }else
-    // $('#city-tab').text(results.city);
-    // load_agent(true);
-    // redirectResults(results)
-
     $(".maps_input").focus();
 
 }
@@ -178,11 +170,16 @@ function redirectResults(results) {
       new_params.push('zipcode=' + search_zipcode);
     }
 
+    var city = '';
+    var state = '';
+
     if (search_city) {
       city_val = search_city.split(',')
       new_params.push('city=' + city_val[0]);
+      city = city_val[0];
       if (city_val.length > 1) {
         new_params.push('state=' + city_val[1].trim());
+        state = city_val[1].trim();
       }
     }
 
@@ -202,11 +199,13 @@ function redirectResults(results) {
       new_params.push('lng=' + lng);
     }
 
+    var street_address = '';
     if (new_params.length == 0) {
       initial = get_page_initial_results();
       $.each(initial, function(k, v){
         // data['navigator_' + k] = v;
         if(k == 'search_input') {
+          street_address = v;
           new_params.push('address='+v);
         } else {
           new_params.push(k+'='+v);
@@ -237,8 +236,16 @@ function redirectResults(results) {
       }
     });
 
+    console.log(new_params);
+    var search_data = {};
+    search_data['street_address'] = street_address;
+    search_data['city'] = city;
+    search_data['state'] = state;
+    search_data['email'] =  localStorage.email
+
     search = new_params.join('&');
     new_url = '/agents/?' + search;
+
 
     window.location = new_url;
 
