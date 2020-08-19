@@ -40,6 +40,8 @@ $.ajax(settings).done(function (response) {
 });
 
 $(document).ready(function(){
+
+
   $('#next').click(function() {
     if ($('#step-1').css('display') == 'block') {
 
@@ -245,7 +247,6 @@ $(document).ready(function(){
   });
 
   $('#radioBtn a').on('click', function(){
-    console.log('xxx');
       var sel = $(this).data('title');
       var tog = $(this).data('toggle');
       $('#'+tog).prop('value', sel);
@@ -261,6 +262,11 @@ $(document).ready(function(){
     $valueSpan.html($value.val()+'%');
   });
 
+
+
 });
 
+$(document).on('click', 'input[name="selected_agents"]', function() {
+    $('input[type="checkbox"]').not(this).prop('checked', false);
+});
 
