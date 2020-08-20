@@ -40,9 +40,9 @@
 
     <!-- Common css for all pages -->
     <link rel="stylesheet" href="/css/common.css" />
-    
+
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    
+
 
 
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
@@ -56,7 +56,7 @@
 <style>
    .error{
     color: red;
-    font-size: smaller; 
+    font-size: smaller;
     text-align: center;
    }
    .swal-modal {
@@ -71,7 +71,7 @@
 
     <!-- header-area start -->
     <div class="wrapper-heading sticky-top bg-white akh-4">
-        <!-- header-area start -->	
+        <!-- header-area start -->
         <div class="header-area sticky-top bg-white custom_header stricked-menu stricky-fixed">
             <div class="">
                 <div class="row" style="margin-right: 0px;">
@@ -96,8 +96,8 @@
                                 </div>
                             </div>
                         </nav>
-                    </div>							
-                </div>					
+                    </div>
+                </div>
             </div>
         </div>
         <!-- po-search area start -->
@@ -208,15 +208,15 @@
         <form action="" method="post" class="body_color">
             <nav>
                 <div class="nav nav-tabs custom_log_abs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                        aria-controls="nav-home" aria-selected="true">Sign In</a>
-                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                        aria-controls="nav-profile" aria-selected="false">New Account</a>
+                    <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="false">Sign In</a>
+                    <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                        aria-controls="nav-profile" aria-selected="true">New Account</a>
                 </div>
             </nav>
 
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="tab-pane fade show active" id="nav-signIn-tab" role="tabpanel"
                         aria-labelledby="nav-signIn">
                         <div class="form-group">
@@ -242,118 +242,26 @@
                         <a href="#" class="pull-right" id="forgot-password">Forgot Password?</a>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <form action="" method="post" class="body_color" id="myform">
                         <div class="form-group">
                             <div class = "social-login">
 
-                              <a href="http://app.agentstat.com/accounts/facebook/login/">Facebook Login</a>
+                              <a href="http://app.agentstat.com/accounts/facebook/login/">Facebook Login</a> </br>
                               <a href="http://app.agentstat.com/accounts/google/login/">Google Login</a>
-                           
+
                               <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
                             </div>
 
 
-<div id="status">
-</div>
-
-
-                        <div id="my-signin2"></div>
-
-                        <div class="form-group">
-                            <!-- <button type="button" class="btn google_btn login-btn btn-block">
-                                <img class="googleIcon g-signin2"  id="googleSignIn" src="./img/google.png">Connect with  Google</button> -->
-
-
-                            <!-- <button type="button" id="login-btn" data-toggle="modal" data-target="#signupModal" class="btn google_btn login-btn btn-block"><img class="googleIcon" src="./img/google.png">Connect with Facebook Google</button> -->
-                        </div>
-
-                        <div class="form-group">
-                            <h2 class="line-text"><span>OR</span></h2>
-                        </div>
-                        <div id='idAll' class="error">
-
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="email" class="form-control email_input" id="email1"
-                                    style="border-radius: 0px;" name="email" placeholder="Email address"
-                                    required="required">
+                            <div id="status">
                             </div>
-                            <div id='idEmail' class="error">
 
+                            <div class="form-group text-center">
+                                <button  id="continuebtn1" value="Submit"
+                                    class="btn login-btn buttonLogin">Sign Up</button>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="password" id="password1" class="form-control email_input"
-                                    style="border-radius: 0px;" name="password" placeholder="Password"
-                                    required="required">
-                            </div>
-                            <div id='idPassword'class="error">
-
-                            </div>
-                        </div>
-                        <div class="form-group row text-center ">
-                            <div class="col-6 col-md-6 col-sm-3">
-                                <div class="custom-control custom-checkbox">
-
-                                    <input type="radio" class="unchecked-acs"
-                                                        id="homeowner"
-                                                        name="member_type[]"
-                                        value="Homeowner">
-                                    <label for="homeowner">Homeowner</label>
-                                </div>
-                                
-                            </div>
-                            <div class="col-6 col-md-6 col-sm-3">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="radio" class=" unchecked-acs"
-                                                        id="buyer"
-                                                        name="member_type[]"
-                                        value="Buyer">
-                                    <label for="buyer">Buyer</label>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-9 col-md-9 col-sm-6" style="margin-left:-20px;">
-                                <div class="custom-control custom-checkbox text-center">
-                                    <input type="radio" class="unchecked-acs"
-                                                        id="industry"
-                                                        name="member_type[]"
-                                        value="Industry Professional">
-                                    <label for="industry">Industry Professional </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div id='idcheck' style="color: red;font-size: smaller;">
-
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-12 col-md-12 col-sm-9 city_div">
-                                <select id='category' name="category" disabled placeholder="Select your category" class="form-control d-inline-block custom_city w-50 float-left">
-                                    <option value=''>Select your category</option>
-                                    <option value='Real Estate Agent/ Broker'>Real Estate Agent/ Broker</option>
-                                    <option value='Mortgage Lender'>Mortgage Lender</option>
-                                    <option value='Home Improvement Services'>Home Improvement Services</option>
-                                    <option value='Photographer'>Photographer</option>
-                                    <option value='Home Builder'>Home Builder</option>
-                                    <option value='Home Inspector'>Home Inspector</option>
-                                    <option value='Home Appraiser'>Home Appraiser</option>
-                                    <option value='Other'>Other</option>
-                                </select>
-                                
-                            </div>
-                            <div id='idSelect'style="color: red;font-size: smaller;">
-
-                            </div>
-                        </div>
-                        <div class="form-group text-center">
-                            <button  id="continuebtn1" value="Submit"
-                                class="btn login-btn buttonLogin">Sign Up</button>
-                        </div>
                     </form>
 
                     <div class="clearfix text-center">
@@ -672,7 +580,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
 
 
-    
+
     <!-- Scroll-Top button -->
     <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
     <script  type = "text/javascript">
@@ -760,7 +668,7 @@
             $('#continueModal').modal('show');
         })
 
-       
+
         $('#continuebtn1').click(function(e){
             e.preventDefault();
             var email =$('#email1').val();
@@ -809,7 +717,7 @@
           data['category'] = $('#category').val()
           data['member_type'] = $("input[name='member_type[]']:checked").val();
           console.log(data);
-          
+
           settings = get_settings('create-agent/', 'POST', JSON.stringify(data))
 
           settings['headers'] = {};
@@ -1023,7 +931,7 @@
         attachSignin(document.getElementById('customBtn'));
       });
     };
-  
+
     function attachSignin(element) {
       // console.log(element.id);
       auth2.attachClickHandler(element, {},
@@ -1063,17 +971,17 @@
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     -->
     <script>
-        $("#login-btn").focus(); 
+        $("#login-btn").focus();
         $("#nav-home-tab").click(function() {
             setTimeout(() => {
-                $('#login-btn').focus();     
+                $('#login-btn').focus();
             }, 200);
-        });  
+        });
         $("#nav-profile-tab").click(function() {
             setTimeout(() => {
-                $('#continuebtn1').focus();     
+                $('#continuebtn1').focus();
             }, 200);
-        });  
+        });
     </script>
 </body>
 
