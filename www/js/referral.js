@@ -71,7 +71,7 @@ $(document).ready(function(){
         // Seller validation
         form_data['referral_type'] = 'Seller';
         $.each(fields, function(k, v){
-          if ($('#'+v).val() == '') {
+          if ($('#'+v).val() == '' && v !== 'notes') {
             // console.log(v + ' is required');
             swal({
               title: "Validation Error!",
@@ -80,7 +80,6 @@ $(document).ready(function(){
               dangerMode: true,
             });
             error = true;
-
           }
         });
 
@@ -89,7 +88,8 @@ $(document).ready(function(){
         form_data['referral_type'] = 'Buyer';
         errors = '';
         $.each(fields, function(k, v){
-          if($.inArray(v, buyer_required_fields) && $('#'+v).val() == ''){
+          console.log(buyer_required_fields);
+          if($.inArray(v, buyer_required_fields) !== -1 && $('#'+v).val() == ''){
             error = true;
             errors += v + ' ';
           }
@@ -254,7 +254,6 @@ $(document).ready(function(){
   });
 
   $('#radioBtn a').on('click', function(){
-    console.log('xxx');
       var sel = $(this).data('title');
       var tog = $(this).data('toggle');
       $('#'+tog).prop('value', sel);
@@ -326,18 +325,6 @@ $(document).ready(function(){
     'placeholder': ''
   });
 
-  // $('input.number').keyup(function(event) {
-
-  //   if(event.which >= 37 && event.which <= 40) return;  
-  //   // format number
-  //   $(this).val(function(index, value) {
-  //     return value
-  //     .replace(/\D/g, "")
-  //     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  //     ;
-  //   });
-  // });
-
   $('textarea').keyup(function() {
   
     var characterCount = $(this).val().length,
@@ -348,6 +335,10 @@ $(document).ready(function(){
         
   });
 
+
 });
 
+$(document).on('click', 'input[name="selected_agents"]', function() {
+    $('input[type="checkbox"]').not(this).prop('checked', false);
+});
 

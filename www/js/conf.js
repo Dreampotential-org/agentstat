@@ -1,4 +1,3 @@
-//API_URL = 'https://app.agentstat.com/api/';
 // UNCOMMENT to connect to local django-zillow api instance
 API_URL = 'https://app.agentstat.com/api/';
 TRANSACTIONS_URL = 'https://app.agentstat.com/agentportal/transactions/'
@@ -6,6 +5,9 @@ CITY_AGENT_SCORES_URL = 'https://app.agentstat.com/agentportal/agent_scores/'
 
 GOOGLE_MAP_KEY = 'AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs';
 
+// API_URL = 'http://localhost:8000/api/';
+// TRANSACTIONS_URL = 'http://localhost:8000/agentportal/transactions/'
+// CITY_AGENT_SCORES_URL = 'http://localhost:8000/agentportal/agent_scores/'
 // API_URL = 'http://localhost:8000/api/';
 // TRANSACTIONS_URL = 'http://localhost:8000/agentportal/transactions/'
 // CITY_AGENT_SCORES_URL = 'http://localhost:8000/agentportal/agent_scores/'
@@ -106,4 +108,15 @@ function load_states() {
   }).fail(function(err) {
     show_error(err);
   });
+}
+
+function search_log(data) {
+    var settings = get_settings('search-log/', 'POST', JSON.stringify(data));
+
+    $.ajax(settings).done(function (response) {
+        var msg = JSON.parse(response);
+        console.log(msg)
+    }).fail(function(err) {
+        console.log(err);
+    });
 }

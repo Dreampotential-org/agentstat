@@ -5,19 +5,29 @@ function fillIn() {
     var place = this.getPlace();
     var addr = place.formatted_address
 
+
+    var search_data = {};
+    search_data['street_address'] = place.formatted_address
+    for(var address_comp of place.address_components) {
+      console.log(address_comp.types)
+      if (address_comp.types[0] == "administrative_area_level_1") {
+          search_data['state'] = address_comp.short_name
+      }
+      if (address_comp.types[0] == 'locality') {
+          search_data['city'] = address_comp.short_name
+      }
+      if (address_comp.types[0] == 'postal_code') {
+          search_data['zip_code'] = address_comp.short_name
+      }
+    }
+    search_data['email'] =  localStorage.email
+    search_data['user_agent'] = navigator.userAgent
+    search_log(search_data);
+
+
     var results = getSearchParams(place)
     global_results = results
 
-    console.log(results)
-    console.log(results.city)
-
-    // if(results.city == undefined){
-    //   $('#city-tab').text(results.state);
-    //   load_agent(true);
-    // }else
-    // $('#city-tab').text(results.city);
-    // load_agent(true);
-    // redirectResults(results)
 
     $(".maps_input").focus();
 
@@ -132,6 +142,10 @@ function get_home_type() {
 }
 
 function redirectResults(results) {
+
+
+    // return false;
+
     var path = window.location.pathname;
     var search_params = window.location.search.replace('?', '');
     var params = search_params.split('&');
@@ -178,11 +192,16 @@ function redirectResults(results) {
       new_params.push('zipcode=' + search_zipcode);
     }
 
+    var city = '';
+    var state = '';
+
     if (search_city) {
       city_val = search_city.split(',')
       new_params.push('city=' + city_val[0]);
+      city = city_val[0];
       if (city_val.length > 1) {
         new_params.push('state=' + city_val[1].trim());
+        state = city_val[1].trim();
       }
     }
 
@@ -202,11 +221,13 @@ function redirectResults(results) {
       new_params.push('lng=' + lng);
     }
 
+    var street_address = '';
     if (new_params.length == 0) {
       initial = get_page_initial_results();
       $.each(initial, function(k, v){
         // data['navigator_' + k] = v;
         if(k == 'search_input') {
+          street_address = v;
           new_params.push('address='+v);
         } else {
           new_params.push(k+'='+v);
@@ -237,8 +258,10 @@ function redirectResults(results) {
       }
     });
 
+    console.log(new_params);
     search = new_params.join('&');
     new_url = '/agents/?' + search;
+
 
     window.location = new_url;
 
