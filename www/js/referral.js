@@ -21,6 +21,7 @@ $.ajax(settings).done(function (response) {
     $.each(data['results'], function(k, v) {
       // console.log(v);
       item = referral_item
+      item = item.split('[[id]]').join(v['id']);
       item = item.split('[[date]]').join(v['created_at']);
       item = item.split('[[referral_type]]').join(v['referral_type']);
       item = item.split('[[referral_name]]').join(v['first_name'] + ' ' + v['last_name']);
@@ -41,10 +42,6 @@ $.ajax(settings).done(function (response) {
 });
 
 $(document).ready(function(){
-  myString = '$ 222,222';
-  myString = myString.replace(/\D/g,'');
-  console.log(myString);
-
   $('#next').click(function() {
     if ($('#step-1').css('display') == 'block') {
 
@@ -129,7 +126,7 @@ $(document).ready(function(){
                     v['agent_full_name'] + ` (` + v['agent_state'] + `)
                   </label>
                 </div>
-                <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['screen_name'] + `">View Profile</a></div>
+                <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['agent_slug'] + `">View Profile</a></div>
               </div>`);
             });
           });
@@ -244,7 +241,7 @@ $(document).ready(function(){
               v['agent_full_name'] + ` (` + v['agent_state'] + `)
             </label>
           </div>
-          <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['screen_name'] + `">View Profile</a></div>
+          <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['agent_slug'] + `">View Profile</a></div>
         </div>`);
       });
 
@@ -335,6 +332,10 @@ $(document).ready(function(){
         
   });
 
+  $(document).on('click', '.show-detail', function(){
+    var id = $(this).data('id');
+    $('#row-'+id).slideToggle( );
+  });
 
 });
 
