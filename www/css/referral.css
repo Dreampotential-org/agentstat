@@ -1,0 +1,121 @@
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle{
+    padding: 0;
+}
+#referralModal .modal-dialog{
+    margin: 1.75rem auto 53px !important;
+}
+/* #referralModal .modal-content{
+    padding: 30px 20px 20px;
+} */
+#referralModal .buyerpopup-holder{
+    border: 1px solid #000;
+}
+#referralModal  input,#referralModal  select,#referralModal  optgroup, #referralModal  textarea{
+    height: 43px;
+    padding:10px;
+    color: #6c6b6c;
+    border: 1px solid #eee;
+    border-radius: 6px;
+}
+#referralModal .btn-primary:not(:disabled):not(.disabled):active,
+#referralModal .btn-primary:not(:disabled):not(.disabled).active,
+#referralModal .show > .btn-primary.dropdown-toggle {
+    padding: 10px;
+    color: #1799a6;
+    background-color: transparent;
+    border-color: #eee !important;
+    border-radius: inherit;
+}
+#referralModal .btn-sm, #referralModal .btn-group-sm > .btn {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    min-width: 150px;
+    height: 40px;
+    padding: 10px;
+}
+#referralModal #radioBtn .notActive{
+    color: #000;
+}
+span.Buyer-info{
+    font-size: 13px;
+}
+#referralModal .btn-primary{
+    border-color:#eee;
+}
+#referralModal{
+    color:#6c6b6c;
+}
+#referralModal textarea{
+    width:100%;
+    resize: none;
+    margin: 0;
+}
+#referralModal .modal-footer{
+    border-top: none;
+}
+/* progressbar style */
+.slider-wrapper {
+width: 65%;
+height: 100%;
+display: flex;
+align-items: center;
+box-sizing: border-box;
+padding: 100px 0px;
+margin: 0 auto;
+}
+#slider-js {
+    width: 100%;
+    height: 7px;
+    background-color: #c9c9c9;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#slider-handle {
+    position: absolute;
+    left: 0px;
+    height: 30px;
+    width: 30px;
+    box-shadow: 0px 2px 10px rgba(48, 56, 77, 0.5);
+    border-radius: 50%;
+    background-color: white;
+    top: -12px;
+    transition: 0.2s;
+}
+#slider-handle:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #40c7d6;
+    top: 10px;
+    left: 10px;
+}
+#slider-counter {
+    position: absolute;
+    left: 0px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #40c7d6;
+    color: white;
+    font-weight: 600;
+    top: -50px;
+    transform: translateX(-1px);
+    transition: 0.2s;
+}
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}

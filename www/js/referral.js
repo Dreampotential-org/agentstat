@@ -3,6 +3,7 @@ profile_id = localStorage.profile_id;
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 received = urlParams.get('received');
+var acceptance_deadline_hour = 1;
 
 if (received == 'true') {
   settings = get_settings('referral-received/'+ profile_id, 'GET')
@@ -20,6 +21,7 @@ $.ajax(settings).done(function (response) {
     $.each(data['results'], function(k, v) {
       // console.log(v);
       item = referral_item
+      item = item.split('[[id]]').join(v['id']);
       item = item.split('[[date]]').join(v['created_at']);
       item = item.split('[[referral_type]]').join(v['referral_type']);
       item = item.split('[[referral_name]]').join(v['first_name'] + ' ' + v['last_name']);
@@ -40,20 +42,22 @@ $.ajax(settings).done(function (response) {
 });
 
 $(document).ready(function(){
-
-
   $('#next').click(function() {
     if ($('#step-1').css('display') == 'block') {
 
-      var fields = ['first_name', 'last_name', 'email', 'phone_number', 'street_address',
-        'city', 'zipcode', 'price_min', 'price_max', 'referral_fee_percentage',
-        'acceptance_deadline', 'notes', 'referral_type'];
+      var fields = ['first_name', 'last_name', 'email', 'phone_number',
+        'city', 'price_min', 'price_max', 'referral_fee_percentage',
+        'acceptance_deadline', 'referral_type'];
 
       //var data = {};
 
       $.each(fields, function(k, v) {
         form_data[v] = $('#'+v).val();
       });
+      
+      form_data['acceptance_deadline'] = acceptance_deadline_hour;
+      form_data['price_min'] = form_data['price_min'].replace(/\D/g,'');
+      form_data['price_max'] = form_data['price_max'].replace(/\D/g,'');
 
       var buyer_required_fields = ['first_name', 'last_name', 'email', 'phone_number', 'price_min', 'price_max', 'referral_fee_percentage', 'acceptance_deadline'];
 
@@ -122,7 +126,7 @@ $(document).ready(function(){
                     v['agent_full_name'] + ` (` + v['agent_state'] + `)
                   </label>
                 </div>
-                <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['screen_name'] + `">View Profile</a></div>
+                <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['agent_slug'] + `">View Profile</a></div>
               </div>`);
             });
           });
@@ -144,7 +148,7 @@ $(document).ready(function(){
           dangerMode: true,
         });
       } else {
-        data['acceptance_deadline'] = formatDate(form_data['acceptance_deadline'])
+        data['acceptance_deadline'] = acceptance_deadline_hour;
         form_data['owner'] = profile_id;
 
         $.each(form_data['agent_ids'], function(k, v){
@@ -155,7 +159,7 @@ $(document).ready(function(){
           $.ajax(settings).done(function(response){
             result = JSON.parse(response);
             console.log(result);
-            window.location = result['sign_url'] + '?redirect_uri=https://agentstat.com/referrals/';
+            window.location = result['sign_url'] + '?redirect_uri=https://agentstat.com/referrals/?';
           });
 
         });
@@ -166,7 +170,7 @@ $(document).ready(function(){
       if($('input[name=agreement]:checked').val() == 'standart') {
         console.log('post form');
         //formatted_date = nform_data['acceptance_deadline']);
-        data['acceptance_deadline'] = formatDate(form_data['acceptance_deadline'])
+        data['acceptance_deadline'] = acceptance_deadline_hour;
         form_data['owner'] = profile_id;
 
         $.each(form_data['agent_ids'], function(k, v){
@@ -237,7 +241,7 @@ $(document).ready(function(){
               v['agent_full_name'] + ` (` + v['agent_state'] + `)
             </label>
           </div>
-          <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['screen_name'] + `">View Profile</a></div>
+          <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['agent_slug'] + `">View Profile</a></div>
         </div>`);
       });
 
@@ -262,7 +266,78 @@ $(document).ready(function(){
     $valueSpan.html($value.val()+'%');
   });
 
+  const $valueSpan3 = $('.valueSpan3');
+  const $value3 = $('#acceptance_deadline');
+  $valueSpan3.html($value3.val());
+  $value3.on('input change', () => {
+    var val = $value3.val();
+    switch(val) {
+      case '1':
+        text = "1 hour";
+        acceptance_deadline_hour = 1;
+        break;
+      case '2':
+        text = "3 hours";
+        acceptance_deadline_hour = 3;
+        break;
+      case '3':
+        text = "6 hours";
+        acceptance_deadline_hour = 6;
+        break;
+      case '4':
+        text = "12 hours";
+        acceptance_deadline_hour = 12;
+        break;
+      case "5":
+        text = "24 hours";
+        acceptance_deadline_hour = 24;
+        break;
+      case '6':
+        text = "48 hours";
+        acceptance_deadline_hour = 48;
+        break;
+      case '7':
+        text = "3 days";
+        acceptance_deadline_hour = 72;
+        break;
+      case '8':
+        text = "7 days";
+        acceptance_deadline_hour = 168;
+        break;
 
+      default:
+        text = "1 hour";
+    }
+    $valueSpan3.html(text);
+  });
+
+
+  $("#phone_number").inputmask({"mask": "(999) 999-9999"});
+
+  $("input.number").inputmask('decimal', {
+    'groupSeparator': ',',
+    'autoGroup': true,
+    'digits': 2,
+    'prefix': '$ ',
+    'placeholder': '',
+    'rightAlign':false,
+
+  });
+
+  $('textarea').keyup(function() {
+  
+    var characterCount = $(this).val().length,
+        current = $('#current'),
+        maximum = $('#maximum'),
+        theCount = $('#the-count');
+    current.text(characterCount);
+        
+  });
+
+  $(document).on('click', '.show-detail', function(){
+    var id = $(this).data('id');
+    $('#row-'+id).slideToggle( );
+  });
 
 });
 
