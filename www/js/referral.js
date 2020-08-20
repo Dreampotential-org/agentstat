@@ -319,7 +319,9 @@ $(document).ready(function(){
     'autoGroup': true,
     'digits': 2,
     'prefix': '$ ',
-    'placeholder': ''
+    'placeholder': '',
+    'rightAlign':false,
+
   });
 
   $('textarea').keyup(function() {
