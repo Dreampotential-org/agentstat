@@ -12,14 +12,16 @@ var referral_item = `
     <td>[[referral_fee]]</td>
     <td>[[price]]</td>
     <td onclick="event.stopPropagation()">
-        <select name="status" class="selectStatus">
-            <option value="sent-referral">Sent Referral</option>
-            <option value="accepted-referral">Accepted Referral</option>
-            <option value="active">Active</option>
-            <option value="pending">Pending</option>
-            <option value="closed">Closed</option>
-            <option value="canceled">Canceled</option>
-        </select>
+        <div class="status-holder">
+            <select name="status" class="selectStatus">
+                <option value="sent-referral">Sent Referral</option>
+                <option value="accepted-referral">Accepted Referral</option>
+                <option value="active">Active</option>
+                <option value="pending">Pending</option>
+                <option value="closed">Closed</option>
+                <option value="canceled">Canceled</option>
+            </select>
+        </div>
     </td>
 </tr>
 <tr>

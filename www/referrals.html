@@ -67,6 +67,7 @@
             }
             .customeTableBorder{
                 border: none !important;
+                margin-top: 20px;
             }
             .newReferral{
                 text-align: end;
@@ -151,16 +152,11 @@
         <!-- header-area end -->
 
         <div class="container page-container">
-            <hr>
-            <div class="pth-all-heading">
-                <br>
-            </div>
-
-            <table class="table table-bordered table-hover customeTableBorder">
+            <table class="table table-bordered table-hover customeTableBorder darkborder">
                 <thead>
                     <tr>
                         <th scope="col" class="tableHead"><a href="/referrals/?received=true">Received</a></th>
-                        <th scope="col" class="tableHead"><a href="/referrals/">Sent</a></th>
+                        <th scope="col" class="tableHead sent-tab"><a href="/referrals/">Sent</a></th>
                         <th colspan="6" class="newReferral">
                           <button id="referralBtn" class="btn" type="button" data-toggle="modal" data-target="#myModal">+ Send New Referral</button>
                         </th>
@@ -484,7 +480,7 @@ $("#referralBtn").click(function(){
     
               <div class="row" style="margin-top:5px;">
     
-                <div class='col-lg-4' style="padding-left: 0;">
+                <div class='col-lg-4'>
                   <select name='state' style="width: 100%;height:38px; padding:9px 10px;border: 1px solid #a7a7a7;" >
                     <option value='AK'>AK</option>
                     <option value='AL'>AL</option>
