@@ -61,6 +61,14 @@ server {
             try_files $uri $uri/ /login.html;
         }
 
+        location /sign-in/ {
+            try_files $uri $uri/ /login.html;
+        }
+
+        location /create-account/ {
+            try_files $uri $uri/ /login.html;
+        }
+
         location /howsearchworks/ {
             try_files $uri $uri/ /howsearchworks.html;
         }

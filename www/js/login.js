@@ -129,4 +129,13 @@ $(document).ready(function() {
     $('[href="#nav-profile"]').tab('show');
     $("#category").val("secondoption");
   }
+
+
+  var pathnameSplit = window.location.pathname.split("/");
+  if (pathnameSplit[1] == 'create-account' && pathnameSplit[2] != '') {
+    localStorage.setItem("connect_profile", pathnameSplit[2]);
+  } else {
+    localStorage.setItem("connect_profile", null);
+  }
+
 });

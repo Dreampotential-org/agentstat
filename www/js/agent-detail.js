@@ -112,7 +112,7 @@ function load_agent(ignore_city = true) {
       $(".claim_profile").attr("onclick", "javascript: return false");
 
     } else {
-      $(".claim_profile").attr("href", "/login/?agent_id=" + agent_id)
+      $(".claim_profile").attr("href", "/sign-in/?agent_id=" + agent_id)
     }
   }
 
@@ -234,8 +234,8 @@ function load_agent(ignore_city = true) {
     }
     else {
       $('#claim_wrapper').css('display', 'inline-block');
-      if (localStorage.getItem('session_id')) {
-        $('#claim_wrapper a').attr('href', '/connect-profile.html')
+      if (!localStorage.getItem('session_id')) {
+        $('#claim_wrapper a').attr('href', '/create-account/'+agent_id)
       }
     }
 

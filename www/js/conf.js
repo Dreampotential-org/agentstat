@@ -66,13 +66,13 @@ function is_loggon() {
   session_id = localStorage.getItem('session_id');
   email = localStorage.getItem('email');
   if(session_id === null) {
-    window.location = '/login/';
+    window.location = '/sign-in/';
   }
 
   call_api(
     function(res) {
       if (res == false) {
-        window.location = '/login/';
+        window.location = '/sign-in/';
       }
       $('#profile-views').text(res['profile_views']);
       $('.agent-name').text(res['first_name'] + ' '  + res['last_name']);
@@ -88,7 +88,7 @@ function claim_api(agent_id) {
 
     $.ajax(settings).done(function (response) {
         var msg = JSON.parse(response);
-        console.log(msg)
+        localStorage.setItem("connect_profile", null);
         window.location = '/profile-settings/';
     }).fail(function(err) {
         // alert('Got err');

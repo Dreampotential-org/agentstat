@@ -130,10 +130,12 @@ function get_agent_html(agent) {
   console.log(agent)
   var profile_link = '/page-three.html?agent_id=' + agent['agent_id']
   var link = ''
+
+  var brokerage_name = agent['agent_brokerage_info'].split(/\r?\n/)[0];
   if ((agent['claimed'])) {
     link = (
       "<a target='_blank' href='" + profile_link + "'>" +
-        "<input type='radio' name='claim-agent'>" + agent['agent_full_name'] + ' (Profile claimed)' +
+        "<input type='radio' name='claim-agent'>" + agent['agent_full_name']+ ' - ' + brokerage_name + ' (Claimed)' +
         "<br>" +
       "</a>"
     );
@@ -141,7 +143,7 @@ function get_agent_html(agent) {
     link = (
       "<a target='_blank' href='" + profile_link + "'>" +
         "<input type='radio' name='select-agent' value=" +
-            agent['agent_id'] + ">" + agent['agent_full_name'] +
+            agent['agent_id'] + ">" + agent['agent_full_name'] + ' - ' + brokerage_name +
         "<br>" +
       "</a>"
     );

@@ -608,7 +608,7 @@ $.each(combo_boxes, function (k, val) {
 if (localStorage.getItem('session_id')) {
   get_profile(function (resp) { display_profile(resp) });
 } else {
-  window.location = '/login/';
+  window.location = '/sign-in/';
 }
 
 
@@ -688,7 +688,9 @@ $(document).ready(function () {
   //   $('#review-msg').html(err)
   // });
 
-
+  if (localStorage.getItem("connect_profile") !== null) {
+    claim_api(localStorage.getItem("connect_profile"));
+  }
 });
 
 $(document).on('change click', '#review-add-btn', function () {
@@ -997,7 +999,7 @@ $('#save_password_btn').click(function(){
       show_message('SUCCESS! Your password has been successfully changed.', 6000);
       setTimeout(function(){ 
         localStorage.clear();
-        window.location = '/login/';
+        window.location = '/sign-in/';
       }, 6000);
     }
   }).fail(function(err) {
