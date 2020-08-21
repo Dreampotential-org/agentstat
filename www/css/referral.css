@@ -193,9 +193,24 @@ input:focus
     line-height: 20px;
     margin: 6px 0 0;
 }
+.popup-row {
+    margin-top: 10px;
+}
+#referral_fee_percentage {
+    width: 85%;
+}
+#acceptance_deadline {
+    width: 80%;
+}
+#the-count {
+    padding: 0 !important;
+}
 @media (min-width: 576px){
 .modal-dialog {
     max-width: 700px;
     margin: 1.75rem auto;
     }
 }
+
+
+
