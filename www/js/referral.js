@@ -120,13 +120,20 @@ $(document).ready(function(){
 
               $('#agents').append(`
               <div class="row">
-                <div class="col-lg-1"> <input name='selected_agents' value="` + v['agent_id'] + `" type="checkbox" id="agent-` + v['id'] + `"></div>
-                <div class="col-lg-7">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"> <input name='selected_agents' value="` + v['agent_id'] + `" type="checkbox" id="agent-` + v['id'] + `"></div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                  <span class="agen-name">Agent Name<span/><br>
                   <label for="agent-` + v['agent_id'] + `">` +
                     v['agent_full_name'] + ` (` + v['agent_state'] + `)
                   </label>
                 </div>
-                <div class="col-log-4"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['agent_slug'] + `">View Profile</a></div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                  <span>100%</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                  <span>100%</span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding:0;"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['agent_slug'] + `">View Profile</a></div>
               </div>`);
             });
           });

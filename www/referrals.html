@@ -92,6 +92,7 @@
                 color: #3276b1;
                 background-color: #fff;
             }
+            
 
         </style>
 
@@ -308,43 +309,43 @@ $("#referralBtn").click(function(){
               <div class="col-lg-12">Client Contact Information</div>
             </div>
     
-            <div class="row" style="margin-top:10px;">
-              <div class="col-lg-6">
+            <div class="row" >
+              <div class="col-lg-6" style="margin-top:15px;">
                 <input type="text" placeholder="First Name" id="first_name" style="width: 100%">
               </div>
-              <div class="col-lg-6">
+              <div class="col-lg-6" style="margin-top:15px;">
                 <input type="text" placeholder="Last Name" id="last_name" style="width: 100%">
               </div>
             </div>
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:15px;">
               <div class="col-lg-12">
                 <input type="text" placeholder="Email" id="email" style="width: 100%">
               </div>
             </div>
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:15px;">
               <div class="col-lg-12">
                 <input type="text" placeholder="Phone Number" id="phone_number" style="width: 100%">
               </div>
             </div>
     
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:15px;">
               <div class="col-lg-12">
                 Address <span class="Buyer-info">( if buyer, enter closest major city )</span>
               </div>
             </div>
     
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:15px;">
               <div class="col-lg-12">
                 <input type="text"  placeholder="Street Address" style="width: 100%"
                 id="street_address">
               </div>
             </div>
     
-            <div class="row" style="margin-top:10px;">
-              <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-6" style="margin-top:15px;">
                 <input type="text"  placeholder="City" style="width:100%" id="city">
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-3" style="margin-top:15px;" >
                 <!-- <input type="text"  placeholder="State" style="width:80%"
                   id="state"> -->
                   <select name='state' style="width: 100%;">
@@ -409,52 +410,52 @@ $("#referralBtn").click(function(){
                   </select>
     
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-3" style="padding-left: 0;margin-top:15px;">
                 <input type="text"  placeholder="Zipcode" style="width:100%" id="zipcode">
               </div>
             </div>
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:15px;">
               <div class="col-lg-6">
                 <span style="width: 100%;" class="Buyer-info">Price min</span>
                 <input type="text" class="number" placeholder="Min" style="width:100%" id="price_min">
               </div>
               <div class="col-lg-6">
                 <span style="width: 100%;" class="Buyer-info">Price max</span>
-                <input type="text" class="number" placeholder="Max" style="width:92%" id="price_max">
+                <input type="text" class="number" placeholder="Max" style="width:100%" id="price_max">
               </div>
             </div>
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:15px;">
               <div class="col-lg-12">
                 Referral Fee
               </div>
-              <div class="col-lg-11">
+              <div class="col-lg-12">
                 <input type="range" class="custom-range" id="referral_fee_percentage">
               </div>
-              <div class="col-log-1">
+              <div class="col-log-12">
                 <span class="font-weight-bold text-primary ml-2 valueSpan2">50%</span>
               </div>
             </div>
 
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:15px;">
               <div class="col-lg-12">
                 Acceptance Deadline
               </div>
-              <div class="col-lg-11">
+              <div class="col-lg-12">
                 <input type="range" class="custom-range" id="acceptance_deadline" value="1" min="1" max="8" step="1">
               </div>
-              <div class="col-log-1">
+              <div class="col-log-12">
                 <span class="font-weight-bold text-primary ml-2 valueSpan3">1 hour</span>
               </div>
             </div>
-            <!-- <div class="row" style="margin-top:10px;">
+            <!-- <div class="row" style="margin-top:15px;">
               <div class="col-lg-12">
                 <input type="date"  placeholder="Acceptance Deadline" style="width:96%" id="acceptance_deadline">
               </div>
             </div> -->
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:15px;">
               <div class="col-lg-12">
                 <!-- <input type="text"  placeholder="Notes" style="width:96%" id="notes"> -->
-                <textarea name="the-textarea" id="the-textarea" maxlength="3000" placeholder="Notes"autofocus></textarea>
+                <textarea name="the-textarea" id="the-textarea" maxlength="3000" placeholder="write a message"autofocus></textarea>
                 <div id="the-count">
                   <span id="current">0</span>
                   <span id="maximum">/ 3000</span>
@@ -476,16 +477,16 @@ $("#referralBtn").click(function(){
     
             <div id="step-2" style="display: none">
     
-              <div class="row" style="margin-top:10px;">
+              <div class="row" style="margin-top:0px;">
                 <div class="col-lg-12">
-                  Select Your Agent:
+                  <h3>Select Your Agent(s):<h3/>
                 </div>
               </div>
     
-              <div class="row" style="margin-top:10px;">
+              <div class="row" style="margin-top:5px;">
     
-                <div class='col-lg-4'>
-                  <select name='state' style="width: 100px; height: 30px" >
+                <div class='col-lg-4' style="padding-left: 0;">
+                  <select name='state' style="width: 100%;height:38px; padding:9px 10px;border: 1px solid #a7a7a7;" >
                     <option value='AK'>AK</option>
                     <option value='AL'>AL</option>
                     <option value='AR'>AR</option>
@@ -545,19 +546,36 @@ $("#referralBtn").click(function(){
                     <option value='WY'>WY</option>
                   </select>
                 </div>
-                <div class="col-lg-8">
-                  <input type="text" id="agent-search" placeholder="Search by agent name or referral location" style="width:96%">
+                <div class="col-lg-8" style="margin-bottom:15px;">
+                  <input type="text" id="agent-search" placeholder="Search by agent name or referral location" style="width:100%;height:40px;border: 1px solid #a7a7a7; ">
                 </div>
-    
+                <div class="header-setp2">
+                  <div class="col-lg-12" style="border-color: #a7a7a7;">
+                    <div class="row" >
+                      
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                       <h3>Success Rate:</h3>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding-left: 0;">
+                       <h3>Overall</h3>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding-left: 0;">
+                       <h3>Seattle</h3>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                      
+                     </div>
+                    </div>
+                  </div>
+
+                </div>
                 <div class="col-lg-12">
                   <div id="agents" style="height: 200px; padding: 20px; overflow-y: scroll">
     
                   </div>
                 </div>
-    
               </div>
-    
-    
+             
             </div> <!-- step-2 end -->
     
             <div id="step-3" style="display: none">
@@ -587,7 +605,9 @@ $("#referralBtn").click(function(){
           </div>
     
           <div class="modal-footer">
-            <button type="button" id='next' class="btn btn-primary">Next</button>
+              <div class="nextstep-btn">
+                <button type="button" id='next' class="btn btn-primary">Next</button>
+              </div>
           </div>
         </div>
     </div>

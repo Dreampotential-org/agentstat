@@ -13,7 +13,7 @@
 #referralModal  input,#referralModal  select,#referralModal  optgroup, #referralModal  textarea{
     height: 43px;
     padding:10px;
-    color: #6c6b6c;
+    color: #a7a7a7;
     border: 1px solid #eee;
     border-radius: 6px;
 }
@@ -49,9 +49,58 @@ span.Buyer-info{
     width:100%;
     resize: none;
     margin: 0;
+    overflow:hidden;
+}
+/* step 2 popup css starts here */
+#referralModal h3{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+}
+#referralModal .header-setp2 {
+    width: 100%;
+    margin: 0 15px;
+    padding: 5px 0 0;
+    border: 1px solid #a7a7a7;
+}
+#referralModal div#agents{
+    border: 1px solid #a7a7a7;
+    border-top: 0;
+}
+#referralModal div#agents a{
+    color: #1ba3e5;
+    font-size: 14px;
 }
 #referralModal .modal-footer{
     border-top: none;
+}
+.modal-title {
+    color:#3a3a3a;
+}
+#referralModal span.font-weight-bold.text-primary.ml-2.valueSpan2,
+#referralModal span.font-weight-bold.text-primary.ml-2.valueSpan3,
+#referralModal #step-1 div#the-count{
+    padding: 0 0 0 10px;
+}
+.custom-range{
+    height: 5px !important;
+    padding: 0 !important;
+    border:none !important;
+}
+#referralModal .nextstep-btn {
+    width: 100%;
+    text-align: center;
+}
+#referralModal .nextstep-btn .btn-primary {
+    border-color: #b6eeaf;
+    background: #b6eeaf;
+    color: #000;
+    font-weight: 700;
+    padding: 3px 30px;
+}
+.social-login a:first-child{
+    background: #1799a6;
+    position: relative;
 }
 /* progressbar style */
 .slider-wrapper {
@@ -118,4 +167,35 @@ input:focus
     outline:0px !important;
     -webkit-appearance:none;
     box-shadow: none !important;
+}
+#referralModal .modal-dialog{
+    max-width: 580px !important;
+}
+#referralModal span.agen-name {
+    font-size: 19px;
+    display: inline-block;
+    line-height: 21px;
+    font-weight: 700;
+    color: #3a3a3a;
+}
+#referralModal label{
+    font-size: 14px;
+    font-weight: normal;
+}
+#referralModal .modal-body{
+    color:#3a3a3a;
+}
+#referralModal input[type='checkbox']{
+    height: auto;
+    padding: 0;
+    width: 40px;
+    height: 17px;
+    line-height: 20px;
+    margin: 6px 0 0;
+}
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
+    }
 }
