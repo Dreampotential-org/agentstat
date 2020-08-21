@@ -22,7 +22,7 @@
 
     <!-- Fav Icon -->
     <link rel="icon" href="/img/fav.png" />
-
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="/css/fileinput.css" rel="stylesheet" type="text/css">
 
     <!-- Include Owl-Carusol -->
@@ -41,6 +41,9 @@
     <!-- Common css for all pages -->
     <link rel="stylesheet" href="/css/common.css" />
 
+    <!-- Page css for all pages -->
+    <link rel="stylesheet" href="/css/login.css" />
+
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 
@@ -53,16 +56,6 @@
 
 
 </head>
-<style>
-   .error{
-    color: red;
-    font-size: smaller;
-    text-align: center;
-   }
-   .swal-modal {
-     margin-top: -100px;
-   }
-</style>
 
 <body>
     <!--[if lte IE 9]>
@@ -206,12 +199,13 @@
             Log In To Your AgentStat Account
         </h3> -->
         <form action="" method="post" class="body_color">
+           <div class="signup-holder">
             <nav>
                 <div class="nav nav-tabs custom_log_abs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                        aria-controls="nav-home" aria-selected="false">Sign In</a>
+                        aria-controls="nav-home" aria-selected="false" style="display: none;">Sign In</a>
                     <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                        aria-controls="nav-profile" aria-selected="true">New Account</a>
+                        aria-controls="nav-profile" aria-selected="true">Creat Account</a>
                 </div>
             </nav>
 
@@ -248,28 +242,29 @@
                         <div class="form-group">
                             <div class = "social-login">
 
-                              <a href="http://app.agentstat.com/accounts/facebook/login/">Facebook Login</a> </br>
-                              <a href="http://app.agentstat.com/accounts/google/login/">Google Login</a>
+                              <a href="http://app.agentstat.com/accounts/facebook/login/">Continue With Facebook</a> </br>
+                              <a href="http://app.agentstat.com/accounts/google/login/">Continue With Google</a>
 
                               <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
                             </div>
 
 
-                            <div id="status">
+                            <!-- <div id="status">
                             </div>
 
                             <div class="form-group text-center">
                                 <button  id="continuebtn1" value="Submit"
                                     class="btn login-btn buttonLogin">Sign Up</button>
-                            </div>
+                            </div> -->
                     </form>
 
                     <div class="clearfix text-center">
-                        <a href="#" class="pull-right continutxt" id="forgot-password">By continuing, you agree to
+                        <a href="#" class="continutxt" id="forgot-password">By continuing, you agree to
                             AgentStat’s Terms of Use</a>
                     </div>
                 </div>
             </div>
+           </div>
         </form>
 
     </div>

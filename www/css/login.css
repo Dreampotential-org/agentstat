@@ -1,0 +1,71 @@
+.error{
+    color: red;
+    font-size: smaller;
+    text-align: center;
+}
+.swal-modal {
+    margin-top: -100px;
+}
+.login-form form { 
+    box-shadow: none !important; border: none;
+}
+.login-form  .signup-holder {
+    border: 1px solid #8b8b8b;
+    padding: 5px 15px;
+}
+.social-login{
+    margin: 40px 0 30px;
+}
+.continutxt {
+    font-size: 13px;
+    font-weight: 500;
+}
+.social-login a{
+    margin:0 15px -5px;
+    border-radius: 3px;
+    display: block;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+    z-index: 0;
+    padding: 10px 30px 10px 45px;
+}
+.social-login a:first-child {
+    background: #3b5998;
+    color: #fff;
+}
+.social-login a:last-child {
+    background: transparent;
+    color: #fff;
+    color:#656565;
+    border: 1px solid #ccc;
+}
+.social-login a:first-child::after {
+    position: absolute;
+    content:'\f082 ';
+    font-family: 'Fontawesome';
+    top: 3px;
+    left: 55px;
+    font-size: 25px;
+    color: #fff;
+    font-weight: normal;
+    z-index: 1;
+}
+.social-login a:last-child::after {
+    position: absolute;
+    content:'\f1a0 ';
+    font-family: 'Fontawesome';
+    top: 8px;
+    left: 50px;
+    font-size: 18px;
+    color: #656565;
+    font-weight: normal;
+    z-index: 1;
+}
+@media (max-width: 767px){
+    .social-login a:first-child::after {
+        left: 40px;
+    }
+}
