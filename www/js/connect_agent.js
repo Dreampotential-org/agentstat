@@ -72,7 +72,7 @@ $('#submit_proof_btn').click(function() {
             icon: "success",
           }).then(function(isConfirm) {
           });
-          window.location = '/profile-settings/';
+          // window.location = '/profile-settings/';
 
       }).fail(function(err) {
           // alert('Got err');
