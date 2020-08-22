@@ -37,6 +37,12 @@
         <!-- Page css for all pages -->
         <link rel="stylesheet" href="/css/connect-profile.css" />
 
+        <script src="/js/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
+        <script src="https://cdn.rawgit.com/taromero/swal-forms/master/swal-forms.js"></script>
+
     </head>
 
     <body>
@@ -150,6 +156,116 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade " id="alreadyClaimedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+    <div class="modal-dialog  modalSignup" role="document">
+        <div class="modal-content" style="width: 650px;">
+            <div class="modal-body">
+                <h4><b>If you want to dispute the claim and provide proof of identity.</b></h4>
+                <br>
+                <div class="form">
+                    <div class="container">
+                        <div class="form-wrapper">
+                            <div id="want-claim" class="text-center">
+                                <button class="btn btn-success" type="button" id="want-claim-yes">Yes</button>
+                                <button class="btn btn-danger" type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">Cancel</button>
+                            </div>
+                            <div id="submit-proof-form" style="display: none">
+                                <div class="row h-100">
+                                    <div class="col-lg-6 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="display: none">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Full Name
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="full_name" class="form-control" type="text"
+                                                name="full_name" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Email
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="email" class="form-control" type="text" name="email" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Brokerage Name
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="brokerage-name" class="form-control" type="text"
+                                                name="brokerage_name" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Photo ID
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="picture" type="file" name="file" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Real Estate License
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="real-estate-license" type="file" name="file" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div><button id='submit_proof_btn' class="btn btn-warning"> Submit Proof</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <div id="claim-profile-form11"></div>
+
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
 
     <!-- Main jQuery -->

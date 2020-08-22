@@ -688,7 +688,7 @@ $(document).ready(function () {
   //   $('#review-msg').html(err)
   // });
 
-  if (localStorage.getItem("connect_profile") !== null) {
+  if (localStorage.getItem("connect_profile") !== null && localStorage.getItem("connect_profile") != 'null') {
     claim_api(localStorage.getItem("connect_profile"));
   }
 });

@@ -57,7 +57,7 @@ $('#submit_proof_btn').click(function() {
       form_data['id_picture'] = picture_base64;
       form_data['real_estate_license'] = picture_base64;
       form_data['full_name'] = $('#full_name').val();
-      form_data['email'] = $('#claim-email').val();
+      form_data['email'] = $('#email').val();
       form_data['brokerage_name'] = $('#brokerage-name').val();
 
       settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
@@ -166,5 +166,15 @@ function load_states() {
     show_error(err);
   });
 }
+
+$(document).on('click', '#already_claim_profile', function () {
+  $('#want-claim').css('display', 'none');
+  $('#submit-proof-form').css('display', 'block');
+});
+
+$(document).on('click', '#want-claim-yes', function () {
+  $('#want-claim').css('display', 'none');
+  $('#submit-proof-form').css('display', 'block');
+});
 
 window.addEventListener("DOMContentLoaded", init, false);
