@@ -121,6 +121,10 @@ function getParamUrlValue(key) {
   var agent_id = url.searchParams.get(key);
 }
 
+function activaTab(tab){
+  $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+};
+
 $(document).ready(function() {
   var url_string = window.location.href;
   var url = new URL(url_string);
@@ -138,5 +142,9 @@ $(document).ready(function() {
     //do nothing
   } else {
     localStorage.setItem("connect_profile", null);
+  }
+
+  if (pathnameSplit[1] == 'create-account') {
+    activaTab('nav-profile');
   }
 });
