@@ -58,12 +58,18 @@
     content:'\f1a0 ';
     font-family: 'Fontawesome';
     top: 8px;
-    left: 50px;
+    left: 60px;
     font-size: 18px;
     color: #656565;
     font-weight: normal;
     z-index: 1;
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
 }
+
 @media (max-width: 767px){
     .social-login a:first-child::after {
         left: 40px;
