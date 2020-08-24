@@ -236,7 +236,7 @@ function load_agent(ignore_city = true) {
     else {
       $('#claim_wrapper').css('display', 'inline-block');
       if (!localStorage.getItem('session_id')) {
-        $('#claim_wrapper a').attr('href', '/create-account/'+agent_id)
+        // $('#claim_wrapper a').attr('href', '/create-account/'+agent_id)
       }
     }
 
