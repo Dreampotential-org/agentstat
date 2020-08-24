@@ -239,6 +239,9 @@ function load_agent(ignore_city = true) {
         $('#claim_wrapper').css('display', 'inline-block');
         $('#claim_wrapper a').attr('href', '#')
         $('#claim_wrapper a').attr('agent-id', agent_id)
+      } else {
+        $('#claim_wrapper').css('display', 'inline-block');
+        $('#claim_wrapper a').attr('href', '/create-account/'+agent_id);
       }
     }
 
