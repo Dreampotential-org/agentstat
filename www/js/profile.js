@@ -15,7 +15,9 @@ function get_combo(callback, end_point) {
 
 
 function display_profile(profile) {
-  if (profile.connector === null) {
+  if (localStorage.getItem("connect_profile") !== null && localStorage.getItem("connect_profile") != 'null') {
+    claim_api(localStorage.getItem("connect_profile"));
+  } else if (profile.connector === null) {
     window.location = '/connect-profile.html'
     return false
   }
@@ -691,10 +693,6 @@ $(document).ready(function () {
   //   // show_error(err);
   //   $('#review-msg').html(err)
   // });
-
-  if (localStorage.getItem("connect_profile") !== null && localStorage.getItem("connect_profile") != 'null') {
-    claim_api(localStorage.getItem("connect_profile"));
-  }
 });
 
 $(document).on('change click', '#review-add-btn', function () {
