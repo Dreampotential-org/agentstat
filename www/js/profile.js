@@ -15,6 +15,10 @@ function get_combo(callback, end_point) {
 
 
 function display_profile(profile) {
+  if (profile.connector === null) {
+    window.location = '/connect-profile.html'
+    return false
+  }
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
   $('#email').val(profile.email);
