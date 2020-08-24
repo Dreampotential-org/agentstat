@@ -15,6 +15,7 @@ function get_combo(callback, end_point) {
 
 
 function display_profile(profile) {
+  console.log(profile.connector)
   if (profile.connector == 'null') {
     window.location = '/connect-profile.html'
     return false
