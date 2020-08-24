@@ -155,8 +155,8 @@
             <table class="table table-bordered table-hover customeTableBorder darkborder">
                 <thead>
                     <tr>
-                        <th scope="col" class="tableHead"><a href="/referrals/?received=true">Received</a></th>
-                        <th scope="col" class="tableHead sent-tab"><a href="/referrals/">Sent</a></th>
+                        <th scope="col" class="tableHead" style="width: 150px; max-width: 150px;padding: 8px 2px;"><a href="/referrals/?received=true">Received</a></th>
+                        <th scope="col" class="tableHead sent-tab" style="width: 150px; max-width: 150px;padding: 8px 2px;"><a href="/referrals/">Sent</a></th>
                         <th colspan="6" class="newReferral">
                           <button id="referralBtn" class="btn" type="button" data-toggle="modal" data-target="#myModal">+ Send New Referral</button>
                         </th>
@@ -164,9 +164,9 @@
                 </thead>
                 <tbody>
                     <tr class="titleHead">
-                        <td>Referral Agreement</td>
-                        <td>Date</td>
-                        <td>Type</td>
+                        <td style="width: 150px; max-width: 150px;min-width: 150px;padding: 8px 2px;"><span style="display: block; width: 150px; max-width: 150px;">Referral</span> Agreement</td>
+                        <td style="width: 150px; max-width: 150px;min-width: 150px">Date</td>
+                        <td style="width: 111px; max-width: 111px;">Type</td>
                         <td>Referral Name</td>
                         <td>Agent Name</td>
                         <td>Referral Fee</td>
@@ -423,6 +423,7 @@ $("#referralBtn").click(function(){
               <div class="col-lg-12">
                 <input type="range" class="custom-range" id="referral_fee_percentage">
                 <span class="font-weight-bold text-primary ml-2 valueSpan2">50%</span>
+                <span class="referal-slder"></span>
               </div>
             </div>
 
