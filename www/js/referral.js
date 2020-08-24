@@ -120,13 +120,17 @@ $(document).ready(function(){
               var brokerage_name = v['agent_brokerage_info'].split(/\r?\n/)[0];
               $('#agents').append(`
               <div class="row">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"> <input name='selected_agents' value="` + v['agent_id'] + `" type="checkbox" id="agent-` + v['id'] + `"></div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"> <label id="checkbox-holder">
+                <input name='selected_agents' value="` + v['agent_id'] + `" type="checkbox" id="agent-` + v['id'] + `">
+                <span class="checkmark"></span>
+              </label></div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                   <span class="agen-name">`+v['agent_full_name']+`<span/><br>
                   <label for="agent-` + v['agent_id'] + `">` +
                   brokerage_name + ` (` + v['agent_state'] + `)
                   </label>
                 </div>
+                
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                   <span>100%</span>
                 </div>
@@ -241,27 +245,28 @@ $(document).ready(function(){
       $.each(data['results'], function(k, v){
         var brokerage_name = v['agent_brokerage_info'].split(/\r?\n/)[0];
         $('#agents').append(`
-              <div class="row">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"> <input name='selected_agents' value="` + v['agent_id'] + `" type="checkbox" id="agent-` + v['id'] + `"></div>
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                  <span class="agen-name">`+v['agent_full_name']+`<span/><br>
-                  <label for="agent-` + v['agent_id'] + `">` +
-                  brokerage_name + ` (` + v['agent_state'] + `)
-                  </label>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                  <span>100%</span>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                  <span>100%</span>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding:0;"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['agent_slug'] + `">View Profile</a></div>
-              </div>`);
+        <div class="row">
+          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"> <label id="checkbox-holder">
+          <input name='selected_agents' value="` + v['agent_id'] + `" type="checkbox" id="agent-` + v['id'] + `">
+          <span class="checkmark"></span>
+        </label></div>
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+            <span class="agen-name">`+v['agent_full_name']+`<span/><br>
+            <label for="agent-` + v['agent_id'] + `">` +
+            brokerage_name + ` (` + v['agent_state'] + `)
+            </label>
+          </div>
+          
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <span>100%</span>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <span>100%</span>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding:0;"><a target='_blank' href="/profile/` + v['agent_state'] + `/` + v['agent_slug'] + `">View Profile</a></div>
+        </div>`);
       });
-
     });
-
-
   });
 
   $('#radioBtn a').on('click', function(){
@@ -282,41 +287,58 @@ $(document).ready(function(){
 
   const $valueSpan3 = $('.valueSpan3');
   const $value3 = $('#acceptance_deadline');
+
   $valueSpan3.html($value3.val());
-  $value3.on('input change', () => {
+  $value3.on('input change', () =>
+   {
     var val = $value3.val();
     switch(val) {
       case '1':
         text = "1 hour";
         acceptance_deadline_hour = 1;
+        $( ".borcolor" ).removeClass( "bg-border" );
         break;
       case '2':
         text = "3 hours";
         acceptance_deadline_hour = 3;
+        $( ".borcolor" ).addClass( "bg-border" );
+        $( ".borcolor" ).removeClass( "bg-border1" );
         break;
       case '3':
         text = "6 hours";
         acceptance_deadline_hour = 6;
+        $( ".borcolor" ).addClass( "bg-border1" );
+        $( ".borcolor" ).removeClass( "bg-border2" );
         break;
       case '4':
         text = "12 hours";
         acceptance_deadline_hour = 12;
+        $( ".borcolor" ).addClass( "bg-border2" );
+        $( ".borcolor" ).removeClass( "bg-border3" );
         break;
+        
       case "5":
         text = "24 hours";
         acceptance_deadline_hour = 24;
+        $( ".borcolor" ).addClass( "bg-border3" );
+        $( ".borcolor" ).removeClass( "bg-border4" );
         break;
       case '6':
         text = "48 hours";
         acceptance_deadline_hour = 48;
+        $( ".borcolor" ).addClass( "bg-border4" );
+        $( ".borcolor" ).removeClass( "bg-border5" );
         break;
       case '7':
         text = "3 days";
         acceptance_deadline_hour = 72;
+        $( ".borcolor" ).addClass( "bg-border5" );
+        $( ".borcolor" ).removeClass( "bg-border6" );
         break;
       case '8':
         text = "7 days";
         acceptance_deadline_hour = 168;
+        $( ".borcolor" ).addClass( "bg-border6" );
         break;
 
       default:
