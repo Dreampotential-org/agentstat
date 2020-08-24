@@ -235,8 +235,10 @@ function load_agent(ignore_city = true) {
     }
     else {
       $('#claim_wrapper').css('display', 'none');
-      if (!localStorage.getItem('session_id')) {
-        // $('#claim_wrapper a').attr('href', '/create-account/'+agent_id)
+      if (localStorage.getItem('session_id')) {
+        $('#claim_wrapper').css('display', 'inline-block');
+        $('#claim_wrapper a').attr('href', '#')
+        $('#claim_wrapper a').attr('agent-id', agent_id)
       }
     }
 
@@ -312,6 +314,16 @@ function load_agent(ignore_city = true) {
 }
 
 
+$(document).ready(function () {
+    $('#claim_wrapper a').bind('click', function () {
+        // alert($("#uid").val());
+      agnet_id = $('#claim_wrapper a').attr('agent_id')
+      console.log('XXXXX')
+      console.log(agent_id)
+      console.log('XXXXX')
+        
+    });
+});
 
 $(document).on('change click', '#leads-start div>ul>li>a', function () {
   leads = {};
