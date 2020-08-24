@@ -316,11 +316,13 @@ function load_agent(ignore_city = true) {
 
 $(document).ready(function () {
     $('#claim_wrapper a').bind('click', function () {
-        // alert($("#uid").val());
       agnet_id = $('#claim_wrapper a').attr('agent_id')
-      console.log('XXXXX')
-      console.log(agent_id)
-      console.log('XXXXX')
+      data = {'agent_id': agent_id}
+      settings = get_settings('claim/', 'POST', JSON.stringify(data));
+
+      $.ajax(settings).done(function (response) {
+        window.location = '/profile-settings/'
+      });
         
     });
 });
