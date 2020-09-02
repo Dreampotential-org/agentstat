@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/bootstrap.css" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
+<!-- Page CSS -->
+<link href="/css/reclaim-proof.css" rel="stylesheet">
+</head>
+<body>
+    <div class="form claim-form" >
+        <div class="container">
+            <div class="form-wrapper">
+                <h4><b>If you want to dispute the claim and provide proof of identity.</b></h4>
+                <div class="input-box">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-3">
+                            <div class="file-left">
+                                <p id="lebel">Full Name
+                                    <span id="start">*</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-sm-9">
+                            <div class="file-right">
+                                <input id="full_name" class="form-control" placeholder="Your Name" type="text"
+                                    name="full_name" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-3">
+                            <div class="file-left">
+                                <p id="lebel">Email
+                                    <span id="start">*</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-sm-9">
+                            <div class="file-right">
+                                <input id="email" class="form-control" placeholder="Your Email" type="text" name="email" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-3">
+                            <div class="file-left">
+                                <p id="lebel">Phone #
+                                    <span id="start">*</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-sm-9">
+                            <div class="file-right">
+                                <input id="phone" class="form-control" placeholder="Your Phone #" type="text" name="phone" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-3">
+                            <div class="file-left">
+                                <p id="lebel">Brokerage Name
+                                    <span id="start">*</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-sm-9">
+                            <div class="file-right">
+                                <input id="brokerage-name" class="form-control" placeholder="Brokerage Name" type="text"
+                                    name="brokerage_name" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-3">
+                            <div class="file-left">
+                                <p id="lebel">Photo ID
+                                    <span id="start">*</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-sm-9">
+                            <div class="file-right">
+                                <input id="picture" type="file" name="file" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-3">
+                            <div class="file-left">
+                                <p id="lebel">Real Estate License
+                                    <span id="start">*</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-sm-9">
+                            <div class="file-right">
+                                <input id="real-estate-license" type="file" name="file" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="claim-submit">
+                    <button id='submit_proof_btn' class="btn btn-warning"> Submit Proof</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/popper.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+<script src="/js/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.rawgit.com/taromero/swal-forms/master/swal-forms.js"></script>
+
+<!-- Input Masking -->
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+
+<script src="/js/conf.js"></script>
+<script src="/js/common.js"></script>
+<!-- Page JS -->
+<script src="/js/reclaim-proof.js"></script>
+</body>
+</html>

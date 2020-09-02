@@ -84,5 +84,9 @@ server {
         location /connect-profile/ {
             try_files $uri $uri/ /connect-profile.html;
         }
+
+        location /reclaim-proof/ {
+            try_files $uri $uri/ /reclaim-proof.html?$uri;
+        }
         
 }
