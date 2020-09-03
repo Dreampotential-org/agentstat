@@ -57,6 +57,7 @@ $(document).on('change click', '.notebtn', function(){
   data = {}
   data['agent_list'] = data_id;
   data['note'] = $('#note-'+data_id).val();
+  data['agent_profile_id'] = localStorage.getItem('profile_id');
   console.log(data);
 
   api_call_url = 'agent-list-note/' + agent_list_id + '/';
