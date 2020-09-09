@@ -88,9 +88,11 @@ $(document).on('change click', '#save-transaction', function(){
   data['sold_date'] = $('#sold_date').val()
   data['list_price_int'] = $('#list_price_int').val()
   data['sold_price_int'] = $('#sold_price_int').val()
-
+  data['represented'] = $('#inputState').val()
   data['beds'] = $('#beds').val()
   data['baths'] = $('#baths').val()
+  data['record_type'] = 'agentstat';
+  data['record_status'] = 'pending';
 
   var completeAddr = data['address_text']+', '+data['city']+', '+data['state']+', '+data['zipcode'];
   var coordinates = getCoordinates(completeAddr);
