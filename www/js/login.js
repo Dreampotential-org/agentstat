@@ -16,7 +16,7 @@ if (hash) {
     localStorage.profile_id = data['profile_id'];
     localStorage.agent_id = data['agent_id'];
     localStorage.role = data['role'];
-    window.location = '/profile-settings/';
+    // window.location = '/profile-settings/';
   }).fail(function(err) {
     // alert('Got err');
     console.log(err);
