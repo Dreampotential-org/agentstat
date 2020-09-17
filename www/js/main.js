@@ -9,7 +9,7 @@ function fillIn() {
     var search_data = {};
     search_data['street_address'] = place.formatted_address
     for(var address_comp of place.address_components) {
-      console.log(address_comp.types)
+      // console.log(address_comp.types)
       if (address_comp.types[0] == "administrative_area_level_1") {
           search_data['state'] = address_comp.short_name
       }
@@ -22,7 +22,7 @@ function fillIn() {
     }
     search_data['email'] =  localStorage.email
     search_data['user_agent'] = navigator.userAgent
-    search_log(search_data);
+    // search_log(search_data);
 
 
     var results = getSearchParams(place)
@@ -272,7 +272,8 @@ function redirectResults(results) {
 function getSearchParams(place) {
     console.log(place)
     var params = {}
-    if (!('scope' in place) && 'name' in place) {
+    if (!('scope' in place) && 'name' in place &&
+        $("#y-address").text().trim() == "Agent Name") {
         params['agent_name'] = place.name
         params['search_input'] = place.name
         return params
@@ -294,6 +295,8 @@ function getSearchParams(place) {
     params['lat'] = place.geometry.location.lat()
     params['lng'] = place.geometry.location.lng()
 
+    // XXX delete not sure why we need to store in localstorage.
+    // Probably this logic can be removed
     localStorage.search_address = params['search_input'];
     localStorage.search_state = params['state'];
     localStorage.search_city = params['city'];
