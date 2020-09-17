@@ -91,7 +91,7 @@ $(document).on('change click', '#save-transaction', function(){
   data['represented'] = $('#inputState').val()
   data['beds'] = $('#beds').val()
   data['baths'] = $('#baths').val()
-  data['record_type'] = 'agentstat';
+  data['record_type'] = 2;
   data['record_status'] = 'pending';
 
   var completeAddr = data['address_text']+', '+data['city']+', '+data['state']+', '+data['zipcode'];
