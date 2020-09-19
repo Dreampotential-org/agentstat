@@ -1157,3 +1157,8 @@ video {
     .pager-area .next:hover {
       opacity: 0.8; }
 /*# sourceMappingURL=main.css.map */
+@media (max-width: 767px) {
+  .first-video {
+    margin: auto !important;
+  }
+}
