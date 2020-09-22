@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AgentStat - fb link test</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '592122241709772',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v8.0'
+      });
+    };
+  </script>
+
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+  <script>
+    function init() {
+      $("#test").on('click', function() {
+        // https://developers.facebook.com/docs/facebook-login/web/
+       /*
+        FB.login(function(response) {
+        // handle the response
+        }, {scope: 'public_profile,email'});
+        */
+        alert("fb login start")
+      })
+    }
+
+    window.addEventListener("DOMContentLoaded", init, false);
+  </script>
+
+</head>
+<body>
+  <button id='test'>Grant AgentStat permission to syndicate</button>
+
+</body>
+</html>
