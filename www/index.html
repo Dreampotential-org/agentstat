@@ -48,6 +48,16 @@
 
         <!-- Page CSS -->
         <link rel="stylesheet" href="css/index.css" />
+        <style>
+            video {
+                max-width: 100%;
+            }
+            .video-box {
+                max-width: 700px;
+                margin: 0 auto 50px;
+                padding: 0 15px;
+            }
+        </style>
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -79,7 +89,7 @@
                                 </div>
                                 <div id="login-menu" class="main-menu-part">
                                     <ul class="float-right">
-                                        <li><a href="/create-account/">Agents</a></li>
+                                        <li><a href="/login/">Agents</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -107,112 +117,110 @@
 
                 <!-- po-search area start -->
                 <div class="po-search">
-                <div class="container">
+                    <div class="container">
 
 
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1">
-                            <div class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size">
 
-                              <div class="address ">
+                                <div class="address ">
 
-                                <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
-                                <div class="dropdownaddress address-type index-address-type ">
-                                    <ul>
-                                        <li class="custom_radio">Address</li>
-                                        <li class="custom_radio">Agent Name</li>
-                                        <li class="custom_radio">City</li>
-                                        <li class="custom_radio">ZipCode</li>
-                                    </ul>
-                                </div>
-                              </div>
-
-                              <div class="ser-state " style="display: none;">
-                                <p class="ser-state-id state-value" target="ser-state-first">State <i class="fas fa-caret-down"></i></p>
-                                <div class="ser-state-type ser-state-first">
-                                    <ul class="allstate" >
-                                    </ul>
-                                </div>
-                              </div>
-
-                                <input class="ser search_address maps_input" type="text" name="text" autocomplete="no" placeholder="Search ">
-                                <input class="search_city ser" autocomplete='nop' type="text" name="citytext" placeholder="Search City" style="display:none" >
-                                <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext" placeholder="Search Agent Name" style="display:none" >
-                                <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" >
-
-                                <div id="suggesstion-box"></div>
-                                <div class="type ">
-                                    <p id="y-type" class="x-type type-value">Type <i class="fas fa-caret-down"></i></p>
-                                    <div id="dropdowntypes" class="check-type index-check-type">
-                                        <!-- <h6>Home Type</h6> -->
+                                    <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
+                                    <div class="dropdownaddress address-type index-address-type ">
                                         <ul>
-                                        <li class="custom_radio"> House</li>
-                                        <li  class="custom_radio">Manufactured</li>
-                                        <li class="custom_radio" >Condo/Co-op</li>
-                                        <li class="custom_radio">Multi-Family</li>
-                                        <li class="custom_radio">Lot/Land</li>
-                                        <li class="custom_radio">Townhouse</li>
-                                    </ul>
+                                            <li class="custom_radio">Address</li>
+                                            <li class="custom_radio">Agent Name</li>
+                                            <li class="custom_radio">City</li>
+                                            <li class="custom_radio">ZipCode</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="price">
-                                    <p class="d-inline-block y-price">Price <i class="fas fa-caret-down"></i></p>
-                                    <div class="price-amount" id="pt-amount">
-                                        <div class="price-head-wrapper">
-                                            <input id="one-left-in" type="text" name="min-price" placeholder="MIN"> <span> -</span>
-                                            <input id="one-right-in" type="text" name="max-price" placeholder="MAX">
-                                        </div>
-                                        <div class="price-wrapper">
-                                            <div class="p-left">
-                                                <ul>
-                                                    <li>$50,000</li>
-                                                    <li>$100,000</li>
-                                                    <li>$150,000</li>
-                                                    <li>$300,000</li>
-                                                    <li>$400,000</li>
-                                                    <li>$500,000</li>
-                                                    <li>$600,000</li>
-                                                    <li>$700,000</li>
-                                                    <li>$800,000</li>
-                                                    <li>$900,000</li>
-                                                </ul>
-                                            </div>
-                                            <div class="p-right">
-                                                <ul>
-                                                    <li>$200K</li>
-                                                    <li>$300K</li>
-                                                    <li>$400K</li>
-                                                    <li>$500K</li>
-                                                    <li>$600K</li>
-                                                    <li>$700K</li>
-                                                    <li>$800K</li>
-                                                    <li>$900K</li>
-                                                    <li>$1M</li>
-                                                    <li>Any price</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div id="donBtn"class="text-center" style="padding: 14px;">
-                                            <button >Done</button>
-                                        </div>
+
+                                <div class="ser-state " style="display: none;">
+                                    <p class="ser-state-id state-value" target="ser-state-first">State <i class="fas fa-caret-down"></i></p>
+                                    <div class="ser-state-type ser-state-first">
+                                        <ul class="allstate" >
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="serch_btn" >
-                                    <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
+
+                                    <input class="ser search_address maps_input" type="text" name="text" autocomplete="no" placeholder="Search ">
+                                    <input class="search_city ser" autocomplete='nop' type="text" name="citytext" placeholder="Search City" style="display:none" >
+                                    <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext" placeholder="Search Agent Name" style="display:none" >
+                                    <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" >
+
+                                    <div id="suggesstion-box"></div>
+                                    <div class="type ">
+                                        <p id="y-type" class="x-type type-value">Type <i class="fas fa-caret-down"></i></p>
+                                        <div id="dropdowntypes" class="check-type index-check-type">
+                                            <!-- <h6>Home Type</h6> -->
+                                            <ul>
+                                            <li class="custom_radio"> House</li>
+                                            <li  class="custom_radio">Manufactured</li>
+                                            <li class="custom_radio" >Condo/Co-op</li>
+                                            <li class="custom_radio">Multi-Family</li>
+                                            <li class="custom_radio">Lot/Land</li>
+                                            <li class="custom_radio">Townhouse</li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                    <div class="price">
+                                        <p class="d-inline-block y-price">Price <i class="fas fa-caret-down"></i></p>
+                                        <div class="price-amount" id="pt-amount">
+                                            <div class="price-head-wrapper">
+                                                <input id="one-left-in" type="text" name="min-price" placeholder="MIN"> <span> -</span>
+                                                <input id="one-right-in" type="text" name="max-price" placeholder="MAX">
+                                            </div>
+                                            <div class="price-wrapper">
+                                                <div class="p-left">
+                                                    <ul>
+                                                        <li>$50,000</li>
+                                                        <li>$100,000</li>
+                                                        <li>$150,000</li>
+                                                        <li>$300,000</li>
+                                                        <li>$400,000</li>
+                                                        <li>$500,000</li>
+                                                        <li>$600,000</li>
+                                                        <li>$700,000</li>
+                                                        <li>$800,000</li>
+                                                        <li>$900,000</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="p-right">
+                                                    <ul>
+                                                        <li>$200K</li>
+                                                        <li>$300K</li>
+                                                        <li>$400K</li>
+                                                        <li>$500K</li>
+                                                        <li>$600K</li>
+                                                        <li>$700K</li>
+                                                        <li>$800K</li>
+                                                        <li>$900K</li>
+                                                        <li>$1M</li>
+                                                        <li>Any price</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div id="donBtn"class="text-center" style="padding: 14px;">
+                                                <button >Done</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="serch_btn" >
+                                        <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <p style="height: 50px;"></p>
+                <div class="video-box">
+                    <video src="https://agentstat.com/video/home_page_video.mp4" muted autoplay loop playsinline></video>
+
                 </div>
-                <div class="content-block-holder">
-                    <div class="content-block in-viewport">
-                        
-                        <div class="video-holder">
-                            <video style="margin:-20px auto auto auto;" src="https://agentstat.com/video/home_page_video.mp4" class="g-hsw-video" autoplay="" loop="" muted="" playsinline=""></video>
-                        </div>
-                    </div>
-                </div>
+                <p style="height: 50px;"></p>
             </div>
         </div>
         <!-- po-search area start -->
@@ -702,6 +710,18 @@
           }).fail(function(err) {
               show_error(err);
           });
+        </script>
+        <script>
+            // fallback: show controls if autoplay fails
+            // (needed for Samsung Internet for Android, as of v6.4)
+            window.addEventListener('load', async () => {
+            let video = document.querySelector('video[muted][autoplay]');
+            try {
+                await video.play();
+            } catch (err) {
+                video.controls = true;
+            }
+            });
         </script>
     </body>
 </html>
