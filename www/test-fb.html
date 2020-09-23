@@ -44,28 +44,20 @@
   };
 
   function sendJson(resp){
-    console.log("senjJson")
-    console.log(resp)
-    // Creating a XHR object 
-    let xhr = new XMLHttpRequest(); 
-    let url = "https://app.agentstat.com/api/facebook/grant-permissions/"
-    // open a connection 
-    xhr.open("POST", url, true); 
-    // Set the request header i.e. which type of content you are sending 
-    xhr.setRequestHeader("Content-Type", "application/json"); 
-    // Create a state change callback 
-
-    console.log("sending data")
-    // Converting JSON data to string 
-    var data = JSON.stringify(resp); 
-    xhr.send(data);
-    console.log("data sent")
-    xhr.onreadystatechange = function () { 
-                if (xhr.readyState === 4 && xhr.status === 200) { 
-                    // Print received data from server 
-                    document.getElementById('result').innerHTML =this.responseText;
-                } 
-            }; 
+      (async () => {
+        const rawResponse = await fetch('https://app.agentstat.com/api/facebook/grant-permissions/', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(resp)
+        });
+        const content = await rawResponse.json();
+        console.log(content);
+        document.getElementById("result").innerHTML = `${content}`
+  })();
+    
 
   }
 
