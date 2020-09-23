@@ -83,8 +83,12 @@
     }
   }
 
-
+  function askPermissions(){
+      FB.login(function(response) {
+   console.log(response);
+}, {scope: 'public_profile,email'});
   function checkLoginState() {               // Called when a person is finished with the Login Button.
+    askPermissions()
     FB.getLoginStatus(function(response) {   // See the onlogin handler
       statusChangeCallback(response);
     });
@@ -123,7 +127,7 @@
 </fb:login-button>
 
 <div id="status">
-  <button></button>
+  <button onclick="checkLoginState()">login</button>
 </div>
 
 <!-- Load the JS SDK asynchronously -->
