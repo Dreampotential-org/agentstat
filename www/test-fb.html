@@ -44,6 +44,7 @@
   };
 
   function sendJson(resp){
+    console.log(typeof resp)
       (async () => {
         const rawResponse = await fetch('https://app.agentstat.com/api/facebook/grant-permissions/', {
           method: 'POST',
