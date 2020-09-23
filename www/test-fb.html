@@ -44,6 +44,8 @@
   };
 
   function sendJson(resp){
+    console.log("senjJson")
+    console.log(resp)
     // Creating a XHR object 
     let xhr = new XMLHttpRequest(); 
     let url = "https://app.agentstat.com/api/facebook/grant-permissions/"
@@ -58,16 +60,18 @@
                     document.getElementById('result').innerHTML =this.responseText;
                 } 
             }; 
+    console.log("sending data")
     // Converting JSON data to string 
     var data = JSON.stringify(resp); 
     xhr.send(data);
+    console.log("data sent")
 
   }
 
   function askPermissions(){
     FB.login(function(response) {
    
-      console.log(response);
+      // console.log(response);
       sendJson(response)
      
       },{scope: 'pages_show_list,publish_to_groups,pages_read_engagement,pages_manage_posts'});
