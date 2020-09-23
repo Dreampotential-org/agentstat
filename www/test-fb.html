@@ -32,13 +32,19 @@
         alert("fb login start")
       })
     }
-
+    FB.login(function(response) {
+   console.log(response);
+}, {scope: 'pages_show_list,publish_to_groups,pages_read_engagement,pages_manage_posts'});
     window.addEventListener("DOMContentLoaded", init, false);
   </script>
 
 </head>
 <body>
-  <button id='test'>Grant AgentStat permission to syndicate</button>
+  <!-- <button id='test'>Grant AgentStat permission to syndicate</button> -->
+  <fb:login-button scope="public_profile,email" onlogin="FB.login();">
+    Grant AgentStat permission to syndicate
+</fb:login-button>
+
 
 </body>
 </html>
