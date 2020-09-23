@@ -43,9 +43,34 @@
     });
   };
 
+  function sendJson(resp){
+    // Creating a XHR object 
+    let xhr = new XMLHttpRequest(); 
+    let url = "https://app.agentstat.com/api/facebook/grant-permissions/"
+    // open a connection 
+    xhr.open("POST", url, true); 
+    // Set the request header i.e. which type of content you are sending 
+    xhr.setRequestHeader("Content-Type", "application/json"); 
+    // Create a state change callback 
+    xhr.onreadystatechange = function () { 
+                if (xhr.readyState === 4 && xhr.status === 200) { 
+                    // Print received data from server 
+                    document.getElementById('result').innerHTML =this.responseText;
+                } 
+            }; 
+    // Converting JSON data to string 
+    var data = JSON.stringify(resp); 
+    xhr.send(data);
+
+  }
+
   function askPermissions(){
     FB.login(function(response) {
-      console.log(response);},{scope: 'pages_show_list,publish_to_groups,pages_read_engagement,pages_manage_posts'});
+   
+      console.log(response);
+      sendJson(response)
+     
+      },{scope: 'pages_show_list,publish_to_groups,pages_read_engagement,pages_manage_posts'});
   }
  
   function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
@@ -67,5 +92,6 @@
 </fb:login-button>
 
 <div id="status"></div>
+<div id = "result"></div>
 </body>
 </html>
