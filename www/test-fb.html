@@ -53,7 +53,7 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '! <br/> <button id = "button" onlogin="askPermissions();">Grant AgentStat permission to syndicate</button>';
+        'Thanks for logging in, ' + response.name + '! <br/> <button id = "button" onClick="askPermissions();">Grant AgentStat permission to syndicate</button>';
       
     });
   }
