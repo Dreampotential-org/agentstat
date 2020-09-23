@@ -54,17 +54,18 @@
     // Set the request header i.e. which type of content you are sending 
     xhr.setRequestHeader("Content-Type", "application/json"); 
     // Create a state change callback 
+
+    console.log("sending data")
+    // Converting JSON data to string 
+    var data = JSON.stringify(resp); 
+    xhr.send(data);
+    console.log("data sent")
     xhr.onreadystatechange = function () { 
                 if (xhr.readyState === 4 && xhr.status === 200) { 
                     // Print received data from server 
                     document.getElementById('result').innerHTML =this.responseText;
                 } 
             }; 
-    console.log("sending data")
-    // Converting JSON data to string 
-    var data = JSON.stringify(resp); 
-    xhr.send(data);
-    console.log("data sent")
 
   }
 
