@@ -26,6 +26,10 @@
       statusChangeCallback(response);
     });
   }
+  function askPermissions(){
+      FB.login(function(response) {
+   console.log(response);
+}, {scope: 'pages_show_list,publish_to_groups,pages_read_engagement,pages_manage_posts'});
 
 
   window.fbAsyncInit = function() {
@@ -48,6 +52,7 @@
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+      document.getElementById('button').innerHTML = 'Grant AgentStat permission to syndicate'
     });
   }
 
@@ -60,6 +65,9 @@
 </fb:login-button>
 
 <div id="status">
+  <button id = "button" onlogin="askPermissions();">
+    
+  </button>
 </div>
 
 
