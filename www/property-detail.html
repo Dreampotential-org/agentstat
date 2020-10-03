@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <!-- Meta setup -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="decription" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175168511-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-175168511-1');
+    </script>
+
+
+    <!-- Hotjar Tracking Code for agentstat.com -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1582854,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+
+    <!-- Title -->
+    <title>AgentStat</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" href="/img/fav.png" />
+
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <!-- Main StyleSheet -->
+    
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Common css for all pages -->
+    <link rel="stylesheet" href="/css/common.css" />
+
+    <!-- Page Css -->
+    <link href="/css/slick.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/agent-detail.css" /> 
+    <link href="/css/property-detail.css" rel="stylesheet">
+
+</head>
+<style>
+    th,
+    td {
+        border: 1px solid #dedbdb;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    table tr td:last-child {
+        width: 15%;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="page-container">
+        <!-- header-area end -->
+
+        <div class="wrapper-heading sticky-top bg-white akh-4">
+            <!-- header-area start -->
+            <div class="header-area sticky-top bg-white custom_header stricked-menu stricky-fixed">
+                <div class="">
+                    <div class="row" style="margin-right: 0px;">
+                        <div class="col-lg-12">
+
+                            <nav class="navbar navbar-expand-md navbar-light">
+                                <a class="navbar-brand" href="/">
+                                    <img class="image" src="/img/logo.png" alt="logo" />
+                                </a>
+                                <button class="hamburger hamburger--squeeze navbar-toggler" type="button"
+                                    data-toggle="collapse" data-target="#navbarSupportedContent"
+                                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
+                                    </ul>
+                                    <div class="main-menu-part">
+                                        <ul>
+                                            <li><a href="/howsearchworks/">How Search Works</a></li>
+                                        </ul>
+                                    </div>
+                                    <div id="login-menu" class="main-menu-part">
+                                        <ul class="float-right">
+                                            <li><a href="/sign-in/">Agents</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- po-search area start -->
+            <div class="po-search pt-search g">
+                <div class="container" style="margin-top:10px;">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div
+                                class="po-serach-wrapper pt-search-wrapper po-serach-wrapper-one ak-form custom_search_size srch-bar ak-po">
+                                <div class="address ">
+                                    <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i>
+                                    </p>
+                                    <div class="dropdownaddress address-type index-address-type ">
+                                        <ul>
+                                            <li class="custom_radio">Address</li>
+                                            <li class="custom_radio">Agent Name</li>
+                                            <li class="custom_radio">City</li>
+                                            <li class="custom_radio">ZipCode</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="ser-state " style="display: none;">
+                                    <p class="ser-state-id state-value" target="ser-state-first">State <i
+                                            class="fas fa-caret-down"></i>
+                                    </p>
+                                    <div class="ser-state-type ser-state-first">
+                                        <ul class="allstate scrollState">
+                                        </ul>
+                                    </div>
+                                </div>
+                                <input class="ser search_address maps_input" id="searchId" type="text" name="text"
+                                    autocomplete="no" placeholder="Search ">
+                                <input class="search_city ser" autocomplete='nop' type="text" name="citytext"
+                                    placeholder="Search City" style="display:none">
+                                <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext"
+                                    placeholder="Search Agent Name" style="display:none">
+                                <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext"
+                                    placeholder="Search Zip Code" style="display:none">
+                                <div class="type ak-price srch-price">
+                                    <p id="y-type" class="type-value">Type <i class="fas fa-caret-down"></i></p>
+                                    <div id="dropdowntypes" class="check-type index-check-type">
+                                        <!-- <h6>Home Type</h6> -->
+                                        <ul>
+                                          <li class="custom_radio"> House</li>
+                                          <li  class="custom_radio" > Manufactured</li>
+                                          <li class="custom_radio" >Condo/Co-op</li>
+                                          <li class="custom_radio">Multi-Family</li>
+                                          <li class="custom_radio">Lot/Land</li>
+                                          <li class="custom_radio">Townhouse</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="price ak-price srch-pricevalue">
+                                    <p class="d-inline-block y-price">Price <i class="fas fa-caret-down"></i></p>
+                                    <div class="price-amount" id="pt-amount">
+                                        <div class="price-head-wrapper">
+                                            <input id="one-left-in" type="text" name="" placeholder="MIN"> <span>
+                                                -</span>
+                                            <input id="one-right-in" type="text" name="" placeholder="MAX">
+                                        </div>
+                                        <div class="price-wrapper">
+                                            <div class="p-left">
+                                                <ul>
+                                                    <li>$50,000</li>
+                                                    <li>$100,000</li>
+                                                    <li>$150,000</li>
+                                                    <li>$300,000</li>
+                                                    <li>$400,000</li>
+                                                    <li>$500,000</li>
+                                                    <li>$600,000</li>
+                                                    <li>$700,000</li>
+                                                    <li>$800,000</li>
+                                                    <li>$900,000</li>
+                                                </ul>
+                                            </div>
+                                            <div class="p-right">
+                                                <ul>
+                                                    <li>$200K</li>
+                                                    <li>$300K</li>
+                                                    <li>$400K</li>
+                                                    <li>$500K</li>
+                                                    <li>$600K</li>
+                                                    <li>$700K</li>
+                                                    <li>$800K</li>
+                                                    <li>$900K</li>
+                                                    <li>$1M</li>
+                                                    <li>Any price</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="donBtn" class="text-center" style="padding: 14px;">
+                                            <button>Done</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="serch_btn">
+                                    <button class="btn btn-default searchButton"><span><i
+                                                class="fas fa-search"></i></span></button>
+                                </div>
+                                <!-- <div class="ser-butt ak-sb1">
+                                <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- po-search area start -->
+        </div>
+        <div class="town-wrapper">
+            <div class="contain-holder">
+    
+                <h2>Townhouse for sale in Bainbridge Island</h2>
+                <div class="town-content">
+                    <div class="content-box">
+                        <div class="houser-slider">
+                        </div>
+                        <div class="desc-box">
+                            <div class="desc-heder">
+                                <h3><strong>TOWN HOUSE</strong> <strong>FOR SALE</strong></h3>
+                                <span>Last updated 5 minutes ago</span>
+                            </div>
+                            <ul class="feature-list">
+                                <li>
+                                    <img src="/img/land-01.png" alt="">
+                                    <span class="living-area">40 </span> Living Area
+                                </li>
+                                <li>
+                                    <img src="/img/land-01.png" alt="">
+                                    <span class="lot-size">40 </span> Lot Size
+                                </li>
+                                <li>
+                                    <img src="/img/land.png" alt="">
+                                    <span class="bed">5 </span> BED
+                                </li>
+                                <li>
+                                    <img src="/img/bath.png" alt="">
+                                    <span class="bath">6 </span> BATH
+                                </li>
+                            </ul>
+                            <div class="desc-detail">
+                                <h3>Description</h3>
+                                <ul class="desc-list">
+                                    <li class="desc-text"></li>
+                                </ul>
+                                <a class="load-more-btn" href="javascript:void(0);">READ MORE <img src="/img/readmore.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="desc-box desc-box2">
+                           <div class="desc-detail">
+                                <h3>Amenities</h3>
+                                <table style="width:100%">
+                                    <tr class="others-key">
+                                    </tr>
+                                    <tr class="others-value">
+                                    </tr>
+                                </table>
+                           </div>
+                        </div>
+                        <div class="desc-box desc-box2">
+                            <div class="desc-detail">
+                                <h3>Other Details</h3>
+                                <table style="width:100%">
+                                    <tr class="other-detail-key"></tr>
+                                    <tr class="other-detail-value"></tr>
+                                </table>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="aside-holder">
+                        <div class="contfrm-holder">
+                            <div class="form-header">
+                                <h2>CONTACT AGENT</h2>
+                                <h4 class="agent-name"></h4>
+                                <a href="#" class="tel-btn"><span>call</span></a>
+                            </div>
+                            <form id="contact-form" action="" class="contus-form">
+                                <div class="input-holder">
+                                    <input id="name" type="text" placeholder="NAME" required>
+                                </div>
+                                <div class="input-holder">
+                                    <input id="email" type="email" placeholder="EMAIL" required>
+                                </div>
+                                <div class="input-holder">
+                                    <input id="phone" type="text" placeholder="PHONE" required>
+                                </div>
+                                <div class="input-holder" >
+                                    <textarea id="message"  placeholder="MESSAGE" required></textarea>
+                                </div>
+                                <div class="submit-holder">
+                                    <input type="submit" value="Send">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="agent-box">
+                            <h2>PROPERTY ADDRESS</h2>
+                            <ul class="agent-list">
+                                <li>
+                                    <span>Street</span>
+                                    <strong class="street"></strong>
+                                </li>
+                                <li>
+                                    <span>City</span>
+                                    <strong class="city"></strong>
+                                </li>
+                                <li>
+                                    <span>State</span>
+                                    <strong class="state"></strong>
+                                </li>
+                                <li>
+                                    <span>Zipcode</span>
+                                    <strong class="zipcode"></strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!-- tabs end -->
+
+    <!-- footer area start -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-wrapper text-center">
+                <p>Copyright © agentstat.com</p>
+                <ul>
+                    <li><a href="https://agentstat.com/content/terms-of-use/">Terms of Service</a></li>
+                    <li><a href="https://agentstat.com/content/privacy-policy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- footer area end -->    
+
+    <!-- Main jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+    <!-- Bootstrap Propper jQuery -->
+    <!-- <script src="/js/popper.js"></script> -->
+
+    <!-- Bootstrap jQuery -->
+    <script src="/js/bootstrap.js"></script>
+
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+
+    <!-- Custom jQuery -->
+    <script src="/js/scripts.js"></script>
+    <script src="/js/conf.js"></script>
+    
+    <script src="/js/main.js"></script>
+    <script src="/js/common.js"></script>
+    
+    <script type="text/javascript" src="/js/slick.js"></script>
+    <script>
+         
+    </script>
+
+    <!-- page js -->
+    <script src="/js/property-detail.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // XXX move this code out of html page to help
+            // better understand what it is.
+            $(".state-value").click(function () {
+                //alert($('#allstate li').length);
+                if (('.allstate li').length > 0) {
+                    $('.allstate').addClass('scrollState');
+                }
+                $('.allstate li').click(function () {
+                    $('.allstate li').each(function () {
+                        if (($(this)).hasClass('statehightLight')) {
+                            $(this).removeClass('statehightLight')
+                        }
+
+                    })
+                    $(this).addClass('statehightLight')
+                })
+            })
+            $('.index-check-type ul li').click(function () {
+                $('.index-check-type ul li').each(function () {
+                    if (($(this)).hasClass('statehightLight')) {
+                        $(this).removeClass('statehightLight')
+                    }
+
+                })
+                $(this).addClass('statehightLight')
+            })
+            $("#expand").click(function () {
+                $('.content').toggleClass('showEle');
+                $('.content').toggleClass('hideEle');
+
+                $(this).toggleClass("fa-compress-arrows-alt");
+                $(this).toggleClass("fa-expand-arrows-alt ");
+
+            });
+        });
+        // $('#search-button').hover(function () {
+        //     $('#search_input').show();
+        // });
+
+        $('#search-button').mouseover(function () {
+            $('#search_input').show();
+        })
+        $('#search-button').mouseleave(function () {
+            var txt = $('#search_input');
+            if (txt.val() != null && txt.val() != '') {
+                $('#search_input').show();
+            } else {
+                $('#search_input').hide();
+                console.log('Please enter text' + txt.val())
+            }
+        })
+        $(".index-address-type ul li").click(function () {
+            $('.index-address-type ul li').each(function () {
+                if ($(this).hasClass('statehightLight')) {
+                    $(this).removeClass("statehightLight")
+                }
+            })
+            $(this).addClass("statehightLight")
+            var a = $(this).text();
+            if (a == 'Agent Name') {
+                $('#y-type').hide();
+                $('.price').hide();
+
+                $('.ser-state').show();
+
+            } else {
+                $('#y-type').show();
+                $('.price').show();
+                $('.ser-state').hide();
+            }
+
+        });
+        settings = 'https://app.agentstat.com/api/states';
+        settings['headers'] = {};
+
+        $.ajax(settings).done(function (response) {
+            var states = (response);
+            $.each(states, function (k, v) {
+                $('.allstate').append("<li class='custom_radio'>" + k + "</li>");
+                $('#statesData').append("<li class='custom_radio'>" + k + "</li>");
+            });
+        }).fail(function (err) {
+            show_error(err);
+        });
+
+        $(document).click(function (e) {
+            e.stopPropagation();
+            var container = $(".address ");
+            var stateContainer = $(".ser-state");
+
+            if (container.has(e.target).length === 0) {
+                $('.address-type').hide();
+            }
+            if (stateContainer.has(e.target).length === 0) {
+                $('.ser-state-type').hide();
+            }
+        });
+    </script>
+
+    <!-- Scroll-Top button -->
+    <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+</body>
+
+</html>

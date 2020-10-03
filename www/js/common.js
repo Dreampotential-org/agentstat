@@ -197,6 +197,11 @@ function loadProfileImage() {
     }
 }
 
+function camleCasetoString(text){
+	var result = text.replace( /([A-Z])/g, " $1" );
+	return result.charAt(0).toUpperCase() + result.slice(1);
+}
+
 $(document).ready(function(){
 	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
 		isTeamMember();

@@ -88,5 +88,9 @@ server {
         location /reclaim-proof/ {
             try_files $uri $uri/ /reclaim-proof.html?$uri;
         }
+
+        location /property-detail/ {
+            try_files $uri $uri/ /property-detail.html;
+        }
         
 }
