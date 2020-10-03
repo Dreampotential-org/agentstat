@@ -1,5 +1,6 @@
 function loadTransaction(zpid) {
     settings = get_settings('agents/kendratodd/?listing_id='+zpid, 'GET');
+    settings['headers'] = null;
     $.ajax(settings).done(function (response) {
         response = JSON.parse(response);
         var data = response.LISTING_PAGE_DATA;
