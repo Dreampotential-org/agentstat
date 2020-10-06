@@ -280,7 +280,38 @@
                                     <tr class="other-detail-value"></tr>
                                 </table>
                             </div>
-                         </div>
+                        </div>
+                        <div class="desc-box desc-box2 desc-box3">
+                            <div class="desc-detail desc-detail3">
+                                 <h3>Tax History</h3>
+                                 <div class="table-wrapp">
+                                    <table id="tax-table" style="overflow: hidden;table-layout: fixed;width: 150%;">
+                                        <tr>
+                                          <th>TIME</th>
+                                          <th>TAX PAID</th> 
+                                          <th>TAX INCREASE RATE</th>
+                                          <th>VALUE</th>
+                                          <th>VALUE INCREASE RATE</th> 
+                                        </tr>                                       
+                                      </table>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="desc-box desc-box2 desc-box3">
+                            <div class="desc-detail desc-detail3">
+                                 <h3>Price History</h3>
+                                 <div class="table-wrapp">
+                                    <table id="price-table" style="overflow: hidden;table-layout: fixed;width: 200%;">
+                                        <tr>
+                                            <th>TIME</th>
+                                            <th>PRICE</th> 
+                                            <th>EVENT</th>
+                                            <th>SOURCE</th> 
+                                        </tr>
+                                    </table>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="aside-holder">
                         <div class="contfrm-holder">
@@ -303,7 +334,10 @@
                                     <textarea id="message"  placeholder="MESSAGE" required></textarea>
                                 </div>
                                 <div class="submit-holder">
-                                    <input type="submit" value="Send">
+                                    <button type="submit">Send 
+                                        <i id="load-icon" class="fa fa-spinner fa-spin fa-fw" aria-hidden="true" style="display: none;"></i>
+                                        <i id="check-icon" class="fa fa-check-circle" aria-hidden="true" style="display: none;"></i>
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -366,6 +400,9 @@
 
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+
+    <!-- Input Masking -->
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
 
     <!-- Custom jQuery -->
     <script src="/js/scripts.js"></script>

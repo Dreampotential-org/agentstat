@@ -5,14 +5,13 @@ function loadTransaction(zpid) {
         response = JSON.parse(response);
         var data = response.LISTING_PAGE_DATA;
 
+        agent_id = data.agent_id;
+        agent_list_id = data.agent_list_id;
+
         $.each(data.photos, function(k,v){
             var sliderImage = `
                 <div class="house-slide">
                     <img src="`+v.url+`" alt="">
-                    <div class="price-caption">
-                        <span>usd</span>
-                        <strong>5.85 Lakh</strong>
-                    </div>
                     <div class="pic-counter">
                         <span>`+data.photos.length+`</span>
                         <img src="/img/pics-count.png" alt="">
@@ -49,10 +48,35 @@ function loadTransaction(zpid) {
             }
         });
 
+        $.each(data.taxHistory, function(k,v){
+            var html = `
+            <tr>
+                <td>`+v.time+`</td>
+                <td>`+v.taxPaid+`</td>
+                <td>`+v.taxIncreaseRate+`</td>
+                <td>`+v.value+`</td>
+                <td>-`+v.valueIncreaseRate+`</td>
+            </tr>
+            `;
+            $('#tax-table').append(html);
+        });
+        
+        $.each(data.priceHistory, function(k,v){
+            var html = `
+            <tr>
+                <td>`+v.time+`</td>
+                <td>`+v.price+`</td>
+                <td>`+v.event+`</td>
+                <td>`+v.source+`</td>
+            </tr>
+            `;
+            $('#price-table').append(html);
+        });
+
         if (data.homeStatus!==undefined && data.homeStatus!='') {
             $('.other-detail-key').append('<td>Home Status</td>');
             $('.other-detail-value').append('<td>'+data.homeStatus+'</td>');
-        }
+        } 
         
         if (data.homeType!==undefined && data.homeType!='') {
             $('.other-detail-key').append('<td>Home Type</td>');
@@ -112,8 +136,12 @@ function loadTransaction(zpid) {
 }
 
 $(document).ready(function(){
+    $("#phone").inputmask({ "mask": "(999) 999-9999" });
+
     var full_path = window.location.pathname
     var zpid = null;
+    agent_id = null;
+    agent_list_id = null;
     if (full_path.split('/')[1] == 'property-detail') {
         zpid = full_path.split('/')[2];
     }
@@ -130,20 +158,27 @@ $(document).ready(function(){
         data['email'] = $('#email').val();
         data['phone'] = $('#phone').val();
         data['message'] = $('#message').val();
-        data['agent'] = '6557';
+        data['agent'] = agent_id;
+        data['agentlist'] = agent_list_id;
+
+        $('#load-icon').show();
+        $('#check-icon').hide();
         
         settings = get_settings('lead/', 'POST', JSON.stringify(data));
         settings['headers'] = null;
         $.ajax(settings).done(function (response) {
+            $('#load-icon').hide();
+            $('#check-icon').show();
 
-            
-            console.log(response)
-
+            $('#name').val('');
+            $('#email').val('');
+            $('#phone').val('');
+            $('#message').val('');            
         }).fail(function (err) {
-
             // $('.msg').html(err['responseText']);
+            $('#load-icon').hide();
+            $('#check-icon').hide();
             console.log(err);
-
         });
         return false
     });

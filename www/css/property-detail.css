@@ -248,7 +248,7 @@ td{
     background:#F4F6F8;
     border-radius: 10px;
 }
-.contus-form input[type=submit]{
+.contus-form button[type=submit]{
     border: 2px solid #11C718;
     text-align: center;
     border-radius: 10px;
@@ -260,7 +260,7 @@ td{
     cursor: pointer;
     background: transparent;
 }
-.contus-form input[type=submit]:hover{
+.contus-form button[type=submit]:hover{
     background:  #11C718;
     color: #fff;
     transition: all ease-in 0.3s;
@@ -448,7 +448,7 @@ ul.agent-list li strong{
     .desc-box .desc-list {
         margin: 0 0 20px;
     }
-    .contus-form input[type=submit]{
+    .contus-form button[type=submit]{
         font-size: 24px;
     }
     .town-wrapper h2 {
@@ -492,3 +492,42 @@ ul.agent-list li strong{
         display: none;
     }
   }
+
+
+  .table-wrapp{
+    width: 100%;
+    overflow: auto;
+  }
+  .table-wrapp table{
+    overflow: hidden;
+    table-layout: fixed;
+  }
+  .desc-box.desc-box3 table tr{
+    float:none;
+    width: auto;
+    text-align: left;
+    overflow: hidden;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0 0 10px;
+    display: block;
+  }
+  .desc-box.desc-box3 table th{
+      color:#6F6E6E !important;
+      font-weight: 500;
+  }
+  .desc-box.desc-box3 table td{
+      color:#484848;
+  }
+  .desc-box.desc-box3 table th,
+  .desc-box.desc-box3 table td{
+    width: 20% !important;
+    float: left;
+    border: none;
+    font-size: 16px;
+    background: #ddd;
+    text-align: left;
+    white-space: nowrap;
+    padding: 10px;
+    margin: 0 0 0;
+}

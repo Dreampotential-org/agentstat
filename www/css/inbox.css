@@ -72,3 +72,6 @@
     font-weight: 700;
     background-color: #EFF0F1;
 }
+.detail-lable h1{
+    display: none;
+}
