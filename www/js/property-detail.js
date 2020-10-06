@@ -49,10 +49,11 @@ function loadTransaction(zpid) {
         });
 
         $.each(data.taxHistory, function(k,v){
+            var taxPaid = (v.taxPaid==null) ? '-' : v.taxPaid;
             var html = `
             <tr>
-                <td>`+v.time+`</td>
-                <td>`+v.taxPaid+`</td>
+                <td>`+niceDate(v.time)+`</td>
+                <td>`+taxPaid+`</td>
                 <td>`+v.taxIncreaseRate+`</td>
                 <td>`+v.value+`</td>
                 <td>-`+v.valueIncreaseRate+`</td>
@@ -64,7 +65,7 @@ function loadTransaction(zpid) {
         $.each(data.priceHistory, function(k,v){
             var html = `
             <tr>
-                <td>`+v.time+`</td>
+                <td>`+niceDate(v.time)+`</td>
                 <td>`+v.price+`</td>
                 <td>`+v.event+`</td>
                 <td>`+v.source+`</td>
