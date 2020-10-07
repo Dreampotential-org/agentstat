@@ -38,6 +38,8 @@ function loadTransaction(zpid) {
         $('.bed').html(data.bedrooms);
         $('.bath').html(data.bathrooms);
 
+        $('.last-update').html('Last Updated: '+niceDate(data.status_updated_at));
+
         $.each(data.listing_sub_type, function(k,v){
             var key = camleCasetoString(k.split("_")[1]);
             $('.others-key').append('<td>'+key+'</td>');
