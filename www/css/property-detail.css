@@ -531,3 +531,7 @@ ul.agent-list li strong{
     padding: 10px;
     margin: 0 0 0;
 }
+
+.desc-box.desc-box3 table th, .desc-box.desc-box3 table td{
+    width: 25% !important;
+}
