@@ -160,6 +160,9 @@ function redirectResults(results) {
     search_agent_name = localStorage.getItem('search_agent_name');
 
     search_state = localStorage.getItem('search_state');
+    if ($('#y-address').text() != 'Agent Name '){
+      search_state = '';
+    }
     search_home_type = localStorage.getItem('search_home_type');
 
     if (search_type != 'Agent Name ' && $('#y-type').text() != 'Type ') {
@@ -188,7 +191,7 @@ function redirectResults(results) {
       new_params.push('address=' + search_address);
     }
 
-    if (search_zipcode) {
+    if (search_zipcode && $('#y-address').text() == 'ZipCode ') {
       new_params.push('zipcode=' + search_zipcode);
     }
 
@@ -236,12 +239,12 @@ function redirectResults(results) {
     }
     // console.log(map_initial);
     min_price = $('input[name=min-price]').val()
-    if (min_price) {
+    if (min_price && $('#y-address').text() != 'Agent Name ') {
       new_params.push('min_price='+min_price)
     }
 
     max_price = $('input[name=max-price]').val()
-    if (max_price) {
+    if (max_price && $('#y-address').text() != 'Agent Name ') {
       new_params.push('max_price='+max_price);
     }
 
@@ -258,15 +261,17 @@ function redirectResults(results) {
       }
     });
 
-    console.log(new_params);
     search = new_params.join('&');
-    new_url = '/agents/?' + search;
-
-
+    var getStr = '';
+    $.each(new_params, function(k,v){
+      var v1 = v.split('=');
+      if (v1[1] != undefined &&  v1[1] != '' && v1[1] != 'null' ) {
+        getStr = getStr +v+'&'; 
+      }
+    });
+    new_url = '/agents/?' + getStr.slice(0, -1);
     window.location = new_url;
-
     return false;
-
 }
 
 function getSearchParams(place) {
