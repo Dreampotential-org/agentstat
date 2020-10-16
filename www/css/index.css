@@ -41,6 +41,7 @@
     margin: 0 auto;
     margin:-20px auto auto auto; 
     max-width:900px;
+    border: 1px solid #575757;
 }
 @media screen and (min-width:900px) {
     .po-world {

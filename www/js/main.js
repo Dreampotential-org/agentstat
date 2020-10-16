@@ -1,5 +1,8 @@
 var global_results = null;
 
+// set search filter by default
+$('#y-type').html(' House <i class="fas fa-caret-down" aria-hidden="true"></i>');
+
 // Called on google maps autocomplete selection
 function fillIn() {
     var place = this.getPlace();

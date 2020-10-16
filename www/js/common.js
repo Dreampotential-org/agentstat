@@ -155,10 +155,8 @@ function inboxNotification() {
 
 function headerDisplayImage() {
 	var src = localStorage.getItem("profile-image");
-	if (src !== null && src != 'null'  && src != '') {
-		var html = '<img src="'+src+'"></img>'
-		$('.display-picture').html(html);
-	}
+	var html = '<img src="'+src+'" onerror="this.src=\'/img/user-icon.png\';">';
+	$('.display-picture').html(html);
 }
 
 function isAndroid() {
