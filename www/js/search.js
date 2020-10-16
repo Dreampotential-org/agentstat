@@ -659,8 +659,8 @@ function getNationwideScore(time_duration=36) {
         $('#nationwide-sold-listing').html(data.total_sold_listing);
         $('#nationwide-failed-listing').html(data.total_failed_listing);
         $('#nationwide-s2l-price').html(data.s2l_price_average.toFixed(2) + '%');
-        $('#nationwide-single-family-sold').html(data.single_family_sold_average.toFixed(2));
-        $('#nationwide-condo-family-sold').html(data.condo_family_sold_average.toFixed(2));
+        $('#nationwide-single-family-sold').html(data.single_family_sold_listing);
+        $('#nationwide-condo-family-sold').html(data.condo_family_sold_listing);
     }).fail(function (err) {
         console.log(err);
     });
