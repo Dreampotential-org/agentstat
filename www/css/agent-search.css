@@ -104,7 +104,9 @@
 .form_sec li input[type="submit"]:hover, .form_sec li button:hover {
     background: #2F6373;
 }
-
+.agent_name{
+    text-transform:capitalize;
+}
 @media (max-width: 1200px) {
     .highlighted .col-lg-3 {
         margin-top: -15px;
