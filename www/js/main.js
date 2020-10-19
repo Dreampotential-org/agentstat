@@ -371,6 +371,13 @@ function init_maps() {
 
     }
 
+    if ($("#query-address").length) {
+        var lead_input = document.getElementById('query-address');
+        new google.maps.places.Autocomplete(lead_input, options);
+
+
+    }
+
 }
 
 function get_page_initial_results() {
