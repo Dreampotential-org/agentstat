@@ -13,10 +13,15 @@ function updateBrowserUrl() {
     if (pinAgents.length > 0) {
         url.searchParams.set("agents", pinAgents.join(','));
         window.history.pushState("", "", url);
+    } else {
+        url.searchParams.delete("agents");
+        window.history.pushState("", "", url);
     }
 }
 
 function init_search_results() {
+    console.log(localStorage.getItem("pin_agent_arr"));
+
     var url_string = window.location.href;
     var url = new URL(url_string);
     var agents = url.searchParams.get("agents");
