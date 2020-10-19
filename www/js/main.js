@@ -145,10 +145,7 @@ function get_home_type() {
 }
 
 function redirectResults(results) {
-
-
-    // return false;
-
+    console.log(results)
     var path = window.location.pathname;
     var search_params = window.location.search.replace('?', '');
     var params = search_params.split('&');
@@ -171,11 +168,6 @@ function redirectResults(results) {
     if (search_type != 'Agent Name ' && $('#y-type').text() != 'Type ') {
       search_home_type = $('#y-type').text().trim();
     }
-
-    // search_address = $('.search_address').val();
-    // search_zipcode = $('.search_zipcode').val();
-    // search_city = $('.search_city').val();
-    // search_agent_name = $('.search_agent_name').val();
 
     lat = localStorage.getItem('search_lat');
     lng = localStorage.getItem('search_lng');
@@ -217,6 +209,9 @@ function redirectResults(results) {
 
     if (search_state) {
       new_params.push('state=' + search_state);
+    }
+    if ('state' in results) {
+      new_params.push('state=' + results.state);
     }
 
     if (lat) {
