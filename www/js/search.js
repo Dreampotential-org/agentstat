@@ -1,7 +1,30 @@
 var agent_ids_order = [];
 var all_agents=[];
 
+if (localStorage.getItem("pin_agent_arr") == null) {
+    localStorage.setItem("pin_agent_arr", JSON.stringify([]));
+}
+
+function updateBrowserUrl() {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
+    var pinAgents = JSON.parse(localStorage.getItem("pin_agent_arr"));
+    if (pinAgents.length > 0) {
+        url.searchParams.set("agents", pinAgents.join(','));
+        window.history.pushState("", "", url);
+    }
+}
+
 function init_search_results() {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var agents = url.searchParams.get("agents");
+
+    if (agents == null || agents == '') {
+        updateBrowserUrl();
+    }
+
     load_search_results();
     init_search_events();
     populate_city_search_menu();
@@ -402,43 +425,45 @@ function set_pined_load() {
 }
 
 function set_pined_agent_ids() {
-    var pined_agents  = $(".toc-two .toc-two-left-two-heading-right")
-    var selected_agent_ids = ''
+    setTimeout(function() {
+        var pined_agents  = $(".toc-two .toc-two-left-two-heading-right")
+        var selected_agent_ids = ''
 
 
-    for(var pined_agent of pined_agents) {
-        if ($(pined_agent).hasClass("toc-two-left-two-heading-right-next")) {
-            continue
+        for(var pined_agent of pined_agents) {
+            if ($(pined_agent).hasClass("toc-two-left-two-heading-right-next")) {
+                continue
+            }
+            selected_agent_ids += $(pined_agent).closest(".toc-two").attr("agent_id") + ","
         }
-        selected_agent_ids += $(pined_agent).closest(".toc-two").attr("agent_id") + ","
-    }
 
-    var pined_agents  = $(".toc-two .switch_on");
+        var pined_agents  = $(".toc-two .switch_on");
 
-    $("input[type='checkbox']").change(function() {
-        if(this.checked) {
-            console.log("checked ")
-        }
-        else{
-            console.log("unchecked ")
-        }
-    });
+        $("input[type='checkbox']").change(function() {
+            if(this.checked) {
+                console.log("checked ")
+            }
+            else{
+                console.log("unchecked ")
+            }
+        });
 
-    var url = new URL(window.location.href);
-    selected_agent_ids_arr = selected_agent_ids.split(',')
-    // new_agent_ids = [...new Set(new_agent_ids)];
-    selected_agent_ids = [...new Set(selected_agent_ids_arr)]
+        var url = new URL(window.location.href);
+        selected_agent_ids_arr = selected_agent_ids.split(',')
+        // new_agent_ids = [...new Set(new_agent_ids)];
+        selected_agent_ids = [...new Set(selected_agent_ids_arr)]
 
-    url.searchParams.set("agents", selected_agent_ids.join(','));
+        url.searchParams.set("agents", selected_agent_ids.join(','));
 
-    $("#agents").val(url.searchParams.get("agents"))
+        $("#agents").val(url.searchParams.get("agents"))
 
-    selected_agent_ids = url.searchParams.get('agents').split(',');
-    $.each(selected_agent_ids, function(k, v) {
-      $('#toggler-'+v).addClass('toggle on');
-    });
+        selected_agent_ids = url.searchParams.get('agents').split(',');
+        $.each(selected_agent_ids, function(k, v) {
+        $('#toggler-'+v).addClass('toggle on');
+        });
 
-    window.history.pushState("", "", url)
+        window.history.pushState("", "", url)
+    }, 10);
 }
 
 function get_val_from_breakdown(v, key, overall) {
@@ -521,6 +546,7 @@ function init_search_events() {
 
     $(document).on('click', '.toc-two-left-two-heading-right', function() {
         $(this).addClass("toc-two-left-two-heading-right-next");
+        var pinText = $(this).find("p").text(); 
         $(this).find("p").text("Pin to top");
 
         //$(this).find("input").prop( "checked", false )
@@ -529,11 +555,21 @@ function init_search_events() {
         sort_val = $(this).closest(".toc-two").attr('data-sort');
         sort_val = sort_val - 1;
         if(sort_val < 0) {
-          sort_val = 0;
+          sort_val = 1;
         }
+        if (pinText == 'Unpin') {
+            agentid = $(this).closest(".toc-two").attr("agent_id");
+            var pinAgentArr = JSON.parse(localStorage.getItem("pin_agent_arr"));
+            var index = pinAgentArr.indexOf(agentid);
+            pinAgentArr.splice(index, 1);
+            pinAgentArr = remove_duplicates(pinAgentArr);
+            localStorage.setItem("pin_agent_arr", JSON.stringify(pinAgentArr));
 
-        $(this).closest(".toc-two").detach().insertAfter(
-            "div[data-sort="+sort_val+"]");
+            updateBrowserUrl();
+
+            $(this).closest(".toc-two").detach().insertAfter(
+                "div[data-sort="+sort_val+"]");
+        }
     })
 
 
@@ -546,10 +582,21 @@ function init_search_events() {
     $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
         $(this).removeClass("toc-two-left-two-heading-right-next");
         //$(this).find('i').toggleClass('fa-toggle-off fa-toggle-on');
+        var pinText = $(this).find("p").text();
         $(this).find("p").text("Unpin");
         //$(this).find("input").prop( "checked", true )
-        set_pined_agent_ids()
-        $(this).closest(".toc-two").detach().prependTo("#page-section")
+        set_pined_agent_ids();
+        if (pinText=='Pin to top') {
+            agentid = $(this).closest(".toc-two").attr("agent_id");
+            var pinAgentArr = JSON.parse(localStorage.getItem("pin_agent_arr"));
+            pinAgentArr.push(agentid);
+            pinAgentArr = remove_duplicates(pinAgentArr);
+            localStorage.setItem("pin_agent_arr", JSON.stringify(pinAgentArr));
+
+            updateBrowserUrl();
+
+            $(this).closest(".toc-two").detach().prependTo("#page-section");
+        }
     })
 
     $(document).on("click", "#filterSellers", function() {
@@ -560,8 +607,6 @@ function init_search_events() {
             var redio= $("form input[type='radio']:checked").val();
             var i= 0;
 
-            alert(city)
-            alert(redio)
             var page_params = get_page_initial_results()
             delete page_params['lat']
             delete page_params['lng']
@@ -709,5 +754,17 @@ $('#query-submit').on('click', function(){
     });
     return false;
 });
+
+function remove_duplicates(arr) {
+    var obj = {};
+    var ret_arr = [];
+    for (var i = 0; i < arr.length; i++) {
+        obj[arr[i]] = true;
+    }
+    for (var key in obj) {
+        ret_arr.push(key);
+    }
+    return ret_arr;
+}
 
 window.addEventListener("DOMContentLoaded", init_search_results, false);

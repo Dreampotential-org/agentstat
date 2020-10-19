@@ -23,7 +23,7 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
                   <td colspan="2" class="toc-two-left-two-heading-right toc-two-left-two-heading-right-next text-center" >
                     
                     <div class="custom_pin"> 
-                      <a href="#" id="toggler-[[agent_id]]"  class="toggler [[toggle_on]]">&nbsp;</a>
+                      <a href="javascript:void(0);" id="toggler-[[agent_id]]"  class="toggler [[toggle_on]]">&nbsp;</a>
                       <p>Pin to top</p>
                     </div> 
                     <span class="agent_btn_wrap"><a href="#" data-toggle="modal" class='contact-agent-modal-button collect-lead'
