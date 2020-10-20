@@ -10,7 +10,7 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
             <tbody>
               <tr>
                   <td colspan="3"  class="title ">
-                  <a  href=[[agent_profile_link]]>
+                  <a  href=[[agent_profile_link]] style="font-size:18px;">
                   <h4 style="text-transform:capitalize;" >[[agent_name]] <span class="custom_score hide_div"> | 
                   [[brokerage_info]]</span> 
                   <p class="custom_score show_div">[[brokerage_info]]</p>
@@ -35,8 +35,8 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
 
               <tr>
                 <td></td>
-                <td><h5><strong >Overall</strong></h5></td>
-                <td class="city_results" style="width:10%"><h5 ><strong>[[city]]</strong></h5></td> 
+                <td><h5 style="font-size:13px"><strong >Overall</strong></h5></td>
+                <td class="city_results" style="width:10%"><h5 style="font-size:13px"><strong>[[city]]</strong></h5></td> 
               </tr>
             <!--
               <tr>
