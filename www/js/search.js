@@ -600,6 +600,7 @@ function init_search_events() {
 
             updateBrowserUrl();
 
+            console.log('aaaa')
             $(this).closest(".toc-two").detach().prependTo("#page-section");
         }
     })
