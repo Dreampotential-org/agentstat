@@ -545,13 +545,10 @@ function set_home_type_radio(home_type) {
 
 
 function init_search_events() {
-    // $(document).on('click', '.collect-lead', function() {
-    //     $("body").prepend(lead_collection)
-    // })
 
-    $(document).on('click', '.toc-two-left-two-heading-right', function() {
+    $(document).on('click', '.toc-two-left-two-heading-right', function(e) {
         $(this).addClass("toc-two-left-two-heading-right-next");
-        var pinText = $(this).find("p").text(); 
+        var pinText = $(this).find("p").text();
         $(this).find("p").text("Pin to top");
 
         //$(this).find("input").prop( "checked", false )
@@ -570,10 +567,10 @@ function init_search_events() {
             pinAgentArr = remove_duplicates(pinAgentArr);
             localStorage.setItem("pin_agent_arr", JSON.stringify(pinAgentArr));
 
+            // add to the end of the last on toggle agent
+            var last_el = $(".toc-two").eq($(".toc-two .on").length)
+            $(this).closest(".toc-two").detach().insertAfter(last_el)
             updateBrowserUrl();
-
-            $(this).closest(".toc-two").detach().insertAfter(
-                "div[data-sort="+sort_val+"]");
         }
     })
 
@@ -584,7 +581,13 @@ function init_search_events() {
 
 
     // pin to top
-    $(document).on('click', '.toc-two-left-two-heading-right-next', function() {
+    $(document).on('click', '.toc-two-left-two-heading-right-next', function(e) {
+        console.log(e)
+        console.log(e.target.className)
+        if(e.target.className.includes("collect-lead")) {
+            return
+        }
+        console.log(e)
         $(this).removeClass("toc-two-left-two-heading-right-next");
         //$(this).find('i').toggleClass('fa-toggle-off fa-toggle-on');
         var pinText = $(this).find("p").text();
