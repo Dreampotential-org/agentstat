@@ -33,6 +33,8 @@ function fillIn() {
 
 
     $(".maps_input").focus();
+    redirectResults(global_results);
+
 
 }
 
