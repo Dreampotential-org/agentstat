@@ -16,6 +16,16 @@ var activePaginationPageNo = 1;
 function init() {
   load_agent();
   $("#lead_phone").inputmask({ "mask": "(999) 999-9999" });
+  $("#one-left-in").inputmask('decimal', {
+      'alias': 'numeric',
+      'allowMinus': false,
+      'placeholder': ''
+  });
+  $("#one-right-in").inputmask('decimal', {
+      'alias': 'numeric',
+      'allowMinus': false,
+      'placeholder': ''
+  });
 }
 
 function currencyFormat(num) {

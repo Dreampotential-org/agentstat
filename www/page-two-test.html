@@ -1280,6 +1280,16 @@
 
     <script type="text/javascript">
         $("#query-phone").inputmask({ "mask": "(999) 999-9999" });
+        $("#one-left-in").inputmask('decimal', {
+            'alias': 'numeric',
+            'allowMinus': false,
+            'placeholder': ''
+        });
+        $("#one-right-in").inputmask('decimal', {
+            'alias': 'numeric',
+            'allowMinus': false,
+            'placeholder': ''
+        });
 
         jQuery(".dm-main4 > button").click(function () {
             jQuery(".dm-part4").slideToggle();

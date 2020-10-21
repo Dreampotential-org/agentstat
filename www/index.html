@@ -531,6 +531,9 @@
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+        <!-- Input Masking -->
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+
         <script src="js/conf.js"></script>
         <script src="js/main.js"></script>
         <script src="js/common.js"></script>
@@ -554,6 +557,17 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
+                $("#one-left-in").inputmask('decimal', {
+                    'alias': 'numeric',
+                    'allowMinus': false,
+                    'placeholder': ''
+                });
+                $("#one-right-in").inputmask('decimal', {
+                    'alias': 'numeric',
+                    'allowMinus': false,
+                    'placeholder': ''
+                });
+
                 localStorage.setItem('search_home_type', '');
                 $(".state-value").click(function(){
                    //alert($('#allstate li').length);
