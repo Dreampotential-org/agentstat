@@ -1338,7 +1338,7 @@
      font-weight: 300;
      font-size: 16px;
      color: #767676;
-     margin-top: 12px;
+     margin-top: 10px;
      margin-bottom: 40px;
  }
  
@@ -3403,7 +3403,7 @@
  }
  
  #checkedText1{
-     margin-bottom: 1rem;
+     margin-bottom: 5px;
  }
  .show_div{
      display: none;
