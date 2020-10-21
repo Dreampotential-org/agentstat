@@ -183,6 +183,7 @@ function load_search_results() {
     var zipcode = urlParams.get('zipcode');
     var agent_name=urlParams.get('agent_name');
     var page_num = urlParams.get('page_num', '1');
+    var street_address = urlParams.get('address', '');
 
     selected_agents = urlParams.get('agents');
     selected_agent_ids = [];
@@ -197,6 +198,7 @@ function load_search_results() {
         page_num = '1'
     }
     filters.push('page=' + page_num);
+    filters.push('address=' + street_address);
 
     if(state === null || state === 'null') {
       state = 'WA';
