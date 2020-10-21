@@ -1258,6 +1258,9 @@
 
     <script src="/js/type.js"></script>
 
+    <!-- Input Masking -->
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+
     <!-- Custom jQuery -->
     <script src="/js/scripts.js"></script>
 
@@ -1265,7 +1268,7 @@
     <script src="/js/agent-profile-track.js"></script>
 
     <script type="text/javascript">
-
+        $("#query-phone").inputmask({ "mask": "(999) 999-9999" });
 
         jQuery(".dm-main4 > button").click(function () {
             jQuery(".dm-part4").slideToggle();

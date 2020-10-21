@@ -24,7 +24,7 @@ body {
     background-color: #fff;
     color: #087B9E;
     border: 1px solid #087B9E;
-    margin-left: 15px;
+    /* margin-left: 15px; */
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
