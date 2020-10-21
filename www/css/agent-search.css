@@ -107,6 +107,11 @@
 .agent_name, .contact-agent-modal-button{
     text-transform:capitalize;
 }
+.agent_btn_wrap a{
+    display: inline-block !important;
+    text-align: center;
+}
+
 @media (max-width: 1200px) {
     .highlighted .col-lg-3 {
         margin-top: -15px;
@@ -164,6 +169,7 @@
 @media screen and (max-width: 576px) {
     .toc-one ul {
         width: auto;
+        top: -5px;
     }
     .tr-space {
         display: none;
@@ -195,6 +201,13 @@
     .custom_pin p {
         font-size: 10px;
     }
+    .sh-imgbox {
+        max-width: 130px;
+        margin: 10px auto 0;
+    }
+    .form_sec h4 {
+        font-size: 16px;
+    }   
 }
 @media (max-width: 992px) {
     .highlighted .col-md-12 {
