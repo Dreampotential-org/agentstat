@@ -415,21 +415,35 @@ function sortByCity(agent_scores) {
         $('#badges-top-rank').show();
         if (counter < 5) {
             var splitCity = v['city'].split(' ');
+            // var html = `
+            // <div class="block-col">
+            //     <div class="block">
+            //         <strong class="heading" id="cvtext-`+counter+`">`+splitCity[0]+`</strong>
+            //         <strong class="text">TOP</strong>
+            //         <span class="percantege">`+v['agent_percentage']+`%</span>
+            //     </div>
+            // </div>
+            // `;
+
             var html = `
-            <div class="block-col">
-                <div class="block">
-                    <strong class="heading" id="cvtext-`+counter+`">`+splitCity[0]+`</strong>
-                    <strong class="text">TOP</strong>
-                    <span class="percantege">`+v['agent_percentage']+`%</span>
+            <li>
+                <img src="/img/badgelable.svg">
+                <div class="text-box">
+                    <span>Top</span>
+                    <span>`+v['agent_percentage']+`%</span>
                 </div>
-            </div>
+                <div class="bottom-text">`+splitCity[0]+`</div>
+            </li>
             `;
+
             $('#badges-top-rank').append(html);
 
-            new CircleType(document.getElementById('cvtext-'+counter)).radius(150);
+            // new CircleType(document.getElementById('cvtext-'+counter)).radius(150);
         }
         counter++;
     });
+
+    $('.bottom-text').arctext({radius: 50, dir: -1});
 
     return finalData;
 }
