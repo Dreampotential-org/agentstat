@@ -124,17 +124,18 @@ ul.badges-list{
 	text-align: center;
 }
 
-ul.badges-list li{
-	width: 20%;
-	letter-spacing: normal;
-	padding: 5px;
-	position: relative;
-	text-align: center;
-	text-transform: uppercase;
-	font-family : Aller;
-	color : #BF9704;
-	font-size:1.5em;
-	float: left;
+ul.badges-list li {
+    width: 19%;
+    letter-spacing: normal;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Aller;
+    color: #BF9704;
+    font-size: 1.5em;
+    float: none;
+    display: inline-block;
 }
 
 
@@ -158,7 +159,7 @@ ul.badges-list li .text-box span{
 ul.badges-list li .bottom-text{
 	text-transform: capitalize;
 	font-size:0.55em;
-	bottom: 14%;
+	bottom: 18%;
 	transform: translate(-50%, -68%);
 	color: #9C7800;
 }
@@ -171,7 +172,7 @@ ul.badges-list li .bottom-text{
 
 @media only screen and (max-width: 992px) {
 	ul.badges-list li{
-		width: 50%;
+		width: 49%;
 	}
 }
 
@@ -275,4 +276,11 @@ ul.badges-list li .bottom-text{
     .rating-popup .popup-heading .rating-star {
         width: auto !important;
     }
+}
+
+@media only screen and (max-width: 576px) {
+	ul.badges-list {
+        width: 100%;
+        padding: 0 0 50px;
+	}
 }
