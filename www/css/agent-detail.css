@@ -113,8 +113,75 @@
 #city-table_paginate {
     margin-top: 5px;
 }
+ul.badges-list{
+	margin: 0;
+	padding: 0 40px;
+	list-style: none;
+	font-family: aller, sans-serif;
+	width: 100%;
+	letter-spacing: -4px;
+	font-size: 1rem;
+	text-align: center;
+}
 
-@media (max-width: 992px) {
+ul.badges-list li {
+    width: 19%;
+    letter-spacing: normal;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Aller;
+    color: #BF9704;
+    font-size: 1.5em;
+    float: none;
+    display: inline-block;
+}
+
+
+ul.badges-list li .bottom-text,
+ul.badges-list li .text-box{
+	position: absolute;
+	text-align: center;
+	left: 50%;
+}
+
+ul.badges-list li .text-box{
+	top: 53%;
+    transform: translate(-50%, -50%);
+}
+
+ul.badges-list li .text-box span{
+    display: block;
+    margin: -12px 0 0;
+}
+
+ul.badges-list li .bottom-text{
+	text-transform: capitalize;
+	font-size:0.55em;
+	bottom: 18%;
+	transform: translate(-50%, -68%);
+	color: #9C7800;
+}
+
+@media only screen and (max-width: 1024px) {
+	ul.badges-list li{
+		width: 33%;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	ul.badges-list li{
+		width: 49%;
+	}
+}
+
+@media only screen and (max-width: 667px) {
+	ul.badges-list li{
+        width: 100%;
+        padding: 0 80px;
+	}
+}@media (max-width: 992px) {
     .tags-section {
         flex-wrap: wrap;
     }
@@ -209,4 +276,11 @@
     .rating-popup .popup-heading .rating-star {
         width: auto !important;
     }
+}
+
+@media only screen and (max-width: 576px) {
+	ul.badges-list {
+        width: 100%;
+        padding: 0 0 50px;
+	}
 }
