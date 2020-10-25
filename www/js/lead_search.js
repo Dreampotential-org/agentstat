@@ -35,7 +35,7 @@ function do_search() {
     new_url += '&name=' + $("#name").val()
     new_url += '&phone=' + $("#phone").val()
     new_url += '&address_text=' + $("#address").val()
-    new_url=encodeURIComponent(new_url)
+    // new_url=encodeURIComponent(new_url)
     console.log(new_url)
     window.location = new_url
 
