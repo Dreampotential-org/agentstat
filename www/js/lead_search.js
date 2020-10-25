@@ -29,9 +29,9 @@ function handle_clicks() {
 
 function do_search() {
     new_url = '/agents/?home_type=House'
+    new_url += '&city=' + search_data['city']
     new_url += '&address=' + search_data['street_address']
     new_url += '&state=' + search_data['state']
-    new_url += '&city=' + search_data['city']
     new_url += '&name=' + $("#name").val()
     new_url += '&phone=' + $("#phone").val()
     new_url += '&address_text=' + $("#address").val()
