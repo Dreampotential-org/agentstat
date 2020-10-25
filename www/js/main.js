@@ -266,7 +266,7 @@ function redirectResults(results) {
     $.each(new_params, function(k,v){
       var v1 = v.split('=');
       if (v1[1] != undefined &&  v1[1] != '' && v1[1] != 'null' ) {
-        getStr = getStr +v+'&'; 
+        getStr = getStr +v+'&';
       }
     });
     new_url = '/agents/?' + getStr.slice(0, -1);
