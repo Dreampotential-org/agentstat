@@ -35,15 +35,25 @@
         <link rel="stylesheet" href="css/inbox.css" />
     </head>
     <style>
-        .background-agent {
-            background: url('img/agent-bg.jpeg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: top;
+        .background-agent:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            content: "";
         }
         body {
+            background: url(img/agent-bg.jpeg) no-repeat center center fixed;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: top;
             display: block;
             margin: 0px;
+        }
+        .footer {
+            position: fixed !important;
         }
         .navbar {
             padding: 0px;
@@ -58,18 +68,19 @@
             display: block;
             margin: 0 auto;
             margin: -20px auto auto auto;
+            width: 100%;
             max-width: 710px;
             border: 1px solid #575757;
         }
         @media screen and (min-width: 600px) {
             h1{
-                font-size: 64px;
+                font-size: 64px !important;
                 font-weight: bold;
             }
         }
         @media screen and (max-width: 600px) {
             h1{
-                font-size: 25px;
+                font-size: 25px !important;
                 font-weight: bold;
             }
         }
