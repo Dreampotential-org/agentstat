@@ -8,10 +8,6 @@
         <meta name="keywords" content="">
         <meta name="decription" content="">
         <meta name="author" content="">
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
-        <script src="js/lead_search.js"></script>
-        <script src="/js/jquery-3.4.1.min.js"></script>
-
 
         <!-- Title -->
         <title>Find Agent</title>
@@ -37,6 +33,10 @@
 
         <!-- Page CSS -->
         <link rel="stylesheet" href="css/inbox.css" />
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+        <script src="js/lead_search.js"></script>
+        <script src="/js/jquery-3.4.1.min.js"></script>
     </head>
     <style>
         .background-agent:before {
@@ -52,8 +52,8 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-            display: block;
             background-position: top;
+            display: block;
             margin: 0px;
         }
         .footer {
@@ -67,15 +67,24 @@
         .form-control {
             border: 1px solid #1f202196;
         }
+        video {
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            margin: -20px auto auto auto;
+            width: 100%;
+            max-width: 710px;
+            border: 1px solid #575757;
+        }
         @media screen and (min-width: 600px) {
             h1{
-                font-size: 64px;
+                font-size: 64px !important;
                 font-weight: bold;
             }
         }
         @media screen and (max-width: 600px) {
             h1{
-                font-size: 25px;
+                font-size: 25px !important;
                 font-weight: bold;
             }
         }
@@ -129,8 +138,8 @@
                          font-weight: bold;
                          color: white;
                          ">
-                        <h2>Find the Best Agent to sell your home</h2>
-                        <h3>Works just like Google, try it.</h3>
+                    <h2>Find the Best Agent to sell your home</h2>
+                    <h3>Works just like Google, try it.</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -138,7 +147,7 @@
                         <div class="form-inline" style="width: 100%;padding-right: 40px;padding-left: 40px;">
                             <div class="row" style="background: #ffffff99;padding: 50px 20px 20px 20px;border-radius: 5px;">
                                 <div class="form-group col-sm-12">
-                                    <input style="width: 100%;" autocomplete="chrome-off" type="text" class="form-control" id="address" placeholder="Address">
+                                    <input style="width: 100%;"  type="text" class="form-control" id="address" placeholder="Address" autocomplete="chrome-off">
                                 </div>
                                 <br><br>
                                 <div class="form-group col-sm-6">
@@ -149,7 +158,7 @@
                                 </div>
                                 <div class="col-sm-12" style="margin: 10px;"></div>
                                 <div class="form-group col-sm-6">
-                                    <button id='search_now' type="submit" class="btn btn-success btn-lg btn-block">Search</button>
+                                    <button id='search_now' type="submit" class="btn btn-success btn-lg btn-block"> Search</button>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <button id='call_me' type="submit" class="btn btn-warning btn-lg btn-block">Call me Now</button>
@@ -159,7 +168,17 @@
                     </div>
                 </div>
             </div>
-            <br><br> <br><br>
+            <br><br>
+            <div class="container" style='display:none;'>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="video-box">
+                            <video id="video-player" src="https://agentstat.com/video/home_page_video.mp4" loop="true" autoplay="autoplay" controls="controls"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
             <div class="footer">
                 <div class="container">
                     <div class="footer-wrapper text-center">
