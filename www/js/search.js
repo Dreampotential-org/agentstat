@@ -70,6 +70,8 @@ function get_search_filters() {
     const v_estimate = urlParams.get('v_estimate');
     const home_type = urlParams.get('home_type');
 
+    const phone = urlParams.get('phone');
+    const name = urlParams.get('name');
 
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
@@ -134,6 +136,14 @@ function get_search_filters() {
     if (home_type) {
         filters.push('home_type=' + home_type);
         set_home_type_radio(type)
+    }
+
+    if (phone) {
+        filters.push('name=' + name);
+    }
+
+    if (name) {
+        filters.push('phone=' + phone);
     }
 
     var selected = 'selected_agent_ids=';
