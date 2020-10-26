@@ -1,4 +1,5 @@
 // UNCOMMENT to connect to local django-zillow api instance
+SERVER_URL = 'https://app.agentstat.com/';
 API_URL = 'https://app.agentstat.com/api/';
 TRANSACTIONS_URL = 'https://app.agentstat.com/agentportal/transactions/'
 CITY_AGENT_SCORES_URL = 'https://app.agentstat.com/agentportal/agent_scores/'

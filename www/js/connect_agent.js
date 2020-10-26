@@ -1,3 +1,11 @@
+var signupType = window.location.pathname.split('/')[2];
+
+var urlParams = new URLSearchParams(window.location.search);
+var status = urlParams.get('status');
+if (status=='noagent') {
+    $('#noagent-error').show();
+}
+
 function init() {
 
   // session_id = localStorage.getItem('session_id');
@@ -94,12 +102,22 @@ function init_events_connect() {
   $("body").delegate("#set_agent", "click", function(e) {
     connector_id = $("input[name='select-agent']:checked").val();
     if(typeof connector_id != 'undefined') {
-      claim_api(connector_id);
+      if (localStorage.getItem('session_id')) {
+        claim_api(connector_id);
+      } else if (signupType == 'facebook') {
+        window.location = SERVER_URL+'api/social-login/facebook/'+connector_id+'/';
+      } else {
+        window.location = SERVER_URL+'api/social-login/google/'+connector_id+'/';
+      }
+      
     } else {
       connector_id = $("input[name='claim-agent']:checked").val();
       // dispute_profile(connector_id)
       show_claim_screen();
     }
+
+    console.log(connector_id);
+    return false;
   })
 
   $("body").delegate("#search", "click", function(e) {
@@ -135,7 +153,7 @@ function get_agent_html(agent) {
   if ((agent['claimed'])) {
     link = (
       "<a target='_blank' href='" + profile_link + "'>" +
-        "<input type='radio' name='claim-agent'>" + agent['agent_full_name']+ ' - ' + brokerage_name + ' (Claimed)' +
+        "<input type='radio' name='claim-agent' value='"+agent['agent_id']+"'>" + agent['agent_full_name']+ ' - ' + brokerage_name + ' (Claimed)' +
         "<br>" +
       "</a>"
     );
