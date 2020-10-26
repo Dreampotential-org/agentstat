@@ -355,6 +355,8 @@ function init_maps() {
     console.log("page_input", page_input)
     var options = {
         types: ['address'],
+        componentRestrictions: {country: "us"},
+
     }
 
     var autocomplete = new google.maps.places.Autocomplete(input, options);
