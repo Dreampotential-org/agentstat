@@ -1811,10 +1811,9 @@
                 }
 
                 var queryParams = {};
-                console.log(parseQuerystring());
                 $.each(parseQuerystring(), function(k,v){
                     if (v!='' && v!='null') {
-                        queryParams[k] = decodeURI(v);
+                        queryParams[k] = decodeURIComponent(v).replaceAll("+"," ");
                     }
                 });
                 data['queryParams'] = queryParams;

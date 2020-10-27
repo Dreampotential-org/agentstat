@@ -747,7 +747,7 @@ $('#query-submit').on('click', function(){
     var queryParams = {};
     $.each(parseQuerystring(), function(k,v){
         if (v!='' && v!='null') {
-            queryParams[k] = decodeURI(v);
+            queryParams[k] = decodeURIComponent(v).replaceAll("+"," ");
         }
     })
 
