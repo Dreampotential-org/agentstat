@@ -1810,6 +1810,15 @@
                     data['how_soon_buyer'] = buying['how_soon'];
                 }
 
+                var queryParams = {};
+                console.log(parseQuerystring());
+                $.each(parseQuerystring(), function(k,v){
+                    if (v!='' && v!='null') {
+                        queryParams[k] = decodeURI(v);
+                    }
+                });
+                data['queryParams'] = queryParams;
+
                 settings = get_settings('lead/', 'POST', JSON.stringify(data));
                 settings['headers'] = null;
                 $.ajax(settings).done(function (response) {
