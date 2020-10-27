@@ -92,5 +92,9 @@ server {
         location /property-detail/ {
             try_files $uri $uri/ /property-detail.html;
         }
+
+        location /noagent/ {
+            try_files $uri $uri/ /noagent.html;
+        }
         
 }

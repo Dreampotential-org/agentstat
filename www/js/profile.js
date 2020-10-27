@@ -15,12 +15,6 @@ function get_combo(callback, end_point) {
 
 
 function display_profile(profile) {
-  if (localStorage.getItem("connect_profile") !== null && localStorage.getItem("connect_profile") != 'null') {
-    claim_api(localStorage.getItem("connect_profile"));
-  } else if (profile.connector === null) {
-    window.location = '/connect-profile.html'
-    return false
-  }
   $('#first_name').val(profile.first_name);
   $('#last_name').val(profile.last_name);
   $('#email').val(profile.email);

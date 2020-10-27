@@ -200,10 +200,22 @@ function camleCasetoString(text){
 	return result.charAt(0).toUpperCase() + result.slice(1);
 }
 
+function checkNoagentIsAttached() {
+	console.log(localStorage.getItem("agent_id"));
+	if (localStorage.getItem("agent_id") === null || localStorage.getItem("agent_id") == 'null' || localStorage.getItem("agent_id") == '') {
+		var pageName = window.location.pathname.split("/")[1];
+		var listPages = ['profile-settings', 'inbox', 'reports', 'past-sales', 'referrals', 'team'];
+		if(listPages.indexOf(pageName) !== -1){
+			window.location = '/noagent/';
+		}
+	}
+}
+
 $(document).ready(function(){
 	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
 		isTeamMember();
 		inboxNotification();
 		loadProfileImage();
+		checkNoagentIsAttached();
 	}	
 });

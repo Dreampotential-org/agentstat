@@ -67,6 +67,7 @@ $('#submit_proof_btn').click(function() {
       form_data['full_name'] = $('#full_name').val();
       form_data['email'] = $('#email').val();
       form_data['brokerage_name'] = $('#brokerage-name').val();
+      form_data['agent_profile_connector'] = connector_id;
 
       settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
       settings['headers'] = null;
@@ -80,7 +81,7 @@ $('#submit_proof_btn').click(function() {
             icon: "success",
           }).then(function(isConfirm) {
           });
-          // window.location = '/profile-settings/';
+          window.location = API_URL+'social-login/'+signupType+'/'+connector_id+'/dispute/';
 
       }).fail(function(err) {
           // alert('Got err');
@@ -105,9 +106,9 @@ function init_events_connect() {
       if (localStorage.getItem('session_id')) {
         claim_api(connector_id);
       } else if (signupType == 'facebook') {
-        window.location = SERVER_URL+'api/social-login/facebook/'+connector_id+'/';
+        window.location = API_URL+'social-login/facebook/'+connector_id+'/';
       } else {
-        window.location = SERVER_URL+'api/social-login/google/'+connector_id+'/';
+        window.location = API_URL+'social-login/google/'+connector_id+'/';
       }
       
     } else {
