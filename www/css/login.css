@@ -69,7 +69,13 @@
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
-
+#login-footer{
+    position: fixed !important;
+    bottom: 0 !important;
+    background: #F2F2F2;
+    padding:30px;
+    width: 100% !important;
+}
 @media (max-width: 767px){
     .social-login a:first-child::after {
         left: 40px;

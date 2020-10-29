@@ -59,6 +59,7 @@
     margin: -61px -70px 35px;
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid #C4C4C4;
 }
 .tags-section .tags {
     display: flex;

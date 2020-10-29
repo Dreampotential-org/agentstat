@@ -146,10 +146,12 @@ function inboxNotification() {
 	settings = get_settings('inbox-notification/', 'GET');
 
 	$.ajax(settings).done(function (response) {
+		console.log('if');
 		var data = JSON.parse(response);
 		inboxNotificationBadge(data.unread_count);
 	}).fail(function(err) {
 		console.log(err);
+		console.log('else');
 	});
 }
 

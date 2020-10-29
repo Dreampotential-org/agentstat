@@ -111,7 +111,16 @@
     display: inline-block !important;
     text-align: center;
 }
-
+p.history-tagline {
+    float: right;
+    margin: 10px 0 0;
+}
+.dsk-hidden{
+    display: none;
+}
+a.rank-title{
+    font-size: 20px;
+}
 @media (max-width: 1200px) {
     .highlighted .col-lg-3 {
         margin-top: -15px;
@@ -147,6 +156,14 @@
     }
     .highlighted .horizontal_dotted_line {
         width: 100% !important;
+    }
+    p.history-tagline{
+        display: none;
+    }
+    .dsk-hidden{
+        display: block;
+        margin: 15px 0 0;
+        font-size: 14px;
     }
 }
 @media (max-width: 767px) {
@@ -213,4 +230,20 @@
     .highlighted .col-md-12 {
       height: auto !important;
     }
+}
+@media (max-width: 767px) {
+    .pt-tab:after{
+        top:-5px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .form_sec h4 {
+        margin-bottom: 5px;
+    }
+    .highlighted table tr td:last-child {
+        width: auto;
+    }
+}
+.horizontal_dotted_line{
+    font-size: 14px;
 }

@@ -62,337 +62,338 @@
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
             <![endif]-->
 
-    <!-- header-area start -->
-    <div class="wrapper-heading sticky-top bg-white akh-4">
         <!-- header-area start -->
-        <div class="header-area sticky-top bg-white custom_header stricked-menu stricky-fixed">
-            <div class="">
-                <div class="row" style="margin-right: 0px;">
-                    <div class="col-lg-12">
+        <div class="page-container">
+            <div class="wrapper-heading sticky-top bg-white akh-4">
+                <!-- header-area start -->
+                <div class="header-area sticky-top bg-white custom_header stricked-menu stricky-fixed">
+                    <div class="">
+                        <div class="row" style="margin-right: 0px;">
+                            <div class="col-lg-12">
 
-                        <nav class="navbar navbar-expand-md navbar-light">
-                            <a class="navbar-brand" href="/">
-                                <img class="image" src="/img/logo-beta.png" alt="logo" />
-                            </a>
-                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
-                                </span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav mr-auto">
-                                </ul>
-                                <div  class="main-menu-part">
-                                    <ul>
-                                        <li><a href="/howsearchworks/">How Search Works</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- po-search area start -->
-        <div class="po-search pt-search g">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1">
-                        <div class="po-serach-wrapper pt-search-wrapper po-serach-wrapper-one ak-form custom_search_size srch-bar ak-po">
-                            <div class="address ">
-                                <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
-                                <div class="dropdownaddress address-type index-address-type ">
-                                    <ul>
-                                        <li class="custom_radio">Address</li>
-                                        <li class="custom_radio">Agent Name</li>
-                                        <li class="custom_radio">City</li>
-                                        <li class="custom_radio">ZipCode</li>
+                                <nav class="navbar navbar-expand-md navbar-light">
+                                    <a class="navbar-brand" href="/">
+                                        <img class="image" src="/img/logo-beta.png" alt="logo" />
+                                    </a>
+                                    <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav mr-auto">
                                         </ul>
-                                </div>
-                              </div>
-
-                              <div class="ser-state " style="display: none;">
-                                <p id="ser-state-id" class=" state-value">State <i class="fas fa-caret-down"></i></p>
-                                <div class="ser-state-type">
-                                    <ul id="allstate">
-                                    </ul>
-                                </div>
-                              </div>
-                            <input class="ser search_address maps_input" id="searchId" type="text" name="text" autocomplete="no" placeholder="Search ">
-                            <input class="search_city ser" autocomplete='nop' type="text" name="citytext" placeholder="Search City" style="display:none" >
-                            <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext" placeholder="Search Agent Name" style="display:none" >
-                            <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" >
-                            <div class="type ak-price srch-price">
-                                <p id="y-type" class="type-value">Type <i class="fas fa-caret-down"></i></p>
-                                <div id="dropdowntypes" class="check-type index-check-type">
-                                    <!-- <h6>Home Type</h6> -->
-                                    <ul>
-                                        <li class="custom_radio"> House</li>
-                                        <li  class="custom_radio" > Manufactured</li>
-                                        <li class="custom_radio" >Condo/Co-op</li>
-                                        <li class="custom_radio">Multi-Family</li>
-                                        <li class="custom_radio">Lot/Land</li>
-                                        <li class="custom_radio">Townhouse</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price ak-price srch-pricevalue">
-                                <p class="d-inline-block y-price">Price <i class="fas fa-caret-down"></i></p>
-                                <div class="price-amount" id="pt-amount">
-                                    <div class="price-head-wrapper">
-                                        <h6 class="d-linline-block">Price Range</h6>
-                                        <input id="one-left-in" type="text" name="" placeholder="MIN"> <span> -</span>
-                                        <input id="one-right-in" type="text" name="" placeholder="MAX">
-                                    </div>
-                                    <div class="price-wrapper">
-                                        <div class="p-left">
+                                        <div  class="main-menu-part">
                                             <ul>
-                                                <li>$<span class="price_padding">50</span>K+</li>
-                                                <li>$<span class="price_padding">100</span>K+</li>
-                                                <li>$<span class="price_padding">150</span>K+</li>
-                                                <li>$<span class="price_padding">300</span>K+</li>
-                                                <li>$<span class="price_padding">400</span>K+</li>
-                                                <li>$<span class="price_padding">500</span>K+</li>
-                                                <li>$<span class="price_padding">600</span>K+</li>
-                                                <li>$<span class="price_padding">700</span>K+</li>
-                                                <li>$<span class="price_padding">800</span>K+</li>
-                                                <li>$<span class="price_padding">900</span>K+</li>
-                                            </ul>
-                                        </div>
-                                        <div class="p-right">
-                                            <ul>
-                                                <li>$200K</li>
-                                                <li>$300K</li>
-                                                <li>$400K</li>
-                                                <li>$500K</li>
-                                                <li>$600K</li>
-                                                <li>$700K</li>
-                                                <li>$800K</li>
-                                                <li>$900K</li>
-                                                <li>$1M</li>
-                                                <li>Any price</li>
+                                                <li><a href="/howsearchworks/">How Search Works</a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div id="donBtn"class="text-center" style="padding: 14px;">
-                                        <button >Done</button>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- po-search area start -->
+                <div class="po-search pt-search g">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="po-serach-wrapper pt-search-wrapper po-serach-wrapper-one ak-form custom_search_size srch-bar ak-po">
+                                    <div class="address ">
+                                        <p id="y-address" class="address-value">Address <i class="fas fa-caret-down"></i></p>
+                                        <div class="dropdownaddress address-type index-address-type ">
+                                            <ul>
+                                                <li class="custom_radio">Address</li>
+                                                <li class="custom_radio">Agent Name</li>
+                                                <li class="custom_radio">City</li>
+                                                <li class="custom_radio">ZipCode</li>
+                                                </ul>
+                                        </div>
                                     </div>
+
+                                    <div class="ser-state " style="display: none;">
+                                        <p id="ser-state-id" class=" state-value">State <i class="fas fa-caret-down"></i></p>
+                                        <div class="ser-state-type">
+                                            <ul id="allstate">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <input class="ser search_address maps_input" id="searchId" type="text" name="text" autocomplete="no" placeholder="Search ">
+                                    <input class="search_city ser" autocomplete='nop' type="text" name="citytext" placeholder="Search City" style="display:none" >
+                                    <input class="search_agent_name ser" autocomplete='nop' type="text" name="citytext" placeholder="Search Agent Name" style="display:none" >
+                                    <input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" >
+                                    <div class="type ak-price srch-price">
+                                        <p id="y-type" class="type-value">Type <i class="fas fa-caret-down"></i></p>
+                                        <div id="dropdowntypes" class="check-type index-check-type">
+                                            <!-- <h6>Home Type</h6> -->
+                                            <ul>
+                                                <li class="custom_radio"> House</li>
+                                                <li  class="custom_radio" > Manufactured</li>
+                                                <li class="custom_radio" >Condo/Co-op</li>
+                                                <li class="custom_radio">Multi-Family</li>
+                                                <li class="custom_radio">Lot/Land</li>
+                                                <li class="custom_radio">Townhouse</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="price ak-price srch-pricevalue">
+                                        <p class="d-inline-block y-price">Price <i class="fas fa-caret-down"></i></p>
+                                        <div class="price-amount" id="pt-amount">
+                                            <div class="price-head-wrapper">
+                                                <h6 class="d-linline-block">Price Range</h6>
+                                                <input id="one-left-in" type="text" name="" placeholder="MIN"> <span> -</span>
+                                                <input id="one-right-in" type="text" name="" placeholder="MAX">
+                                            </div>
+                                            <div class="price-wrapper">
+                                                <div class="p-left">
+                                                    <ul>
+                                                        <li>$<span class="price_padding">50</span>K+</li>
+                                                        <li>$<span class="price_padding">100</span>K+</li>
+                                                        <li>$<span class="price_padding">150</span>K+</li>
+                                                        <li>$<span class="price_padding">300</span>K+</li>
+                                                        <li>$<span class="price_padding">400</span>K+</li>
+                                                        <li>$<span class="price_padding">500</span>K+</li>
+                                                        <li>$<span class="price_padding">600</span>K+</li>
+                                                        <li>$<span class="price_padding">700</span>K+</li>
+                                                        <li>$<span class="price_padding">800</span>K+</li>
+                                                        <li>$<span class="price_padding">900</span>K+</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="p-right">
+                                                    <ul>
+                                                        <li>$200K</li>
+                                                        <li>$300K</li>
+                                                        <li>$400K</li>
+                                                        <li>$500K</li>
+                                                        <li>$600K</li>
+                                                        <li>$700K</li>
+                                                        <li>$800K</li>
+                                                        <li>$900K</li>
+                                                        <li>$1M</li>
+                                                        <li>Any price</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div id="donBtn"class="text-center" style="padding: 14px;">
+                                                <button >Done</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="serch_btn" >
+                                        <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
+                                    </div>
+                                    <!-- <div class="ser-butt ak-sb1">
+                                        <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
+                                    </div> -->
                                 </div>
                             </div>
-                            <div class="serch_btn" >
-                                <button class="btn btn-default searchButton"><span><i class="fas fa-search"></i></span></button>
-                            </div>
-                            <!-- <div class="ser-butt ak-sb1">
-                                <button><span><i class="fas fa-search" aria-hidden="true"></i></span></button>
-                            </div> -->
                         </div>
                     </div>
                 </div>
+                <!-- po-search area start -->
             </div>
-        </div>
-        <!-- po-search area start -->
-    </div>
 
-    <!-- header-area end -->
-    <div class="login-form login_content ">
-        <!-- <h3 class="text-center" style="padding: 0px 10px 0px 10px;">
-            Log In To Your AgentStat Account
-        </h3> -->
-        <form action="" method="post" class="body_color">
-           <div class="signup-holder">
-            <nav>
-                <div class="nav nav-tabs custom_log_abs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                        aria-controls="nav-home" aria-selected="false">Sign In</a>
-                    <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                        aria-controls="nav-profile" aria-selected="true">Create Account</a>
-                </div>
-            </nav>
-
-            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <!-- <div class="tab-pane fade show active" id="nav-signIn-tab" role="tabpanel"
-                        aria-labelledby="nav-signIn">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="email" class="form-control email_input" id="email"
-                                    style="border-radius: 0px;" name="email" placeholder="Email address">
-
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="password" id="password" class="form-control email_input"
-                                    style="border-radius: 0px;" name="password" placeholder="Password">
-                            </div>
-                        </div>
-
+        <!-- header-area end -->
+        <div class="login-form login_content ">
+            <!-- <h3 class="text-center" style="padding: 0px 10px 0px 10px;">
+                Log In To Your AgentStat Account
+            </h3> -->
+            <form action="" method="post" class="body_color">
+            <div class="signup-holder">
+                <nav>
+                    <div class="nav nav-tabs custom_log_abs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                            aria-controls="nav-home" aria-selected="false">Sign In</a>
+                        <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                            aria-controls="nav-profile" aria-selected="true">Create Account</a>
                     </div>
-                    <div class="form-group text-center">
-                        <button type="button" id="login-btn" class="btn login-btn buttonLogin">Log in</button>
-                    </div>
-                    <div class="msg-login alert alert-danger" style="display: none"></div>
-                    <div class="clearfix text-center">
-                        <a href="#" class="pull-right" id="forgot-password">Forgot Password?</a>
-                    </div> -->
+                </nav>
 
-                    <div class = "social-login">
+                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                    <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <!-- <div class="tab-pane fade show active" id="nav-signIn-tab" role="tabpanel"
+                            aria-labelledby="nav-signIn">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="email" class="form-control email_input" id="email"
+                                        style="border-radius: 0px;" name="email" placeholder="Email address">
 
-                        <a href="https://app.agentstat.com/api/social-login/facebook/">Continue With Facebook</a> </br>
-                        <a href="https://app.agentstat.com/api/social-login/google/">Continue With Google</a>
-
-                        <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
-                    </div>
-                </div>
-
-                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <form action="" method="post" class="body_color" id="myform">
-                        <div class="form-group">
-                            <div class = "social-login">
-
-                              <a href="/connect-profile/facebook/">Continue With Facebook</a> </br>
-                              <a href="/connect-profile/google/">Continue With Google</a>
-
-                              <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
-                            </div>
-
-
-                            <!-- <div id="status">
-                            </div>
-
-                            <div class="form-group text-center">
-                                <button  id="continuebtn1" value="Submit"
-                                    class="btn login-btn buttonLogin">Sign Up</button>
-                            </div> -->
-                    </form>
-
-                    <div class="clearfix text-center">
-                        <a href="/terms.pdf" target="_blank" class="continutxt" id="forgot-password">By continuing, you agree to
-                            AgentStat’s Terms of Use</a>
-                    </div>
-                </div>
-            </div>
-           </div>
-        </form>
-
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade " id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-size modalSignup" role="document" style="transform: translateY(50%);">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div>
-                        <p>I am ....</p>
-                        <div class="form-group row text-center">
-                            <div class="col-6 col-md-6 col-sm-3">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="checkbox" id="checkID" value="Geeks">
-                                    <label class="GFG" for="checkID"> Homeowner </label>
-                                    <!-- <input type="checkbox" class="custom-control-input" id="homeowner" name="Homeowner" value="Homeowner  ">
-                                            <label class="custom-control-label" >Homeowner</label> -->
                                 </div>
                             </div>
-                            <div class="col-6 col-md-6 col-sm-3">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input " id="buyer" name="Buyer"
-                                        value="Buyer">
-                                    <label class="custom-control-label">Buyer</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="password" id="password" class="form-control email_input"
+                                        style="border-radius: 0px;" name="password" placeholder="Password">
                                 </div>
                             </div>
 
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-9 col-md-9 col-sm-6" style="padding-left: 0px;">
-                                <div class="custom-control custom-checkbox text-center">
-                                    <input type="checkbox" class="custom-control-input" id="industry" name="Industry"
-                                        value="Industry">
-                                    <label class="custom-control-label">Industry Professional </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-12 col-md-12 col-sm-9 city_div">
-                                <select id='category' name="category" placeholder="Select your category"
-                                    class="form-control d-inline-block custom_city w-50 float-left">
-                                    <option value=''>Select your category</option>
-                                    <option value='secondoption'>Real Estate Agent/ Broker</option>
-                                    <option value='Mortgage Lender'>Mortgage Lender</option>
-                                    <option value='Home Improvement Services'>Home Improvement Services</option>
-                                    <option value='Photographer'>Photographer</option>
-                                    <option value='Home Builder'>Home Builder</option>
-                                    <option value='Home Inspector'>Home Inspector</option>
-                                    <option value='Home Inspector'>Home Appraiser</option>
-                                    <option value='Home Inspector'>Other</option>
-                                </select>
-                            </div>
                         </div>
                         <div class="form-group text-center">
-                            <button type="button" id="continue" class="btn login-btn buttonLogin">Continue</button>
+                            <button type="button" id="login-btn" class="btn login-btn buttonLogin">Log in</button>
+                        </div>
+                        <div class="msg-login alert alert-danger" style="display: none"></div>
+                        <div class="clearfix text-center">
+                            <a href="#" class="pull-right" id="forgot-password">Forgot Password?</a>
+                        </div> -->
+
+                        <div class = "social-login">
+
+                            <a href="https://app.agentstat.com/api/social-login/facebook/">Continue With Facebook</a> </br>
+                            <a href="https://app.agentstat.com/api/social-login/google/">Continue With Google</a>
+
+                            <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <form action="" method="post" class="body_color" id="myform">
+                            <div class="form-group">
+                                <div class = "social-login">
+
+                                <a href="/connect-profile/facebook/">Continue With Facebook</a> </br>
+                                <a href="/connect-profile/google/">Continue With Google</a>
+
+                                <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+                                </div>
+
+
+                                <!-- <div id="status">
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button  id="continuebtn1" value="Submit"
+                                        class="btn login-btn buttonLogin">Sign Up</button>
+                                </div> -->
+                        </form>
+
+                        <div class="clearfix text-center">
+                            <a href="/terms.pdf" target="_blank" class="continutxt" id="forgot-password">By continuing, you agree to
+                                AgentStat’s Terms of Use</a>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </div>
+            </form>
 
-    <!-- Modal 2 -->
-    <div class="modal fade " id="continueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog  modalSignup" role="document">
-            <div class="modal-content" style="width: 650px;">
-                <div class="modal-body">
-                    <h4><b>To claim your profile, please enter your name here, find your profile, and click “claim
-                            profile” link under your profile picture on your profile page.</b></h4>
-                    <br>
-                    <div class="form">
-                        <div class="container">
-                            <div class="form-wrapper">
-                                <div class="row h-100">
-                                    <div class="col-lg-6 mx-auto">
-                                        <div class="alert alert-danger msg" role="alert" style="display: none">
-                                        </div>
+        </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade " id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-size modalSignup" role="document" style="transform: translateY(50%);">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div>
+                            <p>I am ....</p>
+                            <div class="form-group row text-center">
+                                <div class="col-6 col-md-6 col-sm-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="checkbox" id="checkID" value="Geeks">
+                                        <label class="GFG" for="checkID"> Homeowner </label>
+                                        <!-- <input type="checkbox" class="custom-control-input" id="homeowner" name="Homeowner" value="Homeowner  ">
+                                                <label class="custom-control-label" >Homeowner</label> -->
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="form-name">
-                                        <div class="row">
-                                            <div class="col-6 cod-md-4 col-sm-3">
-                                                <div class="fn-right">
-                                                    <input type="text" class="form-control" id="full_name" name="text"
-                                                        placeholder="Full Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-4 cod-md-4 col-sm-3">
-                                                <div class="fn-right">
-                                                    <select id='state' class='form-control'></select>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 cod-md-4 col-sm-3">
-                                                <div class="fn-left">
-                                                    <button id='search' style='margin-left:10px;'
-                                                        class="btn btn-success">Search</button>
-                                                </div>
+                                <div class="col-6 col-md-6 col-sm-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input " id="buyer" name="Buyer"
+                                            value="Buyer">
+                                        <label class="custom-control-label">Buyer</label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-9 col-md-9 col-sm-6" style="padding-left: 0px;">
+                                    <div class="custom-control custom-checkbox text-center">
+                                        <input type="checkbox" class="custom-control-input" id="industry" name="Industry"
+                                            value="Industry">
+                                        <label class="custom-control-label">Industry Professional </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12 col-md-12 col-sm-9 city_div">
+                                    <select id='category' name="category" placeholder="Select your category"
+                                        class="form-control d-inline-block custom_city w-50 float-left">
+                                        <option value=''>Select your category</option>
+                                        <option value='secondoption'>Real Estate Agent/ Broker</option>
+                                        <option value='Mortgage Lender'>Mortgage Lender</option>
+                                        <option value='Home Improvement Services'>Home Improvement Services</option>
+                                        <option value='Photographer'>Photographer</option>
+                                        <option value='Home Builder'>Home Builder</option>
+                                        <option value='Home Inspector'>Home Inspector</option>
+                                        <option value='Home Inspector'>Home Appraiser</option>
+                                        <option value='Home Inspector'>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="button" id="continue" class="btn login-btn buttonLogin">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="modal fade " id="continueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog  modalSignup" role="document">
+                <div class="modal-content" style="width: 650px;">
+                    <div class="modal-body">
+                        <h4><b>To claim your profile, please enter your name here, find your profile, and click “claim
+                                profile” link under your profile picture on your profile page.</b></h4>
+                        <br>
+                        <div class="form">
+                            <div class="container">
+                                <div class="form-wrapper">
+                                    <div class="row h-100">
+                                        <div class="col-lg-6 mx-auto">
+                                            <div class="alert alert-danger msg" role="alert" style="display: none">
                                             </div>
                                         </div>
                                     </div>
-                                    <br>
-                                    <div class="margin-l-s" id='select_agent' text-align='center'></div>
-                                    <br>
-                                    <div><button disabled id='set_agent' class="btn btn-warning"> This is me</button>
+                                    <div>
+                                        <div class="form-name">
+                                            <div class="row">
+                                                <div class="col-6 cod-md-4 col-sm-3">
+                                                    <div class="fn-right">
+                                                        <input type="text" class="form-control" id="full_name" name="text"
+                                                            placeholder="Full Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 cod-md-4 col-sm-3">
+                                                    <div class="fn-right">
+                                                        <select id='state' class='form-control'></select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 cod-md-4 col-sm-3">
+                                                    <div class="fn-left">
+                                                        <button id='search' style='margin-left:10px;'
+                                                            class="btn btn-success">Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="margin-l-s" id='select_agent' text-align='center'></div>
+                                        <br>
+                                        <div><button disabled id='set_agent' class="btn btn-warning"> This is me</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
 
     <div class="modal fade " id="alreadyClaimedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modalSignup" role="document">
@@ -484,7 +485,16 @@
             </div>
         </div>
     </div>
-
+    <div id="login-footer">
+        <div class="container">
+            <div class="footer-wrapper text-center">
+                <p>Copyright © agentstat.com</p>
+                <ul>
+                    <a href="https://agentstat.com/terms.pdf" target="_blank">Terms of Use</a>
+                </ul>
+            </div>
+        </div>
+    </div>
     <style>
         .login-form {
             width: 450px;
@@ -548,6 +558,13 @@
             margin: 0 auto;
             top: 25%;
             transform: translateY(-50%);
+        }
+        #login-footer{
+            position: fixed !important;
+            bottom: 0 !important;
+            background: #F2F2F2;
+            padding:30px;
+            width: 100% !important;
         }
     </style>
     <script type="text/javascript"

@@ -29,6 +29,7 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
                     </div>
                     <span class="agent_btn_wrap"><a href="#" data-toggle="modal" class='contact-agent-modal-button collect-lead'
                            data-agent-id="156821" data-target="#myModalx" style="text-transform:capitalize;">Connect with [[agent_name]]</a>
+                           
                     </span>
                   </td>
               </tr>
@@ -103,6 +104,7 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
             </tbody>
           </table>
         </div>
+        <p class="history-tagline">* Showing 36mo history</p>
       </div>
     </div>
 
@@ -112,6 +114,7 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
       <li>
         <a href="#" data-toggle="modal" class='contact-agent-modal-button collect-lead' data-agent-id="156821" data-target="#myModalx">Connect with [[agent_name]]</a>
       </li>
+      <p class="dsk-hidden">* Showing 36mo history</p>
       </ul>
     <div>
   </div>
