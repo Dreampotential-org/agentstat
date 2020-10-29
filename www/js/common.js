@@ -212,7 +212,6 @@ function checkNoagentIsAttached() {
 		var pageName = window.location.pathname.split("/")[1];
 		var listPages = ['profile-settings', 'inbox', 'reports', 'past-sales', 'referrals', 'team', 'connect-profile'];
 		if(listPages.indexOf(pageName) !== -1){
-			// alert()	
 			settings = get_settings('check-agent-connect/'+localStorage.getItem("web_agent_id")+'/', 'GET');
 			$.ajax(settings).done(function (response) {
 				var data = JSON.parse(response);

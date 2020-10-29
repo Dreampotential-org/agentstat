@@ -721,6 +721,10 @@ $('#submit_proof_btn').click(function () {
     form_data['full_name'] = $('#full_name').val();
     form_data['email'] = $('#email').val();
     form_data['brokerage_name'] = $('#brokerage-name').val();
+    form_data['agent_profile_connector'] = agent_id;
+    if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
+      form_data['dispute_web_agent'] = localStorage.getItem("web_agent_id");
+    }
 
     settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
     settings['headers'] = null;
@@ -733,6 +737,11 @@ $('#submit_proof_btn').click(function () {
         text: "We will review your dispute and get back to you within 48 hours",
         icon: "success",
       }).then(function (isConfirm) {
+        if (localStorage.getItem("email") == null) {
+          $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/dispute/');
+          $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/dispute/');
+          $('#claim-login').modal('show'); 
+        }
       });
 
     }).fail(function (err) {

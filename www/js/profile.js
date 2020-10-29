@@ -67,6 +67,7 @@ function display_profile(profile) {
   try {
     if (profile.connector.id !== undefined) {
       agent_id = profile.connector.id;
+      localStorage.agent_id = agent_id;
     }
   } catch(err) { }
 
