@@ -263,6 +263,59 @@ ul.badges-list li .bottom-text{
     padding: 0 0 11px;
 }
 
+.social-login{
+    margin: 40px 0 30px;
+}
+.social-login a{
+    margin:0 15px -5px;
+    border-radius: 3px;
+    display: block;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+    z-index: 0;
+    padding: 10px 30px 10px 45px;
+}
+.social-login a:first-child {
+    background: #3b5998;
+    color: #fff;
+}
+.social-login a:last-child {
+    background: transparent;
+    color: #fff;
+    color:#656565;
+    border: 1px solid #ccc;
+}
+.social-login a:first-child::after {
+    position: absolute;
+    content:'\f082 ';
+    font-family: 'Fontawesome';
+    top: 3px;
+    left: 55px;
+    font-size: 25px;
+    color: #fff;
+    font-weight: normal;
+    z-index: 1;
+}
+.social-login a:last-child::after {
+    position: absolute;
+    content:'\f1a0 ';
+    font-family: 'Fontawesome';
+    top: 8px;
+    left: 60px;
+    font-size: 18px;
+    color: #656565;
+    font-weight: normal;
+    z-index: 1;
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
 @media (max-width: 1200px) {
     .rating-popup .popup-heading h3 {
         margin: 10px 0 0;

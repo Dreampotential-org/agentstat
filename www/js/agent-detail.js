@@ -251,7 +251,7 @@ function load_agent(ignore_city = true) {
         $('#claim_wrapper a').attr('agent-id', agent_id)
       } else {
         $('#claim_wrapper').css('display', 'inline-block');
-        $('#claim_wrapper a').attr('href', '/create-account/'+agent_id);
+        // $('#claim_wrapper a').attr('href', '/create-account/'+agent_id);
       }
     }
 
@@ -329,14 +329,18 @@ function load_agent(ignore_city = true) {
 
 $(document).ready(function () {
     $('#claim_wrapper a').bind('click', function () {
-      agnet_id = $('#claim_wrapper a').attr('agent_id')
       data = {'agent_id': agent_id}
-      settings = get_settings('claim/', 'POST', JSON.stringify(data));
+      if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
+        settings = get_settings('claim/', 'POST', JSON.stringify(data));
 
-      $.ajax(settings).done(function (response) {
-        window.location = '/profile-settings/'
-      });
-        
+        $.ajax(settings).done(function (response) {
+          window.location = '/profile-settings/'
+        });
+      } else {
+        $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/');
+        $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/');
+        $('#claim-login').modal('show'); 
+      }
     });
 });
 

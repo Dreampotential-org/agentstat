@@ -1,7 +1,11 @@
 $("body").delegate(".logout", "click", function(e) {
-    localStorage.clear();
-    window.location = '/';
+    logout_session();
 });
+
+function logout_session() {
+	localStorage.clear();
+    window.location = '/';
+}
 
 function formatAMPM(timedate) {
 	const date = new Date(timedate);
@@ -146,12 +150,13 @@ function inboxNotification() {
 	settings = get_settings('inbox-notification/', 'GET');
 
 	$.ajax(settings).done(function (response) {
-		console.log('if');
 		var data = JSON.parse(response);
 		inboxNotificationBadge(data.unread_count);
 	}).fail(function(err) {
-		console.log(err);
-		console.log('else');
+		var responseText = JSON.parse(err.responseText)
+		if (responseText.detail=='Invalid token.') {
+			logout_session();
+		}
 	});
 }
 
@@ -203,12 +208,22 @@ function camleCasetoString(text){
 }
 
 function checkNoagentIsAttached() {
-	console.log(localStorage.getItem("agent_id"));
 	if (localStorage.getItem("agent_id") === null || localStorage.getItem("agent_id") == 'null' || localStorage.getItem("agent_id") == '') {
 		var pageName = window.location.pathname.split("/")[1];
-		var listPages = ['profile-settings', 'inbox', 'reports', 'past-sales', 'referrals', 'team'];
+		var listPages = ['profile-settings', 'inbox', 'reports', 'past-sales', 'referrals', 'team', 'connect-profile'];
 		if(listPages.indexOf(pageName) !== -1){
-			window.location = '/noagent/';
+			// alert()	
+			settings = get_settings('check-agent-connect/'+localStorage.getItem("web_agent_id")+'/', 'GET');
+			$.ajax(settings).done(function (response) {
+				var data = JSON.parse(response);
+				if (data.agent_id === null ) {
+					window.location = '/noagent/';
+				} else {
+					localStorage.agent_id = data.agent_id;
+				}
+			}).fail(function(err) {
+				window.location = '/noagent/';
+			});
 		}
 	}
 }
