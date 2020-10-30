@@ -119,7 +119,7 @@ p.history-tagline {
     display: none;
 }
 a.rank-title{
-    font-size: 19px;
+    font-size: 20px;
 }
 @media (max-width: 1200px) {
     .highlighted .col-lg-3 {
@@ -242,6 +242,9 @@ a.rank-title{
     }
     .highlighted table tr td:last-child {
         width: auto;
+    }
+    a.rank-title{
+        font-size: 18px;
     }
 }
 .horizontal_dotted_line{
