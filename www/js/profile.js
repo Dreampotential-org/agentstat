@@ -67,9 +67,13 @@ function display_profile(profile) {
   try {
     if (profile.connector.id !== undefined) {
       agent_id = profile.connector.id;
-      localStorage.agent_id = agent_id;
     }
   } catch(err) { }
+
+  if (agent_id==null) {
+    localStorage.agent_id = agent_id;
+    window.location = '/noagent/';
+  }
 
   if (profile.phone_number !== null) {
     $('#phone_number_1').val(profile.phone_number.substring(0, 3));
