@@ -17,16 +17,15 @@ function fillIn() {
           search_data['state'] = address_comp.short_name
       }
       if (address_comp.types[0] == 'locality') {
-          search_data['city'] = address_comp.short_name
+          search_data['city'] = address_comp.long_name
       }
       if (address_comp.types[0] == 'postal_code') {
           search_data['zip_code'] = address_comp.short_name
       }
     }
+
     search_data['email'] =  localStorage.email
     search_data['user_agent'] = navigator.userAgent
-    // search_log(search_data);
-
 
     var results = getSearchParams(place)
     global_results = results
@@ -293,7 +292,7 @@ function getSearchParams(place) {
             params['state'] = address_comp.short_name
         }
         if (address_comp.types[0] == 'locality') {
-            params['city'] = address_comp.short_name
+            params['city'] = address_comp.long_name
         }
     }
 
