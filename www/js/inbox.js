@@ -18,7 +18,6 @@ function getLeads() {
                     <h1>`+v.name+`</h1><span>`+niceDate(v.created_at, false)+`</span>
                     <p>`+v.phone+`</p>
 					<p>`+v.email+`</p>
-					<p>`+v.address+`</p>
                 </div>
 		  	`;
 		  	$('.review-list').append(html);
@@ -48,6 +47,7 @@ function loadInboxData(obj) {
 	$('#time').html(niceDateTime(obj.created_at));
 	$('#phone').html(obj.phone);
 	$('#email').html(obj.email);
+	$('#address').html(obj.address);
 	
 	if (obj.looking_for != undefined && obj.looking_for != '') {
 		$('.looking_for_div').show();
