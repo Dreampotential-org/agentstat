@@ -499,12 +499,12 @@ $(document).on('change click', '#lead-submit', function () {
   data['email'] = $('#lead_email').val();
   data['name'] = $('#lead_name').val();
   data['phone'] = $('#lead_phone').val();
+  data['address'] = $('#lead_address').val();
   data['message'] = $('#lead_message').val();
   data['agent'] = agent_id;
 
 
-  if (data['email'] === '' || data['name'] === '' || data['phone'] === '') {
-    console.log('All fields are required.');
+  if (data['email'] === '' || data['name'] === '' || data['phone'] === '' || data['address'] === '') {
     $('.msg').html('All fields are required');
     return false;
   }

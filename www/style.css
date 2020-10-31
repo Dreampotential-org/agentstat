@@ -1881,7 +1881,8 @@
      margin-top: 20px!important;
      width: 100%;
      display: inline-block;
-     padding-top: 6px;
+     padding-top: 3px;
+     padding-bottom: 3px;
      transition: all .2s ease;
      -webkit-transition: all .2s ease;
      -moz-transition: all .2s ease;
@@ -1910,7 +1911,8 @@
      margin-top: 20px!important;
      width: 100%;
      display: inline-block;
-     padding-top: 6px;
+     padding-top: 3px;
+     padding-bottom: 3px;
      transition: all .2s ease;
      -webkit-transition: all .2s ease;
      -moz-transition: all .2s ease;

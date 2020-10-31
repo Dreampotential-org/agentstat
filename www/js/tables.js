@@ -415,6 +415,10 @@ function sortByCity(agent_scores) {
         $('#badges-top-rank').show();
         if (counter < 5) {
             var splitCity = v['city'].split(' ');
+            var city = splitCity[0];
+            if (splitCity[1] !== undefined) {
+                city = city+ ' '+splitCity[1];
+            }
             // var html = `
             // <div class="block-col">
             //     <div class="block">
@@ -432,7 +436,7 @@ function sortByCity(agent_scores) {
                     <span>Top</span>
                     <span>`+v['agent_percentage']+`%</span>
                 </div>
-                <div class="bottom-text">`+splitCity[0]+`</div>
+                <div class="bottom-text">`+city+`</div>
             </li>
             `;
 
@@ -550,7 +554,7 @@ function populate_cities(agent_scores) {
             <td class="table-column">` + homeType +`</td>
             <td class="table-column">` + v['agent_rank'] + `/` + v['rank_count'] + `</td>
             <td class="table-column">` + successRate +`%</td>
-            <td class="table-column">` + Math.round(v['s2l_price']) +`</td>
+            <td class="table-column">` + Math.round(v['s2l_price']) +`%</td>
             <td class="table-column">` + avg_dom +`</td>
             <td class="table-column">` + v['sold_listings'] +`</td>
             <td class="table-column">` + v['failed_listings'] +`</td>

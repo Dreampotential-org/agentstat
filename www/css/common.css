@@ -283,6 +283,9 @@ body {
     height:35px; 
     margin-top: -10px;
 }
+#leads-form label {
+    padding-right: 0px;
+}
 @media (max-width: 1200px) {
      .pht-agent-img img {
           width: 150px;

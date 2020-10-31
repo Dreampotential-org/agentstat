@@ -17,7 +17,8 @@ function getLeads() {
 		  		<div class="box-left-content `+boldClass+` `+(record==1 ? 'inbox-active' : '')+` msg-detail" data-id="`+v.id+`">
                     <h1>`+v.name+`</h1><span>`+niceDate(v.created_at, false)+`</span>
                     <p>`+v.phone+`</p>
-                    <p>`+v.email+`</p>
+					<p>`+v.email+`</p>
+					<p>`+v.address+`</p>
                 </div>
 		  	`;
 		  	$('.review-list').append(html);
