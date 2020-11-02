@@ -20,6 +20,8 @@ function updateBrowserUrl() {
 }
 
 function init_search_results() {
+    console.log(localStorage.getItem("pin_agent_arr"));
+
     var url_string = window.location.href;
     var url = new URL(url_string);
     var agents = url.searchParams.get("agents");
@@ -151,6 +153,7 @@ function get_search_filters() {
             if(agent_id) {
                 selected += agent_id + ",";
                 new_agent_ids.push(agent_id);
+                console.log(agent_id);
             }
         }
         new_agent_ids = [...new Set(new_agent_ids)];
@@ -240,6 +243,7 @@ function load_search_results() {
     console.log("API Request: " + api_call_url);
 
     var settings = get_settings(api_call_url, 'GET');
+    console.log(settings['url'])
     settings['headers'] = null;
 
     show_loading_screen();
@@ -452,14 +456,14 @@ function set_pined_agent_ids() {
 
         var pined_agents  = $(".toc-two .switch_on");
 
-        // $("input[type='checkbox']").change(function() {
-        //     if(this.checked) {
-        //         console.log("checked ")
-        //     }
-        //     else{
-        //         console.log("unchecked ")
-        //     }
-        // });
+        $("input[type='checkbox']").change(function() {
+            if(this.checked) {
+                console.log("checked ")
+            }
+            else{
+                console.log("unchecked ")
+            }
+        });
 
         var url = new URL(window.location.href);
         selected_agent_ids_arr = selected_agent_ids.split(',')
@@ -576,12 +580,14 @@ function init_search_events() {
             localStorage.setItem("pin_agent_arr", JSON.stringify(pinAgentArr));
 
             // add to the end of the last on toggle agent
-            // var last_el = $(".toc-two").eq($(".toc-two .on").length)
-            // $(this).closest(".toc-two").detach().insertAfter(last_el)
+            var last_el = $(".toc-two").eq($(".toc-two .on").length)
+            $(this).closest(".toc-two").detach().insertAfter(last_el)
             updateBrowserUrl();
 
-            load_search_results();
-            populate_city_search_menu();
+            setTimeout(function() {
+                load_search_results();
+                populate_city_search_menu();
+            }, 100);
         }
     })
 
@@ -593,9 +599,12 @@ function init_search_events() {
 
     // pin to top
     $(document).on('click', '.toc-two-left-two-heading-right-next', function(e) {
+        console.log(e)
+        console.log(e.target.className)
         if(e.target.className.includes("collect-lead")) {
             return
         }
+        console.log(e)
         $(this).removeClass("toc-two-left-two-heading-right-next");
         //$(this).find('i').toggleClass('fa-toggle-off fa-toggle-on');
         var pinText = $(this).find("p").text();
@@ -610,6 +619,8 @@ function init_search_events() {
             localStorage.setItem("pin_agent_arr", JSON.stringify(pinAgentArr));
 
             updateBrowserUrl();
+
+            console.log('aaaa')
             $(this).closest(".toc-two").detach().prependTo("#page-section");
         }
     })
@@ -658,13 +669,13 @@ function init_search_events() {
 
         $.ajax(settings).done(function (response) {
             var msg = JSON.parse(response);
-            // console.log(msg);
+            console.log(msg);
             $('#msg-'+ selected_agent_id).html('Your message has been sent.');
         }).fail(function(err) {
             // alert('Got err');
             $('#msg-'+ selected_agent_id).html(err['responseText']);
             $('#msg-' + selected_agent_id).css("display", "block");
-            // console.log(err);
+            console.log(err);
         });
     });
 }
