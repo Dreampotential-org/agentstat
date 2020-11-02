@@ -10,6 +10,23 @@ function updateBrowserUrl() {
     var url = new URL(url_string);
 
     var pinAgents = JSON.parse(localStorage.getItem("pin_agent_arr"));
+    
+
+
+    // var url_string = window.location.href;
+    // var url = new URL(url_string);
+    // var agents = url.searchParams.get("agents");
+    
+    // if (agents != null && agents != '') {
+    //     var splitAgentParam = agents.split(',');
+    //     $.each(splitAgentParam, function(k,v){
+    //         if (v != '') {
+    //             pinAgents.push(v);
+    //             pinAgents = remove_duplicates(pinAgents);
+    //         }
+    //     });
+    // }
+    
     if (pinAgents.length > 0) {
         url.searchParams.set("agents", pinAgents.join(','));
         window.history.pushState("", "", url);
@@ -29,6 +46,8 @@ function init_search_results() {
     if (agents == null || agents == '') {
         updateBrowserUrl();
     }
+
+    // updateBrowserUrl();
 
     load_search_results();
     init_search_events();
@@ -580,8 +599,8 @@ function init_search_events() {
             localStorage.setItem("pin_agent_arr", JSON.stringify(pinAgentArr));
 
             // add to the end of the last on toggle agent
-            var last_el = $(".toc-two").eq($(".toc-two .on").length)
-            $(this).closest(".toc-two").detach().insertAfter(last_el)
+            // var last_el = $(".toc-two").eq($(".toc-two .on").length)
+            // $(this).closest(".toc-two").detach().insertAfter(last_el)
             updateBrowserUrl();
 
             setTimeout(function() {
@@ -620,7 +639,6 @@ function init_search_events() {
 
             updateBrowserUrl();
 
-            console.log('aaaa')
             $(this).closest(".toc-two").detach().prependTo("#page-section");
         }
     })
