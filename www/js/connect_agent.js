@@ -193,32 +193,61 @@ $(document).on('click', '#request-btn', function () {
     $('#request-check').hide();
 
     var fields = ['request_name', 'request_email', 'request_phone', 'request_brokerage_name',
-        'request_license', 'request_street_address', 'request_city', 'request_zipcode'];
+        'request_license', 'request_street_address', 'request_city', 'request_state', 'request_zipcode'];
 
+    var check = true;
     $.each(fields, function(k, v){
         if ($('#'+v).val() == '') {
             $('#request-error').show();
-            console.log(v);
-            return false;
+            check = false;
         }
     });
 
-    var form_data = {};
-    $.each(fields, function(k, v) {
-        form_data[v] = $('#'+v).val();
-    });
+    if (check) {
+        $('#request-spinner').show();
+
+        var data = {};
+        data['name'] = $('#request_name').val();
+        data['email'] = $('#request_email').val();
+        data['phone'] = $('#request_phone').val();
+        data['brokerage_name'] = $('#request_brokerage_name').val();
+        data['license'] = $('#request_license').val();
+        data['street_address'] = $('#request_street_address').val();
+        data['city'] = $('#request_city').val();
+        data['state'] = $('#request_state').val();
+        data['zip_code'] = $('#request_zipcode').val();
+
+        settings = get_settings('agent-request/', 'POST', JSON.stringify(data));
+        settings['headers'] = null;
+        $.ajax(settings).done(function (response) {
+            $('#request-spinner').hide();
+            $('#request-check').show();
+            $('#request-msg').show();
+
+            $.each(fields, function(k, v){
+                $('#'+v).val('');
+            });
+        }).fail(function (err) {
+            $('#request-error').html(err['responseText']);
+            $('#request-error').show();
+
+            $('#request-spinner').hide();
+            $('#request-check').hide(); 
+        });
+    }
+    
 });
 
 $(document).on('click', '#already_claim_profile', function () {
-  $('#want-claim').css('display', 'none');
-  $('#submit-proof-form').css('display', 'block');
+    $('#want-claim').css('display', 'none');
+    $('#submit-proof-form').css('display', 'block');
 });
 
 $(document).on('click', '#want-claim-yes', function () {
-  $('#want-claim').css('display', 'none');
-  $('#submit-proof-form').css('display', 'block');
+    $('#want-claim').css('display', 'none');
+    $('#submit-proof-form').css('display', 'block');
 });
 
-$("#phone").inputmask({ "mask": "(999) 999-9999" });
+$("#request_phone").inputmask({ "mask": "(999) 999-9999" });
 
 window.addEventListener("DOMContentLoaded", init, false);
