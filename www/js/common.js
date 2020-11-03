@@ -238,6 +238,9 @@ $(document).ready(function(){
     if ($(window).width() < 550) {
         $("input").focus(function() {
             $('.footer').addClass('mob-device');   
+        });  
+        $("input").focusout(function() {
+            $('.footer').addClass('mob-device');   
         });      
     }
     else{

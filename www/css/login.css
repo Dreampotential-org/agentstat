@@ -83,9 +83,9 @@
 }
 @media (max-width: 767px){
     .social-login a:first-child::after {
-        left: 40px;
+        left: 50px;
     }
     .social-login a:last-child::after {
-        left: 40px;
+        left: 50px;
     }
 }
