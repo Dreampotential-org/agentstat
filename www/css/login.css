@@ -76,8 +76,16 @@
     padding:30px;
     width: 100% !important;
 }
+@media (max-width: 580px){
+    .login-form {
+        width: auto !important;
+    }
+}
 @media (max-width: 767px){
     .social-login a:first-child::after {
+        left: 40px;
+    }
+    .social-login a:last-child::after {
         left: 40px;
     }
 }

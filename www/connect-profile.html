@@ -34,6 +34,8 @@
         <!-- Common css for all pages -->
         <link rel="stylesheet" href="/css/common.css" />
 
+        <link rel="stylesheet" href="/css/referral.css" />
+
         <!-- Page css for all pages -->
         <link rel="stylesheet" href="/css/connect-profile.css" />
 
@@ -108,8 +110,15 @@
                         <div id="noagent-error" class="alert alert-danger" role="alert" style="margin-bottom:0px; margin-top: 15px; display: none;">
                             There is no agent profile is connected with your account. Find you agent here to attach.
                         </div>
-                        <div class="profile-heading">
-                            <h2>Claim Your Profile</h2>
+                        <div class="profile-heading" style="margin-top: 35px;">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h2>Claim Your Profile</h2>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a id="add-agent-request" href="javascript:void(0)" class="btn" data-toggle="modal" data-target="#referralModal" style="float: right;">Can't find yourself in our syetem?</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -279,6 +288,157 @@
         </div>
     </div>
 
+    <div class="modal" id="referralModal" tabindex="-1" role="dialog"
+        style="margin-top: 50px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="buyerpopup-holder">
+                <div class="modal-header">
+                    <h5 class="modal-title">Request your Agent Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-title">Personal Information</span>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="text" placeholder="Full Name" id="request_name" style="width: 100%">
+                        </div>
+                    </div>
+                    
+                    <div class="row popup-row">
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Email" id="request_email" style="width: 100%">
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Phone" id="request_phone" style="width: 100%">
+                        </div>
+                    </div>
+                    
+            
+                    <div class="row popup-row">
+                        <div class="col-lg-12">
+                            <span class="address-box">Brokerage Information</span>
+                        </div>
+                    </div>
+                    
+                    <div class="row ">
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Brokerage Name" style="width:100%" id="request_brokerage_name">
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="License" style="width:100%" id="request_license">
+                        </div>
+                        </div>
+
+                    <div class="row popup-row">
+                        <div class="col-lg-12">
+                            <input type="text"  placeholder="Street Address" style="width: 100%" id="request_street_address">
+                        </div>
+                    </div>
+            
+                    <div class="row popup-row">
+                        <div class="col-lg-6">
+                            <input type="text"  placeholder="City" style="width:100%" id="request_city">
+                        </div>
+                        <div class="col-lg-3" class="small-tabrow">
+                            <select id="request_state" name='state' style="width: 100%;">
+                                <option value='state' selected disabled>State</option>
+                                <option value='AK'>AK</option>
+                                <option value='AL'>AL</option>
+                                <option value='AR'>AR</option>
+                                <option value='AS'>AS</option>
+                                <option value='AZ'>AZ</option>
+                                <option value='CA'>CA</option>
+                                <option value='CO'>CO</option>
+                                <option value='CT'>CT</option>
+                                <option value='DC'>DC</option>
+                                <option value='DE'>DE</option>
+                                <option value='FL'>FL</option>
+                                <option value='GA'>GA</option>
+                                <option value='GU'>GU</option>
+                                <option value='HI'>HI</option>
+                                <option value='IA'>IA</option>
+                                <option value='ID'>ID</option>
+                                <option value='IL'>IL</option>
+                                <option value='IN'>IN</option>
+                                <option value='KS'>KS</option>
+                                <option value='KY'>KY</option>
+                                <option value='LA'>LA</option>
+                                <option value='MA'>MA</option>
+                                <option value='MD'>MD</option>
+                                <option value='ME'>ME</option>
+                                <option value='MI'>MI</option>
+                                <option value='MN'>MN</option>
+                                <option value='MO'>MO</option>
+                                <option value='MP'>MP</option>
+                                <option value='MS'>MS</option>
+                                <option value='MT'>MT</option>
+                                <option value='NA'>NA</option>
+                                <option value='NC'>NC</option>
+                                <option value='ND'>ND</option>
+                                <option value='NE'>NE</option>
+                                <option value='NH'>NH</option>
+                                <option value='NJ'>NJ</option>
+                                <option value='NM'>NM</option>
+                                <option value='NV'>NV</option>
+                                <option value='NY'>NY</option>
+                                <option value='OH'>OH</option>
+                                <option value='OK'>OK</option>
+                                <option value='OR'>OR</option>
+                                <option value='PA'>PA</option>
+                                <option value='PR'>PR</option>
+                                <option value='RI'>RI</option>
+                                <option value='SC'>SC</option>
+                                <option value='SD'>SD</option>
+                                <option value='TN'>TN</option>
+                                <option value='TX'>TX</option>
+                                <option value='UT'>UT</option>
+                                <option value='VA'>VA</option>
+                                <option value='VI'>VI</option>
+                                <option value='VT'>VT</option>
+                                <option value='WA' selected>WA</option>
+                                <option value='WI'>WI</option>
+                                <option value='WV'>WV</option>
+                                <option value='WY'>WY</option>
+                            </select>
+                
+                        </div>
+                        <div class="col-lg-3 small-tabrow" style="padding-left: 0;">
+                            <input type="text" placeholder="Zipcode" style="width:100%" id="request_zipcode">
+                        </div>
+                    </div>   
+                    
+                    <div id="request-msg" class="alert alert-success" role="alert" style="margin-bottom:0px; margin-top: 15px; display: none;">
+                        Thank you, we will reach out to you shortly
+                    </div>
+
+                    <div id="request-error" class="alert alert-danger" role="alert" style="margin-bottom:0px; margin-top: 15px; display: none;">
+                        All field are required
+                    </div>
+                </div>
+            
+                <div class="modal-footer">
+                    <div class="nextstep-btn">
+                        <button type="button" id='request-btn' class="btn btn-primary">
+                            Request
+                            <i id="request-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                            <i id="request-check" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="claim-profile-form11"></div>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
@@ -291,6 +451,9 @@
 
     <!-- Bootstrap jQuery -->
     <script src="/js/bootstrap.js"></script>
+
+    <!-- Input Masking -->
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
 
     <!-- Fontawesome Script -->
     <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>

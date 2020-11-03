@@ -428,7 +428,12 @@ function sortByCity(agent_scores) {
             //     </div>
             // </div>
             // `;
-
+            var className = '';
+            if (city.length > 10 && city.length < 14 ) {
+                className = 'bottom-text1';
+            } else if(city.length > 13) {
+                className = 'bottom-text2';
+            } 
             var html = `
             <li>
                 <img src="/img/badgelable.svg">
@@ -436,7 +441,7 @@ function sortByCity(agent_scores) {
                     <span>Top</span>
                     <span>`+v['agent_percentage']+`%</span>
                 </div>
-                <div class="bottom-text">`+city+`</div>
+                <div class="bottom-text `+className+`">`+city+`</div>
             </li>
             `;
 

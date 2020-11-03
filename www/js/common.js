@@ -233,5 +233,16 @@ $(document).ready(function(){
 		inboxNotification();
 		loadProfileImage();
 		checkNoagentIsAttached();
-	}	
+    }	
+    
+    if ($(window).width() < 550) {
+        $("input").focus(function() {
+            $('.footer').addClass('mob-device');   
+        });      
+    }
+    else{
+        $("input").blur(function() {
+            $('.footer').removeClass('mob-device');  
+        });      
+    }
 });

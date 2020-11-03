@@ -186,6 +186,29 @@ function load_states() {
   });
 }
 
+$(document).on('click', '#request-btn', function () {
+    $('#request-error').hide();
+    $('#request-msg').hide();
+    $('#request-spinner').hide();
+    $('#request-check').hide();
+
+    var fields = ['request_name', 'request_email', 'request_phone', 'request_brokerage_name',
+        'request_license', 'request_street_address', 'request_city', 'request_zipcode'];
+
+    $.each(fields, function(k, v){
+        if ($('#'+v).val() == '') {
+            $('#request-error').show();
+            console.log(v);
+            return false;
+        }
+    });
+
+    var form_data = {};
+    $.each(fields, function(k, v) {
+        form_data[v] = $('#'+v).val();
+    });
+});
+
 $(document).on('click', '#already_claim_profile', function () {
   $('#want-claim').css('display', 'none');
   $('#submit-proof-form').css('display', 'block');
@@ -195,5 +218,7 @@ $(document).on('click', '#want-claim-yes', function () {
   $('#want-claim').css('display', 'none');
   $('#submit-proof-form').css('display', 'block');
 });
+
+$("#phone").inputmask({ "mask": "(999) 999-9999" });
 
 window.addEventListener("DOMContentLoaded", init, false);

@@ -188,7 +188,7 @@ input#acceptance_deadline {
 }
 .table-bordered.darkborder thead th.sent-tab{background: #efefef;}
 
-.table-bordered.darkborder th.newReferral button {
+.table-bordered.darkborder th.newReferral button, #add-agent-request {
   color: #4d88e5;
   font-weight: 600;
 }

@@ -286,6 +286,9 @@ body {
 #leads-form label {
     padding-right: 0px;
 }
+.mob-device{
+    display: none ;
+}
 @media (max-width: 1200px) {
      .pht-agent-img img {
           width: 150px;

@@ -161,9 +161,20 @@ ul.badges-list li .bottom-text{
 	text-transform: capitalize;
 	font-size:0.55em;
 	bottom: 18%;
-	transform: translate(-50%, -68%);
+	transform: translate(-50%, -60%);
 	color: #9C7800;
 }
+
+ul.badges-list li .bottom-text.bottom-text1{
+    transform: translate(-50%, -40%);
+    font-size:12px;
+}
+
+ul.badges-list li .bottom-text.bottom-text2{
+    transform: translate(-50%, -40%);
+    font-size:10px;
+}
+
 
 @media only screen and (max-width: 1024px) {
 	ul.badges-list li{
