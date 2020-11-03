@@ -240,7 +240,7 @@ $(document).ready(function(){
             $('.footer').addClass('mob-device');   
         });  
         $("input").focusout(function() {
-            $('.footer').addClass('mob-device');   
+            $('.footer').removeClass('mob-device');   
         });      
     }
     else{
