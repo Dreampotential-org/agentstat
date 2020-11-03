@@ -193,7 +193,7 @@ $(document).on('click', '#request-btn', function () {
     $('#request-check').hide();
 
     var fields = ['request_name', 'request_email', 'request_phone', 'request_brokerage_name',
-        'request_license', 'request_street_address', 'request_city', 'request_state', 'request_zipcode'];
+        'request_license', 'request_street_address', 'request_city', 'request_zipcode'];
 
     var check = true;
     $.each(fields, function(k, v){
@@ -228,6 +228,7 @@ $(document).on('click', '#request-btn', function () {
             $.each(fields, function(k, v){
                 $('#'+v).val('');
             });
+            $('#request_state').val('WA');
         }).fail(function (err) {
             $('#request-error').html(err['responseText']);
             $('#request-error').show();
