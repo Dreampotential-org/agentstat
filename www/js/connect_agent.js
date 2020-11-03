@@ -199,6 +199,7 @@ $(document).on('click', '#request-btn', function () {
     $.each(fields, function(k, v){
         if ($('#'+v).val() == '') {
             $('#request-error').show();
+            $('#request-error').html('All field are required');
             check = false;
         }
     });
