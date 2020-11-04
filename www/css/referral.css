@@ -283,17 +283,6 @@ margin: 0 auto;
   transform: translateX(-1px);
   transition: 0.2s;
 }
-textarea:hover, 
-input:hover, 
-textarea:active, 
-input:active, 
-textarea:focus, 
-input:focus
-{
-  outline:0px !important;
-  -webkit-appearance:none;
-  box-shadow: none !important;
-}
 #referralModal .modal-dialog{
   max-width: 580px !important;
 }
