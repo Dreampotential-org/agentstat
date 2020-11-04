@@ -143,7 +143,7 @@ $(document).ready(function() {
     $("#category").val("secondoption");
   }
 
-  if (pathnameSplit[1] == 'create-account') {
+  if (pathnameSplit[1] != undefined && pathnameSplit[1] == 'create-account') {
     activaTab('nav-profile');
   }
 });
