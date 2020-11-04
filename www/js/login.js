@@ -18,10 +18,13 @@ if (hash) {
     localStorage.role = data['role'];
     localStorage.web_agent_id = data['web_agent_id'];
 
-    if (localStorage.getItem('claimed_agent_id') !== null) {
-        window.location = 'page-three.html?agent_id='+localStorage.getItem('claimed_agent_id');
+    console.log(localStorage.getItem('claimed_agent_id'));
+    if (localStorage.getItem('claimed_agent_id') != null && localStorage.getItem('claimed_agent_id') != 'null') {
+        console.log('if');
+        // window.location = 'page-three.html?agent_id='+localStorage.getItem('claimed_agent_id');
     } else {
-        window.location = '/profile-settings/';
+        console.log('else');
+        // window.location = '/profile-settings/';
     }
   }).fail(function(err) {
     // alert('Got err');
