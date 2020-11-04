@@ -752,34 +752,36 @@ $('.ser-map').change(function() {
   localStorage.setItem(search_key_map, $(this).val());
 });
 
-$(".search_city, .search_city_bottom").autocomplete({
-    source: function (request, response) {
+if ($(".search_city, .search_city_bottom")) {
+    $(".search_city, .search_city_bottom").autocomplete({
+        source: function (request, response) {
 
-        if ($(this.element).hasClass('search_city_bottom')) {
-          var city_keyword = $('.search_city_bottom').val();
-        } else {
-          var city_keyword = $('.search_city').val();
-        }
-        console.log(city_keyword);
-        var api_call_url = 'city-search/' + city_keyword;
-        var settings = get_settings(api_call_url, 'GET');
-        var url = settings['url'];
-        console.log('url: ' + url);
+            if ($(this.element).hasClass('search_city_bottom')) {
+              var city_keyword = $('.search_city_bottom').val();
+            } else {
+              var city_keyword = $('.search_city').val();
+            }
+            console.log(city_keyword);
+            var api_call_url = 'city-search/' + city_keyword;
+            var settings = get_settings(api_call_url, 'GET');
+            var url = settings['url'];
+            console.log('url: ' + url);
 
-        jQuery.get(url, {
-            query: request.term
-        }, function (data) {
-            console.log(data);
-            new_data = [];
-            $.each(data, function(k, v){
-              new_data.push(v.city_state);
-              console.log(v.city_state);
+            jQuery.get(url, {
+                query: request.term
+            }, function (data) {
+                console.log(data);
+                new_data = [];
+                $.each(data, function(k, v){
+                  new_data.push(v.city_state);
+                  console.log(v.city_state);
+                });
+                response(new_data);
             });
-            response(new_data);
-        });
-    },
-    minLength: 3
-});
+        },
+        minLength: 3
+    });
+}
 
 $(document).ready(function() {
   if (localStorage.getItem('session_id')) {
