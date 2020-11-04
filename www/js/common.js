@@ -227,11 +227,11 @@ function checkAgentConnect() {
             } else if (data.sent_dispute == false) {
                 window.location = '/connect-profile/';
             } else {
-                // window.location = '/pending-dispute/';
+                window.location = '/pending-dispute/';
             }
 
         }).fail(function(err) {
-            // window.location = '/pending-dispute/';
+            window.location = '/pending-dispute/';
         });
 }
 
