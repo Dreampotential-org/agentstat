@@ -72,7 +72,7 @@ function display_profile(profile) {
 
   if (agent_id==null) {
     localStorage.agent_id = agent_id;
-    window.location = '/noagent/';
+    checkAgentConnect();
   }
 
   if (profile.phone_number !== null) {

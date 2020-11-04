@@ -210,21 +210,29 @@ function camleCasetoString(text){
 function checkNoagentIsAttached() {
 	if (localStorage.getItem("agent_id") === null || localStorage.getItem("agent_id") == 'null' || localStorage.getItem("agent_id") == '') {
 		var pageName = window.location.pathname.split("/")[1];
-		var listPages = ['profile-settings', 'inbox', 'reports', 'past-sales', 'referrals', 'team', 'connect-profile'];
+		var listPages = ['profile-settings', 'inbox', 'reports', 'past-sales', 'referrals', 'team'];
 		if(listPages.indexOf(pageName) !== -1){
-			settings = get_settings('check-agent-connect/'+localStorage.getItem("web_agent_id")+'/', 'GET');
-			$.ajax(settings).done(function (response) {
-				var data = JSON.parse(response);
-				if (data.agent_id === null ) {
-					window.location = '/noagent/';
-				} else {
-					localStorage.agent_id = data.agent_id;
-				}
-			}).fail(function(err) {
-				window.location = '/noagent/';
-			});
+            checkAgentConnect();
 		}
 	}
+}
+
+function checkAgentConnect() {
+    settings = get_settings('check-agent-connect/'+localStorage.getItem("web_agent_id")+'/', 'GET');
+        $.ajax(settings).done(function (response) {
+            var data = JSON.parse(response);
+            
+            if (data.agent_id !== null ) {
+                localStorage.agent_id = data.agent_id;
+            } else if (data.sent_dispute == false) {
+                window.location = '/connect-profile/';
+            } else {
+                // window.location = '/pending-dispute/';
+            }
+
+        }).fail(function(err) {
+            // window.location = '/pending-dispute/';
+        });
 }
 
 $(document).ready(function(){

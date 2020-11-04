@@ -49,58 +49,39 @@
 
 <body>
     <div class="page-container">
-        <div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
+        <div class="header-area sticky-top bg-white custom_header">
+            <div class="" >
+                <div class="row" style="margin-right: 0px;">
+                    <div class="col-lg-12">
 
-            <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand form-logo" href="/">
-                    <img src="/img/logo-beta.png" alt="logo" />
-                </a>
-                <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
-                    <div class="main-menu-part form-menu col-lg-12">
-                        <ul class="float-left form-ulli-left">
-                            <li class="inbox-link header-link"><a class="inbox-notification" href="/inbox/">Inbox </a></li>
-                            <li class="reports-link header-link"><a href="/reports/">Reporting </a></li>
-                            <li class="past-sales-link header-link"><a href="/past-sales/">Past Sales </a></li>
-                            <li class="referrals-link header-link"><a href="/referrals/">Referrals</a></li>
-                            <li class="team-link header-link"><a href="/team/">Team </a></li>
-                        </ul>
-                        <ul class="float-right user-icon form-ulli-right">
-                            <li>
-                                <div class="dropdown profile show">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="display-picture"></span>
-                                    </a>
-    
-                                    <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item inbox-link" href="/inbox/">
-                                            <p>Dashboard</p>
-                                            <span>View your stats and backend</span>
-                                        </a>
-                                        <a class="dropdown-item" href="/profile-settings/">
-                                            <p>Profile Settings</p>
-                                            <span>Edit your profile info and account settings</span>
-                                        </a>
-                                        <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a>
-                                    </div>
+                        <nav class="navbar navbar-expand-md navbar-light">
+                            <a class="navbar-brand" href="/">
+                                <img class="image" src="/img/logo-beta.png" alt="logo" />
+                            </a>
+                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                </ul>
+                                <div  class="main-menu-part">
+                                    <ul>
+                                        <li><a href="/howsearchworks/">How Search Works</a></li>
+                                    </ul>
                                 </div>
-                            </li>
-                        </ul>
+                                <div id="login-menu" class="main-menu-part">
+                                    <ul class="float-right">
+                                        <li><a href="/login/">Agents</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                 </div>
-            </nav>
-    
+            </div>
         </div>
-
-        <!-- header-area end -->
         <div class="container">
             <div class="full-formx">
 
@@ -141,7 +122,7 @@
                                     <div class="row">
                                         <div class="col-lg-3">
                                             <div class="fn-right">
-                                                <input type="text" class="form-control" id="full_name" name="text" placeholder="Full Name">
+                                                <input type="text" class="form-control" id="agent_name" name="text" placeholder="Full Name">
                                             </div>
                                         </div>
                                         <div class="col-log-4">

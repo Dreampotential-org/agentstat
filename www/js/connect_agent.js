@@ -68,6 +68,7 @@ $('#submit_proof_btn').click(function() {
       form_data['email'] = $('#email').val();
       form_data['brokerage_name'] = $('#brokerage-name').val();
       form_data['agent_profile_connector'] = connector_id;
+      form_data['dispute_web_agent'] = localStorage.getItem("web_agent_id");
 
       settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
       settings['headers'] = null;
@@ -81,8 +82,6 @@ $('#submit_proof_btn').click(function() {
             icon: "success",
           }).then(function(isConfirm) {
           });
-          window.location = API_URL+'social-login/'+signupType+'/'+connector_id+'/dispute/';
-
       }).fail(function(err) {
           // alert('Got err');
           console.log(err);
@@ -124,7 +123,7 @@ function init_events_connect() {
   $("body").delegate("#search", "click", function(e) {
     $("#set_agent").attr("disabled", "disabled")
     var state = $("#state").val()
-    var agent_name = $("#full_name").val()
+    var agent_name = $("#agent_name").val()
     var api_call_url = 'reports/' + state + '/?agent_name=' + agent_name + '&check_claimed=True';
     var settings = get_settings(api_call_url, 'GET');
     settings['headers'] = null;
@@ -246,8 +245,15 @@ $(document).on('click', '#already_claim_profile', function () {
 });
 
 $(document).on('click', '#want-claim-yes', function () {
-    $('#want-claim').css('display', 'none');
-    $('#submit-proof-form').css('display', 'block');
+    if (localStorage.getItem('session_id')) {
+        $('#want-claim').css('display', 'none');
+        $('#submit-proof-form').css('display', 'block');
+        localStorage.claimed_agent_id = null;
+    } else {
+        localStorage.claimed_agent_id = connector_id;
+        window.location = API_URL+'social-login/'+signupType+'/'+connector_id+'/dispute/';
+    }
+    
 });
 
 $("#request_phone").inputmask({ "mask": "(999) 999-9999" });

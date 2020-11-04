@@ -242,6 +242,12 @@ function load_agent(ignore_city = true) {
     }
     else if (data['claimed'] === true) {
       $('#already_claim_wrapper').css('display', 'inline-block');
+      if (localStorage.getItem('claimed_agent_id') != null && localStorage.getItem('claimed_agent_id') != 'null') {
+        localStorage.setItem('claimed_agent_id', null);
+        $('#alreadyClaimedModal').modal('show');
+        $('#want-claim').hide();
+        $('#submit-proof-form').show();
+      }
     }
     else {
       $('#claim_wrapper').css('display', 'none');
@@ -605,8 +611,17 @@ $(document).on('click', '#already_claim_profile', function () {
 });
 
 $(document).on('click', '#want-claim-yes', function () {
-  $('#want-claim').css('display', 'none');
-  $('#submit-proof-form').css('display', 'block');
+    if (localStorage.getItem('session_id')) {
+        $('#want-claim').css('display', 'none');
+        $('#submit-proof-form').css('display', 'block');
+        localStorage.claimed_agent_id = null;
+    } else {
+        localStorage.claimed_agent_id = agent_id;
+        
+        $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/dispute/');
+        $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/dispute/');
+        $('#claim-login').modal('show'); 
+    }
 });
 
 function pagination(page) {
@@ -688,6 +703,8 @@ function show_claim_screen() {
     if (isConfirm) {
 
       $('#alreadyClaimedModal').modal('show');
+      $('#want-claim').show();
+      $('#submit-proof-form').hide();
 
     } else {
       // swal("Cancelled", "Your imaginary file is safe :)", "error");
@@ -722,9 +739,7 @@ $('#submit_proof_btn').click(function () {
     form_data['email'] = $('#email').val();
     form_data['brokerage_name'] = $('#brokerage-name').val();
     form_data['agent_profile_connector'] = agent_id;
-    if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
-      form_data['dispute_web_agent'] = localStorage.getItem("web_agent_id");
-    }
+    form_data['dispute_web_agent'] = localStorage.getItem("web_agent_id");
 
     settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
     settings['headers'] = null;
@@ -737,11 +752,6 @@ $('#submit_proof_btn').click(function () {
         text: "We will review your dispute and get back to you within 48 hours",
         icon: "success",
       }).then(function (isConfirm) {
-        if (localStorage.getItem("email") == null) {
-          $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/dispute/');
-          $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/dispute/');
-          $('#claim-login').modal('show'); 
-        }
       });
 
     }).fail(function (err) {

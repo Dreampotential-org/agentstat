@@ -93,8 +93,8 @@ server {
             try_files $uri $uri/ /property-detail.html;
         }
 
-        location /noagent/ {
-            try_files $uri $uri/ /noagent.html;
+        location /pending-dispute/ {
+            try_files $uri $uri/ /pending-dispute.html;
         }
         
 }

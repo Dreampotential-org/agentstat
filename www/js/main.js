@@ -752,7 +752,7 @@ $('.ser-map').change(function() {
   localStorage.setItem(search_key_map, $(this).val());
 });
 
-if ($(".search_city, .search_city_bottom")) {
+if ($(".search_city, .search_city_bottom")[0]) {
     $(".search_city, .search_city_bottom").autocomplete({
         source: function (request, response) {
 

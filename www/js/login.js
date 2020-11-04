@@ -17,7 +17,12 @@ if (hash) {
     localStorage.agent_id = data['agent_id'];
     localStorage.role = data['role'];
     localStorage.web_agent_id = data['web_agent_id'];
-    window.location = '/profile-settings/';
+
+    if (localStorage.getItem('claimed_agent_id') !== null) {
+        window.location = 'page-three.html?agent_id='+localStorage.getItem('claimed_agent_id');
+    } else {
+        window.location = '/profile-settings/';
+    }
   }).fail(function(err) {
     // alert('Got err');
     console.log(err);
