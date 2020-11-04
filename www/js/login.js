@@ -20,11 +20,9 @@ if (hash) {
 
     console.log(localStorage.getItem('claimed_agent_id'));
     if (localStorage.getItem('claimed_agent_id') != null && localStorage.getItem('claimed_agent_id') != 'null') {
-        console.log('if');
-        // window.location = 'page-three.html?agent_id='+localStorage.getItem('claimed_agent_id');
+        window.location = 'page-three.html?agent_id='+localStorage.getItem('claimed_agent_id');
     } else {
-        console.log('else');
-        // window.location = '/profile-settings/';
+        window.location = '/profile-settings/';
     }
   }).fail(function(err) {
     // alert('Got err');
