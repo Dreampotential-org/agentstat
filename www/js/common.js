@@ -155,6 +155,7 @@ function inboxNotification() {
 	}).fail(function(err) {
 		var responseText = JSON.parse(err.responseText)
 		if (responseText.detail=='Invalid token.') {
+        alert("Invalid invox error?")
 			logout_session();
 		}
 	});

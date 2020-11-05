@@ -84,7 +84,7 @@ function display_profile(profile) {
   if (profile.screen_name === null && profile.connector != '' && profile.connector !== null && profile.state !== null) {
     var screen_name = profile.connector.agent_name.replace(/\s/g, '').toLowerCase();
     $('#screen_name').val(screen_name);
-    $('#profile_slug').html('/' + screen_name)
+    $('#profile_slug').html(screen_name)
   } else {
     $('#screen_name').val(profile.screen_name);
   }
@@ -999,7 +999,7 @@ $('#save_password_btn').click(function(){
       $('#change_password_loading').hide();
       show_message('SUCCESS! Your password has been successfully changed.', 6000);
       setTimeout(function(){ 
-        localStorage.clear();
+        // localStorage.clear();
         window.location = '/sign-in/';
       }, 6000);
     }
