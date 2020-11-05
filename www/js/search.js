@@ -10,13 +10,12 @@ function updateBrowserUrl() {
     var url = new URL(url_string);
 
     var pinAgents = JSON.parse(localStorage.getItem("pin_agent_arr"));
-    
 
 
     // var url_string = window.location.href;
     // var url = new URL(url_string);
     // var agents = url.searchParams.get("agents");
-    
+
     // if (agents != null && agents != '') {
     //     var splitAgentParam = agents.split(',');
     //     $.each(splitAgentParam, function(k,v){
@@ -26,7 +25,7 @@ function updateBrowserUrl() {
     //         }
     //     });
     // }
-    
+
     if (pinAgents.length > 0) {
         url.searchParams.set("agents", pinAgents.join(','));
         window.history.pushState("", "", url);
@@ -300,31 +299,24 @@ function load_search_results() {
           agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['agent_slug'];
         }
 
-        // XXX we like this idea though we need to fix parsing profile
-        // if(v['screen_name']) {
-        //  agent_link = '/profile/' + v['state'].toLowerCase() + '/' + v['screen_name']
-        //} else {
-
-        // agent_link = get_profile_link(v['agent_id']);
-        //}
-
         item = item.split('[[agent_profile_link]]').join(agent_link);
 
-            if(v['agent_picture'] == undefined || v['agent_picture'] == '')
-            {
+        if(v['agent_profile_pic'] == undefined || v['agent_profile_pic'] == '')
+        {
                 picture_img = (
                     "<div class='toc-two-left-one'>" +
                     "<img class='rounded-circle toc-two-left-one' " +
                         "style='border-radius: 130px;margin-top: 21px;' " +
                         " src='/img/sh.png'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
-            }
-        if (v['agent_picture'] !== undefined && v['agent_picture'] !== '') {
+        }
+        else if (v['agent_profile_pic'] !== undefined &&
+                 v['agent_profile_pic'] !== '') {
             picture_img = (
                 "<div class='toc-two-left-one'>" +
                     "<img class='rounded-circle img-thumbnail' " +
                         "style='border-radius: 130px; margin-top: 21px;' " +
-                        "src='" + v['agent_picture'] + "'></div>");
+                        "src='" + v['agent_profile_pic'] + "'></div>");
             item = item.split('[[agent_picture]]').join(picture_img);
         } else {
             item = item.split('[[agent_picture]]').join('');
