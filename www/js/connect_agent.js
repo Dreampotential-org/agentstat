@@ -66,6 +66,7 @@ $('#submit_proof_btn').click(function() {
       form_data['real_estate_license'] = picture_base64;
       form_data['full_name'] = $('#full_name').val();
       form_data['email'] = $('#email').val();
+      form_data['phone'] = $('#dispute_phone').val();
       form_data['brokerage_name'] = $('#brokerage-name').val();
       form_data['agent_profile_connector'] = connector_id;
       form_data['dispute_web_agent'] = localStorage.getItem("web_agent_id");

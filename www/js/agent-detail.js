@@ -16,6 +16,7 @@ var activePaginationPageNo = 1;
 function init() {
   load_agent();
   $("#lead_phone").inputmask({ "mask": "(999) 999-9999" });
+  $("#dispute_phone").inputmask({ "mask": "(999) 999-9999" });
   $("#one-left-in").inputmask('decimal', {
       'alias': 'numeric',
       'allowMinus': false,
@@ -248,7 +249,7 @@ function load_agent(ignore_city = true) {
     }
     else if (data['claimed'] === true) {
       $('#already_claim_wrapper').css('display', 'inline-block');
-      if (localStorage.getItem('claimed_agent_id') != null && localStorage.getItem('claimed_agent_id') != 'null') {
+      if (localStorage.getItem('session_id') && localStorage.getItem('claimed_agent_id') != null && localStorage.getItem('claimed_agent_id') != 'null') {
         localStorage.setItem('claimed_agent_id', null);
         $('#alreadyClaimedModal').modal('show');
         $('#want-claim').hide();
@@ -626,6 +627,7 @@ $(document).on('click', '#want-claim-yes', function () {
         
         $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/dispute/');
         $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/dispute/');
+        $('#alreadyClaimedModal').modal('hide');
         $('#claim-login').modal('show'); 
     }
 });
@@ -698,7 +700,7 @@ function show_loading_screen() {
 function show_claim_screen() {
   swal({
     title: "Claim Profile!",
-    text: "Profile is claimed, would you like to a dispute?",
+    text: "Profile is claimed, would you like to dispute?",
     icon: "warning",
     buttons: [
       'No, cancel it!',
@@ -743,6 +745,7 @@ $('#submit_proof_btn').click(function () {
     form_data['real_estate_license'] = picture_base64;
     form_data['full_name'] = $('#full_name').val();
     form_data['email'] = $('#email').val();
+    form_data['phone'] = $('#dispute_phone').val();
     form_data['brokerage_name'] = $('#brokerage-name').val();
     form_data['agent_profile_connector'] = agent_id;
     form_data['dispute_web_agent'] = localStorage.getItem("web_agent_id");
