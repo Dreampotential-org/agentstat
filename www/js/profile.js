@@ -20,7 +20,7 @@ function display_profile(profile) {
   $('#email').val(profile.email);
   $('#username').val(profile.username);
   $('#screen_name').val(profile.screen_name);
-  $('#profile_slug').text('/' + profile.screen_name);
+  $('#profile_slug').text(profile.screen_name);
   $('#brokerage_name').val(profile.brokerage_name);
   $('#brokerage_address').val(profile.brokerage_address);
   $('#city').val(profile.city);
