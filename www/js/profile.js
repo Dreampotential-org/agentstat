@@ -84,7 +84,7 @@ function display_profile(profile) {
   if (profile.screen_name === null && profile.connector != '' && profile.connector !== null && profile.state !== null) {
     var screen_name = profile.connector.agent_name.replace(/\s/g, '').toLowerCase();
     $('#screen_name').val(screen_name);
-    $('#profile_slug').html(profile.state.toLowerCase() + '/' + screen_name)
+    $('#profile_slug').html('/' + screen_name)
   } else {
     $('#screen_name').val(profile.screen_name);
   }
@@ -179,7 +179,7 @@ function display_profile(profile) {
 
 
     if (profile.screen_name && profile.state) {
-      profile_url = '/profile/' + profile.state.toLowerCase() + '/' + profile.screen_name;
+      profile_url = '/profile/' + profile.screen_name;
     } else {
       profile_url = '/page-three.html?agent_id=' + profile.connector.id;
     }
