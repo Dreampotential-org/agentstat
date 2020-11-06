@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+    <head>
+        <!-- Meta setup -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="">
+        <meta name="decription" content="">
+        <meta name="author" content="">
+
+        <!-- Title -->
+        <title>Upload Identity Proof | AgentStat</title>
+
+        <!-- Fav Icon -->
+        <link rel="icon" href="/img/fav.png" />
+
+        <link href="/css/fileinput.css" rel="stylesheet" type="text/css">
+
+        <!-- Include Owl-Carusol -->
+        <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+
+        <!-- Include Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+
+        <!-- Main StyleSheet -->
+        <link rel="stylesheet" href="/style.css" />
+
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="/css/responsive.css" />
+
+        <!-- Common css for all pages -->
+        <link rel="stylesheet" href="/css/common.css" />
+
+        <script src="/js/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
+        <script src="https://cdn.rawgit.com/taromero/swal-forms/master/swal-forms.js"></script>
+
+    </head>
+
+<body>
+    <div class="page-container">
+        <div class="header-area sticky-top bg-white custom_header">
+            <div class="" >
+                <div class="row" style="margin-right: 0px;">
+                    <div class="col-lg-12">
+
+                        <nav class="navbar navbar-expand-md navbar-light">
+                            <a class="navbar-brand" href="/">
+                                <img class="image" src="/img/logo-beta.png" alt="logo" />
+                            </a>
+                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                </ul>
+                                <div  class="main-menu-part">
+                                    <ul>
+                                        <li><a href="/howsearchworks/">How Search Works</a></li>
+                                    </ul>
+                                </div>
+                                <div id="login-menu" class="main-menu-part">
+                                    <ul class="float-right">
+                                        <li><a href="/login/">Agents</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="full-formx">
+                <!-- form-area start -->
+                <div class="form">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 offset-lg-2">
+                                <div class="form-wrapper" style="padding: 50px 0px;">
+                                    <div class="form">
+                                        <div class="container">
+                                            <div class="form-wrapper">
+                                                <div id="submit-proof-form" >
+                                                    <div class="row h-100">
+                                                        <div class="col-lg-6 mx-auto">
+                                                            <div class="alert alert-danger msg" role="alert" style="display: none">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="file-left">
+                                                                <p id="lebel">Full Name
+                                                                    <span id="start">*</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <div class="file-right">
+                                                                <input id="full_name" class="form-control" type="text"
+                                                                    name="full_name" readonly />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="file-left">
+                                                                <p id="lebel">Email
+                                                                    <span id="start">*</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <div class="file-right">
+                                                                <input id="email" class="form-control" type="text" name="email" readonly />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="file-left">
+                                                                <p id="lebel">Phone
+                                                                    <span id="start">*</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <div class="file-right">
+                                                                <input id="dispute_phone" class="form-control" type="text" name="phone" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="file-left">
+                                                                <p id="lebel">Brokerage Name
+                                                                    <span id="start">*</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <div class="file-right">
+                                                                <input id="brokerage-name" class="form-control" type="text"
+                                                                    name="brokerage_name" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="file-left">
+                                                                <p id="lebel">Photo ID
+                                                                    <span id="start">*</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <div class="file-right">
+                                                                <input id="picture" type="file" name="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="file-left">
+                                                                <p id="lebel">Real Estate License
+                                                                    <span id="start">*</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <div class="file-right">
+                                                                <input id="real-estate-license" type="file" name="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div>
+                                                        <button id='submit_proof_btn' class="btn btn-warning"> 
+                                                            Submit Proof
+                                                            <i id="claim-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                                                            <i id="claim-check" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="footer-wrapper text-center">
+                <p>Copyright © agentstat.com</p>
+                <ul>
+                    <a href="https://agentstat.com/terms.pdf" target="_blank">Terms of Use</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs&amp;libraries=places"></script>
+
+    <!-- Main jQuery -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+
+    <!-- Bootstrap Propper jQuery -->
+    <script src="/js/popper.js"></script>
+
+    <!-- Bootstrap jQuery -->
+    <script src="/js/bootstrap.js"></script>
+
+    <!-- Input Masking -->
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+
+    <script src="/js/fileinput.js"></script>
+
+    <!-- Custom jQuery -->
+    <script src="/js/scripts.js"></script>
+
+    <script src="/js/conf.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/common.js"></script>
+
+    <!-- page script -->
+    <script src="/js/upload-proof.js"></script>
+
+    <!-- Scroll-Top button -->
+    <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+    </body>
+</html>

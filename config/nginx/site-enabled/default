@@ -96,5 +96,9 @@ server {
         location /pending-dispute/ {
             try_files $uri $uri/ /pending-dispute.html;
         }
+
+        location /upload-proof/ {
+            try_files $uri $uri/ /upload-proof.html;
+        }
         
 }
