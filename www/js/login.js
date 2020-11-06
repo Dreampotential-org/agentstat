@@ -128,10 +128,6 @@ function getParamUrlValue(key) {
   var agent_id = url.searchParams.get(key);
 }
 
-function activaTab(tab){
-  $('.nav-tabs a[href="#' + tab + '"]').tab('show');
-};
-
 $(document).ready(function() {
   var url_string = window.location.href;
   var url = new URL(url_string);
@@ -139,9 +135,5 @@ $(document).ready(function() {
   if(agent_id) {
     $('[href="#nav-profile"]').tab('show');
     $("#category").val("secondoption");
-  }
-
-  if (pathnameSplit[1] != undefined && pathnameSplit[1] == 'create-account') {
-    activaTab('nav-profile');
   }
 });
