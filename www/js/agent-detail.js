@@ -16,7 +16,6 @@ var activePaginationPageNo = 1;
 function init() {
   load_agent();
   $("#lead_phone").inputmask({ "mask": "(999) 999-9999" });
-  $("#dispute_phone").inputmask({ "mask": "(999) 999-9999" });
   $("#one-left-in").inputmask('decimal', {
       'alias': 'numeric',
       'allowMinus': false,
@@ -719,60 +718,6 @@ function show_claim_screen() {
     }
   });
 }
-
-$('#submit_proof_btn').click(function () {
-  var form_data = {};
-  var picture_data = $('#picture')[0].files[0]
-  var real_estate_license = $('#real-estate-license')[0].files[0]
-
-  var reader = new FileReader();
-  reader.readAsDataURL(picture_data);
-
-  var reader2 = new FileReader();
-  reader2.readAsDataURL(real_estate_license);
-  var picture_base64 = '';
-
-
-
-  reader.onload = function () {
-
-    reader2.onload = function () {
-      real_estate_license_base64 = reader2.result;
-    }
-
-    picture_base64 = reader.result;
-    form_data['id_picture'] = picture_base64;
-    form_data['real_estate_license'] = picture_base64;
-    form_data['full_name'] = $('#full_name').val();
-    form_data['email'] = $('#email').val();
-    form_data['phone'] = $('#dispute_phone').val();
-    form_data['brokerage_name'] = $('#brokerage-name').val();
-    form_data['agent_profile_connector'] = agent_id;
-    form_data['dispute_web_agent'] = localStorage.getItem("web_agent_id");
-
-    settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
-    settings['headers'] = null;
-
-    $.ajax(settings).done(function (response) {
-
-      $('#alreadyClaimedModal').modal('toggle');
-      swal({
-        title: "Claim Profile!",
-        text: "We will review your dispute and get back to you within 48 hours",
-        icon: "success",
-      }).then(function (isConfirm) {
-      });
-
-    }).fail(function (err) {
-      // alert('Got err');
-      console.log(err);
-      show_error(err);
-    });
-  };
-  reader.onerror = function (error) {
-    console.log('Error: ', error);
-  };
-});
 
 function show_reviews(summary, reviews) {
   if (reviews.length == 0) {

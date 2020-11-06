@@ -1,0 +1,187 @@
+<div class="modal fade " id="alreadyClaimedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modalSignup" role="document">
+        <div class="modal-content" style="width: 650px;">
+            <div class="modal-body">
+                <h4><b>Dispute claim and provide proof of identity.</b></h4>
+                <br>
+                <div class="form">
+                    <div class="container">
+                        <div class="form-wrapper">
+                            <div id="want-claim" class="text-center">
+                                <button class="btn btn-success" type="button" id="want-claim-yes">Yes</button>
+                                <button class="btn btn-danger" type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">Cancel</button>
+                            </div>
+                            <div id="submit-proof-form" style="display: none">
+                                <div class="row h-100">
+                                    <div class="col-lg-6 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="display: none">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Full Name
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="full_name" class="form-control" type="text"
+                                                name="full_name" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Email
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="email" class="form-control" type="text" name="email" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Phone
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="dispute_phone" class="form-control" type="text" name="phone" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Brokerage Name
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="brokerage-name" class="form-control" type="text"
+                                                name="brokerage_name" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Photo ID
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="picture" type="file" name="file" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="file-left">
+                                            <p id="lebel">Real Estate License
+                                                <span id="start">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="file-right">
+                                            <input id="real-estate-license" type="file" name="file" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div>
+                                    <button id='submit_proof_btn' class="btn btn-warning"> 
+                                        Submit Proof
+                                        <i id="claim-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                                        <i id="claim-check" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+$('#submit_proof_btn').click(function() {
+    var form_data = {};
+    var picture_data = $('#picture')[0].files[0]
+    var real_estate_license = $('#real-estate-license')[0].files[0]
+
+    var reader = new FileReader();
+    reader.readAsDataURL(picture_data);
+
+    var reader2 = new FileReader();
+    reader2.readAsDataURL(real_estate_license);
+    
+    var picture_base64 = '';
+    var real_estate_license_base64 = '';
+
+    if (typeof connector_id == 'undefined') {
+        connector_id = agent_id;
+    }
+
+    reader.onload = function () {
+        picture_base64 = reader.result;
+        reader2.onload = function() {
+            real_estate_license_base64 = reader2.result;
+            
+            form_data['id_picture'] = picture_base64;
+            form_data['real_estate_license'] = real_estate_license_base64;
+            form_data['full_name'] = $('#full_name').val();
+            form_data['email'] = $('#email').val();
+            form_data['phone'] = $('#dispute_phone').val();
+            form_data['brokerage_name'] = $('#brokerage-name').val();
+            form_data['agent_profile_connector'] = connector_id;
+            form_data['dispute_web_agent'] = localStorage.getItem("web_agent_id");
+            
+            $('#claim-spinner').show();
+            $('#claim-check').hide();
+
+            settings = get_settings('re-claim/', 'POST', JSON.stringify(form_data))
+            settings['headers'] = null;
+            $.ajax(settings).done(function (response) {
+                $('#claim-spinner').hide();
+                $('#claim-check').show();
+                $('#alreadyClaimedModal').modal('toggle');
+                swal({
+                    title: "Claim Profile!",
+                    text: "We will review your dispute and get back to you within 48 hours",
+                    icon: "success",
+                }).then(function(isConfirm) {
+                });
+            }).fail(function(err) {
+                // alert('Got err');
+                $('#claim-spinner').hide();
+                $('#claim-check').hide();
+                console.log(err);
+                show_error(err);
+            });
+        }
+    };
+    reader.onerror = function (error) {
+     console.log('Error: ', error);
+    };
+});
+</script>
