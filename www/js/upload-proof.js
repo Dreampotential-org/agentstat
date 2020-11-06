@@ -53,6 +53,9 @@ $('#submit_proof_btn').click(function() {
 
             settings = get_settings('reclaim/'+uid+'/', 'PUT', JSON.stringify(form_data))
             settings['headers'] = null;
+
+            $('#submit_proof_btn').prop('disabled', true);
+
             $.ajax(settings).done(function (response) {
                 $('#claim-spinner').hide();
                 $('#claim-check').show();
@@ -63,10 +66,14 @@ $('#submit_proof_btn').click(function() {
                     icon: "success",
                 }).then(function(isConfirm) {
                 });
+                
+                $('#submit_proof_btn').prop('disabled', false);
             }).fail(function(err) {
                 $('#claim-spinner').hide();
                 $('#claim-check').hide();
                 show_error(err);
+
+                $('#submit_proof_btn').prop('disabled', false);
             });
         }
     };
