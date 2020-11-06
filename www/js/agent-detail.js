@@ -713,10 +713,12 @@ function show_loading_screen() {
 }
 
 function show_claim_screen() {
-    if (localStorage.getItem('session_id')) {
-        $('#want-claim').css('display', 'none');
-        $('#submit-proof-form').css('display', 'block');
-        localStorage.claimed_agent_id = null;
+    if (localStorage.getItem('agent_id') != 'null') {
+        swal({
+            title: "Already Claim Profile!",
+            text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
+            icon: "error",
+        });
     } else {
         swal({
             title: "Claim Profile!",
