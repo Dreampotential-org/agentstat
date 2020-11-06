@@ -46,7 +46,7 @@ function init_events_connect() {
   })
 
 $("body").delegate("#set_agent", "click", function(e) {
-    if (localStorage.getItem('agent_id')) {
+    if (localStorage.getItem('agent_id') != 'null') {
         swal({
             title: "Already Claim Profile!",
             text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",

@@ -341,8 +341,8 @@ function load_agent(ignore_city = true) {
 
 $(document).ready(function () {
     $('#claim_wrapper a').bind('click', function () {
-        if (localStorage.getItem('agent_id')) {
-            swal({
+        if (localStorage.getItem('agent_id') != 'null') {
+            swal({ 
                 title: "Already Claim Profile!",
                 text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
                 icon: "error",
@@ -620,7 +620,7 @@ $(document).on('change click', '#overall-tab', function () {
 });
 
 $(document).on('click', '#already_claim_profile', function () {
-    if (localStorage.getItem('agent_id')) {
+    if (localStorage.getItem('agent_id') != 'null') {
         swal({
             title: "Already Claim Profile!",
             text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
@@ -713,26 +713,32 @@ function show_loading_screen() {
 }
 
 function show_claim_screen() {
-  swal({
-    title: "Claim Profile!",
-    text: "Profile is claimed, would you like to dispute?",
-    icon: "warning",
-    buttons: [
-      'No, cancel it!',
-      'Yes, I am sure!'
-    ],
-    dangerMode: true,
-  }).then(function (isConfirm) {
-    if (isConfirm) {
-
-      $('#alreadyClaimedModal').modal('show');
-      $('#want-claim').show();
-      $('#submit-proof-form').hide();
-
+    if (localStorage.getItem('session_id')) {
+        $('#want-claim').css('display', 'none');
+        $('#submit-proof-form').css('display', 'block');
+        localStorage.claimed_agent_id = null;
     } else {
-      // swal("Cancelled", "Your imaginary file is safe :)", "error");
+        swal({
+            title: "Claim Profile!",
+            text: "Profile is claimed, would you like to dispute?",
+            icon: "warning",
+            buttons: [
+              'No, cancel it!',
+              'Yes, I am sure!'
+            ],
+            dangerMode: true,
+        }).then(function (isConfirm) {
+            if (isConfirm) {
+        
+              $('#alreadyClaimedModal').modal('show');
+              $('#want-claim').show();
+              $('#submit-proof-form').hide();
+        
+            } else {
+              // swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
     }
-  });
 }
 
 function show_reviews(summary, reviews) {
