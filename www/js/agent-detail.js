@@ -342,7 +342,7 @@ function load_agent(ignore_city = true) {
 $(document).ready(function () {
     $('#claim_wrapper a').bind('click', function () {
         console.log(localStorage.getItem('agent_id'));
-        if (localStorage.getItem('agent_id') != 'null') {
+        if (localStorage.getItem('agent_id') != 'null' || localStorage.getItem('agent_id') != null) {
             swal({ 
                 title: "Already Claim Profile!",
                 text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
@@ -622,7 +622,7 @@ $(document).on('change click', '#overall-tab', function () {
 
 $(document).on('click', '#already_claim_profile', function () {
     console.log(localStorage.getItem('agent_id'));
-    if (localStorage.getItem('agent_id') != 'null') {
+    if (localStorage.getItem('agent_id') != 'null' || localStorage.getItem('agent_id') != null) {
         swal({
             title: "Already Claim Profile!",
             text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
@@ -716,7 +716,7 @@ function show_loading_screen() {
 
 function show_claim_screen() {
     console.log(localStorage.getItem('agent_id'));
-    if (localStorage.getItem('agent_id') != 'null') {
+    if (localStorage.getItem('agent_id') != 'null' || localStorage.getItem('agent_id') != null) {
         swal({
             title: "Already Claim Profile!",
             text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
