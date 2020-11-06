@@ -15,7 +15,7 @@ function loadReclaim() {
         var data = JSON.parse(response);
         $('#full_name').val(data.current_full_name);
         $('#email').val(data.current_email);
-        $('#phone').val(data.current_phone);
+        $('#dispute_phone').val(data.current_phone);
         $('#brokerage-name').val(data.current_brokerage_name);
     }).fail(function(err) {
         console.log(err);
@@ -84,5 +84,7 @@ $('#submit_proof_btn').click(function() {
 
 
 $(document).ready(function(){
+    $("#dispute_phone").inputmask({ "mask": "(999) 999-9999" });
+    
     loadReclaim();
 });
