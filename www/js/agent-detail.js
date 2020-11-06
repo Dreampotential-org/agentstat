@@ -341,18 +341,26 @@ function load_agent(ignore_city = true) {
 
 $(document).ready(function () {
     $('#claim_wrapper a').bind('click', function () {
-      data = {'agent_id': agent_id}
-      if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
-        settings = get_settings('claim/', 'POST', JSON.stringify(data));
+        if (localStorage.getItem('agent_id')) {
+            swal({
+                title: "Already Claim Profile!",
+                text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
+                icon: "error",
+            });
+        } else {
+            data = {'agent_id': agent_id}
+            if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
+                settings = get_settings('claim/', 'POST', JSON.stringify(data));
 
-        $.ajax(settings).done(function (response) {
-          window.location = '/profile-settings/'
-        });
-      } else {
-        $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/');
-        $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/');
-        $('#claim-login').modal('show'); 
-      }
+                $.ajax(settings).done(function (response) {
+                window.location = '/profile-settings/'
+                });
+            } else {
+                $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/');
+                $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/');
+                $('#claim-login').modal('show'); 
+            }
+        }
     });
 });
 
@@ -612,8 +620,16 @@ $(document).on('change click', '#overall-tab', function () {
 });
 
 $(document).on('click', '#already_claim_profile', function () {
-  $('#want-claim').css('display', 'none');
-  $('#submit-proof-form').css('display', 'block');
+    if (localStorage.getItem('agent_id')) {
+        swal({
+            title: "Already Claim Profile!",
+            text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
+            icon: "error",
+        });
+    } else {
+        $('#want-claim').css('display', 'none');
+        $('#submit-proof-form').css('display', 'block');
+    }
 });
 
 $(document).on('click', '#want-claim-yes', function () {

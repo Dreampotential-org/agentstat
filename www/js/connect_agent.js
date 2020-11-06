@@ -45,26 +45,34 @@ function init_events_connect() {
     $("#set_agent").removeAttr("disabled")
   })
 
-  $("body").delegate("#set_agent", "click", function(e) {
-    connector_id = $("input[name='select-agent']:checked").val();
-    if(typeof connector_id != 'undefined') {
-      if (localStorage.getItem('session_id')) {
-        claim_api(connector_id);
-      } else if (signupType == 'facebook') {
-        window.location = API_URL+'social-login/facebook/'+connector_id+'/';
-      } else {
-        window.location = API_URL+'social-login/google/'+connector_id+'/';
-      }
-      
+$("body").delegate("#set_agent", "click", function(e) {
+    if (localStorage.getItem('agent_id')) {
+        swal({
+            title: "Already Claim Profile!",
+            text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
+            icon: "error",
+        });
     } else {
-      connector_id = $("input[name='claim-agent']:checked").val();
-      // dispute_profile(connector_id)
-      show_claim_screen();
+        connector_id = $("input[name='select-agent']:checked").val();
+        if(typeof connector_id != 'undefined') {
+        if (localStorage.getItem('session_id')) {
+            claim_api(connector_id);
+        } else if (signupType == 'facebook') {
+            window.location = API_URL+'social-login/facebook/'+connector_id+'/';
+        } else {
+            window.location = API_URL+'social-login/google/'+connector_id+'/';
+        }
+        
+        } else {
+            connector_id = $("input[name='claim-agent']:checked").val();
+            // dispute_profile(connector_id)
+            show_claim_screen();
+        }
     }
 
     console.log(connector_id);
     return false;
-  })
+})
 
   $("body").delegate("#search", "click", function(e) {
     $("#set_agent").attr("disabled", "disabled")
