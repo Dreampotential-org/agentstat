@@ -102,7 +102,7 @@ function get_agent_html(agent) {
   if(agent['screen_name']) {
     profile_link = '/profile/' + agent['screen_name'];
   } else {
-    profile_link = '/profile/' + agent['agent_screen_name'];
+    profile_link = '/profile/' + agent['agent_slug'];
   }
   var link = ''
 
