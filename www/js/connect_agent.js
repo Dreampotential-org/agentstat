@@ -99,8 +99,11 @@ $("body").delegate("#set_agent", "click", function(e) {
 }
 
 function get_agent_html(agent) {
-  console.log(agent)
-  var profile_link = '/page-three.html?agent_id=' + agent['agent_id']
+  if(agent['screen_name']) {
+    profile_link = '/profile/' + agent['screen_name'];
+  } else {
+    profile_link = '/profile/' + agent['agent_screen_name'];
+  }
   var link = ''
 
   var brokerage_name = agent['agent_brokerage_info'].split(/\r?\n/)[0];
