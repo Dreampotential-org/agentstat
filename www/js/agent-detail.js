@@ -77,12 +77,12 @@ function load_agent(ignore_city = true) {
   var screen_name = null
   if (full_path.split('/')[1] == 'profile') {
     screen_name = full_path.split('/')[3]
-    var sn_splits = full_path.split("/")
-    if (sn_splits[ sn_splits.length -1 ] == "") {
-        screen_name = sn_splits[sn_splits.length -2]
-    } else {
-        screen_name = sn_splits[sn_splits.length -1]
-    }
+    // var sn_splits = full_path.split("/")
+    // if (sn_splits[ sn_splits.length -1 ] == "") {
+    //     screen_name = sn_splits[sn_splits.length -2]
+    // } else {
+    //     screen_name = sn_splits[sn_splits.length -1]
+    // }
   }
 
   var city = null;

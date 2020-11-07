@@ -81,10 +81,9 @@ function display_profile(profile) {
     $('#phone_number_3').val(profile.phone_number.substring(6, 10));
   }
 
-  if (profile.screen_name === null && profile.connector != '' && profile.connector !== null && profile.state !== null) {
-    var screen_name = profile.connector.agent_name.replace(/\s/g, '').toLowerCase();
-    $('#screen_name').val(screen_name);
-    $('#profile_slug').html(screen_name)
+  if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
+    $('#screen_name').val(profile.connector.screen_name);
+    $('#profile_slug').html(profile.connector.screen_name)
   } else {
     $('#screen_name').val(profile.screen_name);
   }
