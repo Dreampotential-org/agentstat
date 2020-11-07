@@ -341,13 +341,7 @@ function load_agent(ignore_city = true) {
 
 $(document).ready(function () {
     $('#claim_wrapper a').bind('click', function () {
-        if (localStorage.getItem('agent_id') != 'null') {
-            swal({ 
-                title: "Already Claim Profile!",
-                text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
-                icon: "error",
-            });
-        } else {
+        if (localStorage.getItem('agent_id') == 'null' || localStorage.getItem('agent_id') == null) {
             data = {'agent_id': agent_id}
             if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
                 settings = get_settings('claim/', 'POST', JSON.stringify(data));
@@ -360,6 +354,12 @@ $(document).ready(function () {
                 $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/');
                 $('#claim-login').modal('show'); 
             }
+        } else {
+            swal({ 
+                title: "Already Claim Profile!",
+                text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
+                icon: "error",
+            });
         }
     });
 });
@@ -620,15 +620,15 @@ $(document).on('change click', '#overall-tab', function () {
 });
 
 $(document).on('click', '#already_claim_profile', function () {
-    if (localStorage.getItem('agent_id') != 'null') {
+    if (localStorage.getItem('agent_id') == 'null' || localStorage.getItem('agent_id') == null) {
+        $('#want-claim').css('display', 'none');
+        $('#submit-proof-form').css('display', 'block');
+    } else {
         swal({
             title: "Already Claim Profile!",
             text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
             icon: "error",
         });
-    } else {
-        $('#want-claim').css('display', 'none');
-        $('#submit-proof-form').css('display', 'block');
     }
 });
 
@@ -713,13 +713,7 @@ function show_loading_screen() {
 }
 
 function show_claim_screen() {
-    if (localStorage.getItem('agent_id') != 'null') {
-        swal({
-            title: "Already Claim Profile!",
-            text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
-            icon: "error",
-        });
-    } else {
+    if (localStorage.getItem('agent_id') == 'null' || localStorage.getItem('agent_id') == null) {
         swal({
             title: "Claim Profile!",
             text: "Profile is claimed, would you like to dispute?",
@@ -739,6 +733,12 @@ function show_claim_screen() {
             } else {
               // swal("Cancelled", "Your imaginary file is safe :)", "error");
             }
+        });
+    } else {
+        swal({
+            title: "Already Claim Profile!",
+            text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
+            icon: "error",
         });
     }
 }
