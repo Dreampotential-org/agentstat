@@ -46,13 +46,16 @@ function init_events_connect() {
   })
 
 $("body").delegate("#set_agent", "click", function(e) {
-    if (localStorage.getItem('agent_id') != null) {
+    console.log(localStorage.getItem('agent_id'));
+    if (localStorage.getItem('agent_id') != 'null') {
+        console.log('if');
         swal({
             title: "Already Claim Profile!",
             text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
             icon: "error",
         });
     } else {
+        console.log('else');
         connector_id = $("input[name='select-agent']:checked").val();
         if(typeof connector_id != 'undefined') {
         if (localStorage.getItem('session_id')) {
@@ -69,8 +72,6 @@ $("body").delegate("#set_agent", "click", function(e) {
             show_claim_screen();
         }
     }
-
-    console.log(connector_id);
     return false;
 })
 
