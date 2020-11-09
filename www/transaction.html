@@ -276,7 +276,7 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <input class="form-check-input3" name="short-sale" type="checkbox" value="" id="invalidCheck3" checked="checked">
+                                        <input class="form-check-input3" name="short-sale" type="checkbox" value="" id="invalidCheck3">
                                         <label class="form-check-label3" for="invalidCheck3">
                                             <small> Short Sale</small>
                                         </label>
@@ -292,7 +292,11 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <button id="save-transaction" type="button" class="btn btn-primary">Save Transaction</button>
+                                <button id="save-transaction" type="button" class="btn btn-primary">
+                                    Save Transaction
+                                    <i id="save-transaction-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                                    <i id="save-transaction-check" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
+                                </button>
                             </div>
                             <div class="form-row">
                                 <button type="reset" class="btn" data-dismiss="modal">Cancel</button>

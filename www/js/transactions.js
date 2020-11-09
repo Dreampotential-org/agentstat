@@ -78,37 +78,44 @@ $(document).on('change click', '.notebtn', function(){
 });
 
 $(document).on('change click', '#save-transaction', function(){
-  data = {}
-  data['address_text'] = $('#address_text').val()
-  data['city'] = $('#city').val()
-  data['state'] = $('#state').val()
-  data['zipcode'] = $('#zipcode').val()
-  data['home_type'] = $('#home_type').val()
-  data['list_date'] = $('#list_date').val()
-  data['sold_date'] = $('#sold_date').val()
-  data['list_price_int'] = $('#list_price_int').val()
-  data['sold_price_int'] = $('#sold_price_int').val()
-  data['represented'] = $('#inputState').val()
-  data['beds'] = $('#beds').val()
-  data['baths'] = $('#baths').val()
-  data['record_type'] = 'agentstat';
-  data['record_status'] = 'pending';
+    data = {}
+    data['address_text'] = $('#address_text').val()
+    data['city'] = $('#city').val()
+    data['state'] = $('#state').val()
+    data['zipcode'] = $('#zipcode').val()
+    data['home_type'] = $('#home_type').val()
+    data['list_date'] = $('#list_date').val()
+    data['sold_date'] = $('#sold_date').val()
+    data['list_price_int'] = $('#list_price_int').val()
+    data['sold_price_int'] = $('#sold_price_int').val()
+    data['represented'] = $('#inputState').val()
+    data['beds'] = $('#beds').val()
+    data['baths'] = $('#baths').val()
+    data['record_type'] = 'agentstat';
+    data['record_status'] = 'pending';
 
-  var completeAddr = data['address_text']+', '+data['city']+', '+data['state']+', '+data['zipcode'];
-  var coordinates = getCoordinates(completeAddr);
-  
-  data['latitude'] = coordinates.lat;
-  data['longitude'] = coordinates.lng;
+    var completeAddr = data['address_text']+', '+data['city']+', '+data['state']+', '+data['zipcode'];
+    var coordinates = getCoordinates(completeAddr);
+    
+    data['latitude'] = coordinates.lat;
+    data['longitude'] = coordinates.lng;
 
-  api_call_url = 'create-transaction/';
-  settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
-  $.ajax(settings).done(function (response) {
-    var msg = JSON.parse(response);
-    $("#transaction-msg").css('display', 'block');
-    setInterval(location.reload(true), 3000);
-  }).fail(function(err) {
-    console.log(err);
-  });
+    $('#save-transaction-spinner').show();
+    $('#save-transaction-check').hide();
+
+    api_call_url = 'create-transaction/';
+    settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
+    $.ajax(settings).done(function (response) {
+        var msg = JSON.parse(response);
+        $("#transaction-msg").css('display', 'block');
+        $('#save-transaction-spinner').hide();
+        $('#save-transaction-check').show();
+        setInterval(location.reload(true), 3000);
+    }).fail(function(err) {
+        $('#save-transaction-spinner').hide();
+        $('#save-transaction-check').hide();
+        console.log(err);
+    });
 });
 
 $(document).ready(function() {
