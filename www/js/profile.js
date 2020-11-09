@@ -179,6 +179,10 @@ function display_profile(profile) {
     $("#first_name").prop("disabled", true);
     $("#last_name").prop("disabled", true);
 
+    if($('#agent-name-tutorial').length) {
+        $('#agent-name-tutorial').html(res[0]+' '+res[1]);
+    }
+
 
 
     if (profile.screen_name && profile.state) {
