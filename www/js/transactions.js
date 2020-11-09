@@ -7,74 +7,74 @@ function init() {
 }
 
 function currencyFormat(num) {
-  return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 
 function load_agent() {
-  const urlParams = new URLSearchParams(window.location.search)
-  var agent_id =  urlParams.get('agent_id');
-  var city =  urlParams.get('city');
+    const urlParams = new URLSearchParams(window.location.search)
+    var agent_id =  urlParams.get('agent_id');
+    var city =  urlParams.get('city');
 
-  if (agent_id) {
-    $(".claim_profile").attr("href", "/signup.html?agent_id=" + agent_id)
-  }
-
-
-  var api_call_url = 'transactions/';
-  if(city !== null) {
-    api_call_url += '?city=' + city;
-  }
-  settings = get_settings(api_call_url, 'GET');
-
-  $.ajax(settings).done(function (response) {
-    data = JSON.parse(response);
-    $('.agent_name').val(data['agent_name']);
-    $.each($('.agent_name'), function() { $(this).html(data['full_name']) });
-    var name_city = data['full_name'] + ' - ' + data['city'];
-
-    if(city !== null) {
-      $('#city-tab').text(city);
+    if (agent_id) {
+        $(".claim_profile").attr("href", "/signup.html?agent_id=" + agent_id)
     }
 
-    populate_transaction(data['agent_lists']);
-    
-  }).fail(function(err){
-    console.log(err);
-  });
+
+    var api_call_url = 'transactions/';
+    if(city !== null) {
+        api_call_url += '?city=' + city;
+    }
+    settings = get_settings(api_call_url, 'GET');
+
+    $.ajax(settings).done(function (response) {
+        data = JSON.parse(response);
+        $('.agent_name').val(data['agent_name']);
+        $.each($('.agent_name'), function() { $(this).html(data['full_name']) });
+        var name_city = data['full_name'] + ' - ' + data['city'];
+
+        if(city !== null) {
+        $('#city-tab').text(city);
+        }
+
+        populate_transaction(data['agent_lists']);
+        
+    }).fail(function(err){
+        console.log(err);
+    });
 }
 
 
 
 $(document).on('change click', '.closeform', function() {
-  $(this).closest('tr').fadeOut('slow');
+    $(this).closest('tr').fadeOut('slow');
 });
 
 $(document).on('change click', '.notebtn', function(){
-  data_id = $(this).attr('data-id');
-  // console.log($('#note-' + data_id).val());
+    data_id = $(this).attr('data-id');
+    // console.log($('#note-' + data_id).val());
 
-  data = {}
-  data['agent_list'] = data_id;
-  data['note'] = $('#note-'+data_id).val();
-  data['agent_profile_id'] = localStorage.getItem('profile_id');
-  console.log(data);
+    data = {}
+    data['agent_list'] = data_id;
+    data['note'] = $('#note-'+data_id).val();
+    data['agent_profile_id'] = localStorage.getItem('profile_id');
+    console.log(data);
 
-  api_call_url = 'agent-list-note/' + agent_list_id + '/';
+    api_call_url = 'agent-list-note/' + agent_list_id + '/';
 
-  settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
-  settings['headers'] = null;
+    settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
+    settings['headers'] = null;
 
-  $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function (response) {
 
-    var msg = JSON.parse(response);
-    console.log(msg);
+        var msg = JSON.parse(response);
+        console.log(msg);
 
-  }).fail(function(err) {
+    }).fail(function(err) {
 
-    console.log(err);
+        console.log(err);
 
-  });
+    });
 });
 
 $(document).on('change click', '#save-transaction', function(){
@@ -110,7 +110,7 @@ $(document).on('change click', '#save-transaction', function(){
         $("#transaction-msg").css('display', 'block');
         $('#save-transaction-spinner').hide();
         $('#save-transaction-check').show();
-        setInterval(location.reload(true), 3000);
+        // setInterval(location.reload(true), 3000);
     }).fail(function(err) {
         $('#save-transaction-spinner').hide();
         $('#save-transaction-check').hide();
@@ -119,14 +119,16 @@ $(document).on('change click', '#save-transaction', function(){
 });
 
 $(document).ready(function() {
-  $('#list_date').datepicker({
-    format: 'mm/dd/yy',
-    autoclose: true,
-  });
-  $('#sold_date').datepicker({
-    format: 'mm/dd/yy',
-    autoclose: true,
-  });
+    $('#list_date').datepicker({
+        format: 'mm/dd/yy',
+        autoclose: true,
+        endDate: new Date()
+    });
+    $('#sold_date').datepicker({
+        format: 'mm/dd/yy',
+        autoclose: true,
+        endDate: new Date()
+    });
 });
 
 window.addEventListener("DOMContentLoaded", init, false);
