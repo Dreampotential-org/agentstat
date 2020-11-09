@@ -60,7 +60,9 @@ body {
 .pth-more-right-content .slick-current {
     transform: scale(1) !important;
 }
-
+#tabTutorialModal {
+    margin-top: 50px;
+}
 
 @media (max-width: 1360px) {
     .custom_search_size {

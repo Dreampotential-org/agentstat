@@ -35,6 +35,10 @@ function display_profile(profile) {
   $('#linkedid').val(profile.linkedin);
   $('#other-speciality-text').val(profile.other_speciality_note);
 
+  if($('#agent-name-tutorial').length) {
+    $('#agent-name-tutorial').html(profile.first_name+' '+profile.last_name)
+  }
+
   if (profile.brokerage_name == null) {
     if (profile.connector && profile.connector.brokerage_info) {
         var brokerage_info = profile.connector.brokerage_info.split(/\r?\n/)[0];

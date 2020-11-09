@@ -208,6 +208,10 @@ function camleCasetoString(text){
 	return result.charAt(0).toUpperCase() + result.slice(1);
 }
 
+function letterCapitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function checkNoagentIsAttached() {
 	if (localStorage.getItem("agent_id") === null || localStorage.getItem("agent_id") == 'null' || localStorage.getItem("agent_id") == '') {
 		var pageName = window.location.pathname.split("/")[1];
@@ -215,7 +219,9 @@ function checkNoagentIsAttached() {
 		if(listPages.indexOf(pageName) !== -1){
             checkAgentConnect();
 		}
-	}
+	} else {
+        tabTutorialModal();
+    }
 }
 
 function checkAgentConnect() {
@@ -225,6 +231,7 @@ function checkAgentConnect() {
             
             if (data.agent_id !== null ) {
                 localStorage.agent_id = data.agent_id;
+                tabTutorialModal();
             } else if (data.sent_dispute == false) {
                 window.location = '/connect-profile/';
             } else {
@@ -234,6 +241,35 @@ function checkAgentConnect() {
         }).fail(function(err) {
             window.location = '/pending-dispute/';
         });
+}
+
+function tabTutorialModal() {
+    var pageName = window.location.pathname.split("/")[1];
+    var tab_tutorial_json = JSON.parse(localStorage.getItem('tab_tutorial_json'));
+    var pageStatus = tab_tutorial_json[pageName];
+    if (pageStatus == false) {
+        $.get('/_tab_tutorial_modal.html', function(response){
+            $('#tab-tutorial-modal').html(response);
+
+            $('#tabTutorialModal').modal({
+                backdrop: 'static',
+                keyboard: false,
+                show: true,
+            });
+            
+            $('.tutorial-div').hide();
+            $('#'+pageName).show();
+            $('#tutorial-title').html(letterCapitalize(pageName));
+
+            tab_tutorial_json[pageName] = true;
+            localStorage.tab_tutorial_json = JSON.stringify(tab_tutorial_json);
+
+            var data = {}
+            data['tab_tutorial_json'] = localStorage.getItem('tab_tutorial_json');
+            settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
+            $.ajax(settings).done();
+        });
+    }
 }
 
 $(document).ready(function(){
