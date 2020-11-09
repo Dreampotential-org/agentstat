@@ -110,7 +110,7 @@ $(document).on('change click', '#save-transaction', function(){
         $("#transaction-msg").css('display', 'block');
         $('#save-transaction-spinner').hide();
         $('#save-transaction-check').show();
-        // setInterval(location.reload(true), 3000);
+        setInterval(location.reload(true), 3000);
     }).fail(function(err) {
         $('#save-transaction-spinner').hide();
         $('#save-transaction-check').hide();
