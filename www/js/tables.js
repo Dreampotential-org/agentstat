@@ -466,7 +466,7 @@ function getFilters() {
     var screenName = null;
     var slug = null;
     var url = '';
-    if (full_path.split('/')[1] == 'profile' && full_path.split('/')[3] !== undefined ) {
+    if (full_path.split('/')[1] == 'profile' && full_path.split('/')[3] !== undefined && full_path.split('/')[3] != "" ) {
         screenName = full_path.split('/')[2];
         slug = full_path.split('/')[3];
         url = API_URL+'custom-link/'+screenName+'/'+slug;
