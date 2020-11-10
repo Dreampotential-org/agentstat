@@ -52,28 +52,25 @@ $(document).on('change click', '.closeform', function() {
 
 $(document).on('change click', '.notebtn', function(){
     data_id = $(this).attr('data-id');
-    // console.log($('#note-' + data_id).val());
 
     data = {}
     data['agent_list'] = data_id;
     data['note'] = $('#note-'+data_id).val();
     data['agent_profile_id'] = localStorage.getItem('profile_id');
-    console.log(data);
+
+    $('#note-spinner-'+data_id).show();
+    $('#note-check-'+data_id).hide();
 
     api_call_url = 'agent-list-note/' + agent_list_id + '/';
-
     settings = get_settings(api_call_url, 'POST', JSON.stringify(data));
     settings['headers'] = null;
-
     $.ajax(settings).done(function (response) {
-
-        var msg = JSON.parse(response);
-        console.log(msg);
-
+        $('#note-spinner-'+data_id).hide();
+        $('#note-check-'+data_id).show();
     }).fail(function(err) {
-
+        $('#note-spinner-'+data_id).hide();
+        $('#note-check-'+data_id).hide();
         console.log(err);
-
     });
 });
 

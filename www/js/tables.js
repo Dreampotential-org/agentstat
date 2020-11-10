@@ -118,7 +118,11 @@ function populate_transaction(agent_lists, isAgent=true) {
         <tr class="fidout table-color template" id="add-public-note-`+ v['id'] +`" style="display: none;">
             <td colspan="11" style="padding: 6px 13px; color:gray">
             <div class="form-group">
-                <button type="button" class="btn btn-success notebtn `+showClass+`" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">Save</button>
+                <button type="button" class="btn btn-success notebtn `+showClass+`" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">
+                    Save
+                    <i id="note-spinner-`+v['id']+`" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                    <i id="note-check-`+v['id']+`" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
+                </button>
                 <label class="`+showClass+`"><strong>`+publicNote+`</strong></label>
                 <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
                 
@@ -809,7 +813,7 @@ function setOverallAgentScore() {
 
     $('.overall_score').html(successRate+'%');
     $("#overall-avg-dom").html(Math.round(agentOverallScoreObj['avg_dom']));
-    $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_price']) + "%");
+    $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_price']));
     $('.overall_sold_listings').html(agentOverallScoreObj['sold_listings']);
     
 }
