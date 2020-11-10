@@ -1,0 +1,69 @@
+/* unique list tab style starts here */
+.unique-box{
+    padding: 50px 0 50px;
+}
+.unique-box h2{
+    margin: 0 0 35px;
+}
+.unique-box i {
+    color: #5dae48;
+    font-size: 22px;
+    padding-right: 30px;
+}
+.unique-box .unique-list{
+    padding-left: 90px;
+    font-size: 18px;
+}
+.unique-box .unique-list li{
+    margin: 0 0 10px;
+}
+.unique-box .unique-list li span{
+    font-weight: 500;
+    display: inline-block;
+}
+
+.unique-box .unique-list li:last-child span.underline-text{
+    text-decoration: underline;
+    margin: 0 0 20px;
+}
+.unique-box .unique-list strong{
+    display: inline-block;
+}
+.unique-box .unique-list{
+    padding-left: 60px;
+}
+.unique-box .unique-list .unique-sublist strong{
+    float: left;
+}
+.unique-box .unique-list .unique-sublist span{
+    overflow: hidden;
+    font-size: 17px;
+}
+
+@media (max-width: 600px ) {
+    .unique-box {
+        padding: 20px 0 20px;
+    }
+    .unique-box h2 {
+        margin: 0 0 20px;
+        font-size: 26px;
+    }
+    .unique-box i {
+        color: #5dae48;
+        font-size: 18px;
+        padding-right: 10px;
+        display: inline;
+    }
+    .unique-box .unique-list li {
+        margin: 0 0 5px;
+    }
+    .unique-box .unique-list {
+        padding-left: 10px;
+    }
+    .container-fluid {
+        padding: 0 10px;
+    }
+    .unique-box .unique-list li span {
+        display: inline;
+    }
+}
