@@ -308,11 +308,13 @@ function load_agent(ignore_city = true) {
     if(data['licenses'] !== undefined && data['licenses'] !== null && data['licenses'].length >0){
       var lic = data['licenses'][0]
       $('#license_about').text(' - '+lic.split(' ')[0]+' - '+lic.split(' ')[1])
+    } else if (data['real_estate_licence'] !== null && data['real_estate_licence'] != '') {
+      $('#license_about').text(' - '+data['real_estate_licence']);
+    } else if (data['other_licences'] !== null) {
+      $('#license_about').text(' - '+data['other_licences']);
     }
 
-    if (data['real_estate_licence'] !== null && data['real_estate_licence'] != '') {
-      $('#license_about').text(' - '+data['real_estate_licence']);
-    }
+
 
     $(".alist").remove();
     index = 1;
