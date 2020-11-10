@@ -809,7 +809,7 @@ function setOverallAgentScore() {
 
     $('.overall_score').html(successRate+'%');
     $("#overall-avg-dom").html(Math.round(agentOverallScoreObj['avg_dom']));
-    $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_price']));
+    $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_price']) + "%");
     $('.overall_sold_listings').html(agentOverallScoreObj['sold_listings']);
     
 }

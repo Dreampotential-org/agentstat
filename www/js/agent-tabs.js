@@ -23,7 +23,7 @@ function ifFilterMatched() {
     
         if (matchedScoreObj['s2l_price']) {
             var s2l_price = Math.round(matchedScoreObj['s2l_price']);
-            $('#overall-s2l-price').html(s2l_price);
+            $('#overall-s2l-price').html(s2l_price + "%s");
         }
        
         if (matchedScoreObj['sold_listings']) {
