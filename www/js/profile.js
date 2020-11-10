@@ -83,6 +83,9 @@ function display_profile(profile) {
     $('#phone_number_1').val(profile.phone_number.substring(0, 3));
     $('#phone_number_2').val(profile.phone_number.substring(3, 6));
     $('#phone_number_3').val(profile.phone_number.substring(6, 10));
+  } else {
+    // set phone input as red
+    $(".phone-input").css("border", "2px solid red");
   }
 
   if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
@@ -354,7 +357,10 @@ function update_profile() {
   if (localStorage.getItem("role") != 'team' && phonenumber_validate(phone_number_concate) === false) {
     validation_messages += 'Invalid phone number. \n Allow Format: 123-456-7890';
     valid = false;
-  }
+    $(".phone-input").css("border", "2px solid red");
+  } else {
+    $(".phone-input").css("border", "2px solid #000000");
+ }
 
   if (valid === false) {
 
