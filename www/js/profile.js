@@ -359,7 +359,7 @@ function update_profile() {
     valid = false;
     $(".phone-input").css("border", "2px solid red");
   } else {
-    $(".phone-input").css("border", "2px solid #000000");
+    $(".phone-input").css("border", "2px solid #e2e2e2");
  }
 
   if (valid === false) {
