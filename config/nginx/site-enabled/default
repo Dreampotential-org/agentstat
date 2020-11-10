@@ -100,5 +100,9 @@ server {
         location /upload-proof/ {
             try_files $uri $uri/ /upload-proof.html;
         }
+
+        location /marketing/ {
+            try_files $uri $uri/ /marketing.html;
+        }
         
 }

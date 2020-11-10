@@ -284,7 +284,7 @@
 }
 
 .link-lightbox-area .form-control {
-	color: #ccc;
+	color: black;
 	border: none;
 	background: none;
 	width: 100%;
@@ -863,7 +863,7 @@ select::-ms-expand {
 	bottom: 0;
 	left: 14px;
 	font-size: 22px;
-	color: #ccc;
+	color: black;
 	}
 .options {
     display:none;

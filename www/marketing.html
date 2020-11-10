@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="">
     <meta name="decription" content="">
-    <meta name="author" content="Asad Kabir">
+    <meta name="author" content="Aaron">
 
     <!-- Title -->
-    <title>Inbox</title>
+    <title>Reports</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="/img/fav.png" />
@@ -24,13 +24,14 @@
 
     <!-- Include Bootstrap -->
     <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/morris.css" />
     <script src="/js/bootstrap.js"></script>
+
+    <!-- Data Tables -->
+    <link rel="stylesheet" href="/plugins/datatables/css/dataTables.bootstrap4.min.css" />
 
     <!-- Main StyleSheet -->
     <link rel="stylesheet" href="/style.css" />
-
-    <!-- Page CSS -->
-    <link rel="stylesheet" href="/css/report.css" />
 
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="/css/responsive.css" />
@@ -38,8 +39,16 @@
     <!-- Common css for all pages -->
     <link rel="stylesheet" href="/css/common.css" />
 
+    <link rel="stylesheet" href="/css/transactions.css" />
+    <link rel="stylesheet" href="/css/tables.css" />
+
     <!-- Page CSS -->
-    <link rel="stylesheet" href="/css/inbox.css" />
+    <link rel="stylesheet" href="/css/report.css" />
+
+    <!-- custom link popup css -->
+    <link rel="stylesheet" href="/css/popup.css" />
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
 
@@ -56,17 +65,17 @@
             <img src="/img/logo-beta.png" alt="logo" />
         </a>
         <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
-                                </span>
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <div class="main-menu-part form-menu col-lg-12">
                 <ul class="float-left form-ulli-left">
-                    <li class="inbox-link header-link"><a class="active inbox-notification" href="/inbox/">Inbox </a></li>
+                    <li class="inbox-link header-link"><a class="inbox-notification" href="/inbox/">Inbox </a></li>
                     <li class="reports-link header-link"><a href="/reports/">Reporting </a></li>
-                    <li class="marketing-link header-link"><a href="/marketing/">Marketing </a></li>
+                    <li class="marketing-link header-link"><a class="active"  href="/marketing/">Marketing </a></li>
                     <li class="past-sales-link header-link"><a href="/past-sales/">Past Sales </a></li>
                     <li class="referrals-link header-link"><a href="/referrals/">Referrals</a></li>
                     <li class="team-link header-link"><a href="/team/">Team </a></li>
@@ -79,7 +88,7 @@
                             </a>
 
                             <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item " href="/inbox/">
+                                <a class="dropdown-item" href="/inbox/">
                                     <p>Dashboard</p>
                                     <span>View your stats and backend</span>
                                 </a>
@@ -95,58 +104,58 @@
             </div>
         </div>
     </nav>
-
 </div>
-
 <!-- header-area end -->
-<div class="inbox_main">
-    <div class="col-md-12">
-        <div class="inbox">
-            <div class="inbox-box" >
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="box-left review-list">
+<div class="col-md-12">
+
+    <div class="row">
+
+        <div class="reports">
+
+            <nav class="top-nav">
+                <div class="nav nav-tabs " id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="customlink-tab" data-toggle="tab" href="#customlink" role="tab" aria-controls="customlink" aria-selected="true">Unique Links</a>
+                    <a class="nav-item nav-link" id="marketing-tab" data-toggle="tab" href="#marketing" role="tab" aria-controls="marketing" aria-selected="false">Marketing</a>
+                </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="customlink" role="tabpanel" aria-labelledby="customlink-tab">
+                    <div class="container-fluid page-container">
+                        <div class="pth-all-heading">
+                            <span class="add-custom-link-btn lightbox-opener">
+                                <b>+ Create your custom profile link</b>
+                            </span>
+                            <br>
+                        </div>
+                        <div class="pth-all">
+                            <table class="table-responsive" id="custom-links-table" style="overflow-x: inherit; width: 100% !important;">
+                                <thead>
+                                    <tr class="table-heading-transaction table-heading table-color">
+                                        <td class="table-column">Creation Date</td>
+                                        <td class="table-column">Link</td>
+                                        <td class="table-column">Filters</td>
+                                        <td class="table-column">Views</td>
+                                        <td class="table-column">Contact Requests</td>
+                                        <td class="table-column">Unique Visitors</td>
+                                        <td class="table-column">Actions</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="custom-links-table-body">
+            
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="box-right" style="display: none;">
-                            <h1 id="name">Contact Name</h1>
-                            <span id="time"></span>
-                            <p id="phone"></p>
-                            <p id="email"></p>
-                            <p id="address"></p>
-                            <div class="box-right-content row">
-                                <div class="col-md-5">
-                                    <div class="box-right-inner box-right-border detail-lable">
-                                        <h1 class="looking_for_div">Buyer, seller, or both?</h1>
-                                        <h1 class="home_type_div">Home Type (selling)</h1>
-                                        <h1 class="how_much_div">Approximate sales price</h1>
-                                        <h1 class="how_soon_div">How soon (selling)?</h1>
-                                        <h1 class="home_type_buyer_div">Home Type (buying)</h1>
-                                        <h1 class="how_much_buyer_div">Approximate purchase price</h1>
-                                        <h1 class="how_soon_buyer_div">How soon (buying)?</h1>
-                                        <h1 class="interest_reason_div">Why are they interested in you? </h1>
-                                        <h1 class="message_div">Notes</h1>
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="box-right-inner">
-                                        <p id="looking_for" class="looking_for_div"></p>
-                                        <p id="home_type" class="home_type_div"></p>
-                                        <p id="how_much" class="how_much_div"></p>
-                                        <p id="how_soon" class="how_soon_div"></p>
-                                        <p id="home_type_buyer" class="home_type_buyer_div"></p>
-                                        <p id="how_much_buyer" class="how_much_buyer_div"></p>
-                                        <p id="how_soon_buyer" class="how_soon_buyer_div"></p>
-                                        <p id="interest_reason" class="interest_reason_div"></p>
-                                        <p id="message" class="message_div"></p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <a class="property-detail-link" href="" target="_blank">View Property Detail</a>
+                </div>
+                <div class="tab-pane fade" id="marketing" role="tabpanel" aria-labelledby="marketing-tab">
+                    <div class="reports-content">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div style="display:table-cell; vertical-align:middle; text-align:center"></div>
+                                    <img width="350px" src="/img/coming-soon.png" style="margin-left: auto; margin-right: auto; display: block; margin-top: 150px;">
                                 </div>
                             </div>
-                            <hr>
                         </div>
                     </div>
                 </div>
@@ -154,6 +163,7 @@
         </div>
     </div>
 </div>
+
 <div class="footer">
     <div class="container">
         <div class="footer-wrapper text-center">
@@ -165,6 +175,8 @@
     </div>
 </div>
 
+<div id="custom-link-form"></div>
+
 <div id="tab-tutorial-modal"></div>
 
 <!-- Main jQuery -->
@@ -175,19 +187,34 @@
 
 <!-- Bootstrap jQuery -->
 <script src="/js/bootstrap.js"></script>
+<script src="/js/raphael.min.js"></script>
+<script src="/js/morris.min.js"></script>
 
 <!-- Fontawesome Script -->
 <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
 <script src="/js/type.js"></script>
 
+<!-- Bootbox confirm box -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+<script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
+
 <script src="/js/owl.carousel.min.js"></script>
+
+<!-- Data table js -->
+<script src="/plugins/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
 
 <!-- Custom jQuery -->
 <script src="/js/scripts.js"></script>
 
 <script src="/js/conf.js"></script>
-<script src="/js/inbox.js"></script>
+<script src="/js/tables.js"></script>
+<script src="/js/marketing.js"></script>
 <script src="/js/common.js"></script>
+
+<!-- custom link js -->
+<script src="/js/custom-link.js"></script>
 
 <!-- Scroll-Top button -->
 <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>

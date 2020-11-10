@@ -756,8 +756,8 @@ function populate_custom_links(data, destroy=false) {
         $('#custom-links-table').DataTable().clear().destroy();
     }
 
-    if (data.agent_screen_name && data.agent_state) {
-        profile_url = '/profile/' + data.agent_state.toLowerCase() + '/' + data.agent_screen_name+'/';
+    if (data.agent_screen_name) {
+        profile_url = '/profile/' + data.agent_screen_name+'/';
     } else {
         profile_url = '/page-three.html?agent_id=' + data.agent_id+'&q=';
     }
