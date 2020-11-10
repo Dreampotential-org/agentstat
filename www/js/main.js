@@ -345,6 +345,9 @@ function pacSelectFirst(input){
 
 
 function init_maps() {
+    if (!($("#search_input").length)) {
+        return
+    }
 
     var input = document.getElementsByClassName('maps_input')[0];
     var input_map = document.getElementsByClassName('maps_input_maps')[0];
@@ -377,8 +380,6 @@ function init_maps() {
     if ($("#query-address").length) {
         var lead_input = document.getElementById('query-address');
         new google.maps.places.Autocomplete(lead_input, options);
-
-
     }
 
 }

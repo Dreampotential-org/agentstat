@@ -138,11 +138,11 @@ function display_profile(profile) {
   $('#provide_cma').prop('checked', profile.provide_cma);
   $('#about_me').val(profile.about_me);
 
+    console.log(profile)
   if (profile.picture != '' && profile.picture !== null) {
     // debugger;
     $('.my-image').attr('src', profile.picture);
     $('#remove-profile-image').css('display', 'block');
-    
     localStorage.setItem("profile-image", profile.picture);
     headerDisplayImage();
     // $('.my-image').prop('src', profile.picture);
