@@ -21,10 +21,13 @@
                                                 placeholder="Street address">
                                         </div>
                                         <div class="input-wrap">
-                                            <div class="input-holder">
-                                                <input type="text" class="form-control" id="q-address-city"
-                                                    placeholder="City">
-                                            </div>
+                                            <span id='q-address-city-div'>
+                                                <span class="fake-select">
+                                                    <select id="q-address-city">
+                                                        <option value="">Select City</option>
+                                                    </select>
+                                                </span>
+                                            </span>
                                             <div class="input-holder">
                                                 <input type="text" class="form-control" id="q-address-zipcode"
                                                     placeholder="Zipcode">
@@ -40,9 +43,13 @@
                                     </div>
                                     <div class="field-wrap">
                                         <label for="city" class="label">Search using city</label>
-                                        <div class="input-holder city">
-                                            <input type="text" class="form-control" id="q-city" placeholder="City">
-                                        </div>
+                                        <span id='q-city-div'>
+                                            <span class="fake-select">
+                                                <select id="q-city">
+                                                    <option value="">Select City</option>
+                                                </select>
+                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="wrap" style="display: none;">
@@ -66,18 +73,8 @@
                             <div class="field-holder">
                                 <div class="select-holder">
                                     <label for="type" class="label">Property Type</label>
-                                    <span class="fake-select">
-                                        <select id="q-property-type">
-                                            <option value="">Select Type</option>
-                                            <option>Single Family</option>
-                                            <option>Condo</option>
-                                            <option>Townhouse</option>
-                                            <option>Manufactured</option>
-                                            <option>Multi Family</option>
-                                            <option>Land</option>
-                                            <option>Apartment</option>
-                                            <option>Lot</option>
-                                        </select>
+                                    <span id="q-property-type-div">
+
                                     </span>
                                 </div>
                             </div>

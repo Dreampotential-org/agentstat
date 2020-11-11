@@ -315,7 +315,7 @@ function load_agent(ignore_city = true) {
       $('#license_about').text(' - '+data['other_licences']);
     }
 
-
+    cityDropdownPopulate(data['cities']);
 
     $(".alist").remove();
     index = 1;

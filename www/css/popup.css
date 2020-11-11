@@ -386,9 +386,16 @@
 	font-size: 22px;
 	line-height: 26px;
 	padding: 5px 15px;
-	color: #ccc;
+	color: black;
 	-moz-appearance: none;
 	-webkit-appearance: none;
+}
+
+#q-address-city, #q-address-city-div .select {
+    width: 160%;
+}
+#q-address-city-div .fake-select::before {
+    right: -65px;
 }
 
 .link-lightbox-area input[type="submit"] {
