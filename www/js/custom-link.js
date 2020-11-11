@@ -108,7 +108,7 @@ function addCustomLink(data) {
             var pathname = window.location.pathname;
             var splitPathname = pathname.split('/');
             if (splitPathname[1] == 'profile') {
-                var url = window.location.protocol+'//'+window.location.hostname+'/profile/'+splitPathname[2]+'/'+splitPathname[3]+'/'+data.slug;
+                var url = window.location.protocol+'//'+window.location.hostname+'/profile/'+splitPathname[2]+'/'+data.slug;
             }
         }
 
