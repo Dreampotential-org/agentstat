@@ -260,7 +260,6 @@ function getStartEndDate(type) {
 } 
 
 $(document).ready(function(){	
-	getCustomLink();
 
 	chartTime = {};
 	chartType = {};
