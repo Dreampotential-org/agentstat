@@ -110,6 +110,14 @@ function loadInboxData(obj) {
 		$('#message').html(obj.message);
 	} else {
 		$('.message_div').hide();
+    }
+    
+    if (obj.custom_link_refer != undefined && obj.custom_link_refer != '') {
+        $('.custom_link_refer_div').show();
+        var html = '<a href="'+obj.custom_link_refer+'" target="_blank">'+obj.custom_link_refer+'</a>'
+		$('#custom_link_refer').html(html);
+	} else {
+		$('.custom_link_refer_div').hide();
 	}
 
 	if (obj.agentlist_zpid != undefined && obj.agentlist_zpid != '') {

@@ -480,6 +480,7 @@ function getFilters() {
     }
 
     if (url)  {
+        has_custom_link = true;
         var jqXHR = $.ajax({
             url: url,
             type: 'GET',

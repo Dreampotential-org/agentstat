@@ -12,6 +12,7 @@ var cityFilter = '';
 var propertyTypeFilter = '';
 var cityOverallCount = 1;
 var activePaginationPageNo = 1;
+var has_custom_link = false;
 
 function init() {
   load_agent();
@@ -546,6 +547,10 @@ $(document).on('change click', '#lead-submit', function () {
     data['home_type_buyer'] = buying['home_type'];
     data['how_much_buyer'] = buying['how_much'];
     data['how_soon_buyer'] = buying['how_soon'];
+  }
+
+  if (has_custom_link == true) {
+    data['custom_link_refer'] = window.location.href
   }
 
   settings = get_settings('lead/', 'POST', JSON.stringify(data));
