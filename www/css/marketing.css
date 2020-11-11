@@ -39,7 +39,9 @@
     overflow: hidden;
     font-size: 17px;
 }
-
+.unique-sublist {
+    margin-left: 55px;
+}
 @media (max-width: 600px ) {
     .unique-box {
         padding: 20px 0 20px;
