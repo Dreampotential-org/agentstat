@@ -163,6 +163,7 @@ function getCustomLinkSlug() {
 }
 
 function cityDropdownPopulate(citiesArr) {
+    citiesArr = citiesArr.sort();
     if ($('#q-address-city-div').length != 0) {
         var html = '<span class="fake-select">';
             html += '<select id="q-address-city">';
