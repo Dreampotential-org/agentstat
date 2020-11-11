@@ -345,9 +345,9 @@ function pacSelectFirst(input){
 
 
 function init_maps() {
-    if (!($("#search_input").length)) {
-        return
-    }
+    // if (!($("#search_input").length)) {
+    //     return
+    // }
 
     var input = document.getElementsByClassName('maps_input')[0];
     var input_map = document.getElementsByClassName('maps_input_maps')[0];
