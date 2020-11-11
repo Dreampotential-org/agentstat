@@ -438,8 +438,10 @@ function sortByCity(agent_scores) {
             } else if(city.length > 13) {
                 className = 'bottom-text2';
             } 
+
+            var cityWithoutSpace = city.replace(/\s+/g, '')
             var html = `
-            <li>
+            <li id="city-badge-`+cityWithoutSpace+`" data-city="`+city+`">
                 <img src="/img/badgelable.svg">
                 <div class="text-box">
                     <span>Top</span>
@@ -580,7 +582,16 @@ function populate_cities(agent_scores) {
     var cityFilterClean = cityFilter.toLowerCase().replace(/\s/g, '');
     var matchedCityClean = $('#city-table-body .score- .table-column p').first().text().toLowerCase().replace(/\s/g, '');
     if (cityFilterClean == matchedCityClean) {
-        $('#city-table-body .score- .table-column .right-arrow-city').first().click();
+        setTimeout(function() {
+            $('#city-table-body .score- .table-column .right-arrow-city').first().click();
+        }, 100);
+    }
+
+    if (cityFilter != '') { 
+        $('#badges-top-rank img').removeClass('badge-border');
+
+        var cityWithoutSpace = cityFilter.replace(/\s+/g, '');
+        $('#city-badge-'+cityWithoutSpace+' img').addClass('badge-border');
     }
 
     loadPagination();

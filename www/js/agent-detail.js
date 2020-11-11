@@ -801,5 +801,11 @@ $('.timestamps li a').click(function () {
   $(this).parent('li').addClass('active');
 });
 
+$(document).on('click', '#badges-top-rank li', function(){
+    cityFilter = $(this).data('city');
+    setOverallAgentScore();
+    populate_cities(cityScoreAllData);
+});
+
 window.addEventListener("DOMContentLoaded", init, false);
 // window.addEventListener("DOMContentLoaded", $('datatable').dataTable(), false);

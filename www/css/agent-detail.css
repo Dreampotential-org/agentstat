@@ -175,6 +175,12 @@ ul.badges-list li .bottom-text.bottom-text2{
     font-size:10px;
 }
 
+.badge-border{
+    border: 1px solid black;
+}
+#badges-top-rank li { 
+    cursor: pointer; 
+}
 
 @media only screen and (max-width: 1024px) {
 	ul.badges-list li{
