@@ -392,10 +392,10 @@
 }
 
 #q-address-city, #q-address-city-div .select {
-    width: 160%;
+    width: 120%;
 }
 #q-address-city-div .fake-select::before {
-    right: -65px;
+    right: -20px;
 }
 
 .link-lightbox-area input[type="submit"] {
