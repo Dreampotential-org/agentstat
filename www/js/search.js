@@ -324,7 +324,7 @@ function load_search_results() {
 
         item = item.split('[[time_duration]]').join(v['time_duration']);
         item = item.split('[[city]]').join(v['city']);
-        item = item.split('[[score]]').join(v['score'].toFixed(1));
+        // item = item.split('[[score]]').join(v['score'].toFixed(1));
         item = item.split('[[agent_id]]').join(v['agent_id']);
         item = item.split('[[agent_full_name]]').join(v['agent_full_name']);
 
