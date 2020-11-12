@@ -3,9 +3,6 @@ function getLeads() {
 
 	$.ajax(settings).done(function (response) {
 		var msgs = JSON.parse(response);
-		if (msgs.length==0 && page==1) {
-			msgs = JSON.parse(dummyData);
-		}
 		$.each(msgs, function(k, v) {
 			record += 1;
 
@@ -158,8 +155,6 @@ function readMessageStatus(leadId) {
 
 $(document).ready(function(){
 	base_url = window.location.origin;
-    // XXX move to back in -arosen
-	dummyData = '[{"id":135,"name":"Anna - Sample Lead","phone":"(111) 222-3333","email":"anna@website.com","message":"Hi agent! let me know if you have some home in my town.","lead_type":null,"home_type":null,"how_much":null,"how_soon":null,"home_type_buyer":null,"how_much_buyer":null,"how_soon_buyer":null,"interest_reason":null,"looking_for":null,"is_read":1,"created_at":"2020-10-02T11:59:27.053542Z","agent":6557},{"id":129,"name":"Aaron - Sample Lead","phone":"(444) 555-6666","email":"aaron@website.com","message":"I an interesting to buy a home","lead_type":null,"home_type":"Condominium","how_much":"$200 - 400K","how_soon":"6-12 months","home_type_buyer":null,"how_much_buyer":null,"how_soon_buyer":null,"interest_reason":"I’m researching agents","looking_for":"Buy a Home","is_read":1,"created_at":"2020-08-12T21:28:28.869436Z","agent":6557},{"id":128,"name":"Doug - Sample Lead","phone":"(111) 222-3333","email":"doug@gmail.com","message":"Hi agent! I am intereted to buy an apartment.","lead_type":null,"home_type":"Single Family","how_much":"$0 - 200K","how_soon":"ASAP","home_type_buyer":null,"how_much_buyer":null,"how_soon_buyer":null,"interest_reason":"I’m researching agents","looking_for":"Sell a Home","is_read":1,"created_at":"2020-08-12T21:28:03.741531Z","agent":6557}]';
 
 	page = 1;
 	record = 0;

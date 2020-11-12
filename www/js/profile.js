@@ -36,7 +36,7 @@ function display_profile(profile) {
   $('#other-speciality-text').val(profile.other_speciality_note);
 
   if($('#agent-name-tutorial').length) {
-    $('#agent-name-tutorial').html(profile.first_name+' '+profile.last_name)
+    $('#agent-name-tutorial').html(profile.first_name+' '+profile.last_name);
   }
 
   if (profile.brokerage_name == null) {
@@ -181,12 +181,6 @@ function display_profile(profile) {
     $('#last_name').val(res[1]);
     $("#first_name").prop("disabled", true);
     $("#last_name").prop("disabled", true);
-
-    setTimeout(function(){ 
-        if($('#agent-name-tutorial').length) {
-            $('#agent-name-tutorial').html(res[0]+' '+res[1]);
-        }
-    }, 1000);
     
     if (profile.screen_name && profile.state) {
       profile_url = '/profile/' + profile.screen_name;
