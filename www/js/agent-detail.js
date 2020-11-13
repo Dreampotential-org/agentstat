@@ -8,6 +8,7 @@ var agent_id = urlParams.get('agent_id');
 var matchedScoreObj = {}
 var cityScoreAllData = {};
 var agentOverallScoreObj = {}
+var all_transaction_list = {};
 var cityFilter = '';
 var propertyTypeFilter = '';
 var cityOverallCount = 1;
@@ -321,6 +322,7 @@ function load_agent(ignore_city = true) {
     $(".alist").remove();
     index = 1;
 
+    all_transaction_list = data[agent_list_key];
     populate_transaction(data[agent_list_key], false);
 
     var coordinates = [];
@@ -810,6 +812,7 @@ $(document).on('click', '#badges-top-rank li', function(){
     cityFilter = $(this).data('city');
     setOverallAgentScore();
     populate_cities(cityScoreAllData);
+    populate_transaction(all_transaction_list, false, true);
 });
 
 window.addEventListener("DOMContentLoaded", init, false);

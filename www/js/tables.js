@@ -45,7 +45,28 @@ function onlyAddress(address) {
     return address[0];
 }
 
-function populate_transaction(agent_lists, isAgent=true) {
+function populate_transaction(agent_lists, isAgent=true, destroy = false) {
+    
+    if (typeof cityFilter !== "undefined" && cityFilter != '') {
+        var temp = [];
+        $.each(agent_lists, function(k,v){
+            if (v.city == cityFilter) {
+                temp.push(v);
+            }
+        });
+        $.each(agent_lists, function(k,v){
+            if (v.city != cityFilter) {
+                temp.push(v);
+            }
+        });
+        agent_lists = temp;
+    }
+
+    if (destroy) {
+        $('#transations-table').DataTable().clear().destroy();
+    }
+
+    $("#table-transaction-body").html("");
 
     $.each(agent_lists, function(k, v) {
         if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
@@ -699,6 +720,7 @@ $(document).on('click', '.remove-city-filter', function(){
     cityFilter = '';
     setOverallAgentScore();
     populate_cities(cityScoreAllData);
+    populate_transaction(all_transaction_list, false, true);
 });
 
 $(document).on('click', '.remove-property-filter', function(){
