@@ -42,8 +42,11 @@
 .unique-sublist {
     margin-left: 55px;
 }
-.description-div, .minimize-description, .maximize-description {
+.description-div{
     display: none;
+}
+.minimize-description, .maximize-description{
+    cursor: pointer;
 }
 @media (max-width: 600px ) {
     .unique-box {
