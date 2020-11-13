@@ -199,11 +199,20 @@
 	line-height: 27px;
 	display: block;
 	color: #000;
-	font-weight: 700;
-	margin: 0 0 30px;
+    font-weight: 700;
+    margin: 0 0 10px;
 }
 
-.link-lightbox-area .heading a {
+.link-lightbox-area .sub-heading {
+    font-size: 20px;
+    line-height: 27px;
+    display: block;
+    color: #000;
+    font-weight: 500;
+    margin: 0 0 30px;
+}
+
+.link-lightbox-area .heading a, .link-lightbox-area .sub-heading a {
 	position: relative;
 	display: inline-block;
 	vertical-align: top;
