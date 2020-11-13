@@ -208,10 +208,6 @@ function camleCasetoString(text){
 	return result.charAt(0).toUpperCase() + result.slice(1);
 }
 
-function letterCapitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
 function checkNoagentIsAttached() {
 	if (localStorage.getItem("agent_id") === null || localStorage.getItem("agent_id") == 'null' || localStorage.getItem("agent_id") == '') {
 		var pageName = window.location.pathname.split("/")[1];
@@ -259,7 +255,18 @@ function tabTutorialModal() {
             
             $('.tutorial-div').hide();
             $('#'+pageName).show();
-            $('#tutorial-title').html(letterCapitalize(pageName));
+
+            var textObj = {
+                'profile-settings': 'Profile Settings',
+                'inbox': 'Inbox',
+                'reports': 'Reporting',
+                'marketing': 'Marketing',
+                'past-sales': 'Past Sales',
+                'referrals': 'Referrals',
+                'team': 'Team',
+            }
+
+            $('#tutorial-title').html(textObj[pageName]);
 
             tab_tutorial_json[pageName] = true;
             localStorage.tab_tutorial_json = JSON.stringify(tab_tutorial_json);

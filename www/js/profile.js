@@ -181,6 +181,10 @@ function display_profile(profile) {
     $('#last_name').val(res[1]);
     $("#first_name").prop("disabled", true);
     $("#last_name").prop("disabled", true);
+
+    setTimeout(function(){
+        $('#agent-name-tutorial').html(profile.connector.agent_name);
+    },1000);
     
     if (profile.screen_name && profile.state) {
       profile_url = '/profile/' + profile.screen_name;
