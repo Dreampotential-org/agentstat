@@ -219,6 +219,8 @@ $(document).ready(function(){
     });
 
     $("#request_phone").inputmask({ "mask": "(999) 999-9999" });
+    $("#request_license").inputmask("*{0,}");
+
 });
 
 
