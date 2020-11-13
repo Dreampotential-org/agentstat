@@ -5,7 +5,7 @@
 .unique-box h2{
     margin: 0 0 35px;
 }
-.unique-box i {
+.unique-box .fa-check-circle {
     color: #5dae48;
     font-size: 22px;
     padding-right: 30px;
@@ -41,6 +41,9 @@
 }
 .unique-sublist {
     margin-left: 55px;
+}
+.description-div, .minimize-description, .maximize-description {
+    display: none;
 }
 @media (max-width: 600px ) {
     .unique-box {
