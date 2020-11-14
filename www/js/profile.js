@@ -185,22 +185,9 @@ function display_profile(profile) {
     setTimeout(function(){
         $('#agent-name-tutorial').html(profile.connector.agent_name);
     },1000);
-    
-    if (profile.screen_name && profile.state) {
-      profile_url = '/profile/' + profile.screen_name;
-    } else {
-      profile_url = '/page-three.html?agent_id=' + profile.connector.id;
-    }
-
-    // $('#agent-connector').html(`
-    //   <a target='_blank' href='` + profile_url + `'>` + profile.connector.agent_name + `</a> |
-    //   <a id='connector-remove'
-    //     data-id='` + profile.connector.id + `'  href=''
-    //     onclick='return false;'>Remove</a>
-    // `);
 
     $('#agent-connector').html(`
-      <a target='_blank' href='` + profile_url + `'>` + profile.connector.agent_name + `</a>
+      <a target='_blank' href='` + myProfileLink() + `'>` + profile.connector.agent_name + `</a>
     `);
   } else {
     $('#agent-connector').html(`
@@ -456,15 +443,20 @@ function update_profile() {
     settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
 
     $.ajax(settings).done(function (response) {
-      //Hide Loading Icon and Enable Submit Button
-      $('#submit_loading').css('display', 'none')
-      $('.submit_btn').removeAttr('disabled', 'none')
+        //Hide Loading Icon and Enable Submit Button
+        $('#submit_loading').css('display', 'none')
+        $('.submit_btn').removeAttr('disabled', 'none')
 
-      $('#validate-message').css('display', 'none');
+        $('#validate-message').css('display', 'none');
 
-      var msg = JSON.parse(response);
+        var msg = JSON.parse(response);
 
-      show_message('Your profile has been saved.');
+        show_message('Your profile has been saved.');
+
+        setUserDataStorage('screen_name', msg['screen_name']);
+        $('.my-profile-link').attr('href', myProfileLink());
+
+        $('#agent-connector a').attr('href',myProfileLink());
     }).fail(function (err) {
       //Hide Loading Icon and Enable Submit Button
       $('#submit_loading').css('display', 'none')

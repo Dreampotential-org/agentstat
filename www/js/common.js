@@ -279,12 +279,42 @@ function tabTutorialModal() {
     }
 }
 
+function getUserDataStorage(key) {
+    var data = JSON.parse(localStorage.getItem('user_data'));
+    if (key in data) {
+        return data[key];
+    } else {
+        return false;
+    }
+}
+
+function setUserDataStorage(key, val) {
+    var data = JSON.parse(localStorage.getItem('user_data'));
+    data[key] = val;
+    localStorage.user_data = JSON.stringify(data);
+}
+
+
+function myProfileLink() {
+    var link = '/profile/';
+    if (screen_name = getUserDataStorage('screen_name')) {
+        link += screen_name;
+    } else if (screen_name = getUserDataStorage('agent_screen_name')) {
+        link += screen_name;
+    } else {
+        link += getUserDataStorage('agent_slug');
+    }
+    return link;
+}
+
 $(document).ready(function(){
 	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
 		isTeamMember();
 		inboxNotification();
 		loadProfileImage();
-		checkNoagentIsAttached();
+        checkNoagentIsAttached();
+
+        $('.my-profile-link').attr('href', myProfileLink());
     }	
     
     if ($(window).width() < 550) {

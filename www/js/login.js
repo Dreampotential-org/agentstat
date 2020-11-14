@@ -16,6 +16,11 @@ if (hash) {
         localStorage.role = data['role'];
         localStorage.web_agent_id = data['web_agent_id'];
         localStorage.tab_tutorial_json = data['tab_tutorial_json'];
+        localStorage.user_data = JSON.stringify({
+            'screen_name': data['screen_name'],
+            'agent_slug': data['agent_slug'],
+            'agent_screen_name': data['agent_screen_name'],
+        });
 
         if (localStorage.getItem('claimed_agent_id') != null && localStorage.getItem('claimed_agent_id') != 'null') {
             window.location = 'page-three.html?agent_id='+localStorage.getItem('claimed_agent_id');
