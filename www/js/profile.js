@@ -35,6 +35,9 @@ function display_profile(profile) {
     $('#linkedid').val(profile.linkedin);
     $('#other-speciality-text').val(profile.other_speciality_note);
 
+    $('#email-notification').attr('checked', profile.email_notification);
+    $('#sms-notification').attr('checked', profile.sms_notification);
+
     if($('#agent-name-tutorial').length) {
         $('#agent-name-tutorial').html(profile.first_name+' '+profile.last_name);
     }
@@ -387,6 +390,9 @@ function update_profile(tab) {
     data['facebook'] = formatURL($('#facebook').val());
     data['twitter'] = formatURL($('#twitter').val());
     data['Linkedin'] = formatURL($('#Linkedin').val());
+    
+    data['email_notification'] = $('#email-notification').is(":checked") ? true : false;
+    data['sms_notification'] = $('#sms-notification').is(":checked") ? true : false;
 
     var picture_data = $('#upload')[0].files[0]
     var reader = new FileReader();

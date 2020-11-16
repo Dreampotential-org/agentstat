@@ -1118,6 +1118,9 @@ body {
 .tab-link {
 	display: none;
 }
+.noti-description {
+    margin-bottom: 50px;
+}
 @media (min-width: 768px) {
 	.tabs-section .fields-area.about .btns-area {
 		padding-right: 45px;
