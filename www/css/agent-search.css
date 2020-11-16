@@ -121,6 +121,13 @@ p.history-tagline {
 a.rank-title{
     font-size: 20px;
 }
+.toc-two-left-one img {
+    min-width: 150px;
+    min-height: 150px;
+    max-width: 150px;
+    max-height: 150px;
+    margin: 0 auto;
+}
 @media (max-width: 1200px) {
     .highlighted .col-lg-3 {
         margin-top: -15px;
