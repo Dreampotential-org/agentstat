@@ -339,13 +339,13 @@ function update_profile() {
   });
 
   var phone_number_concate = $('#phone_number_1').val() + $('#phone_number_2').val() + $('#phone_number_3').val();
-  if (localStorage.getItem("role") != 'team' && phonenumber_validate(phone_number_concate) === false) {
-    validation_messages += 'Invalid phone number. \n Allow Format: 123-456-7890';
-    valid = false;
-    $(".phone-input").css("border", "2px solid red");
-  } else {
-    $(".phone-input").css("border", "2px solid #e2e2e2");
- }
+//   if (localStorage.getItem("role") != 'team' && phonenumber_validate(phone_number_concate) === false) {
+//     validation_messages += 'Invalid phone number. \n Allow Format: 123-456-7890';
+//     valid = false;
+//     $(".phone-input").css("border", "2px solid red");
+//   } else {
+//     $(".phone-input").css("border", "2px solid #e2e2e2");
+//  }
 
   if (valid === false) {
 
