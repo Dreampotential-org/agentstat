@@ -281,7 +281,7 @@ function tabTutorialModal() {
 
 function getUserDataStorage(key) {
     var data = JSON.parse(localStorage.getItem('user_data'));
-    if (key in data) {
+    if (data && key in data) {
         return data[key];
     } else {
         return false;
