@@ -408,9 +408,9 @@ function sortByCity(agent_scores) {
     var finalData = [];
     var counter = 0;
     var badgesArr = [];
-    $.each(cities, function(k,v){
+    $.each(cities, function(k, v){
         var cityTypeData = [];
-        $.each(agent_scores, function(k1,v1){
+        $.each(agent_scores, function(k1, v1){
             if (v1['city'] !== null && v == v1['city'].toLowerCase()) {
                 cityTypeData.push(v1);
                 if (qCity == v1['city'].toLowerCase() && v1['home_type'] === null) {
@@ -418,7 +418,9 @@ function sortByCity(agent_scores) {
                 }
 
                 if (v1['home_type'] === null) {
-                    var agent_percentage = agentTopPercentage(v1['agent_rank'], v1['rank_count']);
+                    var agent_percentage = agentTopPercentage(v1['agent_rank'],
+                                                              v1['rank_count']);
+                    console.log(agent_percentage)
                     badgesArr.push({
                         'agent_percentage':agent_percentage,
                         'city':v1['city']
@@ -458,7 +460,7 @@ function sortByCity(agent_scores) {
                 className = 'bottom-text1';
             } else if(city.length > 13) {
                 className = 'bottom-text2';
-            } 
+            }
 
             var cityWithoutSpace = city.replace(/\s+/g, '')
             var html = `
@@ -514,7 +516,7 @@ function getFilters() {
     }
 }
 
-function populate_cities(agent_scores) {  
+function populate_cities(agent_scores) {
     $('#filter-tags').html('');
     $('#badges-top-rank').html('');
     $('#city-table-body').html('');
@@ -542,7 +544,7 @@ function populate_cities(agent_scores) {
         } else {
             s2l_price = v['s2l_price'].toFixed(2)
         }
-        
+
         var city_avg_dom = '';
         if (v['city_stats']['avg_dom']) {
           city_avg_dom = v['city_stats']['avg_dom'].toFixed(2);
