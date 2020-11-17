@@ -420,11 +420,12 @@ function sortByCity(agent_scores) {
                 if (v1['home_type'] === null) {
                     var agent_percentage = agentTopPercentage(v1['agent_rank'],
                                                               v1['rank_count']);
-                    console.log(agent_percentage)
-                    badgesArr.push({
-                        'agent_percentage':agent_percentage,
-                        'city':v1['city']
-                    });
+                    if (!isNaN(agent_percentage)) {
+                        badgesArr.push({
+                            'agent_percentage':agent_percentage,
+                            'city':v1['city']
+                        });
+                    }
                 }
             }
         });
@@ -509,7 +510,7 @@ function getFilters() {
             type: 'GET',
             async: false,
         });
-        
+
         return JSON.parse(jqXHR.responseText);
     } else {
         return '';
@@ -543,6 +544,10 @@ function populate_cities(agent_scores) {
             s2l_price = '-'
         } else {
             s2l_price = v['s2l_price'].toFixed(2)
+        }
+
+        if (!(v['city_stats'])) {
+            return
         }
 
         var city_avg_dom = '';
