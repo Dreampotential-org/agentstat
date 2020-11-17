@@ -65,7 +65,7 @@ $("body").delegate("#set_agent", "click", function(e) {
     } else {
         swal({
             title: "Already Claim Profile!",
-            text: "You have already claim a profile. If you still want to change then contact on anna@agentstat.com",
+            text: "Error! You have already claimed a profile and cannot claim more than one.",
             icon: "error",
         });
     }
