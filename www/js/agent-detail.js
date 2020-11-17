@@ -52,11 +52,11 @@ function load_agent_score(duration = '36') {
   settings['headers'] = null;
   $.ajax(settings).done(function (response) {
     data = JSON.parse(response);
-    cityScoreAllData = data.agent_scores;
+    cityScoreAllData = data.agent_scores_es;
     var filterObj = getFilters();
     returnFilters(filterObj);
 
-    $.each(data.overall_scores, function (k, v) {
+    $.each(data.overall_scores_es, function (k, v) {
       if (v.time_duration == duration) {
         agentOverallScoreObj = v;
       }
@@ -66,7 +66,7 @@ function load_agent_score(duration = '36') {
     }
     setOverallAgentScore();
 
-    populate_cities(data.agent_scores);
+    populate_cities(data.agent_scores_es);
   }).fail(function (err) {
     console.log(err);
   });
