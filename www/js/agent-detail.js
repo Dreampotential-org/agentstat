@@ -62,10 +62,9 @@ function load_agent_score(duration = '36') {
       }
     });
     if (Object.keys(agentOverallScoreObj).length === 0) {
-      agentOverallScoreObj = data.overall_scores[0];
+      agentOverallScoreObj = data.overall_scores_es[0];
     }
     setOverallAgentScore();
-
     populate_cities(data.agent_scores_es);
   }).fail(function (err) {
     console.log(err);
