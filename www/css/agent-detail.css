@@ -189,18 +189,17 @@ ul.badges-list li .bottom-text.bottom-text2{
 }
 
 @media only screen and (max-width: 992px) {
-    ul.badges-list li {
-        width: 32%;
-    }
+	ul.badges-list li{
+		width: 49%;
+	}
 }
 
 @media only screen and (max-width: 667px) {
-    ul.badges-list li {
-        width: 49%;
-        padding: 0 30px;
-    }
-}
-@media (max-width: 992px) {
+	ul.badges-list li{
+        width: 100%;
+        padding: 0 80px;
+	}
+}@media (max-width: 992px) {
     .tags-section {
         flex-wrap: wrap;
     }
@@ -333,10 +332,6 @@ ul.badges-list li .bottom-text.bottom-text2{
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
-ul.badges-list li .bottom-text.bottom-text1 {
-    transform: translate(-50%, -30%);
-    font-size: 11px;
-}
 
 @media (max-width: 1200px) {
     .rating-popup .popup-heading h3 {
@@ -359,11 +354,4 @@ ul.badges-list li .bottom-text.bottom-text1 {
         width: 100%;
         padding: 0 0 50px;
 	}
-}
-
-@media only screen and (max-width: 480px){
-    ul.badges-list li {
-        width: 100%;
-        padding: 0 80px;
-    }
 }
