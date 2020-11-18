@@ -457,6 +457,7 @@ function sortByCity(agent_scores) {
             if (splitCity[1] !== undefined) {
                 city = city+ ' '+splitCity[1];
             }
+            
             // var html = `
             // <div class="block-col">
             //     <div class="block">
@@ -466,25 +467,42 @@ function sortByCity(agent_scores) {
             //     </div>
             // </div>
             // `;
-            var className = '';
-            if (city.length > 10 && city.length < 14 ) {
-                className = 'bottom-text1';
-            } else if(city.length > 13) {
-                className = 'bottom-text2';
-            }
-
+            
+            // var className = '';
+            // if (city.length > 10 && city.length < 14 ) {
+            //     className = 'bottom-text1';
+            // } else if(city.length > 13) {
+            //     className = 'bottom-text2';
+            // }
+            
             var cityWithoutSpace = city.replace(/\s+/g, '')
-            var html = `
-            <li id="city-badge-`+cityWithoutSpace+`" data-city="`+city+`">
-                <img src="/img/badgelable.svg">
-                <div class="text-box">
-                    <span>Top</span>
-                    <span>`+v['agent_percentage']+`%</span>
-                </div>
-                <div class="bottom-text `+className+`">`+city+`</div>
-            </li>
-            `;
-
+            
+            if (city.length < 13) {
+                var html = `
+                <li id="city-badge-`+cityWithoutSpace+`" data-city="`+city+`">
+                    <img src="/img/badgelable.svg">
+                    <div class="text-box">
+                        <span>Top</span>
+                        <span>`+v['agent_percentage']+`%</span>
+                    </div>
+                    <div class="bottom-text">`+city+`</div>
+                </li>
+                `;
+            } else {
+                var splitCity = city.split(' ');
+                var html = `
+                <li class="lg-text" id="city-badge-`+cityWithoutSpace+`" data-city="`+city+`">
+                    <img src="/img/badgelable.svg">
+                    <div class="text-box">
+                        <span>Top</span>
+                        <span>`+v['agent_percentage']+`%</span>
+                    </div>
+                    <div class="bottom-text">`+splitCity[0]+`</div>
+                    <div class="bottom-text bottom-text01">`+splitCity[1]+`</div>
+                </li>
+                `;
+            }
+            
             $('#badges-top-rank').append(html);
 
             // new CircleType(document.getElementById('cvtext-'+counter)).radius(150);
@@ -866,7 +884,7 @@ function setOverallAgentScore() {
 
     $('.overall_score').html(successRate+'%');
     $("#overall-avg-dom").html(Math.round(agentOverallScoreObj['avg_dom']));
-    $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_price']));
+    $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_price'])+'%');
     $('.overall_sold_listings').html(agentOverallScoreObj['sold_listings']);
 
 }
@@ -886,7 +904,7 @@ function ifFilterMatched() {
 
         if (matchedScoreObj['s2l_price']) {
             var s2l_price = Math.round(matchedScoreObj['s2l_price']);
-            $('#overall-s2l-price').html(s2l_price);
+            $('#overall-s2l-price').html(s2l_price+'%');
         }
        
         if (matchedScoreObj['sold_listings']) {

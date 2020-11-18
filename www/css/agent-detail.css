@@ -114,66 +114,6 @@
 #city-table_paginate {
     margin-top: 5px;
 }
-ul.badges-list{
-	margin: 0;
-	padding: 0 40px;
-	list-style: none;
-	font-family: aller, sans-serif;
-	width: 100%;
-	letter-spacing: -4px;
-	font-size: 1rem;
-	text-align: center;
-}
-
-ul.badges-list li {
-    width: 19%;
-    letter-spacing: normal;
-    padding: 5px;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: Aller;
-    color: #BF9704;
-    font-size: 1.5em;
-    float: none;
-    display: inline-block;
-}
-
-
-ul.badges-list li .bottom-text,
-ul.badges-list li .text-box{
-	position: absolute;
-	text-align: center;
-	left: 50%;
-}
-
-ul.badges-list li .text-box{
-	top: 53%;
-    transform: translate(-50%, -50%);
-}
-
-ul.badges-list li .text-box span{
-    display: block;
-    margin: -12px 0 0;
-}
-
-ul.badges-list li .bottom-text{
-	text-transform: capitalize;
-	font-size:0.55em;
-	bottom: 18%;
-	transform: translate(-50%, -60%);
-	color: #9C7800;
-}
-
-ul.badges-list li .bottom-text.bottom-text1{
-    transform: translate(-50%, -40%);
-    font-size:12px;
-}
-
-ul.badges-list li .bottom-text.bottom-text2{
-    transform: translate(-50%, -40%);
-    font-size:10px;
-}
 
 .badge-border{
     border: 1px solid black;
@@ -182,24 +122,7 @@ ul.badges-list li .bottom-text.bottom-text2{
     cursor: pointer; 
 }
 
-@media only screen and (max-width: 1024px) {
-	ul.badges-list li{
-		width: 33%;
-	}
-}
-
-@media only screen and (max-width: 992px) {
-	ul.badges-list li{
-		width: 49%;
-	}
-}
-
-@media only screen and (max-width: 667px) {
-	ul.badges-list li{
-        width: 100%;
-        padding: 0 80px;
-	}
-}@media (max-width: 992px) {
+@media (max-width: 992px) {
     .tags-section {
         flex-wrap: wrap;
     }
@@ -332,7 +255,51 @@ ul.badges-list li .bottom-text.bottom-text2{
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
+.report-statbox ul{
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 
+}
+.report-statbox ul li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.report-statbox ul li .inner-box{
+    position: relative;
+    padding: 0 40px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.report-statbox ul li strong{
+    position: absolute;
+    /* font-size: 80px; */
+    font-size: 40px;
+    line-height: 90px;
+    display: inline-block;
+    color: #9d7c0c;
+    content: '';
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.4s linear;
+    z-index: 9;
+}
+.report-statbox h3{
+    color: #9d7c0c;
+    font-size: 20px;
+    margin: 20px 0 0;
+    font-family: inherit;
+    text-transform: capitalize;
+}
+.report-statbox ul li img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 @media (max-width: 1200px) {
     .rating-popup .popup-heading h3 {
         margin: 10px 0 0;
@@ -349,9 +316,202 @@ ul.badges-list li .bottom-text.bottom-text2{
     }
 }
 
+/* new design */
+
+@import url("https://use.typekit.net/eop3cfg.css");
+
+*{
+  box-sizing: border-box;
+}
+
+.badges-container{
+	max-width: 1140px;
+	margin: 0 auto;
+	padding:0 15px; 
+}
+
+ul.badges-list{
+	margin: 0;
+	padding: 0 40px;
+	list-style: none;
+	font-family: aller, sans-serif;
+	width: 100%;
+	letter-spacing: -4px;
+	font-size: 1rem;
+	text-align: center;
+}
+
+ul.badges-list li {
+    width: 19%;
+    letter-spacing: normal;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Aller;
+    color: #BF9704;
+    font-size: 1.5em;
+    float: none;
+    display: inline-block;
+}
+
+
+ul.badges-list li .bottom-text,
+ul.badges-list li .text-box{
+	position: absolute;
+	text-align: center;
+	left: 50%;
+}
+
+ul.badges-list li .text-box{
+	top: 53%;
+    transform: translate(-50%, -50%);
+}
+
+ul.badges-list li .text-box span{
+    display: block;
+    margin: -10px 0 0;
+}
+
+ul.badges-list li .bottom-text{
+	text-transform: capitalize;
+	font-size:0.47em;
+	bottom: 18%;
+	transform: translate(-50%, -60%);
+	color: #9C7800;
+}
+
+ul.badges-list li.lg-text .bottom-text{
+	bottom: 25% !important;
+}
+
+ul.badges-list li.lg-text .bottom-text + .bottom-text{
+	bottom: 18% !important;
+}
+
+
+
+.badge-border{
+    border: 1px solid black;
+}
+#badges-top-rank li { 
+    cursor: pointer; 
+}
+
+@media only screen and (max-width: 1024px) {
+	ul.badges-list li{
+		width: 20%;
+	}
+
+	ul.badges-list li{
+		font-size: 1.2em;
+	}
+	ul.badges-list li .text-box span{
+		margin: -9px 0 0;
+	}
+
+}
+
+@media only screen and (max-width: 992px) {
+	.report-statbox ul li {
+        width: 25%;
+        margin: 0 0 30px;
+    }
+    .report-statbox h3{
+        font-size: 20px;
+    }
+    .report-statbox ul li .inner-box{
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 930px) {
+	ul.badges-list li{
+        width: 25%;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	ul.badges-list li{
+        width: 33%;
+        padding: 0 20px;
+	}
+	ul.badges-list li .text-box{
+		font-size: 14px !important;
+	}
+	ul.badges-list li .text-box span{
+		margin: -5px 0 0;
+    }
+    .report-statbox ul li .inner-box {
+        padding: 0 5px;
+    }
+    .report-statbox h3 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    ul.badges-list {
+        margin-bottom: 50px;
+    }
+    ul.badges-list li{
+        width: 50%;
+        padding: 0 50px;
+	}
+
+	ul.badges-list li .bottom-text{
+		font-size: 10px !important;
+    }
+    .report-statbox ul li .inner-box {
+        padding: 0 35px;
+    }
+}
+
+@media only screen and (max-width: 590px) {
+	ul.badges-list li{
+        padding: 0 20px;
+    }
+    .report-statbox ul li .inner-box {
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+	ul.badges-list li{
+        width: 50%;
+        padding: 0 80px;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	ul.badges-list li{
+        padding: 0 50px;
+    }
+    .report-statbox ul li .inner-box {
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+	ul.badges-list li{
+        padding: 0 10px;
+	}
+}
+
 @media only screen and (max-width: 576px) {
 	ul.badges-list {
         width: 100%;
-        padding: 0 0 50px;
-	}
+        padding: 0 0 30px;
+    }
+    .report-statbox ul li {
+        width: 50%;
+        margin: 0 0 30px;
+    }
+    .report-statbox h3{
+        font-size: 18px;
+    }
+    .report-statbox ul li strong {
+        position: absolute;
+        font-size: 30px;
+    }
 }
