@@ -102,10 +102,15 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
             var showClass = '';
             var noteInputClass = '';
             var noteHideClass = 'display-none';
+            var editBtnClass = 'display-none';
             var noteHtml = `<td class="table-column"><button class="`+ buttonClass +`" style="margin:5px;" value="1" title="notes">`+ buttonText +`</button> </td>`;
+            if (v['manual_create'] == true) {
+                editBtnClass = '';
+            }
         } else {
             var showClass = 'display-none';
             var noteInputClass = 'display-none';
+            var editBtnClass = 'display-none';
 
             if (v['note'] != "") {
                 var noteHtml = '<td><i class="fa fa-sticky-note-o " style="font-size:21px; color: green;"></i></td>';
@@ -152,7 +157,12 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                 
             </div>
             <div class="text-left" title_color>
-            <p class="detail-header">` + v['address_text'] +`</p>
+            <p class="detail-header">` + v['address_text'] +` <span>
+                <button type="button" class="btn btn-success editTransaction `+editBtnClass+`" data-id="`+ v['id'] +`" style="">
+                    Edit
+                    <i id="edit-transaction-spinner-`+v['id']+`" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                </button>
+            </span></p>
             <table class="detailed-table" style="width:100%">
                 <tr>
                 <td style="width:35%;border:none !important">
