@@ -42,6 +42,11 @@ function display_profile(profile) {
         $('#agent-name-tutorial').html(profile.first_name+' '+profile.last_name);
     }
 
+    if (profile.screen_name !== null && profile.screen_name != '') {
+        setUserDataStorage('screen_name', profile.screen_name);
+        $('.my-profile-link').attr('href', myProfileLink());
+    }
+
     if (profile.brokerage_name == null) {
         if (profile.connector && profile.connector.brokerage_info) {
             var brokerage_info = profile.connector.brokerage_info.split(/\r?\n/)[0];
@@ -189,14 +194,15 @@ function display_profile(profile) {
             $('#agent-name-tutorial').html(profile.connector.agent_name);
         },1000);
 
-        $('#agent-connector').html(`
-        <a target='_blank' href='` + myProfileLink() + `'>` + profile.connector.agent_name + `</a>
-        `);
-    } else {
-        $('#agent-connector').html(`
-        <a href='/connect-profile/' target='_blank'>Add new connection</a>
-        `);
-    }
+        // $('#agent-connector').html(`
+        // <a target='_blank' href='` + myProfileLink() + `'>` + profile.connector.agent_name + `</a>
+        // `);
+    } 
+    // else {
+    //     $('#agent-connector').html(`
+    //     <a href='/connect-profile/' target='_blank'>Add new connection</a>
+    //     `);
+    // }
 
     
 
@@ -465,7 +471,7 @@ function update_profile(tab) {
             setUserDataStorage('screen_name', msg['screen_name']);
             $('.my-profile-link').attr('href', myProfileLink());
 
-            $('#agent-connector a').attr('href',myProfileLink());
+            // $('#agent-connector a').attr('href',myProfileLink());
         }).fail(function (err) {
         //Hide Loading Icon and Enable Submit Button
         $('#submit_loading').css('display', 'none')
@@ -638,8 +644,8 @@ $(document).on('change click', '#connector-remove', function () {
     settings = get_settings('agent-connector', 'DELETE')
 
     $.ajax(settings).done(function (response) {
-        var msg = JSON.parse(response);
-        $('#agent-connector').html('<a href="/connect-profile/" target="_blank">Add new connection</a>');
+        // var msg = JSON.parse(response);
+        // $('#agent-connector').html('<a href="/connect-profile/" target="_blank">Add new connection</a>');
     }).fail(function (err) {
         // alert('Got err');
         console.log(err);
