@@ -156,7 +156,7 @@ function getCustomLinkSlug() {
         var pathname = window.location.pathname;
         var splitPathname = pathname.split('/');
         if (splitPathname[1] == 'profile') {
-            return splitPathname[4];
+            return splitPathname[3];
         }
     }
     return '';
