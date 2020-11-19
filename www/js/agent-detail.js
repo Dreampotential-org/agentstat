@@ -47,6 +47,14 @@ $(document).on('change click', '#claim_action', function () {
 function load_agent_score(duration = '36') {
 
   var url = 'agent_scores/' + transaction_query + '/?time_duration=' + duration;
+  var url_string = window.location.href;
+  var url_parse = new URL(url_string);
+  var tc = url_parse.searchParams.get("tc");
+
+  if(tc) {
+    url = url + "&tc=" + tc
+  }
+
 
   settings = get_settings(url, 'GET');
   settings['headers'] = null;
