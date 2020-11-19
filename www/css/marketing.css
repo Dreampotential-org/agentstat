@@ -22,9 +22,8 @@
     display: inline-block;
 }
 
-.unique-box .unique-list li:last-child span.underline-text{
+.unique-box .unique-list li span.underline-text{
     text-decoration: underline;
-    margin: 0 0 20px;
 }
 .unique-box .unique-list strong{
     display: inline-block;
@@ -47,6 +46,25 @@
 }
 .minimize-description, .maximize-description{
     cursor: pointer;
+}
+.partner-heading {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.partner-subheading {
+    text-align: center;
+    font-weight: 500;
+}
+.partner-input {
+    width: 40%;
+}
+#make-it-rain-btn {
+    border-color: #b6eeaf;
+    background: #b6eeaf;
+    color: #000;
+    font-weight: 700;
+    padding: 3px 30px;
 }
 @media (max-width: 600px ) {
     .unique-box {
