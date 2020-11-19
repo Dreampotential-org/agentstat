@@ -172,7 +172,7 @@ function display_profile(profile) {
         // })
         // $('.up-photo').append('<button id="remove-profile-image" class="inline-btn">remove profile image</button>');
     } else {
-        src = "/img/blank-profile-picture.png"
+        src = "/img/blank-profile-picture-973460_1280.webp"
         $('.my-image').prop('src', src);
 
     }
@@ -425,7 +425,7 @@ function update_profile(tab) {
 
             $('.croppie-container').remove()
             $upload_crop = null
-            $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
+            $('#image_upload_div').append('<img class="my-image" style="width:300px;" src="" />')
             $('.my-image').attr('src', data['picture']);
             $('#upload').val('')
             $('#remove-profile-image').css('display', 'block')
@@ -901,7 +901,7 @@ function uploadTrigger(input) {
         $('.croppie-container').remove()
         $upload_crop = null
         $('#image_upload_div').append('<img class="my-image" style="width:300px; height:300px;" src="" />')
-        $('.my-image').attr('src', '/img/blank-profile-picture.png');
+        $('.my-image').attr('src', '/img/blank-profile-picture-973460_1280.webp');
         console.log("UPLOAD TRIGGER ELSE")
         $('#image_save').css('display', 'none')
     }
@@ -940,8 +940,8 @@ function readURLtemp(input) {
     else {
         $('.croppie-container').remove()
         $upload_crop = null
-        $('#image_upload_div').append('<img class="my-image" style="width:100%" src="" />')
-        $('.my-image').attr('src', '/img/blank-profile-picture.png');
+        $('#image_upload_div').append('<img class="my-image" style="width:300px;" src="" />')
+        $('.my-image').attr('src', '/img/blank-profile-picture-973460_1280.webp');
         $('.cropped-image').val('')
     }
 }
@@ -952,12 +952,14 @@ $(document).on('click', '#remove-profile-image', function (e) {
     $.ajax(settings).done(function (response) {
         show_message('Profile picture has been removed!');
 
-        src = "/img/blank-profile-picture.png"
+        src = "/img/blank-profile-picture-973460_1280.webp"
         $('.my-image').prop('src', src);
         $('#remove-profile-image').css('display', 'none')
         $('#save_image').css('display', 'none')
 
-        $('.display-picture').html('<i class="fas fa-user-circle"></i>');
+        $('.display-picture img').attr('src', '');
+
+        localStorage.setItem("profile-image", null);
     });
 });
 

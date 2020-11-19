@@ -163,7 +163,7 @@ function inboxNotification() {
 
 function headerDisplayImage() {
 	var src = localStorage.getItem("profile-image");
-	var html = '<img src="'+src+'" onerror="this.src=\'/img/user-icon.png\';">';
+	var html = '<img src="'+src+'" onerror="this.src=\'/img/blank-profile-picture-973460_1280.webp\';">';
 	$('.display-picture').html(html);
 }
 
