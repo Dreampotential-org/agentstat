@@ -61,8 +61,16 @@ function load_agent_score(duration = '36') {
   $.ajax(settings).done(function (response) {
     data = JSON.parse(response);
     cityScoreAllData = data.agent_scores_es;
-    var filterObj = getFilters();
-    returnFilters(filterObj);
+
+    var full_path = window.location.pathname.split('/');
+    var cityParam = full_path[3];
+    if (cityParam !== undefined && cityParam.substr(cityParam.length - 6) == '-stats') {
+        var cityName = cityParam.substring(0, cityParam.length-6);
+        cityFilter = decodeURI(cityName);
+    } else {
+        var filterObj = getFilters();
+        returnFilters(filterObj);
+    }
 
     $.each(data.overall_scores_es, function (k, v) {
       if (v.time_duration == duration) {
@@ -820,6 +828,10 @@ $(document).on('click', '#badges-top-rank li', function(){
     setOverallAgentScore();
     populate_cities(cityScoreAllData);
     populate_transaction(all_transaction_list, false, true);
+
+    var full_path = window.location.pathname.split('/');
+    var url = '/profile/'+full_path[2]+'/'+cityFilter+'-stats';
+    window.history.pushState("", "", url);
 });
 
 window.addEventListener("DOMContentLoaded", init, false);

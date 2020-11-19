@@ -756,6 +756,10 @@ $(document).on('click', '.remove-city-filter', function(){
     setOverallAgentScore();
     populate_cities(cityScoreAllData);
     populate_transaction(all_transaction_list, false, true);
+
+    var full_path = window.location.pathname.split('/');
+    var url = '/profile/'+full_path[2];
+    window.history.pushState("", "", url);
 });
 
 $(document).on('click', '.remove-property-filter', function(){
