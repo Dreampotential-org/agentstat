@@ -64,7 +64,10 @@
     background: #b6eeaf;
     color: #000;
     font-weight: 700;
-    padding: 3px 30px;
+    padding: 3px 60px;
+}
+#make-it-rain-btn:hover {
+    color: rgba(var(--color-highlight), 1.5)
 }
 @media (max-width: 600px ) {
     .unique-box {

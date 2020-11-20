@@ -131,7 +131,7 @@
                         
                         <div class="row">
                             <div class="col-md-12">
-                                <div id="noagent-error" class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0px; margin-top: 15px;">
+                                <div id="noagent-error" class="alert alert-warning alert-dismissible" role="alert" style="margin-bottom: 0px; margin-top: 15px;">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                     <b><u>NOTE:</u></b> This is not a contract to buy  leads or referrals. This is to notify referring agents and/or companies that you are interested in receiving lead/referrals, and what you are willing to compensate them.
                                 </div>
@@ -142,19 +142,19 @@
                             <div class="col-md-8" style="padding-right: 0px; border-right: 1px solid; ">
                                 <div class="col-md-12" style="border-bottom: 1px solid;">
                                     <p class="partner-heading">
-                                        LEADS <i class="fa fa-info-circle" data-toggle="tooltip"></i>
+                                        LEADS <i class="fa fa-info-circle" data-toggle="tooltip" title="Clients have given their name, phone number, email, and reason for interest."></i>
                                     </p>
                                 </div>
                                 <div class="row" style="margin-top: 15px;">
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
                                         <p class="partner-subheading">
-                                            Pay per close <i class="fa fa-info-circle" data-toggle="tooltip"></i>
+                                            Pay per close <i class="fa fa-info-circle" data-toggle="tooltip" title="This is the percent of your total commission that you are willing to offer as compensation."></i>
                                         </p>
                                     </div>
                                     <div class="col-md-4">
                                         <p class="partner-subheading">
-                                            Pay per lead <i class="fa fa-info-circle" data-toggle="tooltip"></i>
+                                            Pay per lead <i class="fa fa-info-circle" data-toggle="tooltip" title="This is the dollar amount that you would consider paying for leads."></i>
                                         </p>
                                     </div>
                                 </div>
@@ -176,26 +176,26 @@
                                         <div>
                                             <br>
                                             <label>Buyer Lead &nbsp; &nbsp;</label>
-                                            <input type="text" class="partner-input"> %
+                                            <input id="lead_ppc_gold_buyer" type="number" class="partner-input"> %
                                         </div>
 
                                         <div>
                                             <br>
                                             <label>Seller Lead &nbsp; &nbsp;</label>
-                                            <input type="text" class="partner-input"> %
+                                            <input id="lead_ppc_gold_seller" type="number" class="partner-input"> %
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div>
                                             <br>
                                             <label>Buyer Lead &nbsp; &nbsp;</label>
-                                            $ <input type="text" class="partner-input">
+                                            $ <input id="lead_ppl_gold_buyer" type="number" class="partner-input">
                                         </div>
 
                                         <div>
                                             <br>
                                             <label>Seller Lead &nbsp; &nbsp;</label>
-                                            $ <input type="text" class="partner-input">
+                                            $ <input id="lead_ppl_gold_seller" type="number" class="partner-input">
                                         </div>
                                     </div>
                                 </div>
@@ -217,26 +217,26 @@
                                         <div>
                                             <br>
                                             <label>Buyer Lead &nbsp; &nbsp;</label>
-                                            <input type="text" class="partner-input"> %
+                                            <input id="lead_ppc_silver_buyer" type="number" class="partner-input"> %
                                         </div>
 
                                         <div>
                                             <br>
                                             <label>Seller Lead &nbsp; &nbsp;</label>
-                                            <input type="text" class="partner-input"> %
+                                            <input id="lead_ppc_silver_seller" type="number" class="partner-input"> %
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div>
                                             <br>
                                             <label>Buyer Lead &nbsp; &nbsp;</label>
-                                            $ <input type="text" class="partner-input">
+                                            $ <input id="lead_ppl_silver_buyer" type="number" class="partner-input">
                                         </div>
 
                                         <div>
                                             <br>
                                             <label>Seller Lead &nbsp; &nbsp;</label>
-                                            $ <input type="text" class="partner-input">
+                                            $ <input id="lead_ppl_silver_seller" type="number" class="partner-input">
                                         </div>
                                     </div>
                                 </div>
@@ -258,26 +258,26 @@
                                         <div>
                                             <br>
                                             <label>Buyer Lead &nbsp; &nbsp;</label>
-                                            <input type="text" class="partner-input"> %
+                                            <input id="lead_ppc_bronze_buyer" type="number" class="partner-input"> %
                                         </div>
 
                                         <div>
                                             <br>
                                             <label>Seller Lead &nbsp; &nbsp;</label>
-                                            <input type="text" class="partner-input"> %
+                                            <input id="lead_ppc_bronze_seller" type="number" class="partner-input"> %
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div>
                                             <br>
                                             <label>Buyer Lead &nbsp; &nbsp;</label>
-                                            $ <input type="text" class="partner-input">
+                                            $ <input id="lead_ppl_bronze_buyer" type="number" class="partner-input">
                                         </div>
 
                                         <div>
                                             <br>
                                             <label>Seller Lead &nbsp; &nbsp;</label>
-                                            $ <input type="text" class="partner-input">
+                                            $ <input id="lead_ppl_bronze_seller" type="number" class="partner-input">
                                         </div>
                                     </div>
                                 </div>
@@ -287,13 +287,14 @@
                             <div class="col-md-4" style="padding-left: 0px;">
                                 <div class="col-md-12" style="border-bottom: 1px solid;">
                                     <p class="partner-heading">
-                                        REFERRALS <i class="fa fa-info-circle" data-toggle="tooltip"></i>
+                                        REFERRALS <i class="fa fa-info-circle" data-toggle="tooltip" title="Clients have given their name, phone number, email, and reason for interest. They have been contacted, and have confirmed their legitimacy as a client. (This is a warm hand-off)
+                                        "></i>
                                     </p>
                                 </div>
                                 <div class="row" style="margin-top: 15px;">
                                     <div class="col-md-12">
                                         <p class="partner-subheading">
-                                            Pay per close <i class="fa fa-info-circle" data-toggle="tooltip"></i>
+                                            Pay per close <i class="fa fa-info-circle" data-toggle="tooltip" title="This is the percent of your total commission that you are willing to offer as compensation."></i>
                                         </p>
                                     </div>
                                 </div>
@@ -304,13 +305,13 @@
                                         <div>
                                             <br>
                                             <label>Buyer Lead &nbsp; &nbsp;</label>
-                                            <input type="text" class="partner-input"> %
+                                            <input id="referral_ppc_buyer" type="number" class="partner-input"> %
                                         </div>
 
                                         <div>
                                             <br>
                                             <label>Seller Lead &nbsp; &nbsp;</label>
-                                            <input type="text" class="partner-input"> %
+                                            <input id="referral_ppc_seller" type="number" class="partner-input"> %
                                         </div>
                                     </div>
                                     
@@ -319,11 +320,15 @@
                         </div>
                           
                         <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-12" style="text-align: center;">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4" style="text-align: center;">
                                 <button type="button" id="make-it-rain-btn" class="btn btn-primary">
                                     Make it rain
+                                    <i id="partner-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                                    <i id="partner-check" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
                                 </button>
                             </div> 
+                            <div class="col-md-4"></div>
                         </div>
 
                         <div class="row">
@@ -361,49 +366,6 @@
                                                 <li>
                                                     <strong>- More leads:&nbsp; &nbsp;</strong>
                                                     <span> Agents, teams, and companies often have excess leads they can't handle. Let them know what you are willing to pay for them.</span>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <p><i class="far fa-check-circle"></i> The i’s next to Leads, Referrals, Pay per close, pay per lead: should open little descriptions (like the i next to phone number in the profile settings) with the following content.</span>
-                                        </li>
-
-                                        <li>
-                                            <i class="far fa-check-circle"></i>
-                                            <span class="underline-text">Leads:</span>
-                                            <ul class="unique-sublist">
-                                                <li>
-                                                    <span> Clients have given their name, phone number, email, and reason for interest. </span>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <i class="far fa-check-circle"></i>
-                                            <span class="underline-text">Referrals:</span>
-                                            <ul class="unique-sublist">
-                                                <li>
-                                                    <span> Clients have given their name, phone number, email, and reason for interest. 
-                                                        They have been contacted, and have confirmed their legitimacy as a client.
-                                                        (This is a warm hand-off)
-                                                         </span>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <i class="far fa-check-circle"></i>
-                                            <span class="underline-text">Pay per close</span>
-                                            <ul class="unique-sublist">
-                                                <li>
-                                                    <span> This is the percent of your total commission that you are willing to offer as compensation. </span>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <i class="far fa-check-circle"></i>
-                                            <span class="underline-text">Pay per lead</span>
-                                            <ul class="unique-sublist">
-                                                <li>
-                                                    <span> This is the dollar amount that you would consider paying for leads. </span>
                                                 </li>
                                             </ul>
                                         </li>
