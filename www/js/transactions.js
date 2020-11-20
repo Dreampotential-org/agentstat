@@ -128,7 +128,7 @@ $(document).on('change click', '#save-transaction', function(){
     data['represented'] = $('#inputState').val()
     data['beds'] = $('#beds').val()
     data['baths'] = $('#baths').val()
-    data['record_type'] = 'agentstat';
+    // data['record_type'] = 'agentstat';
     data['record_status'] = record_status;
 
     var completeAddr = data['address_text']+', '+data['city']+', '+data['state']+', '+data['zipcode'];
@@ -146,9 +146,12 @@ $(document).on('change click', '#save-transaction', function(){
             location.reload();
         }, 3000);
     }).fail(function(err) {
-        $('#save-transaction-spinner').hide();
-        $('#save-transaction-check').hide();
+        // $('#save-transaction-spinner').hide();
+        // $('#save-transaction-check').hide();
         console.log(err);
+        setInterval(function(){
+            location.reload();
+        }, 3000);
     });
 });
 
