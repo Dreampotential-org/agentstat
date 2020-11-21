@@ -122,4 +122,6 @@ $(document).ready(function(){
         });
         
     });
+
+    $(".fa-info-circle").tooltip();
 });
