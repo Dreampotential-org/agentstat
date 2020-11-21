@@ -188,9 +188,8 @@ function load_agent(ignore_city = true) {
     }
 
     $('.agent_name').val(data['agent_name']);
-    
     $('.agent-first-name').text(data['full_name'].split(" ")[0]);
-    
+
     $.each($('.agent_name'), function () {
       $(this).html(data['full_name']);
     });
@@ -232,9 +231,7 @@ function load_agent(ignore_city = true) {
         `<span style="font-size: 13px;color: #007bff;"> </span>`
       );
     });
-    // $.each($('.agent_name_loc'), function () {
-    //     $(this).html(data['full_name']+' '+'is a ?? match for you (enter your location in the search bar to view % match)');
-    // });
+
     $.each($('.answer_agent_name'), function () {
       $(this).html('Contact' + ' ' + data['full_name']);
     })
@@ -260,6 +257,7 @@ function load_agent(ignore_city = true) {
     //     <a href="/login.html" id="">Claim Profile</a>
     //   }
     // }
+
     if (localStorage.agent_id == agent_id) {
       $('#edit_profile_wrapper').css('display', 'inline-block');
     }
@@ -370,12 +368,13 @@ $(document).ready(function () {
                 window.location = '/profile-settings/'
                 });
             } else {
+                localStorage.setItem("claim_agent_id", agent_id)
                 $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/');
                 $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/');
-                $('#claim-login').modal('show'); 
+                $('#claim-login').modal('show');
             }
         } else {
-            swal({ 
+            swal({
                 title: "Already Claim Profile!",
                 text: "Error! You have already claimed a profile and cannot claim more than one.",
                 icon: "error",
