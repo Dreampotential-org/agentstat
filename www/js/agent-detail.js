@@ -44,8 +44,22 @@ $(document).on('change click', '#claim_action', function () {
   claim_api(agent_id);
 });
 
-function load_agent_score(duration = '36') {
+function init_login_buttons() {
+    $("body").delegate("#google-btn", "click", function() {
+        // store agent_id in localstorage to claim after oauth
+        localStorage.setItem("claim_agent_id", agent_id)
+        window.location = API_URL + 'social-login/google/';
+    })
+    $("body").delegate("#facebook-btn", "click", function() {
+        // store agent_id in localstorage to claim after oauth
+        localStorage.setItem("claim_agent_id", agent_id)
+        window.location = API_URL + 'social-login/facebook/'
+    })
+}
 
+
+function load_agent_score(duration = '36') {
+  init_login_buttons()
   var url = 'agent_scores/' + transaction_query + '/?time_duration=' + duration;
   var url_string = window.location.href;
   var url_parse = new URL(url_string);
@@ -368,9 +382,6 @@ $(document).ready(function () {
                 window.location = '/profile-settings/'
                 });
             } else {
-                localStorage.setItem("claim_agent_id", agent_id)
-                $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/');
-                $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/');
                 $('#claim-login').modal('show');
             }
         } else {
@@ -662,11 +673,8 @@ $(document).on('click', '#want-claim-yes', function () {
         localStorage.claimed_agent_id = null;
     } else {
         localStorage.claimed_agent_id = agent_id;
-        
-        $('#facebook-btn').attr('href', API_URL+'social-login/facebook/'+agent_id+'/dispute/');
-        $('#google-btn').attr('href', API_URL+'social-login/google/'+agent_id+'/dispute/');
         $('#alreadyClaimedModal').modal('hide');
-        $('#claim-login').modal('show'); 
+        $('#claim-login').modal('show');
     }
 });
 
@@ -748,11 +756,11 @@ function show_claim_screen() {
             dangerMode: true,
         }).then(function (isConfirm) {
             if (isConfirm) {
-        
+
               $('#alreadyClaimedModal').modal('show');
               $('#want-claim').show();
               $('#submit-proof-form').hide();
-        
+
             } else {
               // swal("Cancelled", "Your imaginary file is safe :)", "error");
             }
