@@ -1,18 +1,23 @@
 var signupType = window.location.pathname.split('/')[2];
 
-var urlParams = new URLSearchParams(window.location.search);
-var status = urlParams.get('status');
-if (status=='noagent') {
-    $('#noagent-error').show();
+
+
+function init_redirect() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var status = urlParams.get('status');
+    if (status == 'noagent') {
+        var claim_agent_id = localStorage.getItem("claim_agent_id")
+        if (claim_agent_id) {
+            claim_api(claim_agent_id)
+        }
+        $('#noagent-error').show();
+    }
 }
 
-function init() {
 
-  // session_id = localStorage.getItem('session_id');
-  // email = localStorage.getItem('email');
-  // if(session_id === null || email === null) {
-  //   window.location = '/login.html';
-  // }
+function init_connect_agent() {
+
+  init_redirect();
 
   load_states()
   init_events_connect()
@@ -225,4 +230,4 @@ $(document).ready(function(){
 
 
 
-window.addEventListener("DOMContentLoaded", init, false);
+window.addEventListener("DOMContentLoaded", init_connect_agent, false);

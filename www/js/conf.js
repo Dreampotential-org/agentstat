@@ -83,12 +83,12 @@ function is_loggon() {
 }
 
 function claim_api(agent_id) {
-    data = {'connector_id': agent_id}
-    console.log(data);
-    var settings = get_settings('agent-connector/', 'POST', JSON.stringify(data));
+    data = {'agent_id': agent_id}
+    var settings = get_settings('claim/', 'POST', JSON.stringify(data));
 
     $.ajax(settings).done(function (response) {
         var msg = JSON.parse(response);
+        localStorage.setItem("claim_agent_id", null)
         localStorage.setItem("connect_profile", null);
         window.location = '/profile-settings/';
     }).fail(function(err) {

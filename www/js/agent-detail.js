@@ -373,14 +373,13 @@ function load_agent(ignore_city = true) {
 
 $(document).ready(function () {
     $('#claim_wrapper a').bind('click', function () {
-        if (localStorage.getItem('agent_id') == 'null' || localStorage.getItem('agent_id') == null) {
-            data = {'agent_id': agent_id}
-            if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
-                settings = get_settings('claim/', 'POST', JSON.stringify(data));
+        if (localStorage.getItem('agent_id') == 'null' ||
+                localStorage.getItem('agent_id') == null) {
 
-                $.ajax(settings).done(function (response) {
-                window.location = '/profile-settings/'
-                });
+            if (localStorage.getItem("email") !== null &&
+                    localStorage.getItem("email") != '') {
+
+                claim_api(agent_id)
             } else {
                 $('#claim-login').modal('show');
             }

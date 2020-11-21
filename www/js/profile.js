@@ -640,20 +640,6 @@ $(document).on('change click', '.submit_btn', function () {
     update_profile($(this).data('tab'));
 });
 
-$(document).on('change click', '#connector-remove', function () {
-    settings = get_settings('agent-connector', 'DELETE')
-
-    $.ajax(settings).done(function (response) {
-        // var msg = JSON.parse(response);
-        // $('#agent-connector').html('<a href="/connect-profile/" target="_blank">Add new connection</a>');
-    }).fail(function (err) {
-        // alert('Got err');
-        console.log(err);
-        show_error(err);
-    });
-});
-
-
 $('.combo-checkboxes:checkbox').change(function () {
     target_id = $(this).attr('target');
     checked_value = $(this).prop('checked');
