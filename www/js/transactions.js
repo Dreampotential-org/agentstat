@@ -1,5 +1,6 @@
 var transactionId = null;
 var record_status = 'new';
+var transactionObj = null;
 
 function init() {
     is_loggon();
@@ -86,7 +87,7 @@ $(document).on('click', '.editTransaction', function(){
     settings['headers'] = null;
     $.ajax(settings).done(function (response) {
         $('#edit-transaction-spinner-'+transactionId).hide();
-        
+        transactionObj = response;
         var data = JSON.parse(response);
         
         $('#address_text').val(data['address_text']);
@@ -128,8 +129,8 @@ $(document).on('change click', '#save-transaction', function(){
     data['represented'] = $('#inputState').val()
     data['beds'] = $('#beds').val()
     data['baths'] = $('#baths').val()
-    // data['record_type'] = 'agentstat';
     data['record_status'] = record_status;
+    data['old_list_data'] = transactionObj;
 
     var completeAddr = data['address_text']+', '+data['city']+', '+data['state']+', '+data['zipcode'];
     var coordinates = getCoordinates(completeAddr);

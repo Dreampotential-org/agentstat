@@ -211,7 +211,7 @@ function camleCasetoString(text){
 function checkNoagentIsAttached() {
 	if (localStorage.getItem("agent_id") === null || localStorage.getItem("agent_id") == 'null' || localStorage.getItem("agent_id") == '') {
 		var pageName = window.location.pathname.split("/")[1];
-		var listPages = ['profile-settings', 'inbox', 'reports', 'past-sales', 'referrals', 'team'];
+		var listPages = ['profile-settings', 'inbox', 'reports', 'marketing','past-sales', 'referrals', 'team'];
 		if(listPages.indexOf(pageName) !== -1){
             checkAgentConnect();
 		}
