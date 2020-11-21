@@ -5,6 +5,22 @@ var data_map = [
     'provide_cma', 'about_me', 'type_of_listing_service'
 ];
 
+function init_profile_settings() {
+    // if this is in localstorage we claim this agent and reload page
+    var claim_agent_id = localStorage.getItem("claim_agent_id")
+    if (claim_agent_id) {
+        claim_api(claim_agent_id)
+    }
+    if (localStorage.getItem('session_id')) {
+        get_profile(function (resp) {
+            display_profile(resp)
+        });
+    } else {
+        window.location = '/sign-in/';
+    }
+}
+
+
 function get_profile(callback) {
     call_api(callback, 'agent-profile/');
 }
@@ -629,12 +645,6 @@ $.each(combo_boxes, function (k, val) {
     get_combo(function (resp) { load_combo(resp, val) }, val);
 });
 
-if (localStorage.getItem('session_id')) {
-    get_profile(function (resp) { display_profile(resp) });
-} else {
-    window.location = '/sign-in/';
-}
-
 
 $(document).on('change click', '.submit_btn', function () {
     update_profile($(this).data('tab'));
@@ -964,7 +974,7 @@ function formatURL(string) {
     return string
 }
 
-function changeTab(tab) {  
+function changeTab(tab) {
     $('#agent-tabs li a').removeClass('active');
     $('#agent-tabs li a').addClass('inactive');
 
@@ -1018,4 +1028,4 @@ $('#save_password_btn').click(function(){
     });
 });
 
-
+window.addEventListener("DOMContentLoaded", init_profile_settings, false);

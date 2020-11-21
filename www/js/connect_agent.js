@@ -54,14 +54,13 @@ $("body").delegate("#set_agent", "click", function(e) {
     if (localStorage.getItem('agent_id') == 'null' || localStorage.getItem('agent_id') == null) {
         connector_id = $("input[name='select-agent']:checked").val();
         if(typeof connector_id != 'undefined') {
-        if (localStorage.getItem('session_id')) {
-            claim_api(connector_id);
-        } else if (signupType == 'facebook') {
-            window.location = API_URL+'social-login/facebook/'+connector_id+'/';
-        } else {
-            window.location = API_URL+'social-login/google/'+connector_id+'/';
-        }
-        
+            if (localStorage.getItem('session_id')) {
+                claim_api(connector_id);
+            } else if (signupType == 'facebook') {
+                window.location = API_URL+'social-login/facebook/'+connector_id+'/';
+            } else {
+                window.location = API_URL+'social-login/google/'+connector_id+'/';
+            }
         } else {
             connector_id = $("input[name='claim-agent']:checked").val();
             // dispute_profile(connector_id)
