@@ -47,7 +47,6 @@ $(document).on('change click', '#claim_action', function () {
 function init_login_buttons() {
     $("body").delegate("#google-btn", "click", function() {
         // store agent_id in localstorage to claim after oauth
-        alert("LOCALSTORAGE Debug - " + agent_id)
         localStorage.setItem("claim_agent_id", agent_id)
         window.location = API_URL + 'social-login/google/';
     })
