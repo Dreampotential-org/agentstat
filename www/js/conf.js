@@ -87,6 +87,10 @@ function claim_api(agent_id) {
     alert("CLAIM AGENT: "  + agent_id)
     var settings = get_settings('claim/', 'POST', JSON.stringify(data));
 
+    if (agent_id == "null") {
+        localStorage.removeItem("claim_agent_id", null)
+    }
+
     $.ajax(settings).done(function (response) {
         var msg = JSON.parse(response);
         localStorage.removeItem("claim_agent_id", null)

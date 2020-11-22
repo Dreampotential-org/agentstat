@@ -104,5 +104,4 @@ server {
         location /marketing/ {
             try_files $uri $uri/ /marketing.html;
         }
-        
 }
