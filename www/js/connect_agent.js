@@ -3,14 +3,9 @@ var signupType = window.location.pathname.split('/')[2];
 
 
 function init_redirect() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var status = urlParams.get('status');
-    if (status == 'noagent') {
-        var claim_agent_id = localStorage.getItem("claim_agent_id")
-        if (claim_agent_id) {
-            claim_api(claim_agent_id)
-        }
-        $('#noagent-error').show();
+    var claim_agent_id = localStorage.getItem("claim_agent_id")
+    if (claim_agent_id) {
+        claim_api(claim_agent_id)
     }
 }
 

@@ -34,7 +34,7 @@ $('#submit_proof_btn').click(function() {
 
     var reader2 = new FileReader();
     reader2.readAsDataURL(real_estate_license);
-    
+
     var picture_base64 = '';
     var real_estate_license_base64 = '';
 
@@ -42,12 +42,12 @@ $('#submit_proof_btn').click(function() {
         picture_base64 = reader.result;
         reader2.onload = function() {
             real_estate_license_base64 = reader2.result;
-            
+
             form_data['current_id_picture'] = picture_base64;
             form_data['current_real_estate_license'] = real_estate_license_base64;
             form_data['current_phone'] = $('#dispute_phone').val();
             form_data['current_brokerage_name'] = $('#brokerage-name').val();
-            
+
             $('#claim-spinner').show();
             $('#claim-check').hide();
 
@@ -66,7 +66,7 @@ $('#submit_proof_btn').click(function() {
                     icon: "success",
                 }).then(function(isConfirm) {
                 });
-                
+
                 $('#submit_proof_btn').prop('disabled', false);
             }).fail(function(err) {
                 $('#claim-spinner').hide();
