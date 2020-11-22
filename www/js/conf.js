@@ -84,6 +84,7 @@ function is_loggon() {
 
 function claim_api(agent_id) {
     data = {'agent_id': agent_id}
+    alert("CLAIM AGENT: "  + agent_id)
     var settings = get_settings('claim/', 'POST', JSON.stringify(data));
 
     $.ajax(settings).done(function (response) {
