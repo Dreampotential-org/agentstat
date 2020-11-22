@@ -207,7 +207,6 @@ $(document).on('click', '#want-claim-yes', function () {
         localStorage.claimed_agent_id = connector_id;
         window.location = API_URL+'social-login/'+signupType+'/'+connector_id+'/dispute/';
     }
-    
 });
 
 $(document).ready(function(){

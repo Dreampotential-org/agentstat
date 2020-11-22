@@ -89,7 +89,7 @@ function claim_api(agent_id) {
 
     $.ajax(settings).done(function (response) {
         var msg = JSON.parse(response);
-        localStorage.setItem("claim_agent_id", null)
+        localStorage.removeItem("claim_agent_id", null)
         localStorage.setItem("connect_profile", null);
         window.location = '/profile-settings/';
     }).fail(function(err) {
