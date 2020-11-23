@@ -1803,11 +1803,16 @@
                 data['name'] = $('#lead_name').val();
                 data['phone'] = $('#lead_phone').val();
                 data['address'] = $('#lead_address').val();
+                data['city'] = $('#lead_city').val();
+                data['state'] = $('#lead_state').val();
+                data['zip_code'] = $('#lead_zipcode').val();
                 data['message'] = $('#lead_message').val();
                 data['agent'] = agent_id;
 
 
-                if (data['email'] === '' || data['name'] === '' || data['phone'] === '' || data['address'] === '') {
+                if (data['email'] === '' || data['name'] === '' || data['phone'] === '' || data['address'] === '' ||
+                    data['city'] === '' || data['state'] === '' || data['zip_code'] === '') 
+                {
                     console.log('All fields are required.');
                     $('.msg').html('All fields are required');
                     return false;
@@ -1838,6 +1843,7 @@
                 });
                 data['queryParams'] = queryParams;
 
+                $('#lead-spinner').show();
                 settings = get_settings('lead/', 'POST', JSON.stringify(data));
                 settings['headers'] = null;
                 $.ajax(settings).done(function (response) {
@@ -1852,13 +1858,11 @@
                     } else {
                         saveLeadTracking(data);
                     }
-
-
+                    $('#lead-spinner').hide();
                 }).fail(function (err) {
-
                     $('.msg').html(err['responseText']);
                     console.log(err);
-
+                    $('#lead-spinner').hide();
                 });
             });
 

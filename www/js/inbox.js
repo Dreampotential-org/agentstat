@@ -44,7 +44,7 @@ function loadInboxData(obj) {
 	$('#time').html(niceDateTime(obj.created_at));
 	$('#phone').html(obj.phone);
 	$('#email').html(obj.email);
-	$('#address').html(obj.address);
+	$('#address').html(obj.address + ', '+obj.city+', '+obj.state+', '+obj.zip_code);
 	
 	if (obj.looking_for != undefined && obj.looking_for != '') {
 		$('.looking_for_div').show();

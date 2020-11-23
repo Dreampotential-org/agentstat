@@ -1,3 +1,9 @@
+<style>
+#leads-form .form-group {
+    margin-bottom: 0.5rem;
+}
+</style>
+
 <div class="pth-agent-right-content">
     <!-- <div class="pht-agent-heaidng" style="margin-top: 35px;">
         <p class="answer_agent_name">Answer a few questions to see how well Agent Name’s strengths match your needs.</p>
@@ -304,12 +310,91 @@
             </div>
             <div class="form-group row">
                 <label for="lead_address" class="col-sm-3 col-form-label">Address:
-                    <span style="color:red">*</span></label>
+                    <span style="color:red">*</span>
+                </label>
                 <div class="col-sm-9">
-                    <textarea class="form-control" name="text" placeholder="Address" id="lead_address"
-                        rows="2"></textarea>
+                    <!-- <textarea class="form-control" name="text" placeholder="Address" id="lead_address"
+                        rows="2"></textarea> -->
+                    <input class="form-control" type="text" id="lead_address" name="text" placeholder="Street Address">
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="lead_address" class="col-sm-3 col-form-label">
+                </label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" id="lead_city" name="text" placeholder="City">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="lead_address" class="col-sm-3 col-form-label">
+                </label>
+                <div class="col-sm-4">
+                    <select id="lead_state" class="form-control" name='state' style="width: 100%;">
+                        <option value='state' selected disabled>State</option>
+                        <option value='AK'>AK</option>
+                        <option value='AL'>AL</option>
+                        <option value='AR'>AR</option>
+                        <option value='AS'>AS</option>
+                        <option value='AZ'>AZ</option>
+                        <option value='CA'>CA</option>
+                        <option value='CO'>CO</option>
+                        <option value='CT'>CT</option>
+                        <option value='DC'>DC</option>
+                        <option value='DE'>DE</option>
+                        <option value='FL'>FL</option>
+                        <option value='GA'>GA</option>
+                        <option value='GU'>GU</option>
+                        <option value='HI'>HI</option>
+                        <option value='IA'>IA</option>
+                        <option value='ID'>ID</option>
+                        <option value='IL'>IL</option>
+                        <option value='IN'>IN</option>
+                        <option value='KS'>KS</option>
+                        <option value='KY'>KY</option>
+                        <option value='LA'>LA</option>
+                        <option value='MA'>MA</option>
+                        <option value='MD'>MD</option>
+                        <option value='ME'>ME</option>
+                        <option value='MI'>MI</option>
+                        <option value='MN'>MN</option>
+                        <option value='MO'>MO</option>
+                        <option value='MP'>MP</option>
+                        <option value='MS'>MS</option>
+                        <option value='MT'>MT</option>
+                        <option value='NA'>NA</option>
+                        <option value='NC'>NC</option>
+                        <option value='ND'>ND</option>
+                        <option value='NE'>NE</option>
+                        <option value='NH'>NH</option>
+                        <option value='NJ'>NJ</option>
+                        <option value='NM'>NM</option>
+                        <option value='NV'>NV</option>
+                        <option value='NY'>NY</option>
+                        <option value='OH'>OH</option>
+                        <option value='OK'>OK</option>
+                        <option value='OR'>OR</option>
+                        <option value='PA'>PA</option>
+                        <option value='PR'>PR</option>
+                        <option value='RI'>RI</option>
+                        <option value='SC'>SC</option>
+                        <option value='SD'>SD</option>
+                        <option value='TN'>TN</option>
+                        <option value='TX'>TX</option>
+                        <option value='UT'>UT</option>
+                        <option value='VA'>VA</option>
+                        <option value='VI'>VI</option>
+                        <option value='VT'>VT</option>
+                        <option value='WA' selected>WA</option>
+                        <option value='WI'>WI</option>
+                        <option value='WV'>WV</option>
+                        <option value='WY'>WY</option>
+                    </select>
+                </div>
+                <div class="col-sm-5" style="padding-left: 0;">
+                    <input class="form-control" type="text" id="lead_zipcode" name="text" placeholder="Zipcode">
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label for="lead_message" class="col-sm-3 col-form-label">Notes:</label>
                 <div class="col-sm-9">
@@ -322,7 +407,9 @@
             </div>
             <button id="lead-submit" type="submit" class="btn pth-agent-two-right-button"
                 style="width:100%; background-color:#4999B2" onclick="return false;" href="">
-                Submit</button>
+                Submit 
+                <i id="lead-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+            </button>
         </form>
         <!-- Rewrite Form At Top -->
         <!-- <div class="pth-agent-two-content">

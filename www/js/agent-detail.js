@@ -549,11 +549,16 @@ $(document).on('change click', '#lead-submit', function () {
   data['name'] = $('#lead_name').val();
   data['phone'] = $('#lead_phone').val();
   data['address'] = $('#lead_address').val();
+  data['city'] = $('#lead_city').val();
+  data['state'] = $('#lead_state').val();
+  data['zip_code'] = $('#lead_zipcode').val();
   data['message'] = $('#lead_message').val();
   data['agent'] = agent_id;
 
 
-  if (data['email'] === '' || data['name'] === '' || data['phone'] === '' || data['address'] === '') {
+  if (data['email'] === '' || data['name'] === '' || data['phone'] === '' || data['address'] === '' || 
+    data['city'] === '' || data['state'] === '' || data['zip_code'] === '') 
+  {
     $('.msg').html('All fields are required');
     return false;
   }
@@ -579,10 +584,11 @@ $(document).on('change click', '#lead-submit', function () {
     data['custom_link_refer'] = window.location.href
   }
 
+  $('#lead-spinner').show();
+
   settings = get_settings('lead/', 'POST', JSON.stringify(data));
   settings['headers'] = null;
   $.ajax(settings).done(function (response) {
-
     var msg = JSON.parse(response);
     $('#leads-form').css('display', 'none');
     $('#leads-step-four').css('display', 'block');
@@ -592,13 +598,12 @@ $(document).on('change click', '#lead-submit', function () {
     } else {
       saveLeadTracking(data);
     }
-
-
+    $('#lead-spinner').hide();
   }).fail(function (err) {
 
     $('.msg').html(err['responseText']);
     console.log(err);
-
+    $('#lead-spinner').hide();
   });
 });
 
