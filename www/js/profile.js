@@ -322,7 +322,7 @@ $(document).on('click', '#image_save', function () {
             show_message('Your profile Image has been saved.');
             $('.croppie-container').remove()
             $upload_crop = null
-            $('#image_upload_div').append('<img class="my-image" style="width:300px;height:300px;" src="" />')
+            $('#image_upload_div').append('<img class="my-image" style="width:200px;height:200px;" src="" />')
             $('.my-image').attr('src', data['picture']);
             $('#upload').val('')
             $('#remove-profile-image').css('display', 'block')
@@ -447,7 +447,7 @@ function update_profile(tab) {
 
             $('.croppie-container').remove()
             $upload_crop = null
-            $('#image_upload_div').append('<img class="my-image" style="width:300px;" src="" />')
+            $('#image_upload_div').append('<img class="my-image" style="width:200px;" src="" />')
             $('.my-image').attr('src', data['picture']);
             $('#upload').val('')
             $('#remove-profile-image').css('display', 'block')
@@ -892,7 +892,7 @@ function uploadTrigger(input) {
         if ($upload_crop != null) {
         $('.croppie-container').remove()
         $upload_crop = null
-        $('#image_upload_div').append('<img class="my-image" style="width:300px; height:300px;" src="" />')
+        $('#image_upload_div').append('<img class="my-image" style="width:200px; height:200px;" src="" />')
         }
         readImage(input)
         $('#remove-profile-image').css('display', 'none')
@@ -902,7 +902,7 @@ function uploadTrigger(input) {
 
         $('.croppie-container').remove()
         $upload_crop = null
-        $('#image_upload_div').append('<img class="my-image" style="width:300px; height:300px;" src="" />')
+        $('#image_upload_div').append('<img class="my-image" style="width:200px; height:200px;" src="" />')
         $('.my-image').attr('src', '/img/blank-profile-picture-973460_1280.webp');
         console.log("UPLOAD TRIGGER ELSE")
         $('#image_save').css('display', 'none')
@@ -942,7 +942,7 @@ function readURLtemp(input) {
     else {
         $('.croppie-container').remove()
         $upload_crop = null
-        $('#image_upload_div').append('<img class="my-image" style="width:300px;" src="" />')
+        $('#image_upload_div').append('<img class="my-image" style="width:200px;" src="" />')
         $('.my-image').attr('src', '/img/blank-profile-picture-973460_1280.webp');
         $('.cropped-image').val('')
     }

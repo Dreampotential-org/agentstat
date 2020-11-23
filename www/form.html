@@ -249,25 +249,42 @@
 											<i class="fa fa-info-circle" data-toggle="tooltip"
                                             title="This is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
 										</div>
-									</div>
-									<div class="form-group">
-										<label for="mail">Email</label>
-										<div class="fields-wrap">
-											<div class="field-holder">
-												<input type="email" id="email" required placeholder="agentname@brokerage.com">
-											</div>
-										</div>
-									</div>
-									<div class="form-group not-info-for-team">
-										<label for="screen">Screen Name</label>
-										<div class="fields-wrap">
-											<div class="field-holder">
-												<input type="text" id="screen_name" placeholder="Enter Screen Name" required>
-											</div>
-										</div>
-										<p>Profile URL :
-											https://agentstat.com/profile/<span id="profile_slug"></span>/</p>
-									</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <label for="mail">Email</label>
+                                                <div class="fields-wrap">
+                                                    <div class="field-holder">
+                                                        <input type="email" id="email" required placeholder="agentname@brokerage.com">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group not-info-for-team">
+                                                <label for="screen">Screen Name</label>
+                                                <div class="fields-wrap">
+                                                    <div class="field-holder">
+                                                        <input type="text" id="screen_name" placeholder="Enter Screen Name" required>
+                                                    </div>
+                                                </div>
+                                                <p>Profile URL :
+                                                    https://agentstat.com/profile/<span id="profile_slug"></span>/</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div id="image_upload_div">                                       
+                                                <div id="image_save" style="display:none">
+                                                    <button id="image_save_btn" class="btn btn-primary">Save Image
+                                                        <i id="save_image_loading" class="fa fa-spinner fa-spin"
+                                                            style="display:none"></i>
+                                                    </button>
+                                                </div>
+                                                <br>
+                                                <span id="remove-profile-image">x</span>
+                                                <img class="my-image" style="height:200px" src="/img/blank-profile-picture-973460_1280.webp" />
+                                            </div>
+                                        </div>
+                                    </div>
 									<!-- <div class="form-group not-info-for-team">
 										<label>Agent Profile</label>
 										<div class="fields-wrap">
@@ -284,7 +301,7 @@
 												<label>
 													<input type="file" id="upload" accept="image/*" onchange="uploadTrigger(this)">
 													<span class="fake-file-label">
-														<span class="add-text">Add Photo</span>
+														<!-- <span class="add-text">Add Photo</span> -->
 														<span class="file-text">Drop files or click here to upload</span>
 														<span class="upload-btn">Chose Files</span>
 													</span>
@@ -292,17 +309,7 @@
 											</div>
 										</div>
 									</div>
-									<div id="image_upload_div">                                       
-                                        <div id="image_save" style="display:none">
-                                            <button id="image_save_btn" class="btn btn-primary">Save Image
-                                                <i id="save_image_loading" class="fa fa-spinner fa-spin"
-                                                    style="display:none"></i>
-                                            </button>
-                                        </div>
-                                        <br>
-                                        <span id="remove-profile-image">x</span>
-                                        <img class="my-image" style="height:300px" src="/img/blank-profile-picture-973460_1280.webp" />
-                                    </div>
+									
 									<div class="btns-area">
 										<a href="javascript:void(0)" data-tab='info-tab' class="next-btn finish submit_btn">Save</a>
 									</div>

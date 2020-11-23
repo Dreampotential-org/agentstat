@@ -465,7 +465,7 @@ body {
 	border: 3px dashed #dbdbdb;
 	width: 100%;
 	padding: 12px 5px;
-	height: 128px;
+	/* height: 128px; */
 	display: block;
 	text-align: center;
 }
