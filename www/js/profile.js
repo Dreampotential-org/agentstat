@@ -830,10 +830,28 @@ function add_license(val) {
 }
 
 $("#add-license").click(function () {
+    $('.error-border').removeClass('error-border');
     if ($('#license_no_1').val() == '' || $('#license_no_2').val() == '' || $('#license_no_3').val() == '') {
-        var validation_messages = 'Invalid license number.';
-        show_message(validation_messages);
-        return false
+        if ($('#license_no_1').val() == '') {
+            var validation_messages = 'License number is required.';
+            show_message(validation_messages);
+            $('#license_no_1').parent().addClass('error-border');
+            return false
+        }
+
+        if ($('#license_no_2').val() == '' || $('#license_no_2').val() == null) {
+            var validation_messages = 'License number is required.';
+            show_message(validation_messages);
+            $('#license_no_2').addClass('error-border');
+            return false
+        }
+
+        if ($('#license_no_3').val() == '') {
+            var validation_messages = 'License expiration date is required.';
+            show_message(validation_messages);
+            $('#license_no_3').parent().addClass('error-border');
+            return false
+        }
     }
     var date = new Date($('#license_no_3').val())
 

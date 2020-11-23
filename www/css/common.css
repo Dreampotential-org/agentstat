@@ -63,7 +63,9 @@ body {
 #tabTutorialModal {
     margin-top: 50px;
 }
-
+.error-border {
+    border: 2px solid red !important;
+}
 @media (max-width: 1360px) {
     .custom_search_size {
         margin-left: 7px;
