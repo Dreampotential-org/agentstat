@@ -385,8 +385,8 @@ $(document).ready(function () {
             }
         } else {
             swal({
-                title: "Already Claim Profile!",
-                text: "Already claim profile! You have already claimed a profile and cannot claim more than one.",
+                title: "Error!",
+                text: "You have already claimed a profile and cannot claim more than one.",
                 icon: "error",
             });
         }
@@ -663,8 +663,8 @@ $(document).on('click', '#already_claim_profile', function () {
         $('#submit-proof-form').css('display', 'block');
     } else {
         swal({
-            title: "Already Claim Profile!",
-            text: "Already claim profile! You have already claimed a profile and cannot claim more than one.",
+            title: "Error!",
+            text: "You have already claimed a profile and cannot claim more than one.",
             icon: "error",
         });
     }
@@ -771,8 +771,8 @@ function show_claim_screen() {
         });
     } else {
         swal({
-            title: "Already Claim Profile!",
-            text: "Already claim profile! You have already claimed a profile and cannot claim more than one.",
+            title: "Error!",
+            text: "You have already claimed a profile and cannot claim more than one.",
             icon: "error",
         });
     }
