@@ -399,15 +399,6 @@ function sortByCity(agent_scores) {
     qCity = qCity.toLowerCase();
     var cityMatchedArr = [];
     var citiesArr = [];
-    
-    $.each(agent_scores, function(k,v){
-        v['agent_percentage'] = agentTopPercentage(v['agent_rank'], v['rank_count']);
-    });
-
-    agent_scores.sort(function(a, b) {
-        return a.agent_percentage - b.agent_percentage;
-    });
-
     $.each(agent_scores, function(k,v){
         if (v['city'] !== null) {
             var cityVal = v['city'].toLowerCase();
