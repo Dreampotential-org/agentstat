@@ -63,8 +63,9 @@
     border-color: #b6eeaf;
     background: #b6eeaf;
     color: #000;
+    font-size: 20px;
     font-weight: 700;
-    padding: 3px 60px;
+    padding: 10px 70px;
 }
 #make-it-rain-btn:hover {
     color: rgba(var(--color-highlight), 1.5)
