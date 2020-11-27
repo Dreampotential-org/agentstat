@@ -216,26 +216,55 @@
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <!-- <input type="text" class="add-transaction-form form-control " name="bedroom" placeholder="Bedrooms"> -->
-                                    <select id="beds" class="add-transaction-form form-control ">
-                                        <option value="" selected>Select Bedrooms</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option>15</option>
-                                    </select>
+                                    <div class="form-group" >
+                                        <select id="beds" class="add-transaction-form form-control ">
+                                            <option value="" selected>Select Bedrooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                        </select>
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <select id="baths" class="add-transaction-form form-control ">
+                                            <option value="" selected>Select Bathrooms</option>
+                                            <option>0.5</option>
+                                            <option>1</option>
+                                            <option>1.5</option>
+                                            <option>2</option>
+                                            <option>2.5</option>
+                                            <option>3</option>
+                                            <option>3.5</option>
+                                            <option>4</option>
+                                            <option>4.5</option>
+                                            <option>5</option>
+                                            <option>5.5</option>
+                                            <option>6</option>
+                                            <option>6.5</option>
+                                            <option>7</option>
+                                            <option>7.5</option>
+                                            <option>8</option>
+                                            <option>8.5</option>
+                                            <option>9</option>
+                                            <option>9.5</option>
+                                            <option>10</option>
+                                        </select>
+                                    </div>
                                 </div>
+                                
+
                                 <div class="col-md-6">
                                     <label>Transaction Details</label>
                                     <div class="form-check add-transaction-check">
@@ -245,51 +274,30 @@
                                                 <small> REO</small>
                                             </label>
                                         </div>
+                                        <div>
+                                            <input class="form-check-input3" name="foreclosure" type="checkbox" value="" id="invalidCheck2">
+                                            <label class="form-check-label3" for="invalidCheck2">
+                                                <small> Foreclosure</small>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input3" name="short-sale" type="checkbox" value="" id="invalidCheck3">
+                                            <label class="form-check-label3" for="invalidCheck3">
+                                                <small> Short Sale</small>
+                                            </label>
+                                        </div>
                                     </div> 
                                 </div>
+
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <!-- <input type="text" class="add-transaction-form form-control " name="bathrooms" placeholder="Bathrooms"> -->
-                                    <select id="baths" class="add-transaction-form form-control ">
-                                        <option value="" selected>Select Bathrooms</option>
-                                        <option>0.5</option>
-                                        <option>1</option>
-                                        <option>1.5</option>
-                                        <option>2</option>
-                                        <option>2.5</option>
-                                        <option>3</option>
-                                        <option>3.5</option>
-                                        <option>4</option>
-                                        <option>4.5</option>
-                                        <option>5</option>
-                                        <option>5.5</option>
-                                        <option>6</option>
-                                        <option>6.5</option>
-                                        <option>7</option>
-                                        <option>7.5</option>
-                                        <option>8</option>
-                                        <option>8.5</option>
-                                        <option>9</option>
-                                        <option>9.5</option>
-                                        <option>10</option>
-                                    </select>
-                                </div>
+
+                            <!-- <div class="form-row">
+                                
                                 <div class="col-md-6">
-                                    <div>
-                                        <input class="form-check-input3" name="foreclosure" type="checkbox" value="" id="invalidCheck2">
-                                        <label class="form-check-label3" for="invalidCheck2">
-                                            <small> Foreclosure</small>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input3" name="short-sale" type="checkbox" value="" id="invalidCheck3">
-                                        <label class="form-check-label3" for="invalidCheck3">
-                                            <small> Short Sale</small>
-                                        </label>
-                                    </div>
+                                    
                                 </div>
-                            </div>
+                            </div> -->
+
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" class="add-transaction-form form-control " name="other-agent" onkeyup="trackChange(this.value)" placeholder="Other Agent Name">
