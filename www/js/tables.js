@@ -97,8 +97,11 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
         var flooring = (v['flooring']==null) ? 'None' : v['flooring'];
         var roof = (v['roof']==null) ? 'None' : v['roof'];
         var foundation = (v['foundation']==null) ? 'None' : v['foundation'];
-
-    
+        var sqft = (v['sqft']==null) ? 'None' : v['sqft'];
+        var year_built = (v['year_built']==null) ? 'None' : v['year_built'];
+        var baths = (v['baths']==null) ? 'None' : v['baths'];
+        var beds = (v['beds']==null) ? 'None' : v['beds'];
+        
         if (v['note'] != "") {
             var buttonText = '<i class="fa fa-edit" aria-hidden="true"></i> Edit note';
             var buttonClass = 'btn btn-warning';
@@ -227,7 +230,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Beds</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                <span class="detail-text">` + v['beds'] + `</span>
+                                <span class="detail-text">`+beds+`</span>
                             </td>
                             <td style="border:none" ></td>
                             <td style="padding:0px ;font-size: 16px;border:none">
@@ -242,7 +245,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Baths</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                <span class="detail-text">` + v['baths'] + `</span>
+                                <span class="detail-text">`+baths+`</span>
                             </td>
                             <td style="border:none"></td>
                             <td style="padding:0px ;font-size: 16px;border:none">
@@ -257,7 +260,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Sqft</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                <span class="detail-text">` + v['sqft']+ `</span>
+                                <span class="detail-text">` +sqft+ `</span>
                             </td>
                             <td style="border:none"></td>
                             <td style="padding:0px;font-size: 16px;border:none">
@@ -290,7 +293,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Year Built</span>
                             </td>
                             <td  style="padding:0px;border:none"> 
-                                <span class="detail-text">` + v['year_built'] + `</span>
+                                <span class="detail-text">` +year_built+ `</span>
                             </td>
                             <td style="border:none"></td>
                                 <td style="padding:0px;border:none">
