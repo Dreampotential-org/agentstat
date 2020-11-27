@@ -68,6 +68,8 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
 
     $("#table-transaction-body").html("");
 
+    var count = 1;
+    var count2 = 2;
     $.each(agent_lists, function(k, v) {
         if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
             var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
@@ -87,6 +89,15 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
             var hometype= (v['home_type']);
         }
         hometype = makefirstLetterCapital(hometype.toLowerCase());
+        var county = (v['county']==null) ? 'None' : v['county'];
+        var heating = (v['heating']==null) ? 'None' : v['heating'];
+        var cooling = (v['cooling']==null) ? 'None' : v['cooling'];
+        var parking = (v['parking']==null) ? 'None' : v['parking'];
+        var basement = (v['basement']==null) ? 'None' : v['basement'];
+        var flooring = (v['flooring']==null) ? 'None' : v['flooring'];
+        var roof = (v['roof']==null) ? 'None' : v['roof'];
+        var foundation = (v['foundation']==null) ? 'None' : v['foundation'];
+
     
         if (v['note'] != "") {
             var buttonText = '<i class="fa fa-edit" aria-hidden="true"></i> Edit note';
@@ -128,6 +139,8 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
         }
 
         var rowHtml = `<tr data-rel="add-public-note-`+ v['id'] +`" onclick="passBtnID('add-public-note-`+ v['id']+ `')">
+            <td style="display:none;">`+count+`</td>
+            <td style="display:none;"></td>
             <td class='table-column status-`+ v['status'] +`'>` + v['status'] +`</td>
             <td class="table-column">` + currencyFormat(v['list_price_int']) + `</td>
             <td class="table-column">` + soldPriceText +`</td>
@@ -142,6 +155,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
         </tr>
     
         <tr class="fidout table-color template" id="add-public-note-`+ v['id'] +`" style="display: none;">
+            <td style="display:none;">`+count2+`</td>
             <td colspan="11" style="padding: 6px 13px; color:gray">
             <div class="form-group">
                 <button type="button" class="btn btn-success notebtn `+showClass+`" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px">
@@ -192,23 +206,6 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                     <td style="width:60%">
                     <table style="width:100%">
                         <tr>
-                        <!-- <td style="text-align:left;">
-                            <strong>Type:</strong> ` + hometype + ` <br>
-                            <strong>Beds:</strong> ` + v['beds']+ ` <br>
-                            <strong>Baths:</strong> ` + v['baths']+ ` <br>
-                            <strong>Sqft:</strong> ` + v['sqft']+ ` <br>
-                            <strong>Year Built:</strong> ` + v['year_built']+ ` <br>
-                            <strong>State:</strong> ` + v['state']+ ` <br>
-                            </td>
-                            <td style="text-align:left; ">
-                            <strong>Heating:</strong> ` + v['heating'] + ` <br>
-                            <strong>Cooling:</strong> ` + v['cooling'] + ` <br>
-                            <strong>Parking:</strong> ` + v['parking'] + ` <br>
-                            <strong>Basement:</strong> ` + v['basement'] + ` <br>
-                            <strong>Flooring:</strong> ` + v['flooring'] + ` <br>
-                            <strong>Roof:</strong> ` + v['roof'] + ` <br>
-                            <strong>Foundation:</strong> ` + v['foundation'] + ` <br>
-                            </td> -->
                             <td  style="padding:0px;border:none">
                                 <span class="detail-sub-header">Type</span>
                             </td>
@@ -221,7 +218,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Heating</span>
                             </td>
                             <td style="padding:0px;border:none">
-                                <span class="detail-text">Forced Air</span>
+                                <span class="detail-text">`+heating+`</span>
                             </td>
     
                         </tr>
@@ -237,7 +234,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Cooling</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                <span class="detail-text">None</span>
+                                <span class="detail-text">`+cooling+`</span>
                             </td>
                         </tr>
                         <tr>
@@ -252,7 +249,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                             <span class="detail-sub-header">Parking</span>
                             </td>
                             <td style="padding:0px;border:none">
-                                <span class="detail-text">Attached Garage</span>
+                                <span class="detail-text">`+parking+`</span>
                             </td>
                         </tr>
                         <tr>
@@ -260,7 +257,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Sqft</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                <span class="detail-text">1,550</span>
+                                <span class="detail-text">` + v['sqft']+ `</span>
                             </td>
                             <td style="border:none"></td>
                             <td style="padding:0px;font-size: 16px;border:none">
@@ -268,7 +265,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 
                             </td>
                             <td style="padding:0px;border:none">
-                                <span class="detail-text">None</span>
+                                <span class="detail-text">`+basement+`</span>
                             </td>
                         </tr>
     
@@ -277,14 +274,14 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Lot</span>
                             </td>
                             <td  style="padding:0px;border:none"> 
-                                <span class="detail-text">0.45 acres</span>
+                                <span class="detail-text">None</span>
                             </td>
                             <td style="border:none"></td>
                             <td style="padding:0px;font-size: 16px;border:none">
                                 <span class="detail-sub-header">Flooring</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                <span class="detail-text">Laminate, Hardwood</span>
+                                <span class="detail-text">`+flooring+`</span>
                             </td>
                         </tr>
     
@@ -300,7 +297,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Roof</span>
                             </td>
                             <td style="padding:0px;border:none">
-                                <span class="detail-text">Composition</span>
+                                <span class="detail-text">`+roof+`</span>
                             </td>
                         </tr>
     
@@ -309,7 +306,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">County</span>
                             </td>
                             <td  style="padding:0px;border:none"> 
-                                <span class="detail-text">King</span>
+                                <span class="detail-text">`+county+`</span>
                             </td>
                             <td style="border:none"></td>
     
@@ -317,7 +314,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                                 <span class="detail-sub-header">Foundation</span>
                             </td>
                             <td  style="padding:0px;border:none">
-                                <span class="detail-text">Crawl Raised</span>
+                                <span class="detail-text">`+foundation+`</span>
                             </td>
                         </tr>
                     </tr>
@@ -327,28 +324,36 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
             </table>
             </div>
             </td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
-            <td style="display:none;"></td>
+
+            <td style="display:none;">` + v['status'] +`</td>
+            <td style="display:none;">` + currencyFormat(v['list_price_int']) + `</td>
+            <td style="display:none;">` + soldPriceText +`</td>
+            <td style="display:none;">` + v['days_on_market'] + `</td>
+            <td style="display:none;">` + dateFormat(v['list_date']) +`</td>
+            <td style="display:none;">` + onlyAddress(v['address_text']) +`</td>
+            <td style="display:none;">` + v['city'] +`</td>
+            <td style="display:none;">` + v['zipcode'] +`</td>
+            <td style="display:none;">` + v['year_built'] +`</td>
+            <td style="display:none;">` + hometype +`</td>
+            <td style="display:none;"><i class="fa fa-sticky-note-o " style="font-size:21px; color: green;"></i></td>
         </tr>
         `;
 
         $("#table-transaction-body").append(rowHtml);
+
+        count = count + 2;
+        count2 = count2 + 2;
     });
 
 
     $('#transations-table').dataTable({
-        "bSort" : false,
+        // "bSort" : false,
+        // "dom": 'lrtip',
         "bLengthChange": false,
         "pageLength": 20,
-        "dom": 'lrtip',
+        "columnDefs": [
+            { orderable: false, targets: -1 }
+        ],
         "fnInfoCallback": function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
             var info = 'Showing '+Math.floor(iStart/2)+' to '+Math.floor(iEnd/2)+' of '+Math.floor(iTotal/2)+' entries';
             return info;
