@@ -208,7 +208,8 @@ function load_search_results() {
     var state = urlParams.get('state');
     var city = urlParams.get('city');
     var city_search = urlParams.get('city_search');
-    var zipcode = urlParams.get('zipcode');
+    // var zipcode = urlParams.get('zipcode');
+    var zipcode = false;
     var agent_name=urlParams.get('agent_name');
     var page_num = urlParams.get('page_num', '1');
     var street_address = urlParams.get('address', '');

@@ -189,7 +189,9 @@ function redirectResults(results) {
 
     if (search_zipcode && $('#y-address').text() == 'ZipCode ') {
       new_params.push('zipcode=' + search_zipcode);
-    }
+    } else if ('zipcode' in results) {
+        new_params.push('zipcode=' + results.zipcode);
+    } 
 
     var city = '';
     var state = '';
@@ -274,7 +276,6 @@ function redirectResults(results) {
 }
 
 function getSearchParams(place) {
-    console.log(place)
     var params = {}
     if (!('scope' in place) && 'name' in place &&
         $("#y-address").text().trim() == "Agent Name") {
@@ -286,13 +287,15 @@ function getSearchParams(place) {
 
     params['search_input'] = place.formatted_address;
     for(var address_comp of place.address_components) {
-        console.log(address_comp.types)
         if (address_comp.types[0] == "administrative_area_level_1") {
             console.log("City: " + address_comp.short_name)
             params['state'] = address_comp.short_name
         }
         if (address_comp.types[0] == 'locality') {
             params['city'] = address_comp.long_name
+        }
+        if (address_comp.types[0] == 'postal_code') {
+            params['zipcode'] = address_comp.long_name
         }
     }
 
@@ -306,7 +309,6 @@ function getSearchParams(place) {
     localStorage.search_city = params['city'];
     localStorage.search_lat = params['lat'];
     localStorage.search_lng = params['lng'];
-
     return params
 }
 
