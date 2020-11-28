@@ -81,13 +81,15 @@ function saveLeadTracking(res, ifBoth) {
         saveVisit(contactRequestdata, 'at/', document.referrer);
     }
 
-    if (res['looking_for'] == 'Sell a Home') {
+    var looking_for = res['looking_for'].replace(/\n|\r/g, "").replace(/\s+/g,' ').trim();
+
+    if (looking_for == 'Sell a Home') {
         data['page'] = 'seller-lead';
         saveVisit(data, 'at/', document.referrer);
-    } else if (res['looking_for'] == 'Buy a Home') {
+    } else if (looking_for == 'Buy a Home') {
         data['page'] = 'buyer-lead';
         saveVisit(data, 'at/', document.referrer);
-    } else if (res['looking_for'] == 'Both') {
+    } else if (looking_for == 'Both') {
         data['page'] = 'seller-lead';
         saveVisit(data, 'at/', document.referrer);
 
