@@ -308,7 +308,7 @@ function load_search_results() {
                     "<div class='toc-two-left-one'>" +
                     "<img class='rounded-circle toc-two-left-one' " +
                         "style='border-radius: 130px;margin-top: 21px;' " +
-                        " src='/img/sh.png'></div>");
+                        " src='/img/blank-profile-picture-973460_1280.webp'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
         }
         else if (v['agent_profile_pic'] !== undefined &&
