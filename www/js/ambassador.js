@@ -1,6 +1,6 @@
 function set_referral() {
   var data = {
-    'by_agent': '25365'
+    'by_agent': '5714'
   }
   settings = get_settings('set-referral/', 'POST', JSON.stringify(data))
   $.ajax(settings).done(function (response) {
