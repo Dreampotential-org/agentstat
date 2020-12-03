@@ -16,7 +16,7 @@ function set_referral() {
             var msg = JSON.parse(response);
             console.log(msg)
             if (msg == 'Saved') {
-                alert("OKAY clear ls")
+                localStorage.removeItem("ambassador")
             }
         }).fail(function(err) {
             alert(err);
