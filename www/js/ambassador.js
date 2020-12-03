@@ -8,7 +8,7 @@ function set_referral() {
     // console.log(msg);
     console.log(msg['token']);
     localStorage.session_id = msg['token'];
-    window.location = '/profile-settings/';
+    //window.location = '/profile-settings/';
   }).fail(function(err) {
     alert(err);
     show_error(err);
