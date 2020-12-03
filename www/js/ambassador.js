@@ -1,16 +1,25 @@
 function set_referral() {
-  var data = {
-    'agent_sn': 'joycejuntunen'
-  }
-  settings = get_settings('set-referral/', 'POST', JSON.stringify(data))
-  $.ajax(settings).done(function (response) {
-    var msg = JSON.parse(response);
-    // console.log(msg);
-    //window.location = '/profile-settings/';
-  }).fail(function(err) {
-    alert(err);
-    show_error(err);
-    console.log(err);
-  });
-
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var agent_ref = url.searchParams.get("ambassador");
+    if (agent_ref) {
+        localStorage.setItem("ambassador", agent_ref)
+    }
+    agent_rf = localStorage.getItem("ambassador")
+    if (agent_rf) {
+        var data = {
+            'agent_sn': agent_rf,
+        }
+        settings = get_settings(
+            'set-referral/', 'POST', JSON.stringify(data))
+        $.ajax(settings).done(function (response) {
+            var msg = JSON.parse(response);
+            console.log(msg)
+            alert(msg)
+        }).fail(function(err) {
+            alert(err);
+            show_error(err);
+            console.log(err);
+        });
+    }
 }
