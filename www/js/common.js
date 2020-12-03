@@ -155,8 +155,8 @@ function inboxNotification() {
 	}).fail(function(err) {
 		var responseText = JSON.parse(err.responseText)
 		if (responseText.detail=='Invalid token.') {
-        alert("Invalid invox error?")
-			logout_session();
+           // XXX visit why we are making api and causing this error?
+			// logout_session();
 		}
 	});
 }
