@@ -26,7 +26,7 @@ server {
 
         }
         location /profile {
-            try_files $uri $uri/ /page-three.html?screen_name=$uri;
+            try_files $uri $uri/ /agent-profile.html?screen_name=$uri;
         }
 
         location /agents {

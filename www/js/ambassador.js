@@ -25,3 +25,6 @@ function set_referral() {
         });
     }
 }
+
+
+window.addEventListener("DOMContentLoaded", set_referral, false);
