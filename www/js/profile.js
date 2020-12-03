@@ -31,6 +31,7 @@ function get_combo(callback, end_point) {
 
 
 function display_profile(profile) {
+    console.log(profile)
     $('#first_name').val(profile.first_name);
     $('#last_name').val(profile.last_name);
     $('#email').val(profile.email);
@@ -164,8 +165,9 @@ function display_profile(profile) {
 
     $('#provide_cma').prop('checked', profile.provide_cma);
     $('#about_me').val(profile.about_me);
+    $(".invite_count").val(profile.number_joined_by)
 
-        console.log(profile)
+    console.log(profile)
     if (profile.picture != '' && profile.picture !== null) {
         // debugger;
         $('.my-image').attr('src', profile.picture);
