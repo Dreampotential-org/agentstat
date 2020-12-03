@@ -5,6 +5,12 @@ function set_referral() {
     if (agent_ref) {
         localStorage.setItem("ambassador", agent_ref)
     }
+
+    // cannot make request if not logged in
+    if (!(localStorage.getItem("session_id"))) {
+        return
+    }
+
     agent_rf = localStorage.getItem("ambassador")
     if (agent_rf) {
         var data = {
