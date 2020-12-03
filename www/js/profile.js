@@ -36,7 +36,7 @@ function display_profile(profile) {
     $('#email').val(profile.email);
     $('#username').val(profile.username);
     $('#screen_name').val(profile.screen_name);
-    $('#profile_slug').text(profile.screen_name);
+    $('.profile_slug').text(profile.screen_name);
     $('#brokerage_name').val(profile.brokerage_name);
     $('#brokerage_address').val(profile.brokerage_address);
     $('#city').val(profile.city);
@@ -114,7 +114,7 @@ function display_profile(profile) {
 
     if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
         $('#screen_name').val(profile.connector.screen_name);
-        $('#profile_slug').html(profile.connector.screen_name)
+        $('.profile_slug').html(profile.connector.screen_name)
     } else {
         $('#screen_name').val(profile.screen_name);
     }
@@ -663,7 +663,7 @@ $('.combo-checkboxes:checkbox').change(function () {
 });
 
 $('#screen_name').keyup(function () {
-    $('#profile_slug').html($('#screen_name').val());
+    $('.profile_slug').html($('#screen_name').val());
     $('#verify-spinner').hide();
     $('#verify-ok').hide();
     $('#verify-not').hide();
