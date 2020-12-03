@@ -15,7 +15,9 @@ function set_referral() {
         $.ajax(settings).done(function (response) {
             var msg = JSON.parse(response);
             console.log(msg)
-            alert(msg)
+            if (msg == 'Saved') {
+                alert("OKAY clear ls")
+            }
         }).fail(function(err) {
             alert(err);
             show_error(err);
