@@ -6,8 +6,6 @@ function set_referral() {
   $.ajax(settings).done(function (response) {
     var msg = JSON.parse(response);
     // console.log(msg);
-    console.log(msg['token']);
-    localStorage.session_id = msg['token'];
     //window.location = '/profile-settings/';
   }).fail(function(err) {
     alert(err);
