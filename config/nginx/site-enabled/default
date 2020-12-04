@@ -30,7 +30,7 @@ server {
         }
 
         location /agents {
-            try_files $uri $uri/ /agent-search.html?uri;
+            try_files $uri $uri/ /agent-search.html?$uri;
         }
 
         location /profile-settings {
