@@ -55,6 +55,13 @@ function display_profile(profile) {
     $('#email-notification').attr('checked', profile.email_notification);
     $('#sms-notification').attr('checked', profile.sms_notification);
 
+    var text_agents = ""
+    for (var onboarded of profile.onboarded_agents) {
+        text_agents = text_agents + "" +  onboard.screen_name + "</br>"
+    }
+    $('.onboarded_agents').text(text_agents);
+
+
     if($('#agent-name-tutorial').length) {
         $('#agent-name-tutorial').html(profile.first_name+' '+profile.last_name);
     }
