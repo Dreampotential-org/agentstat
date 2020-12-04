@@ -56,7 +56,7 @@ function display_profile(profile) {
     $('#sms-notification').attr('checked', profile.sms_notification);
 
     var text_agents = ""
-    for (var onboarded of profile.onboarded_agents) {
+    for (var onboard of profile.onboarded_agents) {
         text_agents = text_agents + "" +  onboard.screen_name + "</br>"
     }
     $('.onboarded_agents').text(text_agents);
