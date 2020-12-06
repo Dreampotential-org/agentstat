@@ -22,7 +22,7 @@ function show_error(err) {
   arr = JSON.parse(err['responseText']);
   error = "<ul>";
   $.each(arr, function(k, v) {
-    error += "<li>" + clean_text(k) + ": " + v + "</li>";
+    error += "<li>Invalid " + clean_text(k) + ". " + v + "</li>";
   });
   error += "</ul>";
 
