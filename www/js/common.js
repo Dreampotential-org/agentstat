@@ -289,8 +289,6 @@ function getUserDataStorage(key) {
 }
 
 function setUserDataStorage(key, val) {
-    // not sure why we need store user data here. 
-    return
     var data = JSON.parse(localStorage.getItem('user_data'));
     data[key] = val;
     localStorage.user_data = JSON.stringify(data);
