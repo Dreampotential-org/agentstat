@@ -201,15 +201,14 @@ function load_agent(ignore_city = true) {
       $('.add-custom-link-btn').show();
     }
 
-    setTimeout(function(){
-        $('.agent_name').val(data['agent_name']);
-    }, 3000);
-    
+    $('.agent_name').val(data['agent_name']);
     $('.agent-first-name').text(data['full_name'].split(" ")[0]);
 
     $.each($('.agent_name'), function () {
       $(this).html(data['full_name']);
     });
+
+    $('.agent_name').html(data['agent_name']);
 
     // Render Years In Business
     if (data['years_in_bussiness']){
