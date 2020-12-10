@@ -201,7 +201,10 @@ function load_agent(ignore_city = true) {
       $('.add-custom-link-btn').show();
     }
 
-    $('.agent_name').val(data['agent_name']);
+    setTimeout(function(){
+        $('.agent_name').val(data['agent_name']);
+    },1000);
+    
     $('.agent-first-name').text(data['full_name'].split(" ")[0]);
 
     $.each($('.agent_name'), function () {

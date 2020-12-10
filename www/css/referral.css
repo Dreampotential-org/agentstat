@@ -283,9 +283,9 @@ margin: 0 auto;
   transform: translateX(-1px);
   transition: 0.2s;
 }
-#referralModal .modal-dialog{
+/* #referralModal .modal-dialog{
   max-width: 580px !important;
-}
+} */
 #referralModal span.agen-name {
   font-size: 19px;
   display: inline-block;

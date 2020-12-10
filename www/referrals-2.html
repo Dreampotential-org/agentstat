@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <!-- Meta setup -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="decription" content="">
+    <meta name="author" content="Asad Kabir">
+
+    <!-- Title -->
+    <title>referrals</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" href="/img/fav.png" />
+
+    <link href="/css/fileinput.css" rel="stylesheet" type="text/css">
+
+    <!-- Include Owl-Carusol -->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script src="/js/bootstrap.js"></script>
+
+    <!-- Main StyleSheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <!-- Common css for all pages -->
+    <link rel="stylesheet" href="/css/common.css" />
+    <!-- referal page css -->
+    <link rel="stylesheet" href="/css/referral.css" />
+
+    <style>
+        .table tr {
+            cursor: pointer;
+        }
+
+        .hiddenRow {
+            padding: 0 4px !important;
+            background-color: #eeeeee;
+            font-size: 13px;
+        }
+
+        tr.table-heading {
+            background-color: #fff !important;
+        }
+
+        tr.table-subHeading {
+            background-color: #f6f6f6;
+        }
+
+        th.table-subTh {
+            padding: 10px 25px;
+            border: 1px solid;
+        }
+
+        i.fa.fa-download.downloadIcon {
+            font-size: 22px;
+        }
+
+        select.selectStatus {
+            border: 1px solid;
+            border-radius: 5px;
+            padding: 3px;
+        }
+
+        .customeTableBorder {
+            border: none !important;
+            margin-top: 20px;
+        }
+
+        .newReferral {
+            text-align: end;
+            border: none !important;
+            color: #4A86E8;
+        }
+
+        .tableHead {
+            background-color: #D9D9D9;
+        }
+
+        th.tableHead {
+            border: 0.55px solid;
+        }
+
+        .titleHead {
+            font-weight: bold;
+        }
+
+        .downloadImgDiv {
+            margin: 10px;
+        }
+
+        .downloadImg {
+            width: 40px;
+        }
+
+        #radioBtn .notActive {
+            color: #3276b1;
+            background-color: #fff;
+        }
+
+        textarea:hover,
+        input:hover,
+        textarea:active,
+        input:active,
+        textarea:focus,
+        input:focus {
+            outline: 0px !important;
+            -webkit-appearance: none;
+            box-shadow: none !important;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <!-- header-area start -->
+    <div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
+
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand form-logo" href="/">
+                <img src="/img/logo-beta.png" alt="logo" />
+            </a>
+            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <div class="main-menu-part form-menu col-lg-12">
+                    <ul class="float-left form-ulli-left">
+                        <li class="inbox-link header-link"><a class="inbox-notification" href="/inbox/">Inbox </a></li>
+                        <li class="reports-link header-link"><a href="/reports/">Reporting </a></li>
+                        <li class="marketing-link header-link"><a href="/marketing/">Marketing </a></li>
+                        <li class="past-sales-link header-link"><a href="/past-sales/">Past Sales </a></li>
+                        <li class="referrals-link header-link"><a class="active" href="/referrals/">Referrals</a></li>
+                        <li class="team-link header-link"><a href="/team/">Team </a></li>
+                    </ul>
+                    <ul class="float-right user-icon form-ulli-right">
+                        <li>
+                            <a class="my-profile-link" href="javascript:void(0)" target="_blank">
+                                <p style="margin-bottom: 0px;">My Profile</p>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="dropdown profile show">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="display-picture"></i></span>
+                                </a>
+
+                                <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item inbox-link" href="/inbox/">
+                                        <p>Dashboard</p>
+                                        <span>View your stats and backend</span>
+                                    </a>
+                                    <a class="dropdown-item" href="/profile-settings/">
+                                        <p>Profile Settings</p>
+                                        <span>Edit your profile info and account settings</span>
+                                    </a>
+                                    <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <!-- header-area end -->
+
+    <div class="container page-container">
+        <table class="table table-bordered table-hover customeTableBorder darkborder">
+            <thead>
+                <tr>
+                    <th scope="col" class="tableHead" style="width: 150px; max-width: 150px;padding: 8px 2px;"><a
+                            href="/referrals/?received=true">Received</a></th>
+                    <th scope="col" class="tableHead sent-tab" style="width: 150px; max-width: 150px;padding: 8px 2px;">
+                        <a href="/referrals/">Sent</a></th>
+                    <th colspan="6" class="newReferral">
+                        <button id="referralBtn" class="btn" type="button" data-toggle="modal" data-target="#myModal">+
+                            Send New Referral</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="titleHead">
+                    <td style="width: 150px; max-width: 150px;min-width: 150px;padding: 8px 2px;"><span
+                            style="display: block; width: 150px; max-width: 150px;">Referral</span> Agreement</td>
+                    <td style="width: 150px; max-width: 150px;min-width: 150px">Date</td>
+                    <td style="width: 111px; max-width: 111px;">Type</td>
+                    <td>Referral Name</td>
+                    <td>Agent Name</td>
+                    <td>Referral Fee</td>
+                    <td>Price</td>
+                    <td>Status</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <!-- footer area start -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-wrapper text-center">
+                <p>Copyright © agentstat.com</p>
+                <ul>
+                    <a href="https://agentstat.com/terms.pdf" target="_blank">"Terms of Use & Privacy Policy"</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- footer area end -->
+
+    <!-- Main jQuery -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+
+    <!-- Bootstrap Propper jQuery -->
+    <script src="/js/popper.js"></script>
+
+    <!-- Input masking -->
+    <script src="/js/jquery.inputmask.bundle.js"></script>
+
+    <!-- Bootstrap jQuery -->
+    <script src="/js/bootstrap.js"></script>
+
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+    <script src="/js/type.js"></script>
+
+    <script src="/js/owl.carousel.min.js"></script>
+
+    <!-- Custom jQuery -->
+    <script src="/js/scripts.js"></script>
+    <script src="/js/conf.js"></script>
+
+    <script src="/js/sweetalert.min.js"></script>
+    <script src="/js/referral-item.js"></script>
+    <script src="/js/referral.js"></script>
+
+    <script src="/js/common.js"></script>
+
+
+    <!-- Scroll-Top button -->
+    <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+    <script>
+        $(document).ready(function () {
+            td_array = document.getElementsByTagName("td");
+            for (i = 0; i < td_array.length; i++) {
+                if (td_array[i].textContent == 'SOLD' || td_array[i].textContent == 'Sold' || td_array[i].textContent == 'sold') {
+                    td_array[i].setAttribute('style', 'font-weight: 500;font-size: 16px;color: #45AE3C;text-transform: uppercase');
+                }
+            }
+
+        });
+        $(".closeform").click(function () {
+            $('.fidout').fadeOut('slow');
+        });
+        //   $(".btn-group-toggle").twbsToggleButtons();
+
+        function trackChange(val) {
+            if (val.trim() != '') {
+                $('#other-agent-license').removeAttr("disabled");
+            } else {
+                $('#other-agent-license').val('');
+                $('#other-agent-license').prop("disabled", true);
+            }
+
+        }
+
+        $('.accordian-body').on('show.bs.collapse', function () {
+            $(this).closest("table")
+                .find(".collapse.in")
+                .not(this)
+            //.collapse('toggle')
+        })
+
+        $("#referralBtn").click(function () {
+            $("#referralModal").modal();
+
+
+        });
+    </script>
+
+    <div class="modal" id="referralModal" tabindex="-1" role="dialog" style="margin-top: 50px">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="buyerpopup-holder">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Send New Referral</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div id="step-1" style="display: none;">
+
+                            <div class="row">
+
+                                <div class="form-group">
+                                    <div class="col-sm-7 col-md-7">
+                                        <div class="input-group">
+                                            <div id="radioBtn" class="btn-group">
+                                                <a class="btn btn-primary btn-sm notActive" data-toggle="referral_type"
+                                                    data-title="Buyer">Buyer</a>
+                                                <a class="btn btn-primary btn-sm active" data-toggle="referral_type"
+                                                    data-title="Seller">Seller</a>
+
+                                            </div>
+                                            <input type="hidden" name="referral_type" value="Seller" id="referral_type">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12"><span class="input-title">Client Contact Information</span></div>
+                            </div>
+
+                            <div class="row" class="small-tabrow">
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="First Name" id="first_name" style="width: 100%">
+                                </div>
+                                <div class="col-lg-6" class="small-tabrow">
+                                    <input type="text" placeholder="Last Name" id="last_name" style="width: 100%">
+                                </div>
+                            </div>
+                            <div class="row popup-row">
+                                <div class="col-lg-12">
+                                    <input type="text" placeholder="Email" id="email" style="width: 100%">
+                                </div>
+                            </div>
+                            <div class="row popup-row">
+                                <div class="col-lg-12">
+                                    <input type="text" placeholder="Phone Number" id="phone_number" style="width: 100%">
+                                </div>
+                            </div>
+
+                            <div class="row popup-row">
+                                <div class="col-lg-12">
+                                    <span class="address-box">Address</span> <span class="Buyer-info">( if buyer, enter
+                                        closest major city )</span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <input type="text" placeholder="Street Address" style="width: 100%"
+                                        id="street_address">
+                                </div>
+                            </div>
+
+                            <div class="row popup-row">
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="City" style="width:100%" id="city">
+                                </div>
+                                <div class="col-lg-3" class="small-tabrow">
+                                    <select name='state' style="width: 100%;">
+                                        <option value='state' disabled>State</option>
+                                        <option value='AK'>AK</option>
+                                        <option value='AL'>AL</option>
+                                        <option value='AR'>AR</option>
+                                        <option value='AS'>AS</option>
+                                        <option value='AZ'>AZ</option>
+                                        <option value='CA'>CA</option>
+                                        <option value='CO'>CO</option>
+                                        <option value='CT'>CT</option>
+                                        <option value='DC'>DC</option>
+                                        <option value='DE'>DE</option>
+                                        <option value='FL'>FL</option>
+                                        <option value='GA'>GA</option>
+                                        <option value='GU'>GU</option>
+                                        <option value='HI'>HI</option>
+                                        <option value='IA'>IA</option>
+                                        <option value='ID'>ID</option>
+                                        <option value='IL'>IL</option>
+                                        <option value='IN'>IN</option>
+                                        <option value='KS'>KS</option>
+                                        <option value='KY'>KY</option>
+                                        <option value='LA'>LA</option>
+                                        <option value='MA'>MA</option>
+                                        <option value='MD'>MD</option>
+                                        <option value='ME'>ME</option>
+                                        <option value='MI'>MI</option>
+                                        <option value='MN'>MN</option>
+                                        <option value='MO'>MO</option>
+                                        <option value='MP'>MP</option>
+                                        <option value='MS'>MS</option>
+                                        <option value='MT'>MT</option>
+                                        <option value='NA'>NA</option>
+                                        <option value='NC'>NC</option>
+                                        <option value='ND'>ND</option>
+                                        <option value='NE'>NE</option>
+                                        <option value='NH'>NH</option>
+                                        <option value='NJ'>NJ</option>
+                                        <option value='NM'>NM</option>
+                                        <option value='NV'>NV</option>
+                                        <option value='NY'>NY</option>
+                                        <option value='OH'>OH</option>
+                                        <option value='OK'>OK</option>
+                                        <option value='OR'>OR</option>
+                                        <option value='PA'>PA</option>
+                                        <option value='PR'>PR</option>
+                                        <option value='RI'>RI</option>
+                                        <option value='SC'>SC</option>
+                                        <option value='SD'>SD</option>
+                                        <option value='TN'>TN</option>
+                                        <option value='TX'>TX</option>
+                                        <option value='UT'>UT</option>
+                                        <option value='VA'>VA</option>
+                                        <option value='VI'>VI</option>
+                                        <option value='VT'>VT</option>
+                                        <option value='WA' selected>WA</option>
+                                        <option value='WI'>WI</option>
+                                        <option value='WV'>WV</option>
+                                        <option value='WY'>WY</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-lg-3 small-tabrow" style="padding-left: 0;">
+                                    <input type="text" placeholder="Zipcode" style="width:100%" id="zipcode">
+                                </div>
+                            </div>
+                            <div class="row popup-row">
+                                <div class="col-lg-6">
+                                    <span style="width: 100%;" class="Buyer-info">Price Min</span>
+                                    <input type="text" class="number" placeholder="Min" style="width:100%"
+                                        id="price_min">
+                                </div>
+                                <div class="col-lg-6">
+                                    <span style="width: 100%;" class="Buyer-info">Price Max</span>
+                                    <input type="text" class="number" placeholder="Max" style="width:100%"
+                                        id="price_max">
+                                </div>
+                            </div>
+                            <div class="row popup-row">
+                                <div class="col-lg-12">
+                                    <span class="input-title">Referral Fee</span>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="range" class="custom-range" id="referral_fee_percentage" value="1">
+                                    <span class="font-weight-bold text-primary ml-2 valueSpan2">1%</span>
+                                    <span class="referal-slder"></span>
+                                </div>
+                            </div>
+
+                            <div class="row popup-row">
+                                <div class="col-lg-12">
+                                    <span class="input-title">Acceptance Deadline</span>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="range" class="custom-range" id="acceptance_deadline" value="1" min="1"
+                                        max="8" step="1">
+                                    <span class="font-weight-bold text-primary ml-2 valueSpan3">1 hour </span><span
+                                        class="borcolor"></span>
+                                </div>
+                            </div>
+                            <!-- <div class="row" style="margin-top:15px;">
+                            <div class="col-lg-12">
+                                <input type="date"  placeholder="Acceptance Deadline" style="width:96%" id="acceptance_deadline">
+                            </div>
+                            </div> -->
+                            <div class="row popup-row">
+                                <div class="col-lg-12">
+                                    Notes
+                                </div>
+                                <div class="col-lg-12">
+                                    <!-- <input type="text"  placeholder="Notes" style="width:96%" id="notes"> -->
+                                    <textarea name="the-textarea" id="the-textarea" maxlength="3000"
+                                        placeholder="write a message" autofocus></textarea>
+                                    <div id="the-count">
+                                        <span id="current">0</span>
+                                        <span id="maximum">/ 3000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="row" style="margin-top:10px;">
+                            <div class="col-lg-12">
+                                <div class="slider-wrapper">
+                                <div id="slider-js">
+                                    <div id="slider-progress"></div>
+                                    <div id="slider-handle"></div>
+                                    <div id="slider-counter">1</div>
+                                </div>
+                                </div>
+                            </div>
+                            </div> -->
+                        </div> <!-- step-1 end -->
+
+                        <div id="step-2" style="display: none">
+
+                            <div class="row" style="margin-top:0px;">
+                                <div class="col-lg-12">
+                                    <h3>Select Your Agent(s):
+                                        <h3 />
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top:5px;">
+
+                                <div class='col-lg-4'>
+                                    <select name='state' id='agent-state'
+                                        style="width: 100%;height:38px; padding:9px 10px;border: 1px solid #a7a7a7;">
+                                        <option value='AK'>AK</option>
+                                        <option value='AL'>AL</option>
+                                        <option value='AR'>AR</option>
+                                        <option value='AS'>AS</option>
+                                        <option value='AZ'>AZ</option>
+                                        <option value='CA'>CA</option>
+                                        <option value='CO'>CO</option>
+                                        <option value='CT'>CT</option>
+                                        <option value='DC'>DC</option>
+                                        <option value='DE'>DE</option>
+                                        <option value='FL'>FL</option>
+                                        <option value='GA'>GA</option>
+                                        <option value='GU'>GU</option>
+                                        <option value='HI'>HI</option>
+                                        <option value='IA'>IA</option>
+                                        <option value='ID'>ID</option>
+                                        <option value='IL'>IL</option>
+                                        <option value='IN'>IN</option>
+                                        <option value='KS'>KS</option>
+                                        <option value='KY'>KY</option>
+                                        <option value='LA'>LA</option>
+                                        <option value='MA'>MA</option>
+                                        <option value='MD'>MD</option>
+                                        <option value='ME'>ME</option>
+                                        <option value='MI'>MI</option>
+                                        <option value='MN'>MN</option>
+                                        <option value='MO'>MO</option>
+                                        <option value='MP'>MP</option>
+                                        <option value='MS'>MS</option>
+                                        <option value='MT'>MT</option>
+                                        <option value='NA'>NA</option>
+                                        <option value='NC'>NC</option>
+                                        <option value='ND'>ND</option>
+                                        <option value='NE'>NE</option>
+                                        <option value='NH'>NH</option>
+                                        <option value='NJ'>NJ</option>
+                                        <option value='NM'>NM</option>
+                                        <option value='NV'>NV</option>
+                                        <option value='NY'>NY</option>
+                                        <option value='OH'>OH</option>
+                                        <option value='OK'>OK</option>
+                                        <option value='OR'>OR</option>
+                                        <option value='PA'>PA</option>
+                                        <option value='PR'>PR</option>
+                                        <option value='RI'>RI</option>
+                                        <option value='SC'>SC</option>
+                                        <option value='SD'>SD</option>
+                                        <option value='TN'>TN</option>
+                                        <option value='TX'>TX</option>
+                                        <option value='UT'>UT</option>
+                                        <option value='VA'>VA</option>
+                                        <option value='VI'>VI</option>
+                                        <option value='VT'>VT</option>
+                                        <option selected value='WA'>WA</option>
+                                        <option value='WI'>WI</option>
+                                        <option value='WV'>WV</option>
+                                        <option value='WY'>WY</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-8" style="margin-bottom:15px;">
+                                    <input type="text" id="agent-search"
+                                        placeholder="Search by agent name or referral location"
+                                        style="width:100%;height:40px;border: 1px solid #a7a7a7; ">
+                                </div>
+                                <div class="header-setp2">
+                                    <div class="col-lg-12" style="border-color: #a7a7a7;">
+                                        <div class="row">
+
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                <h3>Success Rate:</h3>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding-left: 0;">
+                                                <h3>Overall</h3>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding-left: 0;">
+                                                <h3>Seattle</h3>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-12">
+                                    <div id="agents" style="height: 200px; padding: 20px; overflow-y: scroll">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div> <!-- step-2 end -->
+
+                        <div id="step-3" style="display: none">
+
+                            <div class="row" style="margin-top:10px;">
+                                <div class="col-lg-12">
+                                    Next, add your referral agreement.
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top:10px; margin-left:10px">
+                                <div class="col-lg-12">
+                                    <input type="radio" value="standart" name="agreement" id="standart-agreement"
+                                        checked>
+                                    <label for="standart-agreement">Use standarized agreement</label>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top:10px; margin-left:10px">
+                                <div class="col-lg-12">
+                                    <input type="radio" value="own" id="own-agreement" name="agreement">
+                                    <label for="own-agreement">Upload your own agreement</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="step-4" >
+                            <div class="row">
+                                <div class="col-lg-6" style="border-right: 1px solid #dee2e6;">
+                                    <h4>Referral Information:</h4>
+                                    <div class="row">
+                                        <div class="col-lg-6">Referral Type:</div>
+                                        <div class="col-lg-6 type"></div>
+                                    </div>                                    
+                                    <div class="row">
+                                        <div class="col-lg-6">First Name:</div>
+                                        <div class="col-lg-6 first-name"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Last Name:</div>
+                                        <div class="col-lg-6 last-name"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Email:</div>
+                                        <div class="col-lg-6 email"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Phone #:</div>
+                                        <div class="col-lg-6 phone-number"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Address:</div>
+                                        <div class="col-lg-6 address"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">City:</div>
+                                        <div class="col-lg-6 city"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">State:</div>
+                                        <div class="col-lg-6 state"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Zipcode:</div>
+                                        <div class="col-lg-6 zipcode"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Price Min:</div>
+                                        <div class="col-lg-6 price-min"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Price Max:</div>
+                                        <div class="col-lg-6 price-min"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Referral Fee:</div>
+                                        <div class="col-lg-6 referral-fee"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Acceptance Deadline:</div>
+                                        <div class="col-lg-6 acceptance-deadline"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">Notes:</div>
+                                        <div class="col-lg-6 notes"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h4>Agent Information</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="nextstep-btn">
+                            <button type="button" id='next' class="btn btn-primary">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tab-tutorial-modal"></div>
+
+</body>
+
+</html>
