@@ -203,7 +203,7 @@ function load_agent(ignore_city = true) {
 
     setTimeout(function(){
         $('.agent_name').val(data['agent_name']);
-    },1000);
+    }, 3000);
     
     $('.agent-first-name').text(data['full_name'].split(" ")[0]);
 
