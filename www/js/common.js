@@ -48,7 +48,7 @@ function niceDateTime(timedate) {
 }
 
 function getCoordinates(address) {
-	var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ address +'&key='+ GOOGLE_MAP_KEY;
+	var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ encodeURIComponent(address) +'&key='+ GOOGLE_MAP_KEY;
 
 	var jqXHR = $.ajax({
         url: url,
