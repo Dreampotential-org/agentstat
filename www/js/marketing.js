@@ -69,6 +69,15 @@ function displayDescription(show=true) {
     $.ajax(settings).done();
 }
 
+function load_profile() {
+    settings = get_settings('agent-profile/', 'GET');
+    $.ajax(settings).done(function (res) {
+        var res = JSON.parse(res);
+        $('#fb_email').val(res.fb_email);
+        $('#fb_pw').val(res.fb_password);
+    });
+}
+
 $(document).ready(function(){	
     getCustomLink();
     getAgent();
@@ -122,6 +131,28 @@ $(document).ready(function(){
         });
         
     });
+
+    $('#save-fb-cred-btn').on('click', function(){
+        $('#fb-spinner').show();
+        $('#fb-check').hide();
+
+        var data = {};
+        data['fb_email'] = $('#fb_email').val();
+        data['fb_password'] = $('#fb_pw').val();
+
+        settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data));
+        $.ajax(settings).done(function (res) {
+            $('#fb-spinner').hide();
+            $('#fb-check').show();
+        }).fail(function (err) {
+            alert(err['responseText']);
+            $('#fb-spinner').hide();
+            $('#fb-check').hide();
+        });
+        
+    });
+
+    load_profile()
 
     $(".fa-info-circle").tooltip();
 });

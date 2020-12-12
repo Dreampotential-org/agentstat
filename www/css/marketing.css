@@ -59,7 +59,10 @@
 .partner-input {
     width: 40%;
 }
-#make-it-rain-btn {
+.cred-input {
+    width: 60%;
+}
+#make-it-rain-btn, #save-fb-cred-btn {
     border-color: #b6eeaf;
     background: #b6eeaf;
     color: #000;
@@ -67,7 +70,7 @@
     font-weight: 700;
     padding: 10px 70px;
 }
-#make-it-rain-btn:hover {
+#make-it-rain-btn:hover, #save-fb-cred-btn:hover {
     color: rgba(var(--color-highlight), 1.5)
 }
 @media (max-width: 600px ) {
