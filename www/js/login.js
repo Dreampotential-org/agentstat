@@ -23,16 +23,87 @@ if (hash) {
         });
 
         if (localStorage.getItem('claimed_agent_id') != null && localStorage.getItem('claimed_agent_id') != 'null') {
-            window.location = 'page-three.html?agent_id='+localStorage.getItem('claimed_agent_id');
+            window.location = 'page-three.html?agent_id=' + localStorage.getItem('claimed_agent_id');
         } else {
             window.location = '/profile-settings/';
         }
-    }).fail(function(err) {
+    }).fail(function (err) {
         $('.msg-login').html(err['responseText']);
         $('.msg-login').css("display", "block");
         console.log(err);
     });
 
+}
+
+function create_agent() {
+    $('.msg-signup').hide();
+
+    var data = {};
+    data['email'] = $('#signup_email').val();
+    data['password1'] = $('#signup_password').val();
+
+    if (data['email'] == '' || validateEmail(data['email']) == false) {
+        $('.msg-signup').html('Enter valid email')
+        $('.msg-signup').show();
+        return false;
+    }
+
+    if (data['password1'] == '' || data['password1'] != $('#signup_re_password').val()) {
+        $('.msg-signup').html('Passwords don\'t match')
+        $('.msg-signup').show();
+        return false;
+    }
+
+    data['password2'] = $('#signup_re_password').val();
+
+    $('#submit-signup-spinner').show();
+    $('#submit-signup-check').hide();
+
+    settings = get_settings_auth('registration/', 'POST', JSON.stringify(data))
+    settings['headers'] = {};
+    $.ajax(settings).done(function (response) {
+        var msg = objToStr(JSON.parse(response));
+        $('.msg-signup').html(msg);
+        $('.msg-signup').show();
+
+        $('#submit-signup-spinner').hide();
+        $('#submit-signup-check').show();
+    }).fail(function (err) {
+        var errMsg = objArrToStr(JSON.parse(err['responseText']));
+        $('.msg-signup').html(errMsg);
+        $('.msg-signup').show();
+
+        $('#submit-signup-spinner').hide();
+        $('#submit-signup-check').hide();
+    });
+}
+
+function resendVerificationEmail() {
+    $('.msg-login').hide();
+
+    var data = {};
+    data['email'] = $('#email').val();
+
+    if (data['email'] == '' || validateEmail(data['email']) == false) {
+        $('.msg-login').html('Enter valid email')
+        $('.msg-login').show();
+        return false;
+    }
+
+    settings = get_settings('resend-verification-email/', 'POST', JSON.stringify(data))
+    settings['headers'] = {};
+    $.ajax(settings).done(function (response) {
+        var msg = objToStr(JSON.parse(response));
+        $('.msg-login').html(msg);
+        $('.msg-login').show();
+
+        $('#resend-verification-email').hide();
+
+    }).fail(function (err) {
+        var errMsg = objToStr(JSON.parse(err['responseText']));
+        $('.msg-login').html(errMsg);
+        $('.msg-login').show();
+    });
 }
 
 function login() {
@@ -40,66 +111,91 @@ function login() {
     data['email'] = $('#email').val();
     data['password'] = $('#password').val();
 
+    $('#submit-login-spinner').show();
+
     settings = get_settings('login/', 'POST', JSON.stringify(data))
     settings['headers'] = {};
     $.ajax(settings).done(function (response) {
         var data = JSON.parse(response);
+
         localStorage.session_id = data['token'];
         localStorage.email = data['email'];
         localStorage.profile_id = data['profile_id'];
         localStorage.agent_id = data['agent_id'];
         localStorage.role = data['role'];
+        localStorage.web_agent_id = data['web_agent_id'];
+        localStorage.tab_tutorial_json = data['tab_tutorial_json'];
+        localStorage.user_data = JSON.stringify({
+            'screen_name': data['screen_name'],
+            'agent_slug': data['agent_slug'],
+            'agent_screen_name': data['agent_screen_name'],
+        });
         window.location = '/profile-settings/';
-    }).fail(function(err) {
-        $('.msg-login').html(err['responseText']);
+
+    }).fail(function (err) {
+        var error = JSON.parse(err['responseText']);
+        $('.msg-login').html(error.msg);
         $('.msg-login').css("display", "block");
-        console.log(err);
+
+        if (error.not_verified) {
+            $('#resend-verification-email').show();
+        } 
+
+        $('#submit-login-spinner').hide();
     });
 }
 
-$(document).on('change click', 'input:radio', function() {
-    if($(this).val() == 'Industry Professional') {
+$(document).on('change click', 'input:radio', function () {
+    if ($(this).val() == 'Industry Professional') {
         $("#category").prop("disabled", false);
     } else {
         $("#category").prop("disabled", true);
     }
 })
 
-$(document).on('change click', '#login-btn', function() {
+$(document).on('change click', '#login-btn', function () {
     login();
 });
 
-$('#continuebtn1').keydown(function(e) {
+$(document).on('change click', '#signup-btn', function () {
+    create_agent();
+});
+
+$(document).on('click', '#resend-verification-email', function () {
+    resendVerificationEmail();
+});
+
+$('#continuebtn1').keydown(function (e) {
     if (e.keyCode == 13) {
         $('#continuebtn1').trigger('click');
     }
 });
 
-$('#login-btn').keydown(function(e){
+$('#login-btn').keydown(function (e) {
     if (e.keyCode == 13) {
         login();
         return false;
     }
 });
 
-$('#password').keydown(function(e){
+$('#password').keydown(function (e) {
     if (e.keyCode == 13) {
         login();
         return false;
     }
 });
 
-$('#continuebtn1').keydown(function(e){
+$('#continuebtn1').keydown(function (e) {
     if (e.keyCode == 13) {
         return false;
     }
-})
+});
 
-$(document).on('change click', '#forgot-password', function() {
+$(document).on('change click', '#forgot-password', function () {
     email = $('#email').val();
     console.log(email);
 
-    if(email === '' || email === null) {
+    if (email === '' || email === null) {
         $('.msg').html('Email is required.');
         $('.msg').css("display", "block");
     } else {
@@ -109,14 +205,14 @@ $(document).on('change click', '#forgot-password', function() {
         settings['headers'] = {};
 
         $.ajax(settings).done(function (response) {
-        var msg = JSON.parse(response);
-        console.log(msg);
-        $('.msg').html("Email has been sent.");
-        $('.msg').css("display", "block");
-        }).fail(function(err) {
-        $('.msg').html(err['responseText']);
-        $('.msg').css("display", "block");
-        console.log(err);
+            var msg = JSON.parse(response);
+            console.log(msg);
+            $('.msg').html("Email has been sent.");
+            $('.msg').css("display", "block");
+        }).fail(function (err) {
+            $('.msg').html(err['responseText']);
+            $('.msg').css("display", "block");
+            console.log(err);
         });
     }
 });
@@ -127,11 +223,11 @@ function getParamUrlValue(key) {
     var agent_id = url.searchParams.get(key);
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     var url_string = window.location.href;
     var url = new URL(url_string);
     agent_id = url.searchParams.get('agent_id');
-    if(agent_id) {
+    if (agent_id) {
         $('[href="#nav-profile"]').tab('show');
         $("#category").val("secondoption");
     }

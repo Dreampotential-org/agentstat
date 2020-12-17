@@ -108,4 +108,7 @@ server {
         location /marketing/ {
             try_files $uri $uri/ /marketing.html;
         }
+        location /verify-email/ {
+            try_files $uri $uri/ /verify-email.html;
+        }
 }

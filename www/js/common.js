@@ -307,6 +307,29 @@ function myProfileLink() {
     return link;
 }
 
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+function objToStr(obj) {
+    var text = '';
+    $.each(obj, function(k, v) {
+        text += v;
+    }); 
+    return text;
+}
+
+function objArrToStr(obj) {
+    var text = '';
+    $.each(obj, function() {
+        var key = Object.keys(this)[0];
+        var value = this[key];
+        text += value+' ';
+    }); 
+    return text;
+}
+
 $(document).ready(function(){
 	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
 		isTeamMember();
