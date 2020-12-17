@@ -23,9 +23,9 @@ if (hash) {
         });
 
         if (localStorage.getItem('claimed_agent_id') != null && localStorage.getItem('claimed_agent_id') != 'null') {
-            window.location = 'page-three.html?agent_id=' + localStorage.getItem('claimed_agent_id');
+            // window.location = 'page-three.html?agent_id=' + localStorage.getItem('claimed_agent_id');
         } else {
-            window.location = '/profile-settings/';
+            // window.location = '/profile-settings/';
         }
     }).fail(function (err) {
         $('.msg-login').html(err['responseText']);
