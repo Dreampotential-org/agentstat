@@ -16,7 +16,7 @@ function init_profile_settings() {
             display_profile(resp)
         });
     } else {
-        window.location = '/sign-in/';
+        window.location = '/login/';
     }
 }
 
@@ -1046,7 +1046,7 @@ $('#save_password_btn').click(function(){
         show_message('SUCCESS! Your password has been successfully changed.', 6000);
         setTimeout(function(){ 
             // localStorage.clear();
-            window.location = '/sign-in/';
+            window.location = '/login/';
         }, 6000);
         }
     }).fail(function(err) {
