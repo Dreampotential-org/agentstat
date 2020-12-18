@@ -1,27 +1,34 @@
-.error{
+.error {
     color: red;
     font-size: smaller;
     text-align: center;
 }
+
 .swal-modal {
     margin-top: -100px;
 }
-.login-form form { 
-    box-shadow: none !important; border: none;
+
+.login-form form {
+    box-shadow: none !important;
+    border: none;
 }
-.login-form  .signup-holder {
+
+.login-form .signup-holder {
     border: 1px solid #8b8b8b;
     padding: 5px 15px;
 }
-.social-login{
+
+.social-login {
     margin: 40px 0 30px;
 }
+
 .continutxt {
     font-size: 13px;
     font-weight: 500;
 }
-.social-login a{
-    margin:0 15px -5px;
+
+.social-login a {
+    margin: 0 15px -5px;
     border-radius: 3px;
     display: block;
     border-radius: 3px;
@@ -32,19 +39,22 @@
     z-index: 0;
     padding: 10px 30px 10px 45px;
 }
+
 .social-login a:first-child {
     background: #3b5998;
     color: #fff;
 }
+
 .social-login a:last-child {
     background: transparent;
     color: #fff;
-    color:#656565;
+    color: #656565;
     border: 1px solid #ccc;
 }
+
 .social-login a:first-child::after {
     position: absolute;
-    content:'\f082 ';
+    content: '\f082 ';
     font-family: 'Fontawesome';
     top: 3px;
     left: 55px;
@@ -53,9 +63,10 @@
     font-weight: normal;
     z-index: 1;
 }
+
 .social-login a:last-child::after {
     position: absolute;
-    content:'\f1a0 ';
+    content: '\f1a0 ';
     font-family: 'Fontawesome';
     top: 8px;
     left: 60px;
@@ -69,19 +80,85 @@
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
-#login-footer{
+
+#login-footer {
     position: fixed !important;
     bottom: 0 !important;
     background: #F2F2F2;
-    padding:30px;
+    padding: 30px;
     width: 100% !important;
 }
-@media (max-width: 580px){
+
+.login-form {
+    width: 450px;
+    margin: 0px auto;
+    margin-top: -40px;
+}
+
+.login-form form {
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.input-group-addon {
+    padding: 8px 26px 0px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-right-color: rgb(204, 204, 204);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.input-group-addon, .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.input-group .form-control, .input-group-addon, .input-group-btn {
+    display: table-cell;
+}
+
+.input-group-addon .fa {
+    font-size: 18px;
+}
+
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn-group:not(:last-child)>.btn, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.modalSignup {
+    margin: 0 auto;
+    top: 25%;
+    transform: translateY(-50%);
+}
+
+#login-footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    background: #F2F2F2;
+    padding: 30px;
+    width: 100% !important;
+}
+
+@media (max-width: 580px) {
     .login-form {
         width: auto !important;
     }
 }
-@media (max-width: 767px){
+
+@media (max-width: 767px) {
     .social-login a:first-child::after {
         left: 35px;
     }

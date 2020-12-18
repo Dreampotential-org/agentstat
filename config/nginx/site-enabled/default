@@ -111,4 +111,7 @@ server {
         location /verify-email/ {
             try_files $uri $uri/ /verify-email.html;
         }
+        location /reset-password/ {
+            try_files $uri $uri/ /reset-password.html;
+        }
 }
