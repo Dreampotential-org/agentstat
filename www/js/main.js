@@ -146,13 +146,20 @@ function get_home_type() {
 }
 
 function redirectResults(results) {
-    console.log(results)
+    // console.log(results)
     var path = window.location.pathname;
     var search_params = window.location.search.replace('?', '');
     var params = search_params.split('&');
     var new_params = [];
 
     search_type = $('#y-address').text();
+    search_agent_state = $('.ser-state-id').text();
+    
+    if (search_type == 'Agent Name ' && search_agent_state == 'State ') {
+        $('.ser-state p').css('color', 'red');
+        return false;
+    }
+    
     search_type_map = $('#y-address-map').text();
 
     search_address = localStorage.getItem('search_address');
