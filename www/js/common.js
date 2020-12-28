@@ -330,6 +330,27 @@ function objArrToStr(obj) {
     return text;
 }
 
+function offsetToPageno(offset) {
+    return  Math.floor(offset/10)+1;
+}
+
+function currencyFormat(num) {
+    var num = parseInt(num);
+    return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
+function titleCaseStr(str) {
+    if (str) {
+        var splitStr = str.toLowerCase().split(' ');
+        for (var i = 0; i < splitStr.length; i++) {
+            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+        }
+        return splitStr.join(' '); 
+    } else {
+        return '';
+    }
+ }
+
 $(document).ready(function(){
 	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
 		isTeamMember();

@@ -1,0 +1,256 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+<div class="container" id="printable">
+    <!-- <div class="">
+        <h4 class="text-center font-weight-bold"><u>REFERRAL AGREEMENT</u></h2>
+    </div> -->
+    <form name="myform" method="post" action="pdf">
+        <div class="container">
+            <div class="form-group row m-0">
+                <label for="date-picker" class="col-form-label mt-2">Date:</label>
+                <div class="md-form mt-0 ml-2 col-4">
+                    <input type="text" name="date" class="form-control m-0" id="date-picker" readonly>
+                </div>
+            </div>
+            <h5 class="font-weight-bold ml-0" style="margin-left: -16px">REFEERAL FEE STRUCTURE: </h5>
+            <div class="">
+                <div class="form-group row m-0">
+                    <div class="md-form m-0 mr-2 col-1 custome-col">
+                        <input type="text" name="listing_firm_comm" class="form-control m-0 changeable-bg" id="listing_firm_comm">
+                    </div>
+                    <p class="m-0 mt-3">% of Listing Firm Commission</p>
+                </div>
+                <div class="form-group row m-0">
+                    <div class="md-form m-0 mr-2 col-1 custome-col">
+                        <input type="text" name="selling_firm_comm" class="form-control m-0 changeable-bg" id="selling_firm_comm">
+                    </div>
+                    <p class="m-0 mt-3">% of Selling Firm Commission</p>
+                </div>
+            </div>
+            <div class="referring-section mt-4">
+                <div class="form-group row m-0">
+                    <h5 class="font-weight-bold m-0 mt-3 d-inline mr-2">REFEERING FIRM: </h5>
+                </div>
+
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-3 d-inline mr-2">Broker Name: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="refer_broker_name" class="form-control m-0" id="refer_broker_name" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-3 d-inline mr-2">Address: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="refer_address" class="form-control m-0" id="refer_address" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-3 d-inline mr-2">Phone: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="refer_phone" class="form-control m-0" id="refer_phone" readonly>
+                    </div>
+                    <h5 class="m-0 mt-3 d-inline mr-2">Email: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="refer_email" class="form-control m-0" id="refer_email" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destination-section mt-4">
+                <div class="form-group row m-0">
+                    <h5 class="font-weight-bold m-0 mt-3 d-inline mr-2">DESTINATION FIRM: </h5>
+                </div>
+
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-3 d-inline mr-2">Broker Name: </h5>
+                    <div class="md-form m-0 col m-fix m-fix">
+                        <input type="text" name="dest_broker_name" class="form-control m-0" id="dest_broker_name" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-2 mt-16 d-inline d-flex mr-2">Address: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="dest_address" class="form-control m-0" id="dest_address" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-3 d-inline mr-2">Phone: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="dest_phone" class="form-control m-0" id="dest_phone" readonly>
+                    </div>
+                    <h5 class="m-0 mt-3 d-inline mr-2">Email: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="dest_email" class="form-control m-0" id="dest_email" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prospect-section mt-4">
+                <div class="form-group row">
+                    <h5 class="font-weight-bold m-0 mt-3 d-inline col" style="margin-left: -16px">PROSPECT INFORMATION:
+                    </h5>
+                    <div class="form-check form-check-inline d-inline m-0 col m-fix-3 ml-2">
+                        <input type="checkbox" name="isSeller" class="form-check-input" id="materialInline1"
+                            value="seller">
+                        <label class="form-check-label" for="materialInline1">Seller</label>
+                    </div>
+
+                    <div class="form-check form-check-inline d-inline m-0 col m-fix-3">
+                        <input type="checkbox" name="isBuyer" class="form-check-input" id="materialInline2"
+                            value="buyer">
+                        <label class="form-check-label" for="materialInline2">Buyer</label>
+                    </div>
+
+                </div>
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-3 d-inline mr-2">Name: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="pros_name" class="form-control m-0 changeable-bg" id="pros_name">
+                    </div>
+                </div>
+
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-3 d-inline mr-2">Address: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="pros_address" class="form-control m-0" id="pros_address" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row m-0">
+                    <h5 class="m-0 mt-3 d-inline mr-2">Phone: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="pros_phone" class="form-control m-0 changeable-bg" id="pros_phone">
+                    </div>
+                    <h5 class="m-0 mt-3 d-inline mr-2">Email: </h5>
+                    <div class="md-form m-0 col m-fix">
+                        <input type="text" name="pros_email" class="form-control m-0 changeable-bg" id="pros_email">
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-section mt-4">
+                <h5 class="m-0 mt-3 mr-2">Comments: </h5>
+                <textarea name="comments" class="w-100 changeable-bg" rows="4" cols="120" id="doc_comments"></textarea>
+            </div>
+
+            <div class="terms-section mt-5">
+                <h5 class="font-weight-bold row m-0 mt-1 mr-2">TERMS OF REFERRAL: </h5>
+                <p>
+                    The Destination Firm accepts this referral. If within
+                <div class="md-form m-0 d-inline m-fix" style="width:45px !important">
+                    <!-- <input type="text" style="width: 45px" name="months" class="form-control m-0 d-inline changeable-bg"
+                        id="sdsad-firm-percent"> -->
+                    <select style="width: auto" name="months" class="form-control m-0 d-inline changeable-bg" id="acceptance_deadline_pdf">
+                        <option value="1">1 hour</option>
+                        <option value="3">3 hours</option>
+                        <option value="6">6 hours</option>
+                        <option value="12">12 hours</option>
+                        <option value="24">24 hours</option>
+                        <option value="48">48 hours</option>
+                        <option value="72">3 days</option>
+                        <option value="168">7 days</option>
+                    </select>
+                </div>
+                 (if not filled in) of the date of
+                this agreement, the Destination Firm receives a commission due to services provided to the prospect,
+                Destination Firm agrees to send the Referring Firm <div class="md-form m-0 d-inline m-fix">
+                    <input type="text" style="width: 45px" name="ref_firm_com" class="form-control m-0 d-inline changeable-bg"
+                        id="firm-comm">
+                </div> % (of the gross commission)as a referral fee,
+                and include commission details with the check.
+                </p>
+            </div>
+
+            <div class="sign-section mt-5 row">
+                <div class="form-group row col-lg-12">
+                    <div class="col-lg-6 text-center" style="max-width: 230px;">
+                        <input type="hidden" name="ref_sign" id="ref_sign">
+                        <img src="" style="width: 150px; height: 64px; display:none" aria-hidden="true"
+                            id="referring-sign-img">
+                        <div class="" type="button" class="btn btn-primary" id="referringsign" data-toggle="modal"
+                            data-target="#exampleModalCenter">
+                            <span>click to sign</span>
+                        </div>
+                        <div class="">
+                            ___________________________
+                        </div>
+                        <div class="">
+                            Referring Firm (Signature)
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-8 text-right ml-auto" style="max-width: 230px;">
+                        <input type="hidden" name="dest_sign" id="dest_sign">
+                        <img src="" style="width: 150px; height: 64px; display: none" aria-hidden="true"
+                            id="dest-sign-img">
+                        <div class="text-center" id="destinationsign" type="button" class="btn btn-primary"
+                            data-toggle="modal" data-target="#exampleModalCenter">
+                            <span>click to sign</span>
+                        </div>
+                        <div class="">
+                            ___________________________
+                        </div>
+                        <div class="">
+                            Destination Firm (Signature)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer text-center">
+                <button type="button" id="referral_document_pdf" class="btn btn-primary">
+                    Submit
+                    <i id="submit-referral-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 550px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Draw Signature</h5>
+                <button type="button" class="close close-signature-modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="wrapper text-center">
+                    <canvas id="signature-pad" class="signature-pad border border-primary" width=400
+                        height=200></canvas>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="clear-sign" class="btn btn-secondary">Clear</button>
+                <button type="button" id="save-sign"  class="btn btn-primary">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script> -->
+
+<script type="text/javascript" src="/plugins/e-sign-collect/js/signature_pad.min.js"></script>
+<script>
+    var canvas = document.getElementById('signature-pad');
+    var signaturePad = new SignaturePad(canvas, {
+        backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    });
+
+    
+
+    
+
+    document.getElementById('referringsign').addEventListener('click', function () {
+        if (window.currentModal != 'referring')
+            signaturePad.clear();
+        window.currentModal = 'referring'
+    });
+</script>
