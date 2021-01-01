@@ -1,49 +1,9 @@
-//
-// profile_id = localStorage.profile_id;
-// const queryString = window.location.search;
-// const urlParams = new URLSearchParams(queryString);
-// received = urlParams.get('received');
-// var acceptance_deadline_hour = 1;
-// var form_data = {};
-
-// if (received == 'true') {
-//     settings = get_settings('referral-received/' + profile_id, 'GET')
-// } else {
-//     settings = get_settings('referral/' + profile_id + '/', 'GET')
-// }
-// var form_data = {};
-
-// // console.log(settings);
-
-// $.ajax(settings).done(function (response) {
-
-//     data = JSON.parse(response);
-//     // console.log(data['results']);
-//     $.each(data['results'], function (k, v) {
-//         // console.log(v);
-//         item = referral_item
-//         item = item.split('[[id]]').join(v['id']);
-//         item = item.split('[[date]]').join(v['created_at']);
-//         item = item.split('[[referral_type]]').join(v['referral_type']);
-//         item = item.split('[[referral_name]]').join(v['first_name'] + ' ' + v['last_name']);
-//         item = item.split('[[agent_name]]').join(v['agent_name']);
-//         item = item.split('[[referral_fee]]').join(v['referral_fee_percentage'] + '%');
-//         item = item.split('[[price]]').join(v['price_min'] + '-' + v['price_max'] + 'K');
-//         item = item.split('[[email]]').join(v['email']);
-//         item = item.split('[[phone]]').join(v['phone']);
-
-//         $(item).insertAfter('.titleHead');
-
-//     });
-
-// }).fail(function (err) {
-//     // alert('Got err');
-//     console.log(err);
-//     show_error(err);
-// });
-
 var acceptance_deadline_hour = 1;
 var form_data = {};
+var isPendingLoad = false;
+var pendingReferralId = '';
+var declineReferralId = '';
+var pendingReferralCount = 0;
 
 // step 1
 function fillReferralForm() {
@@ -167,23 +127,6 @@ function selectAgent() {
         form_data['owner'] = localStorage.profile_id;
         form_data['sender_agent'] = localStorage.agent_id;
         form_data['agent'] = receiver_web_agent_id;
-
-        // $.each(form_data['agent_ids'], function (k, v) {
-
-        //     form_data['agent'] = v;
-        //     console.log(form_data);
-        //     settings = get_settings('referral/', 'POST', JSON.stringify(form_data));
-        //     $.ajax(settings).done(function (response) {
-        //         result = JSON.parse(response);
-        //         console.log(result);
-        //         window.location = result['sign_url'] + '?redirect_uri=https://agentstat.com/referrals/?';
-        //     });
-
-        // });
-
-        // $('#referralModal').modal('hide');
-
-        // console.log(form_data);
         
         $('.type').text(form_data['referral_type']);
         $('.first-name').text(form_data['first_name']);
@@ -205,7 +148,7 @@ function selectAgent() {
     }
 }
 
-// // step 3
+// // step 3 - todo when give feature to upload their own document
 // function showReferralData() {
 
 // }
@@ -231,7 +174,6 @@ function searchAgent(search_term) {
         settings = get_settings('reports/' + state + '/?agent_name=' + search_term + '&page=1', 'GET');
         settings['headers'] = null;
     }
-
 
     $.ajax(settings).done(function (response) {
         // console.log(response);
@@ -266,8 +208,8 @@ function searchAgent(search_term) {
     });
 }
 
-function initReferralTable(type='received') {
-    if (type == 'received') {
+function initReferralTable(referralType='received') {
+    if (referralType == 'received') {
         var tableId = '#received-referral-table';
     } else {
         var tableId = '#sent-referral-table';
@@ -282,7 +224,7 @@ function initReferralTable(type='received') {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            if (type == 'received') {
+            if (referralType == 'received') {
                 var url = API_URL+'referral/?page='+offsetToPageno(data.start)
             } else {
                 var url = API_URL+'referral/?type=sent&page='+offsetToPageno(data.start)
@@ -304,11 +246,23 @@ function initReferralTable(type='received') {
             { 
                 data: null, title: "Referral Agreement", width: '10%',
                 render: function(data, type, row, meta){
-                    var html = `
-                    <div class="downloadImgDiv">
-                        <img class="downloadImg" data-id="`+row.uid+`" src="/img/download-icon.png"/>
-                    </div>
-                    `;
+                    var html = '';
+                    if (referralType == 'received') {
+                        if (row.status == 'accept' || row.status == 'closed') {
+                            html = `
+                            <div class="downloadImgDiv">
+                                <img class="downloadImg" data-id="`+row.uid+`" src="/img/download-icon.png"/>
+                            </div>
+                            `;
+                        }
+                    } else {
+                        html = `
+                        <div class="downloadImgDiv">
+                            <img class="downloadImg" data-id="`+row.uid+`" src="/img/download-icon.png"/>
+                        </div>
+                        `;
+                    }
+                    
                     return html;
                 }
             },
@@ -333,8 +287,7 @@ function initReferralTable(type='received') {
             { 
                 data: null, title: "Agent Name", width: '10%',
                 render: function(data, type, row, meta){
-                    var url = '/profile/'+row.agent_obj.screen_name;
-                    return "<a href='"+url+"' target='_blank'>"+row.agent_obj.name+"</a>";;
+                    return agentProfileLink(row.agent_obj.screen_name, row.agent_obj.name);
                 }
             },
             { 
@@ -420,7 +373,7 @@ function populate_document() {
         $('#dest_broker_name').val(res.full_name);
         var address = res.street_address+', '+res.city+', '+res.state+', '+res.zip_code;
         $('#dest_address').val(address);
-
+        
         if (res.profile_phone) {
             $('#dest_phone').val(res.profile_phone);
         } else if (res.agent_cell_phone) {
@@ -438,13 +391,21 @@ function populate_document() {
     $('#pros_name').val(full_name);
 
     // console.log(form_data);
-    var address = form_data['street_address']+', '+form_data['city']+', '+form_data['state']+', '+form_data['zipcode'];
-    $('#pros_address').val(address);
+    if (form_data['status'] == 'accept' || form_data['status'] == 'closed' || isPendingLoad == false) {
+        var address = form_data['address']+', '+form_data['city']+', '+form_data['state']+', '+form_data['zipcode'];
+        $('#pros_address').val(address);
 
-    $('#pros_phone').val(form_data['phone_number']);
-    $('#pros_email').val(form_data['email']);
+        $('#pros_phone').val(form_data['phone_number']);
+        $('#pros_email').val(form_data['email']);
+    } else {
+        var confidential_text = 'CONFIDENTIAL (will be show after sign)';
+        $('#pros_address').val(confidential_text);
+        $('#pros_phone').val(confidential_text);
+        $('#pros_email').val(confidential_text);
+    }
+
     $('#doc_comments').val(form_data['notes']);
-
+    
     $('#firm-comm').val(form_data['referral_fee_percentage']);
 
     $('#acceptance_deadline_pdf').val(form_data['acceptance_deadline']);
@@ -498,102 +459,312 @@ function toPrettyDeadline(hours) {
     return text;
 }
 
+function clearReferralFormData() {
+    form_data = {};
+
+    $('#referralModal input, #referralModal textarea').val('');
+    $('#referral-sign-modal input, #referral-sign-modal textarea').val('');
+
+    $('input[name="selected_agents"]').prop('checked', false);
+
+    $('#step-1').css('display', 'block');
+    $('#step-2').css('display', 'none');
+    $('#step-3').css('display', 'none');
+    $('#step-4').css('display', 'none');
+
+    $('#referral_document_pdf').attr('disabled', false);
+    $('#submit-referral-spinner').hide();
+    
+    $('#ref_sign').val('');
+    $('#referring-sign-img').attr('src', '');
+    $('#referring-sign-img').hide();
+    $('#referringsign').show();
+
+    $('#dest_sign').val('');
+    $('#dest-sign-img').attr('src', '');
+    $('#dest-sign-img').hide();
+    $('#destinationsign').show();
+
+    $('#acceptance_deadline_pdf').attr('disabled', false);
+    $('#materialInline1').attr('disabled', false);
+    $('#materialInline2').attr('disabled', false);
+
+    $('.changeable-bg').attr('readonly', false);
+    $('.changeable-bg').css('background-color', 'whitesmoke');
+
+    $('#referral_type').val('Seller');
+    
+    isPendingLoad = false;
+    signaturePad.clear();
+}
+
+function pendingReferralHtml(obj) {
+    var html = `
+    <div id="pending-`+obj.id+`" class="referral-one">
+        <div class="inner-holder">
+            <div class="header">
+                <div class="author-img">
+                    <img src="/img/blank-profile-picture.png" alt="">
+                </div>
+                <div class="title">
+                    <span>Referral Partner</span>
+                    <strong>`+agentProfileLink(obj.sender_agent_obj.screen_name, obj.sender_agent_obj.name)+`</strong>
+                </div>
+            </div>
+            <div class="detail-box">
+                <div class="detail-col">
+                    <h3>General info</h3>
+                    <ul class="detail-list">
+                        <li>
+                            <p class="location-mark">
+                                <span>Referral Location</span>
+                                <strong>`+obj.sender_agent_obj.address+`</strong>
+                            </p> 
+                        </li>
+                        <li>
+                            <div class="contentbox">
+                                <div>
+                                    <span>Referral Fee</span>
+                                    <strong>`+obj.referral_fee_percentage+`%</strong>
+                                </div>
+                                <div>
+                                    <span>Price Range</span>
+                                    <strong>`+currencyFormat(obj.price_min)+`-`+currencyFormat(obj.price_max)+`</strong>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            Sent: <time>`+niceDateTime(obj.created_at)+`</time> 
+                        </li>
+                        <li>
+                            <span>Expires:</span>
+                            <div class="timer_wrapper">
+                                <div id="timer-`+obj.id+`"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="detail-col detail-col2">
+                    <h3>client info</h3>
+                    <ul class="detail-list">
+                        <li>
+                            <span>Name</span>
+                            <strong>`+obj.first_name+` `+obj.last_name+`</strong>
+                        </li>
+                        <li>
+                            <span>address</span>
+                            <strong>`+obj.city+`, `+obj.state+`, `+obj.zipcode+`</strong>
+                        </li>
+                        <li>
+                            <span>Notes</span>
+                            <p>`+obj.notes+`</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="refbox-footer">
+                <div class="btn-holder">
+                    <a class="accept-referral" data-id="`+obj.id+`" href="javascript:void(0);">
+                        Accept
+                        <i id="accept-spinner-`+obj.id+`" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                    </a>
+                    <a class="decline-referral-modal-btn" data-id="`+obj.id+`" href="javascript:void(0);">Decline</a>
+                </div>
+            </div>
+        </div>
+    </div>  
+    `;
+
+    $('#pending_referral_div').append(html);
+
+    countDownTimer(obj.id, obj.created_at, obj.acceptance_deadline);
+}
+
+Date.prototype.addHours = function(h) {
+    this.setTime(this.getTime() + (h*60*60*1000));
+    return this;
+}
+
+function countDownTimer(id, datetime, expire_hours) {
+    var countDownDate = new Date(datetime).addHours(expire_hours).getTime();
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        $('#timer-'+id).text(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+        if (distance < 0) {
+            clearInterval(x);
+            $('#timer-'+id).text("EXPIRED");
+            
+            var data = {
+                'status': 'expired',
+            };
+            updateReferral(data, id);
+
+            pendingReferralCount--;
+            referralNotificationBadge(pendingReferralCount);
+        }
+    }, 1000);
+}
+
+function getPendingReferrals() {
+    settings = get_settings('referral-pending/', 'GET');
+    $.ajax(settings).done(function (response) {
+        var res = JSON.parse(response);
+
+        $.each(res, function(k,v){
+            pendingReferralHtml(v);
+        });  
+        
+        pendingReferralCount = res.length;
+        if (res.length > 0) {
+            $('.refrequest-sec').show();
+        }
+    });
+}
+
+
+function updateReferral(data, referralId) {
+    settings = get_settings('referral/'+referralId+'/', 'PUT', JSON.stringify(data));
+    $.ajax(settings).done(function (response) {
+        setTimeout(function() { 
+            $('#received-referral-table').DataTable().ajax.reload();
+        }, 200);
+
+        $('#pending-'+referralId).remove();
+    });
+}
+
+function loadPendingRefferalOnPdf(referralId) {
+    pendingReferralId = referralId;
+    $('#accept-spinner-'+referralId).show();
+
+    settings = get_settings('referral/'+referralId+'/', 'GET');
+    $.ajax(settings).done(function (response) {
+        isPendingLoad = true;
+
+        form_data = JSON.parse(response);
+        populate_document();
+        $('#referral-sign-modal').modal('show');
+
+        $('#referringsign').hide();
+        $('#referring-sign-img').show();
+        $('#referring-sign-img').attr('src', form_data.sender_sign_img);
+        
+        $('#acceptance_deadline_pdf').attr('disabled', true);
+        $('#materialInline1').attr('disabled', true);
+        $('#materialInline2').attr('disabled', true);
+
+        $("#destinationsign").attr('data-toggle','modal');
+
+        $('.changeable-bg').attr('readonly', true);
+        $('.changeable-bg').css('background-color', 'white');
+
+        $('#accept-spinner-'+referralId).hide();
+    });
+}
 
 $(document).ready(function () {
     initReferralTable();
     initReferralTable('sent');
 
+    getPendingReferrals();
+
     $('#next').click(function () {
         if ($('#step-1').css('display') == 'block') {
             fillReferralForm();  
         } else if ($('#step-2').css('display') == 'block') {
-            
-            // form_data['agent_ids'] = []
-            // $('input[name="selected_agents"]:checked').each(function () {
-            //     console.log($(this).val());
-            //     form_data['agent_ids'].push($(this).val());
-            // });
-
             selectAgent();
         } else if ($('#step-3').css('display') == 'block') {
-            // if ($('input[name=agreement]:checked').val() == 'standart') {
-            //     data['acceptance_deadline'] = acceptance_deadline_hour;
-            //     form_data['owner'] = profile_id;
-
-            //     $.each(form_data['agent_ids'], function (k, v) {
-
-            //         form_data['agent'] = v;
-            //         console.log(form_data);
-            //         settings = get_settings('referral/', 'POST', JSON.stringify(form_data));
-            //         $.ajax(settings).done(function (response) {
-            //             result = JSON.parse(response);
-            //         });
-
-            //     });
-
-            //     swal({
-            //         title: "Your referral has been created!",
-            //         icon: "success",
-            //         dangerMode: false,
-            //     });
-            //     $('#referralModal').modal('hide');
-            // }
-
+            // todo: user can also upload their referral document
         } else if ($('#step-4').css('display') == 'block') {
             signReferralBySender();
         }
     });
 
     $(document).on('click', '#referral_document_pdf',function(){
-        if($('#referring-sign-img').is(':visible')){
-            var error = false;
-            
-            if (form_data['referral_type'] == 'seller') {
-                if ($('#listing_firm_comm').val() == '' && $('#firm-comm').val() == '') {
-                    error = true;
-                }
+        if (isPendingLoad == true) {
+            if($('#dest-sign-img').is(':visible')){
+                $('#referral_document_pdf').attr('disabled', true);
+                $('#submit-referral-spinner').show();
+
+                var data = {
+                    'receiver_sign_img': form_data['receiver_sign_img'],
+                    'status': 'accept',
+                };
+                updateReferral(data, pendingReferralId);
+
+                pendingReferralCount--;
+                referralNotificationBadge(pendingReferralCount);
+                
+                $('#referral-sign-modal').modal('hide');
+                
+                clearReferralFormData();
             } else {
-                if ($('#selling_firm_comm').val() == '' && $('#firm-comm').val() == '') {
-                    error = true;
-                }
-            }
-
-            var fields = ['pros_name', 'pros_phone', 'pros_email'];
-            $.each(fields, function (k, v) {
-                if ($('#' + v).val() == '') {
-                    error = true;
-                }
-            });
-
-            if (error == true) {
                 swal({
                     title: "Validation Error!",
-                    text: "You should fill the all fields",
+                    text: "You should sign the destination firm",
                     icon: "warning",
                     dangerMode: true,
                 });
-
-                return false;
             }
-
-            $('#referral_document_pdf').attr('disabled', true);
-            $('#submit-referral-spinner').show();
-            settings = get_settings('referral/', 'POST', JSON.stringify(form_data));
-            $.ajax(settings).done(function (response) {
-                result = JSON.parse(response);
-                $('#referral-sign-modal').modal('hide');
-
-                setTimeout(function() { 
-                    $('#sent-referral-table').DataTable().ajax.reload();
-                }, 200);
-            });
+ 
         } else {
-            swal({
-                title: "Validation Error!",
-                text: "You should sign the referring firm",
-                icon: "warning",
-                dangerMode: true,
-            });
+            if($('#referring-sign-img').is(':visible')){
+                var error = false;
+                
+                if (form_data['referral_type'] == 'seller') {
+                    if ($('#listing_firm_comm').val() == '' && $('#firm-comm').val() == '') {
+                        error = true;
+                    }
+                } else {
+                    if ($('#selling_firm_comm').val() == '' && $('#firm-comm').val() == '') {
+                        error = true;
+                    }
+                }
+    
+                var fields = ['pros_name', 'pros_phone', 'pros_email'];
+                $.each(fields, function (k, v) {
+                    if ($('#' + v).val() == '') {
+                        error = true;
+                    }
+                });
+    
+                if (error == true) {
+                    swal({
+                        title: "Validation Error!",
+                        text: "You should fill the all fields",
+                        icon: "warning",
+                        dangerMode: true,
+                    });
+    
+                    return false;
+                }
+    
+                $('#referral_document_pdf').attr('disabled', true);
+                $('#submit-referral-spinner').show();
+                settings = get_settings('referral/', 'POST', JSON.stringify(form_data));
+                $.ajax(settings).done(function (response) {
+                    result = JSON.parse(response);
+                    $('#referral-sign-modal').modal('hide');
+    
+                    setTimeout(function() { 
+                        $('#sent-referral-table').DataTable().ajax.reload();
+                    }, 200);
+                    
+                    clearReferralFormData();
+                });
+            } else {
+                swal({
+                    title: "Validation Error!",
+                    text: "You should sign the referring firm",
+                    icon: "warning",
+                    dangerMode: true,
+                });
+            }
         }
     });
 
@@ -707,13 +878,7 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.close-referral-model', function () {
-        $('#referralModal input, #referralModal textarea').val('');
-        $('input[name="selected_agents"]').prop('checked', false);
-
-        $('#step-1').css('display', 'block');
-        $('#step-2').css('display', 'none');
-        $('#step-3').css('display', 'none');
-        $('#step-4').css('display', 'none');
+        clearReferralFormData();
     });
 
     $(document).on('click', 'input[name="selected_agents"]', function () {
@@ -751,7 +916,6 @@ $(document).ready(function () {
         });
 
         $("#destinationsign").attr('data-toggle','');
-        $("#destinationsign").attr('data-target','');
 
         document.getElementById('save-sign').addEventListener('click', function () {
             // console.log(signaturePad.toDataURL('image/png'));
@@ -763,15 +927,17 @@ $(document).ready(function () {
             if (window.currentModal === 'destination') {
                 imgNode = document.getElementById('dest-sign-img');
                 document.getElementById("dest_sign").value = data;
-                document.getElementById('destinationsign').remove();
+                // document.getElementById('destinationsign').remove();
+                document.getElementById('destinationsign').style.display = 'none';
                 
-                form_data['sender_sign_img'] = data;
+                form_data['receiver_sign_img'] = data;
             }
             else {
                 document.getElementById("ref_sign").value = data;
-                document.getElementById('referringsign').remove();
+                // document.getElementById('referringsign').remove();
+                document.getElementById('referringsign').style.display = 'none';
 
-                form_data['receiver_sign_img'] = data;
+                form_data['sender_sign_img'] = data;
             }
             imgNode.setAttribute('src', data);
             imgNode.setAttribute('area-hidden', false);
@@ -784,26 +950,16 @@ $(document).ready(function () {
             signaturePad.clear();
         });
     
-        // document.getElementById('destinationsign').addEventListener('click', function () {
-            // return false;
-            // if (window.currentModal != 'destination')
-            //     signaturePad.clear();
-            // window.currentModal = 'destination'
-        // });
-        // populate_document();
+        document.getElementById('destinationsign').addEventListener('click', function () {
+            if (window.currentModal != 'destination')
+                signaturePad.clear();
+            window.currentModal = 'destination'
+        });
     });
 
     $("#referralBtn").click(function () {
         $("#referralModal").modal();
-        form_data = {};
-
-        $('#step-1').css('display', 'block');
-        $('#step-2').css('display', 'none');
-        $('#step-3').css('display', 'none');
-        $('#step-4').css('display', 'none');
-
-        $('#referral_document_pdf').attr('disabled', false);
-        $('#submit-referral-spinner').hide();
+        clearReferralFormData();
     });
 
     $(document).on('click', '#materialInline1', function(){
@@ -845,5 +1001,38 @@ $(document).ready(function () {
 
     $(document).on('change', '#doc_comments', function(){
         form_data['notes'] = $(this).val();
+    });
+
+    $(document).on('click', '.accept-referral', function(){
+        var id = $(this).data('id');
+        loadPendingRefferalOnPdf(id);
+    });
+
+    $(document).on('click', '.decline-referral-modal-btn', function(){
+        declineReferralId = $(this).data('id');
+        $('#referral-decline-modal').modal('show');
+    });
+
+    $(document).on('click', '#submit-decline-referral', function(){
+        var decline_reason = $('#decline_reason_textarea').val();
+        if (decline_reason) {
+            var data = {
+                'decline_reason': decline_reason,
+                'status': 'decline',
+            };
+            updateReferral(data, declineReferralId);
+
+            pendingReferralCount--;
+            referralNotificationBadge(pendingReferralCount);
+
+            $('#referral-decline-modal').modal('hide');
+        } else {
+            swal({
+                title: "Validation Error!",
+                text: "You should enter decline reason.",
+                icon: "warning",
+                dangerMode: true,
+            });
+        }
     });
 });

@@ -146,12 +146,22 @@ function inboxNotificationBadge(count) {
 	}
 }
 
-function inboxNotification() {
-	settings = get_settings('inbox-notification/', 'GET');
+function referralNotificationBadge(count) {
+	if (count == 0) {
+		$('.referral-notification').html('Referrals');
+	} else if (count > 0) {
+		var badge = 'Referrals <span class="badge">'+count+'</span>';
+		$('.referral-notification').html(badge);
+	}
+}
+
+function unreadNotification() {
+	settings = get_settings('unread-notification/', 'GET');
 
 	$.ajax(settings).done(function (response) {
 		var data = JSON.parse(response);
-		inboxNotificationBadge(data.unread_count);
+        inboxNotificationBadge(data.inbox);
+        referralNotificationBadge(data.referral);
 	}).fail(function(err) {
 		var responseText = JSON.parse(err.responseText)
 		if (responseText.detail=='Invalid token.') {
@@ -349,12 +359,29 @@ function titleCaseStr(str) {
     } else {
         return '';
     }
- }
+}
+
+function agentProfileUrl(slug) {
+    return '/profile/'+slug;
+}
+
+function agentProfileLink(slug, linkText, id=null) {
+    if (slug != null && slug != 'null' && slug != '') {
+        var url = agentProfileUrl(slug)
+        return "<a href='"+url+"' target='_blank'>"+linkText+"</a>";
+    } if (id != null && id != 'null' && id != '') {
+        var url = agentProfileUrl(id)
+        return "<a href='"+url+"' target='_blank'>"+linkText+"</a>";
+    } else {
+        return '';
+    }
+}
+
 
 $(document).ready(function(){
 	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
 		isTeamMember();
-		inboxNotification();
+		unreadNotification();
 		loadProfileImage();
         checkNoagentIsAttached();
 

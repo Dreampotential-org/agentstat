@@ -143,7 +143,7 @@ span.font-weight-bold.text-primary.ml-2.valueSpan2, span.font-weight-bold.text-p
     color: #2c313c !important;
 }
 
-#referralModal .nextstep-btn {
+.nextstep-btn {
     width: 100%;
     text-align: center;
 }
@@ -199,7 +199,7 @@ input#acceptance_deadline {
     width: 74%;
 }
 
-#referralModal .nextstep-btn .btn-primary {
+.nextstep-btn .btn-primary {
     border-color: #b6eeaf;
     background: #b6eeaf;
     color: #000;
@@ -713,11 +713,12 @@ input#acceptance_deadline {
 /* referal page request style starts here*/
 
 .refrequest-sec {
-    padding: 50px 0 30px;
+    padding: 15px 0 0px;
+    display: none;
 }
 
 .refrequest-sec h2 {
-    margin: 0 0 35px;
+    margin: 0 0 15px;
 }
 
 .refbox-holder {
@@ -740,7 +741,7 @@ input#acceptance_deadline {
 .contentbox div {
     display: inline-block;
     vertical-align: middle;
-    width: 45%;
+    width: 40%;
     margin: 0 -3px;
 }
 
@@ -1137,4 +1138,8 @@ textarea:hover, input:hover, textarea:active, input:active, textarea:focus, inpu
 
 .changeable-bg {
     background-color: whitesmoke;
+}
+
+#referral-decline-modal textarea { 
+    resize: none; 
 }
