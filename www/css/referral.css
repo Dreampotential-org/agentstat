@@ -1,4 +1,4 @@
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show>.btn-primary.dropdown-toggle {
+.btn-default:not(:disabled):not(.disabled):active, .btn-default:not(:disabled):not(.disabled).active, .show>.btn-default.dropdown-toggle {
     padding: 0;
 }
 
@@ -22,7 +22,7 @@
     border-radius: 6px;
 }
 
-#referralModal .btn-primary:not(:disabled):not(.disabled):active, #referralModal .btn-primary:not(:disabled):not(.disabled).active, #referralModal .show>.btn-primary.dropdown-toggle {
+#referralModal .btn-default:not(:disabled):not(.disabled):active, #referralModal .btn-default:not(:disabled):not(.disabled).active, #referralModal .show>.btn-default.dropdown-toggle {
     padding: 10px;
     color: #1799a6;
     background-color: transparent;
@@ -57,7 +57,7 @@ span.input-title {
     color: #74768d;
 }
 
-#referralModal .btn-primary {
+#referralModal .btn-default {
     border-color: #eee;
 }
 

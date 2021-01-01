@@ -465,6 +465,9 @@ function clearReferralFormData() {
     $('#referralModal input, #referralModal textarea').val('');
     $('#referral-sign-modal input, #referral-sign-modal textarea').val('');
 
+    $('#referral_fee_percentage').val(1);
+    $('#acceptance_deadline').val(1);
+
     $('input[name="selected_agents"]').prop('checked', false);
 
     $('#step-1').css('display', 'block');
@@ -635,6 +638,8 @@ function updateReferral(data, referralId) {
         }, 200);
 
         $('#pending-'+referralId).remove();
+
+        $('.received-tab').click();
     });
 }
 
@@ -756,6 +761,8 @@ $(document).ready(function () {
                     }, 200);
                     
                     clearReferralFormData();
+
+                    $('.sent-tab').click();
                 });
             } else {
                 swal({
@@ -885,7 +892,7 @@ $(document).ready(function () {
         $('input[type="checkbox"]').not(this).prop('checked', false);
     });
 
-    $('.received-tab').on('click', function () {
+    $(document).on('click', '.received-tab',function () {
         $('.received-table-div').show();
         $('.sent-table-div').hide();
 
@@ -893,7 +900,7 @@ $(document).ready(function () {
         $(this).addClass('select-tab');
     });
 
-    $('.sent-tab').on('click', function () {
+    $(document).on('click', '.sent-tab',function () {
         $('.received-table-div').hide();
         $('.sent-table-div').show();
 
