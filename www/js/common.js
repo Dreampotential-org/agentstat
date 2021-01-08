@@ -56,10 +56,16 @@ function getCoordinates(address) {
         async: false,
 	});
 
-	var data = JSON.parse(jqXHR.responseText);
+    var data = JSON.parse(jqXHR.responseText);
+    var lat = null;
+    var lng = null;
+    if (data.results.length > 0) {
+        lat = data.results[0].geometry.location.lat.toFixed(6);
+        lng = data.results[0].geometry.location.lng.toFixed(6);
+    }
 	return {
-		lat: data.results[0].geometry.location.lat.toFixed(6),
-		lng: data.results[0].geometry.location.lng.toFixed(6),
+		lat: lat,
+		lng: lng,
 	}
 }
 
