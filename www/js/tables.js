@@ -595,20 +595,20 @@ function populate_cities(agent_scores) {
             return
         }
 
-        var city_avg_dom = '';
-        if (v['city_stats']['avg_dom']) {
-          city_avg_dom = v['city_stats']['avg_dom'].toFixed(2);
-        }
+        // var city_avg_dom = '';
+        // if (v['city_stats']['avg_dom']) {
+        //   city_avg_dom = v['city_stats']['avg_dom'].toFixed(2);
+        // }
 
         var avg_dom = '';
         if (v['avg_dom']) {
           avg_dom = Math.round(v['avg_dom']);
         }
 
-        var city_s2l_price = '';
-        if (v['city_stats']['s2l_price']) {
-          city_s2l_price = v['city_stats']['s2l_price'].toFixed(2);
-        }
+        // var city_s2l_price = '';
+        // if (v['city_stats']['s2l_price']) {
+        //   city_s2l_price = v['city_stats']['s2l_price'].toFixed(2);
+        // }
 
         var s2l_price = '';
         if (v['s2l_price']) {

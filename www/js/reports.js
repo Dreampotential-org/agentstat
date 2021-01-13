@@ -110,10 +110,11 @@ function getReport(days) {
 		parseResponse(jsonRes.lead_seller, 'lead-seller');
 		parseResponse(jsonRes.lead_buyer, 'lead-buyer');
 
-		parseResponse(dummyJson.traffic_profile, 'referral-unique');
-		parseResponse(dummyJson.traffic_profile, 'referral-profile');
-		parseResponse(dummyJson.traffic_profile, 'referral-contact');
-		parseResponse(dummyJson.traffic_profile, 'referral-sign');
+        // uncomment when want to enable referral tab
+		// parseResponse(dummyJson.traffic_profile, 'referral-unique');
+		// parseResponse(dummyJson.traffic_profile, 'referral-profile');
+		// parseResponse(dummyJson.traffic_profile, 'referral-contact');
+		// parseResponse(dummyJson.traffic_profile, 'referral-sign');
 	}).fail(function(err) {
 		console.log(err);
 	});
@@ -424,21 +425,22 @@ $(document).ready(function(){
 		chartType['lead-buyer'].redraw();
 		chartPrice['lead-buyer'].redraw();
 
-		chartTime['referral-unique'].redraw();
-		chartType['referral-unique'].redraw();
-		chartPrice['referral-unique'].redraw();
+        // uncomment when want to enable referral tab
+		// chartTime['referral-unique'].redraw();
+		// chartType['referral-unique'].redraw();
+		// chartPrice['referral-unique'].redraw();
 
-		chartTime['referral-profile'].redraw();
-		chartType['referral-profile'].redraw();
-		chartPrice['referral-profile'].redraw();
+		// chartTime['referral-profile'].redraw();
+		// chartType['referral-profile'].redraw();
+		// chartPrice['referral-profile'].redraw();
 
-		chartTime['referral-contact'].redraw();
-		chartType['referral-contact'].redraw();
-		chartPrice['referral-contact'].redraw();
+		// chartTime['referral-contact'].redraw();
+		// chartType['referral-contact'].redraw();
+		// chartPrice['referral-contact'].redraw();
 
-		chartTime['referral-sign'].redraw();
-		chartType['referral-sign'].redraw();
-		chartPrice['referral-sign'].redraw();
+		// chartTime['referral-sign'].redraw();
+		// chartType['referral-sign'].redraw();
+		// chartPrice['referral-sign'].redraw();
 
 		$(window).trigger('resize');
 	}); 
