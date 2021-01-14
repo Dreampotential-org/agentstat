@@ -54,7 +54,8 @@ function display_profile(profile) {
 
     $('#email-notification').attr('checked', profile.email_notification);
     $('#sms-notification').attr('checked', profile.sms_notification);
-
+    $('#show_brokerage_info').attr('checked', profile.show_brokerage_info);
+    
     var text_agents = ""
     for (var onboard of profile.onboarded_agents) {
         text_agents = (
@@ -436,7 +437,8 @@ function update_profile(tab) {
     
     data['email_notification'] = $('#email-notification').is(":checked") ? true : false;
     data['sms_notification'] = $('#sms-notification').is(":checked") ? true : false;
-
+    data['show_brokerage_info'] = $('#show_brokerage_info').is(":checked") ? true : false;
+    
     var picture_data = $('#upload')[0].files[0]
     var reader = new FileReader();
     var picture_base64 = '';

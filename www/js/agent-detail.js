@@ -341,14 +341,35 @@ function load_agent(ignore_city = true) {
     }
 
     // Render Licenses T Bottom
-    if(data['licenses'] !== undefined && data['licenses'] !== null && data['licenses'].length >0){
-      var lic = data['licenses'][0]
-      $('#license_about').text(' - '+lic.split(' ')[0]+' - '+lic.split(' ')[1])
-    } else if (data['real_estate_licence'] !== null && data['real_estate_licence'] != '') {
-      $('#license_about').text(' - '+data['real_estate_licence']);
-    } else if (data['other_licences'] !== null) {
-      $('#license_about').text(' - '+data['other_licences']);
+    if (data['show_brokerage_info'] == true) {
+        if(data['licenses'] !== undefined && data['licenses'] !== null && data['licenses'].length >0){
+            var lic = data['licenses'][0]
+            $('#license_about').text(' - '+lic.split(' ')[0]+' - '+lic.split(' ')[1])
+        } else if (data['real_estate_licence'] !== null && data['real_estate_licence'] != '') {
+            $('#license_about').text(' - '+data['real_estate_licence']);
+        } else if (data['other_licences'] !== null) {
+            $('#license_about').text(' - '+data['other_licences']);
+        }
+
+        var address = '';
+        if (data['brokerage_address'] != '') {
+            address += data['brokerage_address'];
+        }
+        if (data['city'] != '') {
+            address += ', '+data['city'];
+        }
+        if (data['state'] != '') {
+            address += ', '+data['state'];
+        }
+        if (data['zip_code'] != '') {
+            address += ', '+data['zip_code'];
+        }
+        if (address != '') {
+            $('#brokerage_address').html('Address: '+address);
+        }   
     }
+    
+    
 
     cityDropdownPopulate(data['cities']);
 

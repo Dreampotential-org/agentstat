@@ -397,6 +397,9 @@ ul.badges-list li.lg-text .bottom-text + .bottom-text{
 #badges-top-rank li { 
     cursor: pointer; 
 }
+.pth-more-left-heading h2 {
+    margin-bottom: 10px;
+}
 
 @media only screen and (max-width: 1024px) {
 	ul.badges-list li{
