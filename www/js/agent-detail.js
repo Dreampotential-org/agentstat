@@ -313,7 +313,11 @@ function load_agent(ignore_city = true) {
 
       $.each(data['specialties'], function (k, v) {
         if (v.id == 6) {
-          specialtiesText += 'Other: ' + data['other_speciality_note'] + ', ' 
+            specialtiesText += 'Other: ';
+            var other_speciality_note = JSON.parse(data['other_speciality_note']);
+            $.each(other_speciality_note, function(k,v){
+                specialtiesText += v+', ';
+            });
         }
         $('.agent-specialties').show();
       });

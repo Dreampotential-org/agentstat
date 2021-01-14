@@ -470,9 +470,21 @@
 										<label>Specialities</label>
 										<ul id="specialties" class="checklist">
 										</ul>
-										<input maxlength="20" style="display:none" id="other-speciality-text"
-												placeholder="Other Specialties" type="text">
-									</div>
+                                    </div>
+                                    
+                                    <div class="form-group other-speciality-div">
+                                        <div class="input-group">
+                                            <input maxlength="20" id="other-speciality-text" placeholder="Other Specialties" type="text"> 
+                                            <button id="other-speciality-add-btn" class="btn btn-primary" type="button">Add</button>  
+                                        </div>
+                                        <div class="new-fields">
+                                            <div class="fields-wrap">
+                                                <div id="added-speciality">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
 									<div class="form-group">
 										<label>Language Fluency</label>
 										<ul id="languages" class="checklist">
@@ -909,7 +921,7 @@
 
     <script src="/js/conf.js"></script>
     <script src="/js/review.js"></script>
-    <script src="/js/profile.js"></script>
+    <script src="/js/profile.js?0.0.1"></script>
     <script src="/js/main.js"></script>
     <script src="/js/common.js?0.0.1"></script>
     <script src="/js/ambassador.js"></script>

@@ -120,7 +120,16 @@ body {
     border-radius: 10px;
     background: #f4f4f4;
 	border: 2px solid #e2e2e2;
-	margin-top: 20px;
+}
+
+#other-speciality-add-btn {
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.remove-license, .remove-other-specialities {
+    float: right;
+    background: #ccc;
 }
 
 #morelanguages {

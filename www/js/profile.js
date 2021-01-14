@@ -1,3 +1,4 @@
+var SPECIALITY_LIMIT = 4;
 var agent_id = null
 var data_map = [
     'first_name', 'last_name', 'phone_number', 'email', 'screen_name',
@@ -31,7 +32,6 @@ function get_combo(callback, end_point) {
 
 
 function display_profile(profile) {
-    console.log(profile)
     $('#first_name').val(profile.first_name);
     $('#last_name').val(profile.last_name);
     $('#email').val(profile.email);
@@ -50,7 +50,7 @@ function display_profile(profile) {
     $('#facebook').val(profile.facebook);
     $('#twitter').val(profile.twitter);
     $('#linkedid').val(profile.linkedin);
-    $('#other-speciality-text').val(profile.other_speciality_note);
+    // $('#other-speciality-text').val(profile.other_speciality_note);
 
     $('#email-notification').attr('checked', profile.email_notification);
     $('#sms-notification').attr('checked', profile.sms_notification);
@@ -142,6 +142,11 @@ function display_profile(profile) {
         add_license(val);
     });
 
+    var other_speciality_note = JSON.parse(profile.other_speciality_note);
+    $.each(other_speciality_note, function (k, val) {
+        makeHtmlOtherSpeciality(val);
+    });
+
     if (profile.buyer_rebate !== null) {
         $('#buyer_rebate').val(profile.buyer_rebate);
         $('#buyer_rebate_checkbox').prop('checked', true);
@@ -176,7 +181,6 @@ function display_profile(profile) {
     $('#about_me').val(profile.about_me);
     $(".invite_count").val(profile.number_joined_by)
 
-    console.log(profile)
     if (profile.picture != '' && profile.picture !== null) {
         // debugger;
         $('.my-image').attr('src', profile.picture);
@@ -348,8 +352,6 @@ $(document).on('click', '#image_save', function () {
         })
         })
     }
-
-
 })
 function update_profile(tab) {
     //Show Loading Icon and Disable Submit Button
@@ -406,6 +408,15 @@ function update_profile(tab) {
     ).get();
     data['licenses'] = data['licenses'].filter(function (v) { return v !== '' });
 
+    // add other specialities
+    var other_speciality_note = $('.other-specialities').map(
+        function () { 
+            return $(this).val();
+        }
+    ).get();
+    other_speciality_note = other_speciality_note.filter(function (v) { return v !== '' });
+    data['other_speciality_note'] = JSON.stringify(other_speciality_note);
+    
     // fluent languages
     data['language_fluencies'] = $('.lng-checkbox:checked').map(
         function () { return $(this).val() }
@@ -414,7 +425,6 @@ function update_profile(tab) {
     data['specialties'] = $('.specialty-checkbox:checked').map(
         function () { return $(this).val() }
     ).get();
-    data['other_speciality_note'] = $('#other-speciality-text').val()
     data['years_in_bussiness'] = $('#years_in_bussiness').val();
 
     data['website'] = formatURL($('#website').val());
@@ -530,7 +540,9 @@ function get_specilities(specialty_ids) {
             checked = ' checked ';
         }
         if ((v.id == '6') && (checked == ' checked ')) {
-            $('#other-speciality-text').css('display', 'block')
+            $('.other-speciality-div').show();
+        } else {
+            $('.other-speciality-div').hide();
         }
         // $('#specialties').append(`
         //   <div class='col-lg-6 col-6'>
@@ -562,33 +574,76 @@ function get_specilities(specialty_ids) {
 }
 
 // ONLY Four Specialities Can be Checked
+function checkSpecialityLimit(checkboxClicked=false) {
+    var nchecked = 0;
+    $('.specialty-checkbox').each(function () {
+        if ($(this).is(':checked') == true) {
+            nchecked += 1;
+        }
+    });
+    
+    if ($('#specialty-6').is(':checked') == true) {
+        nchecked += $('.other-specialities').length;
+    }
+
+    if (nchecked > SPECIALITY_LIMIT) {
+        alert('atmost four specialities can be checked at a time.');
+        if (checkboxClicked) {
+            checkboxClicked.prop("checked", false);
+        }   
+    }
+
+    return nchecked;
+}
+
+function makeHtmlOtherSpeciality(val) {
+    var html = `
+    <div class="fragment" >
+        <input value="` + val + `" type="text" name="other_speciality[]" class="other-specialities" disabled style="width: 150px;">
+        <button type="button" class='remove-other-specialities'><i class="fa fa-times"></i></button>
+    </div>
+    `;
+    $("#added-speciality").append(html);
+}
+
+
 $(document).on('change', '.specialty-checkbox', function () {
     var current = $(this)
     if (current.is(':checked') == true) {
-        var nchecked = 0
-        $('.specialty-checkbox').each(function () {
-        if ($(this).is(':checked') == true) {
-            nchecked += 1
-        }
-        })
-        if (nchecked > 4) {
-        alert('atmost four specialities can be checked at a time.')
-        current.prop("checked", false)
-        }
+        checkSpecialityLimit(current);
     }
-})
 
-$(document).on('change', '.specialty-checkbox', function () {
     if ($(this).attr('id') == 'specialty-6') {
+        
+        $.each($('.remove-other-specialities'), function(k,v){
+            $(v).parent('div').remove();
+        });
+        
         if ($(this).is(':checked')) {
-        $('#other-speciality-text').css('display', 'block')
-        }
-        else {
-        $('#other-speciality-text').css('display', 'none')
-        $('#other-speciality-text').val('')
+            $('.other-speciality-div').show();
+        } else {
+            $('.other-speciality-div').hide();
+            $('#other-speciality-text').val('');
         }
     }
-})
+});
+
+$(document).on('click', '#other-speciality-add-btn', function(){
+    var checkCount = checkSpecialityLimit();
+    if (checkCount < SPECIALITY_LIMIT+1) {
+        var val = $('#other-speciality-text').val();
+        if (val != '') {
+            makeHtmlOtherSpeciality(val);
+            var val = $('#other-speciality-text').val('');
+        } 
+    }
+    
+});
+
+$(document).on("click", ".remove-other-specialities", function () {
+    $(this).parent('div').remove();
+});
+
 function get_languages(language_ids) {
     settings = get_settings('language-fluency', 'GET')
     $.ajax(settings).done(function (response) {
