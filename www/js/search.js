@@ -1,5 +1,5 @@
 var agent_ids_order = [];
-var all_agents=[];
+var all_agents = [];
 
 if (localStorage.getItem("pin_agent_arr") == null) {
     localStorage.setItem("pin_agent_arr", JSON.stringify([]));
@@ -57,12 +57,12 @@ function populate_city_search_menu() {
     var settings = get_settings("cities/WA", 'GET');
     settings['headers'] = null;
     $.ajax(settings).done(function (response) {
-      data = JSON.parse(response);
-      results = data['results'];
-      for (var city of data) {
-        $("#city-search-filter").append(
-            "<option value='" + city + "'>" + city + "</option>")
-      }
+        data = JSON.parse(response);
+        results = data['results'];
+        for (var city of data) {
+            $("#city-search-filter").append(
+                    "<option value='" + city + "'>" + city + "</option>")
+        }
     });
 }
 
@@ -70,7 +70,7 @@ function populate_city_search_menu() {
 function show_loading_screen() {
     swal({
         title: "Crunching Numbers!",
-        text:  "Hang tight while we crunch the numbers!",
+        text: "Hang tight while we crunch the numbers!",
         imageUrl: "/img/pop.png",
         showCancelButton: false,
         showConfirmButton: false,
@@ -99,55 +99,53 @@ function get_search_filters() {
     var filters = [];
 
     // work around for page load race condition..
-    setTimeout(function() {
-        if(urlParams.get('search_input')) {
+    setTimeout(function () {
+        if (urlParams.get('search_input')) {
             $(".ser").val(urlParams.get('search_input'))
         }
     }, 1000);
 
-    setTimeout(function() {
-        if($('#y-address').text().trim() && urlParams.get('address')) {
+    setTimeout(function () {
+        if ($('#y-address').text().trim() && urlParams.get('address')) {
             $(".ser").val(urlParams.get('address'))
         }
     }, 1000);
 
-    setTimeout(function() {
-        if(urlParams.get('search_input')) {
+    setTimeout(function () {
+        if (urlParams.get('search_input')) {
             $(".ser-map").val(urlParams.get('search_input'))
         }
     }, 1000);
 
-    setTimeout(function() {
-        if($('#y-address-map').text().trim() && urlParams.get('address')) {
+    setTimeout(function () {
+        if ($('#y-address-map').text().trim() && urlParams.get('address')) {
             $(".ser-map").val(urlParams.get('address'))
         }
     }, 1000);
 
 
     if (city == "null" || city == null) {
-        console.log("CITY IS!!!" + typeof(city))
-    }
-    else {
+        console.log("CITY IS!!!" + typeof (city))
+    } else {
         filters.push('city=' + city);
-         $("#city-search-filter").append(
-            "<option value='" + city + "'>" + city + "</option>")
-          }
+        $("#city-search-filter").append(
+                "<option value='" + city + "'>" + city + "</option>")
+    }
 
     if (agent_name != null) {
         filters.push('agent_name=' + agent_name);
     }
 
     if (lat == 'null' || lng == 'null') {
-    }
-    else if (lat && lng) {
+    } else if (lat && lng) {
         filters.push('lat=' + lat);
         filters.push('lng=' + lng);
     }
 
     if (v_estimate) {
         if (v_estimate !== 'null') {
-          filters.push('v_estimate=' + v_estimate);
-          set_v_estimate(String(v_estimate))
+            filters.push('v_estimate=' + v_estimate);
+            set_v_estimate(String(v_estimate))
         }
     }
 
@@ -167,8 +165,8 @@ function get_search_filters() {
     var selected = 'selected_agent_ids=';
     if (agent_ids != null) {
         var new_agent_ids = []
-        for(var agent_id of agent_ids.split(",")) {
-            if(agent_id) {
+        for (var agent_id of agent_ids.split(",")) {
+            if (agent_id) {
                 selected += agent_id + ",";
                 new_agent_ids.push(agent_id);
                 console.log(agent_id);
@@ -191,8 +189,7 @@ function get_profile_link(agent_id) {
     const state = urlParams.get('state');
 
     if (city == "null" || city == null) {
-    }
-    else {
+    } else {
         filters += '&city=' + city;
     }
     return "/page-three.html" + filters;
@@ -210,18 +207,19 @@ function load_search_results() {
     var city_search = urlParams.get('city_search');
     // var zipcode = urlParams.get('zipcode');
     var zipcode = false;
-    var agent_name=urlParams.get('agent_name');
+    var agent_name = urlParams.get('agent_name');
     var page_num = urlParams.get('page_num', '1');
     var street_address = urlParams.get('address', '');
 
     selected_agents = urlParams.get('agents');
     selected_agent_ids = [];
     if ((selected_agents)) {
-      selected_agent_ids = selected_agents.split(',')
+        selected_agent_ids = selected_agents.split(',')
     }
 
 
-    if (!(state)) state = "WA"
+    if (!(state))
+        state = "WA"
 
     if (page_num == null) {
         page_num = '1'
@@ -229,33 +227,33 @@ function load_search_results() {
     filters.push('page=' + page_num);
     filters.push('address=' + street_address);
 
-    if(state === null || state === 'null') {
-      state = 'WA';
-      filters.push('state=WA');
+    if (state === null || state === 'null') {
+        state = 'WA';
+        filters.push('state=WA');
     }
 
 
     if ((zipcode)) {
 
-      api_call_url = 'reports-zipcode/' + zipcode + '/';
-      $(".custom_radio")[3].click();
+        api_call_url = 'reports-zipcode/' + zipcode + '/';
+        $(".custom_radio")[3].click();
 
     } else if (city_search) {
-      api_call_url = 'reports-city/' + city_search + '/';
-      $(".custom_radio")[2].click();
+        api_call_url = 'reports-city/' + city_search + '/';
+        $(".custom_radio")[2].click();
 
     } else {
-      filters = '?' + filters.join('&');
+        filters = '?' + filters.join('&');
 
-      if ((agent_name)) {
-        $(".custom_radio")[1].click();
+        if ((agent_name)) {
+            $(".custom_radio")[1].click();
 
-        $(window).on("load", function () {
-          $("li:contains(" + state + ")").click();
-        });
+            $(window).on("load", function () {
+                $("li:contains(" + state + ")").click();
+            });
 
-      }
-      api_call_url = 'reports/' + state + '/' + filters;
+        }
+        api_call_url = 'reports/' + state + '/' + filters;
 
     }
 
@@ -268,158 +266,158 @@ function load_search_results() {
     show_loading_screen();
     $.ajax(settings).done(function (response) {
 
-      data = JSON.parse(response);
-      results = data['results'];
-      pagination_footer(data['total'])
-      var agent_id_on_page = [];
+        data = JSON.parse(response);
+        results = data['results'];
+        pagination_footer(data['total'])
+        var agent_id_on_page = [];
 
-      $.each(results, function(k, v) {
-        agent_ids_order.push(v['agent_id']);
-        all_agents.push(v);
-        brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0].toLowerCase();
-        // brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
-        agent_id_on_page.push(v['agent_id']);
+        $.each(results, function (k, v) {
+            agent_ids_order.push(v['agent_id']);
+            all_agents.push(v);
+            brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0].toLowerCase();
+            // brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
+            agent_id_on_page.push(v['agent_id']);
 
-        v['agent_full_name'] = v['agent_full_name'].toLowerCase();
-        // brokerage_info = brokerage_info.toLowerCase();
+            v['agent_full_name'] = v['agent_full_name'].toLowerCase();
+            // brokerage_info = brokerage_info.toLowerCase();
 
-        item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
-        item = item.split('[[brokerage_info]]').join(brokerage_info);
-        item = item.split('[[index]]').join(k);
+            item = search_item_min.split('[[agent_name]]').join(v['agent_full_name']);
+            item = item.split('[[brokerage_info]]').join(brokerage_info);
+            item = item.split('[[index]]').join(k);
 
-        toggle_on = '';
-        if ($.inArray(v['agent_id'].toString(), selected_agent_ids) !== -1) {
-          toggle_on = 'on';
-        }
-        item = item.split('[[toggle_on]]').join(toggle_on);
+            toggle_on = '';
+            if ($.inArray(v['agent_id'].toString(), selected_agent_ids) !== -1) {
+                toggle_on = 'on';
+            }
+            item = item.split('[[toggle_on]]').join(toggle_on);
 
-        if(v['pg_agent_screen_name']) {
-            agent_link = '/profile/' + v['pg_agent_screen_name'];
-        } else if(v['agent_screen_name']) {
-            agent_link = '/profile/' + v['agent_screen_name'];
-        } else {
-            agent_link = '/profile/' + v['agent_slug'];
-        }
+            if (v['pg_agent_screen_name']) {
+                agent_link = '/profile/' + v['pg_agent_screen_name'];
+            } else if (v['agent_screen_name']) {
+                agent_link = '/profile/' + v['agent_screen_name'];
+            } else {
+                agent_link = '/profile/' + v['agent_slug'];
+            }
 
-        item = item.split('[[agent_profile_link]]').join(agent_link);
+            item = item.split('[[agent_profile_link]]').join(agent_link);
 
-        if(v['agent_profile_pic'] == undefined || v['agent_profile_pic'] == '')
-        {
+            if (v['agent_profile_pic'] == undefined || v['agent_profile_pic'] == '')
+            {
                 picture_img = (
-                    "<div class='toc-two-left-one'>" +
-                    "<img class='rounded-circle toc-two-left-one' " +
+                        "<div class='toc-two-left-one'>" +
+                        "<img class='rounded-circle toc-two-left-one' " +
                         "style='border-radius: 130px;margin-top: 21px;' " +
                         " src='/img/blank-profile-picture-973460_1280.webp'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
-        }
-        else if (v['agent_profile_pic'] !== undefined &&
-                 v['agent_profile_pic'] !== '') {
-            picture_img = (
-                "<div class='toc-two-left-one'>" +
-                    "<img class='rounded-circle img-thumbnail' " +
+            } else if (v['agent_profile_pic'] !== undefined &&
+                    v['agent_profile_pic'] !== '') {
+                picture_img = (
+                        "<div class='toc-two-left-one'>" +
+                        "<img class='rounded-circle img-thumbnail' " +
                         "style='border-radius: 130px; margin-top: 21px;' " +
                         "src='" + v['agent_profile_pic'] + "'></div>");
-            item = item.split('[[agent_picture]]').join(picture_img);
-        } else {
-            item = item.split('[[agent_picture]]').join('');
-        }
+                item = item.split('[[agent_picture]]').join(picture_img);
+            } else {
+                item = item.split('[[agent_picture]]').join('');
+            }
 
-        item = item.split('[[time_duration]]').join(v['time_duration']);
-        item = item.split('[[city]]').join(v['city']);
-        // item = item.split('[[score]]').join(v['score'].toFixed(1));
-        item = item.split('[[agent_id]]').join(v['agent_id']);
-        item = item.split('[[agent_full_name]]').join(v['agent_full_name']);
-
-
-        item = item.split('[[overall_success_rate]]').join(
-            get_success_rate(v, true).toFixed(1));
-
-        item = item.split('[[success_rate]]').join(
-            get_success_rate(v, false).toFixed(1));
-
-        item = item.split('[[overall_failed_listings]]').join(
-            v['overall_failed_listings']);
-        item = item.split('[[failed_listings]]').join(v['failed_listings']);
-
-        item = item.split('[[overall_sold_listings]]').join(
-            v['overall_sold_listings']);
-        item = item.split('[[sold_listings]]').join(v['sold_listings']);
-
-        if (v['sold_listings'] == 0) {
-            return
-        }
-
-        item = item.split('[[overall_avg_dom]]').join(
-            v['overall_avg_dom'].toFixed(1));
-        item = item.split('[[avg_dom]]').join(v['avg_dom'].toFixed(1));
-
-        item = item.split('[[overall_s2l_price]]').join(
-            v['overall_s2l_price'].toFixed(1));
-        item = item.split('[[s2l_price]]').join(v['s2l_price'].toFixed(1));
-
-        get_val_from_breakdown(v, 'Condos', true)
-
-        item = item.split('[[overall_single_family_sold]]').join(
-          get_val_from_breakdown(v, 'Single Family Houses', true))
-
-        item = item.split('[[single_family_sold]]').join(
-          get_val_from_breakdown(v, 'Single Family Houses', false))
-
-        item = item.split('[[overall_condo_sold]]').join(
-          get_val_from_breakdown(v, 'Condo', true))
-
-        item = item.split('[[condo_sold]]').join(
-          get_val_from_breakdown(v, 'Condo', false))
+            item = item.split('[[time_duration]]').join(v['time_duration']);
+            item = item.split('[[city]]').join(v['city']);
+            // item = item.split('[[score]]').join(v['score'].toFixed(1));
+            item = item.split('[[agent_id]]').join(v['agent_id']);
+            item = item.split('[[agent_full_name]]').join(v['agent_full_name']);
 
 
-        //item = item.split('[[overall_listings_breakdown_json]]').join(
-        //    array_to_text(v['overall_listings_breakdown_json']))
+            item = item.split('[[overall_success_rate]]').join(
+                    get_success_rate(v, true).toFixed(1));
 
-        //item = item.split('[[listings_breakdown_json]]').join(
-        //    array_to_text(v['listings_breakdown_json']));
-        search_result += item;
-      });
+            item = item.split('[[success_rate]]').join(
+                    get_success_rate(v, false).toFixed(1));
 
-      $('#result-count').html(data['total']);
-      $('#page-section').html(search_result);
+            item = item.split('[[overall_failed_listings]]').join(
+                    v['overall_failed_listings']);
+            item = item.split('[[failed_listings]]').join(v['failed_listings']);
+
+            item = item.split('[[overall_sold_listings]]').join(
+                    v['overall_sold_listings']);
+            item = item.split('[[sold_listings]]').join(v['sold_listings']);
+
+            if (v['sold_listings'] == 0) {
+                return
+            }
+
+            item = item.split('[[overall_avg_dom]]').join(
+                    v['overall_avg_dom'].toFixed(1));
+            item = item.split('[[avg_dom]]').join(v['avg_dom'].toFixed(1));
+
+            item = item.split('[[overall_s2l_price]]').join(
+                    v['overall_s2l_price'].toFixed(1));
+            item = item.split('[[s2l_price]]').join(v['s2l_price'].toFixed(1));
+
+            get_val_from_breakdown(v, 'Condos', true)
+
+            item = item.split('[[overall_single_family_sold]]').join(
+                    get_val_from_breakdown(v, 'Single Family Houses', true))
+
+            item = item.split('[[single_family_sold]]').join(
+                    get_val_from_breakdown(v, 'Single Family Houses', false))
+
+            item = item.split('[[overall_condo_sold]]').join(
+                    get_val_from_breakdown(v, 'Condo', true))
+
+            item = item.split('[[condo_sold]]').join(
+                    get_val_from_breakdown(v, 'Condo', false))
 
 
-      if (window.matchMedia("(max-width: 360px)").matches)
-      {
-          // The viewport is less than 768 pixels wide
-         // document.write("This is a mobile device.");
-            jQuery(".title").attr('colspan','1');
+            //item = item.split('[[overall_listings_breakdown_json]]').join(
+            //    array_to_text(v['overall_listings_breakdown_json']))
+
+            //item = item.split('[[listings_breakdown_json]]').join(
+            //    array_to_text(v['listings_breakdown_json']));
+            search_result += item;
+        });
+        var totalnum = data['total'];
+        $('#result-count').html(totalnum.toLocaleString());
+        $('#page-section').html(search_result);
+
+
+        if (window.matchMedia("(max-width: 360px)").matches)
+        {
+            // The viewport is less than 768 pixels wide
+            // document.write("This is a mobile device.");
+            jQuery(".title").attr('colspan', '1');
         } else {
             //alert(jQuery('td').attr('test'));
             //jQuery("td").removeAttr('test');
-            jQuery(".title").attr('colspan','3');
-    }
+            jQuery(".title").attr('colspan', '3');
+        }
 
 
-      // if(city == null) $(".city_results").remove()
-      if(city_search == null && city == null) $(".city_results").remove()
+        // if(city == null) $(".city_results").remove()
+        if (city_search == null && city == null)
+            $(".city_results").remove()
 
-      set_pined_load()
-      swal.close()
+        set_pined_load()
+        swal.close()
 
-      if(urlParams.get('search_input')) {
-        $(".ser").val(urlParams.get('search_input'))
-      }
+        if (urlParams.get('search_input')) {
+            $(".ser").val(urlParams.get('search_input'))
+        }
 
-      if(urlParams.get('city_search')) {
-        $(".ser").val(urlParams.get('city_search'))
-      }
-      if(urlParams.get('search_input')) {
-        $(".ser-map").val(urlParams.get('search_input'))
-      }
+        if (urlParams.get('city_search')) {
+            $(".ser").val(urlParams.get('city_search'))
+        }
+        if (urlParams.get('search_input')) {
+            $(".ser-map").val(urlParams.get('search_input'))
+        }
 
-      if(urlParams.get('city_search')) {
-        $(".ser-map").val(urlParams.get('city_search'))
-      }
+        if (urlParams.get('city_search')) {
+            $(".ser-map").val(urlParams.get('city_search'))
+        }
 
-      agentProfileImpressionTrack(agent_id_on_page);
+        agentProfileImpressionTrack(agent_id_on_page);
 
-    }).fail(function(err) {
+    }).fail(function (err) {
         // alert('Got err');
         $('.msg').html(err['responseText']);
         $('.msg').css("display", "block");
@@ -430,7 +428,7 @@ function load_search_results() {
 function array_to_text(items) {
     var result = ''
     items = JSON.parse(items)
-    for(var item of items) {
+    for (var item of items) {
         result += item
         result += "<br>"
     }
@@ -443,37 +441,36 @@ function array_to_text(items) {
 function set_pined_load() {
     var url = new URL(window.location.href)
     var agent_ids = url.searchParams.get('agents')
-    if (!(agent_ids)) return
-    for(var agent_id of agent_ids.split(",")) {
-        if(agent_id) {
+    if (!(agent_ids))
+        return
+    for (var agent_id of agent_ids.split(",")) {
+        if (agent_id) {
             // click to set the button pined
             $(".toc-two[agent_id='" + agent_id + "']").find(
-                ".toc-two-left-two-heading-right").click()
+                    ".toc-two-left-two-heading-right").click()
 
         }
     }
 }
 
 function set_pined_agent_ids() {
-    setTimeout(function() {
-        var pined_agents  = $(".toc-two .toc-two-left-two-heading-right")
+    setTimeout(function () {
+        var pined_agents = $(".toc-two .toc-two-left-two-heading-right")
         var selected_agent_ids = ''
 
 
-        for(var pined_agent of pined_agents) {
+        for (var pined_agent of pined_agents) {
             if ($(pined_agent).hasClass("toc-two-left-two-heading-right-next")) {
                 continue
             }
             selected_agent_ids += $(pined_agent).closest(".toc-two").attr("agent_id") + ","
         }
 
-        var pined_agents  = $(".toc-two .switch_on");
-
-        $("input[type='checkbox']").change(function() {
-            if(this.checked) {
+        var pined_agents = $(".toc-two .switch_on");
+        $("input[type='checkbox']").change(function () {
+            if (this.checked) {
                 console.log("checked ")
-            }
-            else{
+            } else {
                 console.log("unchecked ")
             }
         });
@@ -488,8 +485,8 @@ function set_pined_agent_ids() {
         $("#agents").val(url.searchParams.get("agents"))
 
         selected_agent_ids = url.searchParams.get('agents').split(',');
-        $.each(selected_agent_ids, function(k, v) {
-        $('#toggler-'+v).addClass('toggle on');
+        $.each(selected_agent_ids, function (k, v) {
+            $('#toggler-' + v).addClass('toggle on');
         });
 
         window.history.pushState("", "", url)
@@ -502,7 +499,7 @@ function get_val_from_breakdown(v, key, overall) {
     } else {
         var items = JSON.parse(v['listings_breakdown_json'])
     }
-    for(var item of items) {
+    for (var item of items) {
         if (item.includes(key)) {
             return item.split(":")[1].trim()
         }
@@ -521,24 +518,24 @@ function get_success_rate(v, overall) {
 }
 
 function abbreviateNumber(value) {
-  let newValue = value;
-  const suffixes = ["", "K", "M", "B","T"];
-  let suffixNum = 0;
-  while (newValue >= 1000) {
-    newValue /= 1000;
-    suffixNum++;
-  }
+    let newValue = value;
+    const suffixes = ["", "K", "M", "B", "T"];
+    let suffixNum = 0;
+    while (newValue >= 1000) {
+        newValue /= 1000;
+        suffixNum++;
+    }
 
-  newValue = newValue.toPrecision(3);
+    newValue = newValue.toPrecision(3);
 
-  newValue += suffixes[suffixNum];
-  return newValue;
+    newValue += suffixes[suffixNum];
+    return newValue;
 }
 
 function set_v_estimate(v_estimate) {
-  if (v_estimate != 'null') {
-    $(".y-price").text("$" + abbreviateNumber(v_estimate))
-  }
+    if (v_estimate != 'null') {
+        $(".y-price").text("$" + abbreviateNumber(v_estimate))
+    }
 }
 
 
@@ -571,7 +568,7 @@ function set_home_type_radio(home_type) {
 
 function init_search_events() {
 
-    $(document).on('click', '.toc-two-left-two-heading-right', function(e) {
+    $(document).on('click', '.toc-two-left-two-heading-right', function (e) {
         $(this).addClass("toc-two-left-two-heading-right-next");
         var pinText = $(this).find("p").text();
         $(this).find("p").text("Pin to top");
@@ -581,8 +578,8 @@ function init_search_events() {
 
         sort_val = $(this).closest(".toc-two").attr('data-sort');
         sort_val = sort_val - 1;
-        if(sort_val < 0) {
-          sort_val = 1;
+        if (sort_val < 0) {
+            sort_val = 1;
         }
         if (pinText == 'Unpin') {
             agentid = $(this).closest(".toc-two").attr("agent_id");
@@ -597,7 +594,7 @@ function init_search_events() {
             // $(this).closest(".toc-two").detach().insertAfter(last_el)
             updateBrowserUrl();
 
-            setTimeout(function() {
+            setTimeout(function () {
                 load_search_results();
                 populate_city_search_menu();
             }, 100);
@@ -605,16 +602,16 @@ function init_search_events() {
     })
 
 
-    $(document).on('click', 'a.toggler' ,function(){
+    $(document).on('click', 'a.toggler', function () {
         $(this).toggleClass('on');
     });
 
 
     // pin to top
-    $(document).on('click', '.toc-two-left-two-heading-right-next', function(e) {
+    $(document).on('click', '.toc-two-left-two-heading-right-next', function (e) {
         console.log(e)
         console.log(e.target.className)
-        if(e.target.className.includes("collect-lead")) {
+        if (e.target.className.includes("collect-lead")) {
             return
         }
         console.log(e)
@@ -624,7 +621,7 @@ function init_search_events() {
         $(this).find("p").text("Unpin");
         //$(this).find("input").prop( "checked", true )
         set_pined_agent_ids();
-        if (pinText=='Pin to top') {
+        if (pinText == 'Pin to top') {
             agentid = $(this).closest(".toc-two").attr("agent_id");
             var pinAgentArr = JSON.parse(localStorage.getItem("pin_agent_arr"));
             pinAgentArr.push(agentid);
@@ -637,28 +634,28 @@ function init_search_events() {
         }
     })
 
-    $(document).on("click", "#filterSellers", function() {
+    $(document).on("click", "#filterSellers", function () {
         // do search
         if ($("#city-search-filter").val()) {
 
             var city = $("#city-search-filter").val()
-            var redio= $("form input[type='radio']:checked").val();
-            var i= 0;
+            var redio = $("form input[type='radio']:checked").val();
+            var i = 0;
 
             var page_params = get_page_initial_results()
             delete page_params['lat']
             delete page_params['lng']
             page_params['search_input'] = city
             page_params['city'] = city
-            page_params['type']= redio
-            $('.seller-filter input[type="checkbox"]'). each(function(){
+            page_params['type'] = redio
+            $('.seller-filter input[type="checkbox"]').each(function () {
                 //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
-                if($(this).is(":checked")){
+                if ($(this).is(":checked")) {
                     //alert('df');
                     //console.log($("label[for='" + this.id + "']").text());
                     i++;
-                    var data = "test"+i;
-                    page_params[data]= this.id.text();
+                    var data = "test" + i;
+                    page_params[data] = this.id.text();
                     //addId($("label[for='" + this.id + "']").text(),true, 'checkbox');
                 }
             });
@@ -667,7 +664,7 @@ function init_search_events() {
 
     })
 
-    $(document).on('change click', '.lead-submit', function() {
+    $(document).on('change click', '.lead-submit', function () {
         var selected_agent_id = $(this).attr('data-id');
         var data = {}
         data['name'] = $('#name-' + selected_agent_id).val();
@@ -682,10 +679,10 @@ function init_search_events() {
         $.ajax(settings).done(function (response) {
             var msg = JSON.parse(response);
             console.log(msg);
-            $('#msg-'+ selected_agent_id).html('Your message has been sent.');
-        }).fail(function(err) {
+            $('#msg-' + selected_agent_id).html('Your message has been sent.');
+        }).fail(function (err) {
             // alert('Got err');
-            $('#msg-'+ selected_agent_id).html(err['responseText']);
+            $('#msg-' + selected_agent_id).html(err['responseText']);
             $('#msg-' + selected_agent_id).css("display", "block");
             console.log(err);
         });
@@ -694,13 +691,16 @@ function init_search_events() {
 
 function insertParam(key, value)
 {
-    key = encodeURI(key); value = encodeURI(value);
+    key = encodeURI(key);
+    value = encodeURI(value);
     var kvp = document.location.search.substr(1).split('&');
-    var i=kvp.length; var x; while(i--)
+    var i = kvp.length;
+    var x;
+    while (i--)
     {
         x = kvp[i].split('=');
 
-        if (x[0]==key)
+        if (x[0] == key)
         {
             x[1] = value;
             kvp[i] = x.join('=');
@@ -708,7 +708,9 @@ function insertParam(key, value)
         }
     }
 
-    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+    if (i < 0) {
+        kvp[kvp.length] = [key, value].join('=');
+    }
     //this will reload the page, it's likely better to store this until finished
     document.location.search = kvp.join('&');
 }
@@ -723,15 +725,15 @@ function pagination_footer(total) {
     }
 
     $('#page-selection').bootpag({
-        total: Math.ceil(total/10),
+        total: Math.ceil(total / 10),
         page: page_num,
         maxVisible: 8,
-    }).on("page", function(event, num){
+    }).on("page", function (event, num) {
         insertParam('page_num', num)
     });
 }
 
-function getNationwideScore(time_duration=36) {
+function getNationwideScore(time_duration = 36) {
     var url = 'nationwide-score/' + time_duration;
 
     settings = get_settings(url, 'GET');
@@ -750,7 +752,7 @@ function getNationwideScore(time_duration=36) {
 }
 getNationwideScore();
 
-$('#query-submit').on('click', function(){
+$('#query-submit').on('click', function () {
 
     var name = $('#query-name').val();
     var phone = $('#query-phone').val();
@@ -762,9 +764,9 @@ $('#query-submit').on('click', function(){
     }
 
     var queryParams = {};
-    $.each(parseQuerystring(), function(k,v){
-        if (v!='' && v!='null') {
-            queryParams[k] = decodeURIComponent(v).replaceAll("+"," ");
+    $.each(parseQuerystring(), function (k, v) {
+        if (v != '' && v != 'null') {
+            queryParams[k] = decodeURIComponent(v).replaceAll("+", " ");
         }
     })
 
