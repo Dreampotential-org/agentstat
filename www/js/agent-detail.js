@@ -238,7 +238,12 @@ function load_agent(ignore_city = true) {
       }
     });
 
-    $('.brokerage_info').html(brokerage_info.toLowerCase());
+    if (data['brokerage_name']) {
+        $('.brokerage_info').html(data['brokerage_name']);
+    } else {
+        $('.brokerage_info').html(brokerage_info.toLowerCase());
+    }
+    
     $.each($('.agent_namebroker_name'), function () {
       brokerage_info += ' ' + data['city'];
 

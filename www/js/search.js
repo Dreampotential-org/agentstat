@@ -274,7 +274,11 @@ function load_search_results() {
         $.each(results, function (k, v) {
             agent_ids_order.push(v['agent_id']);
             all_agents.push(v);
-            brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0].toLowerCase();
+            if (v['profile_brokerage_name']) {
+                brokerage_info = v['profile_brokerage_name'];
+            } else {
+                brokerage_info = v['agent_brokerage_info'].split(/\r?\n/)[0].toLowerCase();
+            }
             // brokerage_info += ' ' + v['agent_state'] + ' ' + v['agent_city'];
             agent_id_on_page.push(v['agent_id']);
 
@@ -291,7 +295,9 @@ function load_search_results() {
             }
             item = item.split('[[toggle_on]]').join(toggle_on);
 
-            if (v['pg_agent_screen_name']) {
+            if (v['profile_screen_name']) {
+                agent_link = '/profile/' + v['profile_screen_name'];
+            } else if (v['pg_agent_screen_name']) {
                 agent_link = '/profile/' + v['pg_agent_screen_name'];
             } else if (v['agent_screen_name']) {
                 agent_link = '/profile/' + v['agent_screen_name'];
