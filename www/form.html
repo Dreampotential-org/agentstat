@@ -603,7 +603,7 @@
 										<img src="/img/review-icon.png" alt="Reviews">
 									</span>
 									<span class="text">Reviews</span>
-									<a href="javascript:void(0)" id="import-review" style="display: none;" class="import-review-btn">Import from Zillow</a>
+									<a href="javascript:void(0)" id="import-review" style="display: none;" class="import-review-btn" data-toggle="modal" data-target="#import-review-modal">Import from Zillow</a>
 								</strong>
 								<div id="review-div" class="slider">
 									<div class="container">
@@ -844,6 +844,48 @@
 	</div>
     
     <div id="tab-tutorial-modal"></div>
+
+    <div class="modal fade " id="import-review-modal" tabindex="-1" role="dialog" aria-labelledby="tabTutorialModal" aria-hidden="true">
+        <div class="modal-dialog  modalSignup" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 style="margin: 0;" id="tutorial-title">Import From Zillow</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    
+                    <div class="searching-zillow-profile">
+                        <p>Searching for your Zillow profile</p>
+                        <i class="fa fa-spinner fa-spin fa-10x fa-fw"></i>
+                    </div>
+
+                    <div class="find-zillow-profile">
+                        <i class="fa fa-check fa-10x fa-fw"></i>
+
+                        <p id="zillow-profile-link"></p>
+                        <p><b>Is this you?</b></p>
+
+                        <button type="button" class="btn btn-primary" id="profile-yes-btn">
+                            Yes <i class="yes-btn-spinner fa fa-spinner fa-spin fa-fw" style="display: none;"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="profile-no-btn">No</button>
+                    </div>
+
+                    <div class="other-zillow-profile">
+
+                        <input id="other-zillow-profile-link" class="form-control" type="text" placeholder="E.g. https://www.zillow.com/profile/mercedrealtor/">
+                        <p>Provide your zillow profile link. It must be a zillow agent profile. </p>
+
+                        <button type="button" class="btn btn-primary" id="submit-other-link">
+                            Import Reviews <i class="yes-btn-spinner fa fa-spinner fa-spin fa-fw" style="display: none;"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script>

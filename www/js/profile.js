@@ -139,6 +139,13 @@ function display_profile(profile) {
         </div>`);
     }
 
+    if (profile.connector && profile.connector.zillow_profile_link !== null ) {
+        var zillowLink = '<a href="'+profile.connector.zillow_profile_link+'" target="_blank">'+profile.connector.zillow_profile_link+'</a>'
+        $('#zillow-profile-link').html(zillowLink);
+    }
+
+    
+
     $.each(profile.licenses, function (k, val) {
         add_license(val);
     });
@@ -245,43 +252,106 @@ function display_profile(profile) {
     get_reviews();
 }
 
-function importZillowReviews() {
-    settings = get_settings('sync-zillow-review/', 'GET');
+function importZillowReviews(url) {
 
-    $.ajax(settings).done(function (response) {
-        var response = JSON.parse(response);
-        show_message('SUCCESS! Please allow 24 hours for reviews to import.', 10000);
-        $('#import-review').attr("disabled", "disabled");
-    }).fail(function (err) {
-        console.log(err);
+    bootbox.confirm({
+        centerVertical: true,
+        message: "I authorize agentstat.com to screenshot and sync my reviews from my public zillow profile to be displayed on my agentstat.com profile.",
+        buttons: {
+            cancel: {
+                label: 'Cancel',
+                className: 'btn-default'
+            },
+            confirm: {
+                label: 'Accept',
+                className: 'btn-success'
+            }
+        },
+        callback: function (result) {
+            if (result===true) {
+                var data = {};
+                data['url'] = url;
+                settings = get_settings('sync-zillow-review/', 'POST', JSON.stringify(data));
+
+                $.ajax(settings).done(function (response) {
+                    var response = JSON.parse(response);
+                    $('#import-review').hide();
+                    $('#import-review-modal').modal("hide");
+                    show_message('SUCCESS! Please allow 24 hours for reviews to import.', 10000);
+                    
+                }).fail(function (err) {
+                    console.log(err);
+                });        
+            } else {
+                $('.yes-btn-spinner').hide();
+            }
+        }
     });
 }
 
-
-
 $(document).ready(function(){
-    $('#import-review').on('click',function(){
-        bootbox.confirm({
-            centerVertical: true,
-            message: "I authorize agentstat.com to screenshot and sync my reviews from my public zillow profile to be displayed on my agentstat.com profile.",
-            buttons: {
-                cancel: {
-                    label: 'Cancel',
-                    className: 'btn-default'
-                },
-                confirm: {
-                    label: 'Accept',
-                    className: 'btn-success'
-                }
-            },
-            callback: function (result) {
-                if (result===true) {
-                    importZillowReviews();         
-                }
-            }
-        });
+    $('#import-review').on('click', function(){
+        $('.find-zillow-profile').hide();
+        $('.other-zillow-profile').hide();
+        $('.searching-zillow-profile').show();
+        setTimeout(function(){ 
+            $('.searching-zillow-profile').hide();
+            $('.other-zillow-profile').hide();
+            $('.find-zillow-profile').show();
+            $('.yes-btn-spinner').hide();
+        }, 3000);
+    });
+
+    $('#profile-no-btn').on('click', function(){
+        $('.other-zillow-profile').show();
+        $('.searching-zillow-profile').hide();
+        $('.find-zillow-profile').hide();
+    });
+
+    $('#submit-other-link').on('click', function(){
+        var link = $('#other-zillow-profile-link').val()
+        if (link.includes('zillow.com/profile')) {
+            $('.yes-btn-spinner').show();
+            importZillowReviews(link);
+        } else {
+            show_message('Error! Must provide a valid zillow agent profile link.', 3000);
+        }
+    });
+
+    $('#profile-yes-btn').on('click', function(){
+        $('.yes-btn-spinner').show();
+        var link = $('#zillow-profile-link').text();
+        importZillowReviews(link);
     });
 });
+
+
+
+
+
+// $(document).ready(function(){
+//     $('#import-review').on('click',function(){
+//         bootbox.confirm({
+//             centerVertical: true,
+//             message: "I authorize agentstat.com to screenshot and sync my reviews from my public zillow profile to be displayed on my agentstat.com profile.",
+//             buttons: {
+//                 cancel: {
+//                     label: 'Cancel',
+//                     className: 'btn-default'
+//                 },
+//                 confirm: {
+//                     label: 'Accept',
+//                     className: 'btn-success'
+//                 }
+//             },
+//             callback: function (result) {
+//                 if (result===true) {
+//                     importZillowReviews();         
+//                 }
+//             }
+//         });
+//     });
+// });
 
 function get_reviews() {
     settings = get_settings('review/' + agent_id + '/', 'GET');

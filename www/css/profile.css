@@ -1130,6 +1130,10 @@ body {
 .noti-description {
     margin-bottom: 50px;
 }
+.modal-content {
+    margin-top: 100px;
+}
+
 @media (min-width: 768px) {
 	.tabs-section .fields-area.about .btns-area {
 		padding-right: 45px;
