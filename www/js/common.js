@@ -383,6 +383,32 @@ function agentProfileLink(slug, linkText, id=null) {
     }
 }
 
+function getStateList() {
+    settings = get_settings('states/', 'GET');
+    settings['headers'] = {};
+    settings['async'] = false;
+  
+    var jqXHR = $.ajax(settings);
+    return JSON.parse(jqXHR.responseText);    
+}
+
+function getCityListByState(state) {
+    settings = get_settings('cities/'+state+'/', 'GET');
+    settings['headers'] = {};
+    settings['async'] = false;
+  
+    var jqXHR = $.ajax(settings);
+    return JSON.parse(jqXHR.responseText);    
+}
+
+function getAgentListByStateAndCity(state, city) {
+    settings = get_settings('agent-list-by-city/'+state+'/'+city+'/', 'GET');
+    settings['headers'] = {};
+    settings['async'] = false;
+  
+    var jqXHR = $.ajax(settings);
+    return JSON.parse(jqXHR.responseText);    
+}
 
 $(document).ready(function(){
 	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
