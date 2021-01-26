@@ -114,4 +114,7 @@ server {
         location /reset-password/ {
             try_files $uri $uri/ /reset-password.html;
         }
+        location /sitemap/ {
+            try_files $uri $uri/ /sitemap.html;
+        }
 }
