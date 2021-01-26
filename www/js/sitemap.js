@@ -13,7 +13,7 @@ function populateCities(state) {
     var cities = getCityListByState(state);
     $.each(cities, function(k,v){
         var url = '/sitemap/'+state+'/'+v;
-        var link = '<li><a href="'+url+'">'+v+' Real Estate</a></li>';
+        var link = '<li><a href="'+url+'">'+v+'</a></li>';
         $('.city-list').append(link);
     });
 }
@@ -23,7 +23,7 @@ function populateAgents(state, city) {
     var agents = getAgentListByStateAndCity(state, city);
     $.each(agents, function(k,v){
         var url = '/profile/'+v.screen_name;
-        var link = '<li><a href="'+url+'">'+v.full_name+' Real Estate Agent</a></li>';
+        var link = '<li><a href="'+url+'">'+v.full_name+'</a></li>';
         $('.agent-citylist').append(link);
     });
 }
