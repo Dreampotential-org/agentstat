@@ -117,20 +117,39 @@ $(document).on('change click', '#save-transaction', function(){
     
     data = {}
     data['id'] = transactionId;
-    data['address_text'] = $('#address_text').val()
-    data['city'] = $('#city').val()
-    data['state'] = $('#state').val()
-    data['zipcode'] = $('#zipcode').val()
-    data['home_type'] = $('#home_type').val()
-    data['list_date'] = $('#list_date').val()
-    data['sold_date'] = $('#sold_date').val()
-    data['list_price_int'] = $('#list_price_int').val()
-    data['sold_price_int'] = $('#sold_price_int').val()
-    data['represented'] = $('#inputState').val()
-    data['beds'] = $('#beds').val()
-    data['baths'] = $('#baths').val()
+    data['address_text'] = $('#address_text').val();
+    data['city'] = $('#city').val();
+    data['state'] = $('#state').val();
+    data['zipcode'] = $('#zipcode').val();
+    data['home_type'] = $('#home_type').val();
+    data['list_date'] = $('#list_date').val();
+    data['sold_date'] = $('#sold_date').val();
+    data['list_price_int'] = parseInt($('#list_price_int').val());
+    data['sold_price_int'] = parseInt($('#sold_price_int').val());
+    data['represented'] = $('#inputState').val();
+    data['beds'] = $('#beds').val();
+    data['baths'] = $('#baths').val();
     data['record_status'] = record_status;
     data['old_list_data'] = transactionObj;
+
+    if (data['address_text'] == '' || data['city'] == '' || data['state'] == '' || data['zipcode'] == '' 
+        || data['list_date'] == '' || data['sold_date'] == '' || data['list_price_int'] == '' 
+        || data['sold_price_int'] == '') {
+
+        show_message('Error! Enter transaction valid data', 3000);
+
+        $('#save-transaction-spinner').hide();
+        return false;
+    }
+
+    if (Number.isInteger(data['list_price_int']) == false || 
+        Number.isInteger(data['sold_price_int']) == false) {
+        
+        show_message('Error! Price should be numeric value', 3000);
+
+        $('#save-transaction-spinner').hide();
+        return false;
+    }
 
     var completeAddr = data['address_text']+', '+data['city']+', '+data['state']+', '+data['zipcode'];
     var coordinates = getCoordinates(completeAddr);
