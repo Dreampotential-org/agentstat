@@ -181,7 +181,6 @@ $('.add-transaction-btn').click(function(){
     $('input[type=text], #beds, #baths').val('');
 });
 
-
 $(document).ready(function() {
     $('#list_date').datepicker({
         format: 'mm/dd/yy',

@@ -876,6 +876,5 @@ $(document).on('click', '#badges-top-rank li', function(){
     var url = '/profile/'+full_path[2]+'/'+cityFilter+'-stats';
     window.history.pushState("", "", url);
 });
-
 window.addEventListener("DOMContentLoaded", init, false);
 // window.addEventListener("DOMContentLoaded", $('datatable').dataTable(), false);
