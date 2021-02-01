@@ -11,6 +11,8 @@ CITY_AGENT_SCORES_URL = 'https://app.agentstat.com/agentportal/agent_scores/'
 
 GOOGLE_MAP_KEY = 'AIzaSyB-Q1QzY9-g10FGGf14R6iglCMr1N46MLs';
 
+WEBSITE_URL = 'https://agentstat.com'; 
+
 function clean_text(text) {
     text = text.substr(0, 1).toUpperCase() + text.substr(1);
     return text.replace('_', ' ');

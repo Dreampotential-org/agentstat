@@ -75,6 +75,58 @@ function load_profile() {
         var res = JSON.parse(res);
         $('#fb_email').val(res.fb_email);
         $('#fb_pw').val(res.fb_password);
+        
+        // ambassador tab
+        if (res.screen_name === null && res.connector != '' && res.connector !== null) {
+            var screen_name = res.connector.screen_name;
+        } else {
+            var screen_name = res.screen_name;
+        }
+        var url = WEBSITE_URL+'/?ambassador='+screen_name;
+        $('#ambasar-url').val(url);
+
+        $('#data-counter-val').html(res.onboarded_agents.length);
+
+        $.each(res.onboarded_agents, function(k,v){
+            if (v.screen_name) {
+                var screen_name = v.screen_name;
+            } else {
+                var screen_name = v.zillow_agent_id;
+            }
+            var hyperLink = '<a href="/profile/'+screen_name+'" target="_blank" >'+v.first_name+' '+v.last_name+'</a>'
+
+
+            var rowHtml = `
+            <tr>
+                <td class="table-column">`+hyperLink+ ` </td>
+                <td class="table-column">` + niceDate(v.created_at, false) +`</td>
+            </tr>
+            `;
+
+            $('#ambasadar-table-body').append(rowHtml);
+        });
+
+        $('#ambasadar-table').dataTable({
+            "bSort" : false,
+            "dom": 'lrtip',
+            "bLengthChange": false,
+            "pageLength": 10,
+            "columnDefs": [
+                { orderable: false, targets: -1 }
+            ],
+            "fnInfoCallback": function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
+                console.log(iStart);
+                console.log(iEnd);
+                var info = 'Showing '+iStart+' to '+iEnd+' of '+iTotal+' entries';
+                return info;
+            },
+            "language": {
+                paginate: {
+                    next: '»',
+                    previous: '«'
+                }
+              }
+        });
     });
 }
 
@@ -155,4 +207,17 @@ $(document).ready(function(){
     load_profile()
 
     $(".fa-info-circle").tooltip();
+
+    $(document).on('click', '#ambasy-filter',function(){
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($('#ambasar-url').val()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    
+        $('#ambasy-filter').tooltip('show');
+        setTimeout(function(){ 
+            $('#ambasy-filter').tooltip('hide'); 
+        }, 3000);
+    });
 });

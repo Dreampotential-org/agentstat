@@ -21,7 +21,6 @@
     font-weight: 400;
     display: inline-block;
 }
-
 .unique-box .unique-list li span.underline-text{
     text-decoration: underline;
 }
@@ -62,6 +61,7 @@
 .cred-input {
     width: 60%;
 }
+#make-it-rain-btn
 #make-it-rain-btn, #save-fb-cred-btn {
     border-color: #b6eeaf;
     background: #b6eeaf;
@@ -72,6 +72,88 @@
 }
 #make-it-rain-btn:hover, #save-fb-cred-btn:hover {
     color: rgba(var(--color-highlight), 1.5)
+}
+.nav-tabs .nav-link{
+    width: 13%;
+}
+.tab-holder p{font-size: 14px;}
+.tab-holder {
+    padding: 50px 0 ;
+    color: #000;
+}
+form#ambsadform .input-holder:first-child{
+    width: 70%;
+    float: left;
+}
+form#ambsadform .input-holder:last-child{
+    width: 20%;
+    float: left;
+    margin: 0 0 0 10px;
+}
+form#ambsadform input {
+    display: inline-block;
+    width: 100%;
+    border:1px solid #ccc;
+}
+form#ambsadform input#ambasy-filter{
+    text-align: center;
+    background: #eee; 
+    color: #948484;
+}
+.ambtable-holder header{
+    overflow: hidden;
+}
+#ambasadar-table th,
+#ambasadar-table td{
+    border: 1px solid #ccc;
+    height: 30px;
+}
+#ambasadar-table {
+    margin: 10px 0;
+}
+.tab-footer {
+    font-size: 14px;
+    color: #000;
+}
+.tab-footer .result-counter{
+    float: left;
+    width: 50%;
+}
+.tab-footer .pagination-box{
+    float: right;
+    width: 30%;
+}
+.ambtable-holder #data-id{
+    float: left;
+}
+.ambtable-holder #data-counter{
+    float: right;
+}
+.pagination-box i{
+    font-weight: 700;
+}
+.tab-footer{overflow: hidden;}
+.tab-footer .result-counter {
+    float: left;
+    width: 80%;
+}
+.tab-footer .pagination-box
+{
+    float: right;
+    width: 20%;
+    text-align: right;
+}
+.pagination-box a {
+    background: #eee;
+    display: inline-block;
+    padding: 2px 5px;
+    color: #333;
+    border: 1px solid #ccc;
+    animation:  all ease-in 0.3s;
+}
+.pagination-box a:hover{
+    color: #eee;
+    background: #333;
 }
 @media (max-width: 600px ) {
     .unique-box {
@@ -98,5 +180,12 @@
     }
     .unique-box .unique-list li span {
         display: inline;
+    }
+    .nav-tabs .nav-link {
+        width: 35%!important;
+    }
+    .tab-holder {
+        padding: 30px 0;
+        color: #000;
     }
 }
