@@ -97,9 +97,26 @@ body {
 }
 .import-review-btn{
     position: absolute;
-    right: 0;
+    right: 105px;
     top: 20px;
     background: #1a73e8;
+    color: #fff;
+    text-decoration: none;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    border-radius: 10px;
+    height: 43px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    padding: 12px 5px;
+}
+.manual-review-btn{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    background: #3dc959;
     color: #fff;
     text-decoration: none;
     -webkit-transition: all .4s ease;
@@ -1132,6 +1149,26 @@ body {
 }
 .modal-content {
     margin-top: 100px;
+}
+#manual-review-modal label {
+    margin-bottom: 0px;
+}
+#manual-review-modal .modal-content {
+    margin-top:50px;
+}
+textarea {
+    resize: none;
+}
+#manual-review-modal .form-group {
+    margin-bottom: 10px;
+}
+#manual-review-modal .nextstep-btn {
+    width: 100%;
+    text-align: center;
+}
+#manual-review-modal #add-review {
+    background-color: #3dc959;
+    border-color: #3dc959;
 }
 
 @media (min-width: 768px) {

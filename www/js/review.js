@@ -17,7 +17,11 @@ function reviewStarHtml(rating) {
 }
 
 
-function agent_review(reviewList, pageSize=1) {
+function agent_review(reviewList, pageSize=1, destroy = false) {
+    if (destroy) {
+        $('#review-listing').DataTable().clear().destroy();
+    }
+    
     agentReviewsList = reviewList;
     $.each(agentReviewsList, function(k, v) {
         var ratingPercentage = ratingToPercent(v['rating']);
@@ -69,8 +73,6 @@ function agent_review(reviewList, pageSize=1) {
         `;
 
         $('#review-listing-body').append(html);
-
-        
     });
 
     if (Object.keys(agentReviewsList).length !== 0) {

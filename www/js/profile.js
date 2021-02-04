@@ -249,7 +249,7 @@ function display_profile(profile) {
         get_languages(profile.language_fluencies);
     }, 500);
 
-    get_reviews();
+    get_reviews(true);
 }
 
 function importZillowReviews(url) {
@@ -353,14 +353,16 @@ $(document).ready(function(){
 //     });
 // });
 
-function get_reviews() {
+function get_reviews(destroy=false) {
     settings = get_settings('review/' + agent_id + '/', 'GET');
     $.ajax(settings).done(function (response) {
         var response = JSON.parse(response);
         if (response.allow_sync == true) {
             $('#import-review').show();
-        } else if (response.allow_sync == false) {
-            agent_review(response['reviews'], 3);
+        } 
+        
+        if (response.reviews.length > 0) {
+            agent_review(response['reviews'], 3, destroy);
         }
     }).fail(function (err) {
         console.log(err);
@@ -1181,6 +1183,59 @@ $('#save_password_btn').click(function(){
         $('.password-msg').html(err.msg);
         $('.password-msg').show();
         $('#change_password_loading').hide();
+    });
+});
+
+
+$(document).on('click', '#add-review', function() {
+    var agentid = localStorage.agent_id;
+    var data = {};
+    data['full_name'] = $('#review-fullname').val();
+    data['review'] = $('#review-body').val();
+    data['overall_rating_desc'] = $('#review-overall-rating').val();
+    data['work_done'] = $('#review-workdone').val();
+    data['agent_id'] = agentid;
+    data['date'] = $('#review-date').val();
+    data['manual_create'] = true;
+    data['source'] = $('#review-source').val();
+
+    data['categories'] = [];
+  
+    var count = 0;
+    var rateTotal = 0;
+    $('.rating').each(function() {
+        category_id = $(this).attr('id').split('-')[2]
+        rate = $(this).rate('getValue');
+        data['categories'].push({'id': category_id, 'rate': rate});
+    
+        rateTotal = rateTotal + parseFloat(rate);
+        count++;
+    });
+    
+    var avgRate = rateTotal/count;
+    data['rating'] = avgRate.toFixed(1);
+  
+    if (data['full_name'] == '' || data['review'] == '' || data['overall_rating_desc'] == '' || data['work_done'] == '' 
+        || data['date'] == '') {
+
+        show_message('Error! Enter transaction valid data', 3000);
+        return false;
+    }
+    
+    $('#submit-manual-review-spinner').show();
+    settings = get_settings('review/' + agentid + '/', 'POST', JSON.stringify(data))
+    $.ajax(settings).done(function (response) {
+        var msg = JSON.parse(response);
+        show_message('Success! Review has been added successfully', 3000);
+        get_reviews(true);
+        setTimeout(function(){
+            $('#submit-manual-review-spinner').hide();
+            $('#manual-review-modal').modal('hide');
+        }, 1000);
+        
+    }).fail(function(err) {
+        show_message('Error! '+err, 3000);
+        $('#submit-manual-review-spinner').hide();
     });
 });
 

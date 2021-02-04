@@ -49,7 +49,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Page CSS -->
 
-	<link rel="stylesheet" href="/css/profile.css" />
+	<link rel="stylesheet" href="/css/profile.css?0.0.1" />
 
     <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
 
@@ -602,7 +602,8 @@
 									<span class="icon">
 										<img src="/img/review-icon.png" alt="Reviews">
 									</span>
-									<span class="text">Reviews</span>
+                                    <span class="text">Reviews</span>
+                                    <a href="javascript:void(0)" id="add-manual-review-btn"  class="manual-review-btn" data-toggle="modal" data-target="#manual-review-modal">Add Review</a>
 									<a href="javascript:void(0)" id="import-review" style="display: none;" class="import-review-btn" data-toggle="modal" data-target="#import-review-modal">Import from Zillow</a>
 								</strong>
 								<div id="review-div" class="slider">
@@ -885,7 +886,107 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="modal fade " id="manual-review-modal" tabindex="-1" role="dialog" aria-labelledby="tabTutorialModal" aria-hidden="true">
+        <div class="modal-dialog  modalSignup" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 style="margin: 0;" id="tutorial-title">Add a Review</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Source</label>
+                                <select class="form-control" id="review-source">
+                                  <option value="zillow">Zillow</option>
+                                  <option value="yelp">Yelp</option>
+                                  <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="email" class="form-control" id="review-fullname" placeholder="Enter Full Name">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="review-date" placeholder="yyyy-mm-dd" readonly="readonly" >
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <label>Overall Rating</label>
+                                <input type="email" class="form-control" id="review-overall-rating" placeholder="E.g. Highly likely to recommend">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Work Done</label>
+                        <input type="email" class="form-control" id="review-workdone" placeholder="E.g. Sold a Single Family home in 2017 in Pueblo, CO.">
+                    </div>
+                    <div class="form-group">
+                        <label>Review Description</label>
+                        <textarea class="form-control" id="review-body" placeholder="Add review description..."></textarea>
+                    </div>
+
+                    <div class="review-categories"> 
+                        <div class="row">
+                            <div class="col-lg-5" id="category-1">
+                                Local knowledge
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="rating" id='rating-category-1' data-rate-value=5></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-5" id="category-2">
+                                Process expertise
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="rating" id='rating-category-2' data-rate-value=5></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-5" id="category-3">
+                                Responsiveness
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="rating" id='rating-category-3' data-rate-value=5></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-5" id="category-4">
+                                Negotiation skills
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="rating" id='rating-category-4' data-rate-value=5></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="nextstep-btn">
+                        <button type="button" id="add-review" class="btn btn-primary">
+                            Next
+                            <i id="submit-manual-review-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script>
@@ -971,8 +1072,8 @@
     <script src="/js/jquery.slick-carousel.js"></script>
 
     <script src="/js/conf.js"></script>
-    <script src="/js/review.js"></script>
-    <script src="/js/profile.js?0.0.2"></script>
+    <script src="/js/review.js?0.0.1"></script>
+    <script src="/js/profile.js?0.0.3"></script>
     <script src="/js/main.js"></script>
     <script src="/js/common.js?0.0.1"></script>
     <script src="/js/ambassador.js"></script>
@@ -1048,7 +1149,10 @@
         });
 
         $(function () {
-            $("#review-date").datepicker();
+            $("#review-date").datepicker({
+                format: 'yyyy-mm-dd',
+                endDate: new Date()
+            });
         });
 
         var str = document.getElementById("screen_name").innerHTML;
