@@ -117,10 +117,16 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
             var noteInputClass = '';
             var noteHideClass = 'display-none';
             var editBtnClass = '';
+            var deleteBtnHtml = '';
             var noteHtml = `<td class="table-column"><button class="`+ buttonClass +`" style="margin:5px;" value="1" title="notes">`+ buttonText +`</button> </td>`;
-            // if (v['manual_create'] == true) {
-            //     editBtnClass = '';
-            // }
+            if (v['manual_create'] == true) {
+                deleteBtnHtml = `
+                <button type="button" class="btn btn-danger del-trans-btn" data-id="`+ v['id'] +`" style="float:left;margin-bottom:5px;margin-left:15px;">
+                    Delete
+                    <i id="del-trans-spinner-`+v['id']+`" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                </button>
+                `;
+            }
         } else {
             var showClass = 'display-none';
             var noteInputClass = 'display-none';
@@ -166,6 +172,7 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
                     <i id="note-spinner-`+v['id']+`" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
                     <i id="note-check-`+v['id']+`" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
                 </button>
+                `+deleteBtnHtml+`
                 <label class="`+showClass+`"><strong>`+publicNote+`</strong></label>
                 <div  class="closeform" onclick="closeBtnID('add-public-note-` + v['id'] + `')" style="float:right;margin-bottom:5px"><i class="fa fa-close" style="color: #0896fb;"></i></div>
                 

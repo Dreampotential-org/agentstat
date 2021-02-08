@@ -77,6 +77,43 @@ $(document).on('change click', '.notebtn', function(){
     });
 });
 
+$(document).on('click', '.del-trans-btn', function(){
+    var data_id = $(this).data('id');
+    bootbox.confirm({
+        centerVertical: true,
+        title: 'Delete Transaction?',
+        message: "You cannot undo deleted transaction. Are you sure to continue.",
+        buttons: {
+            cancel: {
+                label: 'Cancel',
+                className: 'btn-default'
+            },
+            confirm: {
+                label: 'Delete',
+                className: 'btn-danger'
+            }
+        },
+        callback: function (result) {
+            if (result===true) {
+                $('#del-trans-spinner-'+data_id).show();
+
+                api_call_url = 'delete-list/' + data_id + '/';
+                settings = get_settings(api_call_url, 'DELETE');
+                settings['headers'] = null;
+                $.ajax(settings).done(function (response) {
+                    show_message('Success! Transacion has been deleted', 3000);
+                    setInterval(function(){
+                        location.reload();
+                    }, 3000);
+                }).fail(function(err) {
+                    $('#del-trans-spinner-'+data_id).hide();
+                    console.log(err);
+                });
+            } 
+        }
+    });
+});
+
 $(document).on('click', '.editTransaction', function(){
     transactionId = $(this).data('id');
     record_status = 'edit';
