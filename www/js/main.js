@@ -504,6 +504,7 @@ function init() {
     });
 
     $('.ser').keydown(function(e){
+        
         // only for address search lat/lng bits
         if (e.keyCode == 13 && global_results != null) {
           console.log(global_results)
@@ -521,14 +522,14 @@ function init() {
               // keep retrying if address search. This is to
               // wait until frontend has lat/lng return to
               // auto trigger search once filled.
-              setInterval(function() {
-                if (global_results &&
-                    $("#y-address").text().trim() == 'Address' &&
-                      'lat' in global_results &&
-                      global_results['lat'] != null) {
-                    redirectResults(global_results);
-                }
-             }, 200)
+            //   setInterval(function() {
+            //     if (global_results &&
+            //         $("#y-address").text().trim() == 'Address' &&
+            //           'lat' in global_results &&
+            //           global_results['lat'] != null) {
+            //         redirectResults(global_results);
+            //     }
+            //  }, 200)
             }
         }
     });
