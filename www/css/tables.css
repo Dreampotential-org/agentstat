@@ -28,3 +28,6 @@
     margin-top: 14px;
     cursor: pointer; 
 }
+#active-trans-tbl-body .table-column {
+    height: 51px;
+}

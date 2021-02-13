@@ -7,10 +7,13 @@ function init() {
     load_agent();
 
     load_states();
+
+    load_active_list();
 }
 
 function currencyFormat(num) {
-    return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    var num = parseInt(num);
+    return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
 
 
@@ -42,6 +45,21 @@ function load_agent() {
 
         populate_transaction(data['agent_lists']);
         
+    }).fail(function(err){
+        console.log(err);
+    });
+}
+
+function load_active_list() {
+    
+    // var agent_id = localStorage.getItem('agent_id');
+    var agent_id = '4069';
+
+    settings = get_settings('agent-active-list/'+agent_id, 'GET');
+
+    $.ajax(settings).done(function (response) {
+        data = JSON.parse(response);
+        populate_active_transaction(data);
     }).fail(function(err){
         console.log(err);
     });

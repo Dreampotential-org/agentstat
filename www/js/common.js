@@ -277,7 +277,7 @@ function tabTutorialModal() {
                 'inbox': 'Inbox',
                 'reports': 'Reporting',
                 'marketing': 'Marketing',
-                'past-sales': 'Past Sales',
+                'past-sales': 'Sales',
                 'referrals': 'Referrals',
                 'team': 'Team',
             }

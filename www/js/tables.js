@@ -378,6 +378,99 @@ function populate_transaction(agent_lists, isAgent=true, destroy = false) {
     
 }
 
+function populate_active_transaction(agent_lists, isAgent=true, destroy = false) {
+    
+
+    if (destroy) {
+        $('#active-trans-tbl').DataTable().clear().destroy();
+    }
+
+    $("#active-trans-tbl-body").html("");
+
+    var count = 1;
+    var count2 = 2;
+    $.each(agent_lists, function(k, v) {
+        if (currencyFormat(v['sold_price_int']) >= currencyFormat(v['list_price_int'])) {
+            var arrowStyle = ' <i class="fa fa-long-arrow-up" style="font-size:18px;color:green"></i>';
+        } else {
+            var arrowStyle = ' <i class="fa fa-long-arrow-down" style="font-size:18px;color:red"></i>';
+        }
+
+        var hometype = '';
+        if(v['home_type'] != null || v['home_type'] != undefined ){
+            var hometype= v['home_type'].replace('_',' ');
+            hometype = makefirstLetterCapital(hometype.toLowerCase());
+        }
+
+        if (v['status']=='Failed') {
+            var soldPriceText = '-';
+        } else {
+            var soldPriceText = currencyFormat(v['sold_price_int']) + arrowStyle;
+        }
+
+        var days_on_market = '';
+        if(v['days_on_market'] != null || v['days_on_market'] != undefined ){
+            var days_on_market = v['days_on_market'];
+        } 
+
+        var year_built = '';
+        if(v['year_built'] != null || v['year_built'] != undefined ){
+            var year_built = v['year_built'];
+        } 
+        
+        var buttonHtml = '';
+        if(v['year_built'] != null || v['year_built'] != undefined ){
+            var year_built = v['year_built'];
+        }
+
+        var buttonHtml = '';
+        if(v['zpid'] != null || v['zpid'] != undefined ){
+            var detailUrl = '/property-detail/'+v['zpid'];
+            var buttonHtml = `<a href="`+detailUrl+`" target="_blank" class="btn btn-primary" style="margin:5px;" title="Detail">Detail</a>`;
+        }
+
+        var rowHtml = `
+        <tr>
+            <td style="display:none;">`+count+`</td>
+            <td style="display:none;"></td>
+            <td class='table-column status-Sold'>Active</td>
+            <td class="table-column">` + currencyFormat(v['list_price_int']) + `</td>
+            <td class="table-column">` + soldPriceText +`</td>
+            <td class="table-column">` + days_on_market + `</td>
+            <td class="table-column">` + dateFormat(v['list_date']) +`</td>
+            <td class="table-column">` + onlyAddress(v['address_text']) +`</td>
+            <td class="table-column">` + v['city'] +`</td>
+            <td class="table-column">` + v['zipcode'] +`</td>
+            <td class="table-column">` + year_built +`</td>
+            <td class="table-column" id="homeType">` + hometype +`</td>
+            <td class="table-column">`+buttonHtml+`</td>
+        </tr>
+        `;
+
+        $("#active-trans-tbl-body").append(rowHtml);
+
+        count = count + 2;
+        count2 = count2 + 2;
+    });
+
+
+    $('#active-trans-tbl').dataTable({
+        // "bSort" : false,
+        // "dom": 'lrtip',
+        "bLengthChange": false,
+        "pageLength": 10,
+        "columnDefs": [
+            { orderable: false, targets: -1 }
+        ],
+        "language": {
+            paginate: {
+                next: '»',
+                previous: '«'
+            }
+        }
+    });
+}
+
 function sortByType(cityTypeData, qCity='', homeType='') {
     var arr1 = [];
     var arr2 = [];

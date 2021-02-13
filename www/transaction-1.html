@@ -44,7 +44,6 @@
         <link rel="stylesheet" href="/css/common.css?0.0.1" />
 
         <!-- Page CSS -->
-        <link rel="stylesheet" href="/css/report.css" />
         <link rel="stylesheet" href="/css/transactions.css" />
         <link rel="stylesheet" href="/css/tables.css" />
 
@@ -104,85 +103,36 @@
             </nav>
         </div>
         <!-- header-area end -->
-        
-        <div class="col-md-12">
+        <div class="container-fluid page-container">
+            <div class="pth-all-heading">
+                <br>
+                <span class="add-transaction-btn" data-toggle="modal" data-target="#addTransaction"><b>+ Add Transaction</b></span>
+            </div>
+                <div class="pth-all">
+                <table class="table-responsive" id="transations-table" style="overflow-x: inherit; width: 100% !important;">
+                    <thead>
+                        <tr class="table-heading-transaction table-heading table-color">
+                            <td style="display:none;"></td>
+                            <td style="display:none;"></td>
+                            <td class="table-column">Status</td>
+                            <td class="table-column">List Price</td>
+                            <td class="table-column">Sold Price</td>
+                            <td class="table-column">Days on Market</td>
+                            <td class="table-column">List Date</td>
+                            <td class="table-column">Address</td>
+                            <td class="table-column">City</td>
+                            <td class="table-column">Zip</td>
+                            <td class="table-column">Built</td>
+                            <td class="table-column">Home Type</td>
+                            <td class="table-column">Notes</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table-transaction-body">
 
-            <div class="row">
-        
-                <div class="reports">
-        
-                    <nav class="top-nav">
-                        <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="pastsale-tab" data-toggle="tab" href="#pastsale" role="tab" aria-controls="pastsale" aria-selected="true">Past Sales</a>
-                            <a class="nav-item nav-link" id="activesale-tab" data-toggle="tab" href="#activesale" role="tab" aria-controls="activesale" aria-selected="false">Active Sales</a>
-                        </div>
-                    </nav>
-    
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="pastsale" role="tabpanel" aria-labelledby="pastsale-tab">
-                            <div class="container-fluid page-container">
-                                <div class="pth-all-heading">
-                                    <br>
-                                    <span class="add-transaction-btn" data-toggle="modal" data-target="#addTransaction"><b>+ Add Transaction</b></span>
-                                </div>
-                                    <div class="pth-all">
-                                    <table class="table-responsive" id="transations-table" style="overflow-x: inherit; width: 100% !important;">
-                                        <thead>
-                                            <tr class="table-heading-transaction table-heading table-color">
-                                                <td style="display:none;"></td>
-                                                <td style="display:none;"></td>
-                                                <td class="table-column">Status</td>
-                                                <td class="table-column">List Price</td>
-                                                <td class="table-column">Sold Price</td>
-                                                <td class="table-column">Days on Market</td>
-                                                <td class="table-column">List Date</td>
-                                                <td class="table-column">Address</td>
-                                                <td class="table-column">City</td>
-                                                <td class="table-column">Zip</td>
-                                                <td class="table-column">Built</td>
-                                                <td class="table-column">Home Type</td>
-                                                <td class="table-column">Notes</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="table-transaction-body">
-                    
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="activesale" role="tabpanel" aria-labelledby="activesale-tab">
-                            <div class="container-fluid page-container">
-                                <table class="table-responsive" id="active-trans-tbl" style="overflow-x: inherit; width: 100% !important;">
-                                    <thead>
-                                        <tr class="table-heading-transaction table-heading table-color">
-                                            <td style="display:none;"></td>
-                                            <td style="display:none;"></td>
-                                            <td class="table-column">Status</td>
-                                            <td class="table-column">List Price</td>
-                                            <td class="table-column">Sold Price</td>
-                                            <td class="table-column">Days on Market</td>
-                                            <td class="table-column">List Date</td>
-                                            <td class="table-column">Address</td>
-                                            <td class="table-column">City</td>
-                                            <td class="table-column">Zip</td>
-                                            <td class="table-column">Built</td>
-                                            <td class="table-column">Home Type</td>
-                                            <td class="table-column"></td>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="active-trans-tbl-body">
-                
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
-        
-        <!--  -->
 
         <div id="addTransaction" class="modal fade" role="dialog">
             <div class="modal-dialog">
