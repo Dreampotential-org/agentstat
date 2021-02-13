@@ -52,8 +52,7 @@ function load_agent() {
 
 function load_active_list() {
     
-    // var agent_id = localStorage.getItem('agent_id');
-    var agent_id = '4069';
+    var agent_id = localStorage.getItem('agent_id');
 
     settings = get_settings('agent-active-list/'+agent_id, 'GET');
 
