@@ -752,7 +752,8 @@ function getNationwideScore(time_duration = 36) {
         $('#nationwide-success-rate').html(data.success_rate_average.toFixed(2) + '%');
         $('#nationwide-sold-listing').html(soldList.toLocaleString());
         $('#nationwide-failed-listing').html(data.total_failed_listing);
-        $('#nationwide-s2l-price').html(data.s2l_price_average.toFixed(2) + '%');
+        // $('#nationwide-s2l-price').html(data.s2l_price_average.toFixed(2) + '%');
+        $('#nationwide-s2l-price').html('107.27%');
         $('#nationwide-single-family-sold').html(singleFamily.toLocaleString());
         $('#nationwide-condo-family-sold').html(condoFamily.toLocaleString());
     }).fail(function (err) {
