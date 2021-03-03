@@ -104,6 +104,8 @@
 
         <!-- Page CSS -->
         <link rel="stylesheet" href="css/index.css" />
+        <!-- Sitemap CSS -->
+        <link rel="stylesheet" href="css/sitemap.css?0.0.1" />
         <style>
             video {
                 max-width: 100%;
@@ -113,6 +115,21 @@
                 margin: 0 auto 50px;
                 padding: 0 15px;
             }
+            #home-footer{
+                position: relative;
+                height: auto;
+            }
+            #home-footer section.home-searchsec {
+                margin: 0 0 24px;
+            }
+            #home-footer  .footer-wrapper {
+                display: block;
+                width: 100%;
+                position: static;
+                transform: none;
+                text-align: center;
+            }
+
         </style>
     </head>
     <body>
@@ -538,8 +555,39 @@
         <!-- po-maps area end -->
         </div>
         <!-- footer area start -->
-        <div class="footer">
+        <div class="footer" id="home-footer">
             <div class="container">
+                <section class="home-searchsec">
+                    <div id="state-index" style="display: none;">
+                        <h4>Search for homes by state</h4>
+                        <div class="text1">
+                            <div class="items">
+                                <ul class="state-list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div id="cityindex" style="display: none;">
+                        <h4>Search for homes by city</h4>
+                        <div class="text">
+                            <div class="items">
+                                <ul class="city-list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div id="agent-cityindex" style="display: none;">
+                        <h4>Search agents by city</h4>
+                        <div class="text2">
+                            <div class="items">
+                                <ul class="agent-citylist">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <div class="footer-wrapper text-center">
                     <p>Copyright © agentstat.com</p>
                     <ul>
@@ -800,5 +848,6 @@
             }
             });
         </script>
+        <script src="js/sitemap.js?0.0.2"></script>
     </body>
 </html>
