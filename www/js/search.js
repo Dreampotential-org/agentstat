@@ -307,15 +307,7 @@ function load_search_results() {
 
             item = item.split('[[agent_profile_link]]').join(agent_link);
 
-            if (v['agent_profile_pic'] == undefined || v['agent_profile_pic'] == '')
-            {
-                picture_img = (
-                        "<div class='toc-two-left-one'>" +
-                        "<img class='rounded-circle toc-two-left-one' " +
-                        "style='border-radius: 130px;margin-top: 21px;' " +
-                        " src='/img/blank-profile-picture-973460_1280.webp'></div>");
-                item = item.split('[[agent_picture]]').join(picture_img);
-            } else if (v['agent_profile_pic'] !== undefined &&
+            if (v['agent_profile_pic'] !== undefined &&
                     v['agent_profile_pic'] !== '') {
                 picture_img = (
                         "<div class='toc-two-left-one'>" +
@@ -323,8 +315,20 @@ function load_search_results() {
                         "style='border-radius: 130px; margin-top: 21px;' " +
                         "src='" + v['agent_profile_pic'] + "'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
+            } else if (v['agent_image'] !== undefined && v['agent_image'] !== '' && v['agent_image'] != null) {
+                picture_img = (
+                        "<div class='toc-two-left-one'>" +
+                        "<img class='rounded-circle img-thumbnail' " +
+                        "style='border-radius: 130px; margin-top: 21px;' " +
+                        "src='" + v['agent_image'] + "'></div>");
+                item = item.split('[[agent_picture]]').join(picture_img);
             } else {
-                item = item.split('[[agent_picture]]').join('');
+                picture_img = (
+                    "<div class='toc-two-left-one'>" +
+                    "<img class='rounded-circle toc-two-left-one' " +
+                    "style='border-radius: 130px;margin-top: 21px;' " +
+                    " src='/img/blank-profile-picture-973460_1280.webp'></div>");
+                item = item.split('[[agent_picture]]').join(picture_img);
             }
 
             item = item.split('[[time_duration]]').join(v['time_duration']);
