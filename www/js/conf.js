@@ -1,4 +1,5 @@
-SERVER_URL = 'https://app.agentstat.com/';
+//SERVER_URL = 'https://app.agentstat.com/';
+SERVER_URL = 'http://clnode068.clemson.cloudlab.us:8000/'
 
 // UNCOMMENT to connect to local django-zillow api instance
 SERVER_URL = 'http://localhost:8000/';
