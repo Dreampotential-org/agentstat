@@ -1,119 +1,144 @@
-#cityindex, #state-index, #agent-cityindex {
-    max-width: 100%;
-    margin-top: 50px;
-    position: relative;
+#cityindex,
+#state-index,
+#agent-cityindex {
+  max-width: 100%;
+  margin-top: 50px;
+  position: relative;
 }
 
-#cityindex .text, #state-index .text1, #agent-cityindex .text2 {
-    margin-bottom: 5px;
-    color: #777;
-    padding: 0;
-    position: relative;
-    font-family: Arial;
-    font-size: 14px;
-    display: block;
+#cityindex .text,
+#state-index .text1,
+#agent-cityindex .text2 {
+  margin-bottom: 5px;
+  color: #777;
+  padding: 0;
+  position: relative;
+  font-family: Arial;
+  font-size: 14px;
+  display: block;
 }
 
-#cityindex .show-more, #state-index .show-more1, #agent-cityindex .show-more2 {
-    color: #777;
-    position: relative;
-    font-size: 12px;
-    padding-top: 5px;
-    color: #1080a2;
-    font-size: .875rem;
-    font-weight: 600;
-    height: 20px;
-    text-align: left;
-    background: transparent;
-    cursor: pointer;
+#cityindex .show-more,
+#state-index .show-more1,
+#agent-cityindex .show-more2 {
+  color: #777;
+  position: relative;
+  font-size: 12px;
+  padding-top: 5px;
+  color: #1080a2;
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: 20px;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
 }
 
-#cityindex .show-more:hover, #state-index .show-more1:hover, #agent-cityindex .show-more2:hover {
-    color: #1080a2;
+#cityindex .show-more:hover,
+#state-index .show-more1:hover,
+#agent-cityindex .show-more2:hover {
+  color: #1080a2;
 }
 
-#cityindex h4, #state-index h4, #agent-cityindex h4 {
-    font-size: 1rem;
+#cityindex h4,
+#state-index h4,
+#agent-cityindex h4 {
+  font-size: 1rem;
 }
 
-#cityindex .show-more-height, #state-index .show-more-height1, #agent-cityindex .show-more-height2 {
-    height: 165px;
-    overflow: hidden;
+#cityindex .show-more-height,
+#state-index .show-more-height1,
+#agent-cityindex .show-more-height2 {
+  height: 165px;
+  overflow: hidden;
 }
 
 .items {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .items .city-list {
-    height: 300px;
-    -webkit-column-count: 5;
-    -moz-column-count: 5;
-    column-count: 5;
-    padding: 0;
-    list-style: none;
-    margin: 0;
+  height: 300px;
+  -webkit-column-count: 5;
+  -moz-column-count: 5;
+  column-count: 5;
+  padding: 0;
+  list-style: none;
+  margin: 0;
 }
 
-.items .state-list, .items .agent-citylist {
-    height: 200px;
-    -webkit-column-count: 5;
-    -moz-column-count: 5;
-    column-count: 5;
-    padding: 0;
-    list-style: none;
-    margin: 0;
+.items .state-list,
+.items .agent-citylist {
+  height: 100%;
+  -webkit-column-count: 5;
+  -moz-column-count: 5;
+  column-count: 5;
+  padding: 0;
+  list-style: none;
+  margin: 0;
 }
 
-.items .city-list li, .items .state-list li, .items .agent-citylist li {
-    display: block;
+.items .city-list li,
+.items .state-list li,
+.items .agent-citylist li {
+  display: block;
 }
 
-.items .city-list li a, .items .state-list li a, .items .agent-citylist li a {
-    color: #1080a2;
+.items .city-list li a,
+.items .state-list li a,
+.items .agent-citylist li a {
+  color: #1080a2;
 }
 
 #state-index {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 #agent-cityindex {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 992px) {
-    .items .city-list {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-        padding: 0;
-    }
-    .items .state-list, .items .agent-citylist {
-        height: 200px;
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-    }
+  .items .city-list {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    padding: 0;
+  }
+  .items .state-list,
+  .items .agent-citylist {
+    height: 200px;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .items .city-list, .items .state-list, .items .agent-citylist {
-        -webkit-column-count: 1;
-        -moz-column-count: 1;
-        column-count: 1;
-        height: auto;
-    }
-    .items .city-list li, .items .state-list li, .items .agent-citylist li {
-        display: block;
-    }
-    #cityindex, #state-index {
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    #agent-cityindex {
-        margin-bottom: 30px;
-    }
-    #cityindex, #state-index, #agent-cityindex {
-        padding: 0 0 0 30px;
-    }
+  .items .city-list,
+  .items .state-list,
+  .items .agent-citylist {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    height: auto;
+  }
+  .items .city-list li,
+  .items .state-list li,
+  .items .agent-citylist li {
+    display: block;
+  }
+  #cityindex,
+  #state-index {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  #agent-cityindex {
+    margin-bottom: 30px;
+  }
+  #cityindex,
+  #state-index,
+  #agent-cityindex {
+    padding: 0 0 0 30px;
+  }
 }
