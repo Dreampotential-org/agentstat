@@ -57,19 +57,17 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
                   </ul>
                 </td>
               </tr>
-              <!--
               <tr >
                 <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Failed Listings</strong><span class="dot"></span></td>
                 <td>[[overall_failed_listings]]</td>
                 <td class="city_results">[[failed_listings]]</td>
                 <td style="width:10%"></td>
-              </tr> -->
+              </tr>
               <tr class="custom_tr">
                 <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Avg Days On Market</strong><span class="dot"></span></td>
                 <td>[[overall_avg_dom]]</td>
                 <td class="city_results">[[avg_dom]]</td>
                 <td style="width:10%"></td>
-
               </tr>
 
               <tr class="custom_tr">
