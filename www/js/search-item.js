@@ -16,7 +16,7 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
                   <p class="custom_score show_div">[[brokerage_info]]</p>
                   </a></h4> 
                  
-                    <!--<span>SCORE | [[score]]</span>-->
+                    <span>SCORE | [[score]]</span>
                         
                   </td>
 

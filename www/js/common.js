@@ -401,13 +401,13 @@ function getCityListByState(state) {
     return JSON.parse(jqXHR.responseText);    
 }
 
-function getAgentListByStateAndCity(state, city) {
-    settings = get_settings('agent-list-by-city/'+state+'/'+city+'/', 'GET');
+function getAgentListByStateAndCity(state, city, page) {
+    settings = get_settings('reports/'+state+'/?'+city+'&home_type=&page=' +page , 'GET');
     settings['headers'] = {};
     settings['async'] = false;
   
     var jqXHR = $.ajax(settings);
-    return JSON.parse(jqXHR.responseText);    
+    return JSON.parse(jqXHR.responseText)['results'];    
 }
 
 $(document).ready(function(){

@@ -20,10 +20,11 @@ function populateCities(state) {
 
 function populateAgents(state, city) {
     $('.agent-citylist').html('');
-    var agents = getAgentListByStateAndCity(state, city);
+    var page = 1
+    var agents = getAgentListByStateAndCity(state, city, page);
     $.each(agents, function(k,v){
         var url = '/profile/'+v.screen_name;
-        var link = '<li><a href="'+url+'">'+v.full_name+'</a></li>';
+        var link = '<li><a href="'+url+'">'+v.agent_full_name+'</a></li>';
         $('.agent-citylist').append(link);
     });
 }
