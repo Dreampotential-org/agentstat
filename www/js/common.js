@@ -402,7 +402,7 @@ function getCityListByState(state) {
 }
 
 function getAgentListByStateAndCity(state, city, page) {
-    settings = get_settings('reports/'+state+'/?'+city+'&home_type=&page=' +page , 'GET');
+    settings = get_settings('reports/'+state+'/?'+city+'&home_type=&num_results=20&page=' +page , 'GET');
     settings['headers'] = {};
     settings['async'] = false;
   
