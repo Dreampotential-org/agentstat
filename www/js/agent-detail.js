@@ -267,7 +267,9 @@ function load_agent(ignore_city = true) {
     if (data['picture'] !== null) {
       $('.back-img').attr('src', data['picture']);
     } else if (data['s3_image'] !== null) {
-        $('.back-img').attr('src', data['s3_image']);
+	var img_url = (
+		SERVER_URL + "api/agent/pic/" + data['state'] + "/" + data['s3_image'])
+        $('.back-img').attr('src', img_url);
     }
     $('#about_us').html(data['about_us']);
 

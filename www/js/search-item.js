@@ -72,8 +72,8 @@ var search_item_min = `<div class="toc-two"  data-sort="[[index]]" agent_id=[[ag
 
               <tr class="custom_tr">
                 <td class="horizontal_dotted_line"><strong style="padding-right: 10px;">Avg List to Sold Price</strong><span class="dot"></span></td>
-                <td >[[overall_s2l_price]]%</td>
-                <td class="city_results">[[s2l_price]]%</td>
+                <td >[[overall_s2l_ratio]]%</td>
+                <td class="city_results">[[s2l_ratio]]%</td>
                 <td style="width:10%"></td>
               </tr>
 

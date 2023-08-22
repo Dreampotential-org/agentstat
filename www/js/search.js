@@ -307,6 +307,7 @@ function load_search_results() {
 
             item = item.split('[[agent_profile_link]]').join(agent_link);
 
+	    console.log(v)
             if (v['agent_profile_pic'] !== undefined &&
                     v['agent_profile_pic'] !== '') {
                 picture_img = (
@@ -315,12 +316,14 @@ function load_search_results() {
                         "style='border-radius: 130px; margin-top: 21px;' " +
                         "src='" + v['agent_profile_pic'] + "'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
-            } else if (v['agent_image'] !== undefined && v['agent_image'] !== '' && v['agent_image'] != null) {
+            } else if (v['agent_s3_image'] !== undefined && v['agent_s3_image'] !== '' && v['agent_s3_image'] != null) {
+		var img_url = (
+			SERVER_URL + "api/agent/pic/" + v['state'] + "/" + v['agent_id'])
                 picture_img = (
                         "<div class='toc-two-left-one'>" +
                         "<img class='rounded-circle img-thumbnail' " +
                         "style='border-radius: 130px; margin-top: 21px;' " +
-                        "src='" + v['agent_image'] + "'></div>");
+                        "src='" + img_url + "'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
             } else {
                 picture_img = (
@@ -360,9 +363,9 @@ function load_search_results() {
                     v['overall_avg_dom'].toFixed(1));
             item = item.split('[[avg_dom]]').join(v['avg_dom'].toFixed(1));
 
-            item = item.split('[[overall_s2l_price]]').join(
-                    v['overall_s2l_price'].toFixed(1));
-            item = item.split('[[s2l_price]]').join(v['s2l_price'].toFixed(1));
+            item = item.split('[[overall_s2l_ratio]]').join(
+                    v['overall_s2l_ratio'].toFixed(1));
+            item = item.split('[[s2l_ratio]]').join(v['s2l_ratio'].toFixed(1));
 
             get_val_from_breakdown(v, 'Condos', true)
 
@@ -756,7 +759,7 @@ function getNationwideScore(time_duration = 36) {
         $('#nationwide-success-rate').html(data.success_rate_average.toFixed(2) + '%');
         $('#nationwide-sold-listing').html(soldList.toLocaleString());
         $('#nationwide-failed-listing').html(data.total_failed_listing);
-        // $('#nationwide-s2l-price').html(data.s2l_price_average.toFixed(2) + '%');
+        // $('#nationwide-s2l-price').html(data.s2l_ratio_average.toFixed(2) + '%');
         $('#nationwide-s2l-price').html('107.27%');
         $('#nationwide-single-family-sold').html(singleFamily.toLocaleString());
         $('#nationwide-condo-family-sold').html(condoFamily.toLocaleString());

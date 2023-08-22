@@ -685,10 +685,10 @@ function populate_cities(agent_scores) {
             avg_dom = v['avg_dom'].toFixed(2)
         }
 
-        if (v['s2l_price'] == null) {
-            s2l_price = '-'
+        if (v['s2l_ratio'] == null) {
+            s2l_ratio = '-'
         } else {
-            s2l_price = v['s2l_price'].toFixed(2)
+            s2l_ratio = v['s2l_ratio'].toFixed(2)
         }
 
         if (!(v['city_stats'])) {
@@ -705,14 +705,14 @@ function populate_cities(agent_scores) {
           avg_dom = Math.round(v['avg_dom']);
         }
 
-        // var city_s2l_price = '';
-        // if (v['city_stats']['s2l_price']) {
-        //   city_s2l_price = v['city_stats']['s2l_price'].toFixed(2);
+        // var city_s2l_ratio = '';
+        // if (v['city_stats']['s2l_ratio']) {
+        //   city_s2l_ratio = v['city_stats']['s2l_ratio'].toFixed(2);
         // }
 
-        var s2l_price = '';
-        if (v['s2l_price']) {
-          s2l_price = v['s2l_price'].toFixed(2);
+        var s2l_ratio = '';
+        if (v['s2l_ratio']) {
+          s2l_ratio = v['s2l_ratio'].toFixed(2);
         }
 
         if (homeType == 'Overall') {
@@ -739,7 +739,7 @@ function populate_cities(agent_scores) {
             <td class="table-column">` + homeType +`</td>
             <td class="table-column">` + v['agent_rank'] + `/` + v['rank_count'] + `</td>
             <td class="table-column">` + successRate +`%</td>
-            <td class="table-column">` + Math.round(v['s2l_price']) +`%</td>
+            <td class="table-column">` + Math.round(v['s2l_ratio']) +`%</td>
             <td class="table-column">` + avg_dom +`</td>
             <td class="table-column">` + v['sold_listings'] +`</td>
             <td class="table-column">` + v['failed_listings'] +`</td>
@@ -1006,7 +1006,7 @@ function setOverallAgentScore() {
     
         $('.overall_score').html(successRate+'%');
         $("#overall-avg-dom").html(Math.round(agentOverallScoreObj['avg_dom']));
-        $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_price'])+'%');
+        $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_ratio'])+'%');
         $('.overall_sold_listings').html(agentOverallScoreObj['sold_listings']);
     }
 }
@@ -1024,9 +1024,9 @@ function ifFilterMatched() {
             $('#overall-avg-dom').html(city_avg_dom);
         }
 
-        if (matchedScoreObj['s2l_price']) {
-            var s2l_price = Math.round(matchedScoreObj['s2l_price']);
-            $('#overall-s2l-price').html(s2l_price+'%');
+        if (matchedScoreObj['s2l_ratio']) {
+            var s2l_ratio = Math.round(matchedScoreObj['s2l_ratio']);
+            $('#overall-s2l-price').html(s2l_ratio+'%');
         }
        
         if (matchedScoreObj['sold_listings']) {
