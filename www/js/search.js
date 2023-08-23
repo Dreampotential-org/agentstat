@@ -312,8 +312,8 @@ function load_search_results() {
                     v['agent_profile_pic'] !== '') {
                 picture_img = (
                         "<div class='toc-two-left-one'>" +
-                        "<img class='rounded-circle img-thumbnail' " +
-                        "style='border-radius: 130px; margin-top: 21px;' " +
+                        "<img class='img-thumbnail' " +
+                        "style='margin-top: 34px;' " +
                         "src='" + v['agent_profile_pic'] + "'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
             } else if (v['agent_s3_image'] !== undefined && v['agent_s3_image'] !== '' && v['agent_s3_image'] != null) {
@@ -321,15 +321,16 @@ function load_search_results() {
 			SERVER_URL + "api/agent/pic/" + v['state'] + "/" + v['agent_id'])
                 picture_img = (
                         "<div class='toc-two-left-one'>" +
-                        "<img class='rounded-circle img-thumbnail' " +
-                        "style='border-radius: 130px; margin-top: 21px;' " +
+                        "<img class='img-thumbnail' " +
+                        "style='margin-top: 34px;' " +
                         "src='" + img_url + "'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
             } else {
+		// XXX Think we can delete
                 picture_img = (
                     "<div class='toc-two-left-one'>" +
-                    "<img class='rounded-circle toc-two-left-one' " +
-                    "style='border-radius: 130px;margin-top: 21px;' " +
+                    "<img class='toc-two-left-one' " +
+                    "style='margin-top: 34px;' " +
                     " src='/img/blank-profile-picture-973460_1280.webp'></div>");
                 item = item.split('[[agent_picture]]').join(picture_img);
             }
