@@ -87,6 +87,8 @@ function get_search_filters() {
     const lng = urlParams.get('lng');
     const v_estimate = urlParams.get('v_estimate');
     const home_type = urlParams.get('home_type');
+    const sort_type = urlParams.get('sort_type');
+
 
     const phone = urlParams.get('phone');
     const name = urlParams.get('name');
@@ -140,6 +142,11 @@ function get_search_filters() {
     } else if (lat && lng) {
         filters.push('lat=' + lat);
         filters.push('lng=' + lng);
+    }
+
+    if (sort_type != null) {
+        filters.push('sort_type=' + sort_type);
+	$("#sort_choice").val(sort_type)
     }
 
     if (v_estimate) {
@@ -582,6 +589,15 @@ function set_home_type_radio(home_type) {
 
 function init_search_events() {
 
+    $(document).on('change', '#sort_choice', function (e) {
+
+	const url = new URL(window.location.href);
+	url.searchParams.set("sort_type", $("#sort_choice").val());
+	window.history.pushState({ path: url.href }, '', url.href);
+	window.location = window.location.href
+
+
+    })
     $(document).on('click', '.toc-two-left-two-heading-right', function (e) {
         $(this).addClass("toc-two-left-two-heading-right-next");
         var pinText = $(this).find("p").text();
