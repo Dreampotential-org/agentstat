@@ -2,7 +2,7 @@ SERVER_URL = 'https://app.realtorstat.com/';
 //SERVER_URL = 'http://clnode068.clemson.cloudlab.us:8000/'
 
 // UNCOMMENT to connect to local django-zillow api instance
-//SERVER_URL = 'http://localhost:8000/';
+SERVER_URL = 'http://localhost:8000/';
 
 API_URL = SERVER_URL + 'api/';
 REST_AUTH_URL = SERVER_URL + 'rest-auth/';
