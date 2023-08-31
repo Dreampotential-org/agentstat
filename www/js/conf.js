@@ -75,6 +75,11 @@ function call_api(callback, url, settings) {
         var msg = JSON.parse(response);
         callback(msg);
     }).fail(function (err) {
+        console.log(err)
+        if (err.status == 401) {
+            localStorage.clear()
+            window.location = '/login/'
+        }
         callback(false);
     });
 }

@@ -36,8 +36,8 @@ function display_profile(profile) {
     $('#last_name').val(profile.last_name);
     $('#email').val(profile.email);
     $('#username').val(profile.username);
-    $('#screen_name').val(profile.screen_name);
-    $('.profile_slug').text(profile.screen_name);
+    $('#screen_name').val(profile.slug);
+    $('.profile_slug').text(profile.slug);
     $('#brokerage_name').val(profile.brokerage_name);
     $('#brokerage_address').val(profile.brokerage_address);
     $('#city').val(profile.city);
@@ -55,11 +55,11 @@ function display_profile(profile) {
     $('#email-notification').attr('checked', profile.email_notification);
     $('#sms-notification').attr('checked', profile.sms_notification);
     $('#show_brokerage_info').attr('checked', profile.show_brokerage_info);
-    
+
     var text_agents = ""
     for (var onboard of profile.onboarded_agents) {
         text_agents = (
-            text_agents + "<a href=https://agentstat.com/profile/" +
+            text_agents + "<a href=https://realtorstat.com/profile/" +
             onboard.screen_name + ">" + onboard.screen_name + "</a></br>")
     }
     $('.onboarded_agents').html(text_agents);
@@ -70,7 +70,7 @@ function display_profile(profile) {
     }
 
     if (profile.screen_name !== null && profile.screen_name != '') {
-        setUserDataStorage('screen_name', profile.screen_name);
+        setUserDataStorage('screen_name', profile.slug);
         $('.my-profile-link').attr('href', myProfileLink());
     }
 
@@ -123,13 +123,6 @@ function display_profile(profile) {
         $(".phone-input").css("border", "2px solid red");
     }
 
-    if (profile.screen_name === null && profile.connector != '' && profile.connector !== null) {
-        $('#screen_name').val(profile.connector.screen_name);
-        $('.profile_slug').html(profile.connector.screen_name)
-    } else {
-        $('#screen_name').val(profile.screen_name);
-    }
-
     get_specilities(profile.specialties);
 
     if (profile.connector && profile.connector.real_estate_licence !== null && profile.connector.real_estate_licence != '') {
@@ -144,7 +137,6 @@ function display_profile(profile) {
         $('#zillow-profile-link').html(zillowLink);
     }
 
-    
 
     $.each(profile.licenses, function (k, val) {
         add_license(val);
@@ -188,37 +180,28 @@ function display_profile(profile) {
     $('#provide_cma').prop('checked', profile.provide_cma);
     $('#about_me').val(profile.about_me);
     $(".invite_count").val(profile.number_joined_by)
+    console.log(profile)
 
     if (profile.picture != '' && profile.picture !== null) {
-        // debugger;
         $('.my-image').attr('src', profile.picture);
         $('#remove-profile-image').css('display', 'block');
         localStorage.setItem("profile-image", profile.picture);
         headerDisplayImage();
-        // $('.my-image').prop('src', profile.picture);
-        // $upload_crop = $('.my-image').croppie(
-        //   {
-        //     enableExif: true,
-        //     viewport: {
-        //       width: 200,
-        //       height: 200,
-        //       type: 'circle'
-        //     },
-        //     boundary: { width: 300, height: 300 },
-        //   }
-        // )
-        // $upload_crop.croppie('result', {
-        //   type: 'canvas',
-        //   size: 'viewport'
-        // }).then(function (resp) {
-        //   $('.cropped-image').val(resp)
-        //   console.log($('.cropped-image').val())
-        // })
-        // $('.up-photo').append('<button id="remove-profile-image" class="inline-btn">remove profile image</button>');
+    } if (profile.s3_image) {
+        $('#remove-profile-image').css('display', 'none');
+        var img_url = (
+		      SERVER_URL + "api/agent/pic/" + profile.state +
+            "/" + profile.s3_image
+        )
+        localStorage.setItem("profile-image", img_url);
+        $('.my-image').attr('src', img_url);
+        headerDisplayImage();
+    } if (profile.s3_image) {
+
+
     } else {
         src = "/img/blank-profile-picture-973460_1280.webp"
         $('.my-image').prop('src', src);
-
     }
 
     if (profile.connector != '' && profile.connector !== null) {
@@ -359,8 +342,7 @@ function get_reviews(destroy=false) {
         var response = JSON.parse(response);
         if (response.allow_sync == true) {
             $('#import-review').show();
-        } 
-        
+        }
         if (response.reviews.length > 0) {
             agent_review(response['reviews'], 3, destroy);
         }
@@ -372,7 +354,7 @@ function get_reviews(destroy=false) {
 function get_allStates() {
     var states = null
     $.ajax({
-        url: 'https://app.agentstat.com/api/states/',
+        url: 'https://app.realtorstat.com/api/states/',
         async: false,
         success: function (response) {
         states = response
@@ -824,7 +806,6 @@ $(document).ready(function () {
     });
 
 
-
   // settings = get_settings('review-category', '');
 
   // $.ajax(settings).done(function (response) {
@@ -859,7 +840,8 @@ $(document).on('change click', '#review-add-btn', function () {
     var count = 0;
     var rateTotal = 0;
     $('.rating').each(function () {
-        category_id = $(this).attr('id').split('-')[2]
+        category_id = $(this).attr('id').split("-")[2]
+        alert(categroy_id)
         rate = $(this).rate('getValue');
         data['categories'].push({ 'id': category_id, 'rate': rate });
 
@@ -869,12 +851,13 @@ $(document).on('change click', '#review-add-btn', function () {
 
     var avgRate = rateTotal / count;
     data['rating'] = avgRate.toFixed(1);
-    // data['rate'] = $(".rating").rate("getValue");
 
     review_date = new Date($('#review-date').val());
     data['date'] = review_date.toJSON();
 
-    settings = get_settings('review/' + agent_id + '/', 'POST', JSON.stringify(data))
+    alert("HERE")
+    settings = get_settings(
+        'review/' + agent_id + '/', 'POST', JSON.stringify(data))
 
     $.ajax(settings).done(function (response) {
         var msg = JSON.parse(response);
@@ -883,11 +866,12 @@ $(document).on('change click', '#review-add-btn', function () {
 
         swal({
         icon: "success",
-        });
+    });
 
 
     }).fail(function (err) {
         console.log(err);
+        alert("ERRR")
         // show_error(err);
         $('#review-msg').html(err)
     });

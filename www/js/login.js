@@ -148,10 +148,11 @@ function login() {
             'agent_slug': data['agent_slug'],
             'agent_screen_name': data['agent_screen_name'],
         });
-	if (data['agent_id'] == null) {
+	if (data['agent_slug'] == null) {
            window.location = '/connect-profile/';
 	} else {
-           window.location = '/profile-settings/';
+        console.log(data)
+        window.location = '/profile-settings/';
 	}
 
     }).fail(function (err) {

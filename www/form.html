@@ -255,7 +255,7 @@
                                                 <label for="mail">Email</label>
                                                 <div class="fields-wrap">
                                                     <div class="field-holder">
-                                                        <input type="email" id="email" required placeholder="agentname@brokerage.com">
+                                                        <input type="email" id="email" required placeholder="agentname@brokerage.com" readonly=true>
                                                     </div>
                                                 </div>
                                             </div>
@@ -263,13 +263,13 @@
                                                 <label for="screen">Screen Name</label>
                                                 <div class="fields-wrap">
                                                     <div class="field-holder">
-                                                        <input type="text" id="screen_name" placeholder="Enter Screen Name" required>
+                                                        <input type="text" id="screen_name" placeholder="Enter Screen Name" required readonly=true>
                                                     </div>
                                                 </div>
                                                 <p>Profile URL :
-                                                    https://agentstat.com/profile/<span class="profile_slug"></span>/</p>
+                                                    https://realtorstat.com/profile/<span class="profile_slug"></span>/</p>
                                                 <p>Ambassador URL :
-                                                    https://agentstat.com/?ambassador=<span class="profile_slug"></span></p>
+                                                    https://realtorstat.com/?ambassador=<span class="profile_slug"></span></p>
 
                                                 <p>You onboarded: <span class="onboarded_agents">#0</span></p>
 
@@ -277,7 +277,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-5">
-                                            <div id="image_upload_div">                                       
+                                            <div id="image_upload_div">
                                                 <div id="image_save" style="display:none">
                                                     <button id="image_save_btn" class="btn btn-primary">Save Image
                                                         <i id="save_image_loading" class="fa fa-spinner fa-spin"
@@ -833,7 +833,6 @@
 			</div>
 		</div>
 	</div>
-    
     <div id="tab-tutorial-modal"></div>
 
     <div class="modal fade " id="import-review-modal" tabindex="-1" role="dialog" aria-labelledby="tabTutorialModal" aria-hidden="true">
@@ -844,7 +843,6 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body" style="text-align: center;">
-                    
                     <div class="searching-zillow-profile">
                         <p>Searching for your Zillow profile</p>
                         <i class="fa fa-spinner fa-spin fa-10x fa-fw"></i>
@@ -903,7 +901,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
@@ -928,7 +925,7 @@
                         <textarea class="form-control" id="review-body" placeholder="Add review description..."></textarea>
                     </div>
 
-                    <div class="review-categories"> 
+                    <div class="review-categories">
                         <div class="row">
                             <div class="col-lg-5" id="category-1">
                                 Local knowledge
@@ -1021,7 +1018,6 @@
         }
 	</script>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFH-yKmfPyaa18_uYUwVWb7THj-b1hymE&amp;libraries=places"></script>
 
     <!-- Main jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
@@ -1055,16 +1051,12 @@
     <!-- Bootbox confirm box -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 
-    <script src="/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-
     <!-- Reviews slider -->
     <script src="/js/jquery.slick-carousel.js"></script>
 
     <script src="/js/conf.js"></script>
     <script src="/js/review.js?0.0.1"></script>
-    <script src="/js/profile.js?0.0.3"></script>
-    <script src="/js/main.js?0.0.1"></script>
+    <script src="/js/profile.js?0.0.4"></script>
     <script src="/js/common.js?0.0.2"></script>
     <script src="/js/ambassador.js"></script>
 
