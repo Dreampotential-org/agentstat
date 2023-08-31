@@ -313,6 +313,9 @@ function setUserDataStorage(key, val) {
 
 function myProfileLink() {
     var link = '/profile/';
+    link += localStorage.getItem('agent_id');
+    return link
+
     if (screen_name = getUserDataStorage('screen_name')) {
         link += screen_name;
     } else if (screen_name = getUserDataStorage('agent_screen_name')) {

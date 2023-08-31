@@ -40,7 +40,7 @@ function create_agent() {
 
     var data = {};
     data['email'] = $('#signup_email').val();
-    data['password1'] = $('#signup_password').val();
+    data['password'] = $('#signup_password').val();
 
     if (data['email'] == '' || validateEmail(data['email']) == false) {
         $('.msg-signup').html('Enter valid email')
@@ -48,33 +48,51 @@ function create_agent() {
         return false;
     }
 
-    if (data['password1'] == '' || data['password1'] != $('#signup_re_password').val()) {
+    if (data['password'] == '' || data['password'] != $('#signup_re_password').val()) {
         $('.msg-signup').html('Passwords don\'t match')
         $('.msg-signup').show();
         return false;
     }
 
-    data['password2'] = $('#signup_re_password').val();
-
     $('#submit-signup-spinner').show();
     $('#submit-signup-check').hide();
 
-    settings = get_settings_auth('registration/', 'POST', JSON.stringify(data))
+    settings = get_settings('signup/', 'POST', JSON.stringify(data))
     settings['headers'] = {};
     $.ajax(settings).done(function (response) {
-        var msg = objToStr(JSON.parse(response));
-        $('.msg-signup').html(msg);
-        $('.msg-signup').show();
+        var data = JSON.parse(response);
+	console.log(data)
+	if ('message' in data) {
+        	$('.msg-signup').html(data['message']);
+        	$('.msg-signup').css("display", "block");
+    		$('#submit-signup-spinner').hide();
+		return
+	}
 
-        $('#submit-signup-spinner').hide();
-        $('#submit-signup-check').show();
+        localStorage.session_id = data['token'];
+        localStorage.email = data['email'];
+        localStorage.profile_id = data['profile_id'];
+        localStorage.agent_id = data['agent_id'];
+        localStorage.role = data['role'];
+        localStorage.web_agent_id = data['web_agent_id'];
+        localStorage.tab_tutorial_json = data['tab_tutorial_json'];
+        localStorage.user_data = JSON.stringify({
+            'screen_name': data['screen_name'],
+            'agent_slug': data['agent_slug'],
+            'agent_screen_name': data['agent_screen_name'],
+        });
+        	window.location = '/connect-profile/';
+
     }).fail(function (err) {
-        var errMsg = objArrToStr(JSON.parse(err['responseText']));
-        $('.msg-signup').html(errMsg);
-        $('.msg-signup').show();
+        var error = JSON.parse(err['responseText']);
+        $('.msg-login').html(error.msg);
+        $('.msg-login').css("display", "block");
 
-        $('#submit-signup-spinner').hide();
-        $('#submit-signup-check').hide();
+        if (error.not_verified) {
+            $('#resend-verification-email').show();
+        } 
+
+        $('#submit-login-spinner').hide();
     });
 }
 
@@ -130,7 +148,11 @@ function login() {
             'agent_slug': data['agent_slug'],
             'agent_screen_name': data['agent_screen_name'],
         });
-        window.location = '/profile-settings/';
+	if (data['agent_id'] == null) {
+           window.location = '/connect-profile/';
+	} else {
+           window.location = '/profile-settings/';
+	}
 
     }).fail(function (err) {
         var error = JSON.parse(err['responseText']);
