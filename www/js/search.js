@@ -314,7 +314,6 @@ function load_search_results() {
 
             item = item.split('[[agent_profile_link]]').join(agent_link);
 
-	    console.log(v)
             if (v['agent_profile_pic'] !== undefined &&
                     v['agent_profile_pic'] !== '') {
                 picture_img = (
@@ -363,10 +362,6 @@ function load_search_results() {
                     v['overall_sold_listings']);
             item = item.split('[[sold_listings]]').join(v['sold_listings']);
 
-            if (v['sold_listings'] == 0) {
-                return
-            }
-
             item = item.split('[[overall_avg_dom]]').join(
                     v['overall_avg_dom'].toFixed(1));
             item = item.split('[[avg_dom]]').join(v['avg_dom'].toFixed(1));
@@ -389,12 +384,6 @@ function load_search_results() {
             item = item.split('[[condo_sold]]').join(
                     get_val_from_breakdown(v, 'Condo', false))
 
-
-            //item = item.split('[[overall_listings_breakdown_json]]').join(
-            //    array_to_text(v['overall_listings_breakdown_json']))
-
-            //item = item.split('[[listings_breakdown_json]]').join(
-            //    array_to_text(v['listings_breakdown_json']));
             search_result += item;
         });
         var totalnum = data['total'];
@@ -402,8 +391,7 @@ function load_search_results() {
         $('#page-section').html(search_result);
 
 
-        if (window.matchMedia("(max-width: 360px)").matches)
-        {
+        if (window.matchMedia("(max-width: 360px)").matches) {
             // The viewport is less than 768 pixels wide
             // document.write("This is a mobile device.");
             jQuery(".title").attr('colspan', '1');
