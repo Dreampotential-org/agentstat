@@ -362,13 +362,30 @@ function load_search_results() {
                     v['overall_sold_listings']);
             item = item.split('[[sold_listings]]').join(v['sold_listings']);
 
-            item = item.split('[[overall_avg_dom]]').join(
+            try {
+                item = item.split('[[overall_avg_dom]]').join(
                     v['overall_avg_dom'].toFixed(1));
-            item = item.split('[[avg_dom]]').join(v['avg_dom'].toFixed(1));
+            } catch(error) {
+                item = item.split('[[overall_avg_dom]]').join('-')
+            }
+            try {
+                item = item.split('[[avg_dom]]').join(v['avg_dom'].toFixed(1));
+            } catch (error) {
+                item = item.split('[[avg_dom]]').join('-');
+            }
 
-            item = item.split('[[overall_s2l_ratio]]').join(
-                    v['overall_s2l_ratio'].toFixed(1));
-            item = item.split('[[s2l_ratio]]').join(v['s2l_ratio'].toFixed(1));
+            try {
+                item = item.split('[[overall_s2l_ratio]]').join(
+                     v['overall_s2l_ratio'].toFixed(1));
+            } catch (error) {
+                item = item.split('[[overall_s2l_ratio]]').join('-')
+            }
+
+            try {
+                item = item.split('[[s2l_ratio]]').join(v['s2l_ratio'].toFixed(1));
+            } catch(error) {
+                item = item.split('[[s2l_ratio]]').join('-');
+            }
 
             get_val_from_breakdown(v, 'Condos', true)
 
