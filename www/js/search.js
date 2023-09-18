@@ -88,6 +88,7 @@ function get_search_filters() {
     const v_estimate = urlParams.get('v_estimate');
     const home_type = urlParams.get('home_type');
     const sort_type = urlParams.get('sort_type');
+    const refresh = urlParams.get('refresh');
 
 
     const phone = urlParams.get('phone');
@@ -154,6 +155,10 @@ function get_search_filters() {
             filters.push('v_estimate=' + v_estimate);
             set_v_estimate(String(v_estimate))
         }
+    }
+
+    if (refresh) {
+        filters.push('refresh=true');
     }
 
     if (home_type) {
