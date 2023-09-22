@@ -507,7 +507,6 @@ function sortByCity(agent_scores) {
     qCity = qCity.toLowerCase();
     var cityMatchedArr = [];
     var citiesArr = [];
-    
     $.each(agent_scores, function(k,v){
         v['agent_percentage'] = agentTopPercentage(v['agent_rank'], v['rank_count']);
     });
@@ -531,20 +530,20 @@ function sortByCity(agent_scores) {
         }
     });
     var cities = cityMatchedArr.concat(citiesArr);
-
     var finalData = [];
     var counter = 0;
     var badgesArr = [];
     $.each(cities, function(k, v){
         var cityTypeData = [];
         $.each(agent_scores, function(k1, v1){
+            console.log(agent_scores)
             if (v1['city'] !== null && v == v1['city'].toLowerCase()) {
                 cityTypeData.push(v1);
                 if (qCity == v1['city'].toLowerCase() && v1['home_type'] === null) {
                     matchedScoreObj = v1;
                 }
 
-                if (v1['home_type'] === null) {
+                if (v1['home_type'] != null) {
                     var agent_percentage = agentTopPercentage(v1['agent_rank'],
                                                               v1['rank_count']);
                     if (!isNaN(agent_percentage)) {
@@ -691,9 +690,9 @@ function populate_cities(agent_scores) {
             s2l_ratio = v['s2l_ratio'].toFixed(2)
         }
 
-        if (!(v['city_stats'])) {
-            return
-        }
+//        if (!(v['city_stats'])) {
+ //           return
+  //      }
 
         // var city_avg_dom = '';
         // if (v['city_stats']['avg_dom']) {
@@ -715,7 +714,7 @@ function populate_cities(agent_scores) {
           s2l_ratio = v['s2l_ratio'].toFixed(2);
         }
 
-        if (homeType == 'Overall') {
+        if (homeType != 'Overall') {
             var displayNone = '';
             var rightArrowHtml = '<p class="right-arrow-city" data-city="'+v['city']+'"> '+v['city']+' <i class="fa fa-chevron-right" aria-hidden="true" style="margin-left:10px;"></i></p>';
             var downArrowHtml = '<p class="down-arrow-city" style="display:none;" data-city="'+v['city']+'"> '+v['city']+' <i data-city="'+v['city']+'" class="fa fa-chevron-down" aria-hidden="true" style="margin-left:10px;"></i></p>';
@@ -732,6 +731,9 @@ function populate_cities(agent_scores) {
 
         var successRate = (100 - ((v['failed_listings']/v['sold_listings'])*100));
         var successRate = calculateSuccessRate(v['failed_listings'], v['sold_listings']);
+
+        console.log(v)
+        console.log("Agent Rank " + v['agent_rank'])
 
         var rowHtml = `
         <tr class="score-`+ city +` `+rowNumber+` score-overall-row" style="`+displayNone+`">
@@ -761,7 +763,7 @@ function populate_cities(agent_scores) {
         }, 100);
     }
 
-    if (cityFilter != '') { 
+    if (cityFilter != '') {
         $('#badges-top-rank img').removeClass('badge-border');
 
         var cityWithoutSpace = cityFilter.replace(/\s+/g, '');
@@ -779,7 +781,6 @@ function loadPagination() {
     <li class="paginate_button page-item previous disabled" id="city-table_previous">
         <a href="javascript:void(0)" data-page="prev" class="page-link">«</a>
     </li>`;
-    
     for (var i = 1; i <= pages; i++) {
         var active = '';
         if (i == 1) {
@@ -1003,7 +1004,6 @@ function setOverallAgentScore() {
         var successRate = calculateSuccessRate(
             agentOverallScoreObj['failed_listings'],
             agentOverallScoreObj['sold_listings']);
-    
         $('.overall_score').html(successRate+'%');
         $("#overall-avg-dom").html(Math.round(agentOverallScoreObj['avg_dom']));
         $("#overall-s2l-price").html(Math.round(agentOverallScoreObj['s2l_ratio'])+'%');

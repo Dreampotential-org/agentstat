@@ -75,6 +75,7 @@ function load_agent_score(duration = '36') {
   $.ajax(settings).done(function (response) {
     data = JSON.parse(response);
     cityScoreAllData = data.agent_scores_es;
+    console.log(cityScoreAllData)
 
     var full_path = window.location.pathname.split('/');
     var cityParam = full_path[3];
