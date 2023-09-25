@@ -673,7 +673,7 @@ function populate_cities(agent_scores) {
     $.each(finalData, function(k,v){
 
         if (v['home_type'] == null) {
-            var homeType = 'Overall';
+            return
         } else {
             var homeType = v['home_type'];
         }
@@ -716,9 +716,9 @@ function populate_cities(agent_scores) {
 
         if (homeType != 'Overall') {
             var displayNone = '';
-            var rightArrowHtml = '<p class="right-arrow-city" data-city="'+v['city']+'"> '+v['city']+' <i class="fa fa-chevron-right" aria-hidden="true" style="margin-left:10px;"></i></p>';
-            var downArrowHtml = '<p class="down-arrow-city" style="display:none;" data-city="'+v['city']+'"> '+v['city']+' <i data-city="'+v['city']+'" class="fa fa-chevron-down" aria-hidden="true" style="margin-left:10px;"></i></p>';
+            var rightArrowHtml = '<p class="" data-city="'+v['city']+'"> '+v['city']+' <i class="" aria-hidden="true" style="margin-left:10px;"></i></p>';
             var city = '';
+            var downArrowHtml = '';
             var rowNumber = 'score-row-'+cityOverallCount;
             cityOverallCount++;
         } else {
@@ -734,6 +734,7 @@ function populate_cities(agent_scores) {
 
         console.log(v)
         console.log("Agent Rank " + v['agent_rank'])
+        if (v['agent_rank'] === undefined) return
 
         var rowHtml = `
         <tr class="score-`+ city +` `+rowNumber+` score-overall-row" style="`+displayNone+`">
