@@ -2,10 +2,11 @@ SERVER_URL = 'https://app.realtorstat.com/';
 //SERVER_URL = 'http://clnode068.clemson.cloudlab.us:8000/'
 
 // UNCOMMENT to connect to local django-zillow api instance
-//SERVER_URL = 'http://localhost:8000/';
+SERVER_URL = 'http://localhost:8000/';
 
 API_URL = SERVER_URL + 'api/';
 REST_AUTH_URL = SERVER_URL + 'rest-auth/';
+CHECKOUT_URL = SERVER_URL + 'checkout/';
 
 TRANSACTIONS_URL = 'https://app.agentstat.com/agentportal/transactions/'
 CITY_AGENT_SCORES_URL = 'https://app.agentstat.com/agentportal/agent_scores/'
@@ -44,6 +45,22 @@ function get_settings(url, method, data = null) {
             'Authorization': 'Token ' + localStorage.getItem('session_id'),
         },
         'url': API_URL + url,
+        'method': method,
+        'processData': false,
+        'data': data,
+        'contentType': 'application/json',
+        'mimeType': 'multipart/form-data',
+    }
+}
+
+function get_settings_checkout(url, method, data = null) {
+    return {
+        'async': true,
+        'crossDomain': true,
+        'headers': {
+            'Authorization': 'Token ' + localStorage.getItem('session_id'),
+        },
+        'url': CHECKOUT_URL + url,
         'method': method,
         'processData': false,
         'data': data,
