@@ -17,13 +17,14 @@ $.ajax(settings).done(function (response) {
       const stripe = Stripe(data.publicKey);
 
       let submitBtn = document.querySelector("#submitBtn");
+      let cancelBtn = document.querySelector("#cancelBtn");
       if (submitBtn !== null) {
         submitBtn.addEventListener("click", () => {
         // Get Checkout Session ID
         settings = get_settings_checkout("create-checkout-session/", "GET")
         $.ajax(settings).done(function (response) {
             data = JSON.parse(response);
-            // Redirect to Stripe Checkout
+            // Redirect to Stripe Chaeckout
             return stripe.redirectToCheckout({sessionId: data.sessionId})
           })
           .then((res) => {
@@ -31,6 +32,19 @@ $.ajax(settings).done(function (response) {
           });
         });
     }
+      if (cancelBtn !== null){
+        cancelBtn.addEventListener("click", () => {
+        // Get Checkout Session ID
+        settings = get_settings_checkout("cancel-subscription/", "POST")
+        $.ajax(settings).done(function (response) {
+            data = response;
+            alert(data);
+          })
+          .then((res) => {
+            return res
+          });
+        });
+      }
 });
 }
 window.addEventListener('DOMContentLoaded', init, false);
@@ -38,3 +52,4 @@ window.addEventListener('DOMContentLoaded', init, false);
 </script>
 <script src="https://js.stripe.com/v3/"></script>
 <button type="submit" class="btn btn-primary" id="submitBtn">Subscribe</button>
+<button type="submit" class="btn btn-primary" id="cancelBtn">Cancel</button>
