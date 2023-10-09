@@ -17,13 +17,16 @@ $.ajax(settings).done(function (response) {
       const stripe = Stripe(data.publicKey);
 
       let submitBtn = document.querySelector("#submitBtn");
+      let cancelBtn = document.querySelector("#cancelBtn");
+      let retrieveBtn = document.querySelector("#retrieveBtn");
+
       if (submitBtn !== null) {
         submitBtn.addEventListener("click", () => {
         // Get Checkout Session ID
         settings = get_settings_checkout("create-checkout-session/", "GET")
         $.ajax(settings).done(function (response) {
             data = JSON.parse(response);
-            // Redirect to Stripe Checkout
+            // Redirect to Stripe Chaeckout
             return stripe.redirectToCheckout({sessionId: data.sessionId})
           })
           .then((res) => {
@@ -31,6 +34,41 @@ $.ajax(settings).done(function (response) {
           });
         });
     }
+      if (cancelBtn !== null){
+        cancelBtn.addEventListener("click", () => {
+        // Get Checkout Session ID
+        settings = get_settings_checkout("cancel-subscription/", "POST")
+        $.ajax(settings).done(function (response) {
+            data = response;
+            alert(data);
+          })
+          .then((res) => {
+            return res
+          });
+        });
+      }
+
+      if (retrieveBtn !== null){
+        retrieveBtn.addEventListener("click", () => {
+        // Get Checkout Session ID
+        console.log("Here for retrieving")
+        settings = get_settings_checkout("retrieve-subscription/", "GET")
+        $.ajax(settings).done(function (response) {
+            subscription_data = JSON.parse(response);
+            console.log("Subscription: ", subscription_data)
+            if (subscription_data['subscription'].length > 0){
+              alert("Subscription already exists");
+            }
+            else{
+              alert("No subsciptions");
+            }
+
+          })
+          .then((res) => {
+            return res
+          });
+        });
+      }
 });
 }
 window.addEventListener('DOMContentLoaded', init, false);
@@ -38,3 +76,5 @@ window.addEventListener('DOMContentLoaded', init, false);
 </script>
 <script src="https://js.stripe.com/v3/"></script>
 <button type="submit" class="btn btn-primary" id="submitBtn">Subscribe</button>
+<button type="submit" class="btn btn-primary" id="cancelBtn">Cancel</button>
+<button type="submit" class="btn btn-primary" id="retrieveBtn">Retrieve Subscriptions</button>
