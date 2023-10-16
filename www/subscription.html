@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/subscription.css" />
     <script src="./js/conf.js"></script>
+    <script src="./js/common.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="/js/subscription.js"></script>
 
@@ -18,12 +19,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="modal" id="myModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Subscription Already Exists</h5>
+        <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Subscription Already Exists!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-          <a class="navbar-brand" href="#"><img src="/img/logo-beta.png" alt="Logo"></a>
-          <ul class="navbar-nav">
+          <a class="navbar-brand" href="#"><img src="/img/logo-beta.png" alt="Logo" width= 200px height= auto;></a>
+          <ul class="navbar-nav"
               <li class="nav-item">
                   <button id="loginBtn">Login</a>
+              </li>
+              <li class="nav-item">
+                  <button id="logoutBtn">Logout</a>
+                  <!-- <a class="logout" href="javascript:void(0)">Sign Out</a> -->
               </li>
           </ul>
       </div>
@@ -40,64 +59,54 @@
     </p>
     <button id="submitBtn">Continue</button>
   </div> 
-
-
-
+  <br>
   <div class="mainContainerContainer1">
-    <div class="container1">
-      <div class="miniContainer1">
-        <h1>Leads you generate on your profile are 100% yours to keep</h1>
-        <p>
-          Use AgentStat to win listings presentation. Your AgentStat profile page shows your achievements and can highlight yourself.
-        </p>
-        <p>AgentStat shows you stats and other analytics such as how manytimes your profile has been viewed or clicked on.
-        </p>
-        <p>AgentStat Referral system allows you to send referrals with esignature system.
-        </p>
-        <p></p>
-        <button on:click={startFreeTrial}>Start free trial</button>
-      </div>
-      <div class="miniContainer2">
-        <img alt="img1" src="/images/image2OfSub.png"> 
+    <div class="miniContainer1">
+      <div class="row">
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="card text-bg-dark mb-3 text-center">
+            <img src="/images/image2OfSub.png" class="card-img-top">
+            <div class="card-body">
+              <h2 class="card-title">Leads you generate on your profile are 100% yours to keep</h2>
+              <hr>
+              <p class="card-text">Use AgentStat to win listings presentation. Your AgentStat profile page shows your achievements and can highlight yourself.</p>
+              <p class="card-text">AgentStat shows you stats and other analytics such as how manytimes your profile has been viewed or clicked on.</p>
+              <p class="card-text">AgentStat Referral system allows you to send referrals with esignature system.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex align-items-stretch">
+
+          <div class="card text-bg-dark mb-3 text-center">
+            <img src="/images/image1OfSub.png" class="card-img-top">
+            <div class="card-body">
+              <h2 class="card-title">Expert-level emails and scripts</h2>
+              <hr>
+              <p class="card-text">AgentStat crafts expert level email and sales scripts trained on
+                communications from top producing agents, so you always have the right
+                words to say.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4 d-flex align-items-stretch">
+
+          <div class="card text-bg-dark mb-3 text-center">
+            <img src="/images/image3OfSub.png" class="card-img-top">
+            <div class="card-body">
+              <h2 class="card-title">One price. All the tools.</h2>
+              <hr>
+              <p class="card-text">Whether you're drafting an email for a client, reimagining a room, or
+          creating a captivating listing description -- there's a tool for you.</p>
+              <p class="card-text">AgentStat subscribers get unlimited access to all of our AI tools.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
-  <div class="mainContainerContainer1">
-    <div class="container1">
-      <div class="miniContainer1">
-        <h1>Expert-level emails and scripts</h1>
-        <p>
-          AgentStat crafts expert level email and sales scripts trained on
-          communications from top producing agents, so you always have the right
-          words to say.
-        </p>
-        <button on:click={startFreeTrial}>Start free trial</button>
-      </div>
-      <div class="miniContainer2">
-        <img alt="img1" src="/images/image1OfSub.png"> 
-      </div>
-    </div>
-  </div>
-
-
-  <div class="mainContainerContainer1">
-    <div class="container1">
-      <div class="miniContainer1">
-        <h1>Expert-level emails and scripts</h1>
-        <p>
-          AgentStat crafts expert level email and sales scripts trained on
-          communications from top producing agents, so you always have the right
-          words to say.
-        </p>
-        <button on:click={startFreeTrial}>Start free trial</button>
-      </div>
-      <div class="miniContainer2">
-        <img alt="img1" src="/images/image3OfSub.png"> 
-      </div>
-    </div>
-  </div>
-
+  <br>
+  <center><div class="headContainer"><button id="submitBtn">Start Free Trial Now!</button></div></center>
 
 <div class="mainContainerContainer2">
   <div class="Container2">
@@ -111,7 +120,7 @@
 </div>
 
 
-<div class="container3">
+<div class="container3 center">
   <div class="item1">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +140,7 @@
       Craft engaging emails to build strong connections with customers and guide
       them to take action.
     </p>
-    <a href="/Ai">View tools ⟶</a>
+    <a href="/Ai.html">View tools ⟶</a>
   </div>
   <div class="item2">
     <svg
@@ -154,7 +163,7 @@
       Help your buyer fall in love with a room by generating instant AI
       remodels.
     </p>
-    <a href="/Ai">View tools ⟶</a>
+    <a href="/Ai.html">View tools ⟶</a>
   </div>
   <div class="item3">
     <svg
@@ -175,7 +184,7 @@
       Build your online presence with specialized social media posts for every
       network.
     </p>
-    <a href="/Ai">View tools ⟶</a>
+    <a href="/Ai.html">View tools ⟶</a>
   </div>
   <div class="item4">
     <svg
@@ -193,7 +202,7 @@
     >
     <h3>Phone Scripts</h3>
     <p>Always find the right words to say when speaking to clients.</p>
-    <a href="/Ai">View tools ⟶</a>
+    <a href="/Ai.html">View tools ⟶</a>
   </div>
   <div class="item5">
     <svg
@@ -217,7 +226,7 @@
       Enhance your online presence with persuasive content for the web, from
       detailed listings to insightful blogs and professional bios.
     </p>
-    <a href="/Ai">View tools ⟶</a>
+    <a href="/Ai.html">View tools ⟶</a>
   </div>
 </div>
 <div class="container5" id="container5">
@@ -327,7 +336,7 @@
     <h1>$9.99/mo</h1>
     <p>Access to all tools</p>
     <p>Unlimited usage</p>
-    <button>Sign Up</button>
+    <button id="signUp">Sign Up</button>
    </div>
   </div>
 </div>

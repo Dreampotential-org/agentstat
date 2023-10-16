@@ -5,6 +5,7 @@ body {
 .accordion{
   padding: 20px 100px;
 }
+
 .footer{
   display: flex;
   flex-direction: column;
@@ -62,6 +63,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 100px;
+  padding: 20px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.165);
 }
 
 .container1 {
@@ -92,8 +95,10 @@ body {
   border: none;
 }
 
+
 .miniContainer1 {
   padding-left: 30px;
+  padding-right: 30px;
 }
 
 .miniContainer2 {
@@ -108,7 +113,10 @@ body {
 .miniContainer2 img {
   height: 300px;
 }
-
+.carouselExampleControls{
+  width: 20%;
+  height: 20%;
+}
 .mainContainer2 {
   background-color: rgb(245, 245, 245);
   margin: 200px 120px 0 120px;
