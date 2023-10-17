@@ -17,7 +17,6 @@ function init() {
     } catch {}
     const local_storage = localStorage;
     const session_id = local_storage.session_id;
-    // console.log("data", data);
     if (data) {
       const stripe = Stripe(data.publicKey);
     }
