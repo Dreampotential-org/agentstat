@@ -18,6 +18,7 @@
 </head>
 <body>
   <div class="main">
+
   <div class="modal" id="loginModal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -39,21 +40,17 @@
         <div class="back"><i class="ri-arrow-left-s-line"></i></div>
       </a>
       <br>
-      <h2>Listing Description Generator</h2>
-      <h4>Create engaging property descriptions highlighting key features.</h4>
+      <h2>Image Generator</h2>
+      <h4>Transform ordinary real estate images into captivating masterpieces with our cutting-edge image enhancer. Elevate your property listings to the next level.</h4>
       <div class="typearea" id="typeArea">
-        <h4>Insert key points*</h4>
+        <!-- <h4>Insert key points*</h4> -->
         <p>
-          Enter features such as the number of bedrooms, bathrooms, square footage,
-          local amenities, and anything else that makes the property stand out.
+          Please upload the image here!
         </p>
-        <textarea
-          type="textarea"
-          maxlength="1000"
-          data-required="no"
-          data-id="1"
-          bind:value="{inputValue}"> </textarea>
-          <button id="submitBtn">Start Task</button>
+        <div class="mb-3">
+          <input class="form-control" type="file" id="upload">
+        </div>
+        <button id="submitBtn">Start Task</button>
       </div>
     </div>
 
@@ -67,15 +64,14 @@
             <div class="loading-animation">Loading... Please wait</div></center>
         </div>
         <div class="output" id="outputField">
-          <div class="copy" >
-            <i class="ri-file-copy-line" id="copyButton"></i>
-          </div>
-            <textarea id="OutputOfData"></textarea>
+          <img id="OutputOfImage" src="">
+          <br>
+          <a href="" class="button" id="downloadButton"><strong>Download!</strong></a>
         </div>
     </div>
 
   </div>
 </body>
-    <script src="/js/website.js"></script>
-    <link rel="stylesheet" href="css/website.css" />
+    <script src="/js/photo.js"></script>
+    <link rel="stylesheet" href="css/photo.css" />
 </html>

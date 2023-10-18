@@ -1,0 +1,373 @@
+    
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#downloadButton {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #1F5466;
+  color: white;
+  padding: 0.5vw 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid rgb(12, 94, 167);
+  border-top: 20px solid rgb(12, 94, 167);
+}
+
+#outBtn {
+  margin-left: 250px;
+  font-size: 25px;
+  margin-top: -10px;
+}
+
+.popup h1 {
+  font-size: 25px;
+  margin: 0px 0px 10px 80px;
+}
+
+.popup #popupTittle {
+  font-size: 20px;
+  margin: 0px 0px 20px 50px;
+}
+
+.popup button {
+  background-color: transparent;
+  border: none;
+}
+
+.popup .Gifts {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+  margin-left: 25px;
+}
+
+.popup .Gifts p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.popup #ContinueBtn {
+  border-radius: 7px;
+  background-color: rgb(12, 94, 167);
+  color: white;
+  height: 40px;
+  width: 90%;
+  margin-left: 14px;
+}
+
+.popup.active {
+  display: block;
+}
+
+.popup2 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid rgb(12, 94, 167);
+  border-top: 20px solid rgb(12, 94, 167);
+}
+
+#outBtn {
+  margin-left: 250px;
+  font-size: 25px;
+  margin-top: -10px;
+}
+
+.popup2 h1 {
+  font-size: 25px;
+  margin: 0px 0px 10px 80px;
+}
+
+.popup2 #popupTittle {
+  font-size: 20px;
+  margin: 0px 0px 20px 50px;
+}
+
+.popup2 button {
+  background-color: transparent;
+  border: none;
+}
+
+.popup2 .Gifts {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+  margin-left: 25px;
+}
+
+.popup2 .Gifts p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.popup2 #ContinueBtn {
+  border-radius: 7px;
+  background-color: rgb(12, 94, 167);
+  color: white;
+  height: 40px;
+  width: 90%;
+  margin-left: 14px;
+}
+
+.popup2 .active {
+  display: block;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  /* background-color: coral; */
+  display: flex;
+}
+
+.left {
+  width: 40%;
+  height: 100%;
+  border-right: 1px solid rgb(199, 199, 199);
+  padding: 1.5vw 2vw;
+}
+
+.back {
+  width: 2.2vw;
+  height: 2.2vw;
+  background-color: #E5EBF9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.back i {
+  font-size: 25px;
+}
+
+.left > h1 {
+  margin-top: 2vw;
+  font-size: 1.2vw;
+}
+
+.left > h4 {
+  margin-top: 0.3vw;
+  font-size: 0.8vw;
+  color: rgb(137, 137, 137);
+  font-weight: 300;
+}
+
+.typearea {
+  margin-top: 1.5vw;
+}
+
+.typearea h1 {
+  font-size: 1.1vw;
+}
+
+.typearea textarea {
+  margin-top: 1vw;
+  width: 100%;
+  height: 15vw;
+  border: 1px solid rgb(205, 205, 205);
+  border-radius: 7px;
+  padding: 15px;
+  font-size: 0.8vw;
+  box-shadow: 0px 0px 12px 0px rgb(205, 205, 205);
+}
+
+.typearea button {
+  font-family: "Nunito Sans", sans-serif;
+  margin-top: 1vw;
+  width: 100%;
+  height: 2.2vw;
+  border-radius: 50px;
+  border: none;
+  background-color: #1F5466;
+  font-size: 0.8vw;
+  color: white;
+  padding: 0.5vw 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typearea button i {
+  margin-right: 0.25vw;
+}
+
+.right {
+  width: 60%;
+  height: 100%;
+  padding: 1vw 1.5vw;
+  /* display: none; */
+}
+
+.copy {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 20px;
+}
+
+
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 1.5rem;
+  color: #333; /* Adjust the color as needed */
+}
+
+.LoadAnim {
+  height: 190px;
+}
+
+.animationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+}
+
+.loading-animation {
+  margin-top: -100px;
+}
+
+.right textarea {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.copy {
+  height: 3vw;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 20px;
+}
+
+.output {
+/*  overflow-y: scroll;*/
+  width: 100%;
+  height: 90%;
+  padding: 25px;
+}
+
+@media (max-width: 770px) {
+  .main {
+    height: 100vh;
+    width: 100vw;
+    /* background-color: coral; */
+    display: flex;
+    flex-direction: column;
+  }
+  .left {
+    padding: 35px 15px 0px 15px;
+    width: 100%;
+    height: 100vh;
+  }
+  .back {
+    width: 10vw;
+    height: 10vw;
+    background-color: #E5EBF9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  .left > h1 {
+    margin-top: 7vw;
+    font-size: 6vw;
+  }
+  .left > h4 {
+    margin-top: 0.3vw;
+    font-size: 3.3vw;
+    color: rgb(137, 137, 137);
+    font-weight: 300;
+  }
+  .typearea {
+    margin-top: 1.5vw;
+  }
+  .typearea textarea {
+    margin-top: 3vw;
+    width: 100%;
+    height: 50vw;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 4vw;
+    color: black;
+    box-shadow: 0px 0px 12px 0px rgb(205, 205, 205);
+  }
+  .typearea button {
+    font-family: "Nunito Sans", sans-serif;
+    margin-top: 2vw;
+    width: 100%;
+    height: 10vw;
+    border-radius: 50px;
+    border: none;
+    background-color: #1F5466;
+    font-size: 3vw;
+    color: white;
+    padding: 0.5vw 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .typearea button i {
+    margin-right: 0.25vw;
+  }
+  .right {
+    width: 100%;
+    min-height: 100vh;
+    /* border-right: 2px solid red; */
+    /* background-color: rgb(161, 112, 112); */
+    padding: 5vw;
+    /* display: none; */
+    position: relative;
+  }
+}

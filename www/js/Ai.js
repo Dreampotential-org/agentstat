@@ -6,6 +6,8 @@ const scriptBtn = document.getElementById("scriptBtn");
 const photoBtn = document.getElementById("photoBtn");
 const smsBtn = document.getElementById("smsBtn");
 const socialBtn = document.getElementById("socialBtn");
+const websiteDescriptionGenerator = document.getElementById("websiteDescriptionGenerator");
+const photoGenerator = document.getElementById("photoGenerator")
 
 const visibleElementsContainer = document.getElementById("all-visible-elements");
 
@@ -102,6 +104,16 @@ function show_all(){
   window.location.href = ""
 }
 
+// Function to handle the redirection based on the presence of 'localStorage.session_id'
+function redirectToPage(targetUrl) {
+    if (localStorage.session_id) {
+        // Redirect to the 'website.html' page if the session ID is present.
+        window.location.href = targetUrl;
+    } else {
+        // Redirect to the 'login.html' page if the session ID is not present.
+        window.location.href = '/login.html';
+    }
+}
 
 // Add an event listener to the button element
 emailBtn.addEventListener("click", show_only_email);
@@ -110,4 +122,14 @@ scriptBtn.addEventListener("click", show_only_scripts);
 photoBtn.addEventListener("click", show_only_photo);
 smsBtn.addEventListener("click", show_only_sms);
 socialBtn.addEventListener("click", show_only_social);
-allBtn.addEventListener("click", show_all); 
+allBtn.addEventListener("click", show_all);
+
+// Pass the target URL as a parameter when setting up the event listener
+websiteDescriptionGenerator.addEventListener("click", function () {
+    redirectToPage('/website.html');
+});
+
+// Pass the target URL as a parameter when setting up the event listener
+photoGenerator.addEventListener("click", function () {
+    redirectToPage('/photo.html');
+});

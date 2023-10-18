@@ -6,12 +6,14 @@ const submitBtn = document.getElementById('submitBtn');
 const outputField = document.getElementById("outputField");
 const outputTextField = document.getElementById('OutputOfData');
 const copyButton = document.getElementById('copyButton');
-console.log("outputField", outputField);
+const loginModal= document.getElementById('loginModal');
 // Get a reference to the loading animation container
 const loadingContainer = document.querySelector('.animationContainer');
 
-console.log("session_id", local_storage.session_id);
-
+if (localStorage.session_id){}
+  else{
+    loginModal.style.display = 'block';
+  }
 // Add a click event listener to the button
 submitBtn.addEventListener('click', async function () {
   // Get the value from the textarea
