@@ -108,7 +108,7 @@ body {
     }
     .po-serach-wrapper {
         left: 30px !important;
-        max-width: 69%;
+        max-width: 82%!important;
     }
 }
 @media (max-width: 992px) {
@@ -206,9 +206,9 @@ body {
     .po-search.pt-search {
         margin-top: -60px;
     }
-    .index-check-type {
+    /* .index-check-type {
         left: -30px;
-    }
+    } */
     #pt-check, #pt-amount {
         right: 0px;
     }
