@@ -505,7 +505,7 @@ ul {
   font-size: 36px;
   display: inline-block;
   position: relative;
-  z-index: 20;
+  /* z-index: 20; */
   padding: 0px 20px;
 }
 
@@ -4675,7 +4675,7 @@ a.toggler.on:before {
   }
   .po-serach-wrapper input.ser {
     /* width: 240px !important; */
-    width: 107px !important;
+    /* width: 107px !important; */
   }
   .po-serach-wrapper .type p {
     width: 92px;
