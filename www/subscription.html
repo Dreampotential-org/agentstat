@@ -1,64 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/img/fav.png"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/fav.png">
 
-    <title>AgentStat Premium</title>
+  <title>AgentStat Premium</title>
 
-    <link rel="stylesheet" href="css/common.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/subscription.css" />
-    <script src="./js/conf.js"></script>
-    <script src="./js/common.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="/js/subscription.js"></script>
+  <link rel="stylesheet" href="css/common.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/subscription.css" />
+  <script src="./js/conf.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="/js/subscription.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
   <div class="modal" id="myModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Subscription Already Exists</h5>
-        <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Subscription Already Exists!</p>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Subscription Already Exists</h5>
+          <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Subscription Already Exists!</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-          <a class="navbar-brand" href="#"><img src="/img/logo-beta.png" alt="Logo" width= 200px height= auto;></a>
-          <ul class="navbar-nav"
-              <li class="nav-item">
-                  <button id="loginBtn">Login</a>
-              </li>
-              <li class="nav-item">
-                  <button id="logoutBtn">Logout</a>
-                  <!-- <a class="logout" href="javascript:void(0)">Sign Out</a> -->
-              </li>
-          </ul>
-      </div>
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="/img/logo-beta.png" alt="Logo" width=200px height=auto;></a>
+      <ul class="navbar-nav" <li class="nav-item">
+        <button id="loginBtn">Login</a>
+          </li>
+          <li class="nav-item">
+            <button id="logoutBtn">Logout</a>
+              <!-- <a class="logout" href="javascript:void(0)">Sign Out</a> -->
+          </li>
+      </ul>
+    </div>
   </nav>
 
   <div class="headContainer">
     <h1>AgentStat Premium </h1>
-    <p>Enable marketing channels notitying facebook, 
+    <p>Enable marketing channels notitying facebook,
       linkedin or email network of deals you closed and new listings
     </p>
-    
+
     <p>
       Our top scoring AI generated emails, sales scripts, listing descriptions
     </p>
     <button id="submitBtn">Continue</button>
-  </div> 
+  </div>
   <br>
   <div class="mainContainerContainer1">
     <div class="miniContainer1">
@@ -69,8 +73,10 @@
             <div class="card-body">
               <h2 class="card-title">Leads you generate on your profile are 100% yours to keep</h2>
               <hr>
-              <p class="card-text">Use AgentStat to win listings presentation. Your AgentStat profile page shows your achievements and can highlight yourself.</p>
-              <p class="card-text">AgentStat shows you stats and other analytics such as how manytimes your profile has been viewed or clicked on.</p>
+              <p class="card-text">Use AgentStat to win listings presentation. Your AgentStat profile page shows your
+                achievements and can highlight yourself.</p>
+              <p class="card-text">AgentStat shows you stats and other analytics such as how manytimes your profile has
+                been viewed or clicked on.</p>
               <p class="card-text">AgentStat Referral system allows you to send referrals with esignature system.</p>
             </div>
           </div>
@@ -97,7 +103,7 @@
               <h2 class="card-title">One price. All the tools.</h2>
               <hr>
               <p class="card-text">Whether you're drafting an email for a client, reimagining a room, or
-          creating a captivating listing description -- there's a tool for you.</p>
+                creating a captivating listing description -- there's a tool for you.</p>
               <p class="card-text">AgentStat subscribers get unlimited access to all of our AI tools.</p>
             </div>
           </div>
@@ -106,248 +112,233 @@
     </div>
   </div>
   <br>
-  <center><div class="headContainer"><button id="submitBtn">Start Free Trial Now!</button></div></center>
+  <center>
+    <div class="headContainer"><button id="submitBtn">Start Free Trial Now!</button></div>
+  </center>
 
-<div class="mainContainerContainer2">
-  <div class="Container2">
-    <h1>One price. All the tools.</h1>
-    <p>
-      Whether you're drafting an email for a client, reimagining a room, or
-      creating a captivating listing description -- there's a tool for you. 
-      AgentStat subscribers get unlimited access to all of our AI tools.
-    </p>
+  <div class="mainContainerContainer2">
+    <div class="Container2">
+      <h1>One price. All the tools.</h1>
+      <p>
+        Whether you're drafting an email for a client, reimagining a room, or
+        creating a captivating listing description -- there's a tool for you.
+        AgentStat subscribers get unlimited access to all of our AI tools.
+      </p>
+    </div>
   </div>
-</div>
 
 
-<div class="container3 center">
-  <div class="item1">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="email feather feather-mail"
-      ><path
-        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-      /><polyline points="22,6 12,13 2,6" /></svg
-    >
-    <h3>Email Genertaion</h3>
-    <p>
-      Craft engaging emails to build strong connections with customers and guide
-      them to take action.
-    </p>
-    <a href="/Ai.html">View tools ⟶</a>
+  <div class="container3 center">
+    <div class="item1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="email feather feather-mail">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+        <polyline points="22,6 12,13 2,6" />
+      </svg>
+      <h3>Email Genertaion</h3>
+      <p>
+        Craft engaging emails to build strong connections with customers and guide
+        them to take action.
+      </p>
+      <a href="/Ai.html">View tools ⟶</a>
+    </div>
+    <div class="item2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="remodel feather feather-image">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <polyline points="21 15 16 10 5 21" />
+      </svg>
+      <h3>Room Remodels</h3>
+      <p>
+        Help your buyer fall in love with a room by generating instant AI
+        remodels.
+      </p>
+      <a href="/Ai.html">View tools ⟶</a>
+    </div>
+    <div class="item3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="social feather feather-thumbs-up">
+        <path
+          d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+      </svg>
+      <h3>Social Media</h3>
+      <p>
+        Build your online presence with specialized social media posts for every
+        network.
+      </p>
+      <a href="/Ai.html">View tools ⟶</a>
+    </div>
+    <div class="item4">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="phone feather feather-phone">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+      <h3>Phone Scripts</h3>
+      <p>Always find the right words to say when speaking to clients.</p>
+      <a href="/Ai.html">View tools ⟶</a>
+    </div>
+    <div class="item5">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="web feather feather-layout">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <line x1="3" y1="9" x2="21" y2="9" />
+        <line x1="9" y1="21" x2="9" y2="9" />
+      </svg>
+      <h3>Website Content</h3>
+      <p>
+        Enhance your online presence with persuasive content for the web, from
+        detailed listings to insightful blogs and professional bios.
+      </p>
+      <a href="/Ai.html">View tools ⟶</a>
+    </div>
   </div>
-  <div class="item2">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="remodel feather feather-image"
-      ><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle
-        cx="8.5"
-        cy="8.5"
-        r="1.5"
-      /><polyline points="21 15 16 10 5 21" /></svg
-    >
-    <h3>Room Remodels</h3>
-    <p>
-      Help your buyer fall in love with a room by generating instant AI
-      remodels.
-    </p>
-    <a href="/Ai.html">View tools ⟶</a>
-  </div>
-  <div class="item3">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="social feather feather-thumbs-up"
-      ><path
-        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"
-      /></svg
-    >
-    <h3>Social Media</h3>
-    <p>
-      Build your online presence with specialized social media posts for every
-      network.
-    </p>
-    <a href="/Ai.html">View tools ⟶</a>
-  </div>
-  <div class="item4">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="phone feather feather-phone"
-      ><path
-        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-      /></svg
-    >
-    <h3>Phone Scripts</h3>
-    <p>Always find the right words to say when speaking to clients.</p>
-    <a href="/Ai.html">View tools ⟶</a>
-  </div>
-  <div class="item5">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="web feather feather-layout"
-      ><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line
-        x1="3"
-        y1="9"
-        x2="21"
-        y2="9"
-      /><line x1="9" y1="21" x2="9" y2="9" /></svg
-    >
-    <h3>Website Content</h3>
-    <p>
-      Enhance your online presence with persuasive content for the web, from
-      detailed listings to insightful blogs and professional bios.
-    </p>
-    <a href="/Ai.html">View tools ⟶</a>
-  </div>
-</div>
-<div class="container5" id="container5">
-  <center><h2>Frequently Asked Questions</h2></center>
+  <div class="container5" id="container5">
+    <center>
+      <h2>Frequently Asked Questions</h2>
+    </center>
 
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        What is AgentStat?
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          AgentStat is a database of every realestate transaction that you can use to pick a real estate agent based on their stats. m made for real estate agents
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            What is AgentStat?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            AgentStat is a database of every realestate transaction that you can use to pick a real estate agent based
+            on their stats. m made for real estate agents
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          How is AgentStat Plus different from other AI tools like ChatGPT?
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          AgentStat Plus offers a multifaceted advantage. While many AI tools produce generic content, AgentStat stands out by incorporating live listing data and real-time neighborhood market insights where needed. It's trained on materials from top-producing agents to produce content that not only resonates but also aids in closing deals. Additionally, AgentStat's AI outputs are customized based on the user's professional profile and client notes, ensuring that every output is distinct and meaningful.
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            How is AgentStat Plus different from other AI tools like ChatGPT?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            AgentStat Plus offers a multifaceted advantage. While many AI tools produce generic content, AgentStat
+            stands out by incorporating live listing data and real-time neighborhood market insights where needed. It's
+            trained on materials from top-producing agents to produce content that not only resonates but also aids in
+            closing deals. Additionally, AgentStat's AI outputs are customized based on the user's professional profile
+            and client notes, ensuring that every output is distinct and meaningful.
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How does AgentStat make content that's right for me?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-         AgentStat uses the agent's professional profile, client notes, and a deep understanding of top-producing agent materials to ensure each content piece is tailored to the specific needs and style of the agent.
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            How does AgentStat make content that's right for me?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            AgentStat uses the agent's professional profile, client notes, and a deep understanding of top-producing
+            agent materials to ensure each content piece is tailored to the specific needs and style of the agent.
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          How much does AgentStat Plus cost, and can I try it first?
-        </button>
-      </h2>
-      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-         AgentStat plus is priced at $9.99 per month.
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            How much does AgentStat Plus cost, and can I try it first?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            AgentStat plus is priced at $9.99 per month.
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFive">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          Am I locked into a long-term contract with AgentStat  or can I cancel anytime?
-        </button>
-      </h2>
-      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-         You're not locked into any long-term commitment with AgentStat. You can cancel anytime directly from your dashboard.
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Am I locked into a long-term contract with AgentStat or can I cancel anytime?
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            You're not locked into any long-term commitment with AgentStat. You can cancel anytime directly from your
+            dashboard.
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
+      <div class="accordion-item">
         <h2 class="accordion-header" id="headingSix">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
             Can I save the content generated by AgentStat for future use?
           </button>
         </h2>
-        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+          data-bs-parent="#accordionExample">
           <div class="accordion-body">
-           Absolutely! AgentStat Plus allows you to save any output generated by the AI, so you can use it at your convenience without the need for regeneration.
+            Absolutely! AgentStat Plus allows you to save any output generated by the AI, so you can use it at your
+            convenience without the need for regeneration.
           </div>
         </div>
-    </div>
-    <div class="accordion-item">
+      </div>
+      <div class="accordion-item">
         <h2 class="accordion-header" id="headingSeven">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
             Is my data safe with AgentStat?
           </button>
         </h2>
-        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+          data-bs-parent="#accordionExample">
           <div class="accordion-body">
-           Yes, keeping your data safe is very important to us. All user inputs are securely transmitted and we do not share or sell your data to third parties.
+            Yes, keeping your data safe is very important to us. All user inputs are securely transmitted and we do not
+            share or sell your data to third parties.
           </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<div class="containerNum5">
-  <div class="mini1ContainerNum5">
-    <div class="smalldiv1">
-      <h1>Simple pricing</h1>
-    <p>
-      Get started with AgentStat's full suite of AI tools for real estate agents
-      today. Cancel anytime.
-    </p>
+  <div class="containerNum5">
+    <div class="mini1ContainerNum5">
+      <div class="smalldiv1">
+        <h1>Simple pricing</h1>
+        <p>
+          Get started with AgentStat's full suite of AI tools for real estate agents
+          today. Cancel anytime.
+        </p>
+      </div>
+    </div>
+    <div class="mini2ContainerNum5">
+      <div class="smalldiv2">
+        <h1>$9.99/mo</h1>
+        <p>Access to all tools</p>
+        <p>Unlimited usage</p>
+        <button id="signUp">Sign Up</button>
+      </div>
     </div>
   </div>
-  <div class="mini2ContainerNum5">
-   <div class="smalldiv2">
-    <h1>$9.99/mo</h1>
-    <p>Access to all tools</p>
-    <p>Unlimited usage</p>
-    <button id="signUp">Sign Up</button>
-   </div>
   </div>
-</div>
-</div>
 
-<footer class="footer" id="footer">
+  <footer class="footer" id="footer">
     <div>Copyright © agentstat.com</div>
     <a href="/static/terms.pdf" target="_blank">Terms of Use & Privacy Policy</a>
-</footer>
+  </footer>
 
 
 
 </body>
+
 </html>
