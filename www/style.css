@@ -699,7 +699,7 @@ ul {
 }
 .ser-state-type {
   position: absolute;
-  width: 85px;
+  width: 100%;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -755,9 +755,9 @@ ul {
   z-index: 2500;
 }
 
-.price-head-wrapper {
+/* .price-head-wrapper {
   padding: 5px 15px;
-}
+} */
 
 .fixed .price-amount,
 .fixed .index-check-type,
@@ -4057,9 +4057,9 @@ a.toggler.on:before {
     font-size: 16px;
     background: transparent;
   }
-  .po-serach-wrapper.po-serach-wrapper-one.ak-form .ser-state {
+  /* .po-serach-wrapper.po-serach-wrapper-one.ak-form .ser-state {
     width: 47%;
-  }
+  } */
   .po-serach-wrapper.po-serach-wrapper-one.ak-form .ser-state p {
     width: auto;
     padding: 7px 0px;

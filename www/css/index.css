@@ -1,5 +1,6 @@
 .index-address-type, .ser-state-type {
-    top:46px;
+    top: 50px!important;
+    left: 0px!important;
 }
 .footer{
     position: fixed;
