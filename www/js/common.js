@@ -1,7 +1,3 @@
-$("body").delegate(".logout", "click", function(e) {
-    logout_session();
-});
-
 function logout_session() {
 	localStorage.clear();
     window.location = '/';
@@ -413,7 +409,13 @@ function getAgentListByStateAndCity(state, city, page) {
     return JSON.parse(jqXHR.responseText)['results'];    
 }
 
+
 $(document).ready(function(){
+
+    $("body").delegate(".logout", "click", function(e) {
+        logout_session();
+    });
+
 	if (localStorage.getItem("email") !== null && localStorage.getItem("email") != '') {
 		isTeamMember();
 		unreadNotification();
