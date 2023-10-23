@@ -310,7 +310,6 @@ function load_agent(ignore_city = true) {
 
     if (data["specialties"] !== undefined) {
       var specialtiesText = '';
-      
       //Sort wrt sorting
       data["specialties"] = data["specialties"].sort((a, b) => (a.sorting > b.sorting) ? 1 : -1)
 
@@ -410,6 +409,8 @@ function load_agent(ignore_city = true) {
 
 $(document).ready(function () {
     $('#claim_wrapper a').bind('click', function () {
+        // take them to login page for now..
+        window.location = '/login/'
         if (localStorage.getItem('agent_id') == 'null' ||
                 localStorage.getItem('agent_id') == null) {
 
