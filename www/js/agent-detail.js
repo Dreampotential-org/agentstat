@@ -58,7 +58,7 @@ function init_login_buttons() {
 }
 
 
-function load_agent_score(duration = '36') {
+function load_agent_score(duration = '12') {
   init_login_buttons()
   var url = 'agent_scores/' + transaction_query + '/?time_duration=' + duration;
   var url_string = window.location.href;
