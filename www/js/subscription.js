@@ -37,6 +37,7 @@ function init() {
           $.ajax(settings).done(function(response) {
               subscription_data = JSON.parse(response);
               if (subscription_data['subscription'].length > 0) {
+                return window.location.href = './Ai.html'
                 $("#myModal").show();
               } 
               else {
