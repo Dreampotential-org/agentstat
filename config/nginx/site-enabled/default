@@ -8,8 +8,6 @@ server {
         listen 8082 default_server;
         listen [::]:8082 default_server;
 
-
-
         resolver 8.8.8.8;
 
         location / {
@@ -116,5 +114,17 @@ server {
         }
         location /sitemap/ {
             try_files $uri $uri/ /sitemap.html;
+        }
+
+        location /subscription/ {
+            try_files $uri $uri/ /subscription.html;
+        }
+
+        location /Ai/ {
+            try_files $uri $uri/ /Ai.html;
+        }
+
+        location /website/ {
+            try_files $uri $uri/ /website.html;
         }
 }
