@@ -77,7 +77,7 @@
       .modal-content {
         background-color: #fff;
         margin: 15% auto;
-        padding: 20px;
+        padding: 10px;
         width: 30%;
         text-align: center;
       }
@@ -86,6 +86,22 @@
           width: 85%;
         }
       }
+
+      .price-wrapper {
+                                height: 200px; 
+                                overflow-y: auto; 
+                              }
+                            
+                              .price-wrapper ul {
+                                list-style: none;
+                                padding: 0;
+                                margin: 0;
+                              }
+                            
+                              .price-wrapper li {
+                                padding: 5px;
+                              }
+
     </style>
   </head>
   <body>
@@ -124,6 +140,11 @@
                   id="navbarSupportedContent"
                 >
                   <ul class="navbar-nav mr-auto"></ul>
+                  <div  class="main-menu-part">
+                    <ul>
+                        <li><a href="/subscription.html">AgentStat Premium</a></li>
+                    </ul>
+                </div>
                   <div class="main-menu-part">
                     <ul>
                       <li><a href="/howsearchworks/">How Search Works</a></li>
@@ -190,33 +211,97 @@
                   <div
                     class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size"
                   >
-                    <div class="address">
+                  <style>
+                    /* CSS for the modal-like appearance */
+                    .modal {
+                      display: none;
+                      position: fixed;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background-color: rgba(0, 0, 0, 0.7);
+                      z-index: 1;
+                    }
+                  
+                    /* .modal-content {
+                      background-color: #fff;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      padding: 20px;
+                    } */
+                  </style>
+                  
+                  <div class="address">
                       <p id="y-address" class="address-value">
-                        Address <i class="fas fa-caret-down"></i>
+                          Address <i class="fas fa-caret-down"></i>
                       </p>
-                      <div
-                        class="dropdownaddress address-type index-address-type"
-                      >
-                        <ul>
-                          <li class="custom_radio">Address</li>
-                          <li class="custom_radio">Agent Name</li>
-                          <li class="custom_radio">City</li>
-                          <!--<li class="custom_radio">ZipCode</li> -->
-                        </ul>
+                      <div class="dropdownaddress address-type index-address-type">
+                          <ul>
+                              <li class="custom_radio" id="agentName">Agent Name</li>
+                              <li class="custom_radio">City</li>
+                          </ul>
                       </div>
-                    </div>
-
-                    <div class="ser-state" style="display: none">
-                      <p
-                        class="ser-state-id state-value"
-                        target="ser-state-first"
-                      >
-                        State <i class="fas fa-caret-down"></i>
-                      </p>
-                      <div class="ser-state-type ser-state-first">
-                        <ul class="allstate"></ul>
+                  </div>
+                  
+                  <div class="ser-state modal" id="stateModal">
+                      <div class="modal-content">
+                          <p class="ser-state-id state-value" target="ser-state-first">
+                              State <i class="fas fa-caret-down"></i>
+                          </p>
+                          <div class="ser-state-type ser-state-first">
+                              <ul class="allstate">
+                                  <li class="custom_radio" id="stateAL">AL</li>
+                                  <li class="custom_radio" id="stateAK">AK</li>
+                                  <li class="custom_radio" id="stateAR">AR</li>
+                                  <li class="custom_radio" id="stateAZ">AZ</li>
+                              </ul>
+                          </div>
                       </div>
-                    </div>
+                  </div>
+                  
+                  <div class="modal" id="agentNameModal">
+                      <div class="modal-content">
+                          <input
+                              class="search_agent_name ser"
+                              autocomplete="nop"
+                              type="text"
+                              name="citytext"
+                              placeholder="Search Agent Name"
+                          />
+                      </div>
+                  </div>
+                  
+                  <script>
+                      document.getElementById('agentName').addEventListener('click', function() {
+                          var stateModal = document.getElementById('stateModal');
+                          stateModal.style.display = 'block';
+                      });
+                  
+                      // Add event listeners for each state
+                      document.getElementById('stateAL').addEventListener('click', function() {
+                          var agentNameModal = document.getElementById('agentNameModal');
+                          agentNameModal.style.display = 'block';
+                      });
+                  
+                      document.getElementById('stateAK').addEventListener('click', function() {
+                          var agentNameModal = document.getElementById('agentNameModal');
+                          agentNameModal.style.display = 'block';
+                      });
+                  
+                      document.getElementById('stateAR').addEventListener('click', function() {
+                          var agentNameModal = document.getElementById('agentNameModal');
+                          agentNameModal.style.display = 'block';
+                      });
+                  
+                      document.getElementById('stateAZ').addEventListener('click', function() {
+                          var agentNameModal = document.getElementById('agentNameModal');
+                          agentNameModal.style.display = 'block';
+                      });
+                  </script>
+                  
 
                     <input
                       class="ser search_address maps_input"
@@ -302,36 +387,41 @@
                                 placeholder="MAX"
                               />
                             </div>
+                            <style>
+                       
+                            </style>
+                            
                             <div class="price-wrapper">
-                              <div class="p-left">
-                                <ul>
-                                  <li>$50,000</li>
-                                  <li>$100,000</li>
-                                  <li>$150,000</li>
-                                  <li>$300,000</li>
-                                  <li>$400,000</li>
-                                  <li>$500,000</li>
-                                  <li>$600,000</li>
-                                  <li>$700,000</li>
-                                  <li>$800,000</li>
-                                  <li>$900,000</li>
-                                </ul>
-                              </div>
-                              <div class="p-right">
-                                <ul>
-                                  <li>$200K</li>
-                                  <li>$300K</li>
-                                  <li>$400K</li>
-                                  <li>$500K</li>
-                                  <li>$600K</li>
-                                  <li>$700K</li>
-                                  <li>$800K</li>
-                                  <li>$900K</li>
-                                  <li>$1M</li>
-                                  <li>Any price</li>
-                                </ul>
-                              </div>
+                                <div class="p-left">
+                                    <ul>
+                                        <li>$50,000</li>
+                                        <li>$100,000</li>
+                                        <li>$150,000</li>
+                                        <li>$300,000</li>
+                                        <li>$400,000</li>
+                                        <li>$500,000</li>
+                                        <li>$600,000</li>
+                                        <li>$700,000</li>
+                                        <li>$800,000</li>
+                                        <li>$900,000</li>
+                                    </ul>
+                                </div>
+                                <div class="p-right">
+                                    <ul>
+                                        <li>$200K</li>
+                                        <li>$300K</li>
+                                        <li>$400K</li>
+                                        <li>$500K</li>
+                                        <li>$600K</li>
+                                        <li>$700K</li>
+                                        <li>$800K</li>
+                                        <li>$900K</li>
+                                        <li>$1M</li>
+                                        <li>Any price</li>
+                                    </ul>
+                                </div>
                             </div>
+                            
                             <div class="text-center" style="padding: 14px">
                               <button id="myButton1">Done</button>
                             </div>
@@ -458,6 +548,8 @@
               loop
               playsinline
             ></video>
+            <br>
+            <center><a href="/Ai.html">Try out our latest <strong>AI</strong> feautres now!</a></center>
           </div>
           <p style="height: 50px"></p>
         </div>
