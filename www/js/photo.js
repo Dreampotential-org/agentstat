@@ -30,7 +30,7 @@ document.getElementById("submitBtn").addEventListener("click", function () {
   formData.append("video", fileInput.files[0]);
 
   // Make a POST request to your desired endpoint
-  fetch("http://localhost:8000/ai/generate-image/", {
+  fetch(SERVER_URL + "ai/generate-image/", {
     method: "POST",
     body: formData,
   })

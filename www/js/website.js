@@ -65,7 +65,7 @@ async function generateDescription(text) {
   isLoading = true; // Show loading animation
 
   try {
-    const response = await fetch("http://localhost:8000/ai/generate-description/", {
+    const response = await fetch(SERVER_URL + "ai/generate-description/", {
       method: "POST",
       headers: {
         Accept: "application/json",
