@@ -210,6 +210,10 @@ $(document).on('click', '#want-claim-yes', function () {
 });
 
 $(document).ready(function(){
+    if (localStorage.getItem("agent_id")) {
+	  // so the person their settings page
+	window.location.href = '/profile-settings/'
+    }
     //Render dispute-form
     $.get('/_dispute-form.html', function(response){
         $('#dispute-form').html(response);

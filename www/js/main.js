@@ -467,6 +467,7 @@ function getSearchParams(place) {
 
 // Fixes google autocomplete search so enter selects first address
 function pacSelectFirst(input) {
+  if (!(input)) return
   // store the original event binding function
   var _addEventListener = input.addEventListener
     ? input.addEventListener
@@ -507,6 +508,8 @@ function init_maps() {
   var input = document.getElementsByClassName("maps_input")[0];
   var input_map = document.getElementsByClassName("maps_input_maps")[0];
   var page_input = document.getElementById("search_input");
+  // if (!(page_input)) return
+
   pacSelectFirst(input);
 
   console.log("page_input", page_input);
