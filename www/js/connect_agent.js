@@ -46,7 +46,7 @@ function init_events_connect() {
   })
 
 $("body").delegate("#set_agent", "click", function(e) {
-    if (localStorage.getItem('agent_id') == '' || localStorage.getItem('agent_id') == null) {
+    if (localStorage.getItem('agent_id') == '' || localStorage.getItem('agent_id', 'null') == 'null') {
         connector_id = $("input[name='select-agent']:checked").val();
         if(typeof connector_id != 'undefined') {
             if (localStorage.getItem('session_id')) {
