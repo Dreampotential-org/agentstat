@@ -80,6 +80,7 @@ function show_loading_screen() {
 
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
+    console.log("urlParamsurlParams------------>",urlParams);
     const city = encodeURIComponent(urlParams.get('city', ''));
     const state = urlParams.get('state');
     const agent_name = urlParams.get('agent_name');
@@ -214,6 +215,9 @@ function load_search_results() {
     var search_result = '';
 
     var filters = get_search_filters();
+
+    console.log("filters---------------------->",);
+
     var state = urlParams.get('state');
     var city = urlParams.get('city');
     var city_search = urlParams.get('city_search');
