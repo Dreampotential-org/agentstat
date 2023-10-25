@@ -133,3 +133,19 @@ websiteDescriptionGenerator.addEventListener("click", function () {
 photoGenerator.addEventListener("click", function () {
     redirectToPage('/photo.html');
 });
+
+// toggle fucntion of Navbar
+$(document).ready(function () {
+    var $hamburgerBtn = $(".nav-btn");
+    var $navbarSupportedContent = $("#navbarSupportedContent");
+
+    $hamburgerBtn.on("click", function () {
+        if ($hamburgerBtn.hasClass("is-active")) {
+            $navbarSupportedContent.removeClass("show");
+            console.log("added");
+        } else {
+            $navbarSupportedContent.addClass("show");
+            console.log("removed");
+        }
+    });
+});

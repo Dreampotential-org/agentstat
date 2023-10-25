@@ -1,4 +1,4 @@
-{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -379,7 +379,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* margin: 0px 1.5vw 1.5vw 0px; */
+    margin: auto;
     padding-left: 5vw;
     border-radius: 5px;
     border: 1px solid rgb(202, 202, 202);
@@ -490,5 +490,21 @@ footer {
 
   #all-visible-elements {
     white-space: nowrap; /* Prevent wrapping to the next line */
+  }
+}
+
+/* custum navbar css for Ai.html */
+.nav-btn {
+  float: right;
+  border: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0;
+}
+
+@media screen and (max-width:950px) {
+  .navbar-nav {
+    padding: 1rem 0;
   }
 }
