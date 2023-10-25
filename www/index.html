@@ -246,7 +246,7 @@
                       </div>
                   </div>
                   
-                  <div class="ser-state modal" id="stateModal">
+                  <!-- <div class="ser-state modal" id="stateModal">
                       <div class="modal-content">
                           <p class="ser-state-id state-value" target="ser-state-first">
                               State <i class="fas fa-caret-down"></i>
@@ -260,10 +260,12 @@
                               </ul>
                           </div>
                       </div>
-                  </div>
+                  </div> -->
                   
-                  <div class="modal" id="agentNameModal">
-                      <div class="modal-content">
+                  <!-- <div class="modal" id="agentNameModal">
+                      <div class="modal-content"> -->
+                        <div class="ser-state modal" id="stateModal">
+                          <div class="modal-content">
                           <input
                               class="search_agent_name ser"
                               autocomplete="nop"
@@ -281,25 +283,25 @@
                       });
                   
                       // Add event listeners for each state
-                      document.getElementById('stateAL').addEventListener('click', function() {
-                          var agentNameModal = document.getElementById('agentNameModal');
-                          agentNameModal.style.display = 'block';
-                      });
+                      // document.getElementById('stateAL').addEventListener('click', function() {
+                      //     var agentNameModal = document.getElementById('agentNameModal');
+                      //     agentNameModal.style.display = 'block';
+                      // });
                   
-                      document.getElementById('stateAK').addEventListener('click', function() {
-                          var agentNameModal = document.getElementById('agentNameModal');
-                          agentNameModal.style.display = 'block';
-                      });
+                      // document.getElementById('stateAK').addEventListener('click', function() {
+                      //     var agentNameModal = document.getElementById('agentNameModal');
+                      //     agentNameModal.style.display = 'block';
+                      // });
                   
-                      document.getElementById('stateAR').addEventListener('click', function() {
-                          var agentNameModal = document.getElementById('agentNameModal');
-                          agentNameModal.style.display = 'block';
-                      });
+                      // document.getElementById('stateAR').addEventListener('click', function() {
+                      //     var agentNameModal = document.getElementById('agentNameModal');
+                      //     agentNameModal.style.display = 'block';
+                      // });
                   
-                      document.getElementById('stateAZ').addEventListener('click', function() {
-                          var agentNameModal = document.getElementById('agentNameModal');
-                          agentNameModal.style.display = 'block';
-                      });
+                      // document.getElementById('stateAZ').addEventListener('click', function() {
+                      //     var agentNameModal = document.getElementById('agentNameModal');
+                      //     agentNameModal.style.display = 'block';
+                      // });
                   </script>
                   
 
@@ -313,7 +315,7 @@
                     />
                     <input
                       class="search_city ser"
-                      autocomplete="nop"
+                      autocomplete="no"
                       type="text"
                       name="citytext"
                       placeholder="Search City"
@@ -321,7 +323,7 @@
                     />
                     <input
                       class="search_agent_name ser"
-                      autocomplete="nop"
+                      autocomplete="no"
                       type="text"
                       name="citytext"
                       placeholder="Search Agent Name"
@@ -435,8 +437,8 @@
                       var inputBox = document.getElementById("inputBox");
                       var firstModal = document.getElementById("firstModal");
                       var secondModal = document.getElementById("secondModal");
-                      var showFirstModalBtn =
-                        document.getElementById("showFirstModalBtn");
+                      // var showFirstModalBtn =
+                      //   document.getElementById("showFirstModalBtn");
                       var firstDropdownItems = document.querySelectorAll(
                         "#dropdowntypes .custom_radio"
                       );
@@ -464,10 +466,10 @@
                       });
 
                       // Event listener to close the modals when the user clicks the "Show First Modal" button
-                      showFirstModalBtn.addEventListener("click", function () {
-                        firstModal.style.display = "none";
-                        secondModal.style.display = "none";
-                      });
+                      // showFirstModalBtn.addEventListener("click", function () {
+                      //   firstModal.style.display = "none";
+                      //   secondModal.style.display = "none";
+                      // });
                     </script>
 
                     <!-- <div id="suggesstion-box"></div>
