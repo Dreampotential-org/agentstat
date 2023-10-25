@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="">
+        <meta name="decription" content="">
+        <meta name="author" content="">
+
+        <!-- Title -->
+        <title>Find Homes</title>
+
+        <!-- Fav Icon -->
+        <link rel="icon" href="/img/fav.png" />
+
+        <!-- Include Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <script src="js/bootstrap.js"></script>
+
+        <!-- Main StyleSheet -->
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Page CSS -->
+        <link rel="stylesheet" href="css/report.css" />
+
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="css/responsive.css" />
+
+        <!-- Common css for all pages -->
+        <link rel="stylesheet" href="css/common.css" />
+
+        <!-- Page CSS -->
+        <link rel="stylesheet" href="css/inbox.css" />
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
+
+    </head>
+    <style>
+        .state_container{
+            background-color: rgb(219 234 254);
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 100px;
+            min-height: 100vh;
+        }
+        .state_nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .state_nav_header{
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            font-weight: 700;
+            color: rgb(29 78 216);
+            margin-bottom: 1rem;
+        }
+        .state_nav_back_button{
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            font-weight: 700;
+            color: rgb(29 78 216);
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        .state_body{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: decimal;
+            /* min-height: 100vh; */
+            /* height: 100%; */
+        }
+        /* .all_state_container_body_item{
+            width: 200px;
+        } */
+    </style>
+    <body>
+        <div class="state_container">
+            <div>
+                <div class="state_nav">
+                    <p
+                        class="state_nav_header"
+                    >
+                        Search for homes by Cities
+                    </p>
+                    <a
+                        class="state_nav_back_button"
+                        href='./allhomes.html'
+                    >
+                        Go To Home
+                    </a>
+                </div>
+                <div id="state_body" class="state_body">
+                    
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function getURLParams(url) {
+                return Object.fromEntries(new URL(url).searchParams.entries());
+            }
+
+            let baseUrl = "https://app.realtorstat.com/api/";
+            let stateName = getURLParams(window.location.href).stateName;
+
+            $(document).ready(async function () {
+                let GetCitiesResult = await fetch(baseUrl+`cities/`+stateName+`/`,{
+                    method:'GET',
+                    headers:{'Content-Type':'application/json',}});
+                let allCities = await GetCitiesResult.json();
+
+                for (const city of allCities) {
+                    $( "#state_body" ).append(`
+                        <a
+                            href="/allhomes?cityName=`+ city +`&stateName=`+ stateName +`"
+                            class="all_state_container_body_item"
+                        >
+                            *`+city+`  
+                        </a>
+                    `);
+                }
+
+                console.log("state",allCities);
+            });
+        </script>
+    </body>
+    </html>    
