@@ -208,9 +208,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                  <div
-                    class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size"
-                  >
+                  <div class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size agent-search">
                   <style>
                     /* CSS for the modal-like appearance */
                     .modal {
@@ -224,14 +222,61 @@
                       z-index: 1;
                     }
                   
+                    .row {
+                      align-items: center;
+                      justify-content: center;
+                    }
+                  
+                    @media (min-width: 1100px) {
+                      .fixed {
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        margin: 1rem 5rem !important;
+                      }
+                    }
+                  
+                    @media (min-width: 767px) and (max-width: 992px) {
+                      .agent-search{
+                        margin: 0 auto -15px !important;
+                        left: 0 !important;
+                        right: 0 !important;
+                        max-width: 69%;
+                      }
+                    }
+                  
+                    @media (max-width: 767px) and (min-width: 575px) {
+                      .agent-search {
+                        max-width: 100%;
+                        left: 0 !important;
+                        right: 0 !important;
+                        padding: 0 2rem !important;
+                        margin-top: 30px !important;
+                      }
+                  
+                      .po-serach-wrapper input.ser {
+                        width: 100% !important;
+                        box-shadow: 0 0 0 0;
+                      }
+                    }
+                  
+                    @media (min-width: 575px) and (max-width: 767px) {
+                      .btn.btn-default.searchButton {
+                        margin: 5px 8px 0 0px;
+                      }
+                    }
+                  
+                  
+                    /* @media screen and (max-width: 767px) and (min-width: 576px) */
                     /* .modal-content {
-                      background-color: #fff;
-                      position: absolute;
-                      top: 50%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      padding: 20px;
-                    } */
+                                        background-color: #fff;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        padding: 20px;
+                                      } */
                   </style>
                   
                   <div class="address">
@@ -341,7 +386,7 @@
 
                         <!-- Your provided HTML structure for the first dropdown -->
                         <div class="type">
-                          <p id="y-type" class="x-type type-value">
+                          <p id="y-type" class="x-type type-value" style=" width: 100% !important;">
                             Type <i class="fas fa-caret-down"></i>
                           </p>
                           <div
