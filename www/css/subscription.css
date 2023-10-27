@@ -17,7 +17,7 @@ body {
 
 /* Assuming you have a CSS class for the logo image */
 .navbar-brand img {
-    max-height: 50px; /* Adjust the height as needed */
+    max-height: 50px; 
 }
 
 /* You can also control the padding around the logo for better spacing */
@@ -118,7 +118,7 @@ body {
   height: 20%;
 }
 .mainContainer2 {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(107, 100, 100);
   margin: 200px 120px 0 120px;
   border-radius: 10px;
   display: flex;
@@ -203,7 +203,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 .Container2 p {
@@ -568,4 +568,95 @@ body {
     font-size: 11px;
     line-height: 30px;
   }
+}
+
+/* my code */
+
+.navbar-brand img{
+  width: 100px;
+  margin-right: 200px;
+ 
+}
+
+div.container{
+  margin: 0px 0px;
+  
+
+}
+
+.navbar.navbar-expand-lg{
+  margin: 0px !important;
+
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#loginBtn{
+  margin-left: 100px;
+}
+
+
+.mainContainerContainer2{
+ 
+ 
+  /* margin-top: 50px; */
+}
+
+.mainContainerContainer2.new{
+  text-align: center;
+  margin-top: 20px;
+  /* background-color: blueviolet; */
+}
+
+.home-img{
+  height: 500px;
+}
+
+.col-6{
+  text-align: center;
+  /* justify-content: center; */
+ padding: 10px 50px;
+}
+
+.col-6 h2, p{
+  padding: 20px 50px;
+  /* padding-left: 50px; */
+  text-align: left;
+}
+
+.col-6 h2{
+font-size: 38px;
+    line-height: 50px;
+    letter-spacing: -1px;
+    font-weight: 600;
+}
+
+
+
+.new h5{
+  color: black;
+  padding: 50px 0px;
+}
+
+.main-btn{
+  background-color: black;
+  color: white;
+      /* display: block; */
+    border-radius: 8px;
+    /* width: auto; */
+    font-weight: 500;
+    border: 2px #000 solid!important;
+}
+
+.feature-btns{
+  text-align: left;
+  padding-left: 50px;
 }

@@ -3889,7 +3889,8 @@ a.toggler.on:before {
   }
   .po-world {
     background-color: #fff;
-    padding: 100px 0;
+    padding: 50px 0;
+    margin-top: 20px;
   }
   .owl-item.active {
     margin-right: 20px;
@@ -4336,7 +4337,8 @@ a.toggler.on:before {
   }
   .po-world {
     background-color: #fff;
-    padding: 100px 0;
+    padding: 50px 0px !important;
+    margin-top: 50px !important;
   }
   .price p {
     padding: 5px 12px;
@@ -4637,7 +4639,7 @@ a.toggler.on:before {
     padding: 0px;
   }
   .navbar-brand img {
-    width: 100px !important;
+    width: 50px !important;
     top: 15px !important;
     padding-right: 10px !important;
   }
@@ -5035,4 +5037,15 @@ iframe .container {
 
 .toc-two-left-one:before {
   display: none;
+}
+
+
+/* my code */
+
+a.navbar-brand{
+  margin-top: 5px;
+}
+
+.navbar-brand img{
+  width: 130px !important;
 }
