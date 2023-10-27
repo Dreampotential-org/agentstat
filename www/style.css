@@ -4306,7 +4306,7 @@ a.toggler.on:before {
     margin-right: 2px;
   }
   .subDiv {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     top: 20%;
   }
