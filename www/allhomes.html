@@ -82,11 +82,7 @@
             overflow: hidden;
             max-width: 1200px;
         }
-        @media only screen and (max-width: 600px) {
-            .card_body{
-                flex-direction: column;
-            }
-        }
+        
         .card_number{
             font-weight: 800;
             --tw-text-opacity: 1;
@@ -193,6 +189,7 @@
         .agent_info_container{
             font-weight: 600;
             color: cornflowerblue;
+            cursor: pointer;
         }
         .agent_name,
         .agent_info{
@@ -225,6 +222,23 @@
             height: 60px;
             position: absolute;
         }
+
+        @media only screen and (max-width: 600px) {
+            .card_body{
+                flex-direction: column;
+            }
+            .houser_info{
+                flex-wrap: wrap;
+            }
+            .all_state_container_header,.all_state_container_body{
+                margin: 0 20px;
+            }
+            .all_state_container_body{
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.5rem;
+            }
+        }
+
     </style>
     <body>
         <div class="background-agent">
@@ -321,7 +335,7 @@
                                     <div class="house_info_item"><img src="./images/icons8-bathroom-50.png" /><p>`+getHigestHomesData[i].baths+`</p></div>
                                     <div class="house_info_item">`+getHigestHomesData[i].home_type.replace("_", " ")+`</div>
                                 </div>
-                                <div class="agent_name_container">Sold With : <span class="agent_name">`+getHigestHomesData[i].agent_full_name+`</span></div>
+                                <a href="https://agentstat.com/profile/`+getHigestHomesData[i].agent_id+`" class="agent_name_container">Sold With : <span class="agent_name">`+getHigestHomesData[i].agent_full_name+`</span></a>
                                 <div class="agent_info_container">Brokerage : <span class="agent_info">`+getHigestHomesData[i].agent_brokerage_info+`</span></div>
                                 <div class="house_status_details">
                                     <div class="house_status">Status : <span class="sold">`+getHigestHomesData[i].status+`</span></div>
@@ -331,6 +345,7 @@
                         </div>
                     `);
                 }
+                console.log(getHigestHomesData);
 
                 // $('#higest_homes').html(getHigestHomesData[0].address_text);
             })
