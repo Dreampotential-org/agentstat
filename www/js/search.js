@@ -36,11 +36,13 @@ function updateBrowserUrl() {
 }
 
 function init_search_results() {
-    console.log(localStorage.getItem("pin_agent_arr"));
+
 
     var url_string = window.location.href;
     var url = new URL(url_string);
     var agents = url.searchParams.get("agents");
+
+    console.log("agents----", agents)
 
     if (agents == null || agents == '') {
         updateBrowserUrl();
@@ -52,7 +54,7 @@ function init_search_results() {
     init_search_events();
     populate_city_search_menu();
 }
-
+init_search_results()
 function populate_city_search_menu() {
     var settings = get_settings("cities/WA", 'GET');
     settings['headers'] = null;
@@ -80,7 +82,7 @@ function show_loading_screen() {
 
 function get_search_filters() {
     const urlParams = new URLSearchParams(window.location.search);
-    console.log("urlParamsurlParams------------>",urlParams);
+
     const city = encodeURIComponent(urlParams.get('city', ''));
     const state = urlParams.get('state');
     const agent_name = urlParams.get('agent_name');
@@ -89,7 +91,9 @@ function get_search_filters() {
     const v_estimate = urlParams.get('v_estimate');
     const home_type = urlParams.get('home_type');
     const sort_type = urlParams.get('sort_type');
-    const refresh = urlParams.get('refresh');
+    const refresh = urlParams.get('refresh');   
+
+    console.log(urlParams.agent_name,'<=========================== home_type')
 
 
     const phone = urlParams.get('phone');
@@ -226,6 +230,8 @@ function load_search_results() {
     var agent_name = urlParams.get('agent_name');
     var page_num = urlParams.get('page_num', '1');
     var street_address = urlParams.get('address', '');
+
+    console.log("agent_name-------",agent_name);
 
     selected_agents = urlParams.get('agents');
     selected_agent_ids = [];

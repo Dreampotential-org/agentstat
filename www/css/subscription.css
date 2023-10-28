@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-.accordion{
+.accordion {
   padding: 20px 100px;
 }
 
-.footer{
+.footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@ body {
 
 /* Assuming you have a CSS class for the logo image */
 .navbar-brand img {
-    max-height: 50px; 
+  max-height: 50px; /* Adjust the height as needed */
 }
 
 /* You can also control the padding around the logo for better spacing */
@@ -34,6 +34,7 @@ body {
 .headContainer {
   font-size: 30px;
   text-align: center;
+  margin-top: 50px;
 }
 
 .headContainer h1 {
@@ -42,10 +43,14 @@ body {
 }
 
 .headContainer p {
-  font-size: 14px;
-  margin-top: -20px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 500px;
   line-height: 30px;
+  margin: 0;
+  /* font-size: 14px;
+    margin-top: -20px;
+    font-weight: 500;
+    line-height: 30px; */
 }
 
 .headContainer button {
@@ -62,7 +67,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 20px 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.165);
 }
@@ -95,7 +100,6 @@ body {
   border: none;
 }
 
-
 .miniContainer1 {
   padding-left: 30px;
   padding-right: 30px;
@@ -113,12 +117,12 @@ body {
 .miniContainer2 img {
   height: 300px;
 }
-.carouselExampleControls{
+.carouselExampleControls {
   width: 20%;
   height: 20%;
 }
 .mainContainer2 {
-  background-color: rgb(107, 100, 100);
+  background-color: rgb(245, 245, 245);
   margin: 200px 120px 0 120px;
   border-radius: 10px;
   display: flex;
@@ -209,7 +213,7 @@ body {
 .Container2 p {
   text-align: center;
   font-size: 18px;
-  line-height: 30px;
+  line-height: 1.5;
   margin: 0 50px 0 50px;
 }
 
@@ -217,6 +221,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .container3 {
@@ -234,7 +240,7 @@ body {
 
 .container3 div svg {
   height: 25px;
-  margin: 10px 0 -10px 0;
+  /* margin: 10px 0 -10px 0; */
 }
 
 .container3 div a {
@@ -249,13 +255,6 @@ body {
   align-items: center;
 }
 
-.container5 {
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: center;
-  align-items: center;
-  padding: 40px 40px;*/
-}
 
 /*.container5 div {
   background-color: white;
@@ -265,12 +264,18 @@ body {
 }*/
 
 .container3 div {
-  width: 300px;
+  width: 300px ;
   height: 290px;
   background-color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.165);
   border-radius: 7px;
-  padding: 0px 20px;
+  padding: 10px 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 
 .container4 div {
@@ -311,6 +316,8 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.165);
   grid-template-columns: repeat(2, 1fr);
   height: 100%;
+  margin: 0 auto 1rem;
+  padding: 1rem;
 }
 
 .mini1ContainerNum5 {
@@ -416,7 +423,7 @@ body {
     font-size: 14px;
   }
   .container3 div {
-    width: 100%;
+    width: 90%;
   }
 }
 @media (max-width: 755px) {
@@ -427,9 +434,15 @@ body {
     font-size: 11px;
   }
   .headContainer button {
+    padding: 0.5rem;
     height: 40px;
-    width: 140px;
   }
+
+  .miniContainer1 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .container4 div {
     border-radius: 7px;
     height: 40px;
@@ -444,6 +457,15 @@ body {
     font-size: 16px;
     line-height: 30px;
   }
+  .accordion {
+    padding: 20px 50px;
+  }
+  .accordion-body {
+    font-size: 0.9rem;
+  }
+  .accordion-button {
+    font-size: 0.85rem;
+  }
 }
 @media (max-width: 586px) {
   .headContainer {
@@ -453,9 +475,7 @@ body {
     font-size: 9px;
   }
   .headContainer button {
-    height: 30px;
-    width: 120px;
-    font-size: 13px;
+    font-size: 14px;
   }
   .container1 h1 {
     font-size: 17px;
@@ -479,7 +499,8 @@ body {
     border-radius: 10px;
   }
   .Container2 p {
-    font-size: 10px;
+    font-size: 13px;
+    width: 70%;
   }
   .container3 div {
     width: 100%;
@@ -519,8 +540,17 @@ body {
     font-size: 12px;
     line-height: 30px;
   }
+  .accordion {
+    padding: 20px 40px;
+  }
 }
 @media (max-width: 564px) {
+  .Container2 {
+    margin-top: 50px;
+  }
+  .container3 {
+    margin: 100px 0px 100px 0px;
+  }
   .container3 div {
     width: 80%;
   }
@@ -547,9 +577,10 @@ body {
     font-size: 7px;
   }
   .headContainer button {
-    height: 30px;
-    width: 120px;
+    height: 35px;
+    width: 90px;
     font-size: 13px;
+    padding: 0.3rem;
   }
   .container3 div {
     width: 80%;
@@ -568,9 +599,14 @@ body {
     font-size: 11px;
     line-height: 30px;
   }
+  .accordion {
+    padding: 20px;
+  }
 }
 
 /* my code */
+
+
 
 .navbar-brand img{
   width: 100px;
@@ -599,16 +635,10 @@ div.container{
     padding-bottom: 0.5rem;
 }
 
-#loginBtn{
+/* #loginBtn{
   margin-left: 100px;
-}
+} */
 
-
-.mainContainerContainer2{
- 
- 
-  /* margin-top: 50px; */
-}
 
 .mainContainerContainer2.new{
   text-align: center;
@@ -626,17 +656,20 @@ div.container{
  padding: 10px 50px;
 }
 
-.col-6 h2, p{
+.new-sectionp{
   padding: 20px 50px;
-  /* padding-left: 50px; */
+
   text-align: left;
 }
 
-.col-6 h2{
+.new-sectionh2{
 font-size: 38px;
     line-height: 50px;
     letter-spacing: -1px;
     font-weight: 600;
+    padding: 20px 50px;
+
+  text-align: left;
 }
 
 
@@ -649,9 +682,9 @@ font-size: 38px;
 .main-btn{
   background-color: black;
   color: white;
-      /* display: block; */
+     
     border-radius: 8px;
-    /* width: auto; */
+ 
     font-weight: 500;
     border: 2px #000 solid!important;
 }

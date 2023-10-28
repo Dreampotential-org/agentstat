@@ -209,9 +209,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                  <div
-                    class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size"
-                  >
+                  <div class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size agent-search">
                   <style>
                     /* CSS for the modal-like appearance */
                     .modal {
@@ -225,14 +223,61 @@
                       z-index: 1;
                     }
                   
+                    .row {
+                      align-items: center;
+                      justify-content: center;
+                    }
+                  
+                    @media (min-width: 1100px) {
+                      .fixed {
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        margin: 1rem 5rem !important;
+                      }
+                    }
+                  
+                    @media (min-width: 767px) and (max-width: 992px) {
+                      .agent-search{
+                        margin: 0 auto -15px !important;
+                        left: 0 !important;
+                        right: 0 !important;
+                        max-width: 69%;
+                      }
+                    }
+                  
+                    @media (max-width: 767px) and (min-width: 575px) {
+                      .agent-search {
+                        max-width: 100%;
+                        left: 0 !important;
+                        right: 0 !important;
+                        padding: 0 2rem !important;
+                        margin-top: 30px !important;
+                      }
+                  
+                      .po-serach-wrapper input.ser {
+                        width: 100% !important;
+                        box-shadow: 0 0 0 0;
+                      }
+                    }
+                  
+                    @media (min-width: 575px) and (max-width: 767px) {
+                      .btn.btn-default.searchButton {
+                        margin: 5px 8px 0 0px;
+                      }
+                    }
+                  
+                  
+                    /* @media screen and (max-width: 767px) and (min-width: 576px) */
                     /* .modal-content {
-                      background-color: #fff;
-                      position: absolute;
-                      top: 50%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      padding: 20px;
-                    } */
+                                        background-color: #fff;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        padding: 20px;
+                                      } */
                   </style>
                   
                   <div class="address">
@@ -272,37 +317,124 @@
                               autocomplete="nop"
                               type="text"
                               name="citytext"
-                              placeholder="Search Agent Name"
+                              placeholder="Search Agent Name Agent"
                           />
+                          <input type="text" id="searchInput" placeholder="Search data" oninput="searchTable()">
+
+<table>
+    <tbody id="tableBody">
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    Modal Content
+</div>
+
+
                       </div>
                   </div>
                   
                   <script>
+
+                    var dataTable;
+                    var temp = [];
+        var datas =[]
+
                       document.getElementById('agentName').addEventListener('click', function() {
+                        fetch('https://app.realtorstat.com/api/agents')
+    .then(response => {
+        if (response.ok) {
+            return response.json(); // Parse the response as JSON
+        }
+        throw new Error('Network response was not ok.');
+    })
+    .then(data => {
+        // Handle the API response data here
+       
+        dataTable = data;
+        temp = data;
+// Extract the full names from the data and update tableData
+const fullNames = data.results.map(result => result.full_name);
+datas.length = 0; // Clear the tableData array
+datas.push(...fullNames); // Update tableData with full names
+
+// Now you can use tableData as you need
+console.log("fullNames------------:", fullNames);
+
+// Update your table with the new data
+// populateTable();
+    })
+    .catch(error => {
+        // Handle any errors that occurred during the fetch
+        console.error('Error:', error);
+    });
                           var stateModal = document.getElementById('stateModal');
                           stateModal.style.display = 'block';
                       });
-                  
-                      // Add event listeners for each state
-                      // document.getElementById('stateAL').addEventListener('click', function() {
-                      //     var agentNameModal = document.getElementById('agentNameModal');
-                      //     agentNameModal.style.display = 'block';
-                      // });
-                  
-                      // document.getElementById('stateAK').addEventListener('click', function() {
-                      //     var agentNameModal = document.getElementById('agentNameModal');
-                      //     agentNameModal.style.display = 'block';
-                      // });
-                  
-                      // document.getElementById('stateAR').addEventListener('click', function() {
-                      //     var agentNameModal = document.getElementById('agentNameModal');
-                      //     agentNameModal.style.display = 'block';
-                      // });
-                  
-                      // document.getElementById('stateAZ').addEventListener('click', function() {
-                      //     var agentNameModal = document.getElementById('agentNameModal');
-                      //     agentNameModal.style.display = 'block';
-                      // });
+
+        //               const fullNames = dataTable?.results?.map(result => result.full_name);
+        console.log("full_name",dataTable);
+
+                      // const tableData = [  'Jean Groesbeck', 'Debbie Macy'];
+
+
+const tableBody = document.getElementById('tableBody');
+const searchInput = document.getElementById('searchInput');
+
+function populateTable(item) {
+ 
+
+  if(item?.length){
+    console.log("tableData",item);
+    tableBody.innerHTML = ''; // Clear the table body
+    item.forEach((data) => {
+        const row = document.createElement('tr');
+        row.onclick = () => showAlert(data);
+
+        const cell = document.createElement('td');
+        cell.textContent = data;
+
+        row.appendChild(cell);
+        tableBody.appendChild(row);
+    });
+  }
+
+   
+}
+
+function showAlert(text) {
+    alert("Clicked: " + text);
+}
+
+// function searchTable() {
+//     const searchText = searchInput.value.toLowerCase();
+//     const filteredData = datas?.filter(data => data?.toLowerCase().includes(searchText));
+//     console.log("filter Arrat", filteredData)
+//     datas.length = 0;
+//     datas.push(...filteredData);
+//     populateTable(datas);
+// }
+
+
+function searchTable() {
+    const searchText = searchInput.value.toLowerCase();
+    const filteredData = datas.filter(data => data.toLowerCase().includes(searchText));
+    console.log("filtered Array", filteredData);
+
+    if (searchText === "") {
+        // If the search input is empty, display all data.
+        populateTable(datas);
+    } else {
+        // Display the filtered data.
+        populateTable(filteredData);
+    }
+}
+
+
+// Initialize the table
+populateTable();
+                
                   </script>
                   
 
@@ -326,7 +458,7 @@
                       class="search_agent_name ser"
                       autocomplete="no"
                       type="text"
-                      name="citytext"
+                      name="agent_name"
                       placeholder="Search Agent Name"
                       style="display: none"
                     />
@@ -342,7 +474,7 @@
 
                         <!-- Your provided HTML structure for the first dropdown -->
                         <div class="type">
-                          <p id="y-type" class="x-type type-value">
+                          <p id="y-type" class="x-type type-value" style=" width: 100% !important;">
                             Type <i class="fas fa-caret-down"></i>
                           </p>
                           <div

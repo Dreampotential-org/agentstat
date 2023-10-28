@@ -27,6 +27,9 @@ function fillIn() {
   search_data["email"] = localStorage.email;
   search_data["user_agent"] = navigator.userAgent;
 
+  console.log(search_data["user_agent"], 'search_data["user_agent"]');
+  console.log(navigator.userAgent, "navigator.userAgent");
+
   var results = getSearchParams(place);
   global_results = results;
 
@@ -51,13 +54,18 @@ function fillIn1() {
 function set_search_input() {
   const urlParams = new URLSearchParams(window.location.search);
   var agent_name = urlParams.get("agent_name");
+
+
+
   var home_type = urlParams.get("home_type", "SINGLE_FAMILY");
+
   if (agent_name) {
     $(".ser").val(agent_name);
     $(".ser-map").val(agent_name);
   }
   var type = urlParams.get("type");
   var city = urlParams.get("city");
+
   $("#city-search-filter").val(city);
   $(".ser").val(agent_name);
   $(".ser-map").val(agent_name);
@@ -158,6 +166,7 @@ function redirectResults(results) {
   search_city = localStorage.getItem("search_city");
   search_agent_name = localStorage.getItem("search_agent_name");
 
+  console.log("Agent Name----->", search_agent_name);
 
   search_state = localStorage.getItem("search_state");
   if ($("#y-address").text() != "Agent Name ") {
@@ -293,6 +302,8 @@ $("#myButton1").click(function () {
   search_city = localStorage.getItem("search_city");
   search_agent_name = localStorage.getItem("search_agent_name");
 
+  console.log(search_agent_name, "<<<-----------------");
+
   search_state = localStorage.getItem("search_state");
   if ($("#y-address").text() != "Agent Name ") {
     search_state = "";
@@ -342,6 +353,8 @@ $("#myButton1").click(function () {
   if (search_agent_name) {
     new_params.push("agent_name=" + search_agent_name);
   }
+
+  console.log("search_agent_name", search_agent_name);
 
   if (search_state) {
     new_params.push("state=" + search_state);
@@ -618,8 +631,7 @@ function init() {
 
   try {
     init_maps();
-  } catch (ex) {
-  }
+  } catch (ex) {}
   set_search_input();
 
   $("body").delegate(".serch_btn", "click", function (e) {
@@ -702,7 +714,6 @@ $(document).ready(function () {
     data["screen_" + k] = v;
   });
 
-
   for (var value of urlParams.keys()) {
     data["query_" + value] = urlParams.get(value);
   }
@@ -735,8 +746,7 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
       "Error object: " + JSON.stringify(error),
     ].join(" - ");
 
-    $.post(url, JSON.stringify({ text: message }), function () {
-    });
+    $.post(url, JSON.stringify({ text: message }), function () {});
   }
   return false;
 };
@@ -757,6 +767,7 @@ $(document).ready(function () {
   address = localStorage.search_address;
   city = urlParams.get("city");
 
+  console.log(urlParams, "urlParams citySearch");
 
   if (address) {
     $(".search_address").val(address);
