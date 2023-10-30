@@ -1,215 +1,196 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <!-- Meta setup -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="facebook-domain-verification"
-      content="kuc4pcyst27bthpahcvajg8atiiy34"
-    />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="keywords" content="" />
-    <meta name="decription" content="" />
-    <meta name="author" content="" />
-    <!-- Title -->
-    <title>AgentStat</title>
+<head>
+  <!-- Meta setup -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="facebook-domain-verification" content="kuc4pcyst27bthpahcvajg8atiiy34" />
 
-    <!-- Fav Icon -->
-    <link rel="icon" href="img/fav.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="" />
+  <meta name="decription" content="" />
+  <meta name="author" content="" />
+  <!-- Title -->
+  <title>AgentStat</title>
 
-    <!-- Include Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css" />
+  <!-- Fav Icon -->
+  <link rel="icon" href="img/fav.png" />
 
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css" />
+  <!-- Include Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.css" />
 
-    <!-- Main StyleSheet -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="css/responsive.css" />
 
-    <!-- Common css for all pages -->
-    <link rel="stylesheet" href="css/common.css" />
+  <!-- Main StyleSheet -->
+  <link rel="stylesheet" href="style.css" />
 
-    <!-- Page CSS -->
-    <link rel="stylesheet" href="css/index.css" />
-    <!-- Sitemap CSS -->
-    <link rel="stylesheet" href="css/sitemap.css?0.0.2" />
-    <style>
-      video {
-        max-width: 100%;
-      }
-      .video-box {
-        max-width: 700px;
-        margin: 0 auto 50px;
-        padding: 0 15px;
-      }
-      #home-footer {
-        position: relative;
-        height: auto;
-      }
-      #home-footer section.home-searchsec {
-        margin: 0 0 24px;
-      }
-      #home-footer .footer-wrapper {
-        display: block;
-        width: 100%;
-        position: static;
-        transform: none;
-        text-align: center;
-      }
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.7);
-      }
+  <!-- Common css for all pages -->
+  <link rel="stylesheet" href="css/common.css" />
 
-      /* CSS for the modal content */
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="css/index.css" />
+  <!-- Sitemap CSS -->
+  <link rel="stylesheet" href="css/sitemap.css?0.0.2" />
+  <style>
+    video {
+      max-width: 100%;
+    }
+
+    .video-box {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      padding: 0 15px;
+    }
+
+    #home-footer {
+      position: relative;
+      height: auto;
+    }
+
+    #home-footer section.home-searchsec {
+      margin: 0 0 24px;
+    }
+
+    #home-footer .footer-wrapper {
+      display: block;
+      width: 100%;
+      position: static;
+      transform: none;
+      text-align: center;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* CSS for the modal content */
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 10px;
+      width: 30%;
+      text-align: center;
+    }
+
+    @media screen and (max-width:768px) {
       .modal-content {
-        background-color: #fff;
-        margin: 15% auto;
-        padding: 10px;
-        width: 30%;
-        text-align: center;
+        width: 85%;
       }
-      @media screen and (max-width:768px) {
-        .modal-content {
-          width: 85%;
-        }
-      }
+    }
 
-      .price-wrapper {
-                                height: 200px; 
-                                overflow-y: auto; 
-                              }
-                            
-                              .price-wrapper ul {
-                                list-style: none;
-                                padding: 0;
-                                margin: 0;
-                              }
-                            
-                              .price-wrapper li {
-                                padding: 5px;
-                              }
+    .price-wrapper {
+      height: 200px;
+      overflow-y: auto;
+    }
 
-    </style>
-  </head>
-  <body>
-    <!--[if lte IE 9]>
+    .price-wrapper ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .price-wrapper li {
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="https://browsehappy.com/">upgrade your browser</a> to improve
         your experience and security.
       </p>
     <![endif]-->
-    <div class="page-container">
-      <!-- header-area start -->
-      <div class="header-area sticky-top bg-white custom_header">
-        <div class="">
-          <div class="row" style="margin-right: 0px">
-            <div class="col-lg-12">
-              <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="/">
-                  <img class="image" src="/img/logo-beta.png" alt="logo" />
-                </a>
-                <button
-                  class="hamburger hamburger--squeeze navbar-toggler"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                  </span>
-                </button>
-                <div
-                  class="collapse navbar-collapse"
-                  id="navbarSupportedContent"
-                >
-                  <ul class="navbar-nav mr-auto"></ul>
-                  <div  class="main-menu-part">
-                    <ul>
-                        <li><a href="/subscription.html">AgentStat Premium</a></li>
-                    </ul>
+  <div class="page-container">
+    <!-- header-area start -->
+    <div class="header-area sticky-top bg-white custom_header">
+      <div class="">
+        <div class="row" style="margin-right: 0px">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-md navbar-light">
+              <a class="navbar-brand" href="/">
+                <img class="image" src="/img/logo-beta.png" alt="logo" />
+              </a>
+              <button class="hamburger hamburger--squeeze navbar-toggler main-menu-part" type="button">
+                <ul class="float-right">
+                  <li><a href="/signup/">SignUp</a></li>
+                </ul>
+              </button>
+              <div class="navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+                <div class="main-menu-part">
+                  <ul>
+                    <li><a href="/subscription.html">AgentStat Premium</a></li>
+                    <li><a href="/howsearchworks/">How Search Works</a></li>
+                    <li class="remove-link"><a href="/signup/">SignUp</a></li>
+                  </ul>
                 </div>
-                  <div class="main-menu-part">
-                    <ul>
-                      <li><a href="/howsearchworks/">How Search Works</a></li>
-                    </ul>
-                  </div>
-                  <div id="login-menu" class="main-menu-part">
-                    <ul class="float-right">
-                      <!-- <li><a href="/login/">Login</a></li> -->
-                      <li><a href="/signup/">SignUp</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-            </div>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
-      <!-- header-area end -->
-      <!-- first-view start -->
-      <!-- <div class="first-view">
+    </div>
+    <!-- header-area end -->
+    <!-- first-view start -->
+    <!-- <div class="first-view">
         <div class="vertical-center"> -->
-      <!-- po-world area start -->
-      <div class="mainDiv">
-        <div class="subDiv">
-          <div class="po-world">
-            <div class="container">
-              <div class="po-world-wrapper text-center">
-                <h2>
-                  Real Estate <span class="poa-title">Agent </span> Search
-                  Engine
-                </h2>
-                <!-- <p>Works just like Google, try it.</p> -->
-                <ul class="mark-list">
-                  <li>
-                    <i class="fa fa-check" aria-hidden="true"></i>You're in
-                    control
-                  </li>
-                  <li>
-                    <i class="fa fa-check" aria-hidden="true"></i>Full Agent
-                    Directory
-                  </li>
-                  <li>
-                    <i class="fa fa-check" aria-hidden="true"></i>Search Filter,
-                    Sort By Sales Results
-                  </li>
-                  <li>
-                    <i class="fa fa-check" aria-hidden="true"></i>You Pick Which
-                    Agent Matches your needs
-                  </li>
-                  <li>
-                    <i class="fa fa-check" aria-hidden="true"></i>No B.S or
-                    Forms
-                  </li>
-                </ul>
-              </div>
+    <!-- po-world area start -->
+    <div class="mainDiv">
+      <div class="subDiv">
+        <div class="po-world">
+          <div class="container">
+            <div class="po-world-wrapper text-center">
+              <h2>
+                Real Estate <span class="poa-title">Agent </span> Search
+                Engine
+              </h2>
+              <!-- <p>Works just like Google, try it.</p> -->
+              <ul class="mark-list">
+                <li>
+                  <i class="fa fa-check" aria-hidden="true"></i>You're in
+                  control
+                </li>
+                <li>
+                  <i class="fa fa-check" aria-hidden="true"></i>Full Agent
+                  Directory
+                </li>
+                <li>
+                  <i class="fa fa-check" aria-hidden="true"></i>Search Filter,
+                  Sort By Sales Results
+                </li>
+                <li>
+                  <i class="fa fa-check" aria-hidden="true"></i>You Pick Which
+                  Agent Matches your needs
+                </li>
+                <li>
+                  <i class="fa fa-check" aria-hidden="true"></i>No B.S or
+                  Forms
+                </li>
+              </ul>
             </div>
           </div>
-          <!-- po-world area end -->
+        </div>
+        <!-- po-world area end -->
 
-          <!-- po-search area start -->
-          <div class="po-search">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                  <div class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size agent-search">
+        <!-- po-search area start -->
+        <div class="po-search">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 offset-lg-1">
+                <div class="po-serach-wrapper po-serach-wrapper-one ak-form custom_search_size agent-search">
                   <style>
                     /* CSS for the modal-like appearance */
                     .modal {
@@ -222,12 +203,12 @@
                       background-color: rgba(0, 0, 0, 0.7);
                       z-index: 1;
                     }
-                  
+
                     .row {
                       align-items: center;
                       justify-content: center;
                     }
-                  
+
                     @media (min-width: 1100px) {
                       .fixed {
                         position: fixed;
@@ -237,16 +218,16 @@
                         margin: 1rem 5rem !important;
                       }
                     }
-                  
+
                     @media (min-width: 767px) and (max-width: 992px) {
-                      .agent-search{
+                      .agent-search {
                         margin: 0 auto -15px !important;
                         left: 0 !important;
                         right: 0 !important;
                         max-width: 69%;
                       }
                     }
-                  
+
                     @media (max-width: 767px) and (min-width: 575px) {
                       .agent-search {
                         max-width: 100%;
@@ -255,20 +236,26 @@
                         padding: 0 2rem !important;
                         margin-top: 30px !important;
                       }
-                  
+
                       .po-serach-wrapper input.ser {
                         width: 100% !important;
                         box-shadow: 0 0 0 0;
                       }
                     }
-                  
+
                     @media (min-width: 575px) and (max-width: 767px) {
                       .btn.btn-default.searchButton {
                         margin: 5px 8px 0 0px;
                       }
                     }
-                  
-                  
+
+                    @media (max-width: 767px) {
+                      .remove-link {
+                        display: none !important;
+                      }
+                    }
+
+
                     /* @media screen and (max-width: 767px) and (min-width: 576px) */
                     /* .modal-content {
                                         background-color: #fff;
@@ -279,19 +266,19 @@
                                         padding: 20px;
                                       } */
                   </style>
-                  
+
                   <div class="address">
-                      <p id="y-address" class="address-value">
-                          Address <i class="fas fa-caret-down"></i>
-                      </p>
-                      <div class="dropdownaddress address-type index-address-type">
-                          <ul>
-                              <li class="custom_radio" id="agentName">Agent Name</li>
-                              <li class="custom_radio">City</li>
-                          </ul>
-                      </div>
+                    <p id="y-address" class="address-value">
+                      Address <i class="fas fa-caret-down"></i>
+                    </p>
+                    <div class="dropdownaddress address-type index-address-type">
+                      <ul>
+                        <li class="custom_radio" id="agentName">Agent Name</li>
+                        <li class="custom_radio">City</li>
+                      </ul>
+                    </div>
                   </div>
-                  
+
                   <!-- <div class="ser-state modal" id="stateModal">
                       <div class="modal-content">
                           <p class="ser-state-id state-value" target="ser-state-first">
@@ -307,305 +294,264 @@
                           </div>
                       </div>
                   </div> -->
-                  
+
                   <!-- <div class="modal" id="agentNameModal">
                       <div class="modal-content"> -->
-                        <div class="ser-state modal" id="stateModal">
-                          <div class="modal-content">
-                          <input
-                              class="search_agent_name ser"
-                              autocomplete="nop"
-                              type="text"
-                              name="citytext"
-                              placeholder="Search Agent Name Agent"
-                          />
-                          <input type="text" id="searchInput" placeholder="Search data" oninput="searchTable()">
+                  <div class="ser-state modal" id="stateModal">
+                    <div class="modal-content">
+                      <input class="search_agent_name ser" autocomplete="nop" type="text" name="citytext"
+                        placeholder="Search Agent Name Agent" />
+                      <input type="text" id="searchInput" placeholder="Search data" oninput="searchTable()">
 
-<table>
-    <tbody id="tableBody">
-    </tbody>
-</table>
+                      <table>
+                        <tbody id="tableBody">
+                        </tbody>
+                      </table>
 
-<!-- Modal -->
-<div class="modal" id="modal">
-    Modal Content
-</div>
-
-
+                      <!-- Modal -->
+                      <div class="modal" id="modal">
+                        Modal Content
                       </div>
+
+
+                    </div>
                   </div>
-                  
+
                   <script>
 
                     var dataTable;
                     var temp = [];
-        var datas =[]
+                    var datas = []
 
-                      document.getElementById('agentName').addEventListener('click', function() {
-                        fetch('https://app.realtorstat.com/api/agents')
-    .then(response => {
-        if (response.ok) {
-            return response.json(); // Parse the response as JSON
-        }
-        throw new Error('Network response was not ok.');
-    })
-    .then(data => {
-        // Handle the API response data here
-       
-        dataTable = data;
-        temp = data;
-// Extract the full names from the data and update tableData
-const fullNames = data.results.map(result => result.full_name);
-datas.length = 0; // Clear the tableData array
-datas.push(...fullNames); // Update tableData with full names
+                    document.getElementById('agentName').addEventListener('click', function () {
+                      fetch('https://app.realtorstat.com/api/agents')
+                        .then(response => {
+                          if (response.ok) {
+                            return response.json(); // Parse the response as JSON
+                          }
+                          throw new Error('Network response was not ok.');
+                        })
+                        .then(data => {
+                          // Handle the API response data here
 
-// Now you can use tableData as you need
-console.log("fullNames------------:", fullNames);
+                          dataTable = data;
+                          temp = data;
+                          // Extract the full names from the data and update tableData
+                          const fullNames = data.results.map(result => result.full_name);
+                          datas.length = 0; // Clear the tableData array
+                          datas.push(...fullNames); // Update tableData with full names
 
-// Update your table with the new data
-// populateTable();
-    })
-    .catch(error => {
-        // Handle any errors that occurred during the fetch
-        console.error('Error:', error);
-    });
-                          var stateModal = document.getElementById('stateModal');
-                          stateModal.style.display = 'block';
-                      });
+                          // Now you can use tableData as you need
+                          console.log("fullNames------------:", fullNames);
 
-        //               const fullNames = dataTable?.results?.map(result => result.full_name);
-        console.log("full_name",dataTable);
+                          // Update your table with the new data
+                          // populateTable();
+                        })
+                        .catch(error => {
+                          // Handle any errors that occurred during the fetch
+                          console.error('Error:', error);
+                        });
+                      var stateModal = document.getElementById('stateModal');
+                      stateModal.style.display = 'block';
+                    });
 
-                      // const tableData = [  'Jean Groesbeck', 'Debbie Macy'];
+                    //               const fullNames = dataTable?.results?.map(result => result.full_name);
+                    console.log("full_name", dataTable);
 
-
-const tableBody = document.getElementById('tableBody');
-const searchInput = document.getElementById('searchInput');
-
-function populateTable(item) {
- 
-
-  if(item?.length){
-    console.log("tableData",item);
-    tableBody.innerHTML = ''; // Clear the table body
-    item.forEach((data) => {
-        const row = document.createElement('tr');
-        row.onclick = () => showAlert(data);
-
-        const cell = document.createElement('td');
-        cell.textContent = data;
-
-        row.appendChild(cell);
-        tableBody.appendChild(row);
-    });
-  }
-
-   
-}
-
-function showAlert(text) {
-    alert("Clicked: " + text);
-}
-
-// function searchTable() {
-//     const searchText = searchInput.value.toLowerCase();
-//     const filteredData = datas?.filter(data => data?.toLowerCase().includes(searchText));
-//     console.log("filter Arrat", filteredData)
-//     datas.length = 0;
-//     datas.push(...filteredData);
-//     populateTable(datas);
-// }
+                    // const tableData = [  'Jean Groesbeck', 'Debbie Macy'];
 
 
-function searchTable() {
-    const searchText = searchInput.value.toLowerCase();
-    const filteredData = datas.filter(data => data.toLowerCase().includes(searchText));
-    console.log("filtered Array", filteredData);
+                    const tableBody = document.getElementById('tableBody');
+                    const searchInput = document.getElementById('searchInput');
 
-    if (searchText === "") {
-        // If the search input is empty, display all data.
-        populateTable(datas);
-    } else {
-        // Display the filtered data.
-        populateTable(filteredData);
-    }
-}
+                    function populateTable(item) {
 
 
-// Initialize the table
-populateTable();
-                
+                      if (item?.length) {
+                        console.log("tableData", item);
+                        tableBody.innerHTML = ''; // Clear the table body
+                        item.forEach((data) => {
+                          const row = document.createElement('tr');
+                          row.onclick = () => showAlert(data);
+
+                          const cell = document.createElement('td');
+                          cell.textContent = data;
+
+                          row.appendChild(cell);
+                          tableBody.appendChild(row);
+                        });
+                      }
+
+
+                    }
+
+                    function showAlert(text) {
+                      alert("Clicked: " + text);
+                    }
+
+                    // function searchTable() {
+                    //     const searchText = searchInput.value.toLowerCase();
+                    //     const filteredData = datas?.filter(data => data?.toLowerCase().includes(searchText));
+                    //     console.log("filter Arrat", filteredData)
+                    //     datas.length = 0;
+                    //     datas.push(...filteredData);
+                    //     populateTable(datas);
+                    // }
+
+
+                    function searchTable() {
+                      const searchText = searchInput.value.toLowerCase();
+                      const filteredData = datas.filter(data => data.toLowerCase().includes(searchText));
+                      console.log("filtered Array", filteredData);
+
+                      if (searchText === "") {
+                        // If the search input is empty, display all data.
+                        populateTable(datas);
+                      } else {
+                        // Display the filtered data.
+                        populateTable(filteredData);
+                      }
+                    }
+
+
+                    // Initialize the table
+                    populateTable();
+
                   </script>
-                  
 
-                    <input
-                      class="ser search_address maps_input"
-                      id="inputBox"
-                      type="text"
-                      name="text"
-                      autocomplete="no"
-                      placeholder="Search address"
-                    />
-                    <input
-                      class="search_city ser"
-                      autocomplete="no"
-                      type="text"
-                      name="citytext"
-                      placeholder="Search City"
-                      style="display: none"
-                    />
-                    <input
-                      class="search_agent_name ser"
-                      autocomplete="no"
-                      type="text"
-                      name="agent_name"
-                      placeholder="Search Agent Name"
-                      style="display: none"
-                    />
-                    <!--<input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" > -->
 
-                    <!-- <input type="text" id="inputBox" placeholder="Select a value">
+                  <input class="ser search_address maps_input" id="inputBox" type="text" name="text" autocomplete="no"
+                    placeholder="Search address" />
+                  <input class="search_city ser" autocomplete="no" type="text" name="citytext" placeholder="Search City"
+                    style="display: none" />
+                  <input class="search_agent_name ser" autocomplete="no" type="text" name="agent_name"
+                    placeholder="Search Agent Name" style="display: none" />
+                  <!--<input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" > -->
+
+                  <!-- <input type="text" id="inputBox" placeholder="Select a value">
                                 <button id="showFirstModalBtn">Show First Modal</button> -->
 
-                    <div id="firstModal" class="modal">
-                      <div class="modal-content">
-                        <!-- <h2>First Modal Popup</h2> -->
-                        <p>Select your HomeType</p>
+                  <div id="firstModal" class="modal">
+                    <div class="modal-content">
+                      <!-- <h2>First Modal Popup</h2> -->
+                      <p>Select your HomeType</p>
 
-                        <!-- Your provided HTML structure for the first dropdown -->
-                        <div class="type">
-                          <p id="y-type" class="x-type type-value" style=" width: 100% !important;">
-                            Type <i class="fas fa-caret-down"></i>
-                          </p>
-                          <div
-                            id="dropdowntypes"
-                            class="check-type index-check-type"
-                            style="width: 100%"
-                          >
-                            <!-- <h6>Home Type</h6> -->
-                            <ul>
-                              <li class="custom_radio">House</li>
-                              <li class="custom_radio">Manufactured</li>
-                              <li class="custom_radio">Condo/Co-op</li>
-                              <li class="custom_radio">Multi-Family</li>
-                              <li class="custom_radio">Lot/Land</li>
-                              <li class="custom_radio">Townhouse</li>
-                            </ul>
+                      <!-- Your provided HTML structure for the first dropdown -->
+                      <div class="type">
+                        <p id="y-type" class="x-type type-value" style=" width: 100% !important;">
+                          Type <i class="fas fa-caret-down"></i>
+                        </p>
+                        <div id="dropdowntypes" class="check-type index-check-type" style="width: 100%">
+                          <!-- <h6>Home Type</h6> -->
+                          <ul>
+                            <li class="custom_radio">House</li>
+                            <li class="custom_radio">Manufactured</li>
+                            <li class="custom_radio">Condo/Co-op</li>
+                            <li class="custom_radio">Multi-Family</li>
+                            <li class="custom_radio">Lot/Land</li>
+                            <li class="custom_radio">Townhouse</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="secondModal" class="modal">
+                    <div class="modal-content">
+                      <div class="price">
+                        <p class="d-inline-block y-price">
+                          Price <i class="fas fa-caret-down"></i>
+                        </p>
+                        <div class="price-amount" id="pt-amount" style="display: contents">
+                          <div class="price-head-wrapper">
+                            <input id="one-left-in" type="text" name="min-price" placeholder="MIN" />
+                            <span> -</span>
+                            <input id="one-right-in" type="text" name="max-price" placeholder="MAX" />
+                          </div>
+                          <style>
+
+                          </style>
+
+                          <div class="price-wrapper">
+                            <div class="p-left">
+                              <ul>
+                                <li>$50,000</li>
+                                <li>$100,000</li>
+                                <li>$150,000</li>
+                                <li>$300,000</li>
+                                <li>$400,000</li>
+                                <li>$500,000</li>
+                                <li>$600,000</li>
+                                <li>$700,000</li>
+                                <li>$800,000</li>
+                                <li>$900,000</li>
+                              </ul>
+                            </div>
+                            <div class="p-right">
+                              <ul>
+                                <li>$200K</li>
+                                <li>$300K</li>
+                                <li>$400K</li>
+                                <li>$500K</li>
+                                <li>$600K</li>
+                                <li>$700K</li>
+                                <li>$800K</li>
+                                <li>$900K</li>
+                                <li>$1M</li>
+                                <li>Any price</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div class="text-center" style="padding: 14px">
+                            <button id="myButton1">Done</button>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div id="secondModal" class="modal">
-                      <div class="modal-content">
-                        <div class="price">
-                          <p class="d-inline-block y-price">
-                            Price <i class="fas fa-caret-down"></i>
-                          </p>
-                          <div
-                            class="price-amount"
-                            id="pt-amount"
-                            style="display: contents"
-                          >
-                            <div class="price-head-wrapper">
-                              <input
-                                id="one-left-in"
-                                type="text"
-                                name="min-price"
-                                placeholder="MIN"
-                              />
-                              <span> -</span>
-                              <input
-                                id="one-right-in"
-                                type="text"
-                                name="max-price"
-                                placeholder="MAX"
-                              />
-                            </div>
-                            <style>
-                       
-                            </style>
-                            
-                            <div class="price-wrapper">
-                                <div class="p-left">
-                                    <ul>
-                                        <li>$50,000</li>
-                                        <li>$100,000</li>
-                                        <li>$150,000</li>
-                                        <li>$300,000</li>
-                                        <li>$400,000</li>
-                                        <li>$500,000</li>
-                                        <li>$600,000</li>
-                                        <li>$700,000</li>
-                                        <li>$800,000</li>
-                                        <li>$900,000</li>
-                                    </ul>
-                                </div>
-                                <div class="p-right">
-                                    <ul>
-                                        <li>$200K</li>
-                                        <li>$300K</li>
-                                        <li>$400K</li>
-                                        <li>$500K</li>
-                                        <li>$600K</li>
-                                        <li>$700K</li>
-                                        <li>$800K</li>
-                                        <li>$900K</li>
-                                        <li>$1M</li>
-                                        <li>Any price</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center" style="padding: 14px">
-                              <button id="myButton1">Done</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <script>
+                    // Get references to the input box and the modals
+                    var inputBox = document.getElementById("inputBox");
+                    var firstModal = document.getElementById("firstModal");
+                    var secondModal = document.getElementById("secondModal");
+                    // var showFirstModalBtn =
+                    //   document.getElementById("showFirstModalBtn");
+                    var firstDropdownItems = document.querySelectorAll(
+                      "#dropdowntypes .custom_radio"
+                    );
 
-                    <script>
-                      // Get references to the input box and the modals
-                      var inputBox = document.getElementById("inputBox");
-                      var firstModal = document.getElementById("firstModal");
-                      var secondModal = document.getElementById("secondModal");
-                      // var showFirstModalBtn =
-                      //   document.getElementById("showFirstModalBtn");
-                      var firstDropdownItems = document.querySelectorAll(
-                        "#dropdowntypes .custom_radio"
-                      );
+                    // Event listener to show the first modal when a value is selected in the input box
+                    inputBox.addEventListener("change", function () {
+                      firstModal.style.display = "block";
+                    });
 
-                      // Event listener to show the first modal when a value is selected in the input box
-                      inputBox.addEventListener("change", function () {
-                        firstModal.style.display = "block";
+                    // Event listener to show the second modal when an option is selected in the first dropdown
+                    firstDropdownItems.forEach((item) => {
+                      item.addEventListener("click", function () {
+                        secondModal.style.display = "block";
                       });
+                    });
 
-                      // Event listener to show the second modal when an option is selected in the first dropdown
-                      firstDropdownItems.forEach((item) => {
-                        item.addEventListener("click", function () {
-                          secondModal.style.display = "block";
-                        });
-                      });
+                    // Event listener to close the modals when the user clicks outside of them
+                    window.addEventListener("click", function (event) {
+                      if (event.target == firstModal) {
+                        firstModal.style.display = "none";
+                      }
+                      if (event.target == secondModal) {
+                        secondModal.style.display = "none";
+                      }
+                    });
 
-                      // Event listener to close the modals when the user clicks outside of them
-                      window.addEventListener("click", function (event) {
-                        if (event.target == firstModal) {
-                          firstModal.style.display = "none";
-                        }
-                        if (event.target == secondModal) {
-                          secondModal.style.display = "none";
-                        }
-                      });
+                    // Event listener to close the modals when the user clicks the "Show First Modal" button
+                    // showFirstModalBtn.addEventListener("click", function () {
+                    //   firstModal.style.display = "none";
+                    //   secondModal.style.display = "none";
+                    // });
+                  </script>
 
-                      // Event listener to close the modals when the user clicks the "Show First Modal" button
-                      // showFirstModalBtn.addEventListener("click", function () {
-                      //   firstModal.style.display = "none";
-                      //   secondModal.style.display = "none";
-                      // });
-                    </script>
-
-                    <!-- <div id="suggesstion-box"></div>
+                  <!-- <div id="suggesstion-box"></div>
                                     <div class="type ">
                                         <p id="y-type" class="x-type type-value">Type <i class="fas fa-caret-down"></i></p>
                                         <div id="dropdowntypes" class="check-type index-check-type">
@@ -620,7 +566,7 @@ populateTable();
                                         </ul>
                                         </div>
                                     </div> -->
-                    <!-- <div class="price">
+                  <!-- <div class="price">
                                         <p class="d-inline-block y-price">Price <i class="fas fa-caret-down"></i></p>
                                         <div class="price-amount" id="pt-amount">
                                             <div class="price-head-wrapper">
@@ -662,311 +608,301 @@ populateTable();
                                             </div>
                                         </div>
                                     </div> -->
-                    <div class="serch_btn">
-                      <button class="btn btn-default searchButton">
-                        <span><i class="fas fa-search"></i></span>
-                      </button>
-                    </div>
+                  <div class="serch_btn">
+                    <button class="btn btn-default searchButton">
+                      <span><i class="fas fa-search"></i></span>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <p style="height: 50px"></p>
-          <div class="video-box">
-            <video
-              id="video-player"
-              src="/video/GETSTAT-7-11.10.2020.mp4"
-              controls
-              muted
-              autoplay
-              loop
-              playsinline
-            ></video>
-            <br>
-            <center><a href="/Ai.html">Try out our latest <strong>AI</strong> feautres now!</a></center>
-          </div>
-          <p style="height: 50px"></p>
         </div>
-      </div>
-
-      <!-- po-maps area end -->
-    </div>
-    <!-- footer area start -->
-    <div class="footer" id="home-footer">
-      <div class="container">
-        <section class="home-searchsec">
-          <div id="state-index" style="display: none">
-            <h4>Search for homes by state</h4>
-            <div class="text1">
-              <div class="items">
-                <ul class="state-list"></ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="cityindex" style="display: none">
-            <h4>Search for homes by city</h4>
-            <div class="text">
-              <div class="items">
-                <ul class="city-list"></ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="agent-cityindex" style="display: none">
-            <h4>Search agents by city</h4>
-            <div class="text2">
-              <div class="items">
-                <ul class="agent-citylist"></ul>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div class="footer-wrapper text-center">
-          <p>Copyright © agentstat.com</p>
-          <ul>
-            <a href="https://agentstat.com/terms.pdf" target="_blank"
-              >"Terms of Use & Privacy Policy"</a
-            >
-          </ul>
+        <p style="height: 50px"></p>
+        <div class="video-box">
+          <video id="video-player" src="/video/GETSTAT-7-11.10.2020.mp4" controls muted autoplay loop
+            playsinline></video>
+          <br>
+          <center><a href="/Ai.html">Try out our latest <strong>AI</strong> feautres now!</a></center>
         </div>
+        <p style="height: 50px"></p>
       </div>
     </div>
-    <!-- footer area end -->
-    <!-- Main jQuery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <!-- Input Masking -->
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+    <!-- po-maps area end -->
+  </div>
+  <!-- footer area start -->
+  <div class="footer" id="home-footer">
+    <div class="container">
+      <section class="home-searchsec">
+        <div id="state-index" style="display: none">
+          <h4>Search for homes by state</h4>
+          <div class="text1">
+            <div class="items">
+              <ul class="state-list"></ul>
+            </div>
+          </div>
+        </div>
 
-    <script src="js/conf.js"></script>
-    <script src="js/main.js"></script>
-    <script src="/js/ambassador.js"></script>
-    <script src="js/common.js"></script>
-    <!-- GOOGLE MAPS -->
-    <script
-      type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFH-yKmfPyaa18_uYUwVWb7THj-b1hymE&amp;libraries=places"
-    ></script>
-    <!-- Bootstrap Propper jQuery -->
-    <script src="/js/popper.js"></script>
-    <!-- Bootstrap jQuery -->
-    <script src="/js/bootstrap.js"></script>
+        <div id="cityindex" style="display: none">
+          <h4>Search for homes by city</h4>
+          <div class="text">
+            <div class="items">
+              <ul class="city-list"></ul>
+            </div>
+          </div>
+        </div>
 
-    <!-- Fontawesome Script -->
-    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
-    <script src="js/type.js"></script>
-    <!-- Custom jQuery -->
-    <script src="js/scripts.js"></script>
+        <div id="agent-cityindex" style="display: none">
+          <h4>Search agents by city</h4>
+          <div class="text2">
+            <div class="items">
+              <ul class="agent-citylist"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="footer-wrapper text-center">
+        <p>Copyright © agentstat.com</p>
+        <ul>
+          <a href="https://agentstat.com/terms.pdf" target="_blank">"Terms of Use & Privacy Policy"</a>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- footer area end -->
+  <!-- Main jQuery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script src="js/index.js"></script>
+  <!-- Input Masking -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
 
-    <!-- Scroll-Top button -->
-    <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+  <script src="js/conf.js"></script>
+  <script src="js/main.js"></script>
+  <script src="/js/ambassador.js"></script>
+  <script src="js/common.js"></script>
+  <!-- GOOGLE MAPS -->
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFH-yKmfPyaa18_uYUwVWb7THj-b1hymE&amp;libraries=places"></script>
+  <!-- Bootstrap Propper jQuery -->
+  <script src="/js/popper.js"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="/js/bootstrap.js"></script>
 
-    <script type="text/javascript">
+  <!-- Fontawesome Script -->
+  <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+  <script src="js/type.js"></script>
+  <!-- Custom jQuery -->
+  <script src="js/scripts.js"></script>
+
+  <script src="js/index.js"></script>
+
+  <!-- Scroll-Top button -->
+  <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#one-left-in").inputmask("decimal", {
+        alias: "numeric",
+        allowMinus: false,
+        placeholder: "",
+      });
+      $("#one-right-in").inputmask("decimal", {
+        alias: "numeric",
+        allowMinus: false,
+        placeholder: "",
+      });
+
+      localStorage.setItem("search_home_type", "");
+      $(".state-value").click(function () {
+        //alert($('#allstate li').length);
+        if (".allstate li".length > 0) {
+          $(".allstate").addClass("scrollState");
+        }
+
+        $(".allstate li").click(function () {
+          $(".allstate li").each(function () {
+            if ($(this).hasClass("statehightLight")) {
+              $(this).removeClass("statehightLight");
+            }
+          });
+          $(this).addClass("statehightLight");
+        });
+      });
+
+      $(".state-map-value").click(function () {
+        if ("#statesData li".length > 0) {
+          $("#statesData").addClass("scrollState");
+        }
+
+        $("#statesData li").click(function () {
+          $("#statesData li").each(function () {
+            if ($(this).hasClass("statehightLight")) {
+              $(this).removeClass("statehightLight");
+            }
+          });
+          $(this).addClass("statehightLight");
+        });
+      });
+
+      $("#type-map li").click(function () {
+        $("#type-map li").each(function () {
+          if ($(this).hasClass("statehightLight")) {
+            $(this).removeClass("statehightLight");
+          }
+        });
+        $(this).addClass("statehightLight");
+      });
+
+      $(".index-check-type ul li").click(function () {
+        $(".index-check-type ul li").each(function () {
+          if ($(this).hasClass("statehightLight")) {
+            $(this).removeClass("statehightLight");
+          }
+        });
+        $(this).addClass("statehightLight");
+      });
+
+      var top = $(".po-serach-wrapper-one").offset().top;
+      $(window).scroll(function (event) {
+        var y = $(this).scrollTop();
+        if (y >= top) $(".po-serach-wrapper-one").addClass("fixed");
+        else $(".po-serach-wrapper-one").removeClass("fixed");
+      });
+    });
+
+    $(window).on("scroll", function () {
+      // console.log("LENGTH "+$(this).scrollTop())
+      if ($(".stricked-menu").length) {
+        var strickyScrollPos = 50;
+        if ($(window).scrollTop() > strickyScrollPos) {
+          $(".stricked-menu").fadeIn(100);
+        } else if ($(this).scrollTop() <= strickyScrollPos) {
+          //$('.stricked-menu').fadeOut(100);
+        }
+      }
+      if ($(".stricked-menu").length) {
+        var headerScrollPos = 50;
+        var stricky = $(".stricked-menu");
+        if ($(window).scrollTop() > headerScrollPos) {
+          stricky.addClass("stricky-fixed");
+        } else if ($(this).scrollTop() <= headerScrollPos) {
+          stricky.removeClass("stricky-fixed");
+        }
+      }
+    });
+    (function ($) {
       $(document).ready(function () {
-        $("#one-left-in").inputmask("decimal", {
-          alias: "numeric",
-          allowMinus: false,
-          placeholder: "",
-        });
-        $("#one-right-in").inputmask("decimal", {
-          alias: "numeric",
-          allowMinus: false,
-          placeholder: "",
-        });
-
-        localStorage.setItem("search_home_type", "");
-        $(".state-value").click(function () {
-          //alert($('#allstate li').length);
-          if (".allstate li".length > 0) {
-            $(".allstate").addClass("scrollState");
-          }
-
-          $(".allstate li").click(function () {
-            $(".allstate li").each(function () {
-              if ($(this).hasClass("statehightLight")) {
-                $(this).removeClass("statehightLight");
-              }
-            });
-            $(this).addClass("statehightLight");
-          });
-        });
-
-        $(".state-map-value").click(function () {
-          if ("#statesData li".length > 0) {
-            $("#statesData").addClass("scrollState");
-          }
-
-          $("#statesData li").click(function () {
-            $("#statesData li").each(function () {
-              if ($(this).hasClass("statehightLight")) {
-                $(this).removeClass("statehightLight");
-              }
-            });
-            $(this).addClass("statehightLight");
-          });
-        });
-
-        $("#type-map li").click(function () {
-          $("#type-map li").each(function () {
-            if ($(this).hasClass("statehightLight")) {
-              $(this).removeClass("statehightLight");
-            }
-          });
-          $(this).addClass("statehightLight");
-        });
-
-        $(".index-check-type ul li").click(function () {
-          $(".index-check-type ul li").each(function () {
-            if ($(this).hasClass("statehightLight")) {
-              $(this).removeClass("statehightLight");
-            }
-          });
-          $(this).addClass("statehightLight");
-        });
-
-        var top = $(".po-serach-wrapper-one").offset().top;
-        $(window).scroll(function (event) {
-          var y = $(this).scrollTop();
-          if (y >= top) $(".po-serach-wrapper-one").addClass("fixed");
-          else $(".po-serach-wrapper-one").removeClass("fixed");
-        });
-      });
-
-      $(window).on("scroll", function () {
-        // console.log("LENGTH "+$(this).scrollTop())
-        if ($(".stricked-menu").length) {
-          var strickyScrollPos = 50;
-          if ($(window).scrollTop() > strickyScrollPos) {
-            $(".stricked-menu").fadeIn(100);
-          } else if ($(this).scrollTop() <= strickyScrollPos) {
-            //$('.stricked-menu').fadeOut(100);
-          }
-        }
-        if ($(".stricked-menu").length) {
-          var headerScrollPos = 50;
-          var stricky = $(".stricked-menu");
-          if ($(window).scrollTop() > headerScrollPos) {
-            stricky.addClass("stricky-fixed");
-          } else if ($(this).scrollTop() <= headerScrollPos) {
-            stricky.removeClass("stricky-fixed");
-          }
-        }
-      });
-      (function ($) {
-        $(document).ready(function () {
-          jQuery(window).on("scroll", function () {
-            if (jQuery(window).scrollTop()) {
-              jQuery(".header-area").addClass("stricked-menu");
-            } else {
-              jQuery(".header-area").removeClass("stricked-menu");
-            }
-          });
-        });
-      })(jQuery);
-
-      $(".index-address-type ul li").click(function () {
-        $(".index-address-type ul li").each(function () {
-          if ($(this).hasClass("statehightLight")) {
-            $(this).removeClass("statehightLight");
+        jQuery(window).on("scroll", function () {
+          if (jQuery(window).scrollTop()) {
+            jQuery(".header-area").addClass("stricked-menu");
+          } else {
+            jQuery(".header-area").removeClass("stricked-menu");
           }
         });
-        $(this).addClass("statehightLight");
-        var a = $(this).text();
+      });
+    })(jQuery);
 
-        if (a == "Agent Name") {
-          $("#y-type").hide();
-          $(".price").hide();
-
-          $(".ser-state").show();
-        } else {
-          $("#y-type").show();
-          $(".price").show();
-          $(".ser-state").hide();
+    $(".index-address-type ul li").click(function () {
+      $(".index-address-type ul li").each(function () {
+        if ($(this).hasClass("statehightLight")) {
+          $(this).removeClass("statehightLight");
         }
       });
+      $(this).addClass("statehightLight");
+      var a = $(this).text();
 
-      $(".index-address-map-type ul li").click(function () {
-        $(".index-address-map-type ul li").each(function () {
-          if ($(this).hasClass("statehightLight")) {
-            $(this).removeClass("statehightLight");
-          }
+      if (a == "Agent Name") {
+        $("#y-type").hide();
+        $(".price").hide();
+
+        $(".ser-state").show();
+      } else {
+        $("#y-type").show();
+        $(".price").show();
+        $(".ser-state").hide();
+      }
+    });
+
+    $(".index-address-map-type ul li").click(function () {
+      $(".index-address-map-type ul li").each(function () {
+        if ($(this).hasClass("statehightLight")) {
+          $(this).removeClass("statehightLight");
+        }
+      });
+      $(this).addClass("statehightLight");
+      var a = $(this).attr("value");
+      if (a == "Agent Name") {
+        $("#bau1").hide();
+        $(".price").hide();
+
+        $(".ser-state-map").show();
+      } else {
+        $("#bau1").show();
+        $(".price").show();
+        $(".ser-state-map").hide();
+      }
+    });
+
+    $(document).click(function (e) {
+      e.stopPropagation();
+      var container = $(".address ");
+      var stateContainer = $(".ser-state");
+      var addressContainer = $(".address-map");
+      var mapStateContainer = $(".ser-state-map ");
+      var typeContainer = $(".type");
+      var typeMapContainer = $(".type");
+
+      if (container.has(e.target).length === 0) {
+        $(".address-type").hide();
+      }
+      if (stateContainer.has(e.target).length === 0) {
+        $(".ser-state-type").hide();
+      }
+      if (addressContainer.has(e.target).length === 0) {
+        $(".address-map-type").hide();
+      }
+      if (mapStateContainer.has(e.target).length === 0) {
+        $(".ser-state-map-type").hide();
+      }
+      if (typeContainer.has(e.target).length === 0) {
+        $(".index-check-type").hide();
+      }
+      if (typeMapContainer.has(e.target).length === 0) {
+        $(".bau1-cotent").hide();
+      }
+    });
+
+    var state_endpoint = SERVER_URL + "api/states";
+
+    $.ajax(state_endpoint)
+      .done(function (response) {
+        var states = response;
+        $.each(states, function (k, v) {
+          $(".allstate").append(
+            "<li class='custom_radio " + k + "-state" + "'>" + k + "</li>"
+          );
+          $("#statesData").append("<li class='custom_radio'>" + k + "</li>");
         });
-        $(this).addClass("statehightLight");
-        var a = $(this).attr("value");
-        if (a == "Agent Name") {
-          $("#bau1").hide();
-          $(".price").hide();
-
-          $(".ser-state-map").show();
-        } else {
-          $("#bau1").show();
-          $(".price").show();
-          $(".ser-state-map").hide();
-        }
+      })
+      .fail(function (err) {
+        show_error(err);
       });
+  </script>
+  <script>
+    // fallback: show controls if autoplay fails
+    // (needed for Samsung Internet for Android, as of v6.4)
+    window.addEventListener("load", async () => {
+      let video = document.querySelector("video[muted][autoplay]");
+      try {
+        await video.play();
+      } catch (err) {
+        video.controls = true;
+      }
+    });
+  </script>
+  <script src="js/sitemap.js?0.0.2"></script>
+</body>
 
-      $(document).click(function (e) {
-        e.stopPropagation();
-        var container = $(".address ");
-        var stateContainer = $(".ser-state");
-        var addressContainer = $(".address-map");
-        var mapStateContainer = $(".ser-state-map ");
-        var typeContainer = $(".type");
-        var typeMapContainer = $(".type");
-
-        if (container.has(e.target).length === 0) {
-          $(".address-type").hide();
-        }
-        if (stateContainer.has(e.target).length === 0) {
-          $(".ser-state-type").hide();
-        }
-        if (addressContainer.has(e.target).length === 0) {
-          $(".address-map-type").hide();
-        }
-        if (mapStateContainer.has(e.target).length === 0) {
-          $(".ser-state-map-type").hide();
-        }
-        if (typeContainer.has(e.target).length === 0) {
-          $(".index-check-type").hide();
-        }
-        if (typeMapContainer.has(e.target).length === 0) {
-          $(".bau1-cotent").hide();
-        }
-      });
-
-      var state_endpoint = SERVER_URL + "api/states";
-
-      $.ajax(state_endpoint)
-        .done(function (response) {
-          var states = response;
-          $.each(states, function (k, v) {
-            $(".allstate").append(
-              "<li class='custom_radio " + k + "-state" + "'>" + k + "</li>"
-            );
-            $("#statesData").append("<li class='custom_radio'>" + k + "</li>");
-          });
-        })
-        .fail(function (err) {
-          show_error(err);
-        });
-    </script>
-    <script>
-      // fallback: show controls if autoplay fails
-      // (needed for Samsung Internet for Android, as of v6.4)
-      window.addEventListener("load", async () => {
-        let video = document.querySelector("video[muted][autoplay]");
-        try {
-          await video.play();
-        } catch (err) {
-          video.controls = true;
-        }
-      });
-    </script>
-    <script src="js/sitemap.js?0.0.2"></script>
-  </body>
 </html>
