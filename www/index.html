@@ -313,7 +313,6 @@
                       datas.length = 0; 
                       datas.push(...fullNames); 
                       temp.push(...fullNames);
-                      console.log("fullNames------------:", fullNames);
 
                   })
                   .catch(error => {
@@ -322,38 +321,7 @@
                                         var stateModal = document.getElementById('stateModal');
                           stateModal.style.display = 'none';
                       });
-        
-
-
-// ---------------------------------------------------------------
-                  //     document.getElementById('stateId').addEventListener('click', function() {
-                  //       fetch('https://app.realtorstat.com/api/states')
-                  //         .then(response => {
-                  //           console.log(response,'response states')
-                  //             if (response.ok) {
-                  //                 return response.json(); 
-                  //             }
-                  //             throw new Error('Network response was not ok.');
-                  //         })
-                  //         .then(data => {
-                  //             dataTable = data;
-                  //     const fullNames = data.results.map(result => result.full_name);
-                  //     datas.length = 0; 
-                  //     datas.push(...fullNames); 
-                  //     temp.push(...fullNames);
-                  //     console.log("fullNames------------:", fullNames);
-
-                  // })
-                  // .catch(error => {
-                  //     console.error('Error:', error);
-                  // });
-                  //                       var stateModal = document.getElementById('stateModal');
-                  //         stateModal.style.display = 'none';
-                  //     });
-        
-
-
-                      
+                    
 
 
 const tableBody = document.getElementById('tableBody');
@@ -362,18 +330,10 @@ let agentList = document.getElementById('agent-list');
 
 function populateTable(item) {
   if(agentList.childNodes){
-    console.log(agentList,'before agentList')
-    console.log(agentList.children)
-    // console.log(agentList.children[0]['id'])
     let ulList = document.getElementById('agent-list-ul')
-    console.log(ulList,'ulList')
-    console.log(document.getElementById('agent-list-ul'),'document.getElementById(agent-list-ul)')
-    // agentList.removeChild(agentList.children[0])
-    console.log(agentList,'after agentList')
   }
   if(item?.length){
-    console.log("tableData",item);
-    tableBody.innerHTML = ''; // Clear the table body
+    tableBody.innerHTML = ''; 
     agentList.innerHTML =''
     const ul = document.createElement('ul');
     item.forEach((data) => {
@@ -400,7 +360,6 @@ function populateTable(item) {
 function showAlert(text) {
     // $("#stateModal")[0].hide();
     console.log(text, "text");
-     // console.log($("#modal"))
     //  let modal1 = document.getElementById("stateModal2");
      let modal1 = document.getElementById("agentNameModal");
     //  if (text !== "") {
@@ -412,15 +371,6 @@ function showAlert(text) {
     //  window.location = `/profile/${text}`;
      // $('#stateModal').modal('hide');
 }
-
-// function searchTable() {
-//     const searchText = searchInput.value.toLowerCase();
-//     const filteredData = datas?.filter(data => data?.toLowerCase().includes(searchText));
-//     console.log("filter Arrat", filteredData)
-//     datas.length = 0;
-//     datas.push(...filteredData);
-//     populateTable(datas);
-// }
 
 
 function searchTable() {
@@ -447,7 +397,7 @@ function searchTable() {
                   
 
                     <input
-                      class="ser search_address maps_input"
+                      class="ser search_address maps_input px-2"
                       id="inputBox"
                       type="text"
                       name="text"
@@ -455,7 +405,7 @@ function searchTable() {
                       placeholder="Search address"
                     />
                     <input
-                      class="search_city ser"
+                      class="search_city ser px-2"
                       autocomplete="no"
                       type="text"
                       name="citytext"
@@ -463,7 +413,7 @@ function searchTable() {
                       style="display: none"
                     />
                     <input
-                      class="search_agent_name ser"
+                      class="search_agent_name ser px-2"
                       autocomplete="no"
                       type="text"
                       name="agent_name"
