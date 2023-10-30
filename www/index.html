@@ -246,39 +246,43 @@
                       </div>
                   </div>
                   
-                  <!-- <div class="ser-state modal" id="stateModal">
+                  <div class="ser-state modal" id="stateModal">
                       <div class="modal-content">
                           <p class="ser-state-id state-value" target="ser-state-first">
                               State <i class="fas fa-caret-down"></i>
                           </p>
                           <div class="ser-state-type ser-state-first">
                               <ul class="allstate">
-                                  <li class="custom_radio" id="stateAL">AL</li>
+                                  <!-- <li class="custom_radio" id="stateAL">AL</li>
                                   <li class="custom_radio" id="stateAK">AK</li>
                                   <li class="custom_radio" id="stateAR">AR</li>
-                                  <li class="custom_radio" id="stateAZ">AZ</li>
+                                  <li class="custom_radio" id="stateAZ">AZ</li> -->
                               </ul>
                           </div>
                       </div>
-                  </div> -->
+                  </div>
                   
                   <!-- <div class="modal" id="agentNameModal">
                       <div class="modal-content"> -->
-                        <div class="ser-state modal" id="stateModal">
+                        <div class="ser-state modal" id="agentNameModal">
                           <div class="modal-content">
-                          <input
+                          <!-- <input
                               class="search_agent_name ser"
-                              autocomplete="nop"
+                              autocomplete="no"
                               type="text"
                               name="citytext"
                               placeholder="Search Agent Name Agent"
-                          />
-                          <input type="text" id="searchInput" placeholder="Search data" oninput="searchTable()">
+                          /> -->
+                          <input type="text"  class="search_agent_name ser" id="searchInput" placeholder="Search Agent Name" oninput="searchTable()">
+                          
 
-<table>
-    <tbody id="tableBody">
-    </tbody>
-</table>
+                          <table>
+                              <tbody id="tableBody">
+                              </tbody>
+                          </table>
+
+                          <div id="agent-list">
+                          </div>
 
 <!-- Modal -->
 <div class="modal" id="modal">
@@ -293,72 +297,120 @@
 
                     var dataTable;
                     var temp = [];
-        var datas =[]
+                    var datas =[]
 
                       document.getElementById('agentName').addEventListener('click', function() {
                         fetch('https://app.realtorstat.com/api/agents')
-    .then(response => {
-        if (response.ok) {
-            return response.json(); // Parse the response as JSON
-        }
-        throw new Error('Network response was not ok.');
-    })
-    .then(data => {
-        // Handle the API response data here
-       
-        dataTable = data;
-        temp = data;
-// Extract the full names from the data and update tableData
-const fullNames = data.results.map(result => result.full_name);
-datas.length = 0; // Clear the tableData array
-datas.push(...fullNames); // Update tableData with full names
+                          .then(response => {
+                              if (response.ok) {
+                                  return response.json(); 
+                              }
+                              throw new Error('Network response was not ok.');
+                          })
+                          .then(data => {
+                              dataTable = data;
+                      const fullNames = data.results.map(result => result.full_name);
+                      datas.length = 0; 
+                      datas.push(...fullNames); 
+                      temp.push(...fullNames);
+                      console.log("fullNames------------:", fullNames);
 
-// Now you can use tableData as you need
-console.log("fullNames------------:", fullNames);
-
-// Update your table with the new data
-// populateTable();
-    })
-    .catch(error => {
-        // Handle any errors that occurred during the fetch
-        console.error('Error:', error);
-    });
-                          var stateModal = document.getElementById('stateModal');
-                          stateModal.style.display = 'block';
+                  })
+                  .catch(error => {
+                      console.error('Error:', error);
+                  });
+                                        var stateModal = document.getElementById('stateModal');
+                          stateModal.style.display = 'none';
                       });
+        
 
-        //               const fullNames = dataTable?.results?.map(result => result.full_name);
-        console.log("full_name",dataTable);
 
-                      // const tableData = [  'Jean Groesbeck', 'Debbie Macy'];
+// ---------------------------------------------------------------
+                  //     document.getElementById('stateId').addEventListener('click', function() {
+                  //       fetch('https://app.realtorstat.com/api/states')
+                  //         .then(response => {
+                  //           console.log(response,'response states')
+                  //             if (response.ok) {
+                  //                 return response.json(); 
+                  //             }
+                  //             throw new Error('Network response was not ok.');
+                  //         })
+                  //         .then(data => {
+                  //             dataTable = data;
+                  //     const fullNames = data.results.map(result => result.full_name);
+                  //     datas.length = 0; 
+                  //     datas.push(...fullNames); 
+                  //     temp.push(...fullNames);
+                  //     console.log("fullNames------------:", fullNames);
+
+                  // })
+                  // .catch(error => {
+                  //     console.error('Error:', error);
+                  // });
+                  //                       var stateModal = document.getElementById('stateModal');
+                  //         stateModal.style.display = 'none';
+                  //     });
+        
+
+
+                      
 
 
 const tableBody = document.getElementById('tableBody');
 const searchInput = document.getElementById('searchInput');
+let agentList = document.getElementById('agent-list');
 
 function populateTable(item) {
- 
-
+  if(agentList.childNodes){
+    console.log(agentList,'before agentList')
+    console.log(agentList.children)
+    // console.log(agentList.children[0]['id'])
+    let ulList = document.getElementById('agent-list-ul')
+    console.log(ulList,'ulList')
+    console.log(document.getElementById('agent-list-ul'),'document.getElementById(agent-list-ul)')
+    // agentList.removeChild(agentList.children[0])
+    console.log(agentList,'after agentList')
+  }
   if(item?.length){
     console.log("tableData",item);
     tableBody.innerHTML = ''; // Clear the table body
+    agentList.innerHTML =''
+    const ul = document.createElement('ul');
     item.forEach((data) => {
-        const row = document.createElement('tr');
-        row.onclick = () => showAlert(data);
+        // const row = document.createElement('tr');
+        // row.onclick = () => showAlert(data);
 
-        const cell = document.createElement('td');
-        cell.textContent = data;
+        // const cell = document.createElement('td');
+        // cell.textContent = data;
 
-        row.appendChild(cell);
-        tableBody.appendChild(row);
-    });
-  }
-
-   
+        // row.appendChild(cell);
+        // tableBody.appendChild(row);
+        const li = document.createElement('li');
+        ul.setAttribute('id','agent-list-ul')
+        ul.setAttribute('class','text-left')
+        li.setAttribute('class', 'agent-list')
+        li.onclick = () => showAlert(data);
+        li.textContent = data
+        ul.appendChild(li)  
+      });
+      agentList.appendChild(ul)
+  }  
 }
 
 function showAlert(text) {
-    alert("Clicked: " + text);
+    // $("#stateModal")[0].hide();
+    console.log(text, "text");
+     // console.log($("#modal"))
+    //  let modal1 = document.getElementById("stateModal2");
+     let modal1 = document.getElementById("agentNameModal");
+    //  if (text !== "") {
+    //  modal1.style.display = "block";
+    //  }else{
+      modal1.style.display = "none";
+    //  }
+    //  alert("Clicked: " + text);
+    //  window.location = `/profile/${text}`;
+     // $('#stateModal').modal('hide');
 }
 
 // function searchTable() {
@@ -373,21 +425,23 @@ function showAlert(text) {
 
 function searchTable() {
     const searchText = searchInput.value.toLowerCase();
-    const filteredData = datas.filter(data => data.toLowerCase().includes(searchText));
+    const filteredData = temp.filter(data => data.toLowerCase().includes(searchText));
     console.log("filtered Array", filteredData);
 
+    if(filteredData == 0){
+      agentList.innerHTML = '<p>No Data Found</p>';
+    }
+
     if (searchText === "") {
-        // If the search input is empty, display all data.
-        populateTable(datas);
+        agentList.innerHTML =''
     } else {
-        // Display the filtered data.
         populateTable(filteredData);
     }
 }
 
 
 // Initialize the table
-populateTable();
+// populateTable();
                 
                   </script>
                   
