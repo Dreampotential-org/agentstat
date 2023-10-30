@@ -1190,7 +1190,9 @@ $(document).on('click', '#add-review', function() {
     $('.rating').each(function() {
         category_id = $(this).attr('id').split('-')[2]
         rate = $(this).rate('getValue');
-        data['categories'].push({'id': category_id, 'rate': rate});
+        var slug = $(this).attr('data-slug');
+        var name = $(this).attr('data-name');
+        data['categories'].push({'id': category_id, 'rate': rate, 'slug': slug, 'name': name});
     
         rateTotal = rateTotal + parseFloat(rate);
         count++;
