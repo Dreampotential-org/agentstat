@@ -63,6 +63,12 @@ server {
             try_files $uri $uri/ /login.html;
         }
 
+       
+
+       location /signup/ {
+           try_files $uri $uri/ /signup.html;
+       } 
+
         location /sign-in/ {
             try_files $uri $uri/ /login.html;
         }

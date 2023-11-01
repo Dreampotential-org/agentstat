@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="">
+        <meta name="decription" content="">
+        <meta name="author" content="">
+
+        <!-- Title -->
+        <title>Find Homes</title>
+
+        <!-- Fav Icon -->
+        <link rel="icon" href="/img/fav.png" />
+
+        <!-- Include Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <script src="js/bootstrap.js"></script>
+
+        <!-- Main StyleSheet -->
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Page CSS -->
+        <link rel="stylesheet" href="css/report.css" />
+
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="css/responsive.css" />
+
+        <!-- Common css for all pages -->
+        <link rel="stylesheet" href="css/common.css" />
+
+        <!-- Page CSS -->
+        <link rel="stylesheet" href="css/inbox.css" />
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
+
+    </head>
+    <style>
+        .nav{
+            background-color: #f2f2f2;
+            padding: 10px;
+            color: black;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .logo {
+            height: 32px;
+        }
+        .higest_homes,.lowest_homes{
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0px;
+        }
+        .card_body{
+            margin-left: auto; 
+            border-radius: 0.5rem;
+            border-width: 1px;
+            padding: 4.5rem 3rem/* 32px */;
+            margin-right: auto;
+            display: flex; 
+            justify-content: left;
+            gap: 60px;
+            align-items: center;
+            --tw-space-x-reverse: 0;
+            margin-right: calc(2rem/* 32px */ * var(--tw-space-x-reverse));
+            --tw-text-opacity: 1;
+            color: rgb(55 65 81 / var(--tw-text-opacity));
+            --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); 
+            margin-left: calc(2rem/* 32px */ * calc(1 - var(--tw-space-x-reverse)));
+            overflow: hidden;
+            max-width: 1200px;
+        }
+        
+        .card_number{
+            font-weight: 800;
+            --tw-text-opacity: 1;
+            color: cornflowerblue;
+            font-size:20px;
+        }
+        .card_image{
+            width: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem/* 8px */;
+            --tw-text-opacity: 1;
+            color: rgb(55 65 81 / var(--tw-text-opacity));
+        }
+        .card_Details_container{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .price{
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            font-weight: 600;
+            color: bababa;
+        }
+        .price_number{
+            color: cornflowerblue;
+        }
+        .address{
+            font-weight: 600;
+        }
+        .houser_info{
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .house_info_item{
+            background-color: #bababa;
+            padding: 6px;
+            border-radius: 5%;
+            color: #000;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            height: 44px;
+        }
+        .house_info_item img {
+            width: 32px;
+        }
+        .house_info_item p {
+            margin: 0;
+            padding: 0;
+        }
+        .all_state_container{
+            background-color: rgb(219 234 254);
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .all_state_container_header{
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            font-weight: 700;
+            color: rgb(29 78 216);
+            margin-bottom: 1rem;
+        }
+        .all_state_container_body{
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 0.5rem;
+        }
+        .all_state_container_body_item{
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: rgb(29 78 216);
+            padding-right: 5rem;
+            cursor: pointer;
+        }
+        .select_homes_container{
+            position: relative;
+        }
+        .select_homes{
+            height: 32px;
+            font-size: 18px;
+            padding: 6px;
+            width: 350px;
+        }
+        .select_homes_values_child{
+            position: absolute;
+            left: 0px;
+            z-index: 10;
+            background-color: white;
+            border-bottom: gray 2px solid;
+            border-top: gray 2px solid;
+            width: 100%;
+            padding: 2px 4px;
+            cursor: pointer;
+        }
+        .agent_name_container,
+        .agent_info_container{
+            font-weight: 600;
+            color: cornflowerblue;
+            cursor: pointer;
+        }
+        .agent_name,
+        .agent_info{
+            color: black;
+        }
+        .house_status_details{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .house_status,
+        .house_sold_in{
+            font-weight: 600;
+            color: #bababa;
+        }
+        .sold{
+            color: red;
+            font-weight: 500;
+        }
+        .unsold{
+            color: greenyellow;
+            font-weight: 500;
+        }
+        .sold_in{
+            font-weight: 500;
+            color:cornflowerblue
+        }
+        .footer {
+            /*position: fixed !important;*/
+            height: 60px;
+            position: absolute;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .card_body{
+                flex-direction: column;
+            }
+            .houser_info{
+                flex-wrap: wrap;
+            }
+            .all_state_container_header,.all_state_container_body{
+                margin: 0 20px;
+            }
+            .all_state_container_body{
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.5rem;
+            }
+        }
+
+    </style>
+    <body>
+        <div class="background-agent">
+            <div>
+                <div class="nav" >
+                    <img class="logo" src="./img/logo-beta.png" />
+                    <p  id="top_nav"></p>
+                    <div class="select_homes_container">
+                        <input id="select_homes" class="select_homes" placeholder="Search City" />
+                        <span class="select_homes_values" id="select_homes_values">
+
+                        </span>
+                    </div>
+                </div>
+                <div class="higest_homes" id="higest_homes">
+                    
+                </div>
+                </div>
+                <div class="nav" id="bottom_nav" ></div>
+                <div class="lowest_homes" id="lowest_homes"></div>
+            </div>
+            <div class="all_state_container">
+                <div>
+                    <p class="all_state_container_header">
+                        Search for homes by States
+                    </p>
+                    <div id="all_state_container_body" class="all_state_container_body">
+                        
+                </div>
+            </div>
+            
+        </div>
+
+        <script>
+            let baseUrl = "https://app.realtorstat.com/api/";
+            let topOrBottom ="top_ten";
+            let tempCity =  getURLParams(window.location.href).cityName || "Seattle";
+            let tempState = getURLParams(window.location.href).stateName || "WA";
+
+            function getURLParams(url) {
+                return Object.fromEntries(new URL(url).searchParams.entries());
+            }
+
+            function getSearch (data){
+                let tempUrl =  ("/allhomes?cityName="+ data.city.replaceAll(" ","") +"&stateName="+ data.state);
+                window.location.replace(tempUrl);
+                // console.log("data",tempUrl);
+            }
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            $(document).ready(async function () {
+                let GOOGLE_KEY = "AIzaSyCFH-yKmfPyaa18_uYUwVWb7THj-b1hymE";
+
+                $('#top_nav').html("Top 10 Highest priced homes sold in City "+tempCity);
+                $('#bottom_nav').html("Top 10 Lowest priced homes sold in City "+tempCity);
+                $('#select_homes').on('keyup',async function(e) {
+                    var selectedoption = e.target.value;
+                    const url = "https://app.realtorstat.com/api/city-search/" + encodeURIComponent(e.target.value);
+                    const response = await fetch(url);
+                    const searchData = await response.json();
+                    let tenResults = [...searchData.slice(0, 10)];
+                    for (let i = 0; i < tenResults.length; i++) {
+                        let dynamicBottom = (i+1)*43;
+                        $( "#select_homes_values" ).append("<p onclick='getSearch("+JSON.stringify(tenResults[i])+")' style='bottom:-"+dynamicBottom+"px' class='select_homes_values_child'>"+tenResults[i].city_state+"<p>");
+                    }
+                });
+
+                let getHigestHomesRes = await fetch(
+                    baseUrl+`top_ten`+`/state/`+tempState+`/city/`+tempCity,
+                    {
+                        method: "GET",
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+                let getHigestHomesData = await getHigestHomesRes.json();
+                for (let i = 0; i < 10; i++) {
+                    $( "#higest_homes" ).append(`
+                        <div class="card_body" >
+                            <div class="card_number">#`+(i+1)+`</div>
+                            <img class="card_image" src="https://maps.googleapis.com/maps/api/streetview?size=400x400&location=`+getHigestHomesData[i].geo_location[1]+`,`+getHigestHomesData[i].geo_location[0]+`&fov=80&heading=70&pitch=0&key=`+GOOGLE_KEY+`" />
+                            <div class="card_Details_container">
+                                <div class="price">
+                                    <div>List Price : <span class="price_number">$`+numberWithCommas(getHigestHomesData[i].list_price_int)+`</span></div>
+                                    <div>Sold Price : <span class="price_number">$`+numberWithCommas(getHigestHomesData[i].sold_price_int)+`</span></div>
+                                </div>
+                                <div class="address">`+getHigestHomesData[i].address_text+` `+getHigestHomesData[i].state+` `+getHigestHomesData[i].zipcode+`</div>
+                                <div class="houser_info">
+                                    <div class="house_info_item"><img src="./images/icons8-builder-64.png" /><p>`+getHigestHomesData[i].year_built+`</p></div>
+                                    <div class="house_info_item"><img src="./images/icons8-bed-50.png" /><p>`+getHigestHomesData[i].beds+`</p></div>
+                                    <div class="house_info_item"><img src="./images/icons8-bathroom-50.png" /><p>`+getHigestHomesData[i].baths+`</p></div>
+                                    <div class="house_info_item">`+getHigestHomesData[i].home_type.replace("_", " ")+`</div>
+                                </div>
+                                <a href="https://agentstat.com/profile/`+getHigestHomesData[i].agent_id+`" class="agent_name_container">Sold With : <span class="agent_name">`+getHigestHomesData[i].agent_full_name+`</span></a>
+                                <div class="agent_info_container">Brokerage : <span class="agent_info">`+getHigestHomesData[i].agent_brokerage_info+`</span></div>
+                                <div class="house_status_details">
+                                    <div class="house_status">Status : <span class="sold">`+getHigestHomesData[i].status+`</span></div>
+                                    <div class="house_sold_in">Sold In : <span class="sold_in">`+getHigestHomesData[i].days_on_market+` Days</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+                console.log(getHigestHomesData);
+
+                // $('#higest_homes').html(getHigestHomesData[0].address_text);
+            })
+
+            $(document).ready(async function () {
+                let getHigestStatesRes = await fetch(`${baseUrl}states`,{
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                });
+                let allStates = await getHigestStatesRes.json();
+                for (const key in allStates) {
+                    $( "#all_state_container_body" ).append(`
+                        <a
+                            href="/state?stateName=`+ key +`"
+                            class="all_state_container_body_item"
+                        >
+                            `+allStates[key]+`
+                        </a>
+                    `);
+                }
+            })
+
+            $(document).ready(async function () {
+                let GOOGLE_KEY = "AIzaSyCFH-yKmfPyaa18_uYUwVWb7THj-b1hymE";
+
+                let getLowestHomesRes = await fetch(
+                    baseUrl+`bottom_ten`+`/state/`+tempState+`/city/`+tempCity,
+                    {
+                        method: "GET",
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+                let getLowestHomesData = await getLowestHomesRes.json();
+                for (let i = 0; i < 10; i++) {
+                    $( "#lowest_homes" ).append(`
+                        <div class="card_body" >
+                            <div class="card_number">#`+(i+1)+`</div>
+                            <img class="card_image" src="https://maps.googleapis.com/maps/api/streetview?size=400x400&location=`+getLowestHomesData[i].geo_location[1]+`,`+getLowestHomesData[i].geo_location[0]+`&fov=80&heading=70&pitch=0&key=`+GOOGLE_KEY+`" />
+                            <div class="card_Details_container">
+                                <div class="price">
+                                    <div>List Price : <span class="price_number">$`+numberWithCommas(getLowestHomesData[i].list_price_int)+`</span></div>
+                                    <div>Sold Price : <span class="price_number">$`+numberWithCommas(getLowestHomesData[i].sold_price_int)+`</span></div>
+                                </div>
+                                <div class="address">`+getLowestHomesData[i].address_text+` `+getLowestHomesData[i].state+` `+getLowestHomesData[i].zipcode+`</div>
+                                <div class="houser_info">
+                                    <div class="house_info_item"><img src="./images/icons8-builder-64.png" /><p>`+getLowestHomesData[i].year_built+`</p></div>
+                                    <div class="house_info_item"><img src="./images/icons8-bed-50.png" /><p>`+getLowestHomesData[i].beds+`</p></div>
+                                    <div class="house_info_item"><img src="./images/icons8-bathroom-50.png" /><p>`+getLowestHomesData[i].baths+`</p></div>
+                                    <div class="house_info_item">`+getLowestHomesData[i].home_type.replace("_", " ")+`</div>
+                                </div>
+                                <div class="agent_name_container">Sold With : <span class="agent_name">`+getLowestHomesData[i].agent_full_name+`</span></div>
+                                <div class="agent_info_container">Brokerage : <span class="agent_info">`+getLowestHomesData[i].agent_brokerage_info+`</span></div>
+                                <div class="house_status_details">
+                                    <div class="house_status">Status : <span class="sold">`+getLowestHomesData[i].status+`</span></div>
+                                    <div class="house_sold_in">Sold In : <span class="sold_in">`+getLowestHomesData[i].days_on_market+` Days</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+            })
+
+        </script>
+    </body>
+</html>
