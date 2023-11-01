@@ -836,6 +836,8 @@ $(document).on("click", ".dropdownaddress>ul>li", function () {
 
 $(document).on("click", ".allstate>li", function () {
   localStorage.setItem("search_state", $(this).text());
+  var text = localStorage.getItem("search_state")
+  window.location = `/agents/${text}`;
 });
 
 $(".ser").change(function () {

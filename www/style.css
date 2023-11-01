@@ -53,6 +53,17 @@ body {
   transition: width 0.4s linear;
 }
 
+.agent-list{
+  padding: 5px 0px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+
+#agent-list{
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
 /*.searchbar:hover > .search_input{
      padding: 0 10px;
      width: 100%;
@@ -564,7 +575,7 @@ ul {
   padding: 0px;
   border: 0;
   outline: none;
-  margin: 0px 10px;
+  /* margin: 0px 10px; */
 }
 
 .type p {
