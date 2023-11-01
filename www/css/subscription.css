@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /* General styles */
 .accordion {
-  padding: 20px 20px;
+  padding: 20px 100px;
 }
 
 .footer {
@@ -37,7 +38,7 @@ body {
 .headContainer {
   font-size: 30px;
   text-align: center;
-  
+  margin-top: 50px;
 }
 
 .headContainer h1 {
@@ -47,10 +48,10 @@ body {
 }
 
 .headContainer p {
-  font-size: 14px;
-  margin-top: -20px;
-  font-weight: 500;
-  line-height: 20px;
+  font-size: 16px;
+  font-weight: 500px;
+  line-height: 30px;
+  margin: 0;
 }
 
 .headContainer button {
@@ -115,8 +116,12 @@ body {
 }
 
 .miniContainer2 img {
-  max-height: 300px;
   width: auto;
+  height: 300px;
+}
+.carouselExampleControls {
+  width: 20%;
+  height: 20%;
 }
 
 /* Main container 2 */
@@ -209,21 +214,27 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+
 }
 
 .Container2 p {
   text-align: center;
   font-size: 18px;
-  line-height: 25px;
-  margin: 0 20px;
+  line-height: 1.5;
+  margin: 0 50px 0 50px;
 }
 
-/* Container 3 */
 .container3 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-  margin: 50px 20px;
+  margin: 50px 20px
+  align-items: center;
+  justify-content: center;
+}
+
+.container3 {
+  margin: 100px 60px 100px 40px;
 }
 
 .container3 div {
@@ -261,6 +272,28 @@ body {
   justify-content: center;
   align-items: center;
   margin: 40px 20px;
+  }
+
+/*.container5 div {
+  background-color: white;
+  box-shadow: 0Spx 0px 10px rgba(0, 0, 0, 0.165);
+  border-radius: 7px;
+  padding: 0px 20px;
+}*/
+
+.container3 div {
+  width: 300px ;
+  height: 290px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.165);
+  border-radius: 7px;
+  padding: 10px 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 
 .container4 div {
@@ -299,9 +332,10 @@ body {
   width: 100%;
   display: grid;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.165);
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  margin-bottom: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  margin: 0 auto 1rem;
+  padding: 1rem;
 }
 
 .mini1ContainerNum5 {
@@ -331,6 +365,15 @@ body {
 
 /* Media Queries */
 @media (max-width: 768px) {
+  .Container2 p {
+    font-size: 14px;
+  }
+  .container3 div {
+    width: 90%;
+  }
+}
+
+@media (max-width: 755px) {
   .headContainer {
     font-size: 25px;
   }
@@ -338,14 +381,38 @@ body {
     font-size: 11px;
   }
   .headContainer button {
+    padding: 0.5rem;
     height: 40px;
-    width: 140px;
   }
   .mainContainerNum5Main {
     margin: 30px 0;
+
+  .miniContainer1 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .container4 div {
+    border-radius: 7px;
+    height: 40px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+  }
+  .container4 p {
+    font-size: 13px;
   }
   .mainContainer2 {
     margin: 30px 20px 0 20px;
+  }
+  .accordion {
+    padding: 20px 50px;
+  }
+  .accordion-body {
+    font-size: 0.9rem;
+  }
+  .accordion-button {
+    font-size: 0.85rem;
   }
 }
 
@@ -357,9 +424,7 @@ body {
     font-size: 9px;
   }
   .headContainer button {
-    height: 30px;
-    width: 120px;
-    font-size: 13px;
+    font-size: 14px;
   }
   .container1 h1 {
     font-size: 17px;
@@ -384,7 +449,8 @@ body {
     border-radius: 10px;
   }
   .Container2 p {
-    font-size: 10px;
+    font-size: 13px;
+    width: 70%;
   }
   .container3 div {
     width: 100%;
@@ -415,7 +481,156 @@ body {
     font-size: 13px;
   }
   .container4 h5 {
+    font-size: 12px;
+    line-height: 30px;
+  }
+  .accordion {
+    padding: 20px 40px;
+  }
+}
+@media (max-width: 564px) {
+  .Container2 {
+    margin-top: 50px;
+  }
+  .container3 {
+    margin: 100px 0px 100px 0px;
+  }
+  .container3 div {
+    width: 80%;
+  }
+  .container4 div {
+    border-radius: 7px;
+    height: 40px;
+    width: 450px;
+    display: flex;
+    align-items: center;
+  }
+  .container4 p {
     font-size: 11px;
     line-height: 20px;
   }
+}
+@media (max-width: 462px) {
+  .headContainer {
+    font-size: 17px;
+  }
+  .headContainer p {
+    font-size: 7px;
+  }
+  .headContainer button {
+    height: 35px;
+    width: 90px;
+    font-size: 13px;
+    padding: 0.3rem;
+  }
+  .container3 div {
+    width: 80%;
+  }
+  .container4 div {
+    border-radius: 7px;
+    height: 40px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+  }
+  .container4 p {
+    font-size: 10px;
+  }
+  .container4 h5 {
+    font-size: 11px;
+    line-height: 30px;
+  }
+  .accordion {
+    padding: 20px;
+  }
+}
+
+/* my code */
+
+
+
+.navbar-brand img{
+  width: 100px;
+  margin-right: 200px;
+ 
+}
+
+div.container{
+  margin: 0px 0px;
+  
+
+}
+
+.navbar.navbar-expand-lg{
+  margin: 0px !important;
+
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* #loginBtn{
+  margin-left: 100px;
+} */
+
+
+.mainContainerContainer2.new{
+  text-align: center;
+  margin-top: 20px;
+  /* background-color: blueviolet; */
+}
+
+.home-img{
+  height: 500px;
+}
+
+.col-6{
+  text-align: center;
+  /* justify-content: center; */
+ padding: 10px 50px;
+}
+
+.new-sectionp{
+  padding: 20px 50px;
+
+  text-align: left;
+}
+
+.new-sectionh2{
+font-size: 38px;
+    line-height: 50px;
+    letter-spacing: -1px;
+    font-weight: 600;
+    padding: 20px 50px;
+
+  text-align: left;
+}
+
+
+
+.new h5{
+  color: black;
+  padding: 50px 0px;
+}
+
+.main-btn{
+  background-color: black;
+  color: white;
+     
+    border-radius: 8px;
+ 
+    font-weight: 500;
+    border: 2px #000 solid!important;
+}
+
+.feature-btns{
+  text-align: left;
+  padding-left: 50px;
 }

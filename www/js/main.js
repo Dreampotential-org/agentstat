@@ -13,7 +13,6 @@ function fillIn() {
   var search_data = {};
   search_data["street_address"] = place.formatted_address;
   for (var address_comp of place.address_components) {
-    // console.log(address_comp.types)
     if (address_comp.types[0] == "administrative_area_level_1") {
       search_data["state"] = address_comp.short_name;
     }
@@ -28,6 +27,9 @@ function fillIn() {
   search_data["email"] = localStorage.email;
   search_data["user_agent"] = navigator.userAgent;
 
+  console.log(search_data["user_agent"], 'search_data["user_agent"]');
+  console.log(navigator.userAgent, "navigator.userAgent");
+
   var results = getSearchParams(place);
   global_results = results;
 
@@ -41,8 +43,6 @@ function fillIn1() {
 
   var results = getSearchParams(place);
   global_results = results;
-  console.log(results);
-  console.log(results.city);
   if (results.city == undefined) {
     $("#city-tab").text(results.state);
     load_agent(true);
@@ -54,26 +54,27 @@ function fillIn1() {
 function set_search_input() {
   const urlParams = new URLSearchParams(window.location.search);
   var agent_name = urlParams.get("agent_name");
+
+
+
   var home_type = urlParams.get("home_type", "SINGLE_FAMILY");
+
   if (agent_name) {
     $(".ser").val(agent_name);
     $(".ser-map").val(agent_name);
   }
   var type = urlParams.get("type");
   var city = urlParams.get("city");
+
   $("#city-search-filter").val(city);
   $(".ser").val(agent_name);
   $(".ser-map").val(agent_name);
 
   $('.seller-filter input[type="radio"]').each(function () {
-    //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
     if ($(this).val() == type) {
       $(this).prop("checked", true);
-      //alert('df');
-      //console.log($("label[for='" + this.id + "']").text());
     }
     if ($(this).is(":not(:checked)")) {
-      //console.log("Removing....",$("label[for='" + this.id + "']").text());
       // removeId($("label[for='" + this.id + "']").text(),true);
     }
   });
@@ -107,13 +108,10 @@ function convert_to_int(v_estimate) {
   if (typeof v_estimate === "number") {
     return v_estimate;
   }
-  console.log(v_estimate);
-  console.log(typeof v_estimate);
   if (v_estimate.includes("$")) {
     v_estimate = v_estimate.split("$")[1].trim();
   }
   // multi by 1000
-  console.log(v_estimate);
   if (v_estimate.includes("K")) {
     v_estimate = parseInt(v_estimate);
     v_estimate *= 1000;
@@ -140,16 +138,14 @@ function get_home_type() {
   }
   return "SINGLE_FAMILY";
 }
-var newData
+var newData;
 function newResult(results) {
-newData = results
+  newData = results;
 }
 
-
 function redirectResults(results) {
-  newResult(results)
+  newResult(results);
 
-  // console.log(results)
   var path = window.location.pathname;
   var search_params = window.location.search.replace("?", "");
   var params = search_params.split("&");
@@ -169,6 +165,8 @@ function redirectResults(results) {
   search_zipcode = localStorage.getItem("search_zipcode");
   search_city = localStorage.getItem("search_city");
   search_agent_name = localStorage.getItem("search_agent_name");
+
+  console.log("Agent Name----->", search_agent_name);
 
   search_state = localStorage.getItem("search_state");
   if ($("#y-address").text() != "Agent Name ") {
@@ -248,7 +246,6 @@ function redirectResults(results) {
       }
     });
   }
-  // console.log(map_initial);
   min_price = $("input[name=min-price]").val();
   if (min_price && $("#y-address").text() != "Agent Name ") {
     new_params.push("min_price=" + min_price);
@@ -285,7 +282,6 @@ function redirectResults(results) {
   return false;
 }
 $("#myButton1").click(function () {
-  // console.log("resultsresultsresults",results) 
   var path = window.location.pathname;
   var search_params = window.location.search.replace("?", "");
   var params = search_params.split("&");
@@ -306,6 +302,8 @@ $("#myButton1").click(function () {
   search_city = localStorage.getItem("search_city");
   search_agent_name = localStorage.getItem("search_agent_name");
 
+  console.log(search_agent_name, "<<<-----------------");
+
   search_state = localStorage.getItem("search_state");
   if ($("#y-address").text() != "Agent Name ") {
     search_state = "";
@@ -318,9 +316,6 @@ $("#myButton1").click(function () {
 
   lat = localStorage.getItem("search_lat");
   lng = localStorage.getItem("search_lng");
-
-  console.log("lng----------------", lng)
-
 
   city_search_val = $(".city_search").val();
 
@@ -358,6 +353,8 @@ $("#myButton1").click(function () {
   if (search_agent_name) {
     new_params.push("agent_name=" + search_agent_name);
   }
+
+  console.log("search_agent_name", search_agent_name);
 
   if (search_state) {
     new_params.push("state=" + search_state);
@@ -428,6 +425,7 @@ $("#myButton1").click(function () {
 
 function getSearchParams(place) {
   var params = {};
+
   if (
     !("scope" in place) &&
     "name" in place &&
@@ -441,7 +439,6 @@ function getSearchParams(place) {
   params["search_input"] = place.formatted_address;
   for (var address_comp of place.address_components) {
     if (address_comp.types[0] == "administrative_area_level_1") {
-      console.log("City: " + address_comp.short_name);
       params["state"] = address_comp.short_name;
     }
     if (address_comp.types[0] == "locality") {
@@ -467,7 +464,7 @@ function getSearchParams(place) {
 
 // Fixes google autocomplete search so enter selects first address
 function pacSelectFirst(input) {
-  if (!(input)) return
+  if (!input) return;
   // store the original event binding function
   var _addEventListener = input.addEventListener
     ? input.addEventListener
@@ -512,7 +509,6 @@ function init_maps() {
 
   pacSelectFirst(input);
 
-  console.log("page_input", page_input);
   var options = {
     types: ["address"],
     componentRestrictions: { country: "us" },
@@ -522,6 +518,7 @@ function init_maps() {
   autocomplete.addListener("place_changed", fillIn);
 
   var inputs = document.getElementsByClassName("maps_input");
+
   if (inputs.length > 1) {
     var input_bottom = inputs[1];
     var input_map_bottom =
@@ -612,7 +609,6 @@ function get_page_initial_results() {
         localStorage.setItem("search_agent_name", "");
         localStorage.setItem("search_state", params["state"]);
         localStorage.setItem("search_home_type", "");
-        console.log("CITYYYY");
       } else {
         if (zipcode) {
           $('.dropdownaddress>ul>li:contains("ZipCode")').click();
@@ -632,13 +628,10 @@ function get_page_initial_results() {
 
 function init() {
   global_results = get_page_initial_results();
-  console.log(global_results);
 
   try {
     init_maps();
-  } catch (ex) {
-    console.log(ex);
-  }
+  } catch (ex) {}
   set_search_input();
 
   $("body").delegate(".serch_btn", "click", function (e) {
@@ -648,7 +641,6 @@ function init() {
   $(".ser").keydown(function (e) {
     // only for address search lat/lng bits
     if (e.keyCode == 13 && global_results != null) {
-      console.log(global_results);
       search_key = localStorage.current_search_type.toLowerCase();
       search_key = "search_" + search_key.split(" ").join("_");
       localStorage.setItem(search_key, $(this).val());
@@ -722,13 +714,10 @@ $(document).ready(function () {
     data["screen_" + k] = v;
   });
 
-  // console.log(urlParams);
-
   for (var value of urlParams.keys()) {
     data["query_" + value] = urlParams.get(value);
   }
 
-  // console.log(JSON.stringify(data));
   $.ajax({
     url: get_api_route("px/"),
     method: "POST",
@@ -742,15 +731,12 @@ $(document).ready(function () {
 
 // on error tell us about it.
 window.onerror = function (msg, url, lineNo, columnNo, error) {
-  console.log(msg);
   var string = msg.toLowerCase();
   var substring = "script error";
   var url =
     "https://hooks.slack.com/services/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";
 
   if (string.indexOf(substring) > -1) {
-    console.log(substring);
-    // alert('Script Error: See Browser Console for Detail');
   } else {
     var message = [
       "Message: " + msg,
@@ -760,9 +746,7 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
       "Error object: " + JSON.stringify(error),
     ].join(" - ");
 
-    $.post(url, JSON.stringify({ text: message }), function () {
-      console.log("reported to slack");
-    });
+    $.post(url, JSON.stringify({ text: message }), function () {});
   }
   return false;
 };
@@ -783,6 +767,8 @@ $(document).ready(function () {
   address = localStorage.search_address;
   city = urlParams.get("city");
 
+  console.log(urlParams, "urlParams citySearch");
+
   if (address) {
     $(".search_address").val(address);
     $(".search_address").addClass("maps_input");
@@ -795,12 +781,10 @@ $(document).ready(function () {
 });
 
 $(document).on("click", ".dropdowntypes>ul>li", function () {
-  // console.log($(this).text());
   localStorage.setItem("search_home_type", $(this).text().trim());
 });
 
 $(document).on("click", ".dropdownaddress>ul>li", function () {
-  console.log("dropdown click");
   localStorage.current_search_type = $(this).text();
   search_key = localStorage.current_search_type.toLowerCase();
 
@@ -810,16 +794,12 @@ $(document).on("click", ".dropdownaddress>ul>li", function () {
   search_key = "search_" + search_key.split(" ").join("_");
   search_key_map = "search_" + search_key.split(" ").join("_");
 
-  console.log(search_key);
-  console.log(search_key_map);
-
   if (search_key === "search_agent_name") {
     if (localStorage.search_state) {
       $(".ser-state-id").html(localStorage.search_state);
     }
     // all state
     search_city = localStorage.getItem("search_city");
-    console.log(search_city);
 
     if (search_city) {
       if (search_city.split(",").length > 1) {
@@ -856,6 +836,8 @@ $(document).on("click", ".dropdownaddress>ul>li", function () {
 
 $(document).on("click", ".allstate>li", function () {
   localStorage.setItem("search_state", $(this).text());
+  var text = localStorage.getItem("search_state")
+  window.location = `/agents/${text}`;
 });
 
 $(".ser").change(function () {
@@ -880,11 +862,9 @@ if ($(".search_city, .search_city_bottom")[0]) {
       } else {
         var city_keyword = $(".search_city").val();
       }
-      console.log(city_keyword);
       var api_call_url = "city-search/" + city_keyword;
       var settings = get_settings(api_call_url, "GET");
       var url = settings["url"];
-      console.log("url: " + url);
 
       jQuery.get(
         url,
@@ -892,11 +872,9 @@ if ($(".search_city, .search_city_bottom")[0]) {
           query: request.term,
         },
         function (data) {
-          console.log(data);
           new_data = [];
           $.each(data, function (k, v) {
             new_data.push(v.city_state);
-            console.log(v.city_state);
           });
           response(new_data);
         }

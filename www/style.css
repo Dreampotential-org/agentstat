@@ -53,6 +53,17 @@ body {
   transition: width 0.4s linear;
 }
 
+.agent-list{
+  padding: 5px 0px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+
+#agent-list{
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
 /*.searchbar:hover > .search_input{
      padding: 0 10px;
      width: 100%;
@@ -564,7 +575,7 @@ ul {
   padding: 0px;
   border: 0;
   outline: none;
-  margin: 0px 10px;
+  /* margin: 0px 10px; */
 }
 
 .type p {
@@ -3889,7 +3900,8 @@ a.toggler.on:before {
   }
   .po-world {
     background-color: #fff;
-    padding: 100px 0;
+    padding: 50px 0;
+    margin-top: 20px;
   }
   .owl-item.active {
     margin-right: 20px;
@@ -4306,7 +4318,7 @@ a.toggler.on:before {
     margin-right: 2px;
   }
   .subDiv {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     top: 20%;
   }
@@ -4336,7 +4348,8 @@ a.toggler.on:before {
   }
   .po-world {
     background-color: #fff;
-    padding: 100px 0;
+    padding: 50px 0px !important;
+    margin-top: 50px !important;
   }
   .price p {
     padding: 5px 12px;
@@ -4637,7 +4650,7 @@ a.toggler.on:before {
     padding: 0px;
   }
   .navbar-brand img {
-    width: 100px !important;
+    width: 50px !important;
     top: 15px !important;
     padding-right: 10px !important;
   }
@@ -5035,4 +5048,15 @@ iframe .container {
 
 .toc-two-left-one:before {
   display: none;
+}
+
+
+/* my code */
+
+a.navbar-brand{
+  margin-top: 5px;
+}
+
+.navbar-brand img{
+  width: 130px !important;
 }
