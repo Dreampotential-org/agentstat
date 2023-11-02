@@ -203,3 +203,13 @@ input{
 /* .image{
     margin-top: 20px;
 } */
+
+.newAccount{
+    display: flex;
+    justify-content: right;
+    padding-top: 10px;
+}
+
+.newAccount a{
+    color: red;
+}
