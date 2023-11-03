@@ -60,8 +60,23 @@ body {
 }
 
 #agent-list{
-  max-height: 450px;
-  overflow-y: scroll;
+  position: relative;
+  z-index: 1;
+  /* max-height: 450px;
+  overflow-y: scroll; */
+  /* position: absolute; */
+}
+
+.agent-list{
+  padding: 8px !important;
+}
+
+#agent-list-ul{
+  margin-top: 10px;
+  background: aliceblue;
+  /* position: relative; */
+  top: 35px;
+  left: 130px;
 }
 
 /*.searchbar:hover > .search_input{
