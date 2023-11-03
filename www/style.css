@@ -53,6 +53,32 @@ body {
   transition: width 0.4s linear;
 }
 
+.agent-list{
+  padding: 5px 0px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+
+#agent-list{
+  position: relative;
+  z-index: 1;
+  /* max-height: 450px;
+  overflow-y: scroll; */
+  /* position: absolute; */
+}
+
+.agent-list{
+  padding: 8px !important;
+}
+
+#agent-list-ul{
+  margin-top: 10px;
+  background: aliceblue;
+  /* position: relative; */
+  top: 35px;
+  left: 130px;
+}
+
 /*.searchbar:hover > .search_input{
      padding: 0 10px;
      width: 100%;
@@ -564,7 +590,7 @@ ul {
   padding: 0px;
   border: 0;
   outline: none;
-  margin: 0px 10px;
+  /* margin: 0px 10px; */
 }
 
 .type p {

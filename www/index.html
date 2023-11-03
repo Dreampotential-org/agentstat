@@ -39,6 +39,7 @@
     }
 
     .video-box {
+      z-index: -1;
       max-width: 700px;
       margin: 0 auto 50px;
       padding: 0 15px;
@@ -255,194 +256,86 @@
                       }
                     }
 
-
-                    /* @media screen and (max-width: 767px) and (min-width: 576px) */
-                    /* .modal-content {
-                                        background-color: #fff;
-                                        position: absolute;
-                                        top: 50%;
-                                        left: 50%;
-                                        transform: translate(-50%, -50%);
-                                        padding: 20px;
-                                      } */
                   </style>
 
-                  <div class="address">
-                    <p id="y-address" class="address-value">
-                      Address <i class="fas fa-caret-down"></i>
-                    </p>
-                    <div class="dropdownaddress address-type index-address-type">
-                      <ul>
-                        <li class="custom_radio" id="agentName">Agent Name</li>
-                        <li class="custom_radio">City</li>
-                      </ul>
-                    </div>
-                  </div>
 
-                  <!-- <div class="ser-state modal" id="stateModal">
+
+
+<div class="address">
+  <p id="y-address" class="address-value">
+    Address <i class="fas fa-caret-down"></i>
+  </p>
+  <div class="dropdownaddress address-type index-address-type">
+    <ul>
+      <li class="custom_radio">Address</li>
+      <li class="custom_radio" id="agentName">Agent Name</li>
+      <li class="custom_radio">City</li>
+    </ul>
+  </div>
+</div>
+
+<div style="width: 100%;padding-top: 5px;">
+  <input
+                      class="ser search_address maps_input px-2"
+                      id="inputBox"
+                      type="text"
+                      name="text"
+                      autocomplete="no"
+                      placeholder="Search address"
+                    />
+                    <input
+                      class="search_city ser px-2"
+                      autocomplete="no"
+                      type="text"
+                      name="citytext"
+                      placeholder="Search City"
+                      style="display: none"
+                    />
+                    <input class="search_agent_name ser px-2" 
+                      autocomplete="nop" 
+                      type="text" 
+                      name="agent_name" 
+                      placeholder="Search Agent Name" 
+                      style="display: none;" 
+                      id="searchInput"
+                      oninput="searchTable()"
+                      
+                    />
+                  <table style="display: none;">
+                    <tbody id="tableBody"></tbody>
+                  </table>
+                  <div id="agent-list">
+                    <ul id="agent-list-ul" class="text-left" style="margin-top: 10px; display: none;">
+                    </ul>
+                  </div>
+</div>
+
+                  <div class="ser-state modal" id="stateModal">
                       <div class="modal-content">
                           <p class="ser-state-id state-value" target="ser-state-first">
                               State <i class="fas fa-caret-down"></i>
                           </p>
                           <div class="ser-state-type ser-state-first">
                               <ul class="allstate">
-                                  <li class="custom_radio" id="stateAL">AL</li>
-                                  <li class="custom_radio" id="stateAK">AK</li>
-                                  <li class="custom_radio" id="stateAR">AR</li>
-                                  <li class="custom_radio" id="stateAZ">AZ</li>
                               </ul>
                           </div>
                       </div>
-                  </div> -->
-
-                  <!-- <div class="modal" id="agentNameModal">
-                      <div class="modal-content"> -->
-                  <div class="ser-state modal" id="stateModal">
-                    <div class="modal-content">
-                      <input class="search_agent_name ser" autocomplete="nop" type="text" name="citytext"
-                        placeholder="Search Agent Name Agent" />
-                      <input type="text" id="searchInput" placeholder="Search data" oninput="searchTable()">
-
-                      <table>
-                        <tbody id="tableBody">
-                        </tbody>
-                      </table>
-
-                      <!-- Modal -->
-                      <div class="modal" id="modal">
-                        Modal Content
-                      </div>
-
-
-                    </div>
                   </div>
 
-                  <script>
-
-                    var dataTable;
-                    var temp = [];
-                    var datas = []
-
-                    document.getElementById('agentName').addEventListener('click', function () {
-                      fetch('https://app.realtorstat.com/api/agents')
-                        .then(response => {
-                          if (response.ok) {
-                            return response.json(); // Parse the response as JSON
-                          }
-                          throw new Error('Network response was not ok.');
-                        })
-                        .then(data => {
-                          // Handle the API response data here
-
-                          dataTable = data;
-                          temp = data;
-                          // Extract the full names from the data and update tableData
-                          const fullNames = data.results.map(result => result.full_name);
-                          datas.length = 0; // Clear the tableData array
-                          datas.push(...fullNames); // Update tableData with full names
-
-                          // Now you can use tableData as you need
-                          console.log("fullNames------------:", fullNames);
-
-                          // Update your table with the new data
-                          // populateTable();
-                        })
-                        .catch(error => {
-                          // Handle any errors that occurred during the fetch
-                          console.error('Error:', error);
-                        });
-                      var stateModal = document.getElementById('stateModal');
-                      stateModal.style.display = 'block';
-                    });
-
-                    //               const fullNames = dataTable?.results?.map(result => result.full_name);
-                    console.log("full_name", dataTable);
-
-                    // const tableData = [  'Jean Groesbeck', 'Debbie Macy'];
 
 
-                    const tableBody = document.getElementById('tableBody');
-                    const searchInput = document.getElementById('searchInput');
 
-                    function populateTable(item) {
-
-
-                      if (item?.length) {
-                        console.log("tableData", item);
-                        tableBody.innerHTML = ''; // Clear the table body
-                        item.forEach((data) => {
-                          const row = document.createElement('tr');
-                          row.onclick = () => showAlert(data);
-
-                          const cell = document.createElement('td');
-                          cell.textContent = data;
-
-                          row.appendChild(cell);
-                          tableBody.appendChild(row);
-                        });
-                      }
-
-
-                    }
-
-                    function showAlert(text) {
-                      alert("Clicked: " + text);
-                    }
-
-                    // function searchTable() {
-                    //     const searchText = searchInput.value.toLowerCase();
-                    //     const filteredData = datas?.filter(data => data?.toLowerCase().includes(searchText));
-                    //     console.log("filter Arrat", filteredData)
-                    //     datas.length = 0;
-                    //     datas.push(...filteredData);
-                    //     populateTable(datas);
-                    // }
-
-
-                    function searchTable() {
-                      const searchText = searchInput.value.toLowerCase();
-                      const filteredData = datas.filter(data => data.toLowerCase().includes(searchText));
-                      console.log("filtered Array", filteredData);
-
-                      if (searchText === "") {
-                        // If the search input is empty, display all data.
-                        populateTable(datas);
-                      } else {
-                        // Display the filtered data.
-                        populateTable(filteredData);
-                      }
-                    }
-
-
-                    // Initialize the table
-                    populateTable();
-
-                  </script>
-
-
-                  <input class="ser search_address maps_input" id="inputBox" type="text" name="text" autocomplete="no"
-                    placeholder="Search address" />
-                  <input class="search_city ser" autocomplete="no" type="text" name="citytext" placeholder="Search City"
-                    style="display: none" />
-                  <input class="search_agent_name ser" autocomplete="no" type="text" name="agent_name"
-                    placeholder="Search Agent Name" style="display: none" />
-                  <!--<input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext" placeholder="Search Zip Code" style="display:none" > -->
-
-                  <!-- <input type="text" id="inputBox" placeholder="Select a value">
-                                <button id="showFirstModalBtn">Show First Modal</button> -->
+                    
 
                   <div id="firstModal" class="modal">
                     <div class="modal-content">
-                      <!-- <h2>First Modal Popup</h2> -->
                       <p>Select your HomeType</p>
 
-                      <!-- Your provided HTML structure for the first dropdown -->
                       <div class="type">
                         <p id="y-type" class="x-type type-value" style=" width: 100% !important;">
                           Type <i class="fas fa-caret-down"></i>
                         </p>
                         <div id="dropdowntypes" class="check-type index-check-type" style="width: 100%">
-                          <!-- <h6>Home Type</h6> -->
                           <ul>
                             <li class="custom_radio">House</li>
                             <li class="custom_radio">Manufactured</li>
@@ -511,30 +404,126 @@
                     </div>
                   </div>
 
+
+
+
                   <script>
-                    // Get references to the input box and the modals
+
+                    document.getElementById('agentName').addEventListener('click', function() {
+                      var searchInput = document.getElementById('searchInput');
+                      var table = document.querySelector('table');
+                      var agentList = document.getElementById('agent-list-ul');
+                      
+                      searchInput.style.display = 'block';
+                      table.style.display = 'block';
+                      agentList.style.display = 'block';
+                    });
+                    
+                    var dataTable;
+                    var temp = [];
+                    var datas =[]
+
+                      document.getElementById('agentName').addEventListener('click', function() {
+                        fetch('https://app.realtorstat.com/api/agents')
+                          .then(response => {
+                              if (response.ok) {
+                                  return response.json(); 
+                              }
+                              throw new Error('Network response was not ok.');
+                          })
+                          .then(data => {
+                              dataTable = data;
+                          const fullNames = data.results.map(result => result.full_name);
+                          datas.length = 0; 
+                          datas.push(...fullNames); 
+                          temp.push(...fullNames);
+
+                          })
+                          .catch(error => {
+                              console.error('Error:', error);
+                          });
+                    
+                      });
+                                        
+                    
+                    
+                    const tableBody = document.getElementById('tableBody');
+                    const searchInput = document.getElementById('searchInput');
+                    let agentList = document.getElementById('agent-list');
+                    
+                    function populateTable(item) {
+
+                      
+                      if(agentList.childNodes){
+                        let ulList = document.getElementById('agent-list-ul')
+                      }
+                      if(item?.length){
+                        tableBody.innerHTML = ''; 
+                        agentList.innerHTML =''
+                        const ul = document.createElement('ul');
+                        item.forEach((data) => {
+                            const li = document.createElement('li');
+                            ul.setAttribute('id','agent-list-ul')
+                            ul.setAttribute('class','text-left')
+                            li.setAttribute('class', 'agent-list')
+                            li.onclick = () => openModal(data);
+                            li.textContent = data
+                            ul.appendChild(li)  
+                          });
+                          agentList.appendChild(ul)
+                      }  
+                    }
+
+                    function openModal(text) {
+                         let modal1 = document.getElementById("stateModal");
+                         modal1.style.display = "block";     
+                    }
+                    
+                    
+                    function searchTable() {
+                        const searchText = searchInput.value.toLowerCase();
+                        const filteredData = temp.filter(data => data.toLowerCase().includes(searchText));
+                        console.log("filtered Array", filteredData);
+                    
+                        if(filteredData == 0){
+                          tableBody.innerHTML = ''; ;
+                          agentList.innerHTML =''
+                          let ulList = document.getElementById('agent-list-ul')
+                          const ul = document.createElement('ul');
+                          const li = document.createElement('li');
+                            ul.setAttribute('id','agent-list-ul')
+                            ul.setAttribute('class','text-left')
+                            li.setAttribute('class', 'agent-list')
+                            li.textContent = "No Data Found"
+                            ul.appendChild(li)  
+                            agentList.appendChild(ul)
+                        }
+                    
+                        if (searchText === "") {
+                            agentList.innerHTML =''
+                        } else {
+                            populateTable(filteredData);
+                        }
+                    }
+                    
+                    
+
                     var inputBox = document.getElementById("inputBox");
                     var firstModal = document.getElementById("firstModal");
                     var secondModal = document.getElementById("secondModal");
-                    // var showFirstModalBtn =
-                    //   document.getElementById("showFirstModalBtn");
                     var firstDropdownItems = document.querySelectorAll(
                       "#dropdowntypes .custom_radio"
                     );
-
-                    // Event listener to show the first modal when a value is selected in the input box
                     inputBox.addEventListener("change", function () {
                       firstModal.style.display = "block";
                     });
 
-                    // Event listener to show the second modal when an option is selected in the first dropdown
                     firstDropdownItems.forEach((item) => {
                       item.addEventListener("click", function () {
                         secondModal.style.display = "block";
                       });
                     });
 
-                    // Event listener to close the modals when the user clicks outside of them
                     window.addEventListener("click", function (event) {
                       if (event.target == firstModal) {
                         firstModal.style.display = "none";
@@ -544,70 +533,9 @@
                       }
                     });
 
-                    // Event listener to close the modals when the user clicks the "Show First Modal" button
-                    // showFirstModalBtn.addEventListener("click", function () {
-                    //   firstModal.style.display = "none";
-                    //   secondModal.style.display = "none";
-                    // });
                   </script>
 
-                  <!-- <div id="suggesstion-box"></div>
-                                    <div class="type ">
-                                        <p id="y-type" class="x-type type-value">Type <i class="fas fa-caret-down"></i></p>
-                                        <div id="dropdowntypes" class="check-type index-check-type">
-                                            <h6>Home Type</h6>
-                                            <ul>
-                                            <li class="custom_radio"> House</li>
-                                            <li  class="custom_radio">Manufactured</li>
-                                            <li class="custom_radio" >Condo/Co-op</li>
-                                            <li class="custom_radio">Multi-Family</li>
-                                            <li class="custom_radio">Lot/Land</li>
-                                            <li class="custom_radio">Townhouse</li>
-                                        </ul>
-                                        </div>
-                                    </div> -->
-                  <!-- <div class="price">
-                                        <p class="d-inline-block y-price">Price <i class="fas fa-caret-down"></i></p>
-                                        <div class="price-amount" id="pt-amount">
-                                            <div class="price-head-wrapper">
-                                                <input id="one-left-in" type="text" name="min-price" placeholder="MIN"> <span> -</span>
-                                                <input id="one-right-in" type="text" name="max-price" placeholder="MAX">
-                                            </div>
-                                            <div class="price-wrapper">
-                                                <div class="p-left">
-                                                    <ul>
-                                                        <li>$50,000</li>
-                                                        <li>$100,000</li>
-                                                        <li>$150,000</li>
-                                                        <li>$300,000</li>
-                                                        <li>$400,000</li>
-                                                        <li>$500,000</li>
-                                                        <li>$600,000</li>
-                                                        <li>$700,000</li>
-                                                        <li>$800,000</li>
-                                                        <li>$900,000</li>
-                                                    </ul>
-                                                </div>
-                                                <div class="p-right">
-                                                    <ul>
-                                                        <li>$200K</li>
-                                                        <li>$300K</li>
-                                                        <li>$400K</li>
-                                                        <li>$500K</li>
-                                                        <li>$600K</li>
-                                                        <li>$700K</li>
-                                                        <li>$800K</li>
-                                                        <li>$900K</li>
-                                                        <li>$1M</li>
-                                                        <li>Any price</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div id="donBtn"class="text-center" style="padding: 14px;">
-                                                <button >Done</button>
-                                            </div>
-                                        </div>
-                                    </div> -->
+
                   <div class="serch_btn">
                     <button class="btn btn-default searchButton">
                       <span><i class="fas fa-search"></i></span>
@@ -628,6 +556,15 @@
         <p style="height: 50px"></p>
       </div>
     </div>
+
+
+    <table>
+      <tbody id="tableBody">
+      </tbody>
+  </table>
+
+  <div id="agent-list">
+  </div>
 
     <!-- po-maps area end -->
   </div>
@@ -716,7 +653,6 @@
 
       localStorage.setItem("search_home_type", "");
       $(".state-value").click(function () {
-        //alert($('#allstate li').length);
         if (".allstate li".length > 0) {
           $(".allstate").addClass("scrollState");
         }
@@ -773,7 +709,6 @@
     });
 
     $(window).on("scroll", function () {
-      // console.log("LENGTH "+$(this).scrollTop())
       if ($(".stricked-menu").length) {
         var strickyScrollPos = 50;
         if ($(window).scrollTop() > strickyScrollPos) {
@@ -817,7 +752,7 @@
         $("#y-type").hide();
         $(".price").hide();
 
-        $(".ser-state").show();
+        // $(".ser-state").show();
       } else {
         $("#y-type").show();
         $(".price").show();
@@ -837,7 +772,7 @@
         $("#bau1").hide();
         $(".price").hide();
 
-        $(".ser-state-map").show();
+        // $(".ser-state-map").show();
       } else {
         $("#bau1").show();
         $(".price").show();
