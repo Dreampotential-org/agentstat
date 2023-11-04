@@ -121,6 +121,10 @@ server {
         location /sitemap/ {
             try_files $uri $uri/ /sitemap.html;
         }
+       location /subscribe/ {
+            try_files $uri $uri/ /stripe_test.html;
+        }
+
 
         location /subscription/ {
             try_files $uri $uri/ /subscription.html;

@@ -61,6 +61,7 @@ body {
   border-radius: 10px;
   border: none;
   font-size: 16px;
+  margin-top: 30px;
 }
 
 .mainContainerContainer1 {
@@ -708,3 +709,21 @@ font-size: 38px;
 .bf-af-col{
   text-align: center;
 }
+
+/* @media only screen and (max-width: 600px) {
+  .headContainer p{
+    color: red;
+  }
+} */
+
+@media only screen and (max-width: 756px) {
+  .headContainer p {
+    font-size: 15px;
+    padding: 0px 10px;
+    /* font-weight: 500px; */
+    line-height: 30px;
+    margin: 0;
+}
+}
+
+

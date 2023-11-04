@@ -1,3 +1,96 @@
+<!-- 
+<script src="https://js.stripe.com/v3/"></script>
+<script src="./js/conf.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function init() {
+    console.log("Sanity check!");
+    // Get Stripe publishable key
+    settings = get_settings_checkout("config/", "GET")
+    $.ajax(settings).done(function (response) {
+        console.log("Hello");
+        data = JSON.parse(response);
+
+        const stripe = Stripe(data.publicKey);
+
+        let submitBtn = document.querySelector("#submitBtn");
+        let cancelBtn = document.querySelector("#cancelBtn");
+        let retrieveBtn = document.querySelector("#retrieveBtn");
+
+        if (submitBtn !== null) {
+            submitBtn.addEventListener("click", () => {
+                // Get Checkout Session ID
+                settings = get_settings_checkout("create-checkout-session/", "GET")
+                $.ajax(settings).done(function (response) {
+                    data = JSON.parse(response);
+                    // Redirect to Stripe Checkout
+                    stripe.redirectToCheckout({ sessionId: data.sessionId })
+                        .then((result) => {
+                            if (result.error) {
+                                console.error(result.error);
+                            } else if (result.complete) {
+                                // Payment is successful
+                                // Redirect to your success page
+                                window.location.href = "http://localhost:8069/stripe_test.html";
+                              // window.location.href = "/subscribe/";
+                            }
+                        });
+                });
+            });
+        }
+
+        if (cancelBtn !== null) {
+            cancelBtn.addEventListener("click", () => {
+                // Get Checkout Session ID
+                settings = get_settings_checkout("cancel-subscription/", "POST")
+                $.ajax(settings).done(function (response) {
+                    data = response;
+                    alert(data);
+                })
+                .then((res) => {
+                    return res
+                });
+            });
+        }
+
+        if (retrieveBtn !== null) {
+            retrieveBtn.addEventListener("click", () => {
+                // Get Checkout Session ID
+                console.log("Here for retrieving")
+                settings = get_settings_checkout("retrieve-subscription/", "GET")
+                $.ajax(settings).done(function (response) {
+                    subscription_data = JSON.parse(response);
+                    console.log("Subscription: ", subscription_data)
+                    if (subscription_data['subscription'].length > 0) {
+                        alert("Subscription already exists");
+                    } else {
+                        alert("No subscriptions");
+                    }
+                })
+                .then((res) => {
+                    return res
+                });
+            });
+        }
+    });
+}
+
+window.addEventListener('DOMContentLoaded', init, false);
+
+
+</script>
+<button type="submit" class="btn btn-primary" id="submitBtn">Subscribe</button>
+<button type="submit" class="btn btn-primary" id="cancelBtn">Cancel</button>
+<button type="submit" class="btn btn-primary" id="retrieveBtn">Retrieve Subscriptions</button> -->
+
+
+
+
+
+
+
+
+
 
 <script src="https://js.stripe.com/v3/"></script>
 <script src="./js/conf.js"></script>
@@ -76,4 +169,4 @@ window.addEventListener('DOMContentLoaded', init, false);
 </script>
 <button type="submit" class="btn btn-primary" id="submitBtn">Subscribe</button>
 <button type="submit" class="btn btn-primary" id="cancelBtn">Cancel</button>
-<button type="submit" class="btn btn-primary" id="retrieveBtn">Retrieve Subscriptions</button>
+<button type="submit" class="btn btn-primary" id="retrieveBtn">Retrieve Subscriptions</button> 
