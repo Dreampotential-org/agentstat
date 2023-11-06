@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/common.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&display=swap"
+        rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="modal" id="loginModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Please Login In</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Login to use our AI features!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/login.html" class="button"><strong>Login!</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="left-btn">
+                <a href="/Ai.html">
+                    <div class="back"><i class="ri-arrow-left-s-line"></i></div>
+                </a>
+            </div>
+            <h2>Revive Buyer Interest</h2>
+            <h4>Create unique and engaging email for buyer.</h4>
+            <div class="typearea" id="typeArea">
+                <h4>Insert key points*</h4>
+                <p>
+                    Enter features such as the number of bedrooms, bathrooms, square footage,
+                    local amenities, and anything else that makes the property stand out.
+                </p>
+                <textarea type="textarea" maxlength="1000" data-required="no" data-id="1"
+                    bind:value="{inputValue}"> </textarea>
+                <button id="submitBtn">Start Task</button>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="animationContainer" style="display: none;">
+                <center>
+                    <img src="https://cdn-images-1.medium.com/max/1200/1*bXQlVcrRxVkXnzgcVBGkOA.gif" alt=""
+                        class="LoadAnim" />
+                    <div class="loading-animation">Loading... Please wait</div>
+                </center>
+            </div>
+            <div class="output" id="outputField">
+                <div class="copy">
+                    <i class="ri-file-copy-line" id="copyButton"></i>
+                </div>
+                <textarea id="OutputOfData"></textarea>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="/js/conf.js"></script>
+<script src="/js/website.js"></script>
+<link rel="stylesheet" href="css/website.css" />
+
+</html>

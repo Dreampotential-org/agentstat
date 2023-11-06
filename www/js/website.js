@@ -1,36 +1,35 @@
-
 // Get the textarea element and button
 const local_storage = localStorage;
-const textarea = document.querySelector('textarea');
-const submitBtn = document.getElementById('submitBtn');
+const textarea = document.querySelector("textarea");
+const submitBtn = document.getElementById("submitBtn");
 const outputField = document.getElementById("outputField");
-const outputTextField = document.getElementById('OutputOfData');
-const copyButton = document.getElementById('copyButton');
-const loginModal= document.getElementById('loginModal');
+const outputTextField = document.getElementById("OutputOfData");
+const copyButton = document.getElementById("copyButton");
+const loginModal = document.getElementById("loginModal");
 // Get a reference to the loading animation container
-const loadingContainer = document.querySelector('.animationContainer');
+const loadingContainer = document.querySelector(".animationContainer");
 
-if (localStorage.session_id){}
-  else{
-    loginModal.style.display = 'block';
-  }
+if (localStorage.session_id) {
+} else {
+  loginModal.style.display = "block";
+}
 // Add a click event listener to the button
-submitBtn.addEventListener('click', async function () {
+submitBtn.addEventListener("click", async function () {
   // Get the value from the textarea
   const text = textarea.value;
   console.log(text);
 
   try {
     // Show the loading animation while waiting for the response
-    outputField.style.display = 'none';
-    loadingContainer.style.display = 'block';
+    outputField.style.display = "none";
+    loadingContainer.style.display = "block";
 
     // Call generateDescription and wait for its response
     const formatted_response = await generateDescription(text);
 
     // Once you have the response, hide the loading animation and output the result
-    loadingContainer.style.display = 'none';
-    outputField.style.display = 'block';
+    loadingContainer.style.display = "none";
+    outputField.style.display = "block";
 
     // Once you have the response, output it
     outputText(formatted_response);
@@ -41,20 +40,20 @@ submitBtn.addEventListener('click', async function () {
 });
 
 // Add a click event listener to the copy button
-copyButton.addEventListener('click', () => {
+copyButton.addEventListener("click", () => {
   // Select the text in the textarea
   outputTextField.select();
   outputTextField.setSelectionRange(0, 99999); // For mobile devices
 
   // Copy the selected text to the clipboard
-  document.execCommand('copy');
+  document.execCommand("copy");
 
   // Deselect the text
   outputTextField.setSelectionRange(0, 0);
 });
 
 function convertNewlinesToLineBreaks(inputString) {
-  return inputString.replace(/\\n/g, '\n');
+  return inputString.replace(/\\n/g, "\n");
 }
 
 function outputText(textToOutput) {
@@ -71,7 +70,7 @@ async function generateDescription(text) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({'input_content': text}),
+      body: JSON.stringify({ input_content: text }),
     });
 
     if (response.ok) {
