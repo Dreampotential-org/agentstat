@@ -2,3 +2,6 @@
 /nbproject/private/
 .DS_Store
 .idea/*
+platforms
+node_modules
+plugins
