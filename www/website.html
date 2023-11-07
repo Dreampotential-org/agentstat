@@ -23,123 +23,6 @@
 
 <body>
   <div class="main">
-    <div class="filter-overlay" id="filterOverlay" style="display: none;">
-      <div class="overlay" id="overlay">
-        <div class="filter-title">
-          <h3>List Generating </h3>
-          <button type="button" id="closeOverlay">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg></button>
-        </div>
-        <form action="#">
-          <ul class="inputbox-conatiner">
-            <li class="input-box">
-              <label for="bedrooms">Bedrooms</label>
-              <input type="number" name="bedroms" id="bedrooms">
-            </li>
-            <li class="input-box">
-              <label for="bathrooms">Bathrooms</label>
-              <input type="number" name="bathrooms" id="bathrooms">
-            </li>
-            <li class="input-box">
-              <label for="area">Square footage</label>
-              <input type="number" name="area" id="area">
-            </li>
-          </ul>
-          <div class="feature-container">
-            <div class="feature-title">
-              <h6>Features</h6>
-              <p>Select all type apply</p>
-            </div>
-            <ul class="checkbox-container">
-              <li class="check-box">
-                <input type="checkbox" name="remodeled" id="remodeled">
-                <label for="remodeled">Remodeled</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="flooring" id="flooring">
-                <label for="flooring">Hardwood flooring</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="marble" id="marble">
-                <label for="marble">Marble countertops</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="pool" id="pool">
-                <label for="pool">Pool</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="enery" id="enery">
-                <label for="enery">Enery efficient</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="garden" id="garden">
-                <label for="garden">Bog garden</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="view" id="view">
-                <label for="view">Magnificent view</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="rated" id="rated">
-                <label for="rated">Highly rated schools</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="walkincloset" id="walkincloset">
-                <label for="walkincloset">Walk-in closet</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="ceilngs" id="ceilngs">
-                <label for="ceilngs">High ceilings</label>
-              </li>
-              <li class="check-box">
-                <input type="checkbox" name="fireplace" id="fireplace">
-                <label for="fireplace">Fireplace</label>
-              </li>
-            </ul>
-          </div>
-          <div class="listtype-container">
-            <ul class="lists">
-              <il class="list-box">
-                <label for="listing">Listing Type</label>
-                <select name="listing" id="listing">
-                  <option value="default">Default</option>
-                  <option value="for sale">For Sale</option>
-                  <option value="upcoming">Upcoming</option>
-                  <option value="saled">Saled</option>
-                </select>
-              </il>
-              <il class="list-box">
-                <label for="listing">Property Type</label>
-                <select name="listing" id="property">
-                  <option value="default">Default</option>
-                  <option value="default">Detached</option>
-                  <option value="default">Atached</option>
-                </select>
-              </il>
-            </ul>
-          </div>
-          <div class="additional-container">
-            <div class="additionalTitle">
-              <h5>Additional details</h5>
-              <p>Enter additional details such amentities, neighborhood attraction, and unique hightlights that make the
-                property stand out</p>
-            </div>
-            <div class="textbox">
-              <textarea name="additional" id="additional"></textarea>
-            </div>
-          </div>
-          <div class="submit-btn">
-            <button type="button">Apply</button>
-          </div>
-
-        </form>
-      </div>
-    </div>
-
     <div class="modal" id="loginModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -160,7 +43,6 @@
         <a href="/Ai.html">
           <div class="back"><i class="ri-arrow-left-s-line"></i></div>
         </a>
-        <button type="button" id="filter-btn">Filter</button>
       </div>
       <h2>Listing Description Generator</h2>
       <h4>Create engaging property descriptions highlighting key features.</h4>
@@ -170,15 +52,115 @@
           Enter features such as the number of bedrooms, bathrooms, square footage,
           local amenities, and anything else that makes the property stand out.
         </p>
-        <textarea type="textarea" maxlength="1000" data-required="no" data-id="1" bind:value="{inputValue}"> </textarea>
-        <button id="submitBtn">Start Task</button>
+        <form id="propertyForm">
+          <ul class="inputbox-conatiner">
+            <li class="input-box">
+              <label for="bedrooms">Bedrooms</label>
+              <input type="number" name="bedrooms" id="bedrooms">
+            </li>
+            <li class="input-box">
+              <label for="bathrooms">Bathrooms</label>
+              <input type="number" name="bathrooms" id="bathrooms">
+            </li>
+            <li class="input-box">
+              <label for="area">Square footage</label>
+              <input type="number" name="area" id="area">
+            </li>
+          </ul>
+          <div class="feature-container">
+            <div class="feature-title">
+              <h6>Features</h6>
+              <p>Select all type apply</p>
+            </div>
+            <ul class="checkbox-container">
+              <li class="check-box">
+                <input type="checkbox" value="remodeled" name="remodeled" id="remodeled">
+                <label for="remodeled">Remodeled</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="hardwood flooring" name="flooring" id="flooring">
+                <label for="flooring">Hardwood flooring</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="marble countertops" name="marble" id="marble">
+                <label for="marble">Marble countertops</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="pool" name="pool" id="pool">
+                <label for="pool">Pool</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="enery efficient" name="enery" id="enery">
+                <label for="enery">Enery efficient</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="big garden" name="garden" id="garden">
+                <label for="garden">Big garden</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="magnificent veiw" name="view" id="view">
+                <label for="view">Magnificent view</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="schools" name="rated" id="rated">
+                <label for="rated">Highly rated schools</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="walk-in closet" name="walkincloset" id="walkincloset">
+                <label for="walkincloset">Walk-in closet</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="high ceilings" name="ceilngs" id="ceilngs">
+                <label for="ceilngs">High ceilings</label>
+              </li>
+              <li class="check-box">
+                <input type="checkbox" value="fireplace" name="fireplace" id="fireplace">
+                <label for="fireplace">Fireplace</label>
+              </li>
+            </ul>
+          </div>
+          <div class="listtype-container">
+            <ul class="lists">
+              <il class="list-box">
+                <label for="listing">Listing Type</label>
+                <select name="listing" id="listing">
+                  <option value="default">Default</option>
+                  <option value="for sale">For Sale</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="saled">Saled</option>
+                </select>
+              </il>
+              <il class="list-box">
+                <label for="property">Property Type</label>
+                <select name="property" id="property">
+                  <option value="default">Default</option>
+                  <option value="default">Detached</option>
+                  <option value="default">Atached</option>
+                </select>
+              </il>
+            </ul>
+          </div>
+          <div class="additional-container">
+            <div class="additionalTitle">
+              <h5>Additional details</h5>
+              <p>Enter additional details such amentities, neighborhood attraction, and unique hightlights that make the
+                property stand out</p>
+            </div>
+            <div class="textbox">
+              <textarea id="inputTextarea" type="textarea" maxlength="1000" data-required="no" data-id="1"
+                bind:value="{inputValue}"></textarea>
+            </div>
+          </div>
+          <div class="submit-btn">
+            <button id="submitBtn">Start Task</button>
+          </div>
+        </form>
       </div>
     </div>
-
     <div class="right">
       <div class="animationContainer" style="display: none;">
-        <center><img src="https://cdn-images-1.medium.com/max/1200/1*bXQlVcrRxVkXnzgcVBGkOA.gif" alt=""
-            class="LoadAnim" />
+        <center>
+          <img src="https://cdn-images-1.medium.com/max/1200/1*bXQlVcrRxVkXnzgcVBGkOA.gif" alt="" class="LoadAnim" />
           <div class="loading-animation">Loading... Please wait</div>
         </center>
       </div>
@@ -190,23 +172,6 @@
       </div>
     </div>
   </div>
-  <script>
-    //  FILTER OVERLAY MODAL
-    const filterBtn = document.getElementById("filter-btn");
-    const filterOverlay = document.getElementById("filterOverlay");
-    const closeOverlay = document.getElementById("closeOverlay");
-
-    const toggleoverlay = () => {
-      if (filterOverlay.style.display === "none") {
-        filterOverlay.style.display = "flex";
-      } else {
-        filterOverlay.style.display = "none";
-      }
-    };
-
-    filterBtn.addEventListener("click", toggleoverlay);
-    closeOverlay.addEventListener("click", toggleoverlay);
-  </script>
 </body>
 <script src="/js/conf.js"></script>
 <script src="/js/website.js"></script>

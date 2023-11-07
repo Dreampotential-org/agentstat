@@ -1,6 +1,7 @@
 // Get the textarea element and button
 const local_storage = localStorage;
-const textarea = document.querySelector("textarea");
+
+const form = document.getElementById("propertyForm");
 const submitBtn = document.getElementById("submitBtn");
 const outputField = document.getElementById("outputField");
 const outputTextField = document.getElementById("OutputOfData");
@@ -14,10 +15,37 @@ if (localStorage.session_id) {
   loginModal.style.display = "block";
 }
 // Add a click event listener to the button
-submitBtn.addEventListener("click", async function () {
-  // Get the value from the textarea
-  const text = textarea.value;
+submitBtn.addEventListener("click", async function (e) {
+  e.preventDefault();
+  // Initialize an array to store the selected values
+  const selectedValues = [];
+
+  // Loop through the form elements and check for their values
+  for (const element of form.elements) {
+    if (element.tagName === "INPUT" || element.tagName === "SELECT") {
+      if (element.type === "checkbox" && element.checked) {
+        selectedValues.push(element.value);
+      } else if (element.type === "select-one" && element.value !== "default") {
+        selectedValues.push(element.value);
+      }
+    }
+  }
+
+  for (const element of form.elements) {
+    if (element.tagName === "INPUT" || element.tagName === "SELECT") {
+      if (element.type === "number" || element.type === "select-one") {
+        selectedValues.push(`${element.name}: ${element.value}`);
+      }
+    }
+  }
+  // Get the value of the textarea
+  const textarea = document.getElementById("inputTextarea");
+  selectedValues.push(textarea.value);
+
+  const text = selectedValues.join(", ");
   console.log(text);
+  // Clear the form after submission
+  form.reset();
 
   try {
     // Show the loading animation while waiting for the response
@@ -57,7 +85,8 @@ function convertNewlinesToLineBreaks(inputString) {
 }
 
 function outputText(textToOutput) {
-  outputTextField.innerHTML = textToOutput; // Use innerHTML for line breaks to be rendered correctly
+  const outputString = textToOutput.replace(/^"|"$/g, "");
+  outputTextField.innerHTML = outputString; // Use innerHTML for line breaks to be rendered correctly
 }
 
 async function generateDescription(text) {
