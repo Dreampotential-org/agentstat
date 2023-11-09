@@ -416,3 +416,49 @@ a.subscribe{
     height: 50px;
 }  */
 
+/* my code */
+
+.formcard{
+    /* height: 100px; */
+    width: 280px;
+    text-align: center;
+    padding:40px 0px 20px 0px;
+    border-radius: 10px;
+    border: 2px solid rgb(80, 80, 209);
+    border-top:20px solid blue ;
+    background-color: rgb(218, 212, 212);
+}
+
+.formcard h4{
+    font-weight: bold;
+}
+
+.formcard h5{
+    padding: 5px 0px;
+}
+
+.Continue{
+    width: 230px;
+    background-color: blue !important;
+   
+}
+
+.Continue a{
+    color: white;
+}
+
+.Continue a:hover{
+    color: white;
+}
+
+.pdiv{
+    padding-top: 20px;
+}
+
+.pdiv p{
+    margin: 0px;
+    padding-bottom: 10px;
+   
+}
+
+

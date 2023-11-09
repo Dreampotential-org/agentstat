@@ -112,6 +112,25 @@
     .price-wrapper li {
       padding: 5px;
     }
+    #signup-button {
+      display: none;
+    
+    }
+
+    .display-picture{
+      margin-top: 20px;
+    }
+
+.topnav{
+  padding: 10px 20px;
+}
+
+.main-menu-part ul li a{
+  padding-right: 40px;
+}
+
+
+
   </style>
 </head>
 
@@ -128,25 +147,44 @@
     <div class="header-area sticky-top bg-white custom_header">
       <div class="">
         <div class="row" style="margin-right: 0px">
-          <div class="col-lg-12">
+          <div class="col-lg-12 topnav">
             <nav class="navbar navbar-expand-md navbar-light">
               <a class="navbar-brand" href="/">
                 <img class="image" src="/img/logo-beta.png" alt="logo" />
               </a>
-              <button class="hamburger hamburger--squeeze navbar-toggler main-menu-part" type="button">
+              <!-- <button class="hamburger hamburger--squeeze navbar-toggler main-menu-part" type="button">
                 <ul class="float-right">
                   <li><a href="/signup/">SignUp</a></li>
                 </ul>
-              </button>
+              </button> -->
               <div class="navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"></ul>
                 <div class="main-menu-part">
                   <ul>
                     <li><a href="/subscription.html">AgentStat Premium</a></li>
                     <li><a href="/howsearchworks/">How Search Works</a></li>
-                    <li class="remove-link"><a href="/signup/">SignUp</a></li>
+                    <li class="remove-link" id="signup-button"><a href="/signup/">SignUp</a></li>
                   </ul>
                 </div>
+                <div class="dropdown profile show" id="homeprofile">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="display-picture"></span>
+                                </a>
+
+                                <div class="dropdown-menu drop" id="homedropdown" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item inbox-link" href="/inbox/">
+                                        <p>Dashboard</p>
+                                        <span>View your stats and backend</span>
+                                    </a>
+                                    <a class="dropdown-item" href="/profile-settings/">
+                                        <p>Profile Settings</p>
+                                        <span>Edit your profile info and account settings</span>
+                                    </a>
+                                    <!-- <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a> -->
+                                 <a class="dropdown-item logout" href="javascript:void(0)">Logout</a>
+								       </div>
+                            </div>
               </div>
             </nav>
           </div>
