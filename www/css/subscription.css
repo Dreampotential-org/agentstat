@@ -799,8 +799,30 @@ div.container {
 }
 
 .feature-btns {
-  text-align: left;
-  padding-left: 50px;
+  text-align: center;
+  /* padding-left: 50px; */
+}
+
+.before-after{
+
+  margin-top: 10px;
+  padding: 0px 1px;
+}
+
+@media only screen and (max-width: 767px) {
+  .before-after{
+    padding: 40px 10px 0px 10px;
+  
+  }
+  .home-img {
+  height: 100%;
+  width: 90%;
+}
+  
+}
+
+.before-after p{
+  margin: 0px;
 }
 
 .img-section {

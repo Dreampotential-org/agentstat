@@ -1,3 +1,29 @@
+
+// Get the textarea element and button
+settings = get_settings_checkout("config/", "GET")
+$.ajax(settings).done(function (response) { 
+  data = JSON.parse(response);
+const stripe = Stripe(data.publicKey);
+let signUpButton = document.getElementById("signUp");
+signUpButton.addEventListener("click", () => {
+        // Get Checkout Session ID
+        settings = get_settings_checkout("create-checkout-session/", "GET")
+        $.ajax(settings).done(function (response) {
+            data = JSON.parse(response);
+            // Redirect to Stripe Chaeckout
+            return stripe.redirectToCheckout({sessionId: data.sessionId})
+          })
+          .then((res) => {
+            console.log(res);
+          });
+        });
+});
+
+
+
+
+
+
 function init() {
 
   // static/main.js
@@ -135,3 +161,11 @@ function init() {
   });
 }
 window.addEventListener('DOMContentLoaded', init, false);
+
+
+// Define a constant link
+const constantLink = "https://checkout.stripe.com/c/pay/cs_test_a1hqNBMXOghHv71lrBGbYz1XQcS9p6CivW4T5A2xlNvFwMldSiOLXgYFWv#fidkdWxOYHwnPyd1blpxYHZxWn08MmBLalRUcVRBUXB3R1wyaXd0NHxIQDU1MEtxcTdtSk4nKSdobGF2Jz9%2BJ2JwbGEnPycyMDNnYGRjZyg2NTw3KDFjPDwoPWY0Mig2NmZhYD02MTJgNjVmND0yNGQnKSdocGxhJz8nMT02NTMwNzwoM2ZnNCgxZGNjKD0yNjMoYDdmMWdjYWZjNjEyMDZmZ2dgJykndmxhJz8nZjcwNTE0YWcoNz1jNigxMmQxKDxkZjYoMzM1Zmc1YGQyMGE1NTxgPDNmJ3gpJ2dgcWR2Jz9eWCknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknd2BjYHd3YHdKd2xibGsnPydtcXF1PyoqaWpmZGltanZxPz01MzwneCUl";
+
+
+// Set the constant link as the href attribute of the anchor element
+document.getElementById("subscribe").href = constantLink;

@@ -13,10 +13,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/subscription.css" />
-  <script src="./js/conf.js"></script>
+  <!-- <script src="./js/conf.js"></script> -->
   <script src="./js/common.js"></script>
+  <!-- <script src="https://js.stripe.com/v3/"></script> -->
   <script src="https://js.stripe.com/v3/"></script>
-  <script src="/js/subscription.js"></script>
+  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -25,7 +26,7 @@
 </head>
 
 <body>
-  <div class="modal" id="myModal" tabindex="-1">
+  <!-- <div class="modal" id="myModal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -37,18 +38,40 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="/img/logo-beta.png" alt="Logo" width=200px height=auto;></a>
-      <ul class="navbar-nav" <li class="nav-item">
+      <!-- <ul class="navbar-nav"> -->
+      <!-- <li class="nav-item">
         <button id="loginBtn">Login</a>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <button id="logoutBtn">Logout</a>
           </li>
-      </ul>
+      </ul> -->
+    
+       <div class="dropdown profile show" id="homeprofile">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="display-picture"></span>
+                                </a>
+
+                                <div class="dropdown-menu drop" id="homedropdown" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item inbox-link" href="/inbox/">
+                                        <p>Dashboard</p>
+                                        <span>View your stats and backend</span>
+                                    </a>
+                                    <a class="dropdown-item" href="/profile-settings/">
+                                        <p>Profile Settings</p>
+                                        <span>Edit your profile info and account settings</span>
+                                    </a>
+                                    <!-- <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a> -->
+                                 <a class="dropdown-item logout" href="javascript:void(0)">Logout</a>
+								       </div>
+                            </div>
+                            
     </div>
   </nav>
 
@@ -122,19 +145,19 @@
       <div class="col-6"></div>
 
 
-      <div class="col-3 bf-af-col">
+      <!-- <div class="col-3 bf-af-col">
         <p>After</p>
       </div>
       <div class="col-3 bf-af-col">
         <p>Before</p>
-      </div>
+      </div> -->
 
 
 
     </div>
 
     <div class="row">
-      <div class="col-6 new-section">
+      <div class=" col-md-12 col-lg-6 new-section">
         <h2 class="new-sectionh2">Help your clients visualize their dream home with instant AI-remodels.</h2>
         <p class="new-sectionp">Instantly transform any interior room with a stunning digital remodel to show your
           clients its true potential.</p>
@@ -142,8 +165,9 @@
         </div>
       </div>
 
-      <div class="col-3"> <img src="/images/after_img.png" alt="home" class="home-img "></div>
-      <div class="col-3">
+      <div class="col-md-6 col-lg-3 before-after" >  <p>After</p><img src="/images/after_img.png" alt="home" class="home-img "></div>
+      <div class="col-md-6 col-lg-3 before-after">
+      <p>Before</p>
         <img src="/images/before.png" class="home-img ">
       </div>
     </div>
@@ -372,7 +396,7 @@
         <h1>$9.99/mo</h1>
         <p>Access to all tools</p>
         <p>Unlimited usage</p>
-        <button id="signUp">Sign Up</button>
+        <button type="button" id="signUp"><a id="subscribe" href="#" style="color: white; text-decoration: none;">Sign Up</a></button>
       </div>
     </div>
   </div>
@@ -386,5 +410,6 @@
 
 
 </body>
-
+<script src="/js/conf.js"></script>
+<script src="/js/subscription.js"></script>
 </html>

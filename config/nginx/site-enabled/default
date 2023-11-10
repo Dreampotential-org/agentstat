@@ -130,7 +130,7 @@ server {
             try_files $uri $uri/ /subscription.html;
         }
 
-        location /Ai/ {
+        location /Ai {
             try_files $uri $uri/ /Ai.html;
         }
 
