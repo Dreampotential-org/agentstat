@@ -33,15 +33,15 @@
   <link rel="stylesheet" href="css/index.css" />
   <!-- Sitemap CSS -->
   <link rel="stylesheet" href="css/sitemap.css?0.0.2" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGBP18CM4K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGBP18CM4K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-SGBP18CM4K');
-</script>
+    gtag('config', 'G-SGBP18CM4K');
+  </script>
   <style>
     video {
       max-width: 100%;
@@ -314,77 +314,56 @@
                         display: none !important;
                       }
                     }
-
                   </style>
 
 
 
 
-<div class="address">
-  <p id="y-address" class="address-value">
-    Address <i class="fas fa-caret-down"></i>
-  </p>
-  <div class="dropdownaddress address-type index-address-type">
-    <ul>
-      <li class="custom_radio">Address</li>
-      <li class="custom_radio" id="agentName">Agent Name</li>
-      <li class="custom_radio">City</li>
-    </ul>
-  </div>
-</div>
-
-<div style="width: 100%;padding-top: 5px;">
-  <input
-                      class="ser search_address maps_input px-2"
-                      id="inputBox"
-                      type="text"
-                      name="text"
-                      autocomplete="no"
-                      placeholder="Search address"
-                    />
-                    <input
-                      class="search_city ser px-2"
-                      autocomplete="no"
-                      type="text"
-                      name="citytext"
-                      placeholder="Search City"
-                      style="display: none"
-                    />
-                    <input class="search_agent_name ser px-2" 
-                      autocomplete="nop" 
-                      type="text" 
-                      name="agent_name" 
-                      placeholder="Search Agent Name" 
-                      style="display: none;" 
-                      id="searchInput"
-                      oninput="searchTable()"
-                      
-                    />
-                  <table style="display: none;">
-                    <tbody id="tableBody"></tbody>
-                  </table>
-                  <div id="agent-list">
-                    <ul id="agent-list-ul" class="text-left" style="margin-top: 10px; display: none;">
-                    </ul>
+                  <div class="address">
+                    <p id="y-address" class="address-value">
+                      Address <i class="fas fa-caret-down"></i>
+                    </p>
+                    <div class="dropdownaddress address-type index-address-type">
+                      <ul>
+                        <li class="custom_radio">Address</li>
+                        <li class="custom_radio" id="agentName">Agent Name</li>
+                        <li class="custom_radio">City</li>
+                      </ul>
+                    </div>
                   </div>
-</div>
+
+                  <div style="width: 100%;padding-top: 5px;">
+                    <input class="ser search_address maps_input px-2" id="inputBox" type="text" name="text"
+                      autocomplete="no" placeholder="Search address" />
+                    <input class="search_city ser px-2" autocomplete="no" type="text" name="citytext"
+                      placeholder="Search City" style="display: none" />
+                    <input class="search_agent_name ser px-2" autocomplete="nop" type="text" name="agent_name"
+                      placeholder="Search Agent Name" style="display: none;" id="searchInput" oninput="searchTable()" />
+                    <table style="display: none;">
+                      <tbody id="tableBody"></tbody>
+                    </table>
+                    <div id="agent-list">
+                      <ul id="agent-list-ul" class="text-left" style="margin-top: 10px; display: none;">
+                      </ul>
+                    </div>
+                  </div>
 
                   <div class="ser-state modal" id="stateModal">
-                      <div class="modal-content">
-                          <p class="ser-state-id state-value" target="ser-state-first">
-                              State <i class="fas fa-caret-down"></i>
-                          </p>
-                          <div class="ser-state-type ser-state-first">
-                              <ul class="allstate">
-                              </ul>
-                          </div>
+                    <div class="modal-content">
+                      <p class="ser-state-id state-value" target="ser-state-first">
+                        State <i class="fas fa-caret-down"></i>
+                      </p>
+                      <div class="ser-state-type ser-state-first">
+                        <ul class="allstate">
+                        </ul>
                       </div>
+                    </div>
                   </div>
 
 
 
 
-                    
+
 
                   <div id="firstModal" class="modal">
                     <div class="modal-content">
@@ -468,104 +447,104 @@
 
                   <script>
 
-                    document.getElementById('agentName').addEventListener('click', function() {
+                    document.getElementById('agentName').addEventListener('click', function () {
                       var searchInput = document.getElementById('searchInput');
                       var table = document.querySelector('table');
                       var agentList = document.getElementById('agent-list-ul');
-                      
+
                       searchInput.style.display = 'block';
                       table.style.display = 'block';
                       agentList.style.display = 'block';
                     });
-                    
+
                     var dataTable;
                     var temp = [];
-                    var datas =[]
+                    var datas = []
 
-                      document.getElementById('agentName').addEventListener('click', function() {
-                        fetch('https://app.realtorstat.com/api/agents')
-                          .then(response => {
-                              if (response.ok) {
-                                  return response.json(); 
-                              }
-                              throw new Error('Network response was not ok.');
-                          })
-                          .then(data => {
-                              dataTable = data;
+                    document.getElementById('agentName').addEventListener('click', function () {
+                      fetch('https://app.realtorstat.com/api/agents')
+                        .then(response => {
+                          if (response.ok) {
+                            return response.json();
+                          }
+                          throw new Error('Network response was not ok.');
+                        })
+                        .then(data => {
+                          dataTable = data;
                           const fullNames = data.results.map(result => result.full_name);
-                          datas.length = 0; 
-                          datas.push(...fullNames); 
+                          datas.length = 0;
+                          datas.push(...fullNames);
                           temp.push(...fullNames);
 
-                          })
-                          .catch(error => {
-                              console.error('Error:', error);
-                          });
-                    
-                      });
-                                        
-                    
-                    
+                        })
+                        .catch(error => {
+                          console.error('Error:', error);
+                        });
+
+                    });
+
+
+
                     const tableBody = document.getElementById('tableBody');
                     const searchInput = document.getElementById('searchInput');
                     let agentList = document.getElementById('agent-list');
-                    
+
                     function populateTable(item) {
 
-                      
-                      if(agentList.childNodes){
+
+                      if (agentList.childNodes) {
                         let ulList = document.getElementById('agent-list-ul')
                       }
-                      if(item?.length){
-                        tableBody.innerHTML = ''; 
-                        agentList.innerHTML =''
+                      if (item?.length) {
+                        tableBody.innerHTML = '';
+                        agentList.innerHTML = ''
                         const ul = document.createElement('ul');
                         item.forEach((data) => {
-                            const li = document.createElement('li');
-                            ul.setAttribute('id','agent-list-ul')
-                            ul.setAttribute('class','text-left')
-                            li.setAttribute('class', 'agent-list')
-                            li.onclick = () => openModal(data);
-                            li.textContent = data
-                            ul.appendChild(li)  
-                          });
-                          agentList.appendChild(ul)
-                      }  
+                          const li = document.createElement('li');
+                          ul.setAttribute('id', 'agent-list-ul')
+                          ul.setAttribute('class', 'text-left')
+                          li.setAttribute('class', 'agent-list')
+                          li.onclick = () => openModal(data);
+                          li.textContent = data
+                          ul.appendChild(li)
+                        });
+                        agentList.appendChild(ul)
+                      }
                     }
 
                     function openModal(text) {
-                         let modal1 = document.getElementById("stateModal");
-                         modal1.style.display = "block";     
+                      let modal1 = document.getElementById("stateModal");
+                      modal1.style.display = "block";
                     }
-                    
-                    
+
+
                     function searchTable() {
-                        const searchText = searchInput.value.toLowerCase();
-                        const filteredData = temp.filter(data => data.toLowerCase().includes(searchText));
-                        console.log("filtered Array", filteredData);
-                    
-                        if(filteredData == 0){
-                          tableBody.innerHTML = ''; ;
-                          agentList.innerHTML =''
-                          let ulList = document.getElementById('agent-list-ul')
-                          const ul = document.createElement('ul');
-                          const li = document.createElement('li');
-                            ul.setAttribute('id','agent-list-ul')
-                            ul.setAttribute('class','text-left')
-                            li.setAttribute('class', 'agent-list')
-                            li.textContent = "No Data Found"
-                            ul.appendChild(li)  
-                            agentList.appendChild(ul)
-                        }
-                    
-                        if (searchText === "") {
-                            agentList.innerHTML =''
-                        } else {
-                            populateTable(filteredData);
-                        }
+                      const searchText = searchInput.value.toLowerCase();
+                      const filteredData = temp.filter(data => data.toLowerCase().includes(searchText));
+                      console.log("filtered Array", filteredData);
+
+                      if (filteredData == 0) {
+                        tableBody.innerHTML = '';;
+                        agentList.innerHTML = ''
+                        let ulList = document.getElementById('agent-list-ul')
+                        const ul = document.createElement('ul');
+                        const li = document.createElement('li');
+                        ul.setAttribute('id', 'agent-list-ul')
+                        ul.setAttribute('class', 'text-left')
+                        li.setAttribute('class', 'agent-list')
+                        li.textContent = "No Data Found"
+                        ul.appendChild(li)
+                        agentList.appendChild(ul)
+                      }
+
+                      if (searchText === "") {
+                        agentList.innerHTML = ''
+                      } else {
+                        populateTable(filteredData);
+                      }
                     }
-                    
-                    
+
+
 
                     var inputBox = document.getElementById("inputBox");
                     var firstModal = document.getElementById("firstModal");
@@ -620,10 +599,10 @@
     <table>
       <tbody id="tableBody">
       </tbody>
-  </table>
+    </table>
 
-  <div id="agent-list">
-  </div>
+    <div id="agent-list">
+    </div>
 
     <!-- po-maps area end -->
   </div>
