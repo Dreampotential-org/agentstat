@@ -59,7 +59,7 @@ function display_profile(profile) {
     var text_agents = ""
     for (var onboard of profile.onboarded_agents) {
         text_agents = (
-            text_agents + "<a href=https://realtorstat.com/profile/" +
+            text_agents + "<a href=https://agentstat.com/profile/" +
             onboard.screen_name + ">" + onboard.screen_name + "</a></br>")
     }
     $('.onboarded_agents').html(text_agents);

@@ -61,13 +61,13 @@ function create_agent() {
     settings['headers'] = {};
     $.ajax(settings).done(function (response) {
         var data = JSON.parse(response);
-	console.log(data)
-	if ('message' in data) {
-        	$('.msg-signup').html(data['message']);
-        	$('.msg-signup').css("display", "block");
-    		$('#submit-signup-spinner').hide();
-		return
-	}
+        console.log(data)
+       if ('message' in data) {
+            $('.msg-signup').html(data['message']);
+            $('.msg-signup').css("display", "block");
+            $('#submit-signup-spinner').hide();
+            return
+       }
 
         localStorage.session_id = data['token'];
         localStorage.email = data['email'];
@@ -81,7 +81,45 @@ function create_agent() {
             'agent_slug': data['agent_slug'],
             'agent_screen_name': data['agent_screen_name'],
         });
-        	window.location = '/connect-profile/';
+
+
+        // if the person does not have a subscription we try to subscribe them first...
+        settings = get_settings_checkout("config/", "GET");
+        // init stripe get config key and load stripe library
+        $.ajax(settings).done(function(response) {
+            data = JSON.parse(response);
+            stripe = Stripe(data.publicKey);
+
+            settings = get_settings_checkout("retrieve-subscription/", "GET")
+            $.ajax(settings).done(function(response) {
+                subscription_data = JSON.parse(response);
+                console.log("HEre is my subscription status:" + subscription_data)
+                console.log(subscription_data)
+                // if not subscribted redict to subscribe other wise profile connect
+                if (subscription_data.subscription === 'true') {
+                    window.location = '/connect-profile/';
+                } else {
+                    settings = get_settings_checkout("create-checkout-session/", "GET")
+                    $.ajax(settings).done(function(response) {
+                        console.log("Data", data)
+                        data_session = JSON.parse(response);
+
+                        // Redirect to Stripe Chaeckout
+                        stripe = Stripe(data.publicKey);
+                        console.log("stripe", stripe)
+                        return stripe.redirectToCheckout({
+                            sessionId: data_session.sessionId
+                        })
+                    }).then((res) => {
+                        console.log(res);
+                    });
+                }
+
+            }).then((res) => {
+                return res
+            });
+
+        });
 
     }).fail(function (err) {
         var error = JSON.parse(err['responseText']);
@@ -148,12 +186,52 @@ function login() {
             'agent_slug': data['agent_slug'],
             'agent_screen_name': data['agent_screen_name'],
         });
-	if (data['agent_slug'] == null) {
-           window.location = '/connect-profile/';
-	} else {
-        console.log(data)
-        window.location = '/profile-settings/';
-	}
+
+
+        // if the person does not have a subscription we try to subscribe them first...
+        settings = get_settings_checkout("config/", "GET");
+        // init stripe get config key and load stripe library
+        $.ajax(settings).done(function(response) {
+            data = JSON.parse(response);
+            stripe = Stripe(data.publicKey);
+
+            // XXX there is a way to run this outside of the first request..
+            settings = get_settings_checkout("retrieve-subscription/", "GET")
+            $.ajax(settings).done(function(response2) {
+                subscription_data = JSON.parse(response2);
+                console.log(subscription_data)
+                console.log("HEre is my subscription status:" + subscription_data)
+
+                // if not subscribted redict to subscribe other wise profile connect
+
+                if (subscription_data.subscription === 'true') {
+                   if (data['agent_slug'] == null) {
+                           window.location = '/connect-profile/';
+                   } else {
+                        console.log(data)
+                        window.location = '/profile-settings/';
+                   }
+                } else {
+                    settings = get_settings_checkout("create-checkout-session/", "GET")
+                    $.ajax(settings).done(function(response) {
+                        console.log("Data", data)
+                        data_session = JSON.parse(response);
+                        // Redirect to Stripe Chaeckout
+                        stripe = Stripe(data.publicKey);
+                        console.log("stripe", stripe)
+                        return stripe.redirectToCheckout({
+                            sessionId: data_session.sessionId
+                        })
+                    }).then((res) => {
+                        console.log(res);
+                    });
+                }
+            })
+
+
+
+
+        });
 
     }).fail(function (err) {
         var error = JSON.parse(err['responseText']);
