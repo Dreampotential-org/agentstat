@@ -20,20 +20,16 @@ function init() {
             });
 
         });
-
-
-
-    } else {
     }
     $("#submitBtn").click(function() {
         // if person is not active in their accout ask them to signup
         if (!(session_id)) {
-            return window.location.href = './signup/'
+            return window.location.href = '/signup/'
         }
 
         // if they they have subscription var populated
-        if (subscription_data && subscription_data['subscription'].length > 0) {
-            return window.location.href = './Ai/'
+        if (subscription_data && subscription_data.subscription === 'true') {
+            return window.location.href = '/Ai/'
         }
         else if (subscription_data) {
             settings = get_settings_checkout("create-checkout-session/", "GET")
@@ -54,5 +50,48 @@ function init() {
     })
 
 }
+
+
+
+
+function request_generate_content_api(text) {
+  isLoading = true; // Show loading animation
+
+  try {
+    const response = await fetch(SERVER_URL + "ai/generate-description/", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ input_content: text }),
+    });
+
+    if (response.ok) {
+      const responseData = await response.json();
+      outputValue = JSON.stringify(responseData);
+      formatted_response = convertNewlinesToLineBreaks(outputValue);
+      console.log(formatted_response);
+      error = null;
+      return formatted_response;
+    } else {
+      error = new Error(`HTTP Error: ${response.status}`);
+      outputValue = "";
+    }
+  } catch (err) {
+    console.error("Error fetching data:", err);
+    error = err;
+    console.log(error);
+    outputValue = "";
+  } finally {
+    isLoading = false; // Hide loading animation
+  }
+}
+
+
+}
+
+
+
 
 window.addEventListener('DOMContentLoaded', init, false);
