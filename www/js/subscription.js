@@ -1,9 +1,8 @@
 function init() {
 
     console.log("Sanity check!");
-    var subscription = null;
+    var subscription_data = null;
     var stripe = null;
-
     const session_id = localStorage.getItem("session_id");
     if (session_id) {
         settings = get_settings_checkout("config/", "GET");
@@ -11,14 +10,15 @@ function init() {
         $.ajax(settings).done(function(response) {
             data = JSON.parse(response);
             stripe = Stripe(data.publicKey);
-        });
 
-        settings = get_settings_checkout("retrieve-subscription/", "GET")
-        $.ajax(settings).done(function(response) {
-            subscription_data = JSON.parse(response);
-            console.log("HEre is my subscription status:" + subscription_data)
-        }).then((res) => {
-            return res
+            settings = get_settings_checkout("retrieve-subscription/", "GET")
+            $.ajax(settings).done(function(response) {
+                subscription_data = JSON.parse(response);
+                console.log("HEre is my subscription status:" + subscription_data)
+            }).then((res) => {
+                return res
+            });
+
         });
 
 
@@ -27,15 +27,15 @@ function init() {
     }
     $("#submitBtn").click(function() {
         // if person is not active in their accout ask them to signup
-        if (!session_id) {
+        if (!(session_id)) {
             return window.location.href = './signup/'
         }
 
         // if they they have subscription var populated
-        if (subscription && subscription_data['subscription'].length > 0) {
+        if (subscription_data && subscription_data['subscription'].length > 0) {
             return window.location.href = './Ai/'
         }
-        else if (subscription) {
+        else if (subscription_data) {
             settings = get_settings_checkout("create-checkout-session/", "GET")
             $.ajax(settings).done(function(response) {
                 console.log("Data", data)
