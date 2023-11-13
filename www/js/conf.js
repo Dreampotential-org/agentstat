@@ -5,6 +5,7 @@ SERVER_URL = 'https://app.realtorstat.com/';
 //SERVER_URL = 'http://localhost:8000/';
 
 API_URL = SERVER_URL + 'api/';
+AI_API_URL = SERVER_URL + 'ai/';
 REST_AUTH_URL = SERVER_URL + 'rest-auth/';
 CHECKOUT_URL = SERVER_URL + 'checkout/';
 
@@ -36,6 +37,24 @@ function show_error(err) {
 function get_api_route(route) {
     return API_URL + route
 }
+
+
+function get_AI_settings(url, method, data = null) {
+    return {
+        'async': true,
+        'crossDomain': true,
+        'headers': {
+            'Authorization': 'Token ' + localStorage.getItem('session_id'),
+        },
+        'url': AI_API_URL + url,
+        'method': method,
+        'processData': false,
+        'data': data,
+        'contentType': 'application/json',
+        'mimeType': 'multipart/form-data',
+    }
+}
+
 
 function get_settings(url, method, data = null) {
     return {

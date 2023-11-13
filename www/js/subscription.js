@@ -21,8 +21,9 @@ function init() {
 
         });
     }
-    $("#submitBtn").click(function() {
+    $(".agentstat-login").click(function() {
         // if person is not active in their accout ask them to signup
+     
         if (!(session_id)) {
             return window.location.href = '/signup/'
         }
@@ -54,42 +55,30 @@ function init() {
 
 
 
+
 function request_generate_content_api(text) {
   isLoading = true; // Show loading animation
+  
+  settings = get_AI_settings('generate-description/', 'POST', JSON.stringify({input_content: text}))
+    
+    $.ajax(settings).done(function (responseData) {
+       
+      outputValue = JSON.stringify(responseData);
+      convertNewlinesToLineBreaks(outputValue);
+    
+    
 
-  try {
-    const response = await fetch(SERVER_URL + "ai/generate-description/", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ input_content: text }),
+    }).fail(function (err) {
+        
     });
 
-    if (response.ok) {
-      const responseData = await response.json();
-      outputValue = JSON.stringify(responseData);
-      formatted_response = convertNewlinesToLineBreaks(outputValue);
-      console.log(formatted_response);
-      error = null;
-      return formatted_response;
-    } else {
-      error = new Error(`HTTP Error: ${response.status}`);
-      outputValue = "";
-    }
-  } catch (err) {
-    console.error("Error fetching data:", err);
-    error = err;
-    console.log(error);
-    outputValue = "";
-  } finally {
-    isLoading = false; // Hide loading animation
-  }
-}
+ 
+    
+  } 
 
 
-}
+
+
 
 
 

@@ -337,8 +337,8 @@
                       autocomplete="no" placeholder="Search address" />
                     <input class="search_city ser px-2" autocomplete="no" type="text" name="citytext"
                       placeholder="Search City" style="display: none" />
-                    <input class="search_agent_name ser px-2" autocomplete="nop" type="text" name="agent_name"
-                      placeholder="Search Agent Name" style="display: none;" id="searchInput" oninput="searchTable()" />
+                    <input class="search_agent_name ser px-2" type="text" name="agent_name"
+                      placeholder="Search Agent Name" style="display: none;" id="searchInput" />
                     <table style="display: none;">
                       <tbody id="tableBody"></tbody>
                     </table>
@@ -516,34 +516,6 @@
                       let modal1 = document.getElementById("stateModal");
                       modal1.style.display = "block";
                     }
-
-
-                    function searchTable() {
-                      const searchText = searchInput.value.toLowerCase();
-                      const filteredData = temp.filter(data => data.toLowerCase().includes(searchText));
-                      console.log("filtered Array", filteredData);
-
-                      if (filteredData == 0) {
-                        tableBody.innerHTML = '';;
-                        agentList.innerHTML = ''
-                        let ulList = document.getElementById('agent-list-ul')
-                        const ul = document.createElement('ul');
-                        const li = document.createElement('li');
-                        ul.setAttribute('id', 'agent-list-ul')
-                        ul.setAttribute('class', 'text-left')
-                        li.setAttribute('class', 'agent-list')
-                        li.textContent = "No Data Found"
-                        ul.appendChild(li)
-                        agentList.appendChild(ul)
-                      }
-
-                      if (searchText === "") {
-                        agentList.innerHTML = ''
-                      } else {
-                        populateTable(filteredData);
-                      }
-                    }
-
 
 
                     var inputBox = document.getElementById("inputBox");
@@ -818,6 +790,14 @@
       }
     });
 
+     $("body").click(".search_agent_name", "keypress", function (e) {
+      alert(e.keyCode);
+
+       if (e.keyCode == 13) {
+        $(".ser-state-map").show();
+       }
+
+    })
     $(document).click(function (e) {
       e.stopPropagation();
       var container = $(".address ");
