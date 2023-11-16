@@ -40,7 +40,7 @@ function niceDate(timedate, withyear=true) {
 
 function niceDateTime(timedate) {
 	var datetime = `${niceDate(timedate)} at ${formatAMPM(timedate)}`;
-	return datetime; 
+	return datetime;
 }
 
 function getCoordinates(address) {
@@ -175,7 +175,9 @@ function unreadNotification() {
 
 function headerDisplayImage() {
 	var src = localStorage.getItem("profile-image");
-	var html = '<img src="'+src+'" onerror="this.src=\'/img/blank-profile-picture-973460_1280.webp\';">';
+    if (src == "null")
+    src = '/img/blank-profile-picture-973460_1280.webp'
+	var html = '<img src="' + src + '";">';
 	$('.display-picture').html(html);
 }
 
@@ -191,7 +193,6 @@ function isAndroid() {
 
 function loadProfileImage() {
 	var reload = true;
-    
     var ImageSrc = localStorage.getItem("profile-image");
     if (ImageSrc !== null && ImageSrc != '') {
         var urlParams = new URLSearchParams(ImageSrc);
@@ -202,11 +203,13 @@ function loadProfileImage() {
             reload = false;
         }
     }
-    
+
     if (reload) {
         settings = get_settings('agent-profile-image/', 'GET');
         $.ajax(settings).done(function (response) {
+            console.log(response)
             var data = JSON.parse(response);
+
 			localStorage.setItem("profile-image", data.picture);
 			headerDisplayImage();
         }).fail(function(err) {
@@ -223,7 +226,8 @@ function camleCasetoString(text){
 function checkNoagentIsAttached() {
 	if (localStorage.getItem("agent_id") === null || localStorage.getItem("agent_id") == 'null' || localStorage.getItem("agent_id") == '') {
 		var pageName = window.location.pathname.split("/")[1];
-		var listPages = ['profile-settings', 'inbox', 'reports', 'marketing','past-sales', 'referrals', 'team'];
+		var listPages = ['profile-settings', 'inbox', 'reports',
+                       'marketing','past-sales', 'referrals', 'team'];
 		if(listPages.indexOf(pageName) !== -1){
             checkAgentConnect();
 		}
@@ -236,7 +240,6 @@ function checkAgentConnect() {
     settings = get_settings('check-agent-connect/'+localStorage.getItem("web_agent_id")+'/', 'GET');
         $.ajax(settings).done(function (response) {
             var data = JSON.parse(response);
-            
             if (data.agent_id !== null ) {
                 localStorage.agent_id = data.agent_id;
                 tabTutorialModal();
@@ -253,7 +256,9 @@ function checkAgentConnect() {
 
 function tabTutorialModal() {
     var pageName = window.location.pathname.split("/")[1];
-    var tab_tutorial_json = JSON.parse(localStorage.getItem('tab_tutorial_json'));
+    var tab_tutorial_json = JSON.parse(
+        localStorage.getItem('tab_tutorial_json')
+    );
     var pageStatus = tab_tutorial_json[pageName];
     if (pageStatus == false) {
         $.get('/_tab_tutorial_modal.html', function(response){
@@ -264,7 +269,6 @@ function tabTutorialModal() {
                 keyboard: false,
                 show: true,
             });
-            
             $('.tutorial-div').hide();
             $('#'+pageName).show();
 
@@ -281,11 +285,14 @@ function tabTutorialModal() {
             $('#tutorial-title').html(textObj[pageName]);
 
             tab_tutorial_json[pageName] = true;
-            localStorage.tab_tutorial_json = JSON.stringify(tab_tutorial_json);
+            localStorage.tab_tutorial_json = JSON.stringify(
+                tab_tutorial_json);
 
             var data = {}
-            data['tab_tutorial_json'] = localStorage.getItem('tab_tutorial_json');
-            settings = get_settings('agent-profile/', 'PUT', JSON.stringify(data))
+            data['tab_tutorial_json'] = localStorage.getItem(
+                'tab_tutorial_json');
+            settings = get_settings(
+                'agent-profile/', 'PUT', JSON.stringify(data))
             $.ajax(settings).done();
         });
     }

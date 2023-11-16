@@ -272,8 +272,7 @@
                             <input class="search_city ser" autocomplete='nop' type="text" name="citytext"
                                 placeholder="Search City" style="display:none">
                             <input class="search_agent_name ser" autocomplete='nop' type="text" name="agent_name"
-                                placeholder="Search Agent Name" style="display:none" id="searchInput"
-                                oninput="searchTable()">
+                                placeholder="Search Agent Name" style="display:none" id="searchInput">
 
                             <table style="display: none;">
                                 <tbody id="tableBody"></tbody>
@@ -283,8 +282,9 @@
                                 </ul>
                             </div>
 
-                            <div class="ser-state modal" id="stateModal">
-                                <div class="modal-content">
+                            <!--
+                            <div class="ser-state modal" id="stateModal" style='display:none;'>
+                                <div class="modal-content" style='display:none';>
                                     <p class="ser-state-id state-value" target="ser-state-first">
                                         State <i class="fas fa-caret-down"></i>
                                     </p>
@@ -295,6 +295,8 @@
                                 </div>
                             </div>
 
+
+                            !-->
                             <!--<input class="search_zipcode ser" autocomplete='nop' type="number" name="citytext"
                                     placeholder="Search Zip Code" style="display:none">-->
 
@@ -459,158 +461,6 @@
         </div>
         <!-- po-search area start -->
     </div>
-
-    <script>
-
-        document.getElementById('agentName').addEventListener('click', function () {
-            var searchInput = document.getElementById('searchInput');
-            var table = document.querySelector('table');
-            var agentList = document.getElementById('agent-list-ul');
-
-            searchInput.style.display = 'block';
-            table.style.display = 'block';
-            agentList.style.display = 'block';
-        });
-
-
-        var dataTable;
-        var temp = [];
-        var datas = []
-
-        document.getElementById('agentName').addEventListener('click', function () {
-            fetch('https://app.realtorstat.com/api/agents')
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    throw new Error('Network response was not ok.');
-                })
-                .then(data => {
-                    dataTable = data;
-                    const fullNames = data.results.map(result => result.full_name);
-                    datas.length = 0;
-                    datas.push(...fullNames);
-                    temp.push(...fullNames);
-
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-
-        });
-
-
-
-        const tableBody = document.getElementById('tableBody');
-        const searchInput = document.getElementById('searchInput');
-        let agentList = document.getElementById('agent-list');
-
-        function populateTable(item) {
-
-
-            if (agentList.childNodes) {
-                let ulList = document.getElementById('agent-list-ul')
-            }
-            if (item?.length) {
-                tableBody.innerHTML = '';
-                agentList.innerHTML = ''
-                const ul = document.createElement('ul');
-                item.forEach((data) => {
-                    const li = document.createElement('li');
-                    ul.setAttribute('id', 'agent-list-ul')
-                    ul.setAttribute('class', 'text-left')
-                    li.setAttribute('class', 'agent-list')
-                    li.onclick = () => openModal(data);
-                    li.textContent = data
-                    ul.appendChild(li)
-                });
-                agentList.appendChild(ul)
-            }
-        }
-
-        function openModal(text) {
-            let modal1 = document.getElementById("stateModal");
-            modal1.style.display = "block";
-        }
-
-
-        function searchTable() {
-            const searchText = searchInput.value.toLowerCase();
-            const filteredData = temp.filter(data => data.toLowerCase().includes(searchText));
-            console.log("filtered Array", filteredData);
-
-            if (filteredData == 0) {
-                tableBody.innerHTML = '';;
-                agentList.innerHTML = ''
-                let ulList = document.getElementById('agent-list-ul')
-                const ul = document.createElement('ul');
-                const li = document.createElement('li');
-                ul.setAttribute('id', 'agent-list-ul')
-                ul.setAttribute('class', 'text-left')
-                li.setAttribute('class', 'agent-list')
-                li.textContent = "No Data Found"
-                ul.appendChild(li)
-                agentList.appendChild(ul)
-            }
-
-            if (searchText === "") {
-                agentList.innerHTML = ''
-            } else {
-                populateTable(filteredData);
-            }
-        }
-
-
-
-        var inputBox = document.getElementById("searchId");
-        var firstModal = document.getElementById("firstModal");
-        var secondModal = document.getElementById("secondModal");
-        var firstDropdownItems = document.querySelectorAll(
-            "#dropdowntypes .custom_radio"
-        );
-        let custom_radio = document.getElementsByClassName('custom_radio');
-
-        // firstModal.style.display = "block";
-
-        inputBox.addEventListener("change", function () {
-            firstModal.style.display = "block";
-        });
-      
-        firstDropdownItems.forEach((item) => {
-            item.addEventListener("click", function () {
-                if (inputBox.value !== '') {
-                    secondModal.style.display = "block";
-                }
-            });
-        });
-
-
-
- /* inputBoxCity.addEventListener("change", function () {
-            firstModal.style.display = "block";
-        });
-      
-        firstDropdownItems.forEach((item) => {
-            item.addEventListener("click", function () {
-                if (inputBoxCity.value !== '') {
-                    secondModal.style.display = "block";
-                }
-            });
-        });
-         */
-
-
-        window.addEventListener("click", function (event) {
-            if (event.target == firstModal) {
-                firstModal.style.display = "none";
-            }
-            if (event.target == secondModal) {
-                secondModal.style.display = "none";
-            }
-        });
-
-    </script>
-
 
     <!-- pt-tab area start -->
     <div class="fixed-tab  ">

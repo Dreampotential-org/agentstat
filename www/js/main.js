@@ -161,13 +161,23 @@ function redirectResults(results) {
   search_type_map = $("#y-address-map").text();
 
   search_address = localStorage.getItem("search_address");
+
   search_zipcode = localStorage.getItem("search_zipcode");
   search_city = localStorage.getItem("search_city");
   search_agent_name = localStorage.getItem("search_agent_name");
-
   console.log(" ", search_agent_name);
   // var Log = $("#stateModal").show();
-  var Log = $("#firstModal").show();
+  if (search_address || search_city) {
+    var Log = $("#firstModal").show();
+  }
+
+  if (search_agent_name) {
+    $("#stateModal").show()
+  }
+
+  if (search_city) {
+  }
+
   console.log("Priti------->v",search_agent_name)
   search_state = localStorage.getItem("search_state");
   if (search_agent_name) {
@@ -217,8 +227,6 @@ function redirectResults(results) {
       state = city_val[1].trim();
     }
   }
-
-  
 
   if (search_state) {
     new_params.push("state=" + search_state);
@@ -280,10 +288,10 @@ function redirectResults(results) {
     }
   });
   new_url = "/agents/?" + getStr.slice(0, -1);
-  console.log("Vikas--->", new_url)
   // window.location = new_url;
   return false;
 }
+
 $("#myButton1").click(function () {
   var path = window.location.pathname;
   var search_params = window.location.search.replace("?", "");
@@ -632,6 +640,31 @@ function get_page_initial_results() {
 function init() {
   global_results = get_page_initial_results();
 
+
+                var inputBox = document.getElementById("inputBox");
+                var firstModal = document.getElementById("firstModal");
+                var secondModal = document.getElementById("secondModal");
+                var firstDropdownItems = document.querySelectorAll(
+                  "#dropdowntypes .custom_radio"
+                );
+                firstDropdownItems.forEach((item) => {
+                  item.addEventListener("click", function () {
+                    secondModal.style.display = "block";
+                  });
+                });
+
+                window.addEventListener("click", function (event) {
+                  if (event.target == firstModal) {
+                    firstModal.style.display = "none";
+                  }
+                  if (event.target == secondModal) {
+                    secondModal.style.display = "none";
+                  }
+                });
+
+
+
+
   try {
     init_maps();
   } catch (ex) {}
@@ -928,3 +961,8 @@ $(document).ready(function () {
     `);
   }
 });
+
+
+
+
+

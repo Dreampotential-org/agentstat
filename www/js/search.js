@@ -610,13 +610,10 @@ function set_home_type_radio(home_type) {
 function init_search_events() {
 
     $(document).on('change', '#sort_choice', function (e) {
-
-	const url = new URL(window.location.href);
-	url.searchParams.set("sort_type", $("#sort_choice").val());
-	window.history.pushState({ path: url.href }, '', url.href);
-	window.location = window.location.href
-
-
+       const url = new URL(window.location.href);
+       url.searchParams.set("sort_type", $("#sort_choice").val());
+       window.history.pushState({ path: url.href }, '', url.href);
+       window.location = window.location.href
     })
     $(document).on('click', '.toc-two-left-two-heading-right', function (e) {
         $(this).addClass("toc-two-left-two-heading-right-next");
@@ -638,16 +635,6 @@ function init_search_events() {
             pinAgentArr.splice(index, 1);
             pinAgentArr = remove_duplicates(pinAgentArr);
             localStorage.setItem("pin_agent_arr", JSON.stringify(pinAgentArr));
-
-            // add to the end of the last on toggle agent
-            // var last_el = $(".toc-two").eq($(".toc-two .on").length)
-            // $(this).closest(".toc-two").detach().insertAfter(last_el)
-            updateBrowserUrl();
-
-            setTimeout(function () {
-                load_search_results();
-                populate_city_search_menu();
-            }, 100);
         }
     })
 
@@ -666,10 +653,8 @@ function init_search_events() {
         }
         console.log(e)
         $(this).removeClass("toc-two-left-two-heading-right-next");
-        //$(this).find('i').toggleClass('fa-toggle-off fa-toggle-on');
         var pinText = $(this).find("p").text();
         $(this).find("p").text("Unpin");
-        //$(this).find("input").prop( "checked", true )
         set_pined_agent_ids();
         if (pinText == 'Pin to top') {
             agentid = $(this).closest(".toc-two").attr("agent_id");
@@ -701,12 +686,9 @@ function init_search_events() {
             $('.seller-filter input[type="checkbox"]').each(function () {
                 //console.log($(this).is(":checked")+" "+$(this). is(":not(:checked)"));
                 if ($(this).is(":checked")) {
-                    //alert('df');
-                    //console.log($("label[for='" + this.id + "']").text());
                     i++;
                     var data = "test" + i;
                     page_params[data] = this.id.text();
-                    //addId($("label[for='" + this.id + "']").text(),true, 'checkbox');
                 }
             });
             redirectResults(page_params)
