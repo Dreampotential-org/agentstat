@@ -19,11 +19,13 @@ function init_maps_search() {
 
 function handle_clicks() {
     $("body").delegate("#call_me", "click", function(e) {
+        console.log("hello");
         do_search()
     });
 
     $("body").delegate("#search_now", "click", function(e) {
         do_search()
+         console.log("hi");
     });
 }
 

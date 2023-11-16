@@ -286,6 +286,7 @@ body {
 .display-picture img {
     height:35px; 
     margin-top: -10px;
+    border-radius: 50%;
 }
 #leads-form label {
     padding-right: 0px;

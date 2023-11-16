@@ -56,7 +56,6 @@ function set_search_input() {
   var agent_name = urlParams.get("agent_name");
 
 
-
   var home_type = urlParams.get("home_type", "SINGLE_FAMILY");
 
   if (agent_name) {
@@ -166,9 +165,14 @@ function redirectResults(results) {
   search_city = localStorage.getItem("search_city");
   search_agent_name = localStorage.getItem("search_agent_name");
 
-  console.log("Agent Name----->", search_agent_name);
-
+  console.log(" ", search_agent_name);
+  // var Log = $("#stateModal").show();
+  var Log = $("#firstModal").show();
+  console.log("Priti------->v",search_agent_name)
   search_state = localStorage.getItem("search_state");
+  if (search_agent_name) {
+    new_params.push("agent_name=" + search_agent_name);
+  }
   if ($("#y-address").text() != "Agent Name ") {
     search_state = "";
   }
@@ -214,9 +218,7 @@ function redirectResults(results) {
     }
   }
 
-  if (search_agent_name) {
-    new_params.push("agent_name=" + search_agent_name);
-  }
+  
 
   if (search_state) {
     new_params.push("state=" + search_state);
@@ -278,6 +280,7 @@ function redirectResults(results) {
     }
   });
   new_url = "/agents/?" + getStr.slice(0, -1);
+  console.log("Vikas--->", new_url)
   // window.location = new_url;
   return false;
 }
@@ -836,8 +839,22 @@ $(document).on("click", ".dropdownaddress>ul>li", function () {
 
 $(document).on("click", ".allstate>li", function () {
   localStorage.setItem("search_state", $(this).text());
-  var text = localStorage.getItem("search_state")
-  window.location = `/agents/${text}`;
+  var state = localStorage.getItem("search_state")
+  let path = "/agents/"
+  var search_agent_name = localStorage.getItem("search_agent_name");
+  var search_city = localStorage.getItem("search_city")
+  if(search_agent_name) {
+    path = path + `?agent_name=${search_agent_name}`
+  }
+  if(search_city){
+    path = path + `?city=${search_city}`
+  }
+  if(state) {
+    path = path + `&state=${state}`
+  }
+  
+
+  window.location = path;
 });
 
 $(".ser").change(function () {

@@ -5,6 +5,11 @@
 .footer{
     position: fixed;
 }
+
+.footer-wrapper{
+    background-color: #f8f9fa!important;
+
+}
 /* homepage video Block style */
 .content-block-holder {
     position: relative;

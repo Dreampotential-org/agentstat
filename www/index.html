@@ -43,6 +43,10 @@
     gtag('config', 'G-SGBP18CM4K');
   </script>
   <style>
+   body{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+   }
+
     video {
       max-width: 100%;
     }
@@ -123,6 +127,7 @@
 
 .topnav{
   padding: 10px 20px;
+  background-color: #f8f9fa!important;
 }
 
 /* .main-menu-part ul li a{
@@ -140,6 +145,33 @@
   padding: 5px 0px 5px 0px;
   margin-right: 5px;
 
+}
+
+/* .agent-name-searchd{
+  display: flex;
+  justify-content: center;
+} */
+
+
+
+/* .agent-name-search{
+  display: none;
+  height: 100px;
+  width:300px;
+  background-color: rgb(236, 225, 225);
+  margin-left: 370px;
+} */
+
+#searchDiv{
+  display: none;
+  height: 100px;
+  width:300px;
+  background-color: rgb(236, 225, 225);
+  margin-left: 370px;
+}
+
+.price{
+  text-align: center !important;
 }
 
 
@@ -330,13 +362,13 @@
                         <li class="custom_radio">City</li>
                       </ul>
                     </div>
-                  </div>
+                  </div> 
 
                   <div style="width: 100%;padding-top: 5px;">
                     <input class="ser search_address maps_input px-2" id="inputBox" type="text" name="text"
                       autocomplete="no" placeholder="Search address" />
                     <input class="search_city ser px-2" autocomplete="no" type="text" name="citytext"
-                      placeholder="Search City" style="display: none" />
+                      placeholder="Search City" id="inputBoxCity" style="display: none" />
                     <input class="search_agent_name ser px-2" type="text" name="agent_name"
                       placeholder="Search Agent Name" style="display: none;" id="searchInput" />
                     <table style="display: none;">
@@ -390,14 +422,18 @@
                   <div id="secondModal" class="modal">
                     <div class="modal-content">
                       <div class="price">
-                        <p class="d-inline-block y-price">
+                        <!-- <p class="d-inline-block y-price">
                           Price <i class="fas fa-caret-down"></i>
+                        </p> -->
+                        <p class="d-inline-block y-price">
+                          What price would you like to sell your home for <i class="fas fa-caret-down"></i>
                         </p>
                         <div class="price-amount" id="pt-amount" style="display: contents">
                           <div class="price-head-wrapper">
-                            <input id="one-left-in" type="text" name="min-price" placeholder="MIN" />
-                            <span> -</span>
-                            <input id="one-right-in" type="text" name="max-price" placeholder="MAX" />
+                            <!-- <input id="one-left-in" type="text" name="min-price" placeholder="MIN" /> -->
+                            <input id="one-left-in" class="price" type="text" name="min-price" placeholder="Price" />
+                            <!-- <span> -</span> -->
+                            <!-- <input id="one-right-in" type="text" name="max-price" placeholder="MAX" /> -->
                           </div>
                           <style>
 
@@ -418,7 +454,7 @@
                                 <li>$900,000</li>
                               </ul>
                             </div>
-                            <div class="p-right">
+                            <!-- <div class="p-right">
                               <ul>
                                 <li>$200K</li>
                                 <li>$300K</li>
@@ -431,7 +467,7 @@
                                 <li>$1M</li>
                                 <li>Any price</li>
                               </ul>
-                            </div>
+                            </div> -->
                           </div>
 
                           <div class="text-center" style="padding: 14px">
@@ -517,6 +553,7 @@
                       modal1.style.display = "block";
                     }
 
+  
 
                     var inputBox = document.getElementById("inputBox");
                     var firstModal = document.getElementById("firstModal");
@@ -556,6 +593,10 @@
             </div>
           </div>
         </div>
+        <!-- <div  class="agent-name-searchd"> -->
+        <div id="searchDiv" class="agent-name-search"></div>
+        <!-- </div> -->
+        
         <p style="height: 50px"></p>
         <div class="video-box">
           <video id="video-player" src="/video/GETSTAT-7-11.10.2020.mp4" controls muted autoplay loop
@@ -609,13 +650,14 @@
           </div>
         </div>
       </section>
-      <div class="footer-wrapper text-center">
+     
+    </div>
+     <div class="footer-wrapper text-center">
         <p>Copyright © agentstat.com</p>
         <ul>
           <a href="https://agentstat.com/terms.pdf" target="_blank">"Terms of Use & Privacy Policy"</a>
         </ul>
       </div>
-    </div>
   </div>
   <!-- footer area end -->
   <!-- Main jQuery -->
@@ -790,14 +832,7 @@
       }
     });
 
-     $("body").click(".search_agent_name", "keypress", function (e) {
-      alert(e.keyCode);
-
-       if (e.keyCode == 13) {
-        $(".ser-state-map").show();
-       }
-
-    })
+    
     $(document).click(function (e) {
       e.stopPropagation();
       var container = $(".address ");
@@ -854,7 +889,20 @@
         video.controls = true;
       }
     });
-  </script>
+ 
+    function showHideDiv() {
+        var inputElement = document.getElementById('searchInput');
+        var divElement = document.getElementById('searchDiv');
+
+        // If the input has some value, display the div; otherwise, hide it
+        if (inputElement.value.trim() !== '') {
+            divElement.style.display = 'block';
+        } else {
+            divElement.style.display = 'none';
+        }
+    }
+</script>
+
   <script src="js/sitemap.js?0.0.2"></script>
 </body>
 
