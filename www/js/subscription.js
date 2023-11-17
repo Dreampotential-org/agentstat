@@ -1,25 +1,13 @@
 $(document).ready(function(){
-// session_id
-   
     $('.search_address').click(function(){
         if (isAndroid()) {
             $(".mainDiv").css('height', '700px');
         }
     });
 });
- window.addEventListener('DOMContentLoaded', function () {  
- console.log(localStorage.getItem('session_id'))
-    let session_id = localStorage.getItem('session_id')
-    const signupButton = document.getElementById('signup-button');
-    if(session_id != null) {
-         signupButton.style.display = 'none';
-    } else {
-        signupButton.style.display = 'block';
-    }
- })
 
- window.addEventListener('DOMContentLoaded', function () {  
- console.log(localStorage.getItem('session_id'))
+
+function init() {
     let session_id = localStorage.getItem('session_id')
     const homeprofile = document.getElementById('homeprofile');
     if(session_id != null) {
@@ -27,16 +15,10 @@ $(document).ready(function(){
     } else {
         homeprofile.style.display = 'none';
     }
- })
-
-
-
-function init() {
 
     console.log("Sanity check!");
     var subscription_data = null;
     var stripe = null;
-    const session_id = localStorage.getItem("session_id");
     if (session_id) {
         settings = get_settings_checkout("config/", "GET");
         // init stripe get config key and load stripe library

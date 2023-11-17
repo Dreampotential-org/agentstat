@@ -165,8 +165,7 @@ function redirectResults(results) {
   search_zipcode = localStorage.getItem("search_zipcode");
   search_city = localStorage.getItem("search_city");
   search_agent_name = localStorage.getItem("search_agent_name");
-  console.log(" ", search_agent_name);
-  // var Log = $("#stateModal").show();
+  console.log("searching. ", search_agent_name);
   if (search_address || search_city) {
     var Log = $("#firstModal").show();
   }
@@ -175,10 +174,6 @@ function redirectResults(results) {
     $("#stateModal").show()
   }
 
-  if (search_city) {
-  }
-
-  console.log("Priti------->v",search_agent_name)
   search_state = localStorage.getItem("search_state");
   if (search_agent_name) {
     new_params.push("agent_name=" + search_agent_name);
@@ -247,7 +242,6 @@ function redirectResults(results) {
   if (new_params.length == 0) {
     initial = get_page_initial_results();
     $.each(initial, function (k, v) {
-      // data['navigator_' + k] = v;
       if (k == "search_input") {
         street_address = v;
         new_params.push("address=" + v);
@@ -259,11 +253,6 @@ function redirectResults(results) {
   min_price = $("input[name=min-price]").val();
   if (min_price && $("#y-address").text() != "Agent Name ") {
     new_params.push("min_price=" + min_price);
-  }
-
-  max_price = $("input[name=max-price]").val();
-  if (max_price && $("#y-address").text() != "Agent Name ") {
-    new_params.push("max_price=" + max_price);
   }
 
   $.each(params, function (k, v) {
@@ -288,7 +277,6 @@ function redirectResults(results) {
     }
   });
   new_url = "/agents/?" + getStr.slice(0, -1);
-  // window.location = new_url;
   return false;
 }
 
@@ -400,24 +388,6 @@ $("#myButton1").click(function () {
     new_params.push("min_price=" + min_price);
   }
 
-  max_price = $("input[name=max-price]").val();
-  if (max_price && $("#y-address").text() != "Agent Name ") {
-    new_params.push("max_price=" + max_price);
-  }
-
-  // $.each(params, function (k, v) {
-  //   if (v.split("=")[0] == "agents") {
-  //     new_params.push(v);
-  //   }
-  // });
-
-  // search_params_arr = search_params.split("&");
-  // $.each(search_params_arr, function (k, v) {
-  //   if (v.indexOf("agents=") > 0) {
-  //     new_params.push(v);
-  //   }
-  // });
-
   search = new_params.join("&");
   var getStr = "";
   $.each(new_params, function (k, v) {
@@ -428,10 +398,7 @@ $("#myButton1").click(function () {
   });
   new_url = "/agents/?" + getStr.slice(0, -1);
 
-  // new_url = '/agents/?Home=koh&ad=kfdh&'
-
   window.location = new_url;
-  // redirectResults()
 });
 
 function getSearchParams(place) {
@@ -638,32 +605,28 @@ function get_page_initial_results() {
 }
 
 function init() {
-  global_results = get_page_initial_results();
 
+    global_results = get_page_initial_results();
+    var inputBox = document.getElementById("inputBox");
+    var firstModal = document.getElementById("firstModal");
+    var secondModal = document.getElementById("secondModal");
+    var firstDropdownItems = document.querySelectorAll(
+      "#dropdowntypes .custom_radio"
+    );
+    firstDropdownItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        secondModal.style.display = "block";
+      });
+    });
 
-                var inputBox = document.getElementById("inputBox");
-                var firstModal = document.getElementById("firstModal");
-                var secondModal = document.getElementById("secondModal");
-                var firstDropdownItems = document.querySelectorAll(
-                  "#dropdowntypes .custom_radio"
-                );
-                firstDropdownItems.forEach((item) => {
-                  item.addEventListener("click", function () {
-                    secondModal.style.display = "block";
-                  });
-                });
-
-                window.addEventListener("click", function (event) {
-                  if (event.target == firstModal) {
-                    firstModal.style.display = "none";
-                  }
-                  if (event.target == secondModal) {
-                    secondModal.style.display = "none";
-                  }
-                });
-
-
-
+    window.addEventListener("click", function (event) {
+      if (event.target == firstModal) {
+        firstModal.style.display = "none";
+      }
+      if (event.target == secondModal) {
+        secondModal.style.display = "none";
+      }
+    });
 
   try {
     init_maps();
@@ -689,18 +652,6 @@ function init() {
         global_results["lat"] != null
       ) {
         redirectResults(global_results);
-      } else {
-        // keep retrying if address search. This is to
-        // wait until frontend has lat/lng return to
-        // auto trigger search once filled.
-        //   setInterval(function() {
-        //     if (global_results &&
-        //         $("#y-address").text().trim() == 'Address' &&
-        //           'lat' in global_results &&
-        //           global_results['lat'] != null) {
-        //         redirectResults(global_results);
-        //     }
-        //  }, 200)
       }
     }
   });
@@ -714,8 +665,6 @@ function init() {
     if ($("#y-address").text().trim() == "Address") return;
     if (e.keyCode == 13) {
       e.preventDefault();
-      // $("#agent_name_or_id").val($("#search_input_agent").val());
-      // $('form#filterForm').submit();
       if (global_results) {
         redirectResults(global_results);
       }
@@ -764,25 +713,20 @@ $(document).ready(function () {
     async: true,
   });
 });
-
 // on error tell us about it.
 window.onerror = function (msg, url, lineNo, columnNo, error) {
   var string = msg.toLowerCase();
   var substring = "script error";
-  var url =
-    "https://hooks.slack.com/services/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";
+  var url = "https://api.dreampotential.org/livestats/jserror/";
 
   if (string.indexOf(substring) > -1) {
   } else {
-    var message = [
-      "Message: " + msg,
-      "URL: " + url,
-      "Line: " + lineNo,
-      "Column: " + columnNo,
-      "Error object: " + JSON.stringify(error),
-    ].join(" - ");
-
-    $.post(url, JSON.stringify({ text: message }), function () {});
+    console.log("POSTING: " + url)
+    $.post(url, JSON.stringify({message: msg,
+                                url: url,
+                                lineNo: lineNo,
+                                columnNo: columnNo,
+                                error_msg: JSON.stringify(error)}), function () {});
   }
   return false;
 };
@@ -885,7 +829,6 @@ $(document).on("click", ".allstate>li", function () {
   if(state) {
     path = path + `&state=${state}`
   }
-  
 
   window.location = path;
 });
