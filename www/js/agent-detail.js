@@ -266,7 +266,14 @@ function load_agent(ignore_city = true) {
     $(".contact-agent").text("Contact " + data['full_name'].split(" ")[0])
 
     if (data['picture'] !== null) {
-      $('.back-img').attr('src', data['picture']);
+
+        var src = localStorage.getItem("profile-image");
+        if (src == "null")
+            src = '/img/blank-profile-picture-973460_1280.webp'
+        else {
+            src = SERVER_URL.replace(".com/", ".com") + src
+        }
+        $('.back-img').attr('src', src);
     } else if (data['s3_image'] !== null) {
 	var img_url = (
 		SERVER_URL + "api/agent/pic/" + data['state'] + "/" + data['s3_image'])

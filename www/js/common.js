@@ -177,8 +177,13 @@ function headerDisplayImage() {
 	var src = localStorage.getItem("profile-image");
     if (src == "null")
     src = '/img/blank-profile-picture-973460_1280.webp'
+    else {
+        src = SERVER_URL.replace(".com/", ".com") + src
+    }
+
 	var html = '<img src="' + src + '";">';
 	$('.display-picture').html(html);
+	$('.my-image').attr("src", src);
 }
 
 function isAndroid() {
@@ -209,6 +214,7 @@ function loadProfileImage() {
         $.ajax(settings).done(function (response) {
             console.log(response)
             var data = JSON.parse(response);
+         console.log(data.picture)
 
 			localStorage.setItem("profile-image", data.picture);
 			headerDisplayImage();

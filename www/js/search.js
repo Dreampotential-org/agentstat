@@ -331,11 +331,13 @@ function load_search_results() {
 
             if (v['agent_profile_pic'] !== undefined &&
                     v['agent_profile_pic'] !== '') {
+                src = SERVER_URL.replace(".com/", ".com") + "/media" + v['agent_profile_pic'].split(".amazonaws.com")[1]
                 picture_img = (
                         "<div class='toc-two-left-one'>" +
                         "<img class='img-thumbnail' " +
                         "style='margin-top: 34px;' " +
-                        "src='" + v['agent_profile_pic'] + "'></div>");
+                        "src='" + src + "'></div>");
+
                 item = item.split('[[agent_picture]]').join(picture_img);
             } else if (v['agent_s3_image'] !== undefined && v['agent_s3_image'] !== '' && v['agent_s3_image'] != null) {
 		var img_url = (
