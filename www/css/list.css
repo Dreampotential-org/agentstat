@@ -1,0 +1,35 @@
+.body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    padding: 30px 50px;
+}
+
+.navbar{
+   padding: 30px 50px;
+}
+
+.form-control{
+    width: 700px !important;
+    border-radius: 30px;
+    border: 2px solid blue;
+}
+
+.navbar-brand{
+    color: blue !important;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.spn{
+    color: blue;
+    font-weight: lighter;
+}
+
+.img{
+    height: 250px;
+    width: 300px;
+    border-radius: 10px;
+}

@@ -130,9 +130,10 @@
   background-color: #f8f9fa!important;
 }
 
-/* .main-menu-part ul li a{
-  padding-right: 40px;
-} */
+.main-menu-part ul{
+  display: flex;
+  justify-content: left;
+}
 
 #video-player{
    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.507);
@@ -142,8 +143,8 @@
 
 .anav:hover{
   background-color: rgb(233, 226, 226);
-  padding: 5px 0px 5px 0px;
-  margin-right: 5px;
+  /* padding: 5px 0px 5px 0px;
+  margin-right: 5px; */
 
 }
 
@@ -174,6 +175,70 @@
   text-align: center !important;
 }
 
+@media only screen and (max-width: 600px) {
+  .anav {
+    
+    margin-top: 50px;
+    
+  }
+  #homeprofile{
+    text-align: right;
+    margin-top: -100px !important;
+    
+    padding-left: 200px;
+  }
+ .main-menu-part ul li a{
+    font-size: 16px;
+ 
+ }
+
+ /* .main-menu-part ul{
+  margin-right: 220px;
+ } */
+
+}
+ 
+
+@media screen and (min-width: 367px) and (max-width: 400px) {
+ #homeprofile {
+      margin-top: -130px !important;
+  }
+  .main-menu-part ul li a{
+  padding-left: 0px;
+  padding-right: 20px;
+ }
+}
+
+
+@media only screen and (max-width: 366px) {
+  #homeprofile{
+    text-align: right;
+    margin-top: -170px !important;
+    
+    padding-left: 180px;
+  }
+}
+
+/* @media only screen and (max-width: 600px) {
+  a#dropdownMenuLink{
+    padding-top: 50px !important;
+  }
+} */
+
+/* @media (max-width:575px){
+  .searchButton{
+    birder-radius:0px !important
+  }
+} */
+
+@media screen and (max-width: 575px)
+{.po-serach-wrapper.po-serach-wrapper-one.ak-form .serch_btn .searchButton {
+    /* background: #e2e2e2; */
+    border-radius: 0px;
+    padding: 7px 11px;
+}}
+
+
 
   </style>
 </head>
@@ -191,8 +256,8 @@
     <div class="header-area sticky-top bg-white custom_header">
       <div class="">
         <div class="row" style="margin-right: 0px">
-          <div class="col-lg-12 topnav">
-            <nav class="navbar navbar-expand-md navbar-light">
+          <div class="col-12 topnav">
+           <nav class="navbar navbar-expand-lg navbar-light">
               <a class="navbar-brand" href="/">
                 <img class="image" src="/img/logo-beta.png" alt="logo" />
               </a>
@@ -201,7 +266,7 @@
                   <li><a href="/signup/">SignUp</a></li>
                 </ul>
               </button> -->
-              <div class="navbar-collapse" id="navbarSupportedContent">
+             
                 <ul class="navbar-nav mr-auto"></ul>
                 <div class="main-menu-part">
                   <ul>
@@ -211,25 +276,25 @@
                   </ul>
                 </div>
                 <div class="dropdown profile show" id="homeprofile">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="display-picture"></span>
-                    </a>
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="display-picture"></span>
+                                </a>
 
-                    <div class="dropdown-menu drop" id="homedropdown" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item inbox-link" href="/inbox/">
-                            <p>Dashboard</p>
-                            <span>View your stats and backend</span>
-                        </a>
-                        <a class="dropdown-item" href="/profile-settings/">
-                            <p>Profile Settings</p>
-                            <span>Edit your profile info and account settings</span>
-                        </a>
-                        <!-- <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a> -->
-                     <a class="dropdown-item logout" href="javascript:void(0)">Logout</a>
-                   </div>
-                </div>
-              </div>
+                                <div class="dropdown-menu drop" id="homedropdown" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item inbox-link" href="/inbox/">
+                                        <p>Dashboard</p>
+                                        <span>View your stats and backend</span>
+                                    </a>
+                                    <a class="dropdown-item" href="/profile-settings/">
+                                        <p>Profile Settings</p>
+                                        <span>Edit your profile info and account settings</span>
+                                    </a>
+                                    <!-- <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a> -->
+                                 <a class="dropdown-item logout" href="javascript:void(0)">Logout</a>
+								       </div>
+                            </div>
+             
             </nav>
           </div>
         </div>
@@ -346,6 +411,12 @@
                         display: none !important;
                       }
                     }
+
+                    @media (max-width:575px){
+                      .search-div{
+                        padding-top: 0px !important;
+                      }
+                    }
                   </style>
 
 
@@ -364,7 +435,7 @@
                     </div>
                   </div> 
 
-                  <div style="width: 100%;padding-top: 5px;">
+                  <div class="search-div" style="width: 100%;padding-top: 5px;">
                     <input class="ser search_address maps_input px-2" id="inputBox" type="text" name="text"
                       autocomplete="no" placeholder="Search address" />
                     <input class="search_city ser px-2" autocomplete="no" type="text" name="citytext"
@@ -380,7 +451,7 @@
                     </div>
                   </div>
 
-                  <div class="ser-state modal" id="stateModal" style='display:none'>
+                  <div class="ser-state modal" id="stateModal">
                     <div class="modal-content">
                       <p class="ser-state-id state-value" target="ser-state-first">
                         State <i class="fas fa-caret-down"></i>
@@ -391,6 +462,11 @@
                       </div>
                     </div>
                   </div>
+
+
+
+
+
 
                   <div id="firstModal" class="modal">
                     <div class="modal-content">
@@ -475,6 +551,109 @@
 
 
 
+
+                  <script>
+
+                    document.getElementById('agentName').addEventListener('click', function () {
+                      var searchInput = document.getElementById('searchInput');
+                      var table = document.querySelector('table');
+                      var agentList = document.getElementById('agent-list-ul');
+
+                      searchInput.style.display = 'block';
+                      table.style.display = 'block';
+                      agentList.style.display = 'block';
+                    });
+
+                    var dataTable;
+                    var temp = [];
+                    var datas = []
+
+                    document.getElementById('agentName').addEventListener('click', function () {
+                      fetch('https://app.realtorstat.com/api/agents')
+                        .then(response => {
+                          if (response.ok) {
+                            return response.json();
+                          }
+                          throw new Error('Network response was not ok.');
+                        })
+                        .then(data => {
+                          dataTable = data;
+                          const fullNames = data.results.map(result => result.full_name);
+                          datas.length = 0;
+                          datas.push(...fullNames);
+                          temp.push(...fullNames);
+
+                        })
+                        .catch(error => {
+                          console.error('Error:', error);
+                        });
+
+                    });
+
+
+
+                    const tableBody = document.getElementById('tableBody');
+                    const searchInput = document.getElementById('searchInput');
+                    let agentList = document.getElementById('agent-list');
+
+                    function populateTable(item) {
+
+
+                      if (agentList.childNodes) {
+                        let ulList = document.getElementById('agent-list-ul')
+                      }
+                      if (item?.length) {
+                        tableBody.innerHTML = '';
+                        agentList.innerHTML = ''
+                        const ul = document.createElement('ul');
+                        item.forEach((data) => {
+                          const li = document.createElement('li');
+                          ul.setAttribute('id', 'agent-list-ul')
+                          ul.setAttribute('class', 'text-left')
+                          li.setAttribute('class', 'agent-list')
+                          li.onclick = () => openModal(data);
+                          li.textContent = data
+                          ul.appendChild(li)
+                        });
+                        agentList.appendChild(ul)
+                      }
+                    }
+
+                    function openModal(text) {
+                      let modal1 = document.getElementById("stateModal");
+                      modal1.style.display = "block";
+                    }
+
+  
+
+                    var inputBox = document.getElementById("inputBox");
+                    var firstModal = document.getElementById("firstModal");
+                    var secondModal = document.getElementById("secondModal");
+                    var firstDropdownItems = document.querySelectorAll(
+                      "#dropdowntypes .custom_radio"
+                    );
+                    inputBox.addEventListener("change", function () {
+                      firstModal.style.display = "block";
+                    });
+
+                    firstDropdownItems.forEach((item) => {
+                      item.addEventListener("click", function () {
+                        secondModal.style.display = "block";
+                      });
+                    });
+
+                    window.addEventListener("click", function (event) {
+                      if (event.target == firstModal) {
+                        firstModal.style.display = "none";
+                      }
+                      if (event.target == secondModal) {
+                        secondModal.style.display = "none";
+                      }
+                    });
+
+                  </script>
+
+
                   <div class="serch_btn">
                     <button class="btn btn-default searchButton">
                       <span><i class="fas fa-search"></i></span>
@@ -488,12 +667,13 @@
         <!-- <div  class="agent-name-searchd"> -->
         <div id="searchDiv" class="agent-name-search"></div>
         <!-- </div> -->
+        
         <p style="height: 50px"></p>
         <div class="video-box">
           <video id="video-player" src="/video/GETSTAT-7-11.10.2020.mp4" controls muted autoplay loop
             playsinline></video>
           <br>
-          <center><a href="/Ai/">Try out our latest <strong>AI</strong> feautres now!</a></center>
+          <center><a href="/Ai.html">Try out our latest <strong>AI</strong> feautres now!</a></center>
         </div>
         <p style="height: 50px"></p>
       </div>
@@ -792,8 +972,6 @@
             divElement.style.display = 'none';
         }
     }
-
-
 </script>
 
   <script src="js/sitemap.js?0.0.2"></script>

@@ -1540,9 +1540,18 @@ Small Screen - Mobile
 
     .dropdown {
         position: relative;
-        top: -20px;
+        top: 0px;
         left: 8px;
     }
+
+@media screen and (min-width: 576px) and (max-width: 767px)
+{
+.dropdown {
+    position: relative;
+    top: 0px;
+    left: 8px;
+}
+}
 
     .toc-one ul {
         float: initial;
@@ -2544,7 +2553,7 @@ Xtra Small Screen - Small Mobile
 
     .dropdown {
         position: relative;
-        top: -20px;
+        top: 0px;
         left: 8px;
     }
 
