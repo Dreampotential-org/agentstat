@@ -1648,8 +1648,12 @@ Xtra Small Screen - Small Mobile
         padding: 5px 0px;
         font-size: 20px;
     }
-    .header-area {
+    /* .header-area {
         padding: 0px 0px 6px 0px;
+    } */
+
+    .header-area {
+        padding: 0px 0px 20px 0px;
     }
     .po-world {
         padding: 40px 0;

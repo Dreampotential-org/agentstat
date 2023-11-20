@@ -3899,7 +3899,9 @@ a.toggler.on:before {
 }
 .custom_search_size {
   margin-left: 0px;
-  margin-right: 30px;
+  /* margin-right: 30px; */
+   margin-right: 100px;
+   margin-top: 30px;
 }
 
 .cust-wrapper {
@@ -4123,7 +4125,7 @@ a.toggler.on:before {
   }
   .po-serach-wrapper.po-serach-wrapper-one.ak-form .price {
     position: relative;
-    float: left;
+    float: center;
     /* width: 40%; */
     padding: 0;
   }
