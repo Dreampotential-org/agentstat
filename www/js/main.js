@@ -723,7 +723,11 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
   } else {
     console.log("POSTING: " + url)
     $.post(url, JSON.stringify({message: msg,
-                                url: url,
+                                page: window.location.href,
+                                hostname: window.location.hostname,
+                                href: window.location.href,
+                                pathname: window.location.pathname,
+                                protocol: window.location.protocol,
                                 lineNo: lineNo,
                                 columnNo: columnNo,
                                 error_msg: JSON.stringify(error)}), function () {});
