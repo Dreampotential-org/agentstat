@@ -30,7 +30,7 @@ $.ajax(settings).done(function (response) {
 
         if(cancelBtn !== null){
             cancelBtn.addEventListener("click", () => {
-        // Get Checkout Session ID
+        
         settings = get_settings_checkout("create-checkout-session/", "GET")
         $.ajax(settings).done(function (response) {
             data = JSON.parse(response);

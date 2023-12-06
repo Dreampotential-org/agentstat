@@ -21,7 +21,7 @@ function init() {
     var stripe = null;
     if (session_id) {
         settings = get_settings_checkout("config/", "GET");
-        // init stripe get config key and load stripe library
+       
         $.ajax(settings).done(function(response) {
             data = JSON.parse(response);
             stripe = Stripe(data.publicKey);

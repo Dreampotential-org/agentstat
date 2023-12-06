@@ -2373,7 +2373,7 @@ textarea {
 }
 
 .fixed {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   z-index: 99999;
   margin-top: 0;
