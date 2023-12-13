@@ -108,7 +108,8 @@ body {
     }
     .po-serach-wrapper {
         left: 30px !important;
-        max-width: 82%!important;
+        /* max-width: 82%!important; */
+        max-width: 62%!important;
          /* max-width: 2%!important; */
     }
 }
@@ -163,7 +164,8 @@ body {
 }
 @media (max-width: 575px) {
     .po-serach-wrapper {
-        margin: 62px auto -16px !important;
+        /* margin: 62px auto -16px !important; */
+        margin: 72px auto -16px !important;
     }
     .po-serach-wrapper.po-serach-wrapper-one.ak-form .serch_btn {
         margin-left: 0%;

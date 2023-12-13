@@ -59,6 +59,7 @@ $("body").delegate("#set_agent", "click", function(e) {
         } else {
             connector_id = $("input[name='claim-agent']:checked").val();
             // dispute_profile(connector_id)
+         
             show_claim_screen();
         }
     } else {
@@ -106,15 +107,15 @@ function get_agent_html(agent) {
   var brokerage_name = agent['agent_brokerage_info'].split(/\r?\n/)[0];
   if ((agent['claimed'])) {
     link = (
-      "<a target='_blank' href='" + profile_link + "'>" +
-        "<input type='radio' name='claim-agent' value='"+agent['agent_id']+"'>" + agent['agent_full_name']+ ' - ' + brokerage_name + ' (Claimed)' +
+      "<a  target='_blank' href='" + profile_link + "'>" +
+        "<input style='height: 20px; width: 20px;' type='radio' name='claim-agent' value='"+agent['agent_id']+"'>" + agent['agent_full_name']+ ' - ' + brokerage_name + ' (Claimed)' +
         "<br>" +
       "</a>"
     );
   } else {
     link = (
       "<a target='_blank' href='" + profile_link + "'>" +
-        "<input type='radio' name='select-agent' value=" +
+        "<input style='height: 20px; width: 20px;' type='radio' name='select-agent' value=" +
             agent['agent_id'] + ">" + agent['agent_full_name'] + ' - ' + brokerage_name +
         "<br>" +
       "</a>"

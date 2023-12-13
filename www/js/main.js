@@ -280,7 +280,8 @@ function redirectResults(results) {
   return false;
 }
 
-$("#myButton1").click(function () {
+// $("#myButton1").click(function () {
+  $(".myButton1").click(function () {
   var path = window.location.pathname;
   var search_params = window.location.search.replace("?", "");
   var params = search_params.split("&");
